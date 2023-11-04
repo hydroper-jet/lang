@@ -1,3 +1,9 @@
+Reserved words:
+
+```plain
+with
+```
+
 Misc.:
 
 * [ ] Program
@@ -5,6 +11,7 @@ Misc.:
 Directives:
 
 * [ ] Use definition
+  * Dots are followed by IdentifierName and an final optional `.*` in an identifier path
 * [ ] Class definition
 * [ ] Enum definition
 * [ ] Interface definition
@@ -23,33 +30,22 @@ Statements:
 * [ ] Block
 * [ ] If statement
 * [ ] Switch statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
-* [ ] statement
+  * [ ] Unlike JavaScript, `switch` supports no fallthroughs and empty cases are part of the next case. Additionally, a `switch` over an enum must match all of the enum members.
+* [ ] Do statement
+* [ ] While statement
+* [ ] For statement
+* [ ] For in statement
+  * [ ] `for (k in o)`
+  * [ ] `for each (v in o)`
+* [ ] Continue statement
+* [ ] Break statement
+* [ ] Return statement
+* [ ] Throw statement
 * [ ] Try statement
+* [ ] Expression statement
+  * `lookahead != ["{", "function"]`
+* [ ] Labeled statement
+* [ ] Empty statement
 
 Expressions:
 
@@ -57,59 +53,47 @@ Expressions:
 * [ ] BooleanLiteral
 * [ ] NumericLiteral
 * [ ] StringLiteral
-* [ ] ThisLiteral
+* [ ] ThisExpression
+* [ ] SuperExpression
+  * `super` may be used alone to refer to a super module.
+* [ ] PackageExpression
+  * `package` is used to refer to the package module.
 * [ ] RegExpLiteral
 * [ ] ParenExpression
 * [ ] ArrayInitialiser
 * [ ] ObjectInitialiser
 * [ ] FunctionExpression
-* [ ] SuperExpression
+* [ ] ArrowFunction
 * [ ] CallExpression
 * [ ] UnaryExpression
+  * [ ] Error propagation (postfix `?`)
+  * [ ] Non-error assertion (postfix `!`)
 * [ ] BinaryExpression
   * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.
-* [ ] MemberExpression
+* [ ] MemberExpression (`o.x`)
+  * Dot followed by IdentifierName
+* [ ] ComputedMemberExpression (`o[k]`)
 * [ ] NewExpression
 * [ ] ListExpression
 * [ ] ConditionalExpression
 * [ ] AssignmentExpression
   * The left-hand side may be a destructuring pattern.
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
-* [ ] 
 * [ ] Try expression
   * [ ] Parsing: `lookahead != "{"`
+* [ ] ExpressionWithTypeArguments (`e.<T1, ...Tn>`)
+* [ ] EmbedExpression
+* [ ] ImportMeta (`import.meta`)
+
+Type expressions:
+
+* [ ] Any
+* [ ] Identifier
+* [ ] Member
+  * Dot followed by IdentifierName
+* [ ] Void
+* [ ] Undefined
+* [ ] This
+* [ ] Function
+* [ ] Array
+* [ ] Tuple
+* [ ] TypeExpressionWithTypeArguments (`G.<T1, ...Tn>`)

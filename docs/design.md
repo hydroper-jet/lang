@@ -119,7 +119,7 @@ Unicode:
 
 Compound:
 
-- `[T1, T2, ...TN]` (tuple)
+- `[T1, T2, ...Tn]` (tuple)
 - `Opt.<T>` (unifies `T` and `undefined`)
 - `Throws.<T, E1, ...EN>`
 - `Array.<T>` or `[T]`
@@ -157,6 +157,8 @@ try o?.f();
 
 The `Throws.<T, E1, ...En>` type holds either a success value or an exception value: `T` indicates the type of the success value, and all other remaining types are the possible exception types.
 
+A function that returns `Throws` must return `T` and may throw any of the specified exception types through the `throw` statement.
+
 ```jsq
 function f(): Throws.<T, TypeError, RangeError> {
     throw new TypeError("Type error");
@@ -173,7 +175,7 @@ f()?;
 // Optional chaining
 try f()?.x;
 
-// Non exception assertion
+// Non error assertion
 f()!.x;
 ```
 
@@ -376,5 +378,20 @@ item;
 Fatal exceptions are exceptions that may be thrown at runtime and cannot be caught by the user.
 
 ```jsq
-throwFatal();
+fatalException();
+```
+
+# Assertion
+
+The language comes with built-in assertion facilities, which throw fatal exceptions when an assertion fails.
+
+# Test
+
+Test functions can be defined with the `[Test]` meta data. Such functions are invoked by the unit testing tool. A test fails when a fatal exception is thrown.
+
+```jsq
+[Test]
+function testSomething() {
+    // Test it
+}
 ```

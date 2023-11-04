@@ -1,9 +1,3 @@
-Reserved words:
-
-```plain
-with
-```
-
 Misc.:
 
 * [ ] Program
@@ -70,6 +64,9 @@ Expressions:
   * [ ] Non-error assertion (postfix `!`)
 * [ ] BinaryExpression
   * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.
+  * `v is T`
+  * `v is not T`
+  * `v as T`
 * [ ] MemberExpression (`o.x`)
   * Dot followed by IdentifierName
 * [ ] ComputedMemberExpression (`o[k]`)
@@ -83,16 +80,21 @@ Expressions:
 * [ ] ExpressionWithTypeArguments (`e.<T1, ...Tn>`)
 * [ ] EmbedExpression
 * [ ] ImportMeta (`import.meta`)
+- [ ] AwaitExpression
+- [ ] YieldExpression
 
 Type expressions:
 
+* [ ] Never
 * [ ] Any
 * [ ] Identifier
 * [ ] Member
   * Dot followed by IdentifierName
 * [ ] Void
 * [ ] Undefined
-* [ ] This
+* [ ] This (refers either to the enclosing module or the type itself)
+* [ ] Super (always refers to the enclosing module's super module)
+* [ ] Package (always refers to the package's module)
 * [ ] Function
 * [ ] Array
 * [ ] Tuple

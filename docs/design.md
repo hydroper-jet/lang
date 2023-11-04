@@ -348,6 +348,7 @@ The language supports single-class inheritance as in ActionScript, featuring:
 * `super();`
 * `super.x`
 * `v is T`
+* `v is not T`
 * `v as T` — Optional conversion
 * `C(v)` — Conversion or fatal exception
 
@@ -378,7 +379,7 @@ item;
 Fatal exceptions are exceptions that may be thrown at runtime and cannot be caught by the user.
 
 ```jsq
-fatalException();
+fatalError();
 ```
 
 # Assertion

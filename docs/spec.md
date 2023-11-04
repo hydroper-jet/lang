@@ -1,0 +1,1 @@
+# JSQ Language Specification

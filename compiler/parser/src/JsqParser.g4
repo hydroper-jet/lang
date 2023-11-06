@@ -6,5 +6,5 @@ options {
 }
 
 program
-    : INFINITY
+    : EOF
     ;

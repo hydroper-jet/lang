@@ -36,7 +36,7 @@ public partial class JsqParser : Parser {
 	protected static DFA[] decisionToDFA;
 	protected static PredictionContextCache sharedContextCache = new PredictionContextCache();
 	public const int
-		INFINITY=1;
+		BLAH=1;
 	public const int
 		RULE_program = 0;
 	public static readonly string[] ruleNames = {
@@ -46,7 +46,7 @@ public partial class JsqParser : Parser {
 	private static readonly string[] _LiteralNames = {
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, "INFINITY"
+		null, "BLAH"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -81,7 +81,8 @@ public partial class JsqParser : Parser {
 	}
 
 	public partial class ProgramContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INFINITY() { return GetToken(JsqParser.INFINITY, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BLAH() { return GetToken(JsqParser.BLAH, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Eof() { return GetToken(JsqParser.Eof, 0); }
 		public ProgramContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -107,7 +108,9 @@ public partial class JsqParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			State = 2;
-			Match(INFINITY);
+			Match(BLAH);
+			State = 3;
+			Match(Eof);
 			}
 		}
 		catch (RecognitionException re) {
@@ -122,8 +125,8 @@ public partial class JsqParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,1,5,2,0,7,0,1,0,1,0,1,0,0,0,1,0,0,0,3,0,2,1,0,0,0,2,3,5,1,0,0,3,1,
-		1,0,0,0,0
+		4,1,1,6,2,0,7,0,1,0,1,0,1,0,1,0,0,0,1,0,0,0,4,0,2,1,0,0,0,2,3,5,1,0,0,
+		3,4,5,0,0,1,4,1,1,0,0,0,0
 	};
 
 	public static readonly ATN _ATN =

@@ -16,7 +16,7 @@ public class JsqLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		INFINITY=1;
+		BYTE_ORDER_MARK=1;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -27,20 +27,20 @@ public class JsqLexer extends Lexer {
 
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"INFINITY"
+			"BYTE_ORDER_MARK"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'Infinity'"
+			null, "'\\u00EF\\u00BB\\u00BF'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "INFINITY"
+			null, "BYTE_ORDER_MARK"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -102,14 +102,12 @@ public class JsqLexer extends Lexer {
 	public ATN getATN() { return _ATN; }
 
 	public static final String _serializedATN =
-		"\u0004\u0000\u0001\f\u0006\uffff\uffff\u0002\u0000\u0007\u0000\u0001\u0000"+
-		"\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000"+
-		"\u0001\u0000\u0001\u0000\u0000\u0000\u0001\u0001\u0001\u0001\u0000\u0000"+
-		"\u000b\u0000\u0001\u0001\u0000\u0000\u0000\u0001\u0003\u0001\u0000\u0000"+
-		"\u0000\u0003\u0004\u0005I\u0000\u0000\u0004\u0005\u0005n\u0000\u0000\u0005"+
-		"\u0006\u0005f\u0000\u0000\u0006\u0007\u0005i\u0000\u0000\u0007\b\u0005"+
-		"n\u0000\u0000\b\t\u0005i\u0000\u0000\t\n\u0005t\u0000\u0000\n\u000b\u0005"+
-		"y\u0000\u0000\u000b\u0002\u0001\u0000\u0000\u0000\u0001\u0000\u0000";
+		"\u0004\u0000\u0001\u0007\u0006\uffff\uffff\u0002\u0000\u0007\u0000\u0001"+
+		"\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0000\u0000\u0001\u0001\u0001"+
+		"\u0001\u0000\u0000\u0006\u0000\u0001\u0001\u0000\u0000\u0000\u0001\u0003"+
+		"\u0001\u0000\u0000\u0000\u0003\u0004\u0005\u00ef\u0000\u0000\u0004\u0005"+
+		"\u0005\u00bb\u0000\u0000\u0005\u0006\u0005\u00bf\u0000\u0000\u0006\u0002"+
+		"\u0001\u0000\u0000\u0000\u0001\u0000\u0000";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

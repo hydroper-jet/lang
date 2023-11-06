@@ -1,2 +1,2 @@
-INFINITY=1
-'Infinity'=1
+BYTE_ORDER_MARK=1
+'\u00EF\u00BB\u00BF'=1

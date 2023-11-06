@@ -16,7 +16,7 @@ public class JsqParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		INFINITY=1;
+		BYTE_ORDER_MARK=1;
 	public static final int
 		RULE_program = 0;
 	private static String[] makeRuleNames() {
@@ -28,13 +28,13 @@ public class JsqParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'Infinity'"
+			null, "'\\u00EF\\u00BB\\u00BF'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "INFINITY"
+			null, "BYTE_ORDER_MARK"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -90,7 +90,7 @@ public class JsqParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ProgramContext extends ParserRuleContext {
-		public TerminalNode INFINITY() { return getToken(JsqParser.INFINITY, 0); }
+		public TerminalNode EOF() { return getToken(JsqParser.EOF, 0); }
 		public ProgramContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -104,7 +104,7 @@ public class JsqParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(2);
-			match(INFINITY);
+			match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -121,7 +121,7 @@ public class JsqParser extends Parser {
 	public static final String _serializedATN =
 		"\u0004\u0001\u0001\u0005\u0002\u0000\u0007\u0000\u0001\u0000\u0001\u0000"+
 		"\u0001\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0003\u0000\u0002\u0001"+
-		"\u0000\u0000\u0000\u0002\u0003\u0005\u0001\u0000\u0000\u0003\u0001\u0001"+
+		"\u0000\u0000\u0000\u0002\u0003\u0005\u0000\u0000\u0001\u0003\u0001\u0001"+
 		"\u0000\u0000\u0000\u0000";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());

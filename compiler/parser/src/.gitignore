@@ -1,0 +1,4 @@
+./JsqLexer.interp
+# ./JsqLexer.tokens
+./JsqParser.interp
+./JsqParser.tokens

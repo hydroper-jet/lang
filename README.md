@@ -1,3 +1,3 @@
-# JavaScript Quantum
+# JSQ Language
 
 Unavailable

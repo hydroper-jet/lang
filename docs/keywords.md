@@ -66,8 +66,6 @@ type
 embed
 never
 
-escaped
-
 namespace
 undefined
 ```

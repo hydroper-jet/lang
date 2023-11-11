@@ -16,7 +16,6 @@ Directives:
 * [ ] Setter definition
 * [ ] Module definition
 * [ ] Namespace definition
-* [ ] `use escaped.name = definitionOrValue;`
 
 Statements:
 

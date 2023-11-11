@@ -11,31 +11,18 @@ public const staticVar = "static constant";
 public function myFunction(a) a.sqrt();
 
 // Define a function with the name "for"
-use escaped.for = function(a) a.sqrt();
+public function escaped#for(): void {
+    // "for" function
+}
 
 // Call a function with the name "for"
 this.for(64); // 8
 
+// Or
+escaped#for(64);
+
 var x = y; // Writable variable
 const x = y; // Read-only variable
-```
-
-# Escaped definition
-
-The `use escaped.x = { ... };` definition is used for defining properties that consist of a key that is possibly a reserved word.
-
-```jsq
-// Use `[Modifiers("modifier1", ..."modifierN")]` to add
-// modifiers to an escaped definition.
-
-[ReadOnly]
-use escaped.class = 10;
-
-// Virtual property
-use escaped.for = function get(): uint (10);
-use escaped.for = function set(value) { /* Action */ };
-
-use escaped.bar = function.<T>(a: T) {};
 ```
 
 # Properties

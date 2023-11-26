@@ -84,12 +84,12 @@ General:
 
 Integer:
 
-- `sbyte`, `short`, `int`, `long`, `bigint`, `nativeint`
-- Unsigned: `byte`, `ushort`, `uint`, `ulong`, `nativeuint`
+- `Byte`, `Short`, `Int`, `Long`, `BigInt`, `NativeInt`
+- Unsigned: `UnsignedT` where `T` is an integer data type
 
 IEEE 754 floating point:
 
-- `single`, `Number` (IEEE 754 double-precision floating point)
+- `Single`, `Number` (double-precision)
 
 Unicode:
 
@@ -212,11 +212,11 @@ class C {
 
 # Generic interfaces
 
-When implementing generic interfaces more than once, JSQ accepts multimethods, thus solving name conflict.
+When implementing generic interfaces more than once, org.hydroper.javascript accepts multimethods, thus solving name conflict.
 
 # Memory management
 
-JSQ uses garbage collection for all types.
+org.hydroper.javascript uses garbage collection for all types.
 
 * Use the `[Reference]` meta data to indicate a type is copied and cloned by reference, implementing `Copy` and `Clone`. This meta data also implements `Equals` and `Hash`, comparing and hashing the references.
 * Use the `[Value]` meta data to indicate a type is copied and cloned by value, implementing `Copy` and `Clone`.
@@ -271,14 +271,14 @@ The language comes with built-in forms of serialization. Classes can derive `Ser
 
 # Enums
 
-JSQ supports flexible *simple* enums and *set* enums. A single enum member consists of a (*number*, *string*) group, which is defined in an `enum` definition either by specifying only one of (*number*, *string*), or by specifying both, or by omitting both and letting the compiler dedide the values.
+org.hydroper.javascript supports flexible *simple* enums and *set* enums. A single enum member consists of a (*number*, *string*) group, which is defined in an `enum` definition either by specifying only one of (*number*, *string*), or by specifying both, or by omitting both and letting the compiler dedide the values.
 
 The following program demonstrates simple enums:
 
 ```js
 public enum Kind {
     const GOLDEN_EGG;
-    const A_BBC_TURKEY = "aBBCTurkey";
+    const A_BBQ_TURKEY = "aBBQTurkey";
     const SPHERE = 10;
     const CUBOID = ["cuboid", 5];
 }
@@ -293,7 +293,7 @@ assert(Kind.GOLDEN_EGG.valueOf() == 0);
 assert(Kind.GOLDEN_EGG.toString() == "goldenEgg");
 ```
 
-Set enums add support for efficient combinatory members, using bitwise values internally. The following program demonstrates them:
+Set enums add support for efficient combinatory members, using internal bitwise values. The following program demonstrates them:
 
 ```js
 [Set]
@@ -333,9 +333,9 @@ The language supports single-class inheritance as in ActionScript, featuring:
 
 # Visibility
 
-The visibility of item is a visibility ranging from a module to all of its descendants. The `public` modifier indicates that the item is visible to all programs, while the `internal` or `private` modifiers indicate that the item is visible to the containing module and all of its descendants.
+The visibility of item is either a visibility ranging from a module to all of its descendants, or a `protected` visibility that ranges from the enclosing class to its subclasses. The `public` modifier indicates that the item is visible to all programs, while the `internal` or `private` modifiers indicate that the item is visible to the containing module and all of its descendants.
 
-The `[Public("q")]` meta data is used to specify the module to which an item is visible. For example, the following indicates that the function `f` is available to `package` and all of its descendants:
+The `[Public("q")]` meta data is used to specify the module to which an item is visible. For example, the following indicates that the function `f` is available to `package` (the top module of the package) and all of its descendants:
 
 ```js
 [Public("package")]
@@ -359,6 +359,7 @@ Fatal exceptions are exceptions that may be thrown at runtime and cannot be caug
 
 ```js
 fatalError();
+fatalError("Error message");
 ```
 
 # Assertion
@@ -378,4 +379,4 @@ function testSomething() {
 
 # Abstract
 
-Abstract classes and methods are supported.
+Abstract classes and abstract methods are supported. Abstract methods allow for exhaustive implementation of an operation across all subclasses of a class.

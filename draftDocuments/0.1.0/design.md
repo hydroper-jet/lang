@@ -205,7 +205,7 @@ Virtual properties are also known as getters and setters. `get` and `set` are co
 
 ```js
 class C {
-    function get property(): long (10);
+    function get property(): Long (10);
     function set property(value) {}
 }
 ```
@@ -380,3 +380,7 @@ function testSomething() {
 # Abstract
 
 Abstract classes and abstract methods are supported. Abstract methods allow for exhaustive implementation of an operation across all subclasses of a class.
+
+# Function bodies
+
+A function body is allowed to be an expression in `function` definitions and `function` expressions.

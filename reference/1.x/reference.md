@@ -8,3 +8,10 @@ The language is designed as a fusion of features from the languages ActionScript
 
 ## Tutorial programs
 
+### 1. `isEven` function
+
+```
+public function isEven(argument: BigInt): Boolean (
+    argument % 2 == 0
+);
+```

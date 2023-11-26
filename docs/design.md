@@ -1,25 +1,17 @@
-# JSQ
+# org.hydroper.js
 
-JSQ (JavaScript Quantum) is a flexible, multi-paradigm, strongly typed scripting language. JSQ compiles to the JSQ Virtual Machine Bytecode and includes miscellaneous standard objects.
+org.hydroper.js is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the org.hydroper.js Virtual Machine Bytecode and includes miscellaneous standard objects.
 
-```jsq
-use ds.swing.*;
-public use s = ds.swing;
+```js
+use js.swing.*;
+public use s = js.swing;
 
-public const staticVar = "static constant";
+// Static constant
+public const staticConstant = "static constant";
 
-public function myFunction(a) a.sqrt();
-
-// Define a function with the name "for"
-public function escaped#for(): void {
-    // "for" function
+public function fooFunction(a: Number) {
+    return a.sqrt();
 }
-
-// Call a function with the name "for"
-this.for(64); // 8
-
-// Or
-escaped#for(64);
 
 var x = y; // Writable variable
 const x = y; // Read-only variable
@@ -52,14 +44,14 @@ A package manifest specifies dependencies by a *dependency namespace*. The names
 
 Say a package manifest specifies the ID "com.q.f". The following is the submodule "com.q.f.qux.bar":
 
-```jsq
-// index.jsq
+```js
+// index.js
 public module qux;
 
-// qux.jsq
+// qux.js
 public module bar;
 
-// qux/bar.jsq
+// qux/bar.js
 public function functionInBar() {}
 ```
 
@@ -67,7 +59,7 @@ public function functionInBar() {}
 
 There are four forms of `use` items:
 
-```jsq
+```js
 use q.b;
 use q.b.*;
 
@@ -97,7 +89,7 @@ Integer:
 
 IEEE 754 floating point:
 
-- `single`, `double`
+- `single`, `Number` (IEEE 754 double-precision floating point)
 
 Unicode:
 
@@ -107,14 +99,14 @@ Unicode:
 Compound:
 
 - `[T1, T2, ...Tn]` (tuple)
-- `Opt.<T>` (unifies `T` and `undefined`)
+- `Optional.<T>` (unifies `T` and `undefined`)
 - `Throws.<T, E1, ...EN>`
 - `Array.<T>` or `[T]`
   - A growable array.
 
 # Conditional expression
 
-```jsq
+```js
 const v = if (true) x else y;
 ```
 
@@ -122,16 +114,16 @@ const v = if (true) x else y;
 
 The postfix `?` operator is called *error propagation* operator. It returns from a function or `try` expression if the base is `undefined` or an exception, or otherwise lets zero or more postfix operators perform computation on the success value.
 
-```jsq
+```js
 o?
 ```
 
-# `Opt`
+# `Optional.<T>`
 
-The `Opt.<T>` type allows assigning `undefined` or `T` to a variable and comparing it to `undefined` or `T` through `==`.
+The `Optional.<T>` type allows assigning `undefined` or `T` to a variable and comparing it to `undefined` or `T` through `==`.
 
-```jsq
-var o: Opt.<T> = undefined;
+```js
+var o: Optional.<T> = undefined;
 
 // Asserts `o` is not `undefined` and calls `f`
 o!.f();
@@ -146,7 +138,7 @@ The `Throws.<T, E1, ...En>` type holds either a success value or an exception va
 
 A function that returns `Throws` must return `T` and may throw any of the specified exception types through the `throw` statement.
 
-```jsq
+```js
 function f(): Throws.<T, TypeError, RangeError> {
     throw new TypeError("Type error");
 }
@@ -170,10 +162,10 @@ f()!.x;
 
 Literal classes can be initialized through the object initializer.
 
-```jsq
+```js
 [Literal]
 class Options {
-    public const x: double;
+    public const x: Number;
 }
 const options: Options = { x: 10 };
 ```
@@ -182,7 +174,7 @@ const options: Options = { x: 10 };
 
 The language includes runtime type reflection and dynamic typing.
 
-```jsq
+```js
 const v: * = v;
 v.inexistent; // May throw a fatal exception
 ```
@@ -201,7 +193,7 @@ For example:
 
 # Module paths
 
-```jsq
+```js
 use package.x;
 use super.y;
 // use this.z;
@@ -211,7 +203,7 @@ use super.y;
 
 Virtual properties are also known as getters and setters. `get` and `set` are context keywords used for defining virtual properties.
 
-```jsq
+```js
 class C {
     function get property(): long (10);
     function set property(value) {}
@@ -230,7 +222,7 @@ JSQ uses garbage collection for all types.
 * Use the `[Value]` meta data to indicate a type is copied and cloned by value, implementing `Copy` and `Clone`.
 * Types that do not contain or inherit a `[Ref]` or `[Value]` meta data are not copied implicitly.
 
-```jsq
+```js
 [Reference]
 class C0 {}
 [Value]
@@ -239,8 +231,8 @@ class C1 {}
 
 The type `Shared` can be used for sharing certain non reference types:
 
-```jsq
-const m: Shared.<Map.<double, double>> = new Shared(new Map());
+```js
+const m: Shared.<Map.<Number, Number>> = new Shared(new Map());
 
 // `Shared.<T>` implements `Delegate.<T>`, delegating inexistent accesses
 // to the base type.
@@ -249,7 +241,7 @@ m[64];
 
 # Methods
 
-```jsq
+```js
 public class C {
     // Constructor
     public function C() {
@@ -283,7 +275,7 @@ JSQ supports flexible *simple* enums and *set* enums. A single enum member consi
 
 The following program demonstrates simple enums:
 
-```jsq
+```js
 public enum Kind {
     const GOLDEN_EGG;
     const A_BBC_TURKEY = "aBBCTurkey";
@@ -303,7 +295,7 @@ assert(Kind.GOLDEN_EGG.toString() == "goldenEgg");
 
 Set enums add support for efficient combinatory members, using bitwise values internally. The following program demonstrates them:
 
-```jsq
+```js
 [Set]
 public enum Flags {
     const F0;
@@ -345,7 +337,7 @@ The visibility of item is a visibility ranging from a module to all of its desce
 
 The `[Public("q")]` meta data is used to specify the module to which an item is visible. For example, the following indicates that the function `f` is available to `package` and all of its descendants:
 
-```jsq
+```js
 [Public("package")]
 function f() {}
 ```
@@ -356,7 +348,7 @@ Meta data can be attached to items. There are two categories of meta data: reser
 
 # Conditional compilation
 
-```jsq
+```js
 [Config(...)]
 item;
 ```
@@ -365,7 +357,7 @@ item;
 
 Fatal exceptions are exceptions that may be thrown at runtime and cannot be caught by the user.
 
-```jsq
+```js
 fatalError();
 ```
 
@@ -377,9 +369,13 @@ The language comes with built-in assertion facilities, which throw fatal excepti
 
 Test functions can be defined with the `[Test]` meta data. Such functions are invoked by the unit testing tool. A test fails when a fatal exception is thrown.
 
-```jsq
+```js
 [Test]
 function testSomething() {
     // Test it
 }
 ```
+
+# Abstract
+
+Abstract classes and methods are supported.

@@ -36,6 +36,7 @@ yield
 delete
 import
 module
+public
 return
 switch
 typeof
@@ -43,11 +44,14 @@ typeof
 extends
 finally
 package
+private
 
 continue
 function
+internal
 
 interface
+protected
 
 implements
 ```
@@ -65,6 +69,10 @@ type
 
 embed
 never
+
+static
+
+abstract
 
 namespace
 undefined

@@ -1,6 +1,6 @@
-# org.hydroper.js
+# org.hydroper.javascript
 
-org.hydroper.js is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the org.hydroper.js Virtual Machine Bytecode and includes miscellaneous standard objects.
+org.hydroper.javascript is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the org.hydroper.javascript Virtual Machine Bytecode and includes miscellaneous standard objects.
 
 ```js
 use js.swing.*;

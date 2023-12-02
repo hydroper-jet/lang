@@ -21,19 +21,19 @@ const x = y; // Read-only variable
 
 Property access operators are similiar to ECMAScript property operators, with the exclusion of implicit conversion. Solely string and number types can be used to index.
 
-# Package (dependency namespace)
+# Package (registry namespace)
 
-A package manifest specifies dependencies by a *dependency namespace*. The namespaace of packages that do not belong to a namespace are denoted by `*`. The namespace "https://www.w3.org" is generally used for websites or web applications.
+A package manifest specifies dependencies by a *registry namespace*. Pakcages that do not specify a registry namespaace belong to the `*` registry namespace. The namespace "http://www.w3.org/web" is generally used for websites or web applications.
 
-```on
+```json
 {
-    "id": "com.q.f",
-    "registryNamespace": "https://www.w3.org",
+    "id": "org.q.f",
+    "registryNamespace": "http://www.w3.org/web",
     "dependencies": {
         "*": {
             "xml": "1.0.0",
         },
-        "https://www.w3.org": {
+        "http://www.w3.org/web": {
             "goog.g": "1.0.0"
         }
     }

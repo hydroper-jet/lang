@@ -2,4 +2,4 @@
 
 ## Versions
 
-* [JetWork 1.0](1.0/spec.md)
+* [JetWork 1.0 Language Specification](spec-1.0.md)

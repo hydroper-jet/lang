@@ -1,4 +1,4 @@
-# JetWork
+# JetWork Language Design
 
 JetWork is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the JetWork Virtual Machine Bytecode and includes miscellaneous standard objects.
 

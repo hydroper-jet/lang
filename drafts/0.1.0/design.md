@@ -1,10 +1,10 @@
-# org.hydroper.javascript
+# JetWork
 
-org.hydroper.javascript is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the org.hydroper.javascript Virtual Machine Bytecode and includes miscellaneous standard objects.
+JetWork is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the JetWork Virtual Machine Bytecode and includes miscellaneous standard objects.
 
 ```
-use js.swing.*;
-public use s = js.swing;
+use jw.swing.*;
+public use s = jw.swing;
 
 // Static constant
 public const staticConstant = "static constant";
@@ -45,13 +45,13 @@ A package manifest specifies dependencies by a *dependency namespace*. The names
 Say a package manifest specifies the ID "com.q.f". The following is the submodule "com.q.f.qux.bar":
 
 ```
-// index.js
+// index.jw
 public module qux;
 
-// qux.js
+// qux.jw
 public module bar;
 
-// qux/bar.js
+// qux/bar.jw
 public function functionInBar() {}
 ```
 
@@ -212,11 +212,11 @@ class C {
 
 # Generic interfaces
 
-When implementing generic interfaces more than once, org.hydroper.javascript accepts multimethods, thus solving name conflict.
+When implementing generic interfaces more than once, JetWork accepts multimethods, thus solving name conflict.
 
 # Memory management
 
-org.hydroper.javascript uses garbage collection for all types.
+JetWork uses garbage collection for all types.
 
 * Use the `[Reference]` meta data to indicate a type is copied and cloned by reference, implementing `Copy` and `Clone`. This meta data also implements `Equals` and `Hash`, comparing and hashing the references.
 * Use the `[Value]` meta data to indicate a type is copied and cloned by value, implementing `Copy` and `Clone`.
@@ -271,7 +271,7 @@ The language comes with built-in forms of serialization. Classes can derive `Ser
 
 # Enums
 
-org.hydroper.javascript supports flexible *simple* enums and *set* enums. A single enum member consists of a (*number*, *string*) group, which is defined in an `enum` definition either by specifying only one of (*number*, *string*), or by specifying both, or by omitting both and letting the compiler dedide the values.
+JetWork supports flexible *simple* enums and *set* enums. A single enum member consists of a (*number*, *string*) group, which is defined in an `enum` definition either by specifying only one of (*number*, *string*), or by specifying both, or by omitting both and letting the compiler dedide the values.
 
 The following program demonstrates simple enums:
 

@@ -21,15 +21,21 @@ const x = y.substring(CharIndex(0).next(y, 1));
 Further examples:
 
 ```
-trace("jetwork".charCountRange(i, j));
-trace("jetwork".charCount);
-trace("jetwork".encodedCount);
-trace("jetwork".isEmpty);
+const s = "jetwork";
+// Character count between i and j
+trace(s.charCountRange(i, j));
+// Character count
+trace(s.charCount);
+// Character count in the implementation encoding's units
+trace(s.charCountEncoded);
+// Whether the string is empty or not
+trace(s.isEmpty);
+trace(s == "");
 
 // Scalar Value at i
 const character = "jetwork".charAt(i);
 // For each character
-for each (const character in "jetwork".chars()) {}
+for each (const character in "jetwork") {}
 ```
 
 ### 1.1.2. Number overflow

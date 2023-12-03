@@ -3,11 +3,10 @@
 JetWork is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the JetWork Virtual Machine Bytecode and includes miscellaneous standard objects.
 
 ```
-use jw.swing.*;
-public use sw = jw.swing;
+use spark.*;
+public use s = spark;
 
-// Static constant
-public const xx = "static constant";
+public const xx = "xx";
 
 public function xy(a: Number) {
     return Math.sqrt(a);
@@ -23,7 +22,7 @@ Property access operators are similiar to ECMAScript property operators, with th
 
 # Package (registry namespace)
 
-A package manifest specifies dependencies by a *registry namespace*. Pakcages that do not specify a registry namespaace belong to the `*` registry namespace. The namespace "http://www.w3.org/web" is generally used for websites or web applications.
+A package manifest specifies dependencies by a *registry namespace*. Packages that do not specify a registry namespace belong to the `*` registry namespace. The namespace "http://www.w3.org/web" is generally used for websites or web applications.
 
 ```json
 {

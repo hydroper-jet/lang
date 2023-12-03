@@ -16,6 +16,13 @@ var x = y; // Writable variable
 const x = y; // Read-only variable
 ```
 
+# File extension
+
+The identifying file extensions for Jetwork programs are:
+
+* `.jet`
+* `.jetwork`
+
 # Properties
 
 Property access operators are similiar to ECMAScript property operators, with the exclusion of implicit conversion. Solely string and number types can be used to index.
@@ -44,13 +51,13 @@ A package manifest specifies dependencies by a *registry namespace*. Packages th
 Say a package manifest specifies the ID "com.q.f". The following is the submodule "com.q.f.qux.bar":
 
 ```
-// index.jw
+// index.jet
 public module qux;
 
-// qux.jw
+// qux.jet
 public module bar;
 
-// qux/bar.jw
+// qux/bar.jet
 public function functionInBar() {}
 ```
 

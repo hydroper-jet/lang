@@ -2,13 +2,29 @@
 
 ## 1. Overview
 
-JetWork is a flexible, strongly typed, multi-purpose scripting language that strives to be in a balance between simplicity and performance.
+JetWork is a flexible, strongly typed, multi-purpose scripting language that strives to be in a balance between simplicity and performance. JetWork is a fusion of the ActionScript 3 and Rust languages.
 
-The language is a fusion of the ActionScript 3 and Rust languages.
+### 1.1. Compilation and transpilation
 
-## 1.1. Example programs
+JetWork compiles to the JetWork Virtual Machine Bytecode which, in turn, can be compiled to other languages or be directly executed by a virtual machine.
 
-### 1.1.1. isEven function
+### 1.1.1. String encoding
+
+Since implementations use different encodings for the main string data type, the String data type in JetWork is accompanied by a StringIndex type, used to represent an index for any String. StringIndex does not allow numeric operations; instead, StringIndex supports methods such as `next()` that work with character positions instead of encoded indices.
+
+For example, the following variable `x` is a string ranging from the second character to the end of another string:
+
+```
+const x = y.substring(StringIndex(0).next(y, 1));
+```
+
+### 1.1.2. Number overflow
+
+Operations whose result cannot be represented due to range limit cause a number overflow, such as `Int.MAX_VALUE + 1`. The result of a number overflow is implementation defined.
+
+### 1.2. Example programs
+
+#### 1.2.1. isEven function
 
 ```
 public function isEven(argument: BigInt): Boolean (
@@ -16,7 +32,7 @@ public function isEven(argument: BigInt): Boolean (
 );
 ```
 
-## 1.2. Package manager
+### 1.2. Package manager
 
 The language is integrated with a package manager with support for vital features:
 

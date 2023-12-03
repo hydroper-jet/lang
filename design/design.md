@@ -99,7 +99,8 @@ IEEE 754 floating point:
 
 Unicode:
 
-- `String`: Sequence of Scalar Values encoded in UTF-8 form.
+- `String`: Sequence of Scalar Values using an implementation-specific encoding.
+- `StringIndex`: Represents a Scalar Value index into any string.
 - `Char`: Unicode Scalar Value.
 
 Compound:

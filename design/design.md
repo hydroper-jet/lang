@@ -4,13 +4,13 @@ JetWork is a flexible, multi-paradigm, strongly typed scripting language. It com
 
 ```
 use jw.swing.*;
-public use s = jw.swing;
+public use sw = jw.swing;
 
 // Static constant
-public const staticConstant = "static constant";
+public const xx = "static constant";
 
-public function fooFunction(a: Number) {
-    return a.sqrt();
+public function xy(a: Number) {
+    return Math.sqrt(a);
 }
 
 var x = y; // Writable variable
@@ -94,13 +94,13 @@ IEEE 754 floating point:
 Unicode:
 
 - `String`: Sequence of Scalar Values encoded in UTF-8 form.
-- `char`: Unicode Scalar Value.
+- `Char`: Unicode Scalar Value.
 
 Compound:
 
 - `[T1, T2, ...Tn]` (tuple)
 - `Optional.<T>` (unifies `T` and `undefined`)
-- `Throws.<T, E1, ...EN>`
+- `Result.<T, E1, ...EN>`
 - `Array.<T>` or `[T]`
   - A growable array.
 
@@ -132,14 +132,14 @@ o!.f();
 try o?.f();
 ```
 
-# `Throws`
+# `Result`
 
-The `Throws.<T, E1, ...En>` type holds either a success value or an exception value: `T` indicates the type of the success value, and all other remaining types are the possible exception types.
+The `Result.<T, E1, ...En>` type holds either a success value or an exception value: `T` indicates the type of the success value, and all other remaining types are the possible exception types.
 
-A function that returns `Throws` must return `T` and may throw any of the specified exception types through the `throw` statement.
+A function that returns `Result` must return `T` and may throw any of the specified exception types through the `throw` statement.
 
 ```
-function f(): Throws.<T, TypeError, RangeError> {
+function f(): Result.<T, TypeError, RangeError> {
     throw new TypeError("Type error");
 }
 try {
@@ -156,6 +156,12 @@ try f()?.x;
 
 // Non error assertion
 f()!.x;
+```
+
+The language supports a `throws` clause in function signatures, which wraps the return type into `Result`:
+
+```
+function f(): T throws TypeError, RangeError {}
 ```
 
 # Literal class

@@ -39,6 +39,7 @@ module
 public
 return
 switch
+throws
 typeof
 
 extends

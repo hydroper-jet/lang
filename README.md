@@ -1,4 +1,6 @@
-# JetWork Language
+<p align="center">
+  <img src="./assets/logo.png" width="500">
+</p>
 
 The JetWork language is a robust, strongly typed, flexible alternative to JavaScript. It is a fusion of Rust and ActionScript 3.
 

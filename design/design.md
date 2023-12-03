@@ -226,7 +226,7 @@ JetWork uses garbage collection for all types.
 
 * Use the `[Reference]` meta data to indicate a type is copied and cloned by reference, implementing `Copy` and `Clone`. This meta data also implements `Equals` and `Hash`, comparing and hashing the references.
 * Use the `[Value]` meta data to indicate a type is copied and cloned by value, implementing `Copy` and `Clone`.
-* Types that do not contain or inherit a `[Ref]` or `[Value]` meta data are not copied implicitly.
+* Types that do not contain or inherit a `[Reference]` or `[Value]` meta data are not copied implicitly.
 
 ```
 [Reference]

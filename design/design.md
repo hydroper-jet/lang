@@ -242,7 +242,7 @@ const m: Shared.<Map.<Number, Number>> = new Shared(new Map());
 
 // `Shared.<T>` implements `Delegate.<T>`, delegating inexistent accesses
 // to the base type.
-m[64];
+const v = m.get(k);
 ```
 
 # Methods

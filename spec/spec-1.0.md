@@ -15,7 +15,7 @@ The String data type uses an implementation-defined encoding and is supported by
 The following variable `x` is a string ranging from the second character to the end of another string:
 
 ```
-const x = y.substring(CharIndex(0).next(y, 1));
+const string2 = string1.substring(CharIndex(0).next(string1, 1));
 ```
 
 Further examples:
@@ -41,6 +41,10 @@ for each (const character in "jetwork") {}
 ### 1.1.2. Number overflow
 
 Operations whose result cannot be represented due to range limit cause a number overflow, such as `Int.MAX_VALUE + 1`. The result of a number overflow is implementation defined.
+
+### 1.1.3. Exceptions
+
+JetWork supports checked exceptions and fatal exceptions, which facilitates different implementations of the language. Fatal exceptions are known as *panics* in other languages; fatal exceptions are not caught by user code in JetWork.
 
 ### 1.2. Example programs
 

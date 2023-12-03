@@ -34,6 +34,7 @@ Statements:
 * [ ] Break statement
 * [ ] Return statement
 * [ ] Throw statement
+* [ ] With statement
 * [ ] Try statement
 * [ ] Expression statement
   * `lookahead != ["{", "function"]`

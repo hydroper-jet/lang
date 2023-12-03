@@ -95,6 +95,7 @@ Type expressions:
 * [ ] Super (always refers to the enclosing module's super module)
 * [ ] Package (always refers to the package's module)
 * [ ] Function
+  * [ ] `throws`
 * [ ] Array
 * [ ] Tuple
 * [ ] TypeExpressionWithTypeArguments (`G.<T1, ...Tn>`)

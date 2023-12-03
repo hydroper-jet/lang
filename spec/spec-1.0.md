@@ -6,16 +6,30 @@ JetWork is a flexible, strongly typed, multi-purpose scripting language that str
 
 ### 1.1. Compilation and transpilation
 
-JetWork compiles to the JetWork Virtual Machine Bytecode which, in turn, can be compiled to other languages or be directly executed by a virtual machine.
+JetWork compiles to the JetWork Virtual Machine Bytecode, which, in turn, can be compiled to other languages or be executed by a virtual machine.
 
 ### 1.1.1. String encoding
 
-Since implementations use different encodings for the main string data type, the String data type in JetWork is accompanied by a StringIndex type, used to represent an index for any String. StringIndex does not allow numeric operations; instead, StringIndex supports methods such as `next()` that work with character positions instead of encoded indices.
+The String data type uses an implementation-defined encoding and is supported by a CharIndex data type representing an index into any string.
 
-For example, the following variable `x` is a string ranging from the second character to the end of another string:
+The following variable `x` is a string ranging from the second character to the end of another string:
 
 ```
-const x = y.substring(StringIndex(0).next(y, 1));
+const x = y.substring(CharIndex(0).next(y, 1));
+```
+
+Further examples:
+
+```
+trace("jetwork".charCountRange(i, j));
+trace("jetwork".charCount);
+trace("jetwork".encodedCount);
+trace("jetwork".isEmpty);
+
+// Scalar Value at i
+const character = "jetwork".charAt(i);
+// For each character
+for each (const character in "jetwork".chars()) {}
 ```
 
 ### 1.1.2. Number overflow

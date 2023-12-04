@@ -129,3 +129,5 @@ It is allowed to alias JetWork modules inside `.jetxml` classes and the alias is
     <s:ProgressBar/>
 </Button>
 ```
+
+The `JetXMLUpdate` meta data and interface are in general used to cause a next rendering on a next frame iteration of the node by checking the `jetxmlStatus` property.

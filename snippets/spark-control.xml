@@ -1,8 +1,8 @@
-<control xmlns="http://www.spark.org/2023" id="Worker">
+<Button base="spark.controls.SparkControl">
     <script>
         <![CDATA[
-            protected function work(): void {
+            protected function f1(): void {
             }
         ]]>
     </script>
-</control>
+</Button>

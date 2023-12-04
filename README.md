@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="./snippets/spark-control.png" width="561">
+  <img src="./snippets/spark-control.png" width="497">
 </p>
 
 The JetWork language is a robust, strongly typed, flexible alternative to JavaScript. It is a fusion of Rust and ActionScript 3.

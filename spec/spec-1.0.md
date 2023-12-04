@@ -91,14 +91,14 @@ JetWork supports checked exceptions and fatal exceptions, which facilitates diff
 
 ## 1.4. Markup classes
 
-JetWork supports classes in XML form. Markup classes are files with the extension `.jetxml`.
+JetWork supports classes in XML form. Markup classes are files with the extension `.jetxml`. Such classes are instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.
 
 Markup classes must extend a base class. Here is an example program:
 
 **Button.jetxml**
 
 ```xml
-<Button base="org.x.Node">
+<Button base="spark.Node">
     <script>
         <![CDATA[
             [RenderingUpdate]

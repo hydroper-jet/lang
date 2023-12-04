@@ -68,6 +68,10 @@ Further examples:
 ```
 const s = "jetwork";
 
+// "jet"
+trace(s.slice(s.firstIndex, s.firstIndex.next(3)));
+trace(s.slice(s.lastIndex.next(-4)));
+
 // Character count between i and j
 trace(s.charCountRange(i, j));
 

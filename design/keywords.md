@@ -65,6 +65,7 @@ set
 
 each
 enum
+from
 meta
 type
 

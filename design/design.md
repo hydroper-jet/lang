@@ -131,10 +131,10 @@ o?
 
 # `Optional.<T>`
 
-The `Optional.<T>` type allows assigning `undefined` or `T` to a variable and comparing it to `undefined` or `T` through `==`.
+The `Optional.<T>` type (or `T?`) allows assigning `undefined` or `T` to a variable and comparing it to `undefined` or `T` through `==`.
 
 ```
-var o: Optional.<T> = undefined;
+var o: T? = undefined;
 
 // Asserts `o` is not `undefined` and calls `f`
 o!.f();

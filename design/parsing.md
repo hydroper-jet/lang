@@ -98,5 +98,6 @@ Type expressions:
 * [ ] Function
   * [ ] `throws`
 * [ ] Array
+* [ ] Optional (`T?`, `?T`)
 * [ ] Tuple
 * [ ] TypeExpressionWithTypeArguments (`G.<T1, ...Tn>`)

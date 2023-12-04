@@ -122,7 +122,7 @@ public abstract class Node
 
 The `RenderingUpdate` meta data is used to automatically alter the rendering status of a node when the value of a property changes. For update functions, the `renderingStatus` property must be set to `"outdated"` instead.
 
-It is allowed to alias JetWork packages inside `.jetxml` classes and the alias is available both within the code and within the XML tags:
+It is allowed to alias JetWork modules inside `.jetxml` classes and the alias is available both within the code and within the XML tags:
 
 ```xml
 <Button xmlns:s="spark.controls" base="s.SparkControl">

@@ -130,7 +130,7 @@ The `JetXMLUpdate` meta data is used to automatically alter the rendering status
 It is allowed to alias JetWork modules inside `.jetxml` classes and the alias is available both within the code and within the XML tags:
 
 ```xml
-<Button xmlns:s="spark.controls" base="s.SparkControl">
+<Button xmlns:s="spark.controls" extends="s.SparkControl">
     <s:ProgressBar/>
 </Button>
 ```

@@ -101,7 +101,7 @@ Markup classes must extend a base class. Here is an example program:
 <Button base="spark.Node">
     <script>
         <![CDATA[
-            [RenderingUpdate]
+            [JetXMLUpdate]
             public var xy: Number = 0;
         ]]>
     </script>
@@ -113,14 +113,14 @@ Markup classes must extend a base class. Here is an example program:
 ```
 public abstract class Node
     implements
-        jetwork.jetxml.Appendable,
-        jetwork.jetxml.RenderingUpdate
+        jetwork.jetxml.JetXMLAppendable,
+        jetwork.jetxml.JetXMLUpdate
 {
     /* ... */
 }
 ```
 
-The `RenderingUpdate` meta data is used to automatically alter the rendering status of a node when the value of a property changes. For update functions, the `renderingStatus` property must be set to `"outdated"` instead.
+The `JetXMLUpdate` meta data is used to automatically alter the rendering status of a node when the value of a property changes. For update functions, the `jetxmlStatus` property must be set to `"outdated"` instead.
 
 It is allowed to alias JetWork modules inside `.jetxml` classes and the alias is available both within the code and within the XML tags:
 

@@ -65,18 +65,23 @@ Further examples:
 
 ```
 const s = "jetwork";
+
 // Character count between i and j
 trace(s.charCountRange(i, j));
+
 // Character count
 trace(s.charCount);
+
 // Character count in the implementation encoding's units
 trace(s.charCountEncoded);
+
 // Whether the string is empty or not
 trace(s.isEmpty);
 trace(s == "");
 
 // Scalar Value at i
 const character = "jetwork".charAt(i);
+
 // For each character
 for each (const character in "jetwork") {}
 ```

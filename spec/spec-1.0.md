@@ -103,7 +103,7 @@ JetXML classes must extend a base class. Here is an example program:
 **Button.jetxml**
 
 ```xml
-<Button base="spark.Node">
+<Button extends="spark.Node">
     <script>
         <![CDATA[
             [JetXMLUpdate]

@@ -27,6 +27,8 @@ The identifying file extensions for Jetwork programs are:
 
 Property access operators are similiar to ECMAScript property operators, with the exclusion of implicit conversion. Solely string and number types can be used to index.
 
+Indexing by a number type is equivalent to using one of the interfaces `jetwork.operators.Get`, `jetwork.operators.Set`, and `jetwork.operators.Delete`.
+
 # Package (registry namespace)
 
 A package manifest specifies dependencies by a *registry namespace*. Packages that do not specify a registry namespace belong to the `*` registry namespace. The namespace "http://www.w3.org/web" is generally used for websites or web applications.
@@ -249,7 +251,7 @@ const m: Shared.<Map.<Number, Number>> = new Shared(new Map());
 
 // `Shared.<T>` implements `Delegate.<T>`, delegating inexistent accesses
 // to the base type.
-const v = m.get(k);
+const v = m[k];
 ```
 
 # Methods

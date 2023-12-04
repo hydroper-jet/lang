@@ -88,3 +88,36 @@ Operations whose result cannot be represented due to range limit cause a number 
 ### 1.3.3. Exceptions
 
 JetWork supports checked exceptions and fatal exceptions, which facilitates different implementations of the language. Fatal exceptions are known as *panics* in other languages; fatal exceptions are not caught by user code in JetWork.
+
+## 1.4. Markup classes
+
+JetWork supports classes in XML form. Markup classes are files with the extension `.jetxml`.
+
+Markup classes must extend a base class. Here is an example program:
+
+**Button.jetxml**
+
+```xml
+<Button base="org.x.Node">
+    <script>
+        <![CDATA[
+            [RenderingUpdate]
+            public var xy: Number = 0;
+        ]]>
+    </script>
+</Button>
+```
+
+**Node.jet**
+
+```
+public abstract class Node
+    implements
+        jetwork.jetxml.Appendable,
+        jetwork.jetxml.RenderingUpdate
+{
+    /* ... */
+}
+```
+
+The `RenderingUpdate` meta data is used to automatically alter the rendering status of a node when the value of a property changes. For update functions, the `renderingStatus` property must be set to `"outdated"` instead.

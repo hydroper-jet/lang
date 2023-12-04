@@ -55,7 +55,7 @@ JetWork compiles to the JetWork Virtual Machine Bytecode, which, in turn, can be
 
 ### 1.3.1. String encoding
 
-The String data type uses an implementation-defined encoding and is supported by a CharIndex data type representing a string index into it. CharIndex holds the original string and the integer index. CharIndex defines a `next()` method that walks Unicode Scalar Values in the encoded string, returning the final CharIndex.
+The String data type uses an implementation-defined encoding and is supported by a CharIndex data type representing a string index into it. CharIndex holds the original string and the integer index. CharIndex defines a `next()` method that walks Unicode Scalar Values in the encoded string, returning the final CharIndex. The zero literal (`0`) implicitly converts to CharIndex.
 
 The following variable `x` is a string ranging from the second character to the end of another string:
 
@@ -69,8 +69,8 @@ Further examples:
 const s = "jetwork";
 
 // "jet"
-trace(s.slice(s.firstIndex, s.firstIndex.next(3)));
-trace(s.slice(s.lastIndex.next(-4)));
+trace(s.slice(0, s.firstIndex.next(3)));
+trace(s.slice(0, s.lastIndex.next(-4)));
 
 // Character count between i and j
 trace(s.charCountRange(i, j));

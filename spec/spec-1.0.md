@@ -4,51 +4,9 @@
 
 JetWork is a flexible, strongly typed, multi-purpose scripting language that strives to be in a balance between simplicity and performance. JetWork is a fusion of the ActionScript 3 and Rust languages.
 
-### 1.1. Compilation and transpilation
+### 1.1. Example programs
 
-JetWork compiles to the JetWork Virtual Machine Bytecode, which, in turn, can be compiled to other languages or be executed by a virtual machine.
-
-### 1.1.1. String encoding
-
-The String data type uses an implementation-defined encoding and is supported by a CharIndex data type representing an index into any string.
-
-The following variable `x` is a string ranging from the second character to the end of another string:
-
-```
-const string2 = string1.substring(CharIndex(0).next(string1, 1));
-```
-
-Further examples:
-
-```
-const s = "jetwork";
-// Character count between i and j
-trace(s.charCountRange(i, j));
-// Character count
-trace(s.charCount);
-// Character count in the implementation encoding's units
-trace(s.charCountEncoded);
-// Whether the string is empty or not
-trace(s.isEmpty);
-trace(s == "");
-
-// Scalar Value at i
-const character = "jetwork".charAt(i);
-// For each character
-for each (const character in "jetwork") {}
-```
-
-### 1.1.2. Number overflow
-
-Operations whose result cannot be represented due to range limit cause a number overflow, such as `Int.MAX_VALUE + 1`. The result of a number overflow is implementation defined.
-
-### 1.1.3. Exceptions
-
-JetWork supports checked exceptions and fatal exceptions, which facilitates different implementations of the language. Fatal exceptions are known as *panics* in other languages; fatal exceptions are not caught by user code in JetWork.
-
-### 1.2. Example programs
-
-#### 1.2.1. isEven function
+#### 1.1.1. isEven function
 
 ```
 public function isEven(argument: BigInt): Boolean (
@@ -88,3 +46,45 @@ Here is an example of a potential package manifest that uses `http://www.w3.org/
 ```
 
 Note that registry namespaces are only defined by the registry maintainers, not by the developers.
+
+### 1.3. Compilation and transpilation
+
+JetWork compiles to the JetWork Virtual Machine Bytecode, which, in turn, can be compiled to other languages or be executed by a virtual machine.
+
+### 1.3.1. String encoding
+
+The String data type uses an implementation-defined encoding and is supported by a CharIndex data type representing an index into any string.
+
+The following variable `x` is a string ranging from the second character to the end of another string:
+
+```
+const string2 = string1.substring(CharIndex(0).next(string1, 1));
+```
+
+Further examples:
+
+```
+const s = "jetwork";
+// Character count between i and j
+trace(s.charCountRange(i, j));
+// Character count
+trace(s.charCount);
+// Character count in the implementation encoding's units
+trace(s.charCountEncoded);
+// Whether the string is empty or not
+trace(s.isEmpty);
+trace(s == "");
+
+// Scalar Value at i
+const character = "jetwork".charAt(i);
+// For each character
+for each (const character in "jetwork") {}
+```
+
+### 1.3.2. Number overflow
+
+Operations whose result cannot be represented due to range limit cause a number overflow, such as `Int.MAX_VALUE + 1`. The result of a number overflow is implementation defined.
+
+### 1.3.3. Exceptions
+
+JetWork supports checked exceptions and fatal exceptions, which facilitates different implementations of the language. Fatal exceptions are known as *panics* in other languages; fatal exceptions are not caught by user code in JetWork.

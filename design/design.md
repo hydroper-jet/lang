@@ -29,6 +29,8 @@ Property access operators are similiar to ECMAScript property operators, with th
 
 Indexing by a number type is equivalent to using one of the interfaces `jetwork.operators.Get`, `jetwork.operators.Set`, and `jetwork.operators.Delete`.
 
+Unlike ECMAScript, the `in` operator is not property-tied: it always uses the `jetwork.operators.Has` interface.
+
 # Package (registry namespace)
 
 A package manifest specifies dependencies by a *registry namespace*. Packages that do not specify a registry namespace belong to the `*` registry namespace. The namespace "http://www.w3.org/web" is generally used for websites or web applications.

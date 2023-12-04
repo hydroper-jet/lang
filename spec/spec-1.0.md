@@ -112,7 +112,7 @@ JetXML classes must extend a base class. Here is an example program:
 <Button extends="spark.Node">
     <script>
         <![CDATA[
-            [JetXMLUpdate]
+            [JetXMLVariable]
             public var xy: Number = 0;
         ]]>
     </script>
@@ -128,7 +128,7 @@ public abstract class Node implements JetXMLAppendable, JetXMLUpdate {
 }
 ```
 
-The `JetXMLUpdate` meta data is used to automatically alter the rendering status of a node when the value of a property changes. For update functions, the `jetxmlStatus` property must be set to `"outdated"` instead.
+The `JetXMLVariable` meta data is used to automatically alter the rendering status of a node when the value of a property changes. For update functions, the `jetxmlStatus` property must be set to `"outdated"` instead.
 
 It is allowed to alias JetWork modules inside `.jetxml` classes and the alias is available both within the code and within the XML tags:
 
@@ -138,4 +138,4 @@ It is allowed to alias JetWork modules inside `.jetxml` classes and the alias is
 </Button>
 ```
 
-The `JetXMLUpdate` meta data and interface are in general used to cause a next rendering on a next frame iteration of the node by checking the `jetxmlStatus` property.
+The `JetXMLVariable` meta data and the `JetXMLUpdate` interface are in general used to cause a next rendering on a next frame iteration of the node by checking the `jetxmlStatus` property.

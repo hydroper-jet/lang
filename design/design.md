@@ -22,6 +22,7 @@ The identifying file extensions for Jetwork programs are:
 
 * `.jet`
 * `.jetwork`
+* `.jetxml` (JetXML class)
 
 # Properties
 

@@ -89,11 +89,11 @@ Operations whose result cannot be represented due to range limit cause a number 
 
 JetWork supports checked exceptions and fatal exceptions, which facilitates different implementations of the language. Fatal exceptions are known as *panics* in other languages; fatal exceptions are not caught by user code in JetWork.
 
-## 1.4. Markup classes
+## 1.4. JetXML classes
 
-JetWork supports classes in XML form. Markup classes are files with the extension `.jetxml`. Such classes are instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.
+JetWork supports classes in XML form called *JetXML* classes. JetXML classes are files with the extension `.jetxml`. Such classes are instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.
 
-Markup classes must extend a base class. Here is an example program:
+JetXML classes must extend a base class. Here is an example program:
 
 **Button.jetxml**
 

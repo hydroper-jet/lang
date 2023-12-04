@@ -1,0 +1,8 @@
+<control xmlns="http://www.spark.org/2023" id="Worker">
+    <script>
+        <![CDATA[
+            protected function work(): void {
+            }
+        ]]>
+    </script>
+</control>

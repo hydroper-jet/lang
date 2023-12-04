@@ -1,7 +1,7 @@
 <Button xmlns:s="spark.controls" extends="s.SparkControl">
     <script>
         <![CDATA[
-            override protected function initialize(): void {
+            protected function initialize(): void {
                 trace("Button()");
             }
         ]]>

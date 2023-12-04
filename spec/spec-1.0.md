@@ -118,11 +118,8 @@ JetXML classes must extend a base class. Here is an example program:
 **Node.jet**
 
 ```
-public abstract class Node
-    implements
-        jetwork.jetxml.JetXMLAppendable,
-        jetwork.jetxml.JetXMLUpdate
-{
+import jetwork.jetxml.*;
+public abstract class Node implements JetXMLAppendable, JetXMLUpdate {
     /* ... */
 }
 ```

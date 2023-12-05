@@ -71,6 +71,7 @@ type
 
 embed
 never
+where
 
 static
 

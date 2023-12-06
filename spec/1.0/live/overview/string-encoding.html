@@ -178,9 +178,12 @@ const string2 = string1.substring(string1.firstIndex.next(1));
 trace(string1.slice(0, string1.firstIndex.next(3)));
 trace(string1.slice(0, string1.lastIndex.next(-4)));
 
-// Length in the encoding units.
-// - For UTF-8, this is the number of bytes.
-// - For UTF-16, this is the number of UCS-2 units.
+/*
+ * Length in the encoding units.
+ *
+ * - For UTF-8, this is the number of bytes.
+ * - For UTF-16, this is the number of UCS-2 units.
+ */
 trace(string1.length);
 
 // Character count

@@ -6,8 +6,11 @@ Original by Dempfi (https://github.com/dempfi/ayu)
 .hljs {
   display: block;
   overflow-x: auto;
-  background: #191f26;
   color: #e6e1cf;
+}
+
+pre {
+  background: #191f26;
 }
 
 .hljs-comment,

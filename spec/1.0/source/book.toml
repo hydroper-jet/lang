@@ -1,0 +1,6 @@
+[book]
+authors = ["hydroper"]
+language = "en"
+multilingual = false
+src = "src"
+title = "JetWork Language Specification"

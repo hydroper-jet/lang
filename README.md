@@ -21,7 +21,7 @@ JetWork may be of interest to the following technologies:
 
 ## Language specifications
 
-* [JetWork Language Specification 1.0](spec/spec-1.0.md)
+* [JetWork Language Specification 1.0](https://jetwork-lang.github.io/lang/spec/1.0/live)
 
 ## Design
 

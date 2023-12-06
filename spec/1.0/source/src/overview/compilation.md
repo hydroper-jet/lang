@@ -51,3 +51,24 @@ Operations whose result cannot be represented due to range limit cause a number 
 ## Exceptions
 
 JetWork supports checked exceptions and fatal exceptions, which facilitates different implementations of the language. Fatal exceptions are known as *panics* in other languages; fatal exceptions are not caught by user code in JetWork.
+
+```
+function task(): void throws RangeError {
+    // Throw a checked exception
+    throw new RangeError("Error");
+}
+
+// Throw a fatal exception
+fatalError("Error");
+```
+
+Functions that throw a checked exception return a `Result` object. Ignoring a `Result` object is a strict error.
+
+```
+task(); // Not allowed
+task()!; // Fine
+
+function task2(): void throws RangeError {
+    task()?;
+}
+```

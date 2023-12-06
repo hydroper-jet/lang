@@ -205,6 +205,14 @@ for each (const character in &quot;jetwork&quot;) {}
 <p>Operations whose result cannot be represented due to range limit cause a number overflow, such as <code>Int.MAX_VALUE + 1</code>. The result of a number overflow is implementation defined.</p>
 <h2 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h2>
 <p>JetWork supports checked exceptions and fatal exceptions, which facilitates different implementations of the language. Fatal exceptions are known as <em>panics</em> in other languages; fatal exceptions are not caught by user code in JetWork.</p>
+<pre><code>function task(): void throws RangeError {
+    // Throw a checked exception
+    throw new RangeError(&quot;Error&quot;);
+}
+
+// Throw a fatal exception
+fatalError(&quot;Error&quot;);
+</code></pre>
 
                     </main>
 

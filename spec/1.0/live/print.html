@@ -176,15 +176,15 @@
     argument % 2 == 0
 );
 
-trace(&quot;isEven(11) =&quot;, isEven(11));
+trace(isEven(11));
 
 // https://en.wikipedia.org/wiki/Heron%27s_formula
-public function measureTriangleArea(a: Number, b: Number, c: Number): Number {
+public function triangleArea(a: Number, b: Number, c: Number): Number {
     const s = (a + b + c) / 2;
     return (s * (s - a) * (s - b) * (s - c)) ** 0.5;
 }
 
-trace(&quot;measureTriangleArea(5, 6, 7) =&quot;, measureTriangleArea(5, 6, 7));
+trace(triangleArea(5, 6, 7));
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="package-manager"><a class="header" href="#package-manager">Package manager</a></h1>
 <p>The language is integrated with a package manager with support for vital features:</p>

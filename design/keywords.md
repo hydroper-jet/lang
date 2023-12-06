@@ -34,6 +34,7 @@ while
 yield
 
 delete
+export
 import
 module
 public

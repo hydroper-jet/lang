@@ -168,30 +168,32 @@
                     <main>
                         <h1 id="jetxml"><a class="header" href="#jetxml">JetXML</a></h1>
 <p>JetWork supports classes in XML form called <em>JetXML</em> classes. JetXML classes are files with the extension <code>.jetxml</code>. Such classes are instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.</p>
-<p>JetXML classes must extend a base class. Here is an example program:</p>
+<p>JetXML classes must extend a base class. Here is a simple example program:</p>
 <p><strong>Button.jetxml</strong></p>
 <pre><code class="language-xml">&lt;Button extends=&quot;spark.Node&quot;&gt;
     &lt;script&gt;
         &lt;![CDATA[
-            [JetXMLVariable]
+            [JetXML]
             public var xy: Number = 0;
         ]]&gt;
     &lt;/script&gt;
 &lt;/Button&gt;
 </code></pre>
 <p><strong>Node.jet</strong></p>
-<pre><code>import jetwork.jetxml.*;
-public abstract class Node implements JetXMLAppendable, JetXMLUpdate {
+<pre><code>import jetwork.jetxml.JetXML;
+public abstract class Node implements JetXML {
     /* ... */
 }
 </code></pre>
-<p>The <code>JetXMLVariable</code> meta data is used to automatically alter the rendering status of a node when the value of a property changes. For update functions, the <code>jetxmlStatus</code> property must be set to <code>&quot;outdated&quot;</code> instead.</p>
+<p>The <code>JetXML</code> meta data is used to automatically alter the rendering status of a node when the direct value of the <code>xy</code> property changes by assigning <code>jetxmlStatus = &quot;outdated&quot;</code>.</p>
 <p>It is allowed to alias JetWork modules inside <code>.jetxml</code> classes and the alias is available both within the code and within the XML tags:</p>
 <pre><code class="language-xml">&lt;Button xmlns:s=&quot;spark.controls&quot; extends=&quot;s.SparkControl&quot;&gt;
     &lt;s:ProgressBar/&gt;
 &lt;/Button&gt;
 </code></pre>
-<p>The <code>JetXMLVariable</code> meta data and the <code>JetXMLUpdate</code> interface are in general used to cause a next rendering on a next frame iteration of the node by checking the <code>jetxmlStatus</code> property.</p>
+<p>The <code>jetxmlStatus</code> property is in general used to cause a next rendering on a next frame iteration of the node.</p>
+<h2 id="data-bindings"><a class="header" href="#data-bindings">Data bindings</a></h2>
+<p>JetXML may support data bindings in the future. Data bindings allow connecting property values through events.</p>
 
                     </main>
 

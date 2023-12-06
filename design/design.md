@@ -395,10 +395,31 @@ function testSomething() {
 }
 ```
 
-# Abstract
+# Abstract clasases and methods
 
 Abstract classes and abstract methods are supported. Abstract methods allow for exhaustive implementation of an operation across all subclasses of a class.
 
+```
+abstract class Co {
+    protected abstract function doIt(): void;
+}
+```
+
 # Function bodies
 
-A function body is allowed to be an expression in `function` definitions and `function` expressions.
+A function body is allowed to be a parenthesized expression in `function` definitions and `function` expressions.
+
+```
+(function(): Number (0));
+```
+
+# Events
+
+The `EventEmitter` class is already part of the language.
+
+```
+const listener = onFu.addEventListener(event => {
+    /* event: FuEvent */
+});
+listener.remove();
+```

@@ -18,6 +18,7 @@ JetWork may be of interest to the following technologies:
 * Unreal Engine (`http://www.unrealengine.com/5`)
 * LÖVE (`http://www.love2d.org/2018`)
 * Godot Engine (`http://www.godotengine.org/4`)
+* World Wide Web (`http://www.w3.org/web`)
 
 ## Language specifications
 

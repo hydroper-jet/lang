@@ -1,5 +1,5 @@
 # Overview
 
-JetWork is a flexible, strongly typed, multi-purpose scripting language that strives to be in a balance between simplicity and performance.
+JetWork is a flexible, strongly typed, multi-purpose scripting language.
 
-The syntax for JetWork programs is designed to be as close as possible to the syntax from ActionScript 3 programs. The language attempts not to introduce unfamiliar syntax.
+JetWork shares characteristics from the following languages: ActionScript 3 and Rust. JetWork is similiar to the Haxe language in that it may be used to compile to alternative high-level languages.

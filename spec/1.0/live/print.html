@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.4.</strong> JetXML</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.4.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -168,7 +168,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="overview"><a class="header" href="#overview">Overview</a></h1>
-<p>JetWork is a flexible, strongly typed, multi-purpose scripting language.</p>
+<p>JetWork is a flexible, strongly typed, object-oriented, multi-purpose scripting language.</p>
 <p>JetWork shares characteristics from the following languages: ActionScript 3 and Rust. JetWork is similiar to the Haxe language in that it may be used to compile to alternative high-level languages.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="example-programs"><a class="header" href="#example-programs">Example programs</a></h1>
 <h2 id="simple-functions"><a class="header" href="#simple-functions">Simple functions</a></h2>
@@ -233,8 +233,8 @@ trace(s.charCountRange(i, j));
 // Character count
 trace(s.charCount);
 
-// Character count in the implementation encoding's units
-trace(s.charCountEncoded);
+// Length in the encoding units
+trace(s.unitCount);
 
 // Whether the string is empty or not
 trace(s.isEmpty);
@@ -278,6 +278,15 @@ public abstract class Node implements JetXML {
 <p>The <code>jetxmlStatus</code> property is in general used to cause a next rendering on a next frame iteration of the node.</p>
 <h2 id="data-bindings"><a class="header" href="#data-bindings">Data bindings</a></h2>
 <p>JetXML may support data bindings in the future. Data bindings allow connecting property values through events.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="notation"><a class="header" href="#notation">Notation</a></h1>
+<h2 id="grammar-definition"><a class="header" href="#grammar-definition">Grammar definition</a></h2>
+<p>This document uses the following notation to define <em>nonterminals</em> of the grammar:</p>
+<pre><code class="language-plain">NonterminalName : Element1 ... ElementN
+</code></pre>
+<p>This document uses the same notation with a <code>::</code> assignment instead of a <code>:</code> assignment to define <em>nonterminals</em> of the lexical grammar:</p>
+<pre><code class="language-plain">NonterminalName :: Element1 ... ElementN
+</code></pre>
+<p>Nonterminals followed by the <sub>opt</sub> subscript are optional rules.</p>
 
                     </main>
 

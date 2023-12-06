@@ -30,8 +30,8 @@ trace(s.charCountRange(i, j));
 // Character count
 trace(s.charCount);
 
-// Character count in the implementation encoding's units
-trace(s.charCountEncoded);
+// Length in the encoding units
+trace(s.unitCount);
 
 // Whether the string is empty or not
 trace(s.isEmpty);

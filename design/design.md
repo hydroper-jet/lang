@@ -236,8 +236,8 @@ When implementing generic interfaces more than once, JetWork accepts multimethod
 
 JetWork uses garbage collection for all types.
 
-* Use the `[Reference]` meta data to indicate a type is copied and cloned by reference, implementing `Copy` and `Clone`. This meta data also implements `Equals` and `Hash`, comparing and hashing the references.
-* Use the `[Value]` meta data to indicate a type is copied and cloned by value, implementing `Copy` and `Clone`.
+* Use the `[Reference]` meta data to indicate a type is copied, cloned and compared by reference, automatically implementing `Copy`, `Clone`, `Equals`, and `Hash`.
+* Use the `[Value]` meta data to indicate a type is copied and cloned by value, automatically implementing `Copy` and `Clone`.
 * Types that do not contain or inherit a `[Reference]` or `[Value]` meta data are not copied implicitly.
 
 ```
@@ -282,6 +282,15 @@ A rest parameter allows specifying an optional trailing sequence of arguments at
 # Multimethods
 
 Methods that contain overloads are multimethods. Method overloads support multiple call signatures.
+
+# Interface derivation
+
+Native interfaces such as `Hash`, `Clone` and `Serializable` can be implemented automatically through the `Derive` meta data.
+
+```
+[Derive(Serializable)]
+public class C {}
+```
 
 # Serialization
 
@@ -363,6 +372,8 @@ function f() {}
 # Meta data
 
 Meta data can be attached to items. There are two categories of meta data: reserved meta data and user meta data.
+
+User meta data has the same semantics as per the reference in my previous language.
 
 # Conditional compilation
 

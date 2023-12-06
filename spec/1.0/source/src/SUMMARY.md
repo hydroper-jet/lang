@@ -5,3 +5,4 @@
   - [Package manager](overview/package-manager.md)
   - [Compilation](overview/compilation.md)
   - [JetXML](overview/jetxml.md)
+- [Notation](notation.md)

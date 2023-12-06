@@ -84,6 +84,8 @@
 
 pre {
   background: #000;
+  border-radius: 15px;
+  padding: 1rem;
 }
 
 .coffeescript .javascript,

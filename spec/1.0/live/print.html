@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.4.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.6.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -214,7 +214,9 @@ trace(&quot;measureTriangleArea(5, 6, 7) =&quot;, measureTriangleArea(5, 6, 7));
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compilation-and-transpilation"><a class="header" href="#compilation-and-transpilation">Compilation and transpilation</a></h1>
 <p>JetWork compiles to the JetWork Virtual Machine Bytecode, which, in turn, can be compiled to other languages or be executed by a virtual machine.</p>
 <p>JetWork can be compiled to native code and can be transpiled to another object-oriented high-level language.</p>
-<h2 id="string-encoding"><a class="header" href="#string-encoding">String encoding</a></h2>
+<h2 id="number-overflow"><a class="header" href="#number-overflow">Number overflow</a></h2>
+<p>Operations whose result cannot be represented due to range limit cause a number overflow, such as <code>Int.MAX_VALUE + 1</code>. The result of a number overflow is implementation defined.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="string-encoding"><a class="header" href="#string-encoding">String encoding</a></h1>
 <p>The String data type uses an implementation-defined encoding and is supported by a <em>CharIndex</em> data type representing an index into it.</p>
 <p>The following variable <code>x</code> is a string ranging from the second character to the end of another string:</p>
 <pre><code>// Slice from second character
@@ -246,10 +248,8 @@ const character = &quot;jetwork&quot;.charAt(i);
 // For each character
 for each (const character in &quot;jetwork&quot;) {}
 </code></pre>
-<h2 id="number-overflow"><a class="header" href="#number-overflow">Number overflow</a></h2>
-<p>Operations whose result cannot be represented due to range limit cause a number overflow, such as <code>Int.MAX_VALUE + 1</code>. The result of a number overflow is implementation defined.</p>
-<h2 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h2>
-<p>JetWork supports checked exceptions and fatal exceptions, which facilitates different implementations of the language. Fatal exceptions are known as <em>panics</em> in other languages; fatal exceptions are not caught by user code in JetWork.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h1>
+<p>JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are not caught by user code in JetWork.</p>
 <pre><code>function task(): void throws RangeError {
     // Throw a checked exception
     throw new RangeError(&quot;Error&quot;);
@@ -258,34 +258,54 @@ for each (const character in &quot;jetwork&quot;) {}
 // Throw a fatal exception
 fatalError(&quot;Error&quot;);
 </code></pre>
+<p>Functions that throw checked exceptions return a <code>Result</code> object. Ignoring a <code>Result</code> object is a strict error.</p>
+<pre><code>task(); // Not allowed
+task()!; // Fine; throws fatal exception
+
+function task2(): void throws RangeError {
+    task()?; // Fine; propagates error to `task2`
+}
+
+task2()!; // Fine
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jetxml"><a class="header" href="#jetxml">JetXML</a></h1>
 <p>JetWork supports classes in XML form called <em>JetXML</em> classes. JetXML classes are files with the extension <code>.jetxml</code>. Such classes are instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.</p>
-<p>JetXML classes must extend a base class. Here is a simple example program:</p>
-<p><strong>Button.jetxml</strong></p>
-<pre><code class="language-xml">&lt;Button extends=&quot;spark.Node&quot;&gt;
+<ul>
+<li>It is allowed to alias JetWork modules inside <code>.jetxml</code> classes and the alias is available both within the code and within the XML tags:</li>
+<li>JetXML classes must extend another class.</li>
+</ul>
+<p>Here is an example JetXML class:</p>
+<p><strong>Maze.jetxml</strong></p>
+<pre><code class="language-xml">&lt;Maze xmlns:f=&quot;fu.tree&quot; xmlns:e=&quot;package&quot; extends=&quot;f.Node&quot;&gt;
     &lt;script&gt;
         &lt;![CDATA[
             [JetXML]
             public var xy: Number = 0;
         ]]&gt;
     &lt;/script&gt;
-&lt;/Button&gt;
+
+    &lt;!-- Water pool --&gt;
+    &lt;e:WaterPool&gt;
+        &lt;f:Helper/&gt;
+    &lt;/e:WaterPool&gt;
+&lt;/Maze&gt;
 </code></pre>
 <p><strong>Node.jet</strong></p>
 <pre><code>import jetwork.jetxml.JetXML;
-public abstract class Node implements JetXML {
-    /* ... */
-}
+public abstract class Node implements JetXML { /* ... */ }
 </code></pre>
 <p>The <code>JetXML</code> meta data is used to automatically alter the rendering status of a node when the direct value of the <code>xy</code> property changes by assigning <code>jetxmlStatus = &quot;outdated&quot;</code>.</p>
-<p>It is allowed to alias JetWork modules inside <code>.jetxml</code> classes and the alias is available both within the code and within the XML tags:</p>
-<pre><code class="language-xml">&lt;Button xmlns:s=&quot;spark.controls&quot; extends=&quot;s.SparkControl&quot;&gt;
-    &lt;s:ProgressBar/&gt;
-&lt;/Button&gt;
-</code></pre>
 <p>The <code>jetxmlStatus</code> property is in general used to cause a next rendering on a next frame iteration of the node.</p>
 <h2 id="data-bindings"><a class="header" href="#data-bindings">Data bindings</a></h2>
 <p>JetXML may support data bindings in the future. Data bindings allow connecting property values through events.</p>
+<h2 id="outlet"><a class="header" href="#outlet">Outlet</a></h2>
+<p>The empty <code>&lt;outlet/&gt;</code> tag may appear anywhere in a JetXML file to indicate where to add a tag's children:</p>
+<pre><code class="language-xml">&lt;Maze xmlns:f=&quot;fu.tree&quot; extends=&quot;f.Leaf&quot;&gt;
+    &lt;f:Container&gt;
+        &lt;outlet/&gt;
+    &lt;/f:Container&gt;
+&lt;/Maze&gt;
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notation"><a class="header" href="#notation">Notation</a></h1>
 <h2 id="grammar-definition"><a class="header" href="#grammar-definition">Grammar definition</a></h2>
 <p>This document uses the following notation to define <em>nonterminals</em> of the grammar:</p>

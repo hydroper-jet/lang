@@ -6,7 +6,7 @@ JetWork can be compiled to native code and can be transpiled to another object-o
 
 ## String encoding
 
-The String data type uses an implementation-defined encoding and is supported by a CharIndex data type representing a string index into it. CharIndex holds the original string and the integer index. CharIndex defines a `next()` method that walks Unicode Scalar Values in the encoded string, returning the final CharIndex. The zero literal (`0`) implicitly converts to CharIndex.
+The String data type uses an implementation-defined encoding and is supported by a *CharIndex* data type representing an index into it.
 
 The following variable `x` is a string ranging from the second character to the end of another string:
 

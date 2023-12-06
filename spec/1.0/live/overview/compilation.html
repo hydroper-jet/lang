@@ -170,7 +170,7 @@
 <p>JetWork compiles to the JetWork Virtual Machine Bytecode, which, in turn, can be compiled to other languages or be executed by a virtual machine.</p>
 <p>JetWork can be compiled to native code and can be transpiled to another object-oriented high-level language.</p>
 <h2 id="string-encoding"><a class="header" href="#string-encoding">String encoding</a></h2>
-<p>The String data type uses an implementation-defined encoding and is supported by a CharIndex data type representing a string index into it. CharIndex holds the original string and the integer index. CharIndex defines a <code>next()</code> method that walks Unicode Scalar Values in the encoded string, returning the final CharIndex. The zero literal (<code>0</code>) implicitly converts to CharIndex.</p>
+<p>The String data type uses an implementation-defined encoding and is supported by a <em>CharIndex</em> data type representing an index into it.</p>
 <p>The following variable <code>x</code> is a string ranging from the second character to the end of another string:</p>
 <pre><code>// Slice from second character
 const string2 = string1.substring(string1.firstIndex.next(1));

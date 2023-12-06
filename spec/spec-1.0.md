@@ -1,4 +1,4 @@
-# JetWork 1.0 Language Specification
+# JetWork Language Specification 1.0
 
 ## 1. Overview
 

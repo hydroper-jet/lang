@@ -6,13 +6,22 @@
   <img src="./snippets/spark-control.png" width="611">
 </p>
 
-The JetWork language is a robust, strongly typed, flexible alternative to JavaScript. It is a fusion of Rust and ActionScript 3.
+The JetWork language is a flexible, robust, productive scripting language.
 
-It is designed due to Rust lacking object-oriented inheritance for rich internet application (RIA) development.
+> **Note**: JetWork is in documentation process and its compiler is not available.
 
-## Language Specification
+## Platform use cases
 
-* [JetWork 1.0 Language Specification](spec/spec-1.0.md)
+JetWork may be of interest to the following technologies:
+
+* AIR (`http://www.airsdk.dev/2008`)
+* Unreal Engine (`http://www.unrealengine.com/5`)
+* LÖVE (`http://www.love2d.org/2018`)
+* Godot Engine (`http://www.godotengine.org/4`)
+
+## Language specifications
+
+* [JetWork Language Specification 1.0](spec/spec-1.0.md)
 
 ## Design
 
@@ -20,4 +29,4 @@ It is designed due to Rust lacking object-oriented inheritance for rich internet
 
 ## Compiler
 
-The compiler is not yet fully planned, but it should be hosted in the Rust language.
+The compiler is not available in the present.

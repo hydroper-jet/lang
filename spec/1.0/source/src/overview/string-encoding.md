@@ -2,38 +2,33 @@
 
 The String data type uses an implementation-defined encoding and is supported by a *CharIndex* data type representing an index into it.
 
-The following variable `x` is a string ranging from the second character to the end of another string:
-
 ```
+// String variable
+const string1 = "jetwork";
+
 // Slice from second character
 const string2 = string1.substring(string1.firstIndex.next(1));
-```
-
-Further examples:
-
-```
-const s = "jetwork";
 
 // "jet"
-trace(s.slice(0, s.firstIndex.next(3)));
-trace(s.slice(0, s.lastIndex.next(-4)));
+trace(string1.slice(0, string1.firstIndex.next(3)));
+trace(string1.slice(0, string1.lastIndex.next(-4)));
 
-// Character count between i and j
-trace(s.charCountRange(i, j));
+// Encoding units count
+trace(string1.unitCount);
 
 // Character count
-trace(s.charCount);
+trace(string1.charCount);
 
-// Length in the encoding units
-trace(s.unitCount);
+// Character count between i and j
+trace(string1.slice(i, j).charCount);
 
 // Whether the string is empty or not
-trace(s.isEmpty);
-trace(s == "");
+trace(string1.isEmpty);
+trace(string1 == "");
 
 // Scalar Value at i
-const character = "jetwork".charAt(i);
+const character = string1.charAt(i);
 
 // For each character
-for each (const character in "jetwork") {}
+for each (const character in string1) {}
 ```

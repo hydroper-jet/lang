@@ -218,35 +218,34 @@ trace(&quot;measureTriangleArea(5, 6, 7) =&quot;, measureTriangleArea(5, 6, 7));
 <p>Operations whose result cannot be represented due to range limit cause a number overflow, such as <code>Int.MAX_VALUE + 1</code>. The result of a number overflow is implementation defined.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="string-encoding"><a class="header" href="#string-encoding">String encoding</a></h1>
 <p>The String data type uses an implementation-defined encoding and is supported by a <em>CharIndex</em> data type representing an index into it.</p>
-<p>The following variable <code>x</code> is a string ranging from the second character to the end of another string:</p>
-<pre><code>// Slice from second character
+<pre><code>// String variable
+const string1 = &quot;jetwork&quot;;
+
+// Slice from second character
 const string2 = string1.substring(string1.firstIndex.next(1));
-</code></pre>
-<p>Further examples:</p>
-<pre><code>const s = &quot;jetwork&quot;;
 
 // &quot;jet&quot;
-trace(s.slice(0, s.firstIndex.next(3)));
-trace(s.slice(0, s.lastIndex.next(-4)));
+trace(string1.slice(0, string1.firstIndex.next(3)));
+trace(string1.slice(0, string1.lastIndex.next(-4)));
 
-// Character count between i and j
-trace(s.charCountRange(i, j));
+// Encoding units count
+trace(string1.unitCount);
 
 // Character count
-trace(s.charCount);
+trace(string1.charCount);
 
-// Length in the encoding units
-trace(s.unitCount);
+// Character count between i and j
+trace(string1.slice(i, j).charCount);
 
 // Whether the string is empty or not
-trace(s.isEmpty);
-trace(s == &quot;&quot;);
+trace(string1.isEmpty);
+trace(string1 == &quot;&quot;);
 
 // Scalar Value at i
-const character = &quot;jetwork&quot;.charAt(i);
+const character = string1.charAt(i);
 
 // For each character
-for each (const character in &quot;jetwork&quot;) {}
+for each (const character in string1) {}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h1>
 <p>JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are not caught by user code in JetWork.</p>

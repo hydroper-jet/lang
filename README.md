@@ -6,7 +6,7 @@
   <img src="./snippets/spark-control.png" width="611">
 </p>
 
-The JetWork language is a flexible, robust, productive scripting language.
+The JetWork language is a flexible, robust, productive, object-oriented scripting language.
 
 > **Note**: JetWork is in documentation process and its compiler is not available.
 

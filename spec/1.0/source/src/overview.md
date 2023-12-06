@@ -2,9 +2,9 @@
 
 JetWork is a flexible, strongly typed, object-oriented, multi-purpose scripting language.
 
-## Shared language characteristics
+## Common language characteristics
 
-JetWork shares characteristics from the following languages:
+JetWork shares characteristics with the following languages:
 
 * Java
 * JavaScript

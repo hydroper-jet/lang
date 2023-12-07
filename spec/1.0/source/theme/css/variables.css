@@ -42,8 +42,8 @@
     --table-header-bg: hsl(226, 23%, 31%);
     --table-alternate-bg: hsl(226, 23%, 14%);
 
-    --searchbar-border-color: #aaa;
-    --searchbar-bg: #aeaec6;
+    --searchbar-border-color: #000;
+    --searchbar-bg: #fff;
     --searchbar-fg: #000;
     --searchbar-shadow-color: #aaa;
     --searchresults-header-fg: #5f5f71;

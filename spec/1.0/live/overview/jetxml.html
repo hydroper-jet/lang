@@ -182,10 +182,9 @@
         ]]&gt;
     &lt;/fx:Script&gt;
 
-    &lt;!-- Water pool --&gt;
-    &lt;e:WaterPool&gt;
+    &lt;e:Container&gt;
         &lt;f:Helper/&gt;
-    &lt;/e:WaterPool&gt;
+    &lt;/e:Container&gt;
 &lt;/f:Container&gt;
 </code></pre>
 <p><strong>Node.jet</strong></p>
@@ -200,7 +199,9 @@ public abstract class Node implements JetXML { /* ... */ }
 <p>The empty <code>&lt;fx:Children/&gt;</code> tag, where <code>fx</code> is the namespace <code>http://www.jetwork.org/lang/jetxml</code>, may appear anywhere in a JetXML file to indicate where to add the tag's children:</p>
 <pre><code class="language-xml">&lt;f:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:f=&quot;fu.tree&quot;&gt;
     &lt;f:Container&gt;
-        &lt;fx:Children/&gt;
+        &lt;f:Container&gt;
+            &lt;fx:Children/&gt;
+        &lt;/f:Container&gt;
     &lt;/f:Container&gt;
 &lt;/f:Container&gt;
 </code></pre>

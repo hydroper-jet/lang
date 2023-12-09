@@ -6,8 +6,8 @@
     --page-padding: 15px;
     --content-max-width: 750px;
     --menu-bar-height: 50px;
-    --mono-font: serif, "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace, monospace;
-    --code-font-size: 0.99em /* please adjust the ace font size accordingly in editor.js */
+    --mono-font: "Monaspace Xenon", "DejaVu Sans Mono", monospace;
+    --code-font-size: 0.87em /* please adjust the ace font size accordingly in editor.js */
 }
 
 /* Themes */

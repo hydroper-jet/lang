@@ -1,6 +1,6 @@
 # String encoding
 
-The String data type uses an implementation-defined encoding and is supported by a *CharIndex* data type representing an index into it.
+The String data type uses an implementation-defined encoding and is supported by a `CharIndex` data type representing an index into a `String`.
 
 ```
 // String variable

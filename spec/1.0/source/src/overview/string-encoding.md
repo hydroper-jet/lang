@@ -10,7 +10,7 @@ Slice from second character:
 const string2 = "jetwork".substring("jetwork".firstIndex.next(1));
 ```
 
-First three characters:
+First three characters from the `"jetwork"` string:
 
 ```
 trace("jetwork".slice(0, "jetwork".firstIndex.next(3)));
@@ -42,6 +42,7 @@ The following is the string length in the encoding units:
 
 - for the UTF-8 encoding, the following is the number of bytes;
 - for the UTF-16 encoding, the following is the number of UCS-2 units;
+- for the UCS-4 encoding, the following is the number of Scalar Values;
 
 ```
 trace(string1.length);

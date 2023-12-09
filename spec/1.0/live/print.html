@@ -221,7 +221,7 @@ trace(triangleArea(5, 6, 7));
 <p>Slice from second character:</p>
 <pre><code>const string2 = &quot;jetwork&quot;.substring(&quot;jetwork&quot;.firstIndex.next(1));
 </code></pre>
-<p>First three characters:</p>
+<p>First three characters from the <code>&quot;jetwork&quot;</code> string:</p>
 <pre><code>trace(&quot;jetwork&quot;.slice(0, &quot;jetwork&quot;.firstIndex.next(3)));
 trace(&quot;jetwork&quot;.slice(0, &quot;jetwork&quot;.lastIndex.next(-4)));
 </code></pre>
@@ -240,6 +240,7 @@ trace(string1 == &quot;&quot;);
 <ul>
 <li>for the UTF-8 encoding, the following is the number of bytes;</li>
 <li>for the UTF-16 encoding, the following is the number of UCS-2 units;</li>
+<li>for the UCS-4 encoding, the following is the number of Scalar Values;</li>
 </ul>
 <pre><code>trace(string1.length);
 </code></pre>

@@ -288,10 +288,7 @@ task2()!; // Fine
             public var xy: Number = 0;
         ]]&gt;
     &lt;/fx:Script&gt;
-
-    &lt;e:Container&gt;
-        &lt;f:Helper/&gt;
-    &lt;/e:Container&gt;
+    &lt;e:Container&gt;&lt;f:Helper/&gt;&lt;/e:Container&gt;
 &lt;/f:Container&gt;
 </code></pre>
 <p><strong>Node.jet</strong></p>
@@ -310,6 +307,22 @@ public abstract class Node implements JetXML { /* ... */ }
             &lt;fx:Children/&gt;
         &lt;/f:Container&gt;
     &lt;/f:Container&gt;
+&lt;/f:Container&gt;
+</code></pre>
+<h2 id="script"><a class="header" href="#script">Script</a></h2>
+<p>The <code>&lt;fx:Script&gt;</code> tag, where <code>fx</code> is the namespace <code>http://www.jetwork.org/lang/jetxml</code>, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer module.</p>
+<p>There are two forms of <code>fx:Script</code>:</p>
+<ul>
+<li><code>&lt;fx:Script&gt;</code> — Attaches code to the class block.</li>
+<li><code>&lt;fx:Script type=&quot;module&quot;&gt;</code> — Attaches code to the class's module.</li>
+</ul>
+<p>Here is an example attaching code to the class's module:</p>
+<pre><code class="language-xml">&lt;f:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:f=&quot;fu.tree&quot;&gt;
+    &lt;fx:Script type=&quot;module&quot;&gt;
+        &lt;![CDATA[
+            public type LoaderResult = Result.&lt;ByteArray, TypeError, VerifyError&gt;;
+        ]]&gt;
+    &lt;/fx:Script&gt;
 &lt;/f:Container&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notation"><a class="header" href="#notation">Notation</a></h1>

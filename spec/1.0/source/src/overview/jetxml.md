@@ -17,10 +17,7 @@ Here is an example JetXML class:
             public var xy: Number = 0;
         ]]>
     </fx:Script>
-
-    <e:Container>
-        <f:Helper/>
-    </e:Container>
+    <e:Container><f:Helper/></e:Container>
 </f:Container>
 ```
 
@@ -50,5 +47,26 @@ The empty `<fx:Children/>` tag, where `fx` is the namespace `http://www.jetwork.
             <fx:Children/>
         </f:Container>
     </f:Container>
+</f:Container>
+```
+
+## Script
+
+The `<fx:Script>` tag, where `fx` is the namespace `http://www.jetwork.org/lang/jetxml`, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer module.
+
+There are two forms of `fx:Script`:
+
+* `<fx:Script>` — Attaches code to the class block.
+* `<fx:Script type="module">` — Attaches code to the class's module.
+
+Here is an example attaching code to the class's module:
+
+```xml
+<f:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:f="fu.tree">
+    <fx:Script type="module">
+        <![CDATA[
+            public type LoaderResult = Result.<ByteArray, TypeError, VerifyError>;
+        ]]>
+    </fx:Script>
 </f:Container>
 ```

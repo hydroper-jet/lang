@@ -168,38 +168,40 @@
                     <main>
                         <h1 id="string-encoding"><a class="header" href="#string-encoding">String encoding</a></h1>
 <p>The String data type uses an implementation-defined encoding and is supported by a <code>CharIndex</code> data type representing an index into a <code>String</code>.</p>
-<pre><code>// String variable
-const string1 = &quot;jetwork&quot;;
-
-// Slice from second character
-const string2 = string1.substring(string1.firstIndex.next(1));
-
-// &quot;jet&quot;
-trace(string1.slice(0, string1.firstIndex.next(3)));
-trace(string1.slice(0, string1.lastIndex.next(-4)));
-
-// Character count
-trace(string1.chars().length());
-
-// Character count between i and j
-trace(string1.slice(i, j).chars().length());
-
-// Whether the string is empty or not
-trace(string1.isEmpty);
-trace(string1 == &quot;&quot;);
-
-// Scalar Value at i
-const character = string1.charAt(i);
-
-// For each character
-for each (const character in string1) {}
+<h2 id="slicing"><a class="header" href="#slicing">Slicing</a></h2>
+<p>Slice from second character:</p>
+<pre><code>const string2 = &quot;jetwork&quot;.substring(&quot;jetwork&quot;.firstIndex.next(1));
 </code></pre>
-<p>The following is the string length in the encoding units.</p>
+<p>First three characters:</p>
+<pre><code>trace(&quot;jetwork&quot;.slice(0, &quot;jetwork&quot;.firstIndex.next(3)));
+trace(&quot;jetwork&quot;.slice(0, &quot;jetwork&quot;.lastIndex.next(-4)));
+</code></pre>
+<h2 id="characters"><a class="header" href="#characters">Characters</a></h2>
+<p>Character count:</p>
+<pre><code>trace(string1.chars().length());
+</code></pre>
+<p>Character count between <em>i</em> and <em>j</em>:</p>
+<pre><code>trace(string1.slice(i, j).chars().length());
+</code></pre>
+<p>Whether the string is empty or not:</p>
+<pre><code>trace(string1.isEmpty);
+trace(string1 == &quot;&quot;);
+</code></pre>
+<p>The following is the string length in the encoding units:</p>
 <ul>
-<li>For the UTF-8 encoding, this is the number of bytes.</li>
-<li>For the UTF-16 encoding, this is the number of UCS-2 units.</li>
+<li>for the UTF-8 encoding, the following is the number of bytes;</li>
+<li>for the UTF-16 encoding, the following is the number of UCS-2 units;</li>
 </ul>
 <pre><code>trace(string1.length);
+</code></pre>
+<h2 id="miscellaneous"><a class="header" href="#miscellaneous">Miscellaneous</a></h2>
+<p>Scalar value at <em>i</em>:</p>
+<pre><code>const char: Char = string1.charAt(i);
+</code></pre>
+<p>For each Scalar Value:</p>
+<pre><code>for each (const char in string1) {
+    /* char: Char */
+}
 </code></pre>
 
                     </main>

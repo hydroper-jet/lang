@@ -1,9 +1,9 @@
-<Button xmlns:s="spark.controls" extends="s.SparkControl">
-    <script>
+<s:SparkControl xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:s="spark.controls">
+    <fx:Script>
         <![CDATA[
             protected function initialize(): void {
-                trace("Button()");
+                /* Initialized */
             }
         ]]>
-    </script>
-</Button>
+    </fx:Script>
+</s:SparkControl>

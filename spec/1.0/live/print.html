@@ -277,23 +277,23 @@ task2()!; // Fine
 <p>JetWork supports classes in XML form called <em>JetXML</em> classes. JetXML classes are files with the extension <code>.jetxml</code>. Such classes are instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.</p>
 <ul>
 <li>It is allowed to alias JetWork modules inside <code>.jetxml</code> classes and the alias is available both within the code and within the XML tags:</li>
-<li>JetXML classes must extend another class.</li>
+<li>JetXML classes extend another class, which is indicated by the root XML element.</li>
 </ul>
 <p>Here is an example JetXML class:</p>
 <p><strong>Maze.jetxml</strong></p>
-<pre><code class="language-xml">&lt;Maze xmlns:f=&quot;fu.tree&quot; xmlns:e=&quot;package&quot; extends=&quot;f.Node&quot;&gt;
-    &lt;script&gt;
+<pre><code class="language-xml">&lt;f:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:f=&quot;fu.tree&quot; xmlns:e=&quot;package&quot;&gt;
+    &lt;fx:Script&gt;
         &lt;![CDATA[
             [JetXML]
             public var xy: Number = 0;
         ]]&gt;
-    &lt;/script&gt;
+    &lt;/fx:Script&gt;
 
     &lt;!-- Water pool --&gt;
     &lt;e:WaterPool&gt;
         &lt;f:Helper/&gt;
     &lt;/e:WaterPool&gt;
-&lt;/Maze&gt;
+&lt;/f:Container&gt;
 </code></pre>
 <p><strong>Node.jet</strong></p>
 <pre><code>import jetwork.jetxml.JetXML;
@@ -303,13 +303,13 @@ public abstract class Node implements JetXML { /* ... */ }
 <p>The <code>jetxmlStatus</code> property is in general used to cause a next rendering on a next frame iteration of the node.</p>
 <h2 id="data-bindings"><a class="header" href="#data-bindings">Data bindings</a></h2>
 <p>JetXML may support data bindings in the future. Data bindings allow connecting property values through events.</p>
-<h2 id="outlet"><a class="header" href="#outlet">Outlet</a></h2>
-<p>The empty <code>&lt;outlet/&gt;</code> tag may appear anywhere in a JetXML file to indicate where to add a tag's children:</p>
-<pre><code class="language-xml">&lt;Maze xmlns:f=&quot;fu.tree&quot; extends=&quot;f.Leaf&quot;&gt;
+<h2 id="fxchildren"><a class="header" href="#fxchildren">&lt;fx:Children/&gt;</a></h2>
+<p>The empty <code>&lt;fx:Children/&gt;</code> tag, where <code>fx</code> is the namespace <code>http://www.jetwork.org/lang/jetxml</code>, may appear anywhere in a JetXML file to indicate where to add the tag's children:</p>
+<pre><code class="language-xml">&lt;f:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:f=&quot;fu.tree&quot;&gt;
     &lt;f:Container&gt;
-        &lt;outlet/&gt;
+        &lt;fx:Children/&gt;
     &lt;/f:Container&gt;
-&lt;/Maze&gt;
+&lt;/f:Container&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notation"><a class="header" href="#notation">Notation</a></h1>
 <h2 id="grammar-definition"><a class="header" href="#grammar-definition">Grammar definition</a></h2>

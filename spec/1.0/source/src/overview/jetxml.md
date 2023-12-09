@@ -3,26 +3,26 @@
 JetWork supports classes in XML form called *JetXML* classes. JetXML classes are files with the extension `.jetxml`. Such classes are instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.
 
 * It is allowed to alias JetWork modules inside `.jetxml` classes and the alias is available both within the code and within the XML tags:
-* JetXML classes must extend another class.
+* JetXML classes extend another class, which is indicated by the root XML element.
 
 Here is an example JetXML class:
 
 **Maze.jetxml**
 
 ```xml
-<Maze xmlns:f="fu.tree" xmlns:e="package" extends="f.Node">
-    <script>
+<f:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:f="fu.tree" xmlns:e="package">
+    <fx:Script>
         <![CDATA[
             [JetXML]
             public var xy: Number = 0;
         ]]>
-    </script>
+    </fx:Script>
 
     <!-- Water pool -->
     <e:WaterPool>
         <f:Helper/>
     </e:WaterPool>
-</Maze>
+</f:Container>
 ```
 
 **Node.jet**
@@ -40,14 +40,14 @@ The `jetxmlStatus` property is in general used to cause a next rendering on a ne
 
 JetXML may support data bindings in the future. Data bindings allow connecting property values through events.
 
-## Outlet
+## \<fx:Children/\>
 
-The empty `<outlet/>` tag may appear anywhere in a JetXML file to indicate where to add a tag's children:
+The empty `<fx:Children/>` tag, where `fx` is the namespace `http://www.jetwork.org/lang/jetxml`, may appear anywhere in a JetXML file to indicate where to add the tag's children:
 
 ```xml
-<Maze xmlns:f="fu.tree" extends="f.Leaf">
+<f:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:f="fu.tree">
     <f:Container>
-        <outlet/>
+        <fx:Children/>
     </f:Container>
-</Maze>
+</f:Container>
 ```

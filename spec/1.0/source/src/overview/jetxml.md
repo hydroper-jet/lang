@@ -18,10 +18,9 @@ Here is an example JetXML class:
         ]]>
     </fx:Script>
 
-    <!-- Water pool -->
-    <e:WaterPool>
+    <e:Container>
         <f:Helper/>
-    </e:WaterPool>
+    </e:Container>
 </f:Container>
 ```
 
@@ -47,7 +46,9 @@ The empty `<fx:Children/>` tag, where `fx` is the namespace `http://www.jetwork.
 ```xml
 <f:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:f="fu.tree">
     <f:Container>
-        <fx:Children/>
+        <f:Container>
+            <fx:Children/>
+        </f:Container>
     </f:Container>
 </f:Container>
 ```

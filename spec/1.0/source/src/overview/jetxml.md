@@ -50,7 +50,7 @@ The empty `<fx:Children/>` tag, where `fx` is the namespace `http://www.jetwork.
 </f:Container>
 ```
 
-## Script
+## \<fx:Script\>
 
 The `<fx:Script>` tag, where `fx` is the namespace `http://www.jetwork.org/lang/jetxml`, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer module.
 

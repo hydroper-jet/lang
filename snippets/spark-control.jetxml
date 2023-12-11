@@ -1,9 +1,9 @@
-<s:SparkControl xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:s="spark.controls">
+<s:Application xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:s="spark.controls">
     <fx:Script>
         <![CDATA[
-            protected function initialize(): void {
-                /* Initialized */
+            public function ExampleApplication(): void {
+                super();
             }
         ]]>
     </fx:Script>
-</s:SparkControl>
+</s:Application>

@@ -28,11 +28,11 @@ The identifying file extensions for Jetwork programs are:
 
 Property access operators are similiar to ECMAScript property operators, with the exclusion of implicit conversion. Solely string and number types can be used to index.
 
-Indexing by a number type is equivalent to using one of the interfaces `jetwork.operators.Get`, `jetwork.operators.Set`, and `jetwork.operators.Delete`.
+Indexing by a number type is equivalent to using one of the proxies `get`, `set`, and `delete`.
 
 # `in` operator
 
-Unlike ECMAScript, the `in` operator is not property-tied: it always uses the `jetwork.operators.Has` interface.
+Unlike ECMAScript, the `in` operator is not property-tied: it always uses the `has` proxy.
 
 The `in` operator does not consider the prototype inheritance model of ECMAScript.
 
@@ -201,19 +201,16 @@ const v: * = v;
 v.inexistent; // May throw a fatal exception
 ```
 
-# Name resolution
+# Name resolution and modules
 
-All items are categorized in the name resolution and some expressions
-such as member expressions can be ambiguously resolved.
-
-For example:
-
-- types;
-- modules;
-- properties;
-- functions.
+* Fully-qualified module paths shadow all variable names.
+* Modules must be imported through `use` before they are used in code.
 
 # Module paths
+
+* `this package` refers to the topmost module of a JetWork package.
+* `super` refers to the super module of the enclosing module.
+* `this` refers to the enclosing module.
 
 ```
 use this package.x;
@@ -240,9 +237,9 @@ When implementing generic interfaces more than once, JetWork accepts multimethod
 
 JetWork uses garbage collection for all types.
 
-* Use the `[Reference]` meta data to indicate a type is copied, cloned and compared by reference, automatically implementing `Copy`, `Clone`, `Equals`, and `Hash`.
-* Use the `[Value]` meta data to indicate a type is copied and cloned by value, automatically implementing `Copy` and `Clone`.
-* Types that do not contain or inherit a `[Reference]` or `[Value]` meta data are not copied implicitly.
+* Use the `[Reference]` meta data to indicate a type is copied, cloned and compared by reference. The `[Reference]` meta data overrides the `clone()`, `hash()` and `equals()` methods.
+* Use the `[Value]` meta data to indicate a type is copied and cloned by value. The `[Value]` meta data overrides the `clone()` method. The `hash()` and `equals()` methods, if not overriden by the user, throw an exception by default.
+* Types that do not contain or inherit a `[Reference]` or `[Value]` meta data are not copied implicitly. The `clone()`, `hash()` and `equals()` methods, if not overriden by the user, throw an exception by default.
 
 ```
 [Reference]
@@ -256,7 +253,7 @@ The type `Shared` can be used for sharing certain non reference types:
 ```
 const m: Shared.<Map.<Number, Number>> = new Shared(new Map());
 
-// `Shared.<T>` implements `Delegate.<T>`, delegating inexistent accesses
+// `Shared.<T>` implements the delegate() proxy, delegating inexistent accesses
 // to the base type.
 const v = m[k];
 ```
@@ -286,19 +283,6 @@ A rest parameter allows specifying an optional trailing sequence of arguments at
 # Multimethods
 
 Methods that contain overloads are multimethods. Method overloads support multiple call signatures.
-
-# Interface derivation
-
-Native interfaces such as `Hash`, `Clone` and `Serializable` can be implemented automatically through the `Derive` meta data.
-
-```
-[Derive(Serializable)]
-public class C {}
-```
-
-# Serialization
-
-The language comes with built-in forms of serialization. Classes can derive `Serializable` in order to be serialized and deserialized into a format; the `Serializable` attribute can additionally be used to customize the serialization behavior.
 
 # Enums
 
@@ -414,7 +398,7 @@ function testSomething() {
 }
 ```
 
-# Abstract clasases and methods
+# Abstract classes and methods
 
 Abstract classes and abstract methods are supported. Abstract methods allow for exhaustive implementation of an operation across all subclasses of a class.
 
@@ -452,12 +436,12 @@ listener.remove();
 
 J4X stands for JetWork for XML and provides XML support. It supports much of the legacy ECMAScript for XML standard, but in a different way. It supports property and query operators.
 
-J4X introduces the following operator interfaces:
+J4X introduces the following operator methods:
 
-* `j4x.operators.Get`
-* `j4x.operators.Set`
-* `j4x.operators.Delete`
-* `j4x.operators.Has`
+* `proxy function getJ4X(...)`
+* `proxy function setJ4X(...)`
+* `proxy function deleteJ4X(...)`
+* `proxy function hasJ4X(...)`
 
 J4X introduces the following syntax:
 
@@ -468,3 +452,13 @@ J4X introduces the following syntax:
 * XML initializer
 * XML list initializer
 * `default xml namespace = ns;`
+
+# Proxy
+
+JetWork supports proxies with the `proxy` attribute to indicate custom behavior. Miscellaneous proxies are supported, including `delegate()`, `add()`, and other proxies. Here is one example:
+
+```
+public class ProxyExample {
+    proxy function get(index: Number): Number (NaN);
+}
+```

@@ -73,6 +73,7 @@ type
 
 embed
 never
+proxy
 where
 
 static

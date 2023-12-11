@@ -40,24 +40,28 @@ Statements:
   * `lookahead != ["{", "function"]`
 * [ ] Labeled statement
 * [ ] Empty statement
+* [ ] Default XML namespace statement
 
 Expressions:
 
-* [ ] Identifier
+* [ ] QualifiedIdentifier
 * [ ] BooleanLiteral
 * [ ] NumericLiteral
 * [ ] StringLiteral
 * [ ] ThisExpression
 * [ ] SuperExpression
   * `super` may be used alone to refer to a super module.
-* [ ] PackageExpression
-  * `package` is used to refer to the package module.
+* [ ] ThisPackageExpression
+  * `this package` is used to refer to the package module.
 * [ ] RegExpLiteral
 * [ ] ParenExpression
 * [ ] ArrayInitialiser
 * [ ] ObjectInitialiser
 * [ ] FunctionExpression
 * [ ] ArrowFunction
+* [ ] XMLMarkup
+* [ ] XMLInitializer
+* [ ] XMLListInitializer
 * [ ] CallExpression
 * [ ] UnaryExpression
   * [ ] Error propagation (postfix `?`)
@@ -68,8 +72,9 @@ Expressions:
   * `v is not T`
   * `v as T`
 * [ ] MemberExpression (`o.x`)
-  * Dot followed by IdentifierName
+  * `x` is a qualified identifier
 * [ ] ComputedMemberExpression (`o[k]`)
+* [ ] DescendantsExpression (`o..x`)
 * [ ] NewExpression
 * [ ] ListExpression
 * [ ] ConditionalExpression
@@ -94,7 +99,7 @@ Type expressions:
 * [ ] Undefined
 * [ ] This (refers either to the enclosing module or the type itself)
 * [ ] Super (always refers to the enclosing module's super module)
-* [ ] Package (always refers to the package's module)
+* [ ] This package (always refers to the package's module)
 * [ ] Function
   * [ ] `throws`
 * [ ] Array

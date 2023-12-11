@@ -448,6 +448,7 @@ J4X introduces the following syntax:
 * Punctuators
   * `@`
   * `::`
+  * `..`
 * XML markup
 * XML initializer
 * XML list initializer

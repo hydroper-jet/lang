@@ -35,12 +35,12 @@
     --theme-popup-border: #fff;
     --theme-hover: #bbb;
 
-    --quote-bg: hsl(226, 15%, 17%);
-    --quote-border: hsl(226, 15%, 22%);
+    --quote-bg: #bbb;
+    --quote-border: #bbb;
 
-    --table-border-color: hsl(226, 23%, 16%);
-    --table-header-bg: hsl(226, 23%, 31%);
-    --table-alternate-bg: hsl(226, 23%, 14%);
+    --table-border-color: #bbb;
+    --table-odd-bg: #d7dae7;
+    --table-even-bg: #fff;
 
     --searchbar-border-color: #000;
     --searchbar-bg: #fff;

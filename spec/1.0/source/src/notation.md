@@ -2,16 +2,31 @@
 
 ## Grammar definition
 
-This document uses the following notation to define *nonterminals* of the grammar:
+This document uses the following notation to define productions of a *nonterminal* of the grammar:
 
-```plain
-NonterminalName : Element1 ... ElementN
-```
-
-This document uses the same notation with a `::` assignment instead of a `:` assignment to define *nonterminals* of the lexical grammar:
-
-```plain
-NonterminalName :: Element1 ... ElementN
-```
+<table>
+    <tr>
+        <td colspan="2"><i>NonterminalName</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Rule1</i> <i>RuleN</i></td>
+    </tr>
+</table>
 
 Nonterminals followed by the <sub>opt</sub> subscript are optional rules.
+
+A bracketed clause or predicate may appear between the rules of a production, such as in:
+
+<table>
+    <tr>
+        <td colspan="2"><i>NonterminalName</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[lookahead ∈ {<b>0</b>}] <i>Rule1</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[lookahead ∉ {<b>default</b>}] <i>Rule2</i></td>
+    </tr>
+        <td>&nbsp;</td><td><i>SourceCharacters</i> [but no embedded <b>&lt;!&#x5b;CDATA&#x5b;</b>] <i>Rule3</i></td>
+    </tr>
+</table>

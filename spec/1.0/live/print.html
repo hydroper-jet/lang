@@ -330,14 +330,30 @@ public abstract class Node implements JetXML { /* ... */ }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notation"><a class="header" href="#notation">Notation</a></h1>
 <h2 id="grammar-definition"><a class="header" href="#grammar-definition">Grammar definition</a></h2>
-<p>This document uses the following notation to define <em>nonterminals</em> of the grammar:</p>
-<pre><code class="language-plain">NonterminalName : Element1 ... ElementN
-</code></pre>
-<p>This document uses the same notation with a <code>::</code> assignment instead of a <code>:</code> assignment to define <em>nonterminals</em> of the lexical grammar:</p>
-<pre><code class="language-plain">NonterminalName :: Element1 ... ElementN
-</code></pre>
+<p>This document uses the following notation to define productions of a <em>nonterminal</em> of the grammar:</p>
+<table>
+    <tr>
+        <td colspan="2"><i>NonterminalName</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Rule1</i> <i>RuleN</i></td>
+    </tr>
+</table>
 <p>Nonterminals followed by the <sub>opt</sub> subscript are optional rules.</p>
-
+<p>A bracketed clause or predicate may appear between the rules of a production, such as in:</p>
+<table>
+    <tr>
+        <td colspan="2"><i>NonterminalName</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[lookahead ∈ {<b>0</b>}] <i>Rule1</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[lookahead ∉ {<b>default</b>}] <i>Rule2</i></td>
+    </tr>
+        <td>&nbsp;</td><td><i>SourceCharacters</i> [but no embedded <b>&lt;!&#x5b;CDATA&#x5b;</b>] <i>Rule3</i></td>
+    </tr>
+</table>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

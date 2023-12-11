@@ -122,10 +122,7 @@ table {
 }
 table td {
     padding: 3px 20px;
-    border: 1px var(--table-border-color) solid;
-}
-table thead {
-    background: var(--table-header-bg);
+    border: 2px var(--table-border-color) solid;
 }
 table thead td {
     font-weight: 700;
@@ -135,11 +132,13 @@ table thead th {
     padding: 3px 20px;
 }
 table thead tr {
-    border: 1px var(--table-header-bg) solid;
+    border: 2px var(--table-border-color) solid;
 }
-/* Alternate background colors for rows */
-table tbody tr:nth-child(2n) {
-    background: var(--table-alternate-bg);
+table tr:nth-child(even) {
+    background: var(--table-even-bg);
+}
+table tr:nth-child(odd) {
+    background: var(--table-odd-bg);
 }
 
 

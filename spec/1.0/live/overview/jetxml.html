@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="../overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="../overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="../overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="../overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="../overview/jetxml.html" class="active"><strong aria-hidden="true">1.6.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="../notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="../overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="../overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="../overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="../overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="../overview/proxy.html"><strong aria-hidden="true">1.6.</strong> Proxy</a></li><li class="chapter-item expanded "><a href="../overview/jetxml.html" class="active"><strong aria-hidden="true">1.7.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="../notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -168,12 +168,12 @@
                         <h1 id="jetxml"><a class="header" href="#jetxml">JetXML</a></h1>
 <p>JetWork supports classes in XML form called <em>JetXML</em>. A JetXML is a file with the extension <code>.jetxml</code>. A JetXML is instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.</p>
 <ul>
-<li>It is allowed to alias JetWork modules inside <code>.jetxml</code> classes and the alias is available both within the code and within the XML tags:</li>
+<li>It is allowed to alias JetWork modules inside <code>.jetxml</code> classes as a XML namespace and the alias is available both within the code and within the XML tags.</li>
 <li>JetXML classes extend another class, which is based in the root XML element.</li>
 </ul>
 <p>Here is an example JetXML:</p>
 <p><strong>ExampleJetXML.jetxml</strong></p>
-<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:k=&quot;org.k&quot; xmlns:example=&quot;package&quot;&gt;
+<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:k=&quot;org.k&quot; xmlns:example=&quot;this package&quot;&gt;
     &lt;fx:Script&gt;
         &lt;![CDATA[
             public var xy: Number = 0;
@@ -185,10 +185,10 @@
 &lt;/k:Container&gt;
 </code></pre>
 <p>For the given example, <code>k:Container</code> inherits from the following abstract <em>Node</em> class from <code>org.k</code>:</p>
-<pre><code>import jetwork.jetxml.JetXML;
+<pre><code>import jetxml.JetXML;
 public abstract class Node implements JetXML { /* ... */ }
 </code></pre>
-<p>The example JetXML is used as follows in the <code>package</code> module:</p>
+<p>The example JetXML is used as follows in the <code>this package</code> module:</p>
 <pre><code>public use * from &quot;ExampleJetXML&quot;;
 </code></pre>
 <p>Explanatory comments:</p>
@@ -243,7 +243,7 @@ public abstract class Node implements JetXML { /* ... */ }
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../overview/exceptions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../overview/proxy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
@@ -257,7 +257,7 @@ public abstract class Node implements JetXML { /* ... */ }
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../overview/exceptions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../overview/proxy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 

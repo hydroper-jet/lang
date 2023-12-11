@@ -6,5 +6,6 @@
   - [Compilation and transpilation](overview/compilation.md)
   - [String encoding](overview/string-encoding.md)
   - [Exceptions](overview/exceptions.md)
+  - [Proxy](overview/proxy.md)
   - [JetXML](overview/jetxml.md)
 - [Notation](notation.md)

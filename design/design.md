@@ -30,7 +30,11 @@ Property access operators are similiar to ECMAScript property operators, with th
 
 Indexing by a number type is equivalent to using one of the interfaces `jetwork.operators.Get`, `jetwork.operators.Set`, and `jetwork.operators.Delete`.
 
+# `in` operator
+
 Unlike ECMAScript, the `in` operator is not property-tied: it always uses the `jetwork.operators.Has` interface.
+
+The `in` operator does not consider the prototype inheritance model of ECMAScript.
 
 # Package (registry namespace)
 
@@ -212,7 +216,7 @@ For example:
 # Module paths
 
 ```
-use package.x;
+use this package.x;
 use super.y;
 // use this.z;
 ```
@@ -362,24 +366,28 @@ The language supports single-class inheritance as in ActionScript, featuring:
 
 The visibility of item is either a visibility ranging from a module to all of its descendants, or a `protected` visibility that ranges from the enclosing class to its subclasses. The `public` modifier indicates that the item is visible to all programs, while the `internal` or `private` modifiers indicate that the item is visible to the containing module and all of its descendants.
 
-The `[Public(q)]` meta data is used to specify the module to which an item is visible. For example, the following indicates that the function `f` is available to `package` (the top module of the package) and all of its descendants:
+The `[Public(q)]` meta data is used to specify the module to which an item is visible. For example, the following indicates that the function `f` is available to `this package` (the top module of the package) and all of its descendants:
 
 ```
-[Public(package)]
+[Public(this package)]
 function f() {}
 ```
 
 # Meta data
 
-Meta data can be attached to items. There are two categories of meta data: reserved meta data and user meta data.
+Meta data can be attached to items. There are three categories of meta data: reserved meta data, user meta data and plain meta data.
 
-User meta data has the same semantics as per the reference in my previous language.
+* Plain meta data is uninterpreted meta data placed inside a `[Metadata()]` meta data.
+* User meta data has the same semantics as per the reference in VioletScript.
 
-# Conditional compilation
+## Plain meta data
+
+* Plain meta data supports qualified names `q::N` that map to a equivalent string
+* The entries are in the `x = "y"` pair form
+* Keyless entries are either in the form `q::n`, `n` or `"n"` and map to a value string
 
 ```
-[Config(...)]
-item;
+[Metadata(N1(x = "y", z, "w"))]
 ```
 
 # Fatal exceptions
@@ -439,3 +447,24 @@ listener.remove();
 
 * *CharIndex* holds (*string*, *index*).
 * The zero constant implicitly converts to *CharIndex*.
+
+# J4X
+
+J4X stands for JetWork for XML and provides XML support. It supports much of the legacy ECMAScript for XML standard, but in a different way. It supports property and query operators.
+
+J4X introduces the following operator interfaces:
+
+* `j4x.operators.Get`
+* `j4x.operators.Set`
+* `j4x.operators.Delete`
+* `j4x.operators.Has`
+
+J4X introduces the following syntax:
+
+* Punctuators
+  * `@`
+  * `::`
+* XML markup
+* XML initializer
+* XML list initializer
+* `default xml namespace = ns;`

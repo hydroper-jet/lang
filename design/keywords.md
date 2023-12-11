@@ -63,6 +63,7 @@ implements
 ```plain
 get
 set
+xml
 
 each
 enum

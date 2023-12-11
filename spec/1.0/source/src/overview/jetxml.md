@@ -10,7 +10,7 @@ Here is an example JetXML:
 **ExampleJetXML.jetxml**
 
 ```xml
-<k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:k="org.k" xmlns:example="package">
+<k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:k="org.k" xmlns:example="this package">
     <fx:Script>
         <![CDATA[
             public var xy: Number = 0;
@@ -25,11 +25,11 @@ Here is an example JetXML:
 For the given example, `k:Container` inherits from the following abstract *Node* class from `org.k`:
 
 ```
-import jetwork.jetxml.JetXML;
+import jetxml.JetXML;
 public abstract class Node implements JetXML { /* ... */ }
 ```
 
-The example JetXML is used as follows in the `package` module:
+The example JetXML is used as follows in the `this package` module:
 
 ```
 public use * from "ExampleJetXML";

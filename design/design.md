@@ -28,7 +28,7 @@ The identifying file extensions for Jetwork programs are:
 
 Property access operators are similiar to ECMAScript property operators, with the exclusion of implicit conversion. Solely string and number types can be used to index.
 
-Indexing by a number type is equivalent to using one of the proxies `get`, `set`, and `delete`.
+Indexing by a number type is equivalent to using one of the proxies `getProperty`, `setProperty`, and `deleteProperty`.
 
 # `in` operator
 
@@ -439,10 +439,9 @@ J4X stands for JetWork for XML and provides XML support. It supports much of the
 
 J4X introduces the following operator methods:
 
-* `proxy function getJ4X(...)`
-* `proxy function setJ4X(...)`
-* `proxy function deleteJ4X(...)`
-* `proxy function hasJ4X(...)`
+* `proxy function getXMLProperty(...)`
+* `proxy function setXMLProperty(...)`
+* `proxy function deleteXMLProperty(...)`
 
 J4X introduces the following syntax:
 

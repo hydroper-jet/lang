@@ -7,5 +7,6 @@
   - [String encoding](overview/string-encoding.md)
   - [Exceptions](overview/exceptions.md)
   - [Proxy](overview/proxy.md)
+  - [J4X](overview/j4x.md)
   - [JetXML](overview/jetxml.md)
 - [Notation](notation.md)

@@ -1,7 +1,7 @@
 <s:Application xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:s="spark.controls">
     <fx:Script>
         <![CDATA[
-            public function ExampleApplication(): void {
+            public function ExampleApplication() {
                 super();
             }
         ]]>

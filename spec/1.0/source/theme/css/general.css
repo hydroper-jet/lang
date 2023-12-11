@@ -104,7 +104,13 @@ h6:target::before {
 .content p { line-height: 1.45em; }
 .content ol { line-height: 1.45em; }
 .content ul { line-height: 1.45em; }
-.content a { text-decoration: none; }
+.content a {
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+.content a:hover {
+    border-bottom: 1px solid var(--links);
+}
 .content a:hover { text-decoration: underline; }
 .content img, .content video { max-width: 100%; }
 .content .header:link,
@@ -117,7 +123,7 @@ h6:target::before {
 }
 
 table {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     border-collapse: collapse;
 }
 table td {

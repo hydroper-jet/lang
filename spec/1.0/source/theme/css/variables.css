@@ -7,7 +7,7 @@
     --content-max-width: 750px;
     --menu-bar-height: 50px;
     --mono-font: "Monaspace Xenon", "DejaVu Sans Mono", monospace;
-    --code-font-size: 0.87em /* please adjust the ace font size accordingly in editor.js */
+    --code-font-size: 0.99em /* please adjust the ace font size accordingly in editor.js */
 }
 
 /* Themes */

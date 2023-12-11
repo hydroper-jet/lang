@@ -2,7 +2,7 @@
 
 JetWork supports classes in XML form called *JetXML*. A JetXML is a file with the extension `.jetxml`. A JetXML is instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.
 
-* It is allowed to alias JetWork modules inside `.jetxml` classes and the alias is available both within the code and within the XML tags:
+* It is allowed to alias JetWork modules inside `.jetxml` classes as a XML namespace and the alias is available both within the code and within the XML tags.
 * JetXML classes extend another class, which is based in the root XML element.
 
 Here is an example JetXML:

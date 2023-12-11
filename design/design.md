@@ -238,26 +238,9 @@ When implementing generic interfaces more than once, JetWork accepts multimethod
 
 JetWork uses garbage collection for all types.
 
-* Use the `[Reference]` meta data to indicate a type is copied, cloned and compared by reference. The `[Reference]` meta data overrides the `clone()`, `hash()` and `equals()` methods.
-* Use the `[Value]` meta data to indicate a type is copied and cloned by value. The `[Value]` meta data overrides the `clone()` method. The `hash()` and `equals()` methods, if not overriden by the user, throw a fatal exception by default.
-* Types that do not contain or inherit a `[Reference]` or `[Value]` meta data are not copied implicitly. The `clone()`, `hash()` and `equals()` methods, if not overriden by the user, throw a fatal exception by default.
-
-```
-[Reference]
-class C0 {}
-[Value]
-class C1 {}
-```
-
-The type `Shared` can be used for sharing certain non reference types:
-
-```
-const m: Shared.<Map.<Number, Number>> = new Shared(new Map());
-
-// `Shared.<T>` implements the delegate() proxy, delegating inexistent accesses
-// to the base type.
-const v = m[k];
-```
+* `[object Object].clone()` — Throws a fatal exception by default.
+* `[object Object].equals()` — By default, compares object equality by reference.
+* `[object Object].hash()` — Returns the hash code of an object.
 
 # Methods
 

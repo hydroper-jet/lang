@@ -350,11 +350,11 @@ The language supports single-class inheritance as in ActionScript, featuring:
 
 The visibility of item is either a visibility ranging from a module to all of its descendants, or a `protected` visibility that ranges from the enclosing class to its subclasses. The `public` modifier indicates that the item is visible to all programs, while the `internal` or `private` modifiers indicate that the item is visible to the containing module and all of its descendants.
 
-The `[Public(q)]` meta data is used to specify the module to which an item is visible. For example, the following indicates that the function `f` is available to `this package` (the top module of the package) and all of its descendants:
+The `[Public(q)]` meta data is used to specify the module to which an item is visible, accompanied by the `internal` modifier. For example, the following indicates that the function `f` is available to `this package` (the top module of the package) and all of its descendants:
 
 ```
 [Public(this package)]
-function f() {}
+internal function f() {}
 ```
 
 # Meta data

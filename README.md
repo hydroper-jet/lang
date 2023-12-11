@@ -31,3 +31,7 @@ JetWork may be of interest to the following technologies:
 ## Compiler
 
 The compiler is not available in the present.
+
+## License
+
+Apache License 2.0

@@ -233,10 +233,6 @@ class C {
 }
 ```
 
-# Generic interfaces
-
-When implementing generic interfaces more than once, JetWork accepts multimethods, thus solving name conflict.
-
 # Memory management
 
 JetWork uses garbage collection for all types.
@@ -266,10 +262,6 @@ Optional parameters can be omitted in function calls.
 # Rest parameters
 
 A rest parameter allows specifying an optional trailing sequence of arguments at a function call.
-
-# Multimethods
-
-Methods that contain overloads are multimethods. Method overloads support multiple call signatures.
 
 # Enums
 
@@ -458,3 +450,7 @@ Variables in an activation shadow other variables in the same frame.
 const x: Number = Infinity;
 const x: String = "";
 ```
+
+# Overriding a method
+
+* Overriding a method allows for introduction of new optional parameters and/or rest parameter. This is the case for standard classes like `Number` that include a `toString()` method that takes an optional radix parameter.

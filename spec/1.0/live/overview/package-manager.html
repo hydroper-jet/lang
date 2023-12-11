@@ -174,14 +174,14 @@
 </ul>
 <p>Registry namespaces allow distinguishing dependencies from different platforms; without registry namespaces, the registry can get cluttered over time and working with different platforms can be a confusing experience.</p>
 <p>A particular package can only depend in two registry namespaces: <code>*</code> and another optional registry namespace specified by the package manifest's top-level <code>registryNamespace</code> option. The <code>*</code> registry namespace indicates that the package does not rely on a platform.</p>
-<p>Here is an example of a potential package manifest that uses <code>http://www.w3.org/web</code> as its dependency namespace:</p>
+<p>Here is an example of a potential package manifest that uses <code>http://www.w3.org/web</code> as its registry namespace:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;org.q.f&quot;,
     &quot;registryNamespace&quot;: &quot;http://www.w3.org/web&quot;,
     &quot;dependencies&quot;: {
         &quot;*&quot;: {
-            &quot;xml&quot;: &quot;1.0.0&quot;,
+            &quot;org.xml&quot;: &quot;1.0.0&quot;,
         },
         &quot;http://www.w3.org/web&quot;: {
             &quot;goog.g&quot;: &quot;1.0.0&quot;

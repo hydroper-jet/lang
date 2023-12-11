@@ -171,7 +171,7 @@
 <li>It is allowed to alias JetWork modules inside <code>.jetxml</code> classes and the alias is available both within the code and within the XML tags:</li>
 <li>JetXML classes extend another class, which is based in the root XML element.</li>
 </ul>
-<p>Here is an example JetXML class:</p>
+<p>Here is an example JetXML:</p>
 <p><strong>ExampleJetXML.jetxml</strong></p>
 <pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:k=&quot;org.k&quot; xmlns:example=&quot;package&quot;&gt;
     &lt;fx:Script&gt;
@@ -184,9 +184,12 @@
     &lt;/example:Container&gt;
 &lt;/k:Container&gt;
 </code></pre>
-<p>For the given example, <code>k:Container</code> inherits from the following abstract <em>Node</em> class from <code>org.k</code> applies:</p>
+<p>For the given example, <code>k:Container</code> inherits from the following abstract <em>Node</em> class from <code>org.k</code>:</p>
 <pre><code>import jetwork.jetxml.JetXML;
 public abstract class Node implements JetXML { /* ... */ }
+</code></pre>
+<p>The example JetXML is used as follows in the <code>package</code> module:</p>
+<pre><code>public use * from &quot;ExampleJetXML&quot;;
 </code></pre>
 <p>Explanatory comments:</p>
 <ul>
@@ -212,13 +215,13 @@ public abstract class Node implements JetXML { /* ... */ }
 <p>There are two forms of <code>fx:Script</code>:</p>
 <ul>
 <li><code>&lt;fx:Script&gt;</code> — Attaches code to the class block.</li>
-<li><code>&lt;fx:Script scope=&quot;module&quot;&gt;</code> — Attaches code to the class's module.</li>
+<li><code>&lt;fx:Script type=&quot;module&quot;&gt;</code> — Attaches code to the class's module.</li>
 </ul>
 <p>Here is an example attaching code to the class's module:</p>
 <pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:k=&quot;org.k&quot;&gt;
-    &lt;fx:Script scope=&quot;module&quot;&gt;
+    &lt;fx:Script type=&quot;module&quot;&gt;
         &lt;![CDATA[
-            public type LoaderResult = Result.&lt;ByteArray, TypeError, VerifyError&gt;;
+            public type ExampleJetXMLResult = Result.&lt;ByteArray, TypeError, VerifyError&gt;;
         ]]&gt;
     &lt;/fx:Script&gt;
 &lt;/k:Container&gt;

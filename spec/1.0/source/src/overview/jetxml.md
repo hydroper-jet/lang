@@ -5,7 +5,7 @@ JetWork supports classes in XML form called *JetXML*. A JetXML is a file with th
 * It is allowed to alias JetWork modules inside `.jetxml` classes and the alias is available both within the code and within the XML tags:
 * JetXML classes extend another class, which is based in the root XML element.
 
-Here is an example JetXML class:
+Here is an example JetXML:
 
 **ExampleJetXML.jetxml**
 
@@ -22,11 +22,17 @@ Here is an example JetXML class:
 </k:Container>
 ```
 
-For the given example, `k:Container` inherits from the following abstract *Node* class from `org.k` applies:
+For the given example, `k:Container` inherits from the following abstract *Node* class from `org.k`:
 
 ```
 import jetwork.jetxml.JetXML;
 public abstract class Node implements JetXML { /* ... */ }
+```
+
+The example JetXML is used as follows in the `package` module:
+
+```
+public use * from "ExampleJetXML";
 ```
 
 Explanatory comments:
@@ -61,15 +67,15 @@ The `<fx:Script>` tag, where `fx` is the namespace `http://www.jetwork.org/lang/
 There are two forms of `fx:Script`:
 
 * `<fx:Script>` — Attaches code to the class block.
-* `<fx:Script scope="module">` — Attaches code to the class's module.
+* `<fx:Script type="module">` — Attaches code to the class's module.
 
 Here is an example attaching code to the class's module:
 
 ```xml
 <k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:k="org.k">
-    <fx:Script scope="module">
+    <fx:Script type="module">
         <![CDATA[
-            public type LoaderResult = Result.<ByteArray, TypeError, VerifyError>;
+            public type ExampleJetXMLResult = Result.<ByteArray, TypeError, VerifyError>;
         ]]>
     </fx:Script>
 </k:Container>

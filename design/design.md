@@ -205,6 +205,7 @@ v.inexistent; // May throw a fatal exception
 
 * Fully-qualified module paths shadow all variable names.
 * Modules must be imported through `use` before they are used in code.
+* Item or wildcard in an `use` item never imports a module; it may, however, be used to alias a module, as in `use n1 = n2.*;`.
 
 # Module paths
 

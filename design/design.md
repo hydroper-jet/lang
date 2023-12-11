@@ -146,6 +146,9 @@ o!.f();
 
 // Optional chaining
 try o?.f();
+
+// Nullish-coalescing
+(o ?? new T()).action();
 ```
 
 # `Result`
@@ -445,4 +448,13 @@ JetWork supports proxies with the `proxy` attribute to indicate custom behavior.
 public class ProxyExample {
     proxy function get(index: Number): Number (NaN);
 }
+```
+
+# Variable shadowing
+
+Variables in an activation shadow other variables in the same frame.
+
+```
+const x: Number = Infinity;
+const x: String = "";
 ```

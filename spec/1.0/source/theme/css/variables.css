@@ -13,7 +13,7 @@
 /* Themes */
 
 .ayu, .coal, .light, .navy, .rust {
-    --bg: #ddd;
+    --bg: #959cb5;
     --fg: #222;
 
     --sidebar-bg: var(--bg);
@@ -31,9 +31,9 @@
 
     --inline-code-color: #222;
 
-    --theme-popup-bg: #fff;
-    --theme-popup-border: #fff;
-    --theme-hover: #bbb;
+    --theme-popup-bg: #7072c5;
+    --theme-popup-border: #7072c5;
+    --theme-hover: #aaa;
 
     --quote-bg: #bbb;
     --quote-border: #bbb;

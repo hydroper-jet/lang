@@ -72,13 +72,16 @@ meta
 type
 
 embed
+final
 never
 proxy
 where
 
+native
 static
 
 abstract
+override
 
 namespace
 undefined

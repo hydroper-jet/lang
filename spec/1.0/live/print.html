@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="overview/proxy.html"><strong aria-hidden="true">1.6.</strong> Proxy</a></li><li class="chapter-item expanded "><a href="overview/j4x.html"><strong aria-hidden="true">1.7.</strong> J4X</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.8.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="overview/nullability.html"><strong aria-hidden="true">1.6.</strong> Nullability</a></li><li class="chapter-item expanded "><a href="overview/proxy.html"><strong aria-hidden="true">1.7.</strong> Proxy</a></li><li class="chapter-item expanded "><a href="overview/j4x.html"><strong aria-hidden="true">1.8.</strong> J4X</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.9.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -258,6 +258,38 @@ function task2(): void throws RangeError {
 }
 
 task2()!; // Fine
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nullability"><a class="header" href="#nullability">Nullability</a></h1>
+<p>The <code>Optional.&lt;T&gt;</code> class is the primary way of working with nullable data.</p>
+<ul>
+<li>The nullish coalescing operator returns the right operand if the left operand is <code>undefined</code>.</li>
+</ul>
+<pre><code>public class ExampleClass {
+    public const data: Optional.&lt;Number&gt; = undefined;
+    public function ExampleClass(data: Optional.&lt;Number&gt;) {
+        this.data = data;
+    }
+    public function doubleIt(): ExampleClass (
+        new ExampleClass((this.data ?? 0) * 2)
+    );
+}
+// 0
+trace(new ExampleClass(undefined).doubleIt().data);
+// 20
+trace(new ExampleClass(10).doubleIt().data);
+</code></pre>
+<ul>
+<li>The non-erroneous assertion operator ensures the operand is not <code>undefined</code> and not an exception.</li>
+</ul>
+<pre><code>// Fatal exception
+trace(new ExampleClass(undefined).data!);
+</code></pre>
+<ul>
+<li>For <code>Optional.&lt;T&gt;</code>, the error propagation operator returns <code>undefined</code> from the enclosing function or containing <code>try</code> expression if the operand is <code>undefined</code>.</li>
+</ul>
+<pre><code>public function process(a: Optional.&lt;Number&gt;): Optional.&lt;String&gt; (
+    a?.toString(16)
+);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proxy"><a class="header" href="#proxy">Proxy</a></h1>
 <p>JetWork operators can be customized through <em>proxies</em>.</p>

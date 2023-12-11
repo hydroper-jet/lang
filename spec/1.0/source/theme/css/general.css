@@ -126,7 +126,7 @@ table {
     /* margin: 0 auto; */
     border-collapse: collapse;
 }
-table td {
+table th, td {
     padding: 3px 20px;
     border: 2px var(--table-border-color) solid;
 }

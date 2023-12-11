@@ -221,42 +221,25 @@ trace(triangleArea(5, 6, 7));
 <div style="break-before: page; page-break-before: always;"></div><h1 id="string-encoding"><a class="header" href="#string-encoding">String encoding</a></h1>
 <p>The String data type uses an implementation-defined encoding and is supported by a <code>CharIndex</code> data type representing an index into a <code>String</code>.</p>
 <h2 id="slicing"><a class="header" href="#slicing">Slicing</a></h2>
-<p>Slice from second character:</p>
-<pre><code>const string2 = &quot;jetwork&quot;.substring(&quot;jetwork&quot;.firstIndex.next(1));
-</code></pre>
-<p>First three characters from the <code>&quot;jetwork&quot;</code> string:</p>
-<pre><code>trace(&quot;jetwork&quot;.slice(0, &quot;jetwork&quot;.firstIndex.next(3)));
-trace(&quot;jetwork&quot;.slice(0, &quot;jetwork&quot;.lastIndex.next(-4)));
-</code></pre>
+<div class="table-wrapper"><table><thead><tr><th>Method call</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>string.slice(string.firstIndex.next(1))</code></td><td>Slices string from second character</td></tr>
+<tr><td><code>string.slice(0, string.firstIndex.next(3))</code></td><td>Takes first three characters from a string</td></tr>
+<tr><td><code>string.slice(0, string.lastIndex.next(-4))</code></td><td>Slices string until last 4 characters</td></tr>
+</tbody></table>
+</div>
 <h2 id="characters"><a class="header" href="#characters">Characters</a></h2>
-<p>Character count:</p>
-<pre><code>trace(string1.chars().length());
-</code></pre>
-<p>Character count between <em>i</em> and <em>j</em>:</p>
-<pre><code>trace(string1.slice(i, j).chars().length());
-</code></pre>
-<p>Whether the string is empty or not:</p>
-<pre><code>trace(string1.isEmpty);
-trace(string1 == &quot;&quot;);
-</code></pre>
-<p>The following is the string length in the encoding units:</p>
-<ul>
-<li>for the UTF-8 encoding, the following is the number of bytes;</li>
-<li>for the UTF-16 encoding, the following is the number of UCS-2 units;</li>
-<li>for the UCS-4 encoding, the following is the number of Scalar Values;</li>
-</ul>
-<pre><code>trace(string1.length);
-</code></pre>
+<div class="table-wrapper"><table><thead><tr><th>Method call</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>string.chars().length()</code></td><td>The character count</td></tr>
+<tr><td><code>string.length</code></td><td>The string length in the encoding units. For UTF-8, it is the number of bytes.</td></tr>
+<tr><td><code>string.isEmpty</code>, <code>string == &quot;&quot;</code></td><td>Whether the string is empty or not</td></tr>
+</tbody></table>
+</div>
 <h2 id="miscellaneous"><a class="header" href="#miscellaneous">Miscellaneous</a></h2>
-<p>Scalar value at <em>i</em>:</p>
-<pre><code>const char: Char = string1.charAt(i);
-</code></pre>
-<p>For each Scalar Value:</p>
-<pre><code>for each (const char in string1) {
-    /* char: Char */
-}
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>string.charAt(i)</code></td><td>Character at <em>i</em></td></tr>
+<tr><td><code>for each (const ch in string) {}</code></td><td>Iterates every character</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h1>
 <p>JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are not caught by user code in JetWork.</p>
 <pre><code>function task(): void throws RangeError {
     // Throw a checked exception
@@ -283,34 +266,40 @@ task2()!; // Fine
 <li>JetXML classes extend another class, which is indicated by the root XML element.</li>
 </ul>
 <p>Here is an example JetXML class:</p>
-<p><strong>Maze.jetxml</strong></p>
-<pre><code class="language-xml">&lt;f:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:f=&quot;fu.tree&quot; xmlns:e=&quot;package&quot;&gt;
+<p><strong>ExampleJetXML.jetxml</strong></p>
+<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:k=&quot;org.k&quot; xmlns:e=&quot;package&quot;&gt;
     &lt;fx:Script&gt;
         &lt;![CDATA[
-            [JetXML]
             public var xy: Number = 0;
         ]]&gt;
     &lt;/fx:Script&gt;
-    &lt;e:Container&gt;&lt;f:Helper/&gt;&lt;/e:Container&gt;
-&lt;/f:Container&gt;
+    &lt;e:Container&gt;
+        &lt;k:Container/&gt;
+    &lt;/e:Container&gt;
+&lt;/k:Container&gt;
 </code></pre>
-<p><strong>Node.jet</strong></p>
+<p>For the given example, <code>k:Container</code> inherits from the following abstract <em>Node</em> class from <code>org.k</code> applies:</p>
 <pre><code>import jetwork.jetxml.JetXML;
 public abstract class Node implements JetXML { /* ... */ }
 </code></pre>
-<p>The <code>JetXML</code> meta data is used to automatically alter the rendering status of a node when the direct value of the <code>xy</code> property changes by assigning <code>jetxmlStatus = &quot;outdated&quot;</code>.</p>
-<p>The <code>jetxmlStatus</code> property is in general used to cause a next rendering on a next frame iteration of the node.</p>
+<p>Explanatory comments:</p>
+<ul>
+<li>The example ExampleJetXML.jetxml file defines a class that inherits from the <code>k:Container</code> class.</li>
+<li>The instance variable <code>xy</code> declared within the <code>fx:Script</code> tag automatically alters the rendering status of the <code>ExampleJetXML</code> instance when the direct value of the <code>xy</code> property is updated by an assignment; that is, assignments to <code>xy</code> are implicitly followed by a <code>node.jetxmlStatus = &quot;outdated&quot;;</code> assignment.</li>
+<li>The <code>jetxmlStatus</code> property may be used to cause a new rendering of the node on a next frame iteration.</li>
+<li>The <code>jetxmlStatus</code> property as defined by the <code>JetXML</code> interface is allowed to emit an event when assigned.</li>
+</ul>
 <h2 id="data-bindings"><a class="header" href="#data-bindings">Data bindings</a></h2>
 <p>JetXML may support data bindings in the future. Data bindings allow connecting property values through events.</p>
 <h2 id="fxchildren"><a class="header" href="#fxchildren">&lt;fx:Children/&gt;</a></h2>
 <p>The empty <code>&lt;fx:Children/&gt;</code> tag, where <code>fx</code> is the namespace <code>http://www.jetwork.org/lang/jetxml</code>, may appear anywhere in a JetXML file to indicate where to add the tag's children:</p>
-<pre><code class="language-xml">&lt;f:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:f=&quot;fu.tree&quot;&gt;
-    &lt;f:Container&gt;
-        &lt;f:Container&gt;
+<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:f=&quot;org.k&quot;&gt;
+    &lt;k:Container&gt;
+        &lt;k:Container&gt;
             &lt;fx:Children/&gt;
-        &lt;/f:Container&gt;
-    &lt;/f:Container&gt;
-&lt;/f:Container&gt;
+        &lt;/k:Container&gt;
+    &lt;/k:Container&gt;
+&lt;/k:Container&gt;
 </code></pre>
 <h2 id="fxscript"><a class="header" href="#fxscript">&lt;fx:Script&gt;</a></h2>
 <p>The <code>&lt;fx:Script&gt;</code> tag, where <code>fx</code> is the namespace <code>http://www.jetwork.org/lang/jetxml</code>, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer module.</p>
@@ -320,13 +309,13 @@ public abstract class Node implements JetXML { /* ... */ }
 <li><code>&lt;fx:Script type=&quot;module&quot;&gt;</code> — Attaches code to the class's module.</li>
 </ul>
 <p>Here is an example attaching code to the class's module:</p>
-<pre><code class="language-xml">&lt;f:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:f=&quot;fu.tree&quot;&gt;
+<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:f=&quot;org.k&quot;&gt;
     &lt;fx:Script type=&quot;module&quot;&gt;
         &lt;![CDATA[
             public type LoaderResult = Result.&lt;ByteArray, TypeError, VerifyError&gt;;
         ]]&gt;
     &lt;/fx:Script&gt;
-&lt;/f:Container&gt;
+&lt;/k:Container&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notation"><a class="header" href="#notation">Notation</a></h1>
 <h2 id="grammar-definition"><a class="header" href="#grammar-definition">Grammar definition</a></h2>

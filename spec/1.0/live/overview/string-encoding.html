@@ -168,42 +168,25 @@
                         <h1 id="string-encoding"><a class="header" href="#string-encoding">String encoding</a></h1>
 <p>The String data type uses an implementation-defined encoding and is supported by a <code>CharIndex</code> data type representing an index into a <code>String</code>.</p>
 <h2 id="slicing"><a class="header" href="#slicing">Slicing</a></h2>
-<p>Slice from second character:</p>
-<pre><code>const string2 = &quot;jetwork&quot;.substring(&quot;jetwork&quot;.firstIndex.next(1));
-</code></pre>
-<p>First three characters from the <code>&quot;jetwork&quot;</code> string:</p>
-<pre><code>trace(&quot;jetwork&quot;.slice(0, &quot;jetwork&quot;.firstIndex.next(3)));
-trace(&quot;jetwork&quot;.slice(0, &quot;jetwork&quot;.lastIndex.next(-4)));
-</code></pre>
+<div class="table-wrapper"><table><thead><tr><th>Method call</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>string.slice(string.firstIndex.next(1))</code></td><td>Slices string from second character</td></tr>
+<tr><td><code>string.slice(0, string.firstIndex.next(3))</code></td><td>Takes first three characters from a string</td></tr>
+<tr><td><code>string.slice(0, string.lastIndex.next(-4))</code></td><td>Slices string until last 4 characters</td></tr>
+</tbody></table>
+</div>
 <h2 id="characters"><a class="header" href="#characters">Characters</a></h2>
-<p>Character count:</p>
-<pre><code>trace(string1.chars().length());
-</code></pre>
-<p>Character count between <em>i</em> and <em>j</em>:</p>
-<pre><code>trace(string1.slice(i, j).chars().length());
-</code></pre>
-<p>Whether the string is empty or not:</p>
-<pre><code>trace(string1.isEmpty);
-trace(string1 == &quot;&quot;);
-</code></pre>
-<p>The following is the string length in the encoding units:</p>
-<ul>
-<li>for the UTF-8 encoding, the following is the number of bytes;</li>
-<li>for the UTF-16 encoding, the following is the number of UCS-2 units;</li>
-<li>for the UCS-4 encoding, the following is the number of Scalar Values;</li>
-</ul>
-<pre><code>trace(string1.length);
-</code></pre>
+<div class="table-wrapper"><table><thead><tr><th>Method call</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>string.chars().length()</code></td><td>The character count</td></tr>
+<tr><td><code>string.length</code></td><td>The string length in the encoding units. For UTF-8, it is the number of bytes.</td></tr>
+<tr><td><code>string.isEmpty</code>, <code>string == &quot;&quot;</code></td><td>Whether the string is empty or not</td></tr>
+</tbody></table>
+</div>
 <h2 id="miscellaneous"><a class="header" href="#miscellaneous">Miscellaneous</a></h2>
-<p>Scalar value at <em>i</em>:</p>
-<pre><code>const char: Char = string1.charAt(i);
-</code></pre>
-<p>For each Scalar Value:</p>
-<pre><code>for each (const char in string1) {
-    /* char: Char */
-}
-</code></pre>
-
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>string.charAt(i)</code></td><td>Character at <em>i</em></td></tr>
+<tr><td><code>for each (const ch in string) {}</code></td><td>Iterates every character</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

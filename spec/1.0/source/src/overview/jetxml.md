@@ -7,30 +7,34 @@ JetWork supports classes in XML form called *JetXML* classes. JetXML classes are
 
 Here is an example JetXML class:
 
-**Maze.jetxml**
+**ExampleJetXML.jetxml**
 
 ```xml
-<f:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:f="fu.tree" xmlns:e="package">
+<k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:k="org.k" xmlns:e="package">
     <fx:Script>
         <![CDATA[
-            [JetXML]
             public var xy: Number = 0;
         ]]>
     </fx:Script>
-    <e:Container><f:Helper/></e:Container>
-</f:Container>
+    <e:Container>
+        <k:Container/>
+    </e:Container>
+</k:Container>
 ```
 
-**Node.jet**
+For the given example, `k:Container` inherits from the following abstract *Node* class from `org.k` applies:
 
 ```
 import jetwork.jetxml.JetXML;
 public abstract class Node implements JetXML { /* ... */ }
 ```
 
-The `JetXML` meta data is used to automatically alter the rendering status of a node when the direct value of the `xy` property changes by assigning `jetxmlStatus = "outdated"`.
+Explanatory comments:
 
-The `jetxmlStatus` property is in general used to cause a next rendering on a next frame iteration of the node.
+* The example ExampleJetXML.jetxml file defines a class that inherits from the `k:Container` class.
+* The instance variable `xy` declared within the `fx:Script` tag automatically alters the rendering status of the `ExampleJetXML` instance when the direct value of the `xy` property is updated by an assignment; that is, assignments to `xy` are implicitly followed by a `node.jetxmlStatus = "outdated";` assignment.
+* The `jetxmlStatus` property may be used to cause a new rendering of the node on a next frame iteration.
+* The `jetxmlStatus` property as defined by the `JetXML` interface is allowed to emit an event when assigned.
 
 ## Data bindings
 
@@ -41,13 +45,13 @@ JetXML may support data bindings in the future. Data bindings allow connecting p
 The empty `<fx:Children/>` tag, where `fx` is the namespace `http://www.jetwork.org/lang/jetxml`, may appear anywhere in a JetXML file to indicate where to add the tag's children:
 
 ```xml
-<f:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:f="fu.tree">
-    <f:Container>
-        <f:Container>
+<k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:f="org.k">
+    <k:Container>
+        <k:Container>
             <fx:Children/>
-        </f:Container>
-    </f:Container>
-</f:Container>
+        </k:Container>
+    </k:Container>
+</k:Container>
 ```
 
 ## \<fx:Script\>
@@ -62,11 +66,11 @@ There are two forms of `fx:Script`:
 Here is an example attaching code to the class's module:
 
 ```xml
-<f:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:f="fu.tree">
+<k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:f="org.k">
     <fx:Script type="module">
         <![CDATA[
             public type LoaderResult = Result.<ByteArray, TypeError, VerifyError>;
         ]]>
     </fx:Script>
-</f:Container>
+</k:Container>
 ```

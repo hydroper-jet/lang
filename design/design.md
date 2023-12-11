@@ -4,7 +4,7 @@ JetWork is a flexible, multi-paradigm, strongly typed scripting language. It com
 
 ```
 use spark.*;
-public use s = spark;
+public use s = spark.*;
 
 public const xx = "xx";
 

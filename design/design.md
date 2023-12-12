@@ -461,3 +461,7 @@ The language supports simple destructuring in variable bindings and assignments
 * Record destructuring
 
 Each destructuring allow for a non-erroneous assertion operator.
+
+# Source inclusion
+
+Sources are simply recursively collected from specified directories and supplied to the compiler.

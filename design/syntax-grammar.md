@@ -53,6 +53,7 @@ Expressions:
 * [ ] BooleanLiteral
 * [ ] NumericLiteral
 * [ ] StringLiteral
+  * Inference: `Char`, `enum`
 * [ ] ThisExpression
 * [ ] SuperExpression
   * `super` may be used alone to refer to a super module.

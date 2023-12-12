@@ -102,6 +102,9 @@
         <td>&nbsp;</td><td>[Letter property (“L”) from Unicode]</td>
     </tr>
     <tr>
+        <td>&nbsp;</td><td>[Letter number property (“Nl”) from Unicode]</td>
+    </tr>
+    <tr>
         <td>&nbsp;</td><td>[Decimal Digit Number property (“Nd”) from Unicode]</td>
     </tr>
     <tr>
@@ -121,6 +124,9 @@
     </tr>
     <tr>
         <td>&nbsp;</td><td>[Letter property (“L”) from Unicode]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[Letter number property (“Nl”) from Unicode]</td>
     </tr>
     <tr>
         <td>&nbsp;</td><td>[Nonspacing Mark property (“Mn”) from Unicode]</td>

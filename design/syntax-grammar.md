@@ -15,9 +15,10 @@ Directives:
 * [ ] Type definition
 * [ ] Variable definition
 * [ ] Function definition
-* [ ] Proxy definition
-* [ ] Getter definition
-* [ ] Setter definition
+  * [ ] May be a constructor function
+  * [ ] May be a proxy definition
+  * [ ] Getter
+  * [ ] Setter
 * [ ] Module definition
 * [ ] Namespace definition
 

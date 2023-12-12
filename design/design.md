@@ -59,6 +59,14 @@ A package manifest specifies dependencies by a *registry namespace*. Packages th
 
 Packages are defined the same way as in ActionScript 3.
 
+```
+// Top-level package
+package {}
+
+// "org.n1" package
+package org.n1 {}
+```
+
 # `use` item
 
 There are four forms of `use` items:

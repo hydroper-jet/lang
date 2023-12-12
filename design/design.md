@@ -454,3 +454,30 @@ const x: String = "";
 # Overriding a method
 
 * Overriding a method allows for introduction of new optional parameters and/or rest parameter. This is the case for standard classes like `Number` that include a `toString()` method that takes an optional radix parameter.
+
+# Formatting a string
+
+The `String` data type supports an `apply()` method for replacing simple parameters:
+
+```
+"$a".apply({ a: "10" })
+"$1".apply({ [1]: "10" })
+```
+
+# Object initializer
+
+The object initializer is allowed to initialize `Map` instances:
+
+```
+type M = Map.<String, Number>;
+const m: M = { x: 10 };
+```
+
+# Destructuring
+
+The language supports simple destructuring in variable bindings and assignments
+
+* Array destructuring
+* Record destructuring
+
+Each destructuring allow for a non-erroneous assertion operator.

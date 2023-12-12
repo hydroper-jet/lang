@@ -4,14 +4,18 @@ Misc.:
 
 Directives:
 
+* For annotatable directives, describe supported attributes and supported meta data.
 * [ ] Use definition
   * Dots are followed by IdentifierName and an final optional `.*` in an identifier path
+  * `use * from "path";`
+    * Describe implicit file extensions
 * [ ] Class definition
 * [ ] Enum definition
 * [ ] Interface definition
 * [ ] Type definition
 * [ ] Variable definition
 * [ ] Function definition
+* [ ] Proxy definition
 * [ ] Getter definition
 * [ ] Setter definition
 * [ ] Module definition

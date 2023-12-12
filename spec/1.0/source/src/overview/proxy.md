@@ -10,8 +10,8 @@ public final class AdditiveExample {
     public function AdditiveExample(value: Number) {
         this.value = value;
     }
-    proxy function add(right: Number): AdditiveExample {
-        return new AdditiveExample(this.value + right.value);
-    }
+    proxy function add(right: Number): AdditiveExample (
+        new AdditiveExample(this.value + right.value);
+    );
 }
 ```

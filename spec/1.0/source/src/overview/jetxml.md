@@ -2,7 +2,7 @@
 
 JetWork supports classes in XML form called *JetXML*. A JetXML is a file with the extension `.jetxml`. A JetXML is instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.
 
-* It is allowed to alias JetWork modules inside `.jetxml` classes as a XML namespace and the alias is available both within the code and within the XML tags.
+* It is allowed to alias a JetWork package inside a JetXML file as a XML namespace and the alias is available both within the code and within the XML tags.
 * JetXML classes extend another class, which is based in the root XML element.
 
 Here is an example JetXML:
@@ -10,7 +10,7 @@ Here is an example JetXML:
 **ExampleJetXML.jetxml**
 
 ```xml
-<k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:k="org.k" xmlns:example="this package">
+<k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:k="org.k" xmlns:example="org.example">
     <fx:Script>
         <![CDATA[
             public var xy: Number = 0;
@@ -22,17 +22,17 @@ Here is an example JetXML:
 </k:Container>
 ```
 
-For the given example, `k:Container` inherits from the following abstract *Node* class from `org.k`:
+For the given example, `k:Container` inherits from the following abstract `Node` class from `org.k`:
 
 ```
 import jetxml.JetXML;
 public abstract class Node implements JetXML { /* ... */ }
 ```
 
-The example JetXML is used as follows in the `this package` module:
+The example JetXML is defined as follows in the `org.example` package:
 
 ```
-public use * from "ExampleJetXML";
+public use "ExampleJetXML";
 ```
 
 Explanatory comments:
@@ -62,18 +62,18 @@ The empty `<fx:Children/>` tag, where `fx` is the namespace `http://www.jetwork.
 
 ## \<fx:Script\>
 
-The `<fx:Script>` tag, where `fx` is the namespace `http://www.jetwork.org/lang/jetxml`, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer module.
+The `<fx:Script>` tag, where `fx` is the namespace `http://www.jetwork.org/lang/jetxml`, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer package.
 
 There are two forms of `fx:Script`:
 
 * `<fx:Script>` — Attaches code to the class block.
-* `<fx:Script type="module">` — Attaches code to the class's module.
+* `<fx:Script type="package">` — Attaches code to the class's package.
 
-Here is an example attaching code to the class's module:
+Here is an example attaching code to the class's package:
 
 ```xml
 <k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:k="org.k">
-    <fx:Script type="module">
+    <fx:Script type="package">
         <![CDATA[
             public type ExampleJetXMLResult = Result.<ByteArray, TypeError, VerifyError>;
         ]]>

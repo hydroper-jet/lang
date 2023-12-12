@@ -187,7 +187,7 @@ while
 yield
 
 delete
-module
+import
 public
 return
 switch
@@ -213,7 +213,6 @@ implements
 
 ```plain
 export
-import
 ```
 
 *ReservedWord* includes *ContextKeyword*. *ContextKeyword* is one of the following in certain syntactic contexts:

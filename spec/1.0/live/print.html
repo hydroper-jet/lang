@@ -309,12 +309,12 @@ trace(new ExampleClass(undefined).data!);
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jetxml"><a class="header" href="#jetxml">JetXML</a></h1>
 <p>JetWork supports classes in XML form called <em>JetXML</em>. A JetXML is a file with the extension <code>.jetxml</code>. A JetXML is instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.</p>
 <ul>
-<li>It is allowed to alias JetWork modules inside <code>.jetxml</code> classes as a XML namespace and the alias is available both within the code and within the XML tags.</li>
+<li>It is allowed to alias a JetWork package inside a JetXML file as a XML namespace and the alias is available both within the code and within the XML tags.</li>
 <li>JetXML classes extend another class, which is based in the root XML element.</li>
 </ul>
 <p>Here is an example JetXML:</p>
 <p><strong>ExampleJetXML.jetxml</strong></p>
-<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:k=&quot;org.k&quot; xmlns:example=&quot;this package&quot;&gt;
+<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:k=&quot;org.k&quot; xmlns:example=&quot;org.example&quot;&gt;
     &lt;fx:Script&gt;
         &lt;![CDATA[
             public var xy: Number = 0;
@@ -325,12 +325,12 @@ trace(new ExampleClass(undefined).data!);
     &lt;/example:Container&gt;
 &lt;/k:Container&gt;
 </code></pre>
-<p>For the given example, <code>k:Container</code> inherits from the following abstract <em>Node</em> class from <code>org.k</code>:</p>
+<p>For the given example, <code>k:Container</code> inherits from the following abstract <code>Node</code> class from <code>org.k</code>:</p>
 <pre><code>import jetxml.JetXML;
 public abstract class Node implements JetXML { /* ... */ }
 </code></pre>
-<p>The example JetXML is used as follows in the <code>this package</code> module:</p>
-<pre><code>public use * from &quot;ExampleJetXML&quot;;
+<p>The example JetXML is defined as follows in the <code>org.example</code> package:</p>
+<pre><code>public use &quot;ExampleJetXML&quot;;
 </code></pre>
 <p>Explanatory comments:</p>
 <ul>
@@ -352,15 +352,15 @@ public abstract class Node implements JetXML { /* ... */ }
 &lt;/k:Container&gt;
 </code></pre>
 <h2 id="fxscript"><a class="header" href="#fxscript">&lt;fx:Script&gt;</a></h2>
-<p>The <code>&lt;fx:Script&gt;</code> tag, where <code>fx</code> is the namespace <code>http://www.jetwork.org/lang/jetxml</code>, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer module.</p>
+<p>The <code>&lt;fx:Script&gt;</code> tag, where <code>fx</code> is the namespace <code>http://www.jetwork.org/lang/jetxml</code>, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer package.</p>
 <p>There are two forms of <code>fx:Script</code>:</p>
 <ul>
 <li><code>&lt;fx:Script&gt;</code> — Attaches code to the class block.</li>
-<li><code>&lt;fx:Script type=&quot;module&quot;&gt;</code> — Attaches code to the class's module.</li>
+<li><code>&lt;fx:Script type=&quot;package&quot;&gt;</code> — Attaches code to the class's package.</li>
 </ul>
-<p>Here is an example attaching code to the class's module:</p>
+<p>Here is an example attaching code to the class's package:</p>
 <pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;http://www.jetwork.org/lang/jetxml&quot; xmlns:k=&quot;org.k&quot;&gt;
-    &lt;fx:Script type=&quot;module&quot;&gt;
+    &lt;fx:Script type=&quot;package&quot;&gt;
         &lt;![CDATA[
             public type ExampleJetXMLResult = Result.&lt;ByteArray, TypeError, VerifyError&gt;;
         ]]&gt;
@@ -580,7 +580,7 @@ while
 yield
 
 delete
-module
+import
 public
 return
 switch
@@ -603,7 +603,6 @@ implements
 </code></pre>
 <p><em>ReservedWord</em> includes <em>FutureReservedWord</em>. <em>FutureReservedWord</em> is one of the following:</p>
 <pre><code class="language-plain">export
-import
 </code></pre>
 <p><em>ReservedWord</em> includes <em>ContextKeyword</em>. <em>ContextKeyword</em> is one of the following in certain syntactic contexts:</p>
 <pre><code class="language-plain">get

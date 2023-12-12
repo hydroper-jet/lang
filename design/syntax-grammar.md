@@ -1,13 +1,16 @@
 Misc.:
 
+* [ ] Package definition
 * [ ] Program
 
 Directives:
 
 * For annotatable directives, describe supported attributes and supported meta data.
+* [ ] Import directive
+  * Similiar to `use`
 * [ ] Use definition
   * Dots are followed by IdentifierName and an final optional `.*` in an identifier path
-  * `use * from "path";`
+  * `use "UserJetXML";`
     * Describe implicit file extensions
 * [ ] Class definition
 * [ ] Enum definition
@@ -54,11 +57,8 @@ Expressions:
 * [ ] NumericLiteral
 * [ ] StringLiteral
   * Inference: `Char`, `enum`
-* [ ] ThisExpression
+* [ ] ThisLiteral
 * [ ] SuperExpression
-  * `super` may be used alone to refer to a super module.
-* [ ] ThisPackageExpression
-  * `this package` is used to refer to the package module.
 * [ ] RegExpLiteral
 * [ ] ParenExpression
 * [ ] ArrayInitialiser
@@ -103,9 +103,6 @@ Type expressions:
   * Dot followed by IdentifierName
 * [ ] Void
 * [ ] Undefined
-* [ ] This (refers either to the enclosing module or the type itself)
-* [ ] Super (always refers to the enclosing module's super module)
-* [ ] This package (always refers to the package's module)
 * [ ] Function
   * [ ] `throws`
 * [ ] Array

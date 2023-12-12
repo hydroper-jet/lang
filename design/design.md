@@ -3,7 +3,7 @@
 JetWork is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the JetWork Virtual Machine Bytecode and includes miscellaneous standard objects.
 
 ```
-use spark.*;
+import spark.*;
 public use s = spark.*;
 
 public const xx = "xx";
@@ -55,20 +55,9 @@ A package manifest specifies dependencies by a *registry namespace*. Packages th
 }
 ```
 
-# Package (submodule)
+# Packages
 
-Say a package manifest specifies the ID "com.q.f". The following is the submodule "com.q.f.qux.bar":
-
-```
-// index.jet
-public module qux;
-
-// qux.jet
-public module bar;
-
-// qux/bar.jet
-public function functionInBar() {}
-```
+Packages are defined the same way as in ActionScript 3.
 
 # `use` item
 
@@ -81,10 +70,8 @@ use q.b.*;
 // Alias
 use b = q.b;
 
-// Equivalent to:
-// module File;
-// use this.File.*;
-use * from "./File";
+// Defines ExampleJetXML class from a ExampleJetXML.jetxml file
+public use "ExampleJetXML";
 ```
 
 # Types
@@ -93,7 +80,6 @@ General:
 
 - `void` or `undefined` are the same
 - `Boolean`
-- `this` refers to the actual module or type in scope
 - Function (`(a: T) => R`)
 - `*` is the dynamic type to which all types convert from and to
 
@@ -204,23 +190,11 @@ const v: * = v;
 v.inexistent; // May throw a fatal exception
 ```
 
-# Name resolution and modules
+# Name resolution and packages
 
-* Fully-qualified module paths shadow all variable names.
-* Modules must be imported through `use` before they are used in code.
-* Item or wildcard in an `use` item never imports a module; it may, however, be used to alias a module, as in `use n1 = n2.*;`.
-
-# Module paths
-
-* `this package` refers to the topmost module of a JetWork package.
-* `super` refers to the super module of the enclosing module.
-* `this` refers to the enclosing module.
-
-```
-use this package.x;
-use super.y;
-// use this.z;
-```
+* Fully-qualified package names shadow all variable names.
+* Packages must be imported through `use` or `import` before they are used in code.
+* Item or wildcard as an `use` or `import` item never imports a subpackage; wildcard may, however, be used to alias a package, as in `import n1 = n2.*;`.
 
 # Virtual properties
 
@@ -325,16 +299,14 @@ The language supports single-class inheritance as in ActionScript, featuring:
 * `v as T` — Optional conversion
 * `C(v)` — Conversion or fatal exception
 
-# Visibility
+# Property accessibility
 
-The visibility of item is either a visibility ranging from a module to all of its descendants, or a `protected` visibility that ranges from the enclosing class to its subclasses. The `public` modifier indicates that the item is visible to all programs, while the `internal` or `private` modifiers indicate that the item is visible to the containing module and all of its descendants.
+The accessibility of a property is either `public`, `private`, `internal`, or `protected`. 
 
-The `[Public(q)]` meta data is used to specify the module to which an item is visible, accompanied by the `internal` modifier. For example, the following indicates that the function `f` is available to `this package` (the top module of the package) and all of its descendants:
-
-```
-[Public(this package)]
-internal function f() {}
-```
+* `public` is accessible from any program context.
+* `private` is accessible from the enclosing class.
+* `internal` ranges from all code within a package and any subpackages.
+* `protected` ranges from the enclosing class to its subclasses.
 
 # Meta data
 

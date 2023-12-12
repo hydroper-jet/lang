@@ -299,9 +299,9 @@ trace(new ExampleClass(undefined).data!);
     public function AdditiveExample(value: Number) {
         this.value = value;
     }
-    proxy function add(right: Number): AdditiveExample {
-        return new AdditiveExample(this.value + right.value);
-    }
+    proxy function add(right: Number): AdditiveExample (
+        new AdditiveExample(this.value + right.value);
+    );
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="j4x"><a class="header" href="#j4x">J4X</a></h1>

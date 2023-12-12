@@ -1,8 +1,8 @@
 * InputElementDiv, InputElementRegExp
   * Identifier
   * ReservedWord
-  * FutureReservedWord
-  * ContextKeyword
+    * FutureReservedWord
+    * ContextKeyword
   * Punctuator
     * `/`, `/=` (InputElementDiv)
   * Numeric literal

@@ -1,0 +1,70 @@
+# Lexical structure
+
+<table>
+    <tr>
+        <td colspan="2"><i>InputElementDiv</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Identifier</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>ReservedWord</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FutureReservedWord</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>ContextKeyword</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Punctuator</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NumericLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>StringLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Comment</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>InputElementRegExp</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Identifier</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>ReservedWord</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FutureReservedWord</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>ContextKeyword</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Punctuator</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>/</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>/=</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NumericLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>StringLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>RegularExpressionLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Comment</i></td>
+    </tr>
+</table>

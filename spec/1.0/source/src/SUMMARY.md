@@ -11,3 +11,4 @@
   - [J4X](overview/j4x.md)
   - [JetXML](overview/jetxml.md)
 - [Notation](notation.md)
+- [Lexical structure](lexical-structure.md)

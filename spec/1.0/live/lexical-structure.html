@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Exceptions - JetWork Language Specification</title>
+        <title>Lexical structure - JetWork Language Specification</title>
 
 
         <!-- Custom HTML head -->
@@ -12,20 +12,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="shortcut icon" href="../favicon.png">
-        <link rel="stylesheet" href="../css/variables.css">
-        <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/chrome.css">
-        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../fonts/fonts.css">
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
@@ -34,7 +34,7 @@
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "../";
+            var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="../overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="../overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="../overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="../overview/exceptions.html" class="active"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="../overview/nullability.html"><strong aria-hidden="true">1.6.</strong> Nullability</a></li><li class="chapter-item expanded "><a href="../overview/proxy.html"><strong aria-hidden="true">1.7.</strong> Proxy</a></li><li class="chapter-item expanded "><a href="../overview/j4x.html"><strong aria-hidden="true">1.8.</strong> J4X</a></li><li class="chapter-item expanded "><a href="../overview/jetxml.html"><strong aria-hidden="true">1.9.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="../notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li><li class="chapter-item expanded "><a href="../lexical-structure.html"><strong aria-hidden="true">3.</strong> Lexical structure</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="overview/nullability.html"><strong aria-hidden="true">1.6.</strong> Nullability</a></li><li class="chapter-item expanded "><a href="overview/proxy.html"><strong aria-hidden="true">1.7.</strong> Proxy</a></li><li class="chapter-item expanded "><a href="overview/j4x.html"><strong aria-hidden="true">1.8.</strong> J4X</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.9.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li><li class="chapter-item expanded "><a href="lexical-structure.html" class="active"><strong aria-hidden="true">3.</strong> Lexical structure</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -136,7 +136,7 @@
                     <h1 class="menu-title">JetWork Language Specification</h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -165,38 +165,82 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h1>
-<p>JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are not caught by user code in JetWork.</p>
-<pre><code>function task(): void throws RangeError {
-    // Throw a checked exception
-    throw new RangeError(&quot;Error&quot;);
-}
-
-// Throw a fatal exception
-fatalError(&quot;Error&quot;);
-</code></pre>
-<p>Functions that throw checked exceptions return a <code>Result</code> object. Ignoring a <code>Result</code> object is a strict error.</p>
-<pre><code>task(); // Not allowed
-task()!; // Fine; throws fatal exception
-
-function task2(): void throws RangeError {
-    task()?; // Fine; propagates error to `task2`
-}
-
-task2()!; // Fine
-</code></pre>
-
+                        <h1 id="lexical-structure"><a class="header" href="#lexical-structure">Lexical structure</a></h1>
+<table>
+    <tr>
+        <td colspan="2"><i>InputElementDiv</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Identifier</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>ReservedWord</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FutureReservedWord</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>ContextKeyword</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Punctuator</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NumericLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>StringLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Comment</i></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>InputElementRegExp</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Identifier</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>ReservedWord</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FutureReservedWord</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>ContextKeyword</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Punctuator</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>/</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>/=</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NumericLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>StringLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>RegularExpressionLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Comment</i></td>
+    </tr>
+</table>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../overview/string-encoding.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="notation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../overview/nullability.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -204,13 +248,10 @@ task2()!; // Fine
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../overview/string-encoding.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="notation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../overview/nullability.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
             </nav>
 
         </div>
@@ -223,13 +264,13 @@ task2()!; // Fine
         </script>
 
 
-        <script src="../elasticlunr.min.js"></script>
-        <script src="../mark.min.js"></script>
-        <script src="../searcher.js"></script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="../clipboard.min.js"></script>
-        <script src="../highlight.js"></script>
-        <script src="../book.js"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
 

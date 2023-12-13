@@ -9,6 +9,6 @@
     font-family: "Monaspace Xenon";
     font-style: normal;
     font-weight: normal;
-    src: local("Monaspace Xenon"),
-        url("MonaspaceXenon-Regular.woff") format("woff");
+    src: url("MonaspaceXenon-Regular.woff") format("woff"),
+        url("MonaspaceXenon-Regular.woff2") format("woff2");
 }

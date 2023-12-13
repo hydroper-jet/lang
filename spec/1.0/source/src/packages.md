@@ -35,7 +35,12 @@ public class OrgY {
     public const xyProperty: Number = Infinity;
 }
 
+import org.x.y.*;
+
 const org = new Org;
+
+// [object Org]
+trace(org);
 
 // 10 (not Infinity)
 trace(org.x.y.xyProperty);

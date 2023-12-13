@@ -20,7 +20,7 @@ Here is an example of a potential package manifest that uses `http://www.w3.org/
     "registryNamespace": "http://www.w3.org/web",
     "dependencies": {
         "*": {
-            "org.xml": "1.0.0",
+            "org.xml": "1.0.0"
         },
         "http://www.w3.org/web": {
             "goog.g": "1.0.0"

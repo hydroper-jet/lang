@@ -80,6 +80,8 @@ Expressions:
   * `x` is a qualified identifier
 * [ ] ComputedMemberExpression (`o[k]`)
 * [ ] DescendantsExpression (`o..x`)
+* [ ] FilterExpression (`o.(condition)`)
+  * [ ] Creates a filter scope that resolves names at runtime
 * [ ] NewExpression
 * [ ] ListExpression
 * [ ] ConditionalExpression

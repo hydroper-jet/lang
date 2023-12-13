@@ -10,8 +10,6 @@ Directives:
   * Similiar to `use`
 * [ ] Use definition
   * Dots are followed by IdentifierName and an final optional `.*` in an identifier path
-  * `use "UserJetXML";`
-    * Describe implicit file extensions
 * [ ] Class definition
 * [ ] Enum definition
 * [ ] Interface definition

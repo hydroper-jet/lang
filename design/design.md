@@ -77,9 +77,6 @@ use q.b.*;
 
 // Alias
 use b = q.b;
-
-// Defines ExampleJetXML class from a ExampleJetXML.jetxml file
-public use "ExampleJetXML";
 ```
 
 # Types
@@ -464,4 +461,6 @@ Each destructuring allow for a non-erroneous assertion operator.
 
 # Source inclusion
 
-Sources are simply recursively collected from specified directories and supplied to the compiler.
+Sources are simply recursively collected from specified directories and supplied to the compiler:
+
+* Not only regular file extensions are included, but also JetXML file extensions.

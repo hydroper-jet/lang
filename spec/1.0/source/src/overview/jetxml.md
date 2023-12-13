@@ -1,19 +1,22 @@
 # JetXML
 
-JetWork supports classes in XML form called *JetXML*. A JetXML is a file with the extension `.jetxml`. A JetXML is instantiated with an empty constructor and XML attributes applied to them delegate to the instance properties.
+JetWork supports classes in XML form called *JetXML*. A JetXML is a file with the extension `.jetxml`.
 
-* It is allowed to alias a JetWork package inside a JetXML file as a XML namespace and the alias is available both within the code and within the XML tags.
-* JetXML classes extend another class, which is based in the root XML element.
+* A JetXML class extends another class based in the root XML element.
+* A JetXML class specifies its fully package qualified class name in the `className` attribute of the root XML element.
+* XML namespaces identify JetWork packages, except for the `jetxml` XML namespace.
+* XML attributes apply to instance properties.
+* A JetXML constructor is only allowed to receive optional parameters.
 
 Here is an example JetXML:
 
 **ExampleJetXML.jetxml**
 
 ```xml
-<k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:k="org.k" xmlns:example="org.example">
+<k:Container xmlns:fx="jetxml" xmlns:k="org.k" xmlns:example="org.example" className="org.example.ExampleJetXML">
     <fx:Script>
         <![CDATA[
-            public var xy: Number = 0;
+            public var exampleProperty: Number = 0;
         ]]>
     </fx:Script>
     <example:Container>
@@ -25,20 +28,16 @@ Here is an example JetXML:
 For the given example, `k:Container` inherits from the following abstract `Node` class from `org.k`:
 
 ```
-import jetxml.JetXML;
-public abstract class Node implements JetXML { /* ... */ }
-```
-
-The example JetXML is defined as follows in the `org.example` package:
-
-```
-public use "ExampleJetXML";
+package org.k {
+    import jetxml.JetXML;
+    public abstract class Node implements JetXML { /* ... */ }
+}
 ```
 
 Explanatory comments:
 
 * The example ExampleJetXML.jetxml file defines a class that inherits from the `k:Container` class.
-* The instance variable `xy` declared within the `fx:Script` tag automatically alters the rendering status of the `ExampleJetXML` instance when the direct value of the `xy` property is updated by an assignment; that is, assignments to `xy` are implicitly followed by a `node.jetxmlStatus = "outdated";` assignment.
+* The instance variable `exampleProperty` declared within the `fx:Script` tag automatically alters the rendering status of the `ExampleJetXML` instance when the direct value of the `exampleProperty` property is updated by an assignment; that is, assignments to `exampleProperty` are implicitly followed by a `node.jetxmlStatus = "outdated";` assignment.
 * The `jetxmlStatus` property may be used to cause a new rendering of the node on a next frame iteration.
 * The `jetxmlStatus` property as defined by the `JetXML` interface is allowed to emit an event when assigned.
 
@@ -48,10 +47,10 @@ JetXML may support data bindings in the future. Data bindings allow connecting p
 
 ## \<fx:Children/\>
 
-The empty `<fx:Children/>` tag, where `fx` is the namespace `http://www.jetwork.org/lang/jetxml`, may appear anywhere in a JetXML file to indicate where to add the tag's children:
+The empty `<fx:Children/>` tag, where `fx` is the namespace `jetxml`, may appear anywhere in a JetXML file to indicate where to add the tag's children:
 
 ```xml
-<k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:k="org.k">
+<k:Container xmlns:fx="jetxml" xmlns:k="org.k" className="org.example.ExampleJetXML">
     <k:Container>
         <k:Container>
             <fx:Children/>
@@ -62,18 +61,18 @@ The empty `<fx:Children/>` tag, where `fx` is the namespace `http://www.jetwork.
 
 ## \<fx:Script\>
 
-The `<fx:Script>` tag, where `fx` is the namespace `http://www.jetwork.org/lang/jetxml`, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer package.
+The `<fx:Script>` tag, where `fx` is the namespace `jetxml`, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer package.
 
 There are two forms of `fx:Script`:
 
 * `<fx:Script>` — Attaches code to the class block.
-* `<fx:Script type="package">` — Attaches code to the class's package.
+* `<fx:Script package="true">` — Attaches code to the class's package.
 
 Here is an example attaching code to the class's package:
 
 ```xml
-<k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:k="org.k">
-    <fx:Script type="package">
+<k:Container xmlns:fx="jetxml" xmlns:k="org.k" className="org.example.ExampleJetXML">
+    <fx:Script package="true">
         <![CDATA[
             public type ExampleJetXMLResult = Result.<ByteArray, TypeError, VerifyError>;
         ]]>
@@ -86,7 +85,7 @@ Here is an example attaching code to the class's package:
 JetWork imposes no restrictions for the JetXML constructor and it may be defined as a normal constructor:
 
 ```xml
-<k:Container xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:k="org.k">
+<k:Container xmlns:fx="jetxml" xmlns:k="org.k" className="org.example.ExampleJetXML">
     <fx:Script>
         <![CDATA[
             public function ExampleJetXML() {

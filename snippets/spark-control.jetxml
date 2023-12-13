@@ -1,4 +1,4 @@
-<s:Application xmlns:fx="http://www.jetwork.org/lang/jetxml" xmlns:s="spark.controls">
+<s:Application xmlns:fx="jetxml" xmlns:s="spark.controls" className="ExampleApplication">
     <fx:Script>
         <![CDATA[
             public function ExampleApplication() {

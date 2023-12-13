@@ -45,3 +45,13 @@ trace(org);
 // 10 (not Infinity)
 trace(org.x.y.xyProperty);
 ```
+
+## Wildcard uses
+
+Directives of the form `public use q.*;` contribute a wildcard use to a package. Wildcard uses are used in name resolution to resolve to names from another package.
+
+```
+package org.alias.core {
+    public use org.origin.core.*;
+}
+```

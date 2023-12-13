@@ -300,7 +300,7 @@ const text = """
     Have a
     nice day!
     """;
-assert(text == "Have a\nnice day");
+assert(text == "Have a\nnice day!");
 ```
 
 Triple string literals are processed as follows:

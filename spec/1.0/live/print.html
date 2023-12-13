@@ -673,7 +673,7 @@ undefined
     Have a
     nice day!
     &quot;&quot;&quot;;
-assert(text == &quot;Have a\nnice day&quot;);
+assert(text == &quot;Have a\nnice day!&quot;);
 </code></pre>
 <p>Triple string literals are processed as follows:</p>
 <ul>
@@ -730,6 +730,12 @@ trace(org);
 
 // 10 (not Infinity)
 trace(org.x.y.xyProperty);
+</code></pre>
+<h2 id="wildcard-uses"><a class="header" href="#wildcard-uses">Wildcard uses</a></h2>
+<p>Directives of the form <code>public use q.*;</code> contribute a wildcard use to a package. Wildcard uses are used in name resolution to resolve to names from another package.</p>
+<pre><code>package org.alias.core {
+    public use org.origin.core.*;
+}
 </code></pre>
 
                     </main>

@@ -6,7 +6,7 @@ The `Optional.<T>` class is the primary way of working with nullable data.
 
 ```
 public class ExampleClass {
-    public const data: Optional.<Number> = undefined;
+    public const data: Optional.<Number>;
     public function ExampleClass(data: Optional.<Number>) {
         this.data = data;
     }

@@ -265,7 +265,7 @@ task2()!; // Fine
 <li>The nullish coalescing operator returns the right operand if the left operand is <code>undefined</code>.</li>
 </ul>
 <pre><code>public class ExampleClass {
-    public const data: Optional.&lt;Number&gt; = undefined;
+    public const data: Optional.&lt;Number&gt;;
     public function ExampleClass(data: Optional.&lt;Number&gt;) {
         this.data = data;
     }
@@ -314,18 +314,19 @@ trace(new ExampleClass(undefined).data!);
 <li>XML namespaces identify JetWork packages, except for the <code>jetxml</code> XML namespace.</li>
 <li>XML attributes apply to instance properties.</li>
 <li>A JetXML constructor is only allowed to receive optional parameters.</li>
+<li>Classes in the same package are visible within tags.</li>
 </ul>
 <p>Here is an example JetXML:</p>
 <p><strong>ExampleJetXML.jetxml</strong></p>
-<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; xmlns:example=&quot;org.example&quot; className=&quot;org.example.ExampleJetXML&quot;&gt;
+<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.ExampleJetXML&quot;&gt;
     &lt;fx:Script&gt;
         &lt;![CDATA[
-            public var exampleProperty: Number = 0;
+            public var exampleProperty: Number = Infinity;
         ]]&gt;
     &lt;/fx:Script&gt;
-    &lt;example:Container&gt;
-        &lt;k:Container/&gt;
-    &lt;/example:Container&gt;
+    &lt;k:Container&gt;
+        &lt;AnotherExampleJetXML/&gt;
+    &lt;/k:Container&gt;
 &lt;/k:Container&gt;
 </code></pre>
 <p>For the given example, <code>k:Container</code> inherits from the following abstract <code>Node</code> class from <code>org.k</code>:</p>

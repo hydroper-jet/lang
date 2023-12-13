@@ -7,21 +7,22 @@ JetWork supports classes in XML form called *JetXML*. A JetXML is a file with th
 * XML namespaces identify JetWork packages, except for the `jetxml` XML namespace.
 * XML attributes apply to instance properties.
 * A JetXML constructor is only allowed to receive optional parameters.
+* Classes in the same package are visible within tags.
 
 Here is an example JetXML:
 
 **ExampleJetXML.jetxml**
 
 ```xml
-<k:Container xmlns:fx="jetxml" xmlns:k="org.k" xmlns:example="org.example" className="org.example.ExampleJetXML">
+<k:Container xmlns:fx="jetxml" xmlns:k="org.k" className="org.example.ExampleJetXML">
     <fx:Script>
         <![CDATA[
-            public var exampleProperty: Number = 0;
+            public var exampleProperty: Number = Infinity;
         ]]>
     </fx:Script>
-    <example:Container>
-        <k:Container/>
-    </example:Container>
+    <k:Container>
+        <AnotherExampleJetXML/>
+    </k:Container>
 </k:Container>
 ```
 

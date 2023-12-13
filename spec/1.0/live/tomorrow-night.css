@@ -5,7 +5,7 @@
 
 /* Tomorrow Comment */
 .hljs-comment {
-  color: #969896;
+  color: #000;
 }
 
 /* Tomorrow Red */
@@ -21,7 +21,7 @@
 .css .hljs-id,
 .css .hljs-class,
 .css .hljs-pseudo {
-  color: #bbb;
+  color: #000;
 }
 
 /* Tomorrow Orange */
@@ -32,13 +32,13 @@
 .hljs-literal,
 .hljs-params,
 .hljs-constant {
-  color: #de935f;
+  color: #000;
 }
 
 /* Tomorrow Yellow */
 .ruby .hljs-class .hljs-title,
 .css .hljs-rule .hljs-attribute {
-  color: #f0c674;
+  color: #000;
 }
 
 /* Tomorrow Green */
@@ -49,13 +49,13 @@
 .hljs-name,
 .ruby .hljs-symbol,
 .xml .hljs-cdata {
-  color: #d0d0d0;
+  color: #000;
 }
 
 /* Tomorrow Aqua */
 .hljs-title,
 .css .hljs-hexcolor {
-  color: #8abeb7;
+  color: #000;
 }
 
 /* Tomorrow Blue */
@@ -67,23 +67,23 @@
 .perl .hljs-sub,
 .javascript .hljs-title,
 .coffeescript .hljs-title {
-  color: #81a2be;
+  color: #000;
 }
 
 /* Tomorrow Purple */
 .hljs-keyword,
 .javascript .hljs-function {
-  color: #b294bb;
+  color: #000;
 }
 
 .hljs {
   display: block;
   overflow-x: auto;
-  color: #c5c8c6;
+  color: #000;
 }
 
 pre {
-  background: #000;
+  /* background: #000; */
   border-radius: 15px;
   padding: 1rem;
 }
@@ -99,9 +99,9 @@ pre {
 }
 
 .hljs-addition {
-  color: #718c00;
+  color: #000;
 }
 
 .hljs-deletion {
-  color: #c82829;
+  color: #000;
 }

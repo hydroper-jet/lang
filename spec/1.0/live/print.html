@@ -317,15 +317,15 @@ trace(new ExampleClass(undefined).data!);
 <li>Classes in the same package are visible within tags.</li>
 </ul>
 <p>Here is an example JetXML:</p>
-<p><strong>ExampleJetXML.jetxml</strong></p>
-<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.ExampleJetXML&quot;&gt;
+<p><strong>Example.jetxml</strong></p>
+<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
     &lt;fx:Script&gt;
         &lt;![CDATA[
             public var exampleProperty: Number = Infinity;
         ]]&gt;
     &lt;/fx:Script&gt;
     &lt;k:Container&gt;
-        &lt;AnotherExampleJetXML/&gt;
+        &lt;AnotherExample/&gt;
     &lt;/k:Container&gt;
 &lt;/k:Container&gt;
 </code></pre>
@@ -337,8 +337,8 @@ trace(new ExampleClass(undefined).data!);
 </code></pre>
 <p>Explanatory comments:</p>
 <ul>
-<li>The example ExampleJetXML.jetxml file defines a class that inherits from the <code>k:Container</code> class.</li>
-<li>The instance variable <code>exampleProperty</code> declared within the <code>fx:Script</code> tag automatically alters the rendering status of the <code>ExampleJetXML</code> instance when the direct value of the <code>exampleProperty</code> property is updated by an assignment; that is, assignments to <code>exampleProperty</code> are implicitly followed by a <code>node.jetxmlStatus = &quot;outdated&quot;;</code> assignment.</li>
+<li>The example Example.jetxml file defines a class that inherits from the <code>k:Container</code> class.</li>
+<li>The instance variable <code>exampleProperty</code> declared within the <code>fx:Script</code> tag automatically alters the rendering status of the <code>Example</code> instance when the direct value of the <code>exampleProperty</code> property is updated by an assignment; that is, assignments to <code>exampleProperty</code> are implicitly followed by a <code>node.jetxmlStatus = &quot;outdated&quot;;</code> assignment.</li>
 <li>The <code>jetxmlStatus</code> property may be used to cause a new rendering of the node on a next frame iteration.</li>
 <li>The <code>jetxmlStatus</code> property as defined by the <code>JetXML</code> interface is allowed to emit an event when assigned.</li>
 </ul>
@@ -346,7 +346,7 @@ trace(new ExampleClass(undefined).data!);
 <p>JetXML may support data bindings in the future. Data bindings allow connecting property values through events.</p>
 <h2 id="fxchildren"><a class="header" href="#fxchildren">&lt;fx:Children/&gt;</a></h2>
 <p>The empty <code>&lt;fx:Children/&gt;</code> tag, where <code>fx</code> is the namespace <code>jetxml</code>, may appear anywhere in a JetXML file to indicate where to add the tag's children:</p>
-<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.ExampleJetXML&quot;&gt;
+<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
     &lt;k:Container&gt;
         &lt;k:Container&gt;
             &lt;fx:Children/&gt;
@@ -362,20 +362,20 @@ trace(new ExampleClass(undefined).data!);
 <li><code>&lt;fx:Script package=&quot;true&quot;&gt;</code> — Attaches code to the class's package.</li>
 </ul>
 <p>Here is an example attaching code to the class's package:</p>
-<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.ExampleJetXML&quot;&gt;
+<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
     &lt;fx:Script package=&quot;true&quot;&gt;
         &lt;![CDATA[
-            public type ExampleJetXMLResult = Result.&lt;ByteArray, TypeError, VerifyError&gt;;
+            public type ExampleResult = Result.&lt;ByteArray, TypeError, VerifyError&gt;;
         ]]&gt;
     &lt;/fx:Script&gt;
 &lt;/k:Container&gt;
 </code></pre>
 <h2 id="initialization"><a class="header" href="#initialization">Initialization</a></h2>
 <p>JetWork imposes no restrictions for the JetXML constructor and it may be defined as a normal constructor:</p>
-<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.ExampleJetXML&quot;&gt;
+<pre><code class="language-xml">&lt;k:Container xmlns:fx=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
     &lt;fx:Script&gt;
         &lt;![CDATA[
-            public function ExampleJetXML() {
+            public function Example() {
                 super();
             }
         ]]&gt;

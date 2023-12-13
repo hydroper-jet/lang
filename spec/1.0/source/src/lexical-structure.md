@@ -243,3 +243,83 @@ override
 namespace
 undefined
 ```
+
+## Punctuators
+
+*Punctuator* includes one of the following:
+
+```plain
+::  @
+.  ..  ...
+(  )  [  ]  {  }
+:  ;  ,
+?  !  =  =>
+<  <=
+>  >=
+==  ===
+!=  !==
++  -  *  /  %  **
+++  --
+<<  >>  >>>
+&  ^  |  ~
+&&  ^^  ||  ??
+```
+
+*Punctuator* includes *CompoundAssignmentPunctuator*. *CompoundAssignmentPunctuator* is one of the following:
+
+```plain
++=  -=  *=  /=  %=  **=
+<<=  >>=  >>>=  &=  ^=  |=
+&&=  ^^=  ||=
+??=
+```
+
+## Numeric literal
+
+*NumericLiteral* is similiar to *NumericLiteral* from the ECMA-262 third edition, with support for binary literals:
+
+```plain
+0b1011
+```
+
+## Regular expression literal
+
+*RegularExpressionLiteral* is similiar to *RegularExpressionLiteral* from the ECMA-262 third edition, with support for line breaks.
+
+## String literal
+
+*StringLiteral* is similiar to *StringLiteral* from the ECMA-262 third edition, with additional features:
+
+* scalar *UnicodeEscapeSequence* using the `\u{...}` form;
+* triple string literals.
+
+Triple string literals use either `"""` or `'''` as delimiter and may span multiple lines. The contents of triple string literals are indentation-based, as can be observed in the following code:
+
+```
+const text = """
+    Have a
+    nice day!
+    """;
+assert(text == "Have a\nnice day");
+```
+
+Triple string literals are processed as follows:
+
+* the first empty line is ignored;
+* the base indentation of a triple string literal is that of the last string line.
+
+## Comment
+
+*Comment* is similiar to *Comment* from the ECMA-262 third edition, with support for nested multi-line comments.
+
+```
+/*
+ * /*
+ *  *
+ *  */
+ */
+```
+
+## J4X
+
+J4X defines *InputElementXMLTag* and *InputElementXMLContent* based on the ECMA-357 second edition.

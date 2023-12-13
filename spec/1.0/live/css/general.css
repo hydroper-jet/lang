@@ -128,7 +128,7 @@ table {
 }
 table th, td {
     padding: 3px 20px;
-    border: 2px var(--table-border-color) solid;
+    border: 1px var(--table-border-color) solid;
 }
 table thead td {
     font-weight: 700;
@@ -138,7 +138,7 @@ table thead th {
     padding: 3px 20px;
 }
 table thead tr {
-    border: 2px var(--table-border-color) solid;
+    border: 1px var(--table-border-color) solid;
 }
 table tr:nth-child(even) {
     background: var(--table-even-bg);

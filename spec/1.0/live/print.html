@@ -633,6 +633,63 @@ override
 namespace
 undefined
 </code></pre>
+<h2 id="punctuators"><a class="header" href="#punctuators">Punctuators</a></h2>
+<p><em>Punctuator</em> includes one of the following:</p>
+<pre><code class="language-plain">::  @
+.  ..  ...
+(  )  [  ]  {  }
+:  ;  ,
+?  !  =  =&gt;
+&lt;  &lt;=
+&gt;  &gt;=
+==  ===
+!=  !==
++  -  *  /  %  **
+++  --
+&lt;&lt;  &gt;&gt;  &gt;&gt;&gt;
+&amp;  ^  |  ~
+&amp;&amp;  ^^  ||  ??
+</code></pre>
+<p><em>Punctuator</em> includes <em>CompoundAssignmentPunctuator</em>. <em>CompoundAssignmentPunctuator</em> is one of the following:</p>
+<pre><code class="language-plain">+=  -=  *=  /=  %=  **=
+&lt;&lt;=  &gt;&gt;=  &gt;&gt;&gt;=  &amp;=  ^=  |=
+&amp;&amp;=  ^^=  ||=
+??=
+</code></pre>
+<h2 id="numeric-literal"><a class="header" href="#numeric-literal">Numeric literal</a></h2>
+<p><em>NumericLiteral</em> is similiar to <em>NumericLiteral</em> from the ECMA-262 third edition, with support for binary literals:</p>
+<pre><code class="language-plain">0b1011
+</code></pre>
+<h2 id="regular-expression-literal"><a class="header" href="#regular-expression-literal">Regular expression literal</a></h2>
+<p><em>RegularExpressionLiteral</em> is similiar to <em>RegularExpressionLiteral</em> from the ECMA-262 third edition, with support for line breaks.</p>
+<h2 id="string-literal"><a class="header" href="#string-literal">String literal</a></h2>
+<p><em>StringLiteral</em> is similiar to <em>StringLiteral</em> from the ECMA-262 third edition, with additional features:</p>
+<ul>
+<li>scalar <em>UnicodeEscapeSequence</em> using the <code>\u{...}</code> form;</li>
+<li>triple string literals.</li>
+</ul>
+<p>Triple string literals use either <code>&quot;&quot;&quot;</code> or <code>'''</code> as delimiter and may span multiple lines. The contents of triple string literals are indentation-based, as can be observed in the following code:</p>
+<pre><code>const text = &quot;&quot;&quot;
+    Have a
+    nice day!
+    &quot;&quot;&quot;;
+assert(text == &quot;Have a\nnice day&quot;);
+</code></pre>
+<p>Triple string literals are processed as follows:</p>
+<ul>
+<li>the first empty line is ignored;</li>
+<li>the base indentation of a triple string literal is that of the last string line.</li>
+</ul>
+<h2 id="comment"><a class="header" href="#comment">Comment</a></h2>
+<p><em>Comment</em> is similiar to <em>Comment</em> from the ECMA-262 third edition, with support for nested multi-line comments.</p>
+<pre><code>/*
+ * /*
+ *  *
+ *  */
+ */
+</code></pre>
+<h2 id="j4x-1"><a class="header" href="#j4x-1">J4X</a></h2>
+<p>J4X defines <em>InputElementXMLTag</em> and <em>InputElementXMLContent</em> based on the ECMA-357 second edition.</p>
 
                     </main>
 

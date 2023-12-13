@@ -67,18 +67,6 @@ package {}
 package org.n1 {}
 ```
 
-# `use` item
-
-There are four forms of `use` items:
-
-```
-use q.b;
-use q.b.*;
-
-// Alias
-use b = q.b;
-```
-
 # Types
 
 General:
@@ -310,7 +298,7 @@ The accessibility of a property is either `public`, `private`, `internal`, or `p
 
 * `public` is accessible from any program context.
 * `private` is accessible from the enclosing class.
-* `internal` ranges from all code within a package and any subpackages.
+* `internal` is accessible from the enclosing package.
 * `protected` ranges from the enclosing class to its subclasses.
 
 # Meta data

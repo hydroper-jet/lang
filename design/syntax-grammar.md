@@ -10,6 +10,7 @@ Directives:
   * Similiar to `use`
 * [ ] Use definition
   * Dots are followed by IdentifierName and an final optional `.*` in an identifier path
+  * `use` must be explicitly `public` and must be used solely in package blocks.
 * [ ] Class definition
 * [ ] Enum definition
 * [ ] Interface definition

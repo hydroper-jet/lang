@@ -1,6 +1,6 @@
 # Package manager
 
-The language is integrated with a package manager with support for vital features:
+The language is integrated with JetPM, a package manager with support for vital features:
 
 * workspaces;
 * specifying a dependency through a directory path;

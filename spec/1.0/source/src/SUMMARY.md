@@ -12,3 +12,4 @@
   - [JetXML](overview/jetxml.md)
 - [Notation](notation.md)
 - [Lexical structure](lexical-structure.md)
+- [Packages](packages.md)

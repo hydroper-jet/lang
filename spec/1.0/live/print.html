@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="overview/nullability.html"><strong aria-hidden="true">1.6.</strong> Nullability</a></li><li class="chapter-item expanded "><a href="overview/proxy.html"><strong aria-hidden="true">1.7.</strong> Proxy</a></li><li class="chapter-item expanded "><a href="overview/j4x.html"><strong aria-hidden="true">1.8.</strong> J4X</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.9.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li><li class="chapter-item expanded "><a href="lexical-structure.html"><strong aria-hidden="true">3.</strong> Lexical structure</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">4.</strong> Types</a></li><li class="chapter-item expanded "><a href="packages.html"><strong aria-hidden="true">5.</strong> Packages</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">6.</strong> Variables</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="overview/nullability.html"><strong aria-hidden="true">1.6.</strong> Nullability</a></li><li class="chapter-item expanded "><a href="overview/proxy.html"><strong aria-hidden="true">1.7.</strong> Proxy</a></li><li class="chapter-item expanded "><a href="overview/j4x.html"><strong aria-hidden="true">1.8.</strong> J4X</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.9.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li><li class="chapter-item expanded "><a href="lexical-structure.html"><strong aria-hidden="true">3.</strong> Lexical structure</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">4.</strong> Types</a></li><li class="chapter-item expanded "><a href="visibility.html"><strong aria-hidden="true">5.</strong> Visibility</a></li><li class="chapter-item expanded "><a href="packages.html"><strong aria-hidden="true">6.</strong> Packages</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">7.</strong> Variables</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -769,6 +769,14 @@ assert(text == &quot;Have a\nnice day!&quot;);
 <p>The <code>Result.&lt;T, E1, ...EN&gt;</code> type is an union of <code>T</code> and one or more exception types.</p>
 <h2 id="array-type"><a class="header" href="#array-type">Array type</a></h2>
 <p>The <code>Array.&lt;T&gt;</code> type is a growable collection of <code>T</code> values. <code>Array</code> may be expressed as <code>Array.&lt;T&gt;</code> or <code>[T]</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="visibility"><a class="header" href="#visibility">Visibility</a></h1>
+<p>A visibility is either <code>public</code>, <code>private</code>, <code>protected</code> or <code>internal</code>.</p>
+<ul>
+<li>The <code>public</code> visibility indicates that a property is accessible from anywhere.</li>
+<li>The <code>private</code> visibility indicates that a property is accessible from within a class block.</li>
+<li>The <code>protected</code> visibility indicates that a property is accessible from a class and any subclasses.</li>
+<li>The <code>internal</code> visibility indicates that a property is accessible from the enclosing package, excluding subpackages.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="packages"><a class="header" href="#packages">Packages</a></h1>
 <p>Packages are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an <code>import</code> directive or an <code>use</code> definition.</p>
 <pre><code>// Top-level package
@@ -826,7 +834,7 @@ package q1.q2 {}
 package q1.q2.qN {}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="variables"><a class="header" href="#variables">Variables</a></h1>
-<p>A variable consists of a name, a static type and miscellaneous other symbols. A variable may be read-only or constant by using the <code>const</code> keyword.</p>
+<p>A variable consists of a name, a static type, a <a href="visibility.html">visibility</a>, and miscellaneous other symbols. A variable may be read-only or constant by using the <code>const</code> keyword.</p>
 <pre><code>var x: Number;
 const y: Number;
 </code></pre>
@@ -852,6 +860,29 @@ const y: Number;
 <li>A constant variable that is an instance variable may not be assigned outside the constructor body.</li>
 </ul>
 <p><em>Constant initializer</em>: A variable may consist of a constant initializer. A constant initializer consists of a constant expression.</p>
+<h2 id="meta-data"><a class="header" href="#meta-data">Meta data</a></h2>
+<p>A variable may contain zero or more arbitrary meta-data.</p>
+<pre><code>[Metadata(X(y))]
+const x: T;
+</code></pre>
+<h2 id="jetxml-variables"><a class="header" href="#jetxml-variables">JetXML variables</a></h2>
+<p>A JetXML variable is an instance variable belonging to a JetXML file.</p>
+<ul>
+<li>Assigning value to a JetXML variable causes the following assigment to the instance object:</li>
+</ul>
+<pre><code>instance.jetxmlStatus = &quot;outdated&quot;;
+</code></pre>
+<h2 id="optional-variables"><a class="header" href="#optional-variables">Optional variables</a></h2>
+<p>Optional variables do not need to be specified when using an object initializer:</p>
+<pre><code>[Literal]
+public class C {
+    public const x: Optional.&lt;Number&gt;;
+}
+const o: C = {};
+</code></pre>
+<p>A variable is <em>optional</em> when the variable's static type is the <code>Optional</code> type.</p>
+<h2 id="parent-definition"><a class="header" href="#parent-definition">Parent definition</a></h2>
+<p>When the parent definition of a variable is a package, the variable has a fully package qualified name.</p>
 
                     </main>
 

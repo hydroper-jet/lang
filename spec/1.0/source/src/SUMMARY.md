@@ -13,5 +13,6 @@
 - [Notation](notation.md)
 - [Lexical structure](lexical-structure.md)
 - [Types](types.md)
+- [Visibility](visibility.md)
 - [Packages](packages.md)
 - [Variables](variables.md)

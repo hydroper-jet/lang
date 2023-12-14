@@ -1,6 +1,6 @@
 # Variables
 
-A variable consists of a name, a static type and miscellaneous other symbols. A variable may be read-only or constant by using the `const` keyword.
+A variable consists of a name, a static type, a [visibility](visibility.md), and miscellaneous other symbols. A variable may be read-only or constant by using the `const` keyword.
 
 ```
 var x: Number;
@@ -31,3 +31,40 @@ public class C {
 * A constant variable that is an instance variable may not be assigned outside the constructor body.
 
 *Constant initializer*: A variable may consist of a constant initializer. A constant initializer consists of a constant expression.
+
+## Meta data
+
+A variable may contain zero or more arbitrary meta-data.
+
+```
+[Metadata(X(y))]
+const x: T;
+```
+
+## JetXML variables
+
+A JetXML variable is an instance variable belonging to a JetXML file.
+
+* Assigning value to a JetXML variable causes the following assigment to the instance object:
+
+```
+instance.jetxmlStatus = "outdated";
+```
+
+## Optional variables
+
+Optional variables do not need to be specified when using an object initializer:
+
+```
+[Literal]
+public class C {
+    public const x: Optional.<Number>;
+}
+const o: C = {};
+```
+
+A variable is *optional* when the variable's static type is the `Optional` type.
+
+## Parent definition
+
+When the parent definition of a variable is a package, the variable has a fully package qualified name.

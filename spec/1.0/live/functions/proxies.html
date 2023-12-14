@@ -183,8 +183,11 @@
 <li><a href="#shiftLeft">shiftLeft</a></li>
 <li><a href="#shiftRight">shiftRight</a></li>
 <li><a href="#shiftRightUnsigned">shiftRightUnsigned</a></li>
-<li><a href="#delegate">delegate</a></li>
 <li><a href="#to">to</a></li>
+<li><a href="#getProperty">getProperty</a></li>
+<li><a href="#setProperty">setProperty</a></li>
+<li><a href="#deleteProperty">deleteProperty</a></li>
+<li><a href="#has">has</a></li>
 </ul>
 <h2 id="positive"><a class="header" href="#positive">positive</a></h2>
 <pre><code>class C {
@@ -261,11 +264,6 @@
     proxy function shiftRightUnsigned(right: C): T {}
 }
 </code></pre>
-<h2 id="delegate"><a class="header" href="#delegate">delegate</a></h2>
-<pre><code>class C {
-    proxy function delegate(): T {}
-}
-</code></pre>
 <h2 id="to"><a class="header" href="#to">to</a></h2>
 <ul>
 <li>The <code>to</code> proxy adds explicit conversion from the enclosing class to the type it returns.</li>
@@ -273,6 +271,26 @@
 </ul>
 <pre><code>class C {
     proxy function to(): T {}
+}
+</code></pre>
+<h2 id="getproperty"><a class="header" href="#getproperty">getProperty</a></h2>
+<pre><code>class C {
+    proxy function getProperty(k: K): T {}
+}
+</code></pre>
+<h2 id="setproperty"><a class="header" href="#setproperty">setProperty</a></h2>
+<pre><code>class C {
+    proxy function setProperty(k: K, v: V): void {}
+}
+</code></pre>
+<h2 id="deleteproperty"><a class="header" href="#deleteproperty">deleteProperty</a></h2>
+<pre><code>class C {
+    proxy function deleteProperty(k: K): Boolean {}
+}
+</code></pre>
+<h2 id="has"><a class="header" href="#has">has</a></h2>
+<pre><code>class C {
+    proxy function has(v: T): Boolean {}
 }
 </code></pre>
 

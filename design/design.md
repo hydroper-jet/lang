@@ -273,7 +273,8 @@ const f: Flags = [ "f0" ];
 // Support methods included
 f.toggle("f0").filter("f0")
     .include("f0").exclude("f0")
-    .has("f0");
+
+"f0" in f
 ```
 
 # Embed
@@ -388,12 +389,6 @@ listener.remove();
 
 J4X stands for JetWork for XML and provides XML support. It supports much of the legacy ECMAScript for XML standard, but in a different way. It supports property and query operators.
 
-J4X introduces the following operator methods:
-
-* `proxy function getXMLProperty(...)`
-* `proxy function setXMLProperty(...)`
-* `proxy function deleteXMLProperty(...)`
-
 J4X introduces the following syntax:
 
 * Punctuators
@@ -407,11 +402,11 @@ J4X introduces the following syntax:
 
 # Proxy
 
-JetWork supports proxies with the `proxy` attribute to indicate custom behavior. Miscellaneous proxies are supported, including `delegate()`, `add()`, and other proxies. Here is one example:
+JetWork supports proxies with the `proxy` attribute to indicate custom behavior. Miscellaneous proxies are supported, including `add()`, and other proxies. Here is one example:
 
 ```
 public class ProxyExample {
-    proxy function get(index: Number): Number (NaN);
+    proxy function getProperty(index: Number): Number (NaN);
 }
 ```
 

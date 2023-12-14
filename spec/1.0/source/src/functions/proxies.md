@@ -17,8 +17,11 @@ A proxy is a function containing the `proxy` attribute, enclosed by a `class` or
 * [shiftLeft](#shiftLeft)
 * [shiftRight](#shiftRight)
 * [shiftRightUnsigned](#shiftRightUnsigned)
-* [delegate](#delegate)
 * [to](#to)
+* [getProperty](#getProperty)
+* [setProperty](#setProperty)
+* [deleteProperty](#deleteProperty)
+* [has](#has)
 
 ## positive
 
@@ -140,14 +143,6 @@ class C {
 }
 ```
 
-## delegate
-
-```
-class C {
-    proxy function delegate(): T {}
-}
-```
-
 ## to
 
 * The `to` proxy adds explicit conversion from the enclosing class to the type it returns.
@@ -156,5 +151,37 @@ class C {
 ```
 class C {
     proxy function to(): T {}
+}
+```
+
+## getProperty
+
+```
+class C {
+    proxy function getProperty(k: K): T {}
+}
+```
+
+## setProperty
+
+```
+class C {
+    proxy function setProperty(k: K, v: V): void {}
+}
+```
+
+## deleteProperty
+
+```
+class C {
+    proxy function deleteProperty(k: K): Boolean {}
+}
+```
+
+## has
+
+```
+class C {
+    proxy function has(v: T): Boolean {}
 }
 ```

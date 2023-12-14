@@ -1007,8 +1007,11 @@ function set x(v: T): void {}
 <li><a href="functions/proxies.html#shiftLeft">shiftLeft</a></li>
 <li><a href="functions/proxies.html#shiftRight">shiftRight</a></li>
 <li><a href="functions/proxies.html#shiftRightUnsigned">shiftRightUnsigned</a></li>
-<li><a href="functions/proxies.html#delegate">delegate</a></li>
 <li><a href="functions/proxies.html#to">to</a></li>
+<li><a href="functions/proxies.html#getProperty">getProperty</a></li>
+<li><a href="functions/proxies.html#setProperty">setProperty</a></li>
+<li><a href="functions/proxies.html#deleteProperty">deleteProperty</a></li>
+<li><a href="functions/proxies.html#has">has</a></li>
 </ul>
 <h2 id="positive"><a class="header" href="#positive">positive</a></h2>
 <pre><code>class C {
@@ -1085,11 +1088,6 @@ function set x(v: T): void {}
     proxy function shiftRightUnsigned(right: C): T {}
 }
 </code></pre>
-<h2 id="delegate"><a class="header" href="#delegate">delegate</a></h2>
-<pre><code>class C {
-    proxy function delegate(): T {}
-}
-</code></pre>
 <h2 id="to"><a class="header" href="#to">to</a></h2>
 <ul>
 <li>The <code>to</code> proxy adds explicit conversion from the enclosing class to the type it returns.</li>
@@ -1097,6 +1095,26 @@ function set x(v: T): void {}
 </ul>
 <pre><code>class C {
     proxy function to(): T {}
+}
+</code></pre>
+<h2 id="getproperty"><a class="header" href="#getproperty">getProperty</a></h2>
+<pre><code>class C {
+    proxy function getProperty(k: K): T {}
+}
+</code></pre>
+<h2 id="setproperty"><a class="header" href="#setproperty">setProperty</a></h2>
+<pre><code>class C {
+    proxy function setProperty(k: K, v: V): void {}
+}
+</code></pre>
+<h2 id="deleteproperty"><a class="header" href="#deleteproperty">deleteProperty</a></h2>
+<pre><code>class C {
+    proxy function deleteProperty(k: K): Boolean {}
+}
+</code></pre>
+<h2 id="has"><a class="header" href="#has">has</a></h2>
+<pre><code>class C {
+    proxy function has(v: T): Boolean {}
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="generics-1"><a class="header" href="#generics-1">Generics</a></h1>

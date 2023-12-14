@@ -166,6 +166,15 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="constructors"><a class="header" href="#constructors">Constructors</a></h1>
+<p>A constructor is a function whose name matches the enclosing class's name.</p>
+<ul>
+<li>A constructor must not be generic.</li>
+<li>A constructor must not be asynchronous.</li>
+<li>A constructor must not be a generator.</li>
+<li>It is a verify error if the constructor has no <code>super();</code> statement and the constructor of the parent class has a non-empty parameter list.</li>
+<li>A constructor is allowed to perform assignments to constant instance variables.</li>
+<li>A constructor is allowed to contain a single <code>super();</code> statement.</li>
+</ul>
 
                     </main>
 

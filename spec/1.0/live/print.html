@@ -932,10 +932,29 @@ function set x(v: T): void {}
 <pre><code>native function f(): void;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="instance-methods"><a class="header" href="#instance-methods">Instance methods</a></h1>
+<p>An instance method is a non static function directly enclosed by a <code>class</code>, <code>enum</code> or <code>interface</code> block.</p>
 <h2 id="abstract-methods"><a class="header" href="#abstract-methods">Abstract methods</a></h2>
+<p>An abstract method contains the <code>abstract</code> attribute.</p>
+<ul>
+<li>Abstract methods must not contain a body.</li>
+<li>Abstract methods must be overriden by subclasses of the enclosing class.</li>
+</ul>
 <h2 id="final-methods"><a class="header" href="#final-methods">Final methods</a></h2>
+<p>A final method contains the <code>final</code> attribute.</p>
+<ul>
+<li>Final methods must not be overriden by subclasses of the enclosing class.</li>
+</ul>
 <h2 id="overriding"><a class="header" href="#overriding">Overriding</a></h2>
+<p>A overriding method contains the <code>override</code> attribute.</p>
+<pre><code>class C1 {
+    function f(): void {}
+}
+class C2 {
+    override function f(): void {}
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="interface-methods"><a class="header" href="#interface-methods">Interface methods</a></h1>
+<p>An interface method is an instance method belonging to an interface.</p>
 <h2 id="optional-interface-method"><a class="header" href="#optional-interface-method">Optional interface method</a></h2>
 <p>A function that is an interface method may be optional.</p>
 <pre><code>interface I {
@@ -943,8 +962,22 @@ function set x(v: T): void {}
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getters-and-setters"><a class="header" href="#getters-and-setters">Getters and setters</a></h1>
+<p>A function that belongs to a virtual property is either a getter or setter.</p>
+<pre><code>function get x(): T (v);
+function set x(v: T): void {}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="constructors"><a class="header" href="#constructors">Constructors</a></h1>
+<p>A constructor is a function whose name matches the enclosing class's name.</p>
+<ul>
+<li>A constructor must not be generic.</li>
+<li>A constructor must not be asynchronous.</li>
+<li>A constructor must not be a generator.</li>
+<li>It is a verify error if the constructor has no <code>super();</code> statement and the constructor of the parent class has a non-empty parameter list.</li>
+<li>A constructor is allowed to perform assignments to constant instance variables.</li>
+<li>A constructor is allowed to contain a single <code>super();</code> statement.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proxies"><a class="header" href="#proxies">Proxies</a></h1>
+<p>A proxy is a function containing the <code>proxy</code> attribute. The name of a proxy must be one of the several proxy names listed in this section.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="generics-1"><a class="header" href="#generics-1">Generics</a></h1>
 
                     </main>

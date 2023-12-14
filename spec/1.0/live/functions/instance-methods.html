@@ -166,9 +166,27 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="instance-methods"><a class="header" href="#instance-methods">Instance methods</a></h1>
+<p>An instance method is a non static function directly enclosed by a <code>class</code>, <code>enum</code> or <code>interface</code> block.</p>
 <h2 id="abstract-methods"><a class="header" href="#abstract-methods">Abstract methods</a></h2>
+<p>An abstract method contains the <code>abstract</code> attribute.</p>
+<ul>
+<li>Abstract methods must not contain a body.</li>
+<li>Abstract methods must be overriden by subclasses of the enclosing class.</li>
+</ul>
 <h2 id="final-methods"><a class="header" href="#final-methods">Final methods</a></h2>
+<p>A final method contains the <code>final</code> attribute.</p>
+<ul>
+<li>Final methods must not be overriden by subclasses of the enclosing class.</li>
+</ul>
 <h2 id="overriding"><a class="header" href="#overriding">Overriding</a></h2>
+<p>A overriding method contains the <code>override</code> attribute.</p>
+<pre><code>class C1 {
+    function f(): void {}
+}
+class C2 {
+    override function f(): void {}
+}
+</code></pre>
 
                     </main>
 

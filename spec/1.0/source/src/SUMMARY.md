@@ -19,6 +19,8 @@
 - [Virtual properties](virtual-properties.md)
 - [Functions](functions.md)
   - [Instance methods](functions/instance-methods.md)
+  - [Interface methods](functions/interface-methods.md)
   - [Getters and setters](functions/getters-and-setters.md)
   - [Constructors](functions/constructors.md)
   - [Proxies](functions/proxies.md)
+- [Generics](generics.md)

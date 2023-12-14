@@ -72,3 +72,27 @@ The `Char` type is a Unicode Scalar Value.
 ## CharIndex type
 
 The `CharIndex` type is a group (*string*, *index*) where *string* is a `String` and *index* is an `UnsignedInt` identifying a zero based index into *string*.
+
+## Function types
+
+Function types consist of zero or more parameters and a return type annotation. Function types appear in the forms:
+
+```
+(a: T) => E
+(a?: T) => E
+(...a: [T]) => E
+```
+
+* Function types inherit from the `Function` class.
+* Each parameter is either a required, optional or rest parameter.
+* The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.
+* The rest parameter must appear at most once.
+* The rest parameter must be of type `Array`.
+
+## Tuple types
+
+## Optional type
+
+## Result type
+
+## Array type

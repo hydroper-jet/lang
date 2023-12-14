@@ -81,6 +81,7 @@ Expressions:
 * [ ] MemberExpression (`o.x`)
   * `x` is a qualified identifier
 * [ ] ComputedMemberExpression (`o[k]`)
+  * Support tuples
 * [ ] DescendantsExpression (`o..x`)
 * [ ] FilterExpression (`o.(condition)`)
   * [ ] Creates a filter scope that resolves names at runtime

@@ -8,7 +8,7 @@
   - [Exceptions](overview/exceptions.md)
   - [Nullability](overview/nullability.md)
   - [Proxy](overview/proxy.md)
-  - [J4X](overview/j4x.md)
+  - [JetWork for XML](overview/j4x.md)
   - [JetXML](overview/jetxml.md)
 - [Notation](notation.md)
 - [Lexical structure](lexical-structure.md)

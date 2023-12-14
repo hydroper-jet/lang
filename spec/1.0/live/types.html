@@ -234,11 +234,16 @@
 <li>The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.</li>
 <li>The rest parameter must appear at most once.</li>
 <li>The rest parameter must be of type <code>Array</code>.</li>
+<li>A trailing <code>throws</code> clause may be used to wrap <code>E</code> into a <code>Result</code> type with a list of exception types, as in <code>() =&gt; void throws SyntaxError, RangeError</code>.</li>
 </ul>
 <h2 id="tuple-types"><a class="header" href="#tuple-types">Tuple types</a></h2>
+<p>Tuple types are in the form <code>[T1, T2, ...TN]</code>.</p>
 <h2 id="optional-type"><a class="header" href="#optional-type">Optional type</a></h2>
+<p>The <code>Optional.&lt;T&gt;</code> type is an union of <code>undefined</code> and <code>T</code>. <code>Optional.&lt;T&gt;</code> may be expressed as <code>Optional.&lt;T&gt;</code>, <code>T?</code>, or <code>?T</code>.</p>
 <h2 id="result-type"><a class="header" href="#result-type">Result type</a></h2>
+<p>The <code>Result.&lt;T, E1, ...EN&gt;</code> type is an union of <code>T</code> and one or more exception types.</p>
 <h2 id="array-type"><a class="header" href="#array-type">Array type</a></h2>
+<p>The <code>Array.&lt;T&gt;</code> type is a growable collection of <code>T</code> values. <code>Array</code> may be expressed as <code>Array.&lt;T&gt;</code> or <code>[T]</code>.</p>
 
                     </main>
 

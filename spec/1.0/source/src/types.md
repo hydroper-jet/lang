@@ -88,11 +88,20 @@ Function types consist of zero or more parameters and a return type annotation. 
 * The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.
 * The rest parameter must appear at most once.
 * The rest parameter must be of type `Array`.
+* A trailing `throws` clause may be used to wrap `E` into a `Result` type with a list of exception types, as in `() => void throws SyntaxError, RangeError`.
 
 ## Tuple types
 
+Tuple types are in the form `[T1, T2, ...TN]`.
+
 ## Optional type
+
+The `Optional.<T>` type is an union of `undefined` and `T`. `Optional.<T>` may be expressed as `Optional.<T>`, `T?`, or `?T`.
 
 ## Result type
 
+The `Result.<T, E1, ...EN>` type is an union of `T` and one or more exception types.
+
 ## Array type
+
+The `Array.<T>` type is a growable collection of `T` values. `Array` may be expressed as `Array.<T>` or `[T]`.

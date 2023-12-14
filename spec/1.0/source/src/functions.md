@@ -35,3 +35,14 @@ A function is native if it contains the `native` attribute.
 ```
 native function f(): void;
 ```
+
+## Meta data
+
+A function may contain zero or more arbitrary plain meta-data or file meta-data.
+
+```
+[Metadata(N1(n2))]
+function f1(): void {}
+[FileMetadata(N1("path/to/file.bin"))]
+function f2(): void {}
+```

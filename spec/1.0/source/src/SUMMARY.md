@@ -24,3 +24,4 @@
   - [Constructors](functions/constructors.md)
   - [Proxies](functions/proxies.md)
 - [Generics](generics.md)
+- [Meta-data](metadata.md)

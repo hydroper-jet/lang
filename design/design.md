@@ -318,6 +318,14 @@ Meta data can be attached to items. There are three categories of meta data: res
 [Metadata(N1(x = "y", z, "w"))]
 ```
 
+## File meta data
+
+File meta data are unprocessed binary meta data loaded from a file:
+
+```
+[FileMetadata(N1("path/to/file.bin"))]
+```
+
 # Fatal exceptions
 
 Fatal exceptions are exceptions that may be thrown at runtime and cannot be caught by the user.

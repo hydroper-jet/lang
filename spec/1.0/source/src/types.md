@@ -28,6 +28,16 @@ The default value of a type is determined as follows:
 
 The language performs auto boxing of primitive types. Primitive types are represented in a memory efficient way wherever available, including within an `Array`.
 
+Primitive types are boxed without duplicating identity:
+
+```
+var x: Object = 10
+var y: Object = 10
+
+// true
+x == y
+```
+
 ## Any type
 
 The `*` type contains values from all other types.

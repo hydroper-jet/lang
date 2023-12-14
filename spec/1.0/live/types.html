@@ -190,6 +190,13 @@
 </ul>
 <h2 id="auto-boxing"><a class="header" href="#auto-boxing">Auto boxing</a></h2>
 <p>The language performs auto boxing of primitive types. Primitive types are represented in a memory efficient way wherever available, including within an <code>Array</code>.</p>
+<p>Primitive types are boxed without duplicating identity:</p>
+<pre><code>var x: Object = 10
+var y: Object = 10
+
+// true
+x == y
+</code></pre>
 <h2 id="any-type"><a class="header" href="#any-type">Any type</a></h2>
 <p>The <code>*</code> type contains values from all other types.</p>
 <h2 id="undefined-type"><a class="header" href="#undefined-type">Undefined type</a></h2>

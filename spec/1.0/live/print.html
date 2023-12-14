@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="overview/nullability.html"><strong aria-hidden="true">1.6.</strong> Nullability</a></li><li class="chapter-item expanded "><a href="overview/proxy.html"><strong aria-hidden="true">1.7.</strong> Proxy</a></li><li class="chapter-item expanded "><a href="overview/j4x.html"><strong aria-hidden="true">1.8.</strong> J4X</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.9.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li><li class="chapter-item expanded "><a href="lexical-structure.html"><strong aria-hidden="true">3.</strong> Lexical structure</a></li><li class="chapter-item expanded "><a href="packages.html"><strong aria-hidden="true">4.</strong> Packages</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="overview/nullability.html"><strong aria-hidden="true">1.6.</strong> Nullability</a></li><li class="chapter-item expanded "><a href="overview/proxy.html"><strong aria-hidden="true">1.7.</strong> Proxy</a></li><li class="chapter-item expanded "><a href="overview/j4x.html"><strong aria-hidden="true">1.8.</strong> J4X</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.9.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li><li class="chapter-item expanded "><a href="lexical-structure.html"><strong aria-hidden="true">3.</strong> Lexical structure</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">4.</strong> Types</a></li><li class="chapter-item expanded "><a href="packages.html"><strong aria-hidden="true">5.</strong> Packages</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">6.</strong> Variables</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -201,7 +201,7 @@ trace(triangleArea(5, 6, 7));
     &quot;registryNamespace&quot;: &quot;http://www.w3.org/web&quot;,
     &quot;dependencies&quot;: {
         &quot;*&quot;: {
-            &quot;org.xml&quot;: &quot;1.0.0&quot;,
+            &quot;org.xml&quot;: &quot;1.0.0&quot;
         },
         &quot;http://www.w3.org/web&quot;: {
             &quot;goog.g&quot;: &quot;1.0.0&quot;
@@ -690,6 +690,63 @@ assert(text == &quot;Have a\nnice day!&quot;);
 </code></pre>
 <h2 id="j4x-1"><a class="header" href="#j4x-1">J4X</a></h2>
 <p>J4X defines <em>InputElementXMLTag</em> and <em>InputElementXMLContent</em> based on the ECMA-357 second edition.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="types"><a class="header" href="#types">Types</a></h1>
+<h2 id="primitive-types"><a class="header" href="#primitive-types">Primitive types</a></h2>
+<p>JetWork considers the following to be primitive types:</p>
+<ul>
+<li><code>undefined</code> type, or the equivalent <code>void</code></li>
+<li>Number types</li>
+<li><code>Boolean</code> type</li>
+<li><code>String</code> type</li>
+<li><code>Char</code> type</li>
+<li><code>CharIndex</code> type</li>
+</ul>
+<h2 id="default-value"><a class="header" href="#default-value">Default value</a></h2>
+<p>The default value of a type is determined as follows:</p>
+<ul>
+<li>If the type is <code>undefined</code>, return <code>undefined</code>.</li>
+<li>If the type is <code>Optional</code>, return <code>undefined</code>.</li>
+<li>If the type is a number type, return zero.</li>
+<li>If the type is <code>Boolean</code>, return false.</li>
+<li>If the type is <code>String</code>, return the empty string.</li>
+<li>If the type is <code>Char</code>, return U+0000.</li>
+<li>If the type is <code>CharIndex</code>, return (<em>empty string</em>, <em>zero</em>).</li>
+</ul>
+<h2 id="any-type"><a class="header" href="#any-type">Any type</a></h2>
+<p>The <code>*</code> type contains values from all other types.</p>
+<h2 id="undefined-type"><a class="header" href="#undefined-type">Undefined type</a></h2>
+<p>The <code>undefined</code> or <code>void</code> type consists of the <code>undefined</code> constant.</p>
+<h2 id="never-type"><a class="header" href="#never-type">Never type</a></h2>
+<p>The <code>never</code> type contains no value.</p>
+<h2 id="number-types"><a class="header" href="#number-types">Number types</a></h2>
+<p><em>IEEE 754 floating point</em>:</p>
+<ul>
+<li><code>Number</code> — Double-precision floating point</li>
+<li><code>Single</code> — Single-precision floating point</li>
+</ul>
+<p><em>Signed integer</em>:</p>
+<ul>
+<li><code>BigInt</code> — Arbitrary range integer</li>
+<li><code>Long</code> — Ranges from -2<sup>64 - 1</sup> to 2<sup>64 - 1</sup> - 1 (64-bit)</li>
+<li><code>Int</code> — Ranges from -2<sup>32 - 1</sup> to 2<sup>32 - 1</sup> - 1 (32-bit)</li>
+<li><code>Short</code> — Ranges from -2<sup>16 - 1</sup> to 2<sup>16 - 1</sup> - 1 (16-bit)</li>
+<li><code>Byte</code> — Ranges from -2<sup>8 - 1</sup> to 2<sup>8 - 1</sup> - 1 (8-bit)</li>
+</ul>
+<p><em>Unsigned integer</em>:</p>
+<ul>
+<li><code>UnsignedLong</code> — Ranges from 0 to 2<sup>64</sup> - 1 (64-bit)</li>
+<li><code>UnsignedInt</code> — Ranges from 0 to 2<sup>32</sup> - 1 (32-bit)</li>
+<li><code>UnsignedShort</code> — Ranges from 0 to 2<sup>16</sup> - 1 (16-bit)</li>
+<li><code>UnsignedByte</code> — Ranges from 0 to 2<sup>8</sup> - 1 (8-bit)</li>
+</ul>
+<h2 id="boolean-type"><a class="header" href="#boolean-type">Boolean type</a></h2>
+<p>The <code>Boolean</code> type consists of the values <code>false</code> and <code>true</code>.</p>
+<h2 id="string-type"><a class="header" href="#string-type">String type</a></h2>
+<p>The <code>String</code> type consists of a sequence of Unicode Scalar Values whose encoding is implementation-defined.</p>
+<h2 id="char-type"><a class="header" href="#char-type">Char type</a></h2>
+<p>The <code>Char</code> type is a Unicode Scalar Value.</p>
+<h2 id="charindex-type"><a class="header" href="#charindex-type">CharIndex type</a></h2>
+<p>The <code>CharIndex</code> type is a group (<em>string</em>, <em>index</em>) where <em>string</em> is a <code>String</code> and <em>index</em> is an <code>UnsignedInt</code> identifying a zero based index into <em>string</em>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="packages"><a class="header" href="#packages">Packages</a></h1>
 <p>Packages are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an <code>import</code> directive or an <code>use</code> definition.</p>
 <pre><code>// Top-level package
@@ -737,6 +794,32 @@ trace(org.x.y.xyProperty);
     public use org.origin.core.*;
 }
 </code></pre>
+<h2 id="subpackages"><a class="header" href="#subpackages">Subpackages</a></h2>
+<p>A package may have zero or more subpackages. The top-level package contains the topmost packages as subpackages.</p>
+<pre><code>// Subpackage of top-level package
+package q1 {}
+// Subpackage of &quot;q1&quot;
+package q1.q2 {}
+// Subpackage of &quot;q1.q2&quot;
+package q1.q2.qN {}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="variables"><a class="header" href="#variables">Variables</a></h1>
+<p>A variable consists of a name, a static type and miscellaneous other symbols. A variable may be read-only by using the <code>const</code> keyword.</p>
+<pre><code>var x: Number;
+const y: Number;
+</code></pre>
+<h2 id="initializer"><a class="header" href="#initializer">Initializer</a></h2>
+<p>Variables are lazily initialized with the exception of variables whose static type has a <em>default</em> value, such as a <a href="types.html#primitive-types">primitive type</a> or the <code>Optional</code> type.</p>
+<ul>
+<li>It is a fatal exception if the value of a variable is accessed before initialized and the static type of that variable includes no default value.</li>
+</ul>
+<pre><code>const x: Number
+x // 0
+
+const y: RegExp
+y // Fatal exception
+</code></pre>
+<p><em>Constant initializer</em>: A variable may consist of a constant initializer. A constant initializer is an expression that can be evaluated at compile-time.</p>
 
                     </main>
 

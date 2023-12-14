@@ -22,6 +22,11 @@ The default value of a type is determined as follows:
 * If the type is `String`, return the empty string.
 * If the type is `Char`, return U+0000.
 * If the type is `CharIndex`, return (*empty string*, *zero*).
+* For any other type, return no default value.
+
+## Auto boxing
+
+The language performs auto boxing of primitive types. Primitive types are represented in a memory efficient way wherever available, including within an `Array`.
 
 ## Any type
 
@@ -105,3 +110,7 @@ The `Result.<T, E1, ...EN>` type is an union of `T` and one or more exception ty
 ## Array type
 
 The `Array.<T>` type is a growable collection of `T` values. `Array` may be expressed as `Array.<T>` or `[T]`.
+
+## Object type
+
+The `Object` type is the super type of all other classes and all enums.

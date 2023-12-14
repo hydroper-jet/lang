@@ -186,7 +186,10 @@
 <li>If the type is <code>String</code>, return the empty string.</li>
 <li>If the type is <code>Char</code>, return U+0000.</li>
 <li>If the type is <code>CharIndex</code>, return (<em>empty string</em>, <em>zero</em>).</li>
+<li>For any other type, return no default value.</li>
 </ul>
+<h2 id="auto-boxing"><a class="header" href="#auto-boxing">Auto boxing</a></h2>
+<p>The language performs auto boxing of primitive types. Primitive types are represented in a memory efficient way wherever available, including within an <code>Array</code>.</p>
 <h2 id="any-type"><a class="header" href="#any-type">Any type</a></h2>
 <p>The <code>*</code> type contains values from all other types.</p>
 <h2 id="undefined-type"><a class="header" href="#undefined-type">Undefined type</a></h2>
@@ -244,6 +247,8 @@
 <p>The <code>Result.&lt;T, E1, ...EN&gt;</code> type is an union of <code>T</code> and one or more exception types.</p>
 <h2 id="array-type"><a class="header" href="#array-type">Array type</a></h2>
 <p>The <code>Array.&lt;T&gt;</code> type is a growable collection of <code>T</code> values. <code>Array</code> may be expressed as <code>Array.&lt;T&gt;</code> or <code>[T]</code>.</p>
+<h2 id="object-type"><a class="header" href="#object-type">Object type</a></h2>
+<p>The <code>Object</code> type is the super type of all other classes and all enums.</p>
 
                     </main>
 

@@ -55,3 +55,16 @@ package org.alias.core {
     public use org.origin.core.*;
 }
 ```
+
+## Subpackages
+
+A package may have zero or more subpackages. The top-level package contains the topmost packages as subpackages.
+
+```
+// Subpackage of top-level package
+package q1 {}
+// Subpackage of "q1"
+package q1.q2 {}
+// Subpackage of "q1.q2"
+package q1.q2.qN {}
+```

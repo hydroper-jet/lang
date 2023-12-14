@@ -3,8 +3,10 @@
 JetWork is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the JetWork Virtual Machine Bytecode and includes miscellaneous standard objects.
 
 ```
-import spark.*;
-public use s = spark.*;
+package sparkFusion {
+    public use spark.core.*;
+}
+import sparkFusion.*;
 
 public const xx = "xx";
 

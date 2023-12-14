@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="overview/nullability.html"><strong aria-hidden="true">1.6.</strong> Nullability</a></li><li class="chapter-item expanded "><a href="overview/proxy.html"><strong aria-hidden="true">1.7.</strong> Proxy</a></li><li class="chapter-item expanded "><a href="overview/j4x.html"><strong aria-hidden="true">1.8.</strong> J4X</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.9.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li><li class="chapter-item expanded "><a href="lexical-structure.html"><strong aria-hidden="true">3.</strong> Lexical structure</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">4.</strong> Types</a></li><li class="chapter-item expanded "><a href="visibility.html"><strong aria-hidden="true">5.</strong> Visibility</a></li><li class="chapter-item expanded "><a href="packages.html"><strong aria-hidden="true">6.</strong> Packages</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">7.</strong> Variables</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item expanded "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item expanded "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item expanded "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item expanded "><a href="overview/nullability.html"><strong aria-hidden="true">1.6.</strong> Nullability</a></li><li class="chapter-item expanded "><a href="overview/proxy.html"><strong aria-hidden="true">1.7.</strong> Proxy</a></li><li class="chapter-item expanded "><a href="overview/j4x.html"><strong aria-hidden="true">1.8.</strong> J4X</a></li><li class="chapter-item expanded "><a href="overview/jetxml.html"><strong aria-hidden="true">1.9.</strong> JetXML</a></li></ol></li><li class="chapter-item expanded "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li><li class="chapter-item expanded "><a href="lexical-structure.html"><strong aria-hidden="true">3.</strong> Lexical structure</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">4.</strong> Types</a></li><li class="chapter-item expanded "><a href="visibility.html"><strong aria-hidden="true">5.</strong> Visibility</a></li><li class="chapter-item expanded "><a href="packages.html"><strong aria-hidden="true">6.</strong> Packages</a></li><li class="chapter-item expanded "><a href="variables.html"><strong aria-hidden="true">7.</strong> Variables</a></li><li class="chapter-item expanded "><a href="virtual-properties.html"><strong aria-hidden="true">8.</strong> Virtual properties</a></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">9.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="functions/instance-methods.html"><strong aria-hidden="true">9.1.</strong> Instance methods</a></li><li class="chapter-item expanded "><a href="functions/getters-and-setters.html"><strong aria-hidden="true">9.2.</strong> Getters and setters</a></li><li class="chapter-item expanded "><a href="functions/constructors.html"><strong aria-hidden="true">9.3.</strong> Constructors</a></li><li class="chapter-item expanded "><a href="functions/proxies.html"><strong aria-hidden="true">9.4.</strong> Proxies</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -305,7 +305,7 @@ trace(new ExampleClass(undefined).data!);
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="j4x"><a class="header" href="#j4x">J4X</a></h1>
-<p>JetWork for XML (J4X) adds XML capabilities to the JetWork language. It is based on the legacy ECMAScript for XML standard.</p>
+<p>JetWork for XML (J4X) adds XML capabilities to the JetWork language. It is based on the legacy ECMAScript for XML standard (ECMA-357 second edition).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jetxml"><a class="header" href="#jetxml">JetXML</a></h1>
 <p>JetWork supports classes in XML form called <em>JetXML</em>. A JetXML is a file with the extension <code>.jetxml</code>.</p>
 <ul>
@@ -846,7 +846,7 @@ package q1.q2 {}
 package q1.q2.qN {}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="variables"><a class="header" href="#variables">Variables</a></h1>
-<p>A variable consists of a name, a static type, a <a href="visibility.html">visibility</a>, and miscellaneous other symbols. A variable may be read-only or constant by using the <code>const</code> keyword.</p>
+<p>A variable consists of a name, a static type, a <a href="visibility.html">visibility</a>, and miscellaneous. A variable may be read-only or constant by using the <code>const</code> keyword.</p>
 <pre><code>var x: Number;
 const y: Number;
 </code></pre>
@@ -895,6 +895,24 @@ const o: C = {};
 <p>A variable is <em>optional</em> when the variable's static type is the <code>Optional</code> type.</p>
 <h2 id="parent-definition"><a class="header" href="#parent-definition">Parent definition</a></h2>
 <p>When the parent definition of a variable is a package, the variable has a fully package qualified name.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="virtual-properties"><a class="header" href="#virtual-properties">Virtual properties</a></h1>
+<p>A virtual property consists of a name, a static type, a possibly omitted getter, a possibly omitted setter, a <a href="visibility.html">visibility</a>, and miscellaneous.</p>
+<ul>
+<li>A virtual property is read-only if it has only a getter.</li>
+<li>A virtual property is write-only if it has only a setter.</li>
+<li>Getter and setter are functions that belong to the virtual property.</li>
+</ul>
+<pre><code>function get x(): T (v);
+function set x(v: T): void {}
+</code></pre>
+<h2 id="parent-definition-1"><a class="header" href="#parent-definition-1">Parent definition</a></h2>
+<p>When the parent definition of a virtual property is a package, the virtual property has a fully package qualified name.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="instance-methods"><a class="header" href="#instance-methods">Instance methods</a></h1>
+<h2 id="overriding"><a class="header" href="#overriding">Overriding</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getters-and-setters"><a class="header" href="#getters-and-setters">Getters and setters</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="constructors"><a class="header" href="#constructors">Constructors</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="proxies"><a class="header" href="#proxies">Proxies</a></h1>
 
                     </main>
 

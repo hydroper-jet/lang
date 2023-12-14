@@ -1,6 +1,6 @@
 # Variables
 
-A variable consists of a name, a static type, a [visibility](visibility.md), and miscellaneous other symbols. A variable may be read-only or constant by using the `const` keyword.
+A variable consists of a name, a static type, a [visibility](visibility.md), and miscellaneous. A variable may be read-only or constant by using the `const` keyword.
 
 ```
 var x: Number;

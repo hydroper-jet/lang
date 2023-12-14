@@ -23,7 +23,7 @@ A overriding method contains the `override` attribute.
 class C1 {
     function f(): void {}
 }
-class C2 {
+class C2 extends C1 {
     override function f(): void {}
 }
 ```

@@ -990,7 +990,115 @@ function set x(v: T): void {}
 <li>A constructor is allowed to contain a single <code>super();</code> statement.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proxies"><a class="header" href="#proxies">Proxies</a></h1>
-<p>A proxy is a function containing the <code>proxy</code> attribute. The name of a proxy must be one of the several proxy names listed in this section.</p>
+<p>A proxy is a function containing the <code>proxy</code> attribute, enclosed by a <code>class</code> or <code>enum</code> block. The name of a proxy must be one of the several proxy names listed in this section.</p>
+<ul>
+<li><a href="functions/proxies.html#positive">positive</a></li>
+<li><a href="functions/proxies.html#negate">negate</a></li>
+<li><a href="functions/proxies.html#bitwiseNot">bitwiseNot</a></li>
+<li><a href="functions/proxies.html#add">add</a></li>
+<li><a href="functions/proxies.html#subtract">subtract</a></li>
+<li><a href="functions/proxies.html#multiply">multiply</a></li>
+<li><a href="functions/proxies.html#divide">divide</a></li>
+<li><a href="functions/proxies.html#remainder">remainder</a></li>
+<li><a href="functions/proxies.html#power">power</a></li>
+<li><a href="functions/proxies.html#bitwiseAnd">bitwiseAnd</a></li>
+<li><a href="functions/proxies.html#bitwiseXor">bitwiseXor</a></li>
+<li><a href="functions/proxies.html#bitwiseOr">bitwiseOr</a></li>
+<li><a href="functions/proxies.html#shiftLeft">shiftLeft</a></li>
+<li><a href="functions/proxies.html#shiftRight">shiftRight</a></li>
+<li><a href="functions/proxies.html#shiftRightUnsigned">shiftRightUnsigned</a></li>
+<li><a href="functions/proxies.html#delegate">delegate</a></li>
+<li><a href="functions/proxies.html#to">to</a></li>
+</ul>
+<h2 id="positive"><a class="header" href="#positive">positive</a></h2>
+<pre><code>class C {
+    proxy function positive(): T {}
+}
+</code></pre>
+<h2 id="negate"><a class="header" href="#negate">negate</a></h2>
+<pre><code>class C {
+    proxy function negate(): T {}
+}
+</code></pre>
+<h2 id="bitwisenot"><a class="header" href="#bitwisenot">bitwiseNot</a></h2>
+<pre><code>class C {
+    proxy function bitwiseNot(): T {}
+}
+</code></pre>
+<h2 id="add"><a class="header" href="#add">add</a></h2>
+<pre><code>class C {
+    proxy function add(right: C): T {}
+}
+</code></pre>
+<h2 id="subtract"><a class="header" href="#subtract">subtract</a></h2>
+<pre><code>class C {
+    proxy function subtract(right: C): T {}
+}
+</code></pre>
+<h2 id="multiply"><a class="header" href="#multiply">multiply</a></h2>
+<pre><code>class C {
+    proxy function multiply(right: C): T {}
+}
+</code></pre>
+<h2 id="divide"><a class="header" href="#divide">divide</a></h2>
+<pre><code>class C {
+    proxy function divide(right: C): T {}
+}
+</code></pre>
+<h2 id="remainder"><a class="header" href="#remainder">remainder</a></h2>
+<pre><code>class C {
+    proxy function remainder(right: C): T {}
+}
+</code></pre>
+<h2 id="power"><a class="header" href="#power">power</a></h2>
+<pre><code>class C {
+    proxy function power(right: C): T {}
+}
+</code></pre>
+<h2 id="bitwiseand"><a class="header" href="#bitwiseand">bitwiseAnd</a></h2>
+<pre><code>class C {
+    proxy function bitwiseAnd(right: C): T {}
+}
+</code></pre>
+<h2 id="bitwisexor"><a class="header" href="#bitwisexor">bitwiseXor</a></h2>
+<pre><code>class C {
+    proxy function bitwiseXor(right: C): T {}
+}
+</code></pre>
+<h2 id="bitwiseor"><a class="header" href="#bitwiseor">bitwiseOr</a></h2>
+<pre><code>class C {
+    proxy function bitwiseOr(right: C): T {}
+}
+</code></pre>
+<h2 id="shiftleft"><a class="header" href="#shiftleft">shiftLeft</a></h2>
+<pre><code>class C {
+    proxy function shiftLeft(right: C): T {}
+}
+</code></pre>
+<h2 id="shiftright"><a class="header" href="#shiftright">shiftRight</a></h2>
+<pre><code>class C {
+    proxy function shiftRight(right: C): T {}
+}
+</code></pre>
+<h2 id="shiftrightunsigned"><a class="header" href="#shiftrightunsigned">shiftRightUnsigned</a></h2>
+<pre><code>class C {
+    proxy function shiftRightUnsigned(right: C): T {}
+}
+</code></pre>
+<h2 id="delegate"><a class="header" href="#delegate">delegate</a></h2>
+<pre><code>class C {
+    proxy function delegate(): T {}
+}
+</code></pre>
+<h2 id="to"><a class="header" href="#to">to</a></h2>
+<ul>
+<li>The <code>to</code> proxy adds explicit conversion from the enclosing class to the type it returns.</li>
+<li>The <code>to</code> proxy may be defined multiple times.</li>
+</ul>
+<pre><code>class C {
+    proxy function to(): T {}
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="generics-1"><a class="header" href="#generics-1">Generics</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="meta-data-2"><a class="header" href="#meta-data-2">Meta-data</a></h1>
 

@@ -966,6 +966,10 @@ class C2 extends C1 {
 <pre><code>function get x(): T (v);
 function set x(v: T): void {}
 </code></pre>
+<ul>
+<li>Getters and setters must not be asynchronous.</li>
+<li>Getters and setters must not be generators.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="constructors"><a class="header" href="#constructors">Constructors</a></h1>
 <p>A constructor is a function whose name matches the enclosing class's name.</p>
 <ul>

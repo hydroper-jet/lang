@@ -166,7 +166,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="variables"><a class="header" href="#variables">Variables</a></h1>
-<p>A variable consists of a name, a static type and miscellaneous other symbols. A variable may be read-only by using the <code>const</code> keyword.</p>
+<p>A variable consists of a name, a static type and miscellaneous other symbols. A variable may be read-only or constant by using the <code>const</code> keyword.</p>
 <pre><code>var x: Number;
 const y: Number;
 </code></pre>
@@ -175,13 +175,23 @@ const y: Number;
 <ul>
 <li>It is a fatal exception if the value of a variable is accessed before initialized and the static type of that variable includes no default value.</li>
 </ul>
-<pre><code>const x: Number
-x // 0
-
-const y: RegExp
-y // Fatal exception
+<pre><code>public class C {
+    public const x: Number
+    public const y: RegExp
+    public function C() {
+        x // 0
+        y // Fatal exception
+    }
+}
 </code></pre>
-<p><em>Constant initializer</em>: A variable may consist of a constant initializer. A constant initializer is an expression that can be evaluated at compile-time.</p>
+<ul>
+<li>It is a fatal exception if a constant variable is assigned more than once.</li>
+<li>A constant variable that is not an instance variable must contain an initializer.</li>
+<li>A constant variable that is not an instance variable must not be assigned by an assignment expression.</li>
+<li>A constant variable that is an instance variable may be assigned in the constructor body.</li>
+<li>A constant variable that is an instance variable may not be assigned outside the constructor body.</li>
+</ul>
+<p><em>Constant initializer</em>: A variable may consist of a constant initializer. A constant initializer consists of a constant expression.</p>
 
                     </main>
 

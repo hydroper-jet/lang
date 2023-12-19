@@ -316,17 +316,10 @@ Meta data can be attached to items. There are three categories of meta data: res
 * Plain meta data supports qualified names `q::N` that map to a equivalent string
 * The entries are in the `x = "y"` pair form
 * Keyless entries are either in the form `q::n`, `n` or `"n"` and map to a value string
+* A value file is allowed by using an expression in the form `File("path/to/file")`
 
 ```
-[Metadata(N1(x = "y", z, "w"))]
-```
-
-## File meta data
-
-File meta data are unprocessed binary meta data loaded from a file:
-
-```
-[FileMetadata(N1("path/to/file.bin"))]
+[Metadata(N1(x = "y", z, "w", File("myExtension.dll")))]
 ```
 
 # Fatal exceptions
@@ -348,7 +341,7 @@ Test functions can be defined with the `[Test]` meta data. Such functions are in
 
 ```
 [Test]
-function testSomething() {
+function testSomething(): void {
     // Test it
 }
 ```

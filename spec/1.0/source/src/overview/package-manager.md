@@ -58,7 +58,8 @@ The package manager supports configuration constants that allow for conditional 
 
 The conditions in `if` support a minimal conditional language:
 
-* `constant` — If configuration is present
+* `constant` — If constant is present
+* `constant=value` — If constant is equals `"value"`
 * `!expression` — If condition is false
 * `(expression)` — Parenthesized condition
 * `primaryExpression && primaryExpression` — If conditions are true

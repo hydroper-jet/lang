@@ -208,7 +208,8 @@
 <p>The package manager supports configuration constants that allow for conditional configuration within a manifest through the top-level <code>if</code> property. The matching options are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.</p>
 <p>The conditions in <code>if</code> support a minimal conditional language:</p>
 <ul>
-<li><code>constant</code> — If configuration is present</li>
+<li><code>constant</code> — If constant is present</li>
+<li><code>constant=value</code> — If constant is equals <code>&quot;value&quot;</code></li>
 <li><code>!expression</code> — If condition is false</li>
 <li><code>(expression)</code> — Parenthesized condition</li>
 <li><code>primaryExpression &amp;&amp; primaryExpression</code> — If conditions are true</li>

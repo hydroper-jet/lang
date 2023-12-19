@@ -133,7 +133,7 @@ Set enumerations automatically define the following methods, where `E` is the en
 public native function include(other: E): E;
 
 /**
- * `E(if (other in this.valueOf()) this.valueOf() ^ other.valueOf() else {})`
+ * `E(if (other in this.valueOf()) this.valueOf() ^ other.valueOf() else 0)`
  */
 public native function exclude(other: E): E;
 

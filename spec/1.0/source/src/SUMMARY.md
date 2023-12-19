@@ -30,3 +30,4 @@
   - [Plain meta-data](metadata/plain-metadata.md)
 - [Aliases](aliases.md)
 - [Enumerations](enum.md)
+- [Classes](classes.md)

@@ -192,12 +192,26 @@ trace(triangleArea(5, 6, 7));
 <li>specifying a dependency through a directory path;</li>
 <li>registry namespaces.</li>
 </ul>
+<h2 id="build-process"><a class="header" href="#build-process">Build process</a></h2>
+<p>The package manifest represents a JetWork project, and locates its sources; therefore, the package manager is able to build a project through a simple command such as <code>jetpm build</code>, resulting into a bytecode artifact.</p>
+<p>Here is an example package manifest:</p>
+<p><strong>package.json</strong></p>
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;org.q.f&quot;,
+    &quot;version&quot;: &quot;0.1.0&quot;,
+    &quot;compilerOptions&quot;: {
+        &quot;includeSources&quot;: [&quot;src&quot;]
+    }
+}
+</code></pre>
+<h2 id="registry-namespaces"><a class="header" href="#registry-namespaces">Registry namespaces</a></h2>
 <p>Registry namespaces allow distinguishing dependencies from different platforms; without registry namespaces, the registry can get cluttered over time and working with different platforms can be a confusing experience.</p>
 <p>A particular package can only depend in two registry namespaces: <code>*</code> and another optional registry namespace specified by the package manifest's top-level <code>registryNamespace</code> option. The <code>*</code> registry namespace indicates that the package does not rely on a platform.</p>
 <p>Here is an example of a potential package manifest that uses <code>http://www.w3.org/web</code> as its registry namespace:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;org.q.f&quot;,
+    &quot;version&quot;: &quot;0.1.0&quot;,
     &quot;registryNamespace&quot;: &quot;http://www.w3.org/web&quot;,
     &quot;dependencies&quot;: {
         &quot;*&quot;: {
@@ -209,7 +223,44 @@ trace(triangleArea(5, 6, 7));
     }
 }
 </code></pre>
-<p>Note that registry namespaces are only defined by the registry maintainers, not by the developers.</p>
+<p>Note that registry namespaces are only defined by the registry and not by the developers. This decision prevents accidental mistyping of registry namespace URIs and prevents cluttering of the registry with arbitrary registry namespaces.</p>
+<h2 id="conditional-configuration"><a class="header" href="#conditional-configuration">Conditional configuration</a></h2>
+<p>The package manager supports configuration constants that allow for conditional configuration within a manifest through the top-level <code>if</code> property. The matching options are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.</p>
+<p>The conditions in <code>if</code> support the following syntax:</p>
+<ul>
+<li><code>constant</code> — If configuration is present</li>
+<li><code>!constant</code> — If configuration is not present</li>
+<li><code>(expression)</code> — Parenthesized condition</li>
+<li><code>expressionX &amp;&amp; expressionY</code> — If conditions intersect</li>
+<li><code>expressionX || expressionY</code> — If one condition is true</li>
+</ul>
+<p>The <code>true</code> constant is always present, and is typically used for specifying <em>base</em> options and <em>overriding</em> options.</p>
+<p>Here is an example package manifest using <code>if</code>:</p>
+<p><strong>package.json</strong></p>
+<pre><code class="language-json">{
+    &quot;if&quot;: [
+        [&quot;true&quot;, {
+            &quot;compilerOptions&quot;: {
+                &quot;includeSources&quot;: [&quot;src/base&quot;]
+            }
+        }],
+        [&quot;air::target=ios&quot;, {
+            &quot;compilerOptions&quot;: {
+                &quot;includeSources&quot;: [&quot;src/ios&quot;]
+            }
+        }],
+        [&quot;true&quot;, {
+            &quot;compilerOptions&quot;: {
+                &quot;includeSources&quot;: [&quot;src/facade&quot;]
+            }
+        }]
+    ]
+}
+</code></pre>
+<p>Here are example JetPM commands passing configuration constants:</p>
+<pre><code class="language-plain">jetpm build --define someConstant
+jetpm build --define air::target=ios
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compilation-and-transpilation"><a class="header" href="#compilation-and-transpilation">Compilation and transpilation</a></h1>
 <p>JetWork compiles to the JetWork Virtual Machine Bytecode, which, in turn, can be compiled to other languages or be executed by a virtual machine.</p>
 <p>JetWork can be both compiled to native code and transpiled to another object-oriented high-level language.</p>

@@ -64,7 +64,7 @@ The conditions in `if` support a minimal conditional language:
 * `primaryExpression && primaryExpression` — If conditions are true
 * `primaryExpression || primaryExpression` — If one condition is true
 
-The `true` constant is always present, and is typically used for specifying *base* options and *overriding* options.
+The `true` constant is always present, and is typically used for specifying *base* options and *facade* options.
 
 Here is an example package manifest using `if`:
 

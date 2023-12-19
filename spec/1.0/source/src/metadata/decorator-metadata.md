@@ -34,7 +34,7 @@ class ExampleClass {
 
 ## Types
 
-A decorator meta-data applied to a type definition must contain a signature `(type: Class) => void`, where `C` is the type.
+A decorator meta-data applied to a type definition must contain a signature `(type: Class) => void`.
 
 ```
 function ExampleDecorator(type: Class): void {

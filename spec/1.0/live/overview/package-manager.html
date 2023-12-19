@@ -215,6 +215,11 @@
 <li><code>primaryExpression &amp;&amp; primaryExpression</code> — If conditions are true</li>
 <li><code>primaryExpression || primaryExpression</code> — If one condition is true</li>
 </ul>
+<p>Entries in <code>if</code> are allowed to contain:</p>
+<ul>
+<li>a omitted condition;</li>
+<li>an <em>otherwise</em> <code>&quot;else&quot;</code> indicator.</li>
+</ul>
 <p>The <code>true</code> constant is always present, and is typically used for specifying <em>base</em> options and <em>facade</em> options.</p>
 <p>Here is an example package manifest using <code>if</code>:</p>
 <p><strong>package.json</strong></p>
@@ -228,6 +233,11 @@
         [&quot;air::target=ios&quot;, {
             &quot;compilerOptions&quot;: {
                 &quot;includeSources&quot;: [&quot;src/platform/ios&quot;]
+            }
+        }],
+        [null, &quot;else&quot;, {
+            &quot;compilerOptions&quot;: {
+                &quot;includeSources&quot;: [&quot;src/platform/unsupported&quot;]
             }
         }],
         [&quot;true&quot;, {

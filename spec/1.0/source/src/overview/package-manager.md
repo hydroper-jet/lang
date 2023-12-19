@@ -65,6 +65,11 @@ The conditions in `if` support a minimal conditional language:
 * `primaryExpression && primaryExpression` — If conditions are true
 * `primaryExpression || primaryExpression` — If one condition is true
 
+Entries in `if` are allowed to contain:
+
+* a omitted condition;
+* an *otherwise* `"else"` indicator.
+
 The `true` constant is always present, and is typically used for specifying *base* options and *facade* options.
 
 Here is an example package manifest using `if`:
@@ -82,6 +87,11 @@ Here is an example package manifest using `if`:
         ["air::target=ios", {
             "compilerOptions": {
                 "includeSources": ["src/platform/ios"]
+            }
+        }],
+        [null, "else", {
+            "compilerOptions": {
+                "includeSources": ["src/platform/unsupported"]
             }
         }],
         ["true", {

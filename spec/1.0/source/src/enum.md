@@ -79,6 +79,14 @@ enum ExampleEnum {
 
 Set enumerations are defined with the `Set` meta-data. Set enumerations are represented by zero or more members, using bitwise capabilities.
 
+```
+[Set]
+enum Toggles {
+    const TOGGLE_1;
+    const TOGGLE_2;
+}
+```
+
 ## Enumeration inference
 
 Throughout JetWork code, the user is allowed to use a string literal to identify an enumeration member by its *string* value wherever the enumeration is expected at compile-time.

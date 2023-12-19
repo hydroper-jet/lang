@@ -1249,6 +1249,12 @@ enum ExampleEnum {
 </code></pre>
 <h2 id="set-enumerations"><a class="header" href="#set-enumerations">Set enumerations</a></h2>
 <p>Set enumerations are defined with the <code>Set</code> meta-data. Set enumerations are represented by zero or more members, using bitwise capabilities.</p>
+<pre><code>[Set]
+enum Toggles {
+    const TOGGLE_1;
+    const TOGGLE_2;
+}
+</code></pre>
 <h2 id="enumeration-inference"><a class="header" href="#enumeration-inference">Enumeration inference</a></h2>
 <p>Throughout JetWork code, the user is allowed to use a string literal to identify an enumeration member by its <em>string</em> value wherever the enumeration is expected at compile-time.</p>
 <pre><code>function peopleEat(foodType: FoodType): Boolean (

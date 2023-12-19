@@ -166,6 +166,14 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="generics"><a class="header" href="#generics">Generics</a></h1>
+<p>The language supports generic types and functions that consist of a sequence of type parameters. </p>
+<pre><code>class C.&lt;T&gt; {}
+function f.&lt;T&gt;(): void {}
+</code></pre>
+<h2 id="polymorphism"><a class="header" href="#polymorphism">Polymorphism</a></h2>
+<p>The language uses polymorphism for generic types and functions, except for the <code>Array</code> class applied with a <a href="types.html#primitive-types">primitive type</a>. With polymorphism, type parameters are substituted by the <code>*</code> type and additional compile-time type checking occurs when using the generic type or function.</p>
+<h2 id="constraints"><a class="header" href="#constraints">Constraints</a></h2>
+<p>The language does not support constraints on type parameters in the present, such as those present in the Java language.</p>
 
                     </main>
 

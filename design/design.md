@@ -10,9 +10,9 @@ import sparkFusion.*;
 
 public const xx = "xx";
 
-public function xy(a: Number) {
-    return Math.sqrt(a);
-}
+public function xy(a: Number): Number (
+    Math.sqrt(a)
+);
 
 var x = y; // Writable variable
 const x = y; // Read-only variable

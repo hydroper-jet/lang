@@ -10,9 +10,9 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*ParentDefinition*\]\] | The parent definition of the class. |
 | \[\[*SuperClass*\]\] | The super class of the class. It is undefined if the class is the `Object` class. |
 | \[\[*Implements*\]\] | List of implemented interfaces. |
-| \[\[*IsFinal*\]\] | |
-| \[\[*IsStatic*\]\] | |
-| \[\[*IsAbstract*\]\] | |
-| \[\[*TypeParameters*\]\] | |
-| \[\[*StaticProperties*\]\] | |
-| \[\[*Prototype*\]\] | |
+| \[\[*IsFinal*\]\] | Indicates whether the class is final or not. |
+| \[\[*IsStatic*\]\] | Indicates whether the class is static or not. |
+| \[\[*IsAbstract*\]\] | Indicates whether the class is abstract or not. |
+| \[\[*TypeParameters*\]\] | The type parameter sequence of the class. |
+| \[\[*StaticProperties*\]\] | Static properties of the class. |
+| \[\[*Prototype*\]\] | The class prototype. |

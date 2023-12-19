@@ -56,13 +56,13 @@ Note that registry namespaces are only defined by the registry and not by the de
 
 The package manager supports configuration constants that allow for conditional configuration within a manifest through the top-level `if` property. The matching options are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.
 
-The conditions in `if` support the following syntax:
+The conditions in `if` support a minimal conditional language:
 
 * `constant` — If configuration is present
-* `!constant` — If configuration is not present
+* `!expression` — If condition is false
 * `(expression)` — Parenthesized condition
-* `expressionX && expressionY` — If conditions intersect
-* `expressionX || expressionY` — If one condition is true
+* `primaryExpression && primaryExpression` — If conditions are true
+* `primaryExpression || primaryExpression` — If one condition is true
 
 The `true` constant is always present, and is typically used for specifying *base* options and *overriding* options.
 
@@ -80,7 +80,7 @@ Here is an example package manifest using `if`:
         }],
         ["air::target=ios", {
             "compilerOptions": {
-                "includeSources": ["src/ios"]
+                "includeSources": ["src/platform/ios"]
             }
         }],
         ["true", {

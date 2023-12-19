@@ -226,13 +226,13 @@ trace(triangleArea(5, 6, 7));
 <p>Note that registry namespaces are only defined by the registry and not by the developers. This decision prevents accidental mistyping of registry namespace URIs and prevents cluttering of the registry with arbitrary registry namespaces.</p>
 <h2 id="conditional-configuration"><a class="header" href="#conditional-configuration">Conditional configuration</a></h2>
 <p>The package manager supports configuration constants that allow for conditional configuration within a manifest through the top-level <code>if</code> property. The matching options are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.</p>
-<p>The conditions in <code>if</code> support the following syntax:</p>
+<p>The conditions in <code>if</code> support a minimal conditional language:</p>
 <ul>
 <li><code>constant</code> — If configuration is present</li>
-<li><code>!constant</code> — If configuration is not present</li>
+<li><code>!expression</code> — If condition is false</li>
 <li><code>(expression)</code> — Parenthesized condition</li>
-<li><code>expressionX &amp;&amp; expressionY</code> — If conditions intersect</li>
-<li><code>expressionX || expressionY</code> — If one condition is true</li>
+<li><code>primaryExpression &amp;&amp; primaryExpression</code> — If conditions are true</li>
+<li><code>primaryExpression || primaryExpression</code> — If one condition is true</li>
 </ul>
 <p>The <code>true</code> constant is always present, and is typically used for specifying <em>base</em> options and <em>overriding</em> options.</p>
 <p>Here is an example package manifest using <code>if</code>:</p>
@@ -246,7 +246,7 @@ trace(triangleArea(5, 6, 7));
         }],
         [&quot;air::target=ios&quot;, {
             &quot;compilerOptions&quot;: {
-                &quot;includeSources&quot;: [&quot;src/ios&quot;]
+                &quot;includeSources&quot;: [&quot;src/platform/ios&quot;]
             }
         }],
         [&quot;true&quot;, {

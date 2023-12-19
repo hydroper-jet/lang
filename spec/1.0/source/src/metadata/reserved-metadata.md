@@ -2,9 +2,14 @@
 
 Reserved meta-data are meta-data that cannot be overriden by user decorators. This section enumerates all reserved meta-data.
 
+* [Literal](#literal)
 * [Metadata](#metadata)
 * [Set](#set)
 * [Test](#test)
+
+## Literal
+
+The `Literal` meta-data is used at the `class` definition. It is used for indicating that the class can be initialized through an object initializer.
 
 ## Metadata
 

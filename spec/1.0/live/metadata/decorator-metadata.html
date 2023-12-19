@@ -166,6 +166,36 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="decorator-meta-data"><a class="header" href="#decorator-meta-data">Decorator meta-data</a></h1>
+<p>A decorator meta-data invokes an user function, either at class instance initialization, at type initialization, or instance method initialization.</p>
+<p>Decorator meta-data may only be applied to instance variables, instance methods, and type definitions.</p>
+<h2 id="instance-variables"><a class="header" href="#instance-variables">Instance variables</a></h2>
+<p>A decorator meta-data applied to an instance variable must contain a signature <code>(instance: C, name: String, type: Class) =&gt; void</code>, where <code>C</code> is the instance class.</p>
+<pre><code>function ExampleDecorator(instance: ExampleClass, name: String, type: Class): void {
+    /* ExampleDecorator... */
+}
+class ExampleClass {
+    [ExampleDecorator]
+    public var x: Number;
+}
+</code></pre>
+<h2 id="instance-methods"><a class="header" href="#instance-methods">Instance methods</a></h2>
+<p>A decorator meta-data applied to an instance method must contain a signature <code>(instance: C, name: String) =&gt; void</code>, where <code>C</code> is the instance class.</p>
+<pre><code>function ExampleDecorator(instance: ExampleClass, name: String): void {
+    /* ExampleDecorator... */
+}
+class ExampleClass {
+    [ExampleDecorator]
+    public function f(): void {}
+}
+</code></pre>
+<h2 id="types"><a class="header" href="#types">Types</a></h2>
+<p>A decorator meta-data applied to a type definition must contain a signature <code>(type: Class) =&gt; void</code>, where <code>C</code> is the type.</p>
+<pre><code>function ExampleDecorator(type: Class): void {
+    /* ExampleDecorator... */
+}
+[ExampleDecorator]
+class ExampleClass {}
+</code></pre>
 
                     </main>
 

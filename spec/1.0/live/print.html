@@ -1129,10 +1129,13 @@ function f.&lt;T&gt;(): void {}
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reserved-meta-data"><a class="header" href="#reserved-meta-data">Reserved meta-data</a></h1>
 <p>Reserved meta-data are meta-data that cannot be overriden by user decorators. This section enumerates all reserved meta-data.</p>
 <ul>
+<li><a href="metadata/reserved-metadata.html#literal">Literal</a></li>
 <li><a href="metadata/reserved-metadata.html#metadata">Metadata</a></li>
 <li><a href="metadata/reserved-metadata.html#set">Set</a></li>
 <li><a href="metadata/reserved-metadata.html#test">Test</a></li>
 </ul>
+<h2 id="literal"><a class="header" href="#literal">Literal</a></h2>
+<p>The <code>Literal</code> meta-data is used at the <code>class</code> definition. It is used for indicating that the class can be initialized through an object initializer.</p>
 <h2 id="metadata"><a class="header" href="#metadata">Metadata</a></h2>
 <p>The <code>Metadata</code> meta-data is used for defining plain meta-data, as described in the <a href="metadata/plain-metadata.html">Plain meta-data</a> section.</p>
 <h2 id="set"><a class="header" href="#set">Set</a></h2>
@@ -1140,6 +1143,36 @@ function f.&lt;T&gt;(): void {}
 <h2 id="test"><a class="header" href="#test">Test</a></h2>
 <p>The <code>Test</code> meta-data is reserved at the <code>function</code> definition. It is used for indicating that a function is a test unit.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="decorator-meta-data"><a class="header" href="#decorator-meta-data">Decorator meta-data</a></h1>
+<p>A decorator meta-data invokes an user function, either at class instance initialization, at type initialization, or instance method initialization.</p>
+<p>Decorator meta-data may only be applied to instance variables, instance methods, and type definitions.</p>
+<h2 id="instance-variables"><a class="header" href="#instance-variables">Instance variables</a></h2>
+<p>A decorator meta-data applied to an instance variable must contain a signature <code>(instance: C, name: String, type: Class) =&gt; void</code>, where <code>C</code> is the instance class.</p>
+<pre><code>function ExampleDecorator(instance: ExampleClass, name: String, type: Class): void {
+    /* ExampleDecorator... */
+}
+class ExampleClass {
+    [ExampleDecorator]
+    public var x: Number;
+}
+</code></pre>
+<h2 id="instance-methods-1"><a class="header" href="#instance-methods-1">Instance methods</a></h2>
+<p>A decorator meta-data applied to an instance method must contain a signature <code>(instance: C, name: String) =&gt; void</code>, where <code>C</code> is the instance class.</p>
+<pre><code>function ExampleDecorator(instance: ExampleClass, name: String): void {
+    /* ExampleDecorator... */
+}
+class ExampleClass {
+    [ExampleDecorator]
+    public function f(): void {}
+}
+</code></pre>
+<h2 id="types-1"><a class="header" href="#types-1">Types</a></h2>
+<p>A decorator meta-data applied to a type definition must contain a signature <code>(type: Class) =&gt; void</code>, where <code>C</code> is the type.</p>
+<pre><code>function ExampleDecorator(type: Class): void {
+    /* ExampleDecorator... */
+}
+[ExampleDecorator]
+class ExampleClass {}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="plain-meta-data"><a class="header" href="#plain-meta-data">Plain meta-data</a></h1>
 <p>Plain meta-data are uninterpreted meta-data attached to a definition, using the <code>Metadata</code> meta-data.</p>
 <p>Plain meta-data consists of a <code>Name()</code> or <code>Name</code> form that consists of zero or more entries. The following are the possible entry forms:</p>

@@ -11,7 +11,6 @@ fatalError("Fatal error");
 
 Functions that throw checked exceptions must be immediately used in one the following ways:
 
-* within a `try` statement;
 * within a `f()?` expression;
 * within a `f()!` expression;
 * within a `f() ?? v` expression.

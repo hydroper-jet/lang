@@ -942,11 +942,9 @@ const y: Number;
 </ul>
 <p><em>Constant initializer</em>: A variable may consist of a constant initializer. A constant initializer consists of a constant expression.</p>
 <h2 id="meta-data"><a class="header" href="#meta-data">Meta data</a></h2>
-<p>A variable may contain zero or more arbitrary plain meta-data or file meta-data.</p>
+<p>A variable may contain zero or more arbitrary plain meta-data.</p>
 <pre><code>[Metadata(N1(n2))]
 const x: T;
-[FileMetadata(N1(&quot;path/to/file.bin&quot;))]
-const y: T;
 </code></pre>
 <h2 id="jetxml-variables"><a class="header" href="#jetxml-variables">JetXML variables</a></h2>
 <p>A JetXML variable is an instance variable belonging to a JetXML file.</p>
@@ -1288,6 +1286,7 @@ const M = [number, &quot;string&quot;];
 <li>The member name already exists.</li>
 <li>The <em>string</em> already belongs to another member.</li>
 <li>The <em>number</em> already belongs to another member.</li>
+<li>If it is a <code>Set</code> enumeration and the <em>number</em> is not one or a power of two.</li>
 </ul>
 <h3 id="automatic-string"><a class="header" href="#automatic-string">Automatic string</a></h3>
 <p>If the <em>string</em> component is omitted when defining a member, its value is a screaming snake case to camel case transformation of the member name, as illustrated in the following table:</p>

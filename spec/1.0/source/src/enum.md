@@ -32,6 +32,7 @@ It is a verify error if any of the following conditions are true:
 * The member name already exists.
 * The *string* already belongs to another member.
 * The *number* already belongs to another member.
+* If it is a `Set` enumeration and the *number* is not one or a power of two.
 
 ### Automatic string
 

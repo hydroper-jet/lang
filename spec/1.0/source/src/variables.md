@@ -34,13 +34,11 @@ public class C {
 
 ## Meta data
 
-A variable may contain zero or more arbitrary plain meta-data or file meta-data.
+A variable may contain zero or more arbitrary plain meta-data.
 
 ```
 [Metadata(N1(n2))]
 const x: T;
-[FileMetadata(N1("path/to/file.bin"))]
-const y: T;
 ```
 
 ## JetXML variables

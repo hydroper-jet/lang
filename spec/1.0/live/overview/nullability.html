@@ -200,7 +200,11 @@ trace(new ExampleClass(undefined).data!);
 <h2 id="transparency"><a class="header" href="#transparency">Transparency</a></h2>
 <p>The representation of the <code>Optional.&lt;T&gt;</code> type varies across implementations:</p>
 <ul>
-<li>The <code>Optional.&lt;T&gt;</code> type is equivalent to a nullable reference as in ActionScript.</li>
+<li>The <code>Optional.&lt;T&gt;</code> type is equivalent to a nullable reference as in ActionScript.
+<ul>
+<li>ActionScript transpilation may consider interning primitive values into a weak dictionary.</li>
+</ul>
+</li>
 <li>The <code>v is Optional.&lt;T&gt;</code> expression has implementation-defined behavior. Programmers should not rely on such expression.</li>
 </ul>
 

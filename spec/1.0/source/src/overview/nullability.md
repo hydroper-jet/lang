@@ -40,4 +40,5 @@ public function process(a: Optional.<Number>): Optional.<String> (
 The representation of the `Optional.<T>` type varies across implementations:
 
 * The `Optional.<T>` type is equivalent to a nullable reference as in ActionScript.
+  * ActionScript transpilation may consider interning primitive values into a weak dictionary.
 * The `v is Optional.<T>` expression has implementation-defined behavior. Programmers should not rely on such expression.

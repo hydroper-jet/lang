@@ -26,9 +26,11 @@ The JetWork language is a flexible, robust, productive, object-oriented scriptin
 | ------- | -------- |
 | 1.0     | [Web](https://jetwork-lang.github.io/lang/spec/1.0/live) |
 
-## Design
+## Other documents
 
-* [JetWork Language Design](design/design.md)
+| Title | Document |
+| ----- | -------- |
+| Language Design | [GitHub view](design/design.md) |
 
 ## Compiler
 

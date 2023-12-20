@@ -41,7 +41,7 @@ Here is an example of a potential package manifest that uses `http://www.w3.org/
     "registryNamespace": "http://www.w3.org/web",
     "dependencies": {
         "*": {
-            "org.xml": "1.0.0"
+            "org.collada.fileFormats": "1.0.0"
         },
         "http://www.w3.org/web": {
             "goog.g": "1.0.0"
@@ -54,9 +54,9 @@ Note that registry namespaces are only defined by the registry and not by the de
 
 ## Conditional configuration
 
-The package manager supports configuration constants that allow for conditional configuration within a manifest through the top-level `if` property. The matching options are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.
+The package manager supports configuration constants that allow for conditional configuration within a manifest through the top-level `conditional` property. The matching options are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.
 
-The conditions in `if` support a minimal conditional language:
+The conditions in `conditional` support a minimal conditional language:
 
 * `constant` — If constant is present
 * `constant=value` — If constant is equals `"value"`
@@ -64,37 +64,35 @@ The conditions in `if` support a minimal conditional language:
 * `(expression)` — Parenthesized condition
 * `primaryExpression && primaryExpression` — If conditions are true
 * `primaryExpression || primaryExpression` — If one condition is true
+* The root condition is in one of the forms:
+  * `always`
+  * `if (condition)`
+  * `else if (condition)`
+  * `else`
 
-Entries in `if` are allowed to contain:
-
-* a omitted condition;
-* an *otherwise* `"else"` indicator.
-
-The `true` constant is always present, and is typically used for specifying *base* options and *facade* options.
-
-Here is an example package manifest using `if`:
+Here is an example package manifest using the `conditional` setting:
 
 **package.json**
 
 ```json
 {
-    "if": [
-        ["true", {
+    "conditional": [
+        ["always", {
             "compilerOptions": {
                 "includeSources": ["src/base"]
             }
         }],
-        ["air::target=ios", {
+        ["if (air::target=ios)", {
             "compilerOptions": {
                 "includeSources": ["src/platform/ios"]
             }
         }],
-        [null, "else", {
+        ["else", {
             "compilerOptions": {
                 "includeSources": ["src/platform/unsupported"]
             }
         }],
-        ["true", {
+        ["always", {
             "compilerOptions": {
                 "includeSources": ["src/facade"]
             }

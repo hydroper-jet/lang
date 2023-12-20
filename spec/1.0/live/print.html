@@ -222,7 +222,7 @@ trace(triangleArea(5, 6, 7));
     &quot;registryNamespace&quot;: &quot;http://www.w3.org/web&quot;,
     &quot;dependencies&quot;: {
         &quot;*&quot;: {
-            &quot;org.xml&quot;: &quot;1.0.0&quot;
+            &quot;org.collada.fileFormats&quot;: &quot;1.0.0&quot;
         },
         &quot;http://www.w3.org/web&quot;: {
             &quot;goog.g&quot;: &quot;1.0.0&quot;
@@ -232,8 +232,8 @@ trace(triangleArea(5, 6, 7));
 </code></pre>
 <p>Note that registry namespaces are only defined by the registry and not by the developers. This decision prevents accidental mistyping of registry namespace URIs and prevents cluttering of the registry with arbitrary registry namespaces.</p>
 <h2 id="conditional-configuration"><a class="header" href="#conditional-configuration">Conditional configuration</a></h2>
-<p>The package manager supports configuration constants that allow for conditional configuration within a manifest through the top-level <code>if</code> property. The matching options are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.</p>
-<p>The conditions in <code>if</code> support a minimal conditional language:</p>
+<p>The package manager supports configuration constants that allow for conditional configuration within a manifest through the top-level <code>conditional</code> property. The matching options are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.</p>
+<p>The conditions in <code>conditional</code> support a minimal conditional language:</p>
 <ul>
 <li><code>constant</code> — If constant is present</li>
 <li><code>constant=value</code> — If constant is equals <code>&quot;value&quot;</code></li>
@@ -241,33 +241,35 @@ trace(triangleArea(5, 6, 7));
 <li><code>(expression)</code> — Parenthesized condition</li>
 <li><code>primaryExpression &amp;&amp; primaryExpression</code> — If conditions are true</li>
 <li><code>primaryExpression || primaryExpression</code> — If one condition is true</li>
-</ul>
-<p>Entries in <code>if</code> are allowed to contain:</p>
+<li>The root condition is in one of the forms:
 <ul>
-<li>a omitted condition;</li>
-<li>an <em>otherwise</em> <code>&quot;else&quot;</code> indicator.</li>
+<li><code>always</code></li>
+<li><code>if (condition)</code></li>
+<li><code>else if (condition)</code></li>
+<li><code>else</code></li>
 </ul>
-<p>The <code>true</code> constant is always present, and is typically used for specifying <em>base</em> options and <em>facade</em> options.</p>
-<p>Here is an example package manifest using <code>if</code>:</p>
+</li>
+</ul>
+<p>Here is an example package manifest using the <code>conditional</code> setting:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
-    &quot;if&quot;: [
-        [&quot;true&quot;, {
+    &quot;conditional&quot;: [
+        [&quot;always&quot;, {
             &quot;compilerOptions&quot;: {
                 &quot;includeSources&quot;: [&quot;src/base&quot;]
             }
         }],
-        [&quot;air::target=ios&quot;, {
+        [&quot;if (air::target=ios)&quot;, {
             &quot;compilerOptions&quot;: {
                 &quot;includeSources&quot;: [&quot;src/platform/ios&quot;]
             }
         }],
-        [null, &quot;else&quot;, {
+        [&quot;else&quot;, {
             &quot;compilerOptions&quot;: {
                 &quot;includeSources&quot;: [&quot;src/platform/unsupported&quot;]
             }
         }],
-        [&quot;true&quot;, {
+        [&quot;always&quot;, {
             &quot;compilerOptions&quot;: {
                 &quot;includeSources&quot;: [&quot;src/facade&quot;]
             }

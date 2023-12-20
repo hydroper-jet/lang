@@ -125,6 +125,15 @@ public native function valueOf(): N;
 override public native function toString(): String;
 ```
 
+Set enumerations automatically define the following constants, where `E` is the enumeration:
+
+```
+/**
+ * A set containing all members.
+ */
+public static const all: E;
+```
+
 Set enumerations automatically define the following methods, where `E` is the enumeration:
 
 ```

@@ -249,6 +249,12 @@ public native function valueOf(): N;
  */
 override public native function toString(): String;
 </code></pre>
+<p>Set enumerations automatically define the following constants, where <code>E</code> is the enumeration:</p>
+<pre><code>/**
+ * A set containing all members.
+ */
+public static const all: E;
+</code></pre>
 <p>Set enumerations automatically define the following methods, where <code>E</code> is the enumeration:</p>
 <pre><code>public function include(other: E): E (
     E(this.valueOf() | other.valueOf())

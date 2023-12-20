@@ -794,6 +794,7 @@ assert(text == &quot;Have a\nnice day!&quot;);
 <li>If the type is <code>String</code>, return the empty string.</li>
 <li>If the type is <code>Char</code>, return U+0000.</li>
 <li>If the type is <code>CharIndex</code>, return (<em>empty string</em>, <em>zero</em>).</li>
+<li>If the type is a Set <code>enum</code>, return an empty set.</li>
 <li>For any other type, return no default value.</li>
 </ul>
 <h2 id="auto-boxing"><a class="header" href="#auto-boxing">Auto boxing</a></h2>
@@ -1438,6 +1439,12 @@ public native function valueOf(): N;
  * The string value(s). For a set enumeration, returns a comma-separated string list.
  */
 override public native function toString(): String;
+</code></pre>
+<p>Set enumerations automatically define the following constants, where <code>E</code> is the enumeration:</p>
+<pre><code>/**
+ * A set containing all members.
+ */
+public static const all: E;
 </code></pre>
 <p>Set enumerations automatically define the following methods, where <code>E</code> is the enumeration:</p>
 <pre><code>public function include(other: E): E (

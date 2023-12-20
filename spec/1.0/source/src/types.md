@@ -22,6 +22,7 @@ The default value of a type is determined as follows:
 * If the type is `String`, return the empty string.
 * If the type is `Char`, return U+0000.
 * If the type is `CharIndex`, return (*empty string*, *zero*).
+* If the type is a Set `enum`, return an empty set.
 * For any other type, return no default value.
 
 ## Auto boxing

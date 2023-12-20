@@ -56,7 +56,7 @@ a > .hljs {
     height: var(--menu-bar-height);
 }
 #menu-bar.bordered {
-    border-bottom-color: var(--table-border-color);
+    /* border-bottom-color: var(--table-border-color); */
 }
 #menu-bar i, #menu-bar .icon-button {
     position: relative;

@@ -125,10 +125,10 @@ h6:target::before {
 table {
     margin: 1rem 0;
     border-collapse: collapse;
+    border: 1px solid var(--table-border-color);
 }
 table th, td {
     padding: 11px 20px;
-    border: 1px var(--table-border-color) solid;
 }
 table thead td {
     font-weight: 700;
@@ -138,12 +138,12 @@ table thead th {
     padding: 11px 20px;
 }
 table thead tr {
-    border: 1px var(--table-border-color) solid;
+    background: var(--table-header-bg);
 }
-table tr:nth-child(even) {
+table tbody tr:nth-child(even) {
     background: var(--table-even-bg);
 }
-table tr:nth-child(odd) {
+table tbody tr:nth-child(odd) {
     background: var(--table-odd-bg);
 }
 

@@ -10,15 +10,15 @@ The JetWork language is a flexible, robust, productive, object-oriented scriptin
 
 > **Note**: JetWork is in documentation process and its compiler is not available.
 
-## Platform use cases
+## Interest technologies
 
-JetWork may be of interest to the following technologies:
-
-* AIR (`http://www.airsdk.dev/2008`)
-* Unreal Engine (`http://www.unrealengine.com/5`)
-* LÖVE (`http://www.love2d.org/2018`)
-* Godot Engine (`http://www.godotengine.org/4`)
-* World Wide Web (`http://www.w3.org/web`)
+| URI | Description |
+| --- | ----------- |
+| `http://www.airsdk.dev/2008` | Build applications in the mature AIR platform maintained by Samsung HARMAN ([website](https://airsdk.dev)). |
+| `http://www.unrealengine.com/5` | Build games and simulations using Unreal Engine. |
+| `http://www.love2d.org/2018` | Experiment with the LÖVE game engine. More complex abstractions can be done over the engine, such as a hierarchical package. |
+| `http://www.godotengine.org/4` | Build games using Godot Engine. |
+| `http://www.w3.org/web` | Build web applications. |
 
 ## Language specifications
 

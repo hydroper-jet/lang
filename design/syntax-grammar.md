@@ -45,6 +45,7 @@ Statements:
 * [ ] Throw statement
 * [ ] With statement
 * [ ] Try statement
+  * [ ] Catch clauses must be exhaustive based on exception covariance.
 * [ ] Expression statement
   * `lookahead != ["{", "function"]`
 * [ ] Labeled statement

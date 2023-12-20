@@ -31,3 +31,4 @@
 - [Aliases](aliases.md)
 - [Enumerations](enum.md)
 - [Classes](classes.md)
+- [Interfaces](interfaces.md)

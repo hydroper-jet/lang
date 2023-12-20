@@ -250,30 +250,25 @@ public native function valueOf(): N;
 override public native function toString(): String;
 </code></pre>
 <p>Set enumerations automatically define the following methods, where <code>E</code> is the enumeration:</p>
-<pre><code>/**
- * `E(this.valueOf() | other.valueOf())`
- */
-public native function include(other: E): E;
+<pre><code>public function include(other: E): E (
+    E(this.valueOf() | other.valueOf())
+);
 
-/**
- * `E(if (other in this.valueOf()) this.valueOf() ^ other.valueOf() else 0)`
- */
-public native function exclude(other: E): E;
+public function exclude(other: E): E (
+    E(if (other in this) this.valueOf() ^ other.valueOf() else 0)
+);
 
-/**
- * `E(this.valueOf() ^ other.valueOf())`
- */
-public native function toggle(other: E): E;
+public function toggle(other: E): E (
+    E(this.valueOf() ^ other.valueOf())
+);
 
-/**
- * `E(this.valueOf() &amp; other.valueOf())`
- */
-public native function filter(other: E): E;
+public function filter(other: E): E (
+    E(this.valueOf() &amp; other.valueOf())
+);
 
-/**
- * `this.valueOf() &amp; value.valueOf() != 0`
- */
-proxy native function has(value: E): Boolean;
+proxy function has(value: E): Boolean (
+    this.valueOf() &amp; value.valueOf() != 0
+);
 </code></pre>
 
                     </main>

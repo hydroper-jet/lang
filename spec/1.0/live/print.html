@@ -415,7 +415,6 @@ trace(new ExampleClass(undefined).data!);
 </code></pre>
 <p>For the given example, <code>k:Container</code> inherits from the following abstract <code>Node</code> class from <code>org.k</code>:</p>
 <pre><code>package org.k {
-    import jetxml.JetXML;
     public abstract class Node implements JetXML { /* ... */ }
 }
 </code></pre>
@@ -1441,30 +1440,25 @@ public native function valueOf(): N;
 override public native function toString(): String;
 </code></pre>
 <p>Set enumerations automatically define the following methods, where <code>E</code> is the enumeration:</p>
-<pre><code>/**
- * `E(this.valueOf() | other.valueOf())`
- */
-public native function include(other: E): E;
+<pre><code>public function include(other: E): E (
+    E(this.valueOf() | other.valueOf())
+);
 
-/**
- * `E(if (other in this.valueOf()) this.valueOf() ^ other.valueOf() else 0)`
- */
-public native function exclude(other: E): E;
+public function exclude(other: E): E (
+    E(if (other in this) this.valueOf() ^ other.valueOf() else 0)
+);
 
-/**
- * `E(this.valueOf() ^ other.valueOf())`
- */
-public native function toggle(other: E): E;
+public function toggle(other: E): E (
+    E(this.valueOf() ^ other.valueOf())
+);
 
-/**
- * `E(this.valueOf() &amp; other.valueOf())`
- */
-public native function filter(other: E): E;
+public function filter(other: E): E (
+    E(this.valueOf() &amp; other.valueOf())
+);
 
-/**
- * `this.valueOf() &amp; value.valueOf() != 0`
- */
-proxy native function has(value: E): Boolean;
+proxy function has(value: E): Boolean (
+    this.valueOf() &amp; value.valueOf() != 0
+);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="classes"><a class="header" href="#classes">Classes</a></h1>
 <p>A class represents an object type.</p>

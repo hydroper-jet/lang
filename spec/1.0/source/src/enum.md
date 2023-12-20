@@ -128,28 +128,23 @@ override public native function toString(): String;
 Set enumerations automatically define the following methods, where `E` is the enumeration:
 
 ```
-/**
- * `E(this.valueOf() | other.valueOf())`
- */
-public native function include(other: E): E;
+public function include(other: E): E (
+    E(this.valueOf() | other.valueOf())
+);
 
-/**
- * `E(if (other in this.valueOf()) this.valueOf() ^ other.valueOf() else 0)`
- */
-public native function exclude(other: E): E;
+public function exclude(other: E): E (
+    E(if (other in this) this.valueOf() ^ other.valueOf() else 0)
+);
 
-/**
- * `E(this.valueOf() ^ other.valueOf())`
- */
-public native function toggle(other: E): E;
+public function toggle(other: E): E (
+    E(this.valueOf() ^ other.valueOf())
+);
 
-/**
- * `E(this.valueOf() & other.valueOf())`
- */
-public native function filter(other: E): E;
+public function filter(other: E): E (
+    E(this.valueOf() & other.valueOf())
+);
 
-/**
- * `this.valueOf() & value.valueOf() != 0`
- */
-proxy native function has(value: E): Boolean;
+proxy function has(value: E): Boolean (
+    this.valueOf() & value.valueOf() != 0
+);
 ```

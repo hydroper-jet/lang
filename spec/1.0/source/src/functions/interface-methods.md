@@ -11,3 +11,11 @@ interface I {
     function f(): void {}
 }
 ```
+
+## Interface method forms
+
+An interface method is allowed to be:
+
+* a regular method;
+* a getter;
+* a setter.

@@ -1019,7 +1019,7 @@ function f1(): void {}
 <li>Final methods must not be overriden by subclasses of the enclosing class.</li>
 </ul>
 <h2 id="overriding"><a class="header" href="#overriding">Overriding</a></h2>
-<p>A overriding method contains the <code>override</code> attribute.</p>
+<p>An overriding method contains the <code>override</code> attribute.</p>
 <pre><code>class C1 {
     function f(): void {}
 }
@@ -1027,6 +1027,30 @@ class C2 extends C1 {
     override function f(): void {}
 }
 </code></pre>
+<h3 id="overriding-signature"><a class="header" href="#overriding-signature">Overriding signature</a></h3>
+<p>It is a verify error if the overriding signature is not compatible with the super class's method signature.</p>
+<ul>
+<li>The overriding signature is compatible with the super signature if either:
+<ul>
+<li>it is equals the super signature, or</li>
+<li>it introduces optional parameters and/or a rest parameter to the super signature.</li>
+</ul>
+</li>
+</ul>
+<pre><code>class C1 {
+    function f(): void {}
+}
+class C2 extends C1 {
+    override function f(a: Number = 10): void {}
+}
+</code></pre>
+<h3 id="overriding-symbol"><a class="header" href="#overriding-symbol">Overriding symbol</a></h3>
+<p>It is allowed for an overriding method to override:</p>
+<ul>
+<li>a regular method;</li>
+<li>a getter;</li>
+<li>a setter.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="interface-methods"><a class="header" href="#interface-methods">Interface methods</a></h1>
 <p>An interface method is an instance method belonging to an interface.</p>
 <h2 id="optional-interface-method"><a class="header" href="#optional-interface-method">Optional interface method</a></h2>
@@ -1035,6 +1059,13 @@ class C2 extends C1 {
     function f(): void {}
 }
 </code></pre>
+<h2 id="interface-method-forms"><a class="header" href="#interface-method-forms">Interface method forms</a></h2>
+<p>An interface method is allowed to be:</p>
+<ul>
+<li>a regular method;</li>
+<li>a getter;</li>
+<li>a setter.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getters-and-setters"><a class="header" href="#getters-and-setters">Getters and setters</a></h1>
 <p>A function that belongs to a virtual property is either a getter or setter.</p>
 <pre><code>function get x(): T (v);

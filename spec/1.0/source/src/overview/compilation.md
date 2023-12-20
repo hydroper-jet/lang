@@ -8,7 +8,7 @@ JetWork can be both compiled to native code and transpiled to another object-ori
 
 Operations whose result cannot be represented due to range limit cause a number overflow, such as `Int.MAX_VALUE + 1`. The result of a number overflow is implementation defined.
 
-## Platform specific operations
+## Platform-specific operations
 
 It is allowed for platforms that compile the bytecode form into another form to define specific external operations as `native` functions.
 

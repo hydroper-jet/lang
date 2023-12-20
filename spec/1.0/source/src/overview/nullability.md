@@ -34,3 +34,10 @@ public function process(a: Optional.<Number>): Optional.<String> (
     a?.toString(16)
 );
 ```
+
+## Transparency
+
+The representation of the `Optional.<T>` type varies across implementations:
+
+* The `Optional.<T>` type is equivalent to a nullable reference as in ActionScript.
+* The `v is Optional.<T>` expression has implementation-defined behavior. Programmers should not rely on such expression.

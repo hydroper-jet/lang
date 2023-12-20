@@ -115,11 +115,23 @@ The `Optional.<T>` type is an union of `undefined` and `T`. `Optional.<T>` may b
 
 It is not allowed for `T` to be of the `Optional` or `Result` type.
 
+```
+// Error
+type O = Optional.<Optional.<T>>;
+// Error
+type O2 = Optional.<Result.<T, E>>;
+```
+
 ## Result type
 
 The `Result.<T, E1, ...EN>` type is an union of `T` and one or more exception types.
 
 It is not allowed for `T` to be of the `Result` type.
+
+```
+// Error
+type R = Result.<Result.<T, E>, E>;
+```
 
 ## Array type
 

@@ -24,3 +24,11 @@ function task2(): void throws RangeError {
 
 task2()!; // Fine
 ```
+
+## Transparency
+
+The representation of the `Result` type varies across implementations:
+
+* The `Result` type is equivalent to `*` in ActionScript.
+* The `v is Result.<T, E1, EN>` expression has implementation-defined behavior. Programmers should not rely on such expression.
+* Converting a value to the `Result` type has implementation-defined behavior. Programmers should not rely on such `Result` conversions.

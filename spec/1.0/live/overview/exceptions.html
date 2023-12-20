@@ -185,6 +185,13 @@ function task2(): void throws RangeError {
 
 task2()!; // Fine
 </code></pre>
+<h2 id="transparency"><a class="header" href="#transparency">Transparency</a></h2>
+<p>The representation of the <code>Result</code> type varies across implementations:</p>
+<ul>
+<li>The <code>Result</code> type is equivalent to <code>*</code> in ActionScript.</li>
+<li>The <code>v is Result.&lt;T, E1, EN&gt;</code> expression has implementation-defined behavior. Programmers should not rely on such expression.</li>
+<li>Converting a value to the <code>Result</code> type has implementation-defined behavior. Programmers should not rely on such <code>Result</code> conversions.</li>
+</ul>
 
                     </main>
 

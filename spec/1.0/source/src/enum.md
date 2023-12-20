@@ -142,7 +142,7 @@ public function include(other: E): E (
 );
 
 public function exclude(other: E): E (
-    E(if (other in this) this.valueOf() ^ other.valueOf() else 0)
+    E(if (other in this) this.valueOf() ^ other.valueOf() else this.valueOf())
 );
 
 public function toggle(other: E): E (

@@ -7,3 +7,4 @@ title = "JetWork Language Specification"
 
 [output.html]
 copy-fonts = false
+fold = { enable = true }

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Classes - JetWork Language Specification</title>
+        <title>Type conversions - JetWork Language Specification</title>
 
 
         <!-- Custom HTML head -->
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item "><a href="overview/nullability.html"><strong aria-hidden="true">1.6.</strong> Nullability</a></li><li class="chapter-item "><a href="overview/proxy.html"><strong aria-hidden="true">1.7.</strong> Proxy</a></li><li class="chapter-item "><a href="overview/j4x.html"><strong aria-hidden="true">1.8.</strong> JetWork for XML</a></li><li class="chapter-item "><a href="overview/jetxml.html"><strong aria-hidden="true">1.9.</strong> JetXML</a></li></ol></li><li class="chapter-item "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li><li class="chapter-item "><a href="lexical-structure.html"><strong aria-hidden="true">3.</strong> Lexical structure</a></li><li class="chapter-item "><a href="types.html"><strong aria-hidden="true">4.</strong> Types</a></li><li class="chapter-item "><a href="type-conversions.html"><strong aria-hidden="true">5.</strong> Type conversions</a></li><li class="chapter-item "><a href="visibility.html"><strong aria-hidden="true">6.</strong> Visibility</a></li><li class="chapter-item "><a href="packages.html"><strong aria-hidden="true">7.</strong> Packages</a></li><li class="chapter-item "><a href="variables.html"><strong aria-hidden="true">8.</strong> Variables</a></li><li class="chapter-item "><a href="virtual-properties.html"><strong aria-hidden="true">9.</strong> Virtual properties</a></li><li class="chapter-item "><a href="functions.html"><strong aria-hidden="true">10.</strong> Functions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="functions/instance-methods.html"><strong aria-hidden="true">10.1.</strong> Instance methods</a></li><li class="chapter-item "><a href="functions/interface-methods.html"><strong aria-hidden="true">10.2.</strong> Interface methods</a></li><li class="chapter-item "><a href="functions/getters-and-setters.html"><strong aria-hidden="true">10.3.</strong> Getters and setters</a></li><li class="chapter-item "><a href="functions/constructors.html"><strong aria-hidden="true">10.4.</strong> Constructors</a></li><li class="chapter-item "><a href="functions/proxies.html"><strong aria-hidden="true">10.5.</strong> Proxies</a></li></ol></li><li class="chapter-item "><a href="generics.html"><strong aria-hidden="true">11.</strong> Generics</a></li><li class="chapter-item "><a href="metadata.html"><strong aria-hidden="true">12.</strong> Meta-data</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="metadata/reserved-metadata.html"><strong aria-hidden="true">12.1.</strong> Reserved meta-data</a></li><li class="chapter-item "><a href="metadata/decorator-metadata.html"><strong aria-hidden="true">12.2.</strong> Decorator meta-data</a></li><li class="chapter-item "><a href="metadata/plain-metadata.html"><strong aria-hidden="true">12.3.</strong> Plain meta-data</a></li></ol></li><li class="chapter-item "><a href="aliases.html"><strong aria-hidden="true">13.</strong> Aliases</a></li><li class="chapter-item "><a href="enum.html"><strong aria-hidden="true">14.</strong> Enumerations</a></li><li class="chapter-item expanded "><a href="classes.html" class="active"><strong aria-hidden="true">15.</strong> Classes</a></li><li class="chapter-item "><a href="interfaces.html"><strong aria-hidden="true">16.</strong> Interfaces</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="overview/example-programs.html"><strong aria-hidden="true">1.1.</strong> Example programs</a></li><li class="chapter-item "><a href="overview/package-manager.html"><strong aria-hidden="true">1.2.</strong> Package manager</a></li><li class="chapter-item "><a href="overview/compilation.html"><strong aria-hidden="true">1.3.</strong> Compilation and transpilation</a></li><li class="chapter-item "><a href="overview/string-encoding.html"><strong aria-hidden="true">1.4.</strong> String encoding</a></li><li class="chapter-item "><a href="overview/exceptions.html"><strong aria-hidden="true">1.5.</strong> Exceptions</a></li><li class="chapter-item "><a href="overview/nullability.html"><strong aria-hidden="true">1.6.</strong> Nullability</a></li><li class="chapter-item "><a href="overview/proxy.html"><strong aria-hidden="true">1.7.</strong> Proxy</a></li><li class="chapter-item "><a href="overview/j4x.html"><strong aria-hidden="true">1.8.</strong> JetWork for XML</a></li><li class="chapter-item "><a href="overview/jetxml.html"><strong aria-hidden="true">1.9.</strong> JetXML</a></li></ol></li><li class="chapter-item "><a href="notation.html"><strong aria-hidden="true">2.</strong> Notation</a></li><li class="chapter-item "><a href="lexical-structure.html"><strong aria-hidden="true">3.</strong> Lexical structure</a></li><li class="chapter-item "><a href="types.html"><strong aria-hidden="true">4.</strong> Types</a></li><li class="chapter-item expanded "><a href="type-conversions.html" class="active"><strong aria-hidden="true">5.</strong> Type conversions</a></li><li class="chapter-item "><a href="visibility.html"><strong aria-hidden="true">6.</strong> Visibility</a></li><li class="chapter-item "><a href="packages.html"><strong aria-hidden="true">7.</strong> Packages</a></li><li class="chapter-item "><a href="variables.html"><strong aria-hidden="true">8.</strong> Variables</a></li><li class="chapter-item "><a href="virtual-properties.html"><strong aria-hidden="true">9.</strong> Virtual properties</a></li><li class="chapter-item "><a href="functions.html"><strong aria-hidden="true">10.</strong> Functions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="functions/instance-methods.html"><strong aria-hidden="true">10.1.</strong> Instance methods</a></li><li class="chapter-item "><a href="functions/interface-methods.html"><strong aria-hidden="true">10.2.</strong> Interface methods</a></li><li class="chapter-item "><a href="functions/getters-and-setters.html"><strong aria-hidden="true">10.3.</strong> Getters and setters</a></li><li class="chapter-item "><a href="functions/constructors.html"><strong aria-hidden="true">10.4.</strong> Constructors</a></li><li class="chapter-item "><a href="functions/proxies.html"><strong aria-hidden="true">10.5.</strong> Proxies</a></li></ol></li><li class="chapter-item "><a href="generics.html"><strong aria-hidden="true">11.</strong> Generics</a></li><li class="chapter-item "><a href="metadata.html"><strong aria-hidden="true">12.</strong> Meta-data</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="metadata/reserved-metadata.html"><strong aria-hidden="true">12.1.</strong> Reserved meta-data</a></li><li class="chapter-item "><a href="metadata/decorator-metadata.html"><strong aria-hidden="true">12.2.</strong> Decorator meta-data</a></li><li class="chapter-item "><a href="metadata/plain-metadata.html"><strong aria-hidden="true">12.3.</strong> Plain meta-data</a></li></ol></li><li class="chapter-item "><a href="aliases.html"><strong aria-hidden="true">13.</strong> Aliases</a></li><li class="chapter-item "><a href="enum.html"><strong aria-hidden="true">14.</strong> Enumerations</a></li><li class="chapter-item "><a href="classes.html"><strong aria-hidden="true">15.</strong> Classes</a></li><li class="chapter-item "><a href="interfaces.html"><strong aria-hidden="true">16.</strong> Interfaces</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -165,42 +165,32 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="classes"><a class="header" href="#classes">Classes</a></h1>
-<p>A class represents an object type.</p>
-<p>Classes consist of several internal properties, as described in the following table:</p>
-<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
-<tr><td>[[<em>Name</em>]]</td><td>The non fully qualified name of the class.</td></tr>
-<tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the class.</td></tr>
-<tr><td>[[<em>SuperClass</em>]]</td><td>The super class of the class. It is undefined if the class is the <code>Object</code> class.</td></tr>
-<tr><td>[[<em>Implements</em>]]</td><td>Set of interfaces the class implements.</td></tr>
-<tr><td>[[<em>IsFinal</em>]]</td><td>Indicates whether the class is final or not.</td></tr>
-<tr><td>[[<em>IsStatic</em>]]</td><td>Indicates whether the class is static or not.</td></tr>
-<tr><td>[[<em>IsAbstract</em>]]</td><td>Indicates whether the class is abstract or not.</td></tr>
-<tr><td>[[<em>AllowLiteral</em>]]</td><td>Indicates whether the class may be initialized through an object initializer or not; that is, if it has the <code>[Literal]</code> meta-data.</td></tr>
-<tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the class.</td></tr>
-<tr><td>[[<em>StaticProperties</em>]]</td><td>Static properties of the class.</td></tr>
-<tr><td>[[<em>Prototype</em>]]</td><td>The class prototype.</td></tr>
+                        <h1 id="type-conversions"><a class="header" href="#type-conversions">Type conversions</a></h1>
+<h2 id="implicit-constant-conversions"><a class="header" href="#implicit-constant-conversions">Implicit constant conversions</a></h2>
+<p>The language performs implicit compile-time type conversions from a constant to a constant of another type. They are described by the following table:</p>
+<div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>undefined</code> to <code>*</code>, <code>Optional</code>, <code>Set</code> <code>enum</code></td><td>For <code>Set</code> enum, results into an empty set. For other types, results into <code>undefined</code>.</td></tr>
+<tr><td><code>N</code> constant to <code>*</code>, <code>Object</code></td><td>Results into a <code>N</code> number constant of a covariant type.</td></tr>
+<tr><td><code>NF1</code> constant to <code>NF2</code> or <code>Optional.&lt;NF2&gt;</code></td><td>Results into a floating point constant with the same numeric value, where <code>NF2</code> is a floating point type whose range is greater than that of <code>NF1</code>.</td></tr>
+<tr><td><code>NI1</code> constant to <code>NI2</code> or <code>Optional.&lt;NI2&gt;</code></td><td>Results into an integer constant with the same numeric value, where <code>NI2</code> is a integer type whose range is greater than that of <code>NI1</code>.</td></tr>
+<tr><td><code>NI</code> constant to <code>Number</code> or <code>Optional.&lt;Number&gt;</code></td><td>Results into a number constant with the same numeric value, where <code>NI</code> is one of { <code>Byte</code>, <code>UnsignedByte</code>, <code>Short</code>, <code>UnsignedShort</code>, <code>Int</code> or <code>UnsignedInt</code> }.</td></tr>
+<tr><td><code>NaN</code> constant to <code>NI</code> or <code>Optional.&lt;NI&gt;</code></td><td>Results into a zero (0) constant where <code>NI</code> is an integer type.</td></tr>
+<tr><td><code>-Infinity</code> constant to <code>NI</code> or <code>Optional.&lt;NI&gt;</code></td><td>Results into the minimum integer constant where <code>NI</code> is an integer type.</td></tr>
+<tr><td><code>+Infinity</code> constant to <code>NI</code> or <code>Optional.&lt;NI&gt;</code></td><td>Results into the maximum integer constant where <code>NI</code> is an integer type.</td></tr>
 </tbody></table>
 </div>
-<h2 id="super-class"><a class="header" href="#super-class">Super class</a></h2>
-<p>By default, all classes, excluding <code>Object</code>, have <code>Object</code> as their super class.</p>
-<p>It is a verify error if:</p>
-<ul>
-<li>a class attempts to extend itself;</li>
-<li>a class attempts to extend a subclass of itself.</li>
-</ul>
-<h2 id="parent-definition"><a class="header" href="#parent-definition">Parent definition</a></h2>
-<p>When the parent definition of a class is a package, the class has a fully package qualified name.</p>
+<h2 id="implicit-conversions"><a class="header" href="#implicit-conversions">Implicit conversions</a></h2>
+<h2 id="explicit-conversions"><a class="header" href="#explicit-conversions">Explicit conversions</a></h2>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="enum.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="interfaces.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="visibility.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -210,11 +200,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="enum.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="interfaces.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="visibility.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

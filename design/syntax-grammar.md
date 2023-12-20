@@ -56,6 +56,7 @@ Expressions:
 * [ ] QualifiedIdentifier
 * [ ] BooleanLiteral
 * [ ] NumericLiteral
+  * [ ] Allowed to adapt any number type other than `Number`
 * [ ] StringLiteral
   * Inference: `Char`, `enum`
 * [ ] ThisLiteral

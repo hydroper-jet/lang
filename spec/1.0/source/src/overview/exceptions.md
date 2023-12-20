@@ -4,31 +4,26 @@ JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are n
 
 ```
 function task(): void throws RangeError {
-    // Throw a checked exception
     throw new RangeError("Error");
 }
-
-// Throw a fatal exception
-fatalError("Error");
+fatalError("Fatal error");
 ```
 
-Functions that throw checked exceptions return a `Result` object. Ignoring a `Result` object is a strict error.
+Functions that throw checked exceptions must be immediately used in one the following ways:
+
+* within a `try` statement;
+* within a `f()?` expression;
+* within a `f()!` expression;
+* within a `f() ?? v` expression.
 
 ```
-task(); // Not allowed
-task()!; // Fine; throws fatal exception
+// Turn any checked exception into a fatal exception
+task()!;
 
 function task2(): void throws RangeError {
-    task()?; // Fine; propagates error to `task2`
+    // Propagate any exception from task() to task2
+    task()?;
 }
 
-task2()!; // Fine
+task2()!;
 ```
-
-## Transparency
-
-The representation of the `Result` type varies across implementations:
-
-* The `Result` type is equivalent to `*` in ActionScript.
-* The `v is Result.<T, E1, EN>` expression has implementation-defined behavior. Programmers should not rely on such expression.
-* Converting a value to the `Result` type has implementation-defined behavior. Programmers should not rely on such `Result` conversions.

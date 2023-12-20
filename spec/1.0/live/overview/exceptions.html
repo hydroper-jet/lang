@@ -168,30 +168,27 @@
                         <h1 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h1>
 <p>JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are not caught by user code in JetWork.</p>
 <pre><code>function task(): void throws RangeError {
-    // Throw a checked exception
     throw new RangeError(&quot;Error&quot;);
 }
-
-// Throw a fatal exception
-fatalError(&quot;Error&quot;);
+fatalError(&quot;Fatal error&quot;);
 </code></pre>
-<p>Functions that throw checked exceptions return a <code>Result</code> object. Ignoring a <code>Result</code> object is a strict error.</p>
-<pre><code>task(); // Not allowed
-task()!; // Fine; throws fatal exception
+<p>Functions that throw checked exceptions must be immediately used in one the following ways:</p>
+<ul>
+<li>within a <code>try</code> statement;</li>
+<li>within a <code>f()?</code> expression;</li>
+<li>within a <code>f()!</code> expression;</li>
+<li>within a <code>f() ?? v</code> expression.</li>
+</ul>
+<pre><code>// Turn any checked exception into a fatal exception
+task()!;
 
 function task2(): void throws RangeError {
-    task()?; // Fine; propagates error to `task2`
+    // Propagate any exception from task() to task2
+    task()?;
 }
 
-task2()!; // Fine
+task2()!;
 </code></pre>
-<h2 id="transparency"><a class="header" href="#transparency">Transparency</a></h2>
-<p>The representation of the <code>Result</code> type varies across implementations:</p>
-<ul>
-<li>The <code>Result</code> type is equivalent to <code>*</code> in ActionScript.</li>
-<li>The <code>v is Result.&lt;T, E1, EN&gt;</code> expression has implementation-defined behavior. Programmers should not rely on such expression.</li>
-<li>Converting a value to the <code>Result</code> type has implementation-defined behavior. Programmers should not rely on such <code>Result</code> conversions.</li>
-</ul>
 
                     </main>
 

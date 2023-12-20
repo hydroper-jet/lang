@@ -97,7 +97,6 @@ Compound:
 
 - `[T1, T2, ...Tn]` (tuple)
 - `Optional.<T>` (unifies `T` and `undefined`)
-- `Result.<T, E1, ...EN>`
 - `Array.<T>` or `[T]`
   - A growable array.
 
@@ -132,14 +131,12 @@ try o?.f();
 (o ?? new T()).action();
 ```
 
-# `Result`
+# Function exceptions
 
-The `Result.<T, E1, ...En>` type holds either a success value or an exception value: `T` indicates the type of the success value, and all other remaining types are the possible exception types.
-
-A function that returns `Result` must return `T` and may throw any of the specified exception types through the `throw` statement.
+A function may throw exceptions, specifying each exception type in the `throws` clause. Such exceptions are also referred to as *checked* exceptions.
 
 ```
-function f(): Result.<T, TypeError, RangeError> {
+function f(): T throws TypeError, RangeError {
     throw new TypeError("Type error");
 }
 try {
@@ -149,20 +146,16 @@ try {
 }
 
 // Succeed or throw
-f()?;
+f()?
 
 // Optional chaining
-try f()?.x;
+try f()?.x
 
 // Non error assertion
-f()!.x;
+f()!.x
 ```
 
-The language supports a `throws` clause in function signatures, which wraps the return type into `Result`:
-
-```
-function f(): T throws TypeError, RangeError {}
-```
+Fatal exceptions are described later.
 
 # Literal class
 

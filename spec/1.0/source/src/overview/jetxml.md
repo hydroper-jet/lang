@@ -75,7 +75,7 @@ Here is an example attaching code to the class's package:
 <k:Container xmlns:fx="jetxml" xmlns:k="org.k" className="org.example.Example">
     <fx:Script package="true">
         <![CDATA[
-            public type ExampleResult = Result.<ByteArray, TypeError, VerifyError>;
+            public type ExampleAlias = [String, Boolean];
         ]]>
     </fx:Script>
 </k:Container>

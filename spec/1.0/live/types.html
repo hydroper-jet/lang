@@ -233,10 +233,11 @@ x == y
 <h2 id="charindex-type"><a class="header" href="#charindex-type">CharIndex type</a></h2>
 <p>The <code>CharIndex</code> type is a group (<em>string</em>, <em>index</em>) where <em>string</em> is a <code>String</code> and <em>index</em> is an <code>UnsignedInt</code> identifying a zero based index into <em>string</em>.</p>
 <h2 id="function-types"><a class="header" href="#function-types">Function types</a></h2>
-<p>Function types consist of zero or more parameters and a return type annotation. Function types appear in the forms:</p>
+<p>Function types consist of zero or more parameters, a return type annotation and zero or more exception types. Function types appear in the forms:</p>
 <pre><code>(a: T) =&gt; E
 (a?: T) =&gt; E
 (...a: [T]) =&gt; E
+() =&gt; E throws E1, EN
 </code></pre>
 <ul>
 <li>Function types inherit from the <code>Function</code> class.</li>
@@ -244,23 +245,15 @@ x == y
 <li>The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.</li>
 <li>The rest parameter must appear at most once.</li>
 <li>The rest parameter must be of type <code>Array</code>.</li>
-<li>A trailing <code>throws</code> clause may be used to wrap <code>E</code> into a <code>Result</code> type with a list of exception types, as in <code>() =&gt; void throws SyntaxError, RangeError</code>.</li>
+<li>A trailing <code>throws</code> clause is used to indicate exceptions that the function throws.</li>
 </ul>
 <h2 id="tuple-types"><a class="header" href="#tuple-types">Tuple types</a></h2>
 <p>Tuple types are in the form <code>[T1, T2, ...TN]</code>.</p>
 <h2 id="optional-type"><a class="header" href="#optional-type">Optional type</a></h2>
 <p>The <code>Optional.&lt;T&gt;</code> type is an union of <code>undefined</code> and <code>T</code>. <code>Optional.&lt;T&gt;</code> may be expressed as <code>Optional.&lt;T&gt;</code>, <code>T?</code>, or <code>?T</code>.</p>
-<p>It is not allowed for <code>T</code> to be of the <code>Optional</code> or <code>Result</code> type.</p>
+<p>It is not allowed for <code>T</code> to be of the <code>Optional</code> type.</p>
 <pre><code>// Error
 type O = Optional.&lt;Optional.&lt;T&gt;&gt;;
-// Error
-type O2 = Optional.&lt;Result.&lt;T, E&gt;&gt;;
-</code></pre>
-<h2 id="result-type"><a class="header" href="#result-type">Result type</a></h2>
-<p>The <code>Result.&lt;T, E1, ...EN&gt;</code> type is an union of <code>T</code> and one or more exception types.</p>
-<p>It is not allowed for <code>T</code> to be of the <code>Result</code> type.</p>
-<pre><code>// Error
-type R = Result.&lt;Result.&lt;T, E&gt;, E&gt;;
 </code></pre>
 <h2 id="array-type"><a class="header" href="#array-type">Array type</a></h2>
 <p>The <code>Array.&lt;T&gt;</code> type is a growable collection of <code>T</code> values. <code>Array</code> may be expressed as <code>Array.&lt;T&gt;</code> or <code>[T]</code>.</p>

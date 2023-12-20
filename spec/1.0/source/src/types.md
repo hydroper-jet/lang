@@ -90,12 +90,13 @@ The `CharIndex` type is a group (*string*, *index*) where *string* is a `String`
 
 ## Function types
 
-Function types consist of zero or more parameters and a return type annotation. Function types appear in the forms:
+Function types consist of zero or more parameters, a return type annotation and zero or more exception types. Function types appear in the forms:
 
 ```
 (a: T) => E
 (a?: T) => E
 (...a: [T]) => E
+() => E throws E1, EN
 ```
 
 * Function types inherit from the `Function` class.
@@ -103,7 +104,7 @@ Function types consist of zero or more parameters and a return type annotation. 
 * The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.
 * The rest parameter must appear at most once.
 * The rest parameter must be of type `Array`.
-* A trailing `throws` clause may be used to wrap `E` into a `Result` type with a list of exception types, as in `() => void throws SyntaxError, RangeError`.
+* A trailing `throws` clause is used to indicate exceptions that the function throws.
 
 ## Tuple types
 
@@ -113,24 +114,11 @@ Tuple types are in the form `[T1, T2, ...TN]`.
 
 The `Optional.<T>` type is an union of `undefined` and `T`. `Optional.<T>` may be expressed as `Optional.<T>`, `T?`, or `?T`.
 
-It is not allowed for `T` to be of the `Optional` or `Result` type.
+It is not allowed for `T` to be of the `Optional` type.
 
 ```
 // Error
 type O = Optional.<Optional.<T>>;
-// Error
-type O2 = Optional.<Result.<T, E>>;
-```
-
-## Result type
-
-The `Result.<T, E1, ...EN>` type is an union of `T` and one or more exception types.
-
-It is not allowed for `T` to be of the `Result` type.
-
-```
-// Error
-type R = Result.<Result.<T, E>, E>;
 ```
 
 ## Array type

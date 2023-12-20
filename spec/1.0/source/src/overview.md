@@ -4,9 +4,7 @@
 
 # Overview
 
-JetWork is a flexible, productive, robust, strongly typed, object-oriented, multi-purpose scripting language.
-
-JetWork is influenced by other languages, including ActionScript, Haxe and Rust. The language is designed such that it is possible to develop platform scalable projects, and allows for native extensions to be implemented without difficulty.
+JetWork is a flexible, productive, robust, strongly typed, object-oriented, multi-purpose scripting language. JetWork is influenced by ActionScript.
 
 ## Native extensions
 

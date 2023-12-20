@@ -113,9 +113,13 @@ Tuple types are in the form `[T1, T2, ...TN]`.
 
 The `Optional.<T>` type is an union of `undefined` and `T`. `Optional.<T>` may be expressed as `Optional.<T>`, `T?`, or `?T`.
 
+It is not allowed for `T` to be of the `Optional` or `Result` type.
+
 ## Result type
 
 The `Result.<T, E1, ...EN>` type is an union of `T` and one or more exception types.
+
+It is not allowed for `T` to be of the `Result` type.
 
 ## Array type
 

@@ -280,6 +280,20 @@ trace(triangleArea(5, 6, 7));
 <pre><code class="language-plain">jetpm build --define someConstant
 jetpm build --define air::target=ios
 </code></pre>
+<h2 id="build-script"><a class="header" href="#build-script">Build script</a></h2>
+<p>The package manifest allows build scripts to be specified, as well as their dependencies.</p>
+<p>Build scripts are executed in the Node.js® platform; therefore they implicitly use the <code>http://www.nodejs.org/2009</code> registry namespace.</p>
+<p>Build scripts can be specified both inside the top-level and inside conditional configurations.</p>
+<p>Here is an example manifest demonstrating build scripts:</p>
+<p><strong>package.json</strong></p>
+<pre><code class="language-json">{
+    &quot;buildScript&quot;: {
+        &quot;compilerOptions&quot;: {
+            &quot;includeSources&quot;: [&quot;build.jet&quot;]
+        }
+    }
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compilation-and-transpilation"><a class="header" href="#compilation-and-transpilation">Compilation and transpilation</a></h1>
 <p>JetWork compiles to the JetWork Virtual Machine Bytecode, which, in turn, can be compiled to other languages or be executed by a virtual machine.</p>
 <p>JetWork can be both compiled to native code and transpiled to another object-oriented high-level language.</p>

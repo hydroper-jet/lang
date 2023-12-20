@@ -107,3 +107,25 @@ Here are example JetPM commands passing configuration constants:
 jetpm build --define someConstant
 jetpm build --define air::target=ios
 ```
+
+## Build script
+
+The package manifest allows build scripts to be specified, as well as their dependencies.
+
+Build scripts are executed in the Node.js® platform; therefore they implicitly use the `http://www.nodejs.org/2009` registry namespace.
+
+Build scripts can be specified both inside the top-level and inside conditional configurations.
+
+Here is an example manifest demonstrating build scripts:
+
+**package.json**
+
+```json
+{
+    "buildScript": {
+        "compilerOptions": {
+            "includeSources": ["build.jet"]
+        }
+    }
+}
+```

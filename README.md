@@ -19,6 +19,7 @@ The JetWork language is a flexible, robust, productive, object-oriented scriptin
 | `http://www.love2d.org/2018` | Experiment with the LÖVE game engine. More complex abstractions can be done over the engine, such as a hierarchical package. |
 | `http://www.godotengine.org/4` | Build games using Godot Engine. |
 | `http://www.w3.org/web` | Build web applications. |
+| `http://www.nodejs.org/2009` | Build processes and command-line applications using Node.js®. |
 
 ## Language specifications
 

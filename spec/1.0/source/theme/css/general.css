@@ -106,12 +106,10 @@ h6:target::before {
 .content ul { line-height: 1.45em; }
 .content a {
     text-decoration: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0);
 }
 .content a:hover {
-    border-bottom: 1px solid var(--links);
+    text-decoration: underline;
 }
-.content a:hover { text-decoration: underline; }
 .content img, .content video { max-width: 100%; }
 .content .header:link,
 .content .header:visited {

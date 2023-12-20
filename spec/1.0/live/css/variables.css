@@ -19,7 +19,7 @@
     --sidebar-bg: var(--bg);
     --sidebar-fg: var(--fg);
     --sidebar-non-existant: #505274;
-    --sidebar-active: #2b79a2;
+    --sidebar-active: #0d7485;
     --sidebar-spacer: #2d334f;
 
     --scrollbar: var(--sidebar-fg);
@@ -27,7 +27,7 @@
     --icons: var(--fg);
     --icons-hover: var(--fg);
 
-    --links: #35b;
+    --links: #0d7485;
 
     --inline-code-color: #222;
 

@@ -30,7 +30,6 @@ For the given example, `k:Container` inherits from the following abstract `Node`
 
 ```
 package org.k {
-    import jetxml.JetXML;
     public abstract class Node implements JetXML { /* ... */ }
 }
 ```

@@ -10,7 +10,7 @@ JetWork is influenced by other languages, including ActionScript, Haxe and Rust.
 
 ## Native extensions
 
-The language allows libraries known as *native extensions* to be developed through the combination of [*plain meta-data*](metadata/plain-metadata.md) and [conditional configuration](overview/package-manager.md#conditional-configuration).
+The language allows libraries known as *native extensions* to be developed through the combination of [plain meta-data](metadata/plain-metadata.md) and [conditional configuration](overview/package-manager.md#conditional-configuration).
 
 Plain meta-data allow embedding arbitrary files with binary content, such as dynamic-link libraries, as well as textual files such as application descriptors.
 

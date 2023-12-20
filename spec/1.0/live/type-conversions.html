@@ -169,19 +169,37 @@
 <h2 id="implicit-constant-conversions"><a class="header" href="#implicit-constant-conversions">Implicit constant conversions</a></h2>
 <p>The language performs implicit compile-time type conversions from a constant to a constant of another type. They are described by the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>undefined</code> to <code>*</code>, <code>Optional</code>, <code>Set</code> <code>enum</code></td><td>For <code>Set</code> enum, results into an empty set. For other types, results into <code>undefined</code>.</td></tr>
+<tr><td><code>undefined</code> to <code>*</code>, <code>Optional</code>, Set <code>enum</code></td><td>For Set <code>enum</code>, results into an empty set. For other types, results into <code>undefined</code>.</td></tr>
 <tr><td><code>N</code> constant to <code>*</code>, <code>Object</code></td><td>Results into a <code>N</code> number constant of a covariant type.</td></tr>
-<tr><td><code>NF1</code> constant to <code>NF2</code> or <code>Optional.&lt;NF2&gt;</code></td><td>Results into a floating point constant with the same numeric value, where <code>NF2</code> is a floating point type whose range is greater than that of <code>NF1</code>.</td></tr>
-<tr><td><code>NI1</code> constant to <code>NI2</code> or <code>Optional.&lt;NI2&gt;</code></td><td>Results into an integer constant with the same numeric value, where <code>NI2</code> is a integer type whose range is greater than that of <code>NI1</code>.</td></tr>
+<tr><td><code>NF1</code> constant to <code>NF2</code> or <code>Optional.&lt;NF2&gt;</code></td><td>Results into a floating point constant with the same numeric value, where <code>NF2</code> is a floating point type whose range is wider than that of <code>NF1</code>.</td></tr>
+<tr><td><code>NI1</code> constant to <code>NI2</code> or <code>Optional.&lt;NI2&gt;</code></td><td>Results into an integer constant with the same numeric value, where <code>NI2</code> is a integer type whose range is wider than that of <code>NI1</code>.</td></tr>
 <tr><td><code>NI</code> constant to <code>Number</code> or <code>Optional.&lt;Number&gt;</code></td><td>Results into a number constant with the same numeric value, where <code>NI</code> is one of { <code>Byte</code>, <code>UnsignedByte</code>, <code>Short</code>, <code>UnsignedShort</code>, <code>Int</code> or <code>UnsignedInt</code> }.</td></tr>
 <tr><td><code>NaN</code> constant to <code>NI</code> or <code>Optional.&lt;NI&gt;</code></td><td>Results into a zero (0) constant where <code>NI</code> is an integer type.</td></tr>
-<tr><td><code>-Infinity</code> constant to <code>NI</code> or <code>Optional.&lt;NI&gt;</code></td><td>Results into the minimum integer constant where <code>NI</code> is an integer type.</td></tr>
-<tr><td><code>+Infinity</code> constant to <code>NI</code> or <code>Optional.&lt;NI&gt;</code></td><td>Results into the maximum integer constant where <code>NI</code> is an integer type.</td></tr>
+<tr><td><code>-Infinity</code> constant to <code>NI</code> or <code>Optional.&lt;NI&gt;</code></td><td>Results into the minimum integer constant where <code>NI</code> is an integer type but not <code>BigInt</code>.</td></tr>
+<tr><td><code>+Infinity</code> constant to <code>NI</code> or <code>Optional.&lt;NI&gt;</code></td><td>Results into the maximum integer constant where <code>NI</code> is an integer type but not <code>BigInt</code>.</td></tr>
 </tbody></table>
 </div>
 <h2 id="implicit-conversions"><a class="header" href="#implicit-conversions">Implicit conversions</a></h2>
+<p>An implicit conversion is followed by an attempt of an implicit constant conversion. Implicit conversions are described by the following table:</p>
+<div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
+<tr><td>From <code>*</code></td><td>Converts to type from the <code>*</code> type or a conversion failure if the conversion fails at runtime.</td></tr>
+<tr><td>To <code>*</code></td><td>Converts to the <code>*</code> type.</td></tr>
+<tr><td><code>N1</code> to <code>N2</code></td><td>Results into a number constant with the same numeric value, where <code>N2</code> is a number type whose range is wider than that of <code>N1</code>.</td></tr>
+<tr><td>To covariant type</td><td>Results into a reference of a covariant type.</td></tr>
+</tbody></table>
+</div>
 <h2 id="explicit-conversions"><a class="header" href="#explicit-conversions">Explicit conversions</a></h2>
-
+<p>An explicit conversion is followed by an attempt of an implicit conversion. Explicit conversions are described by the following table:</p>
+<div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
+<tr><td>To <code>T</code> through <code>proxy::to</code></td><td>Converts to type <code>T</code> by invoking the <code>to</code> proxy if present.</td></tr>
+<tr><td>To <code>T</code> through <code>proxy::toOptional</code></td><td>Converts to type <code>T</code> by invoking the <code>toOptional</code> proxy if present. It is a conversion failure if <code>toOptional</code> returns undefined.</td></tr>
+<tr><td><code>Array</code> to contravariant <code>Array</code></td><td>Constructs a new array filtering out covariant elements.</td></tr>
+<tr><td><code>Array</code> to covariant <code>Array</code></td><td>Constructs a new array of a covariant type.</td></tr>
+<tr><td>Between number types</td><td>Converts from a number type to another number type. The result is implementation-defined.</td></tr>
+<tr><td>From <code>String</code> to <code>enum</code></td><td>Converts to <code>enum</code> by identifying a member by its string component. It is a failure if the member is not found.</td></tr>
+<tr><td>From number to <code>enum</code></td><td>For a non Set <code>enum</code>, converts to the <code>enum</code> by identifying a member by its number component. It is a failure if the member is not found. For a Set <code>enum</code>, converts to the <code>enum</code> by filtering out unrecognized bits.</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

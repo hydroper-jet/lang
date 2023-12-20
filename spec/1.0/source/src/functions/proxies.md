@@ -18,6 +18,7 @@ A proxy is a function containing the `proxy` attribute, enclosed by a `class` or
 * [shiftRight](#shiftright)
 * [shiftRightUnsigned](#shiftrightunsigned)
 * [to](#to)
+* [toOptional](#tooptional)
 * [getProperty](#getproperty)
 * [setProperty](#setproperty)
 * [deleteProperty](#deleteproperty)
@@ -151,6 +152,17 @@ class C {
 ```
 class C {
     proxy function to(): T {}
+}
+```
+
+## toOptional
+
+* The `toOptional` proxy adds explicit conversion from the enclosing class to the type `T` it returns. Such proxy is used for an optional conversion using the `as` operator.
+* The `toOptional` proxy may be defined multiple times.
+
+```
+class C {
+    proxy function toOptional(): T? {}
 }
 ```
 

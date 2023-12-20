@@ -184,6 +184,7 @@
 <li><a href="#shiftright">shiftRight</a></li>
 <li><a href="#shiftrightunsigned">shiftRightUnsigned</a></li>
 <li><a href="#to">to</a></li>
+<li><a href="#tooptional">toOptional</a></li>
 <li><a href="#getproperty">getProperty</a></li>
 <li><a href="#setproperty">setProperty</a></li>
 <li><a href="#deleteproperty">deleteProperty</a></li>
@@ -271,6 +272,15 @@
 </ul>
 <pre><code>class C {
     proxy function to(): T {}
+}
+</code></pre>
+<h2 id="tooptional"><a class="header" href="#tooptional">toOptional</a></h2>
+<ul>
+<li>The <code>toOptional</code> proxy adds explicit conversion from the enclosing class to the type <code>T</code> it returns. Such proxy is used for an optional conversion using the <code>as</code> operator.</li>
+<li>The <code>toOptional</code> proxy may be defined multiple times.</li>
+</ul>
+<pre><code>class C {
+    proxy function toOptional(): T? {}
 }
 </code></pre>
 <h2 id="getproperty"><a class="header" href="#getproperty">getProperty</a></h2>

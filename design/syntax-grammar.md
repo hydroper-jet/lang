@@ -58,7 +58,9 @@ Expressions:
 * [ ] NumericLiteral
   * [ ] Allowed to adapt any number type other than `Number`
 * [ ] StringLiteral
-  * Inference: `Char`, `enum`
+  * Inference
+    * [ ] `Char`
+    * [ ] `enum`
 * [ ] ThisLiteral
 * [ ] SuperExpression
 * [ ] RegExpLiteral

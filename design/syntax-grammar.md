@@ -45,6 +45,7 @@ Statements:
 * [ ] Throw statement
 * [ ] With statement
 * [ ] Try statement
+  * [ ] `catch fatal` clause
   * [ ] Creates a new scope for the `?` operator.
   * [ ] Catch clauses must be exhaustive based on exception covariance.
 * [ ] Expression statement

@@ -229,6 +229,7 @@ meta
 type
 
 embed
+fatal
 final
 never
 proxy

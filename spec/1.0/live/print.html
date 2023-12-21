@@ -324,7 +324,7 @@ jetpm build --define air::target=ios
 <tr><td><code>for each (const ch in string) {}</code></td><td>Iterates every character</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h1>
-<p>JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are not caught by user code in JetWork.</p>
+<p>JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are unchecked errors that may occur during program execution.</p>
 <pre><code>function task(): void throws RangeError {
     throw new RangeError(&quot;Error&quot;);
 }
@@ -336,7 +336,7 @@ fatalError(&quot;Fatal error&quot;);
 <li>within a <code>f()!</code> expression;</li>
 <li>within a <code>f() ?? v</code> expression.</li>
 </ul>
-<pre><code>// Turn any checked exception into a fatal exception
+<pre><code>// Catch any exception and throw a fatal exception
 task()!;
 
 function task2(): void throws RangeError {
@@ -345,6 +345,14 @@ function task2(): void throws RangeError {
 }
 
 task2()!;
+</code></pre>
+<h2 id="catching-fatal-exceptions"><a class="header" href="#catching-fatal-exceptions">Catching fatal exceptions</a></h2>
+<p>Fatal exceptions may be caught by using the <code>try</code> statement with the special <code>catch fatal</code> clause:</p>
+<pre><code>try {
+    logic()
+} catch fatal {
+    logic()
+}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nullability"><a class="header" href="#nullability">Nullability</a></h1>
 <p>The <code>Optional.&lt;T&gt;</code> class is the primary way of working with nullable data.</p>
@@ -715,6 +723,7 @@ meta
 type
 
 embed
+fatal
 final
 never
 proxy

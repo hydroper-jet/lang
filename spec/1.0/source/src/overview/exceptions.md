@@ -1,6 +1,6 @@
 # Exceptions
 
-JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are not caught by user code in JetWork.
+JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are unchecked errors that may occur during program execution.
 
 ```
 function task(): void throws RangeError {
@@ -16,7 +16,7 @@ Functions that throw checked exceptions must be immediately used in one the foll
 * within a `f() ?? v` expression.
 
 ```
-// Turn any checked exception into a fatal exception
+// Catch any exception and throw a fatal exception
 task()!;
 
 function task2(): void throws RangeError {
@@ -25,4 +25,16 @@ function task2(): void throws RangeError {
 }
 
 task2()!;
+```
+
+## Catching fatal exceptions
+
+Fatal exceptions may be caught by using the `try` statement with the special `catch fatal` clause:
+
+```
+try {
+    logic()
+} catch fatal {
+    logic()
+}
 ```

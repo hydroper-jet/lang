@@ -34,6 +34,7 @@ An explicit conversion is followed by an attempt of an implicit conversion. Expl
 | ------------ | ----------- |
 | To `T` through `proxy::to` | Converts to type `T` by invoking the `to` proxy if present. |
 | To `T` through `proxy::toOptional` | Converts to type `T` by invoking the `toOptional` proxy if present. It is a conversion failure if `toOptional` returns undefined. |
+| To contravariant type | Results into a reference of a contravariant type or a conversion failure if destination is incompatible. |
 | `Array` to contravariant `Array` | Constructs a new array filtering out covariant elements. |
 | `Array` to covariant `Array` | Constructs a new array of a covariant type. |
 | Between number types | Converts from a number type to another number type. The result is implementation-defined. |

@@ -37,4 +37,9 @@ try {
 } catch fatal {
     logic()
 }
+try {
+    logic()
+} catch fatal (message) {
+    /* message: String */
+}
 ```

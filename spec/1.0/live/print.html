@@ -353,6 +353,11 @@ task2()!;
 } catch fatal {
     logic()
 }
+try {
+    logic()
+} catch fatal (message) {
+    /* message: String */
+}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nullability"><a class="header" href="#nullability">Nullability</a></h1>
 <p>The <code>Optional.&lt;T&gt;</code> class is the primary way of working with nullable data.</p>

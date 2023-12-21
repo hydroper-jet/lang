@@ -17,3 +17,10 @@ The identifiers used in the meta-data form and the entries are allowed to use a 
 [Metadata(N2)]
 class C {}
 ```
+
+## File
+
+A `File` value may be in one of the forms:
+
+* `File("path/to/file")`
+* `File(import.meta.outputDirectory, "path/to/file")` — Resolves file from the output directory of the JetPM build process.

@@ -1,6 +1,6 @@
 # JetXML
 
-JetWork supports classes in XML form called *JetXML*. A JetXML is a file with the extension `.jetxml`.
+JetWork supports classes in XML form called *JetXML* components. A JetXML component is a file with the extension `.jetxml`.
 
 * A JetXML class extends another class based in the root XML element.
 * A JetXML class specifies its fully package qualified class name in the `className` attribute of the root XML element.
@@ -14,14 +14,14 @@ Here is an example JetXML:
 **Example.jetxml**
 
 ```xml
-<k:Container xmlns:fx="jetxml" xmlns:k="org.k" className="org.example.Example">
+<k:Container xmlns="jetxml" xmlns:fx="jetxml" xmlns:k="org.k" className="org.example.Example">
     <fx:Script>
         <![CDATA[
             public var exampleProperty: Number = Infinity;
         ]]>
     </fx:Script>
     <k:Container>
-        <AnotherExample/>
+        <k:AnotherExample/>
     </k:Container>
 </k:Container>
 ```

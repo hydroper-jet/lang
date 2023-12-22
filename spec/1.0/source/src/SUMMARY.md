@@ -33,3 +33,4 @@
 - [Enumerations](enum.md)
 - [Classes](classes.md)
 - [Interfaces](interfaces.md)
+- [JetXML components](jetxml-components.md)

@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="./snippets/spark-control.png" width="807">
+  <img src="./snippets/spark-control.png" width="755">
 </p>
 
 The JetWork language is a flexible, robust, productive, object-oriented scripting language.

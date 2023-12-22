@@ -3,7 +3,7 @@
 <!--
 
 JetXML components:
-* Default XML namespace: jetxml
+* Main XML namespace: jetxml
 * Attribute constants:
   * `Optional.<N>` where `N` is a number type: accepts an attribute constant of `N` type
   * `NF` where `NF` is a floating point type: accepts a floating point, `-Infinity`, `+Infinity`, `Infinity`, and `NaN`

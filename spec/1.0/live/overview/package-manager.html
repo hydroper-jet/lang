@@ -268,6 +268,26 @@ jetpm build --define air::target=ios
     }
 }
 </code></pre>
+<h2 id="workspaces"><a class="header" href="#workspaces">Workspaces</a></h2>
+<p>A workspace project contains a <code>workspace.json</code> file, which follows the format:</p>
+<p><strong>workspace.json</strong></p>
+<pre><code class="language-json">{
+    &quot;members&quot;: [
+        &quot;packages/com.c.s.p1&quot;,
+        &quot;packages/com.c.s.p2&quot;
+    ]
+}
+</code></pre>
+<p>A member package may depend in another member package by using a <code>file:</code> URL:</p>
+<p><strong>package.json</strong></p>
+<pre><code class="language-json">{
+    &quot;dependencies&quot;: {
+        &quot;*&quot;: {
+            &quot;com.c.s.p1&quot;: &quot;file:../com.c.s.p1&quot;
+        }
+    }
+}
+</code></pre>
 
                     </main>
 

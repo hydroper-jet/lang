@@ -294,6 +294,26 @@ jetpm build --define air::target=ios
     }
 }
 </code></pre>
+<h2 id="workspaces"><a class="header" href="#workspaces">Workspaces</a></h2>
+<p>A workspace project contains a <code>workspace.json</code> file, which follows the format:</p>
+<p><strong>workspace.json</strong></p>
+<pre><code class="language-json">{
+    &quot;members&quot;: [
+        &quot;packages/com.c.s.p1&quot;,
+        &quot;packages/com.c.s.p2&quot;
+    ]
+}
+</code></pre>
+<p>A member package may depend in another member package by using a <code>file:</code> URL:</p>
+<p><strong>package.json</strong></p>
+<pre><code class="language-json">{
+    &quot;dependencies&quot;: {
+        &quot;*&quot;: {
+            &quot;com.c.s.p1&quot;: &quot;file:../com.c.s.p1&quot;
+        }
+    }
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compilation-and-transpilation"><a class="header" href="#compilation-and-transpilation">Compilation and transpilation</a></h1>
 <p>JetWork compiles to the JetWork Virtual Machine Bytecode, which, in turn, can be compiled to other languages or be executed by a virtual machine.</p>
 <p>JetWork can be both compiled to native code and transpiled to another object-oriented high-level language.</p>
@@ -1555,7 +1575,10 @@ JetXML components:
   * `Optional.<N>` where `N` is a number type: accepts an attribute constant of `N` type
   * `NF` where `NF` is a floating point type: accepts a floating point, `-Infinity`, `+Infinity`, `Infinity`, and `NaN`
   * `Boolean` allows for `true` and `false`
-  * `String` allows for any attribute value
+  * `Optional.<Char>` allows for a single character
+  * `Char` allows for a single character
+  * `Optional.<String>` allows for any attribute value (interpreted as a String)
+  * `String` allows for any attribute value (interpreted as a String)
   * Non-Set `enum` allows for a member string
   * `Optional.<E>` where `E` is a non-Set `enum` allows for a member string
   * Set `enum` allows for comma-separated member strings

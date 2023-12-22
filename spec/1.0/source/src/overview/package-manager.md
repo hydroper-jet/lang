@@ -129,3 +129,32 @@ Here is an example manifest demonstrating build scripts:
     }
 }
 ```
+
+## Workspaces
+
+A workspace project contains a `workspace.json` file, which follows the format:
+
+**workspace.json**
+
+```json
+{
+    "members": [
+        "packages/com.c.s.p1",
+        "packages/com.c.s.p2"
+    ]
+}
+```
+
+A member package may depend in another member package by using a `file:` URL:
+
+**package.json**
+
+```json
+{
+    "dependencies": {
+        "*": {
+            "com.c.s.p1": "file:../com.c.s.p1"
+        }
+    }
+}
+```

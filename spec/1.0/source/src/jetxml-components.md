@@ -73,25 +73,31 @@ XML attributes at the **jetxml** namespace applied to the instantiation are proc
 3. It is a verify error if *p* is neither a variable property or a virtual property.
 4. Let *t* be the static type of *p*.
 5. Do one of the following steps:
-    1. If *t* is `N` or `Optional.<N>` where `N` is a number type and the attribute value is a *DecimalLiteral* or *HexIntegerLiteral*, assign the mathematical value of that attribute value to *p*.
-    2. If *t* is `N` or `Optional.<N>` where `N` is a floating point type and the attribute value is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, assign the equivalent floating point constant of that attribute value to *p*.
-    3. If *t* is `Boolean` or `Optional.<Boolean>` and the attribute value is `false` or `true`, assign the equivalent boolean constant of that attribute value to *p*.
-    4. If *t* is `Char` or `Optional.<Char>`, assert that the attribute value consists of one character and assign the first Unicode code point of the attribute value to *p*.
-    5. If *t* is `String` or `Optional.<String>`, assign the attribute value to *p*.
-    6. If *t* is `E` or `Optional.<E>` where `E` is a non Set `enum`, assert that the attribute value identifies a member of the `enum` by its string component and assign such member to *p*.
-    7. If *t* is `E` or `Optional.<E>` where `E` is a Set `enum`, assert that the attribute value is a comma-separated list identifying one or more members of the `enum` by their string components and assign such members to *p*.
+    1. If *t* is `N` or `Optional.<N>` where `N` is a number type, assign *AttributeValueToNumber*(*v*) to *p* where *v* is the attribute value.
+    2. If *t* is `Boolean` or `Optional.<Boolean>` and the attribute value is `false` or `true`, assign the equivalent boolean constant of that attribute value to *p*.
+    3. If *t* is `Char` or `Optional.<Char>`, assert that the attribute value consists of one character and assign the first Unicode code point of the attribute value to *p*.
+    4. If *t* is `String` or `Optional.<String>`, assign the attribute value to *p*.
+    5. If *t* is `E` or `Optional.<E>` where `E` is a non Set `enum`, assert that the attribute value identifies a member of the `enum` by its string component and assign such member to *p*.
+    6. If *t* is `E` or `Optional.<E>` where `E` is a Set `enum`, assert that the attribute value is a comma-separated list identifying one or more members of the `enum` by their string components and assign such members to *p*.
 6. Otherwise:
     1. Let *colorClass* be \[\[*JetXMLColorClass*\]\] from either `cbi` or a super class of `cbi`.
     2. If *colorClass* exists and *t* is equals *colorClass*, assign `new colorClass(v)` to *p* where `v` is the attribute value as a `String`.
     3. Otherwise:
         1. Let *vectorClasses* be \[\[*JetXMLVectorClasses*\]\] from either `cbi` or a super class of `cbi`.
         2. Let *vectorComponents* be the result of spliting the attribute value by comma.
-        3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents*, do the following steps:
-            1. If the constructor of *vectorClass* takes integer parameters, assign *p* the expression `new vectorClass(...)` passing the mathematical value of every element in *vectorComponents* as a *DecimalLiteral* or *HexIntegerLiteral* in the integer type.
-            2. Otherwise, assign *p* the expression `new vectorClass(...)` passing the processing of every element *component* in *vectorComponents* as follows:
-                1. If the *component* is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, the processed value is the representation of *component* in the floating point type.
-                2. Otherwise, the processed value is the mathematical value of *component* as a *DecimalLiteral* or *HexIntegerLiteral* in the floating point type.
+        3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *CommaComponentsToNumbers*(*vectorComponents*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
         4. Otherwise throw a verify error.
+
+### AttributeValueToNumber()
+
+The internal *AttributeValueToNumber*() function takes a string *s* and returns a number of a specific number type *N*. The function performs the following steps:
+
+* If *N* is a floating point type and *seq* is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, return the *N* representation of *s* as a floating point constant.
+* Return the mathematical value of *s* as a *DecimalLiteral* or *HexIntegerLiteral*.
+
+### CommaComponentsToNumbers()
+
+The internal *CommaComponentsToNumbers*() function takes a sequence of strings *seq* and returns a number sequence of a specific number type *N*. The function returns a processing of every element *s* in *seq* as the result of calling *AttributeValueToNumber*(*s*).
 
 ## Instance variables
 

@@ -219,8 +219,7 @@ Future data bindings support:
 <li>Let <em>t</em> be the static type of <em>p</em>.</li>
 <li>Do one of the following steps:
 <ol>
-<li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type and the attribute value is a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em>, assign the mathematical value of that attribute value to <em>p</em>.</li>
-<li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a floating point type and the attribute value is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, assign the equivalent floating point constant of that attribute value to <em>p</em>.</li>
+<li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type, assign <em>AttributeValueToNumber</em>(<em>v</em>) to <em>p</em> where <em>v</em> is the attribute value.</li>
 <li>If <em>t</em> is <code>Boolean</code> or <code>Optional.&lt;Boolean&gt;</code> and the attribute value is <code>false</code> or <code>true</code>, assign the equivalent boolean constant of that attribute value to <em>p</em>.</li>
 <li>If <em>t</em> is <code>Char</code> or <code>Optional.&lt;Char&gt;</code>, assert that the attribute value consists of one character and assign the first Unicode code point of the attribute value to <em>p</em>.</li>
 <li>If <em>t</em> is <code>String</code> or <code>Optional.&lt;String&gt;</code>, assign the attribute value to <em>p</em>.</li>
@@ -236,23 +235,21 @@ Future data bindings support:
 <ol>
 <li>Let <em>vectorClasses</em> be [[<em>JetXMLVectorClasses</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
 <li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
-<li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, do the following steps:
-<ol>
-<li>If the constructor of <em>vectorClass</em> takes integer parameters, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing the mathematical value of every element in <em>vectorComponents</em> as a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em> in the integer type.</li>
-<li>Otherwise, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing the processing of every element <em>component</em> in <em>vectorComponents</em> as follows:
-<ol>
-<li>If the <em>component</em> is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, the processed value is the representation of <em>component</em> in the floating point type.</li>
-<li>Otherwise, the processed value is the mathematical value of <em>component</em> as a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em> in the floating point type.</li>
-</ol>
-</li>
-</ol>
-</li>
+<li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>CommaComponentsToNumbers</em>(<em>vectorComponents</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
 <li>Otherwise throw a verify error.</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
+<h3 id="attributevaluetonumber"><a class="header" href="#attributevaluetonumber">AttributeValueToNumber()</a></h3>
+<p>The internal <em>AttributeValueToNumber</em>() function takes a string <em>s</em> and returns a number of a specific number type <em>N</em>. The function performs the following steps:</p>
+<ul>
+<li>If <em>N</em> is a floating point type and <em>seq</em> is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, return the <em>N</em> representation of <em>s</em> as a floating point constant.</li>
+<li>Return the mathematical value of <em>s</em> as a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em>.</li>
+</ul>
+<h3 id="commacomponentstonumbers"><a class="header" href="#commacomponentstonumbers">CommaComponentsToNumbers()</a></h3>
+<p>The internal <em>CommaComponentsToNumbers</em>() function takes a sequence of strings <em>seq</em> and returns a number sequence of a specific number type <em>N</em>. The function returns a processing of every element <em>s</em> in <em>seq</em> as the result of calling <em>AttributeValueToNumber</em>(<em>s</em>).</p>
 <h2 id="instance-variables"><a class="header" href="#instance-variables">Instance variables</a></h2>
 <p>Instance variables belonging to <code>descClass</code> are JetXML variables with special behavior as described by section <a href="variables.html#jetxml-variables">Variables</a>.</p>
 

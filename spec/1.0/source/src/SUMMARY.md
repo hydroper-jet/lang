@@ -34,3 +34,4 @@
 - [Classes](classes.md)
 - [Interfaces](interfaces.md)
 - [JetXML components](jetxml-components.md)
+- [Property resolution](property-resolution.md)

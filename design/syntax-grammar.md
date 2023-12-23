@@ -24,7 +24,6 @@ Directives:
   * [ ] May be a proxy definition
   * [ ] Getter
   * [ ] Setter
-* [ ] Module definition
 
 Statements:
 
@@ -74,13 +73,16 @@ Expressions:
 * [ ] XMLListInitializer
 * [ ] CallExpression
 * [ ] UnaryExpression
-  * [ ] Error propagation (postfix `?`)
-  * [ ] Non-error assertion (postfix `!`)
+  * [ ] Non-null (postfix `!`)
 * [ ] BinaryExpression
   * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.
   * `v is T`
   * `v is not T`
   * `v as T`
+* [ ] OptionalChaining
+  * `?.qid`
+  * `?.[k]`
+  * `?.(...)`
 * [ ] MemberExpression (`o.x`)
   * `x` is a qualified identifier
 * [ ] ComputedMemberExpression (`o[k]`)
@@ -93,8 +95,6 @@ Expressions:
 * [ ] ConditionalExpression
 * [ ] AssignmentExpression
   * The left-hand side may be a destructuring pattern.
-* [ ] Try expression
-  * [ ] Parsing: `lookahead != "{"`
 * [ ] ExpressionWithTypeArguments (`e.<T1, ...Tn>`)
 * [ ] EmbedExpression
 * [ ] ImportMeta (`import.meta`)

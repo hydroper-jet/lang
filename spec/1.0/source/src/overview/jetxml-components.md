@@ -2,15 +2,7 @@
 
 JetWork supports classes in XML form called *JetXML* components. A JetXML component is a file with the extension `.jetxml`.
 
-* A JetXML component class extends another class based in the root XML element.
-* A JetXML component class specifies its fully package qualified class name in the `className` attribute of the root XML element.
-* XML namespaces identify JetWork packages, except for the `jetxml` XML namespace.
-* XML attributes apply to instance properties.
-* A JetXML constructor is only allowed to receive optional parameters.
-
 Here is an example JetXML:
-
-**Example.jetxml**
 
 ```xml
 <k:Container xmlns="jetxml" xmlns:k="org.k" className="org.example.Example">
@@ -46,7 +38,7 @@ JetXML may support data bindings in the future. Data bindings allow connecting p
 
 ## \<Children/\>
 
-The empty `<Children/>` tag, of the namespace `jetxml`, may appear anywhere in a JetXML file to indicate where to add the tag's children:
+The empty `<Children/>` tag may appear anywhere in a JetXML file to indicate where to add the tag's children:
 
 ```xml
 <k:Container xmlns="jetxml" xmlns:k="org.k" className="org.example.Example">
@@ -60,24 +52,7 @@ The empty `<Children/>` tag, of the namespace `jetxml`, may appear anywhere in a
 
 ## \<Script\>
 
-The `<Script>` tag, of the namespace `jetxml`, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer package.
-
-There are two forms of `Script`:
-
-* `<Script>` — Attaches code to the class block.
-* `<Script package="true">` — Attaches code to the class's package.
-
-Here is an example attaching code to the class's package:
-
-```xml
-<k:Container xmlns="jetxml" xmlns:k="org.k" className="org.example.Example">
-    <Script package="true">
-        <![CDATA[
-            public type ExampleAlias = [String, Boolean];
-        ]]>
-    </Script>
-</k:Container>
-```
+The `<Script>` tag may appear once in the root of a JetXML file to attach code to the class block.
 
 ## Initialization
 

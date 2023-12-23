@@ -167,15 +167,7 @@
                     <main>
                         <h1 id="jetxml-components"><a class="header" href="#jetxml-components">JetXML components</a></h1>
 <p>JetWork supports classes in XML form called <em>JetXML</em> components. A JetXML component is a file with the extension <code>.jetxml</code>.</p>
-<ul>
-<li>A JetXML component class extends another class based in the root XML element.</li>
-<li>A JetXML component class specifies its fully package qualified class name in the <code>className</code> attribute of the root XML element.</li>
-<li>XML namespaces identify JetWork packages, except for the <code>jetxml</code> XML namespace.</li>
-<li>XML attributes apply to instance properties.</li>
-<li>A JetXML constructor is only allowed to receive optional parameters.</li>
-</ul>
 <p>Here is an example JetXML:</p>
-<p><strong>Example.jetxml</strong></p>
 <pre><code class="language-xml">&lt;k:Container xmlns=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
     &lt;Script&gt;
         &lt;![CDATA[
@@ -202,7 +194,7 @@
 <h2 id="data-bindings"><a class="header" href="#data-bindings">Data bindings</a></h2>
 <p>JetXML may support data bindings in the future. Data bindings allow connecting property values through events.</p>
 <h2 id="children"><a class="header" href="#children">&lt;Children/&gt;</a></h2>
-<p>The empty <code>&lt;Children/&gt;</code> tag, of the namespace <code>jetxml</code>, may appear anywhere in a JetXML file to indicate where to add the tag's children:</p>
+<p>The empty <code>&lt;Children/&gt;</code> tag may appear anywhere in a JetXML file to indicate where to add the tag's children:</p>
 <pre><code class="language-xml">&lt;k:Container xmlns=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
     &lt;k:Container&gt;
         &lt;k:Container&gt;
@@ -212,21 +204,7 @@
 &lt;/k:Container&gt;
 </code></pre>
 <h2 id="script"><a class="header" href="#script">&lt;Script&gt;</a></h2>
-<p>The <code>&lt;Script&gt;</code> tag, of the namespace <code>jetxml</code>, may appear anywhere in the top-level of a JetXML file to attach code to the class and its outer package.</p>
-<p>There are two forms of <code>Script</code>:</p>
-<ul>
-<li><code>&lt;Script&gt;</code> — Attaches code to the class block.</li>
-<li><code>&lt;Script package=&quot;true&quot;&gt;</code> — Attaches code to the class's package.</li>
-</ul>
-<p>Here is an example attaching code to the class's package:</p>
-<pre><code class="language-xml">&lt;k:Container xmlns=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
-    &lt;Script package=&quot;true&quot;&gt;
-        &lt;![CDATA[
-            public type ExampleAlias = [String, Boolean];
-        ]]&gt;
-    &lt;/Script&gt;
-&lt;/k:Container&gt;
-</code></pre>
+<p>The <code>&lt;Script&gt;</code> tag may appear once in the root of a JetXML file to attach code to the class block.</p>
 <h2 id="initialization"><a class="header" href="#initialization">Initialization</a></h2>
 <p>JetWork imposes no restrictions for the JetXML component constructor and it may be defined as a normal constructor:</p>
 <pre><code class="language-xml">&lt;k:Container xmlns=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;

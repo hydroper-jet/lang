@@ -168,8 +168,12 @@
                         <h1 id="jetxml-components"><a class="header" href="#jetxml-components">JetXML components</a></h1>
 <!--
 
+Future data bindings support:
+
+* Consider using a particular XML namespace for data binding attributes.
+
 JetXML components:
-* Main XML namespace: jetxml
+
 * Attribute constants:
   * `Optional.<N>` where `N` is a number type: accepts an attribute constant of `N` type
   * `NF` where `NF` is a floating point type: accepts a floating point, `-Infinity`, `+Infinity`, `Infinity`, and `NaN`
@@ -185,6 +189,49 @@ JetXML components:
   * Any other type may not be expressed as an attribute constant.
 
 -->
+<p>A JetXML component is a XML file with the extension <code>.jetxml</code> describing a class that inherits from a <code>JetXML</code> subclass. The class being described the XML file is referred throughout this section as <code>descClass</code>.</p>
+<p>The default XML namespace used throughout this section is the <strong>jetxml</strong> string, as if the attribute <code>xmlns=&quot;jetxml&quot;</code> were applied to the root XML element.</p>
+<h2 id="class-name"><a class="header" href="#class-name">Class name</a></h2>
+<p>The root element must assign the attribute <code>className</code> a fully package qualified name whose trailing name identifies the class name of <code>descClass</code>, as in:</p>
+<pre><code class="language-xml">&lt;e:Application xmlns=&quot;jetxml&quot; xmlns:e=&quot;org.example&quot; className=&quot;org.example.Main&quot;&gt;
+    &lt;!-- Class contents --&gt;
+&lt;/e:Application&gt;
+</code></pre>
+<p>Such XML file results into defining <code>descClass</code> as a <code>Main</code> class that belongs to the <code>org.example</code> package. It is a verify error if the class is already defined.</p>
+<h2 id="root-element"><a class="header" href="#root-element">Root element</a></h2>
+<p>The root element of the XML file instantiates a JetXML component and determines the class from which <code>descClass</code> inherits.</p>
+<h2 id="class-constructor"><a class="header" href="#class-constructor">Class constructor</a></h2>
+<p>The following restrictions apply to JetXML components:</p>
+<ul>
+<li>The constructor of <code>descClass</code> is only allowed to receive optional parameters.</li>
+</ul>
+<h2 id="script"><a class="header" href="#script">&lt;Script&gt;</a></h2>
+<p>The <code>Script</code> element is allowed at the root element and may appear at most once. If an <code>Script</code> element appears, it must only contain a CDATA section.</p>
+<p>The CDATA section contains a JetWork source as the contents of a <code>class</code> block. Such contents are contributed to <code>descClass</code>.</p>
+<h2 id="children"><a class="header" href="#children">&lt;Children/&gt;</a></h2>
+<p>The empty <code>Children</code> element is allowed anywhere within the root element and may appear at most once.</p>
+<p>The <code>Children</code> tag is replaced by zero or more component instantiations that appear as children of the JetXML component.</p>
+<pre><code class="language-xml">&lt;e:C1 xmlns=&quot;jetxml&quot; xmlns:e=&quot;org.example&quot; className=&quot;org.example.C2&quot;&gt;
+    &lt;Children/&gt;
+&lt;/e:C1&gt;
+</code></pre>
+<h2 id="component-instantiation"><a class="header" href="#component-instantiation">Component instantiation</a></h2>
+<p>All XML elements that are not in the <strong>jetxml</strong> namespace are component instantiations. Given that <code>cbi</code> is the component being instantiated:</p>
+<ul>
+<li><code>cbi</code> is valid if and only if the tag name identifies a fully package qualified class that inherits from the <code>JetXML</code> class, where the tag namespace identifies the package and the tag non qualified name identifies the class name.</li>
+<li>A component instantiation returns <code>result = new cbi()</code> followed by zero or more property assignments at <code>result</code> and zero or more <code>result.jetxmlAppend()</code> calls.</li>
+</ul>
+<p>Children components are processed as follows:</p>
+<ol>
+<li>If <code>cbi</code> contains a <code>&lt;Children/&gt;</code> tag, children components take the place of such <code>&lt;Children/&gt;</code> tag.</li>
+<li>Otherwise, for each child component, call <code>result.jetxmlAppend()</code> with the result of the child instantiation.</li>
+</ol>
+<h3 id="attributes"><a class="header" href="#attributes">Attributes</a></h3>
+<p>Attributes at the <strong>jetxml</strong> namespace applied to the instantiation are processed as follows:</p>
+<ul>
+<li>To do</li>
+</ul>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

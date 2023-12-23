@@ -87,7 +87,7 @@ XML attributes at the **jetxml** namespace applied to the instantiation are proc
         1. Let *vectorClasses* be \[\[*JetXMLVectorClasses*\]\] from either `cbi` or a super class of `cbi`.
         2. Let *vectorComponents* be the result of spliting the attribute value by comma.
         3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents*, do the following steps:
-            1. If the constructor of *vectorClass* takes integer parameters, assign *p* the expression `new vectorClass(...)` passing the mathematical value of every element in *vectorComponents*.
+            1. If the constructor of *vectorClass* takes integer parameters, assign *p* the expression `new vectorClass(...)` passing the mathematical value of every element in *vectorComponents* as a *DecimalLiteral* or *HexIntegerLiteral* in the integer type.
             2. Otherwise, assign *p* the expression `new vectorClass(...)` passing the processing of every element *component* in *vectorComponents* as follows:
                 1. If the *component* is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, the processed value is the representation of *component* in the floating point type.
                 2. Otherwise, the processed value is the mathematical value of *component* as a *DecimalLiteral* or *HexIntegerLiteral* in the floating point type.

@@ -1625,7 +1625,7 @@ Future data bindings support:
 <li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
 <li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, do the following steps:
 <ol>
-<li>If the constructor of <em>vectorClass</em> takes integer parameters, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing the mathematical value of every element in <em>vectorComponents</em>.</li>
+<li>If the constructor of <em>vectorClass</em> takes integer parameters, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing the mathematical value of every element in <em>vectorComponents</em> as a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em> in the integer type.</li>
 <li>Otherwise, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing the processing of every element <em>component</em> in <em>vectorComponents</em> as follows:
 <ol>
 <li>If the <em>component</em> is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, the processed value is the representation of <em>component</em> in the floating point type.</li>

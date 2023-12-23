@@ -235,7 +235,7 @@ Future data bindings support:
 <ol>
 <li>Let <em>vectorClasses</em> be [[<em>JetXMLVectorClasses</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
 <li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
-<li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>CommaComponentsToNumbers</em>(<em>vectorComponents</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
+<li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>CommaSeparatedStringsToNumbers</em>(<em>vectorComponents</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
 <li>Otherwise throw a verify error.</li>
 </ol>
 </li>
@@ -248,8 +248,8 @@ Future data bindings support:
 <li>If <em>N</em> is a floating point type and <em>seq</em> is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, return the <em>N</em> representation of <em>s</em> as a floating point constant.</li>
 <li>Return the mathematical value of <em>s</em> as a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em>.</li>
 </ul>
-<h3 id="commacomponentstonumbers"><a class="header" href="#commacomponentstonumbers">CommaComponentsToNumbers()</a></h3>
-<p>The internal <em>CommaComponentsToNumbers</em>() function takes a sequence of strings <em>seq</em> and returns a number sequence of a specific number type <em>N</em>. The function returns a processing of every element <em>s</em> in <em>seq</em> as the result of calling <em>AttributeValueToNumber</em>(<em>s</em>).</p>
+<h3 id="commaseparatedstringstonumbers"><a class="header" href="#commaseparatedstringstonumbers">CommaSeparatedStringsToNumbers()</a></h3>
+<p>The internal <em>CommaSeparatedStringsToNumbers</em>() function takes a sequence of strings <em>seq</em> and returns a number sequence of a specific number type <em>N</em>. The function returns a processing of every element <em>s</em> in <em>seq</em> as the result of calling <em>AttributeValueToNumber</em>(<em>s</em>).</p>
 <h2 id="instance-variables"><a class="header" href="#instance-variables">Instance variables</a></h2>
 <p>Instance variables belonging to <code>descClass</code> are JetXML variables with special behavior as described by section <a href="variables.html#jetxml-variables">Variables</a>.</p>
 

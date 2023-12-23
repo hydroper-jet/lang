@@ -85,7 +85,7 @@ XML attributes at the **jetxml** namespace applied to the instantiation are proc
     3. Otherwise:
         1. Let *vectorClasses* be \[\[*JetXMLVectorClasses*\]\] from either `cbi` or a super class of `cbi`.
         2. Let *vectorComponents* be the result of spliting the attribute value by comma.
-        3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *CommaComponentsToNumbers*(*vectorComponents*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
+        3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *CommaSeparatedStringsToNumbers*(*vectorComponents*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
         4. Otherwise throw a verify error.
 
 ### AttributeValueToNumber()
@@ -95,9 +95,9 @@ The internal *AttributeValueToNumber*() function takes a string *s* and returns 
 * If *N* is a floating point type and *seq* is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, return the *N* representation of *s* as a floating point constant.
 * Return the mathematical value of *s* as a *DecimalLiteral* or *HexIntegerLiteral*.
 
-### CommaComponentsToNumbers()
+### CommaSeparatedStringsToNumbers()
 
-The internal *CommaComponentsToNumbers*() function takes a sequence of strings *seq* and returns a number sequence of a specific number type *N*. The function returns a processing of every element *s* in *seq* as the result of calling *AttributeValueToNumber*(*s*).
+The internal *CommaSeparatedStringsToNumbers*() function takes a sequence of strings *seq* and returns a number sequence of a specific number type *N*. The function returns a processing of every element *s* in *seq* as the result of calling *AttributeValueToNumber*(*s*).
 
 ## Instance variables
 

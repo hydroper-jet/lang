@@ -8,7 +8,7 @@ Future data bindings support:
 
 -->
 
-A JetXML component is a XML file with the extension `.jetxml` describing a class that inherits from a `JetXML` subclass. The class being described the XML file is referred throughout this section as `descClass`.
+A JetXML component is a XML file with the extension `.jetxml` describing a class that inherits from a `JetXML` implementor. The class being described the XML file is referred throughout this section as `descClass`.
 
 The default XML namespace used throughout this section is the **jetxml** string, as if the attribute `xmlns="jetxml"` were applied to the root XML element.
 
@@ -56,7 +56,7 @@ The `Children` tag is replaced by zero or more component instantiations that app
 
 All XML elements that are not in the **jetxml** namespace are component instantiations. Given that `cbi` is the component being instantiated:
 
-* `cbi` is valid if and only if the tag name identifies a fully package qualified class that inherits from the `JetXML` class, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
+* `cbi` is valid if and only if the tag name identifies a fully package qualified class that implements the `JetXML` interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
 * A component instantiation returns `result = new cbi()` followed by zero or more property assignments at `result` and zero or more `result.jetxmlAppend()` calls.
 
 Children components are processed as follows:

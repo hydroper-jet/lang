@@ -1,13 +1,12 @@
-# JetXML
+# JetXML components
 
 JetWork supports classes in XML form called *JetXML* components. A JetXML component is a file with the extension `.jetxml`.
 
-* A JetXML class extends another class based in the root XML element.
-* A JetXML class specifies its fully package qualified class name in the `className` attribute of the root XML element.
+* A JetXML component class extends another class based in the root XML element.
+* A JetXML component class specifies its fully package qualified class name in the `className` attribute of the root XML element.
 * XML namespaces identify JetWork packages, except for the `jetxml` XML namespace.
 * XML attributes apply to instance properties.
 * A JetXML constructor is only allowed to receive optional parameters.
-* Classes in the same package are visible within tags.
 
 Here is an example JetXML:
 
@@ -82,7 +81,7 @@ Here is an example attaching code to the class's package:
 
 ## Initialization
 
-JetWork imposes no restrictions for the JetXML constructor and it may be defined as a normal constructor:
+JetWork imposes no restrictions for the JetXML component constructor and it may be defined as a normal constructor:
 
 ```xml
 <k:Container xmlns="jetxml" xmlns:k="org.k" className="org.example.Example">

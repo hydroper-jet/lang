@@ -9,7 +9,7 @@
   - [Nullability](overview/nullability.md)
   - [Proxy](overview/proxy.md)
   - [JetWork for XML](overview/j4x.md)
-  - [JetXML](overview/jetxml.md)
+  - [JetXML components](overview/jetxml-components.md)
 - [Notation](notation.md)
 - [Lexical structure](lexical-structure.md)
 - [Types](types.md)

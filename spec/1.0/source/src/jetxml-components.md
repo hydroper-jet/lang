@@ -80,7 +80,18 @@ XML attributes at the **jetxml** namespace applied to the instantiation are proc
     5. If *t* is `String` or `Optional.<String>`, assign the attribute value to *p*.
     6. If *t* is `E` or `Optional.<E>` where `E` is a non Set `enum`, assert that the attribute value identifies a member of the `enum` by its string component and assign such member to *p*.
     7. If *t* is `E` or `Optional.<E>` where `E` is a Set `enum`, assert that the attribute value is a comma-separated list identifying one or more members of the `enum` by their string components and assign such members to *p*.
-6. It is a verify error if none of the previous steps are executed.
+6. Otherwise:
+    1. Let *colorClass* be \[\[*JetXMLColorClass*\]\] from either `cbi` or a super class of `cbi`.
+    2. If *colorClass* exists and *t* is equals *colorClass*, assign `new colorClass(v)` to *p* where `v` is the attribute value as a `String`.
+    3. Otherwise:
+        1. Let *vectorClasses* be \[\[*JetXMLVectorClasses*\]\] from either `cbi` or a super class of `cbi`.
+        2. Let *vectorComponents* be the result of spliting the attribute value by comma.
+        3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents*, do the following steps:
+            1. If the constructor of *vectorClass* takes integer parameters, assign *p* the expression `new vectorClass(...)` passing the mathematical value of every element in *vectorComponents*.
+            2. Otherwise, assign *p* the expression `new vectorClass(...)` passing the processing of every element *component* in *vectorComponents* as follows:
+                1. If the *component* is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, the processed value is the representation of *component* in the floating point type.
+                2. Otherwise, the processed value is the mathematical value of *component* as a *DecimalLiteral* or *HexIntegerLiteral* in the floating point type.
+        4. Otherwise throw a verify error.
 
 ## Instance variables
 

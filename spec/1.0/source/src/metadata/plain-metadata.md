@@ -18,6 +18,8 @@ The identifiers used in the meta-data form and the entries are allowed to use a 
 class C {}
 ```
 
+The entry keys are not unique and may appear more than once.
+
 ## File
 
 A `File` value may be in one of the forms:

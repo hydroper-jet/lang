@@ -228,7 +228,30 @@ Future data bindings support:
 <li>If <em>t</em> is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is a Set <code>enum</code>, assert that the attribute value is a comma-separated list identifying one or more members of the <code>enum</code> by their string components and assign such members to <em>p</em>.</li>
 </ol>
 </li>
-<li>It is a verify error if none of the previous steps are executed.</li>
+<li>Otherwise:
+<ol>
+<li>Let <em>colorClass</em> be [[<em>JetXMLColorClass</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
+<li>If <em>colorClass</em> exists and <em>t</em> is equals <em>colorClass</em>, assign <code>new colorClass(v)</code> to <em>p</em> where <code>v</code> is the attribute value as a <code>String</code>.</li>
+<li>Otherwise:
+<ol>
+<li>Let <em>vectorClasses</em> be [[<em>JetXMLVectorClasses</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
+<li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
+<li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, do the following steps:
+<ol>
+<li>If the constructor of <em>vectorClass</em> takes integer parameters, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing the mathematical value of every element in <em>vectorComponents</em>.</li>
+<li>Otherwise, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing the processing of every element <em>component</em> in <em>vectorComponents</em> as follows:
+<ol>
+<li>If the <em>component</em> is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, the processed value is the representation of <em>component</em> in the floating point type.</li>
+<li>Otherwise, the processed value is the mathematical value of <em>component</em> as a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em> in the floating point type.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Otherwise throw a verify error.</li>
+</ol>
+</li>
+</ol>
+</li>
 </ol>
 <h2 id="instance-variables"><a class="header" href="#instance-variables">Instance variables</a></h2>
 <p>Instance variables belonging to <code>descClass</code> are JetXML variables with special behavior as described by section <a href="variables.html#jetxml-variables">Variables</a>.</p>

@@ -180,6 +180,8 @@
 <tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the class.</td></tr>
 <tr><td>[[<em>StaticProperties</em>]]</td><td>Static properties of the class.</td></tr>
 <tr><td>[[<em>Prototype</em>]]</td><td>The class prototype.</td></tr>
+<tr><td>[[<em>JetXMLColorClass</em>]]</td><td>For a JetXML base class, indicates the supported color class.</td></tr>
+<tr><td>[[<em>JetXMLVectorClasses</em>]]</td><td>For a JetXML base class, indicates the supported vector class.</td></tr>
 </tbody></table>
 </div>
 <h2 id="super-class"><a class="header" href="#super-class">Super class</a></h2>
@@ -191,6 +193,26 @@
 </ul>
 <h2 id="parent-definition"><a class="header" href="#parent-definition">Parent definition</a></h2>
 <p>When the parent definition of a class is a package, the class has a fully package qualified name.</p>
+<h2 id="jetxml-color-and-vector-support"><a class="header" href="#jetxml-color-and-vector-support">JetXML color and vector support</a></h2>
+<p>A JetXML base class may contain a <code>JetXML</code> meta-data with two optional options <code>colorClass</code> and <code>vectorClass</code> that specify the fully package qualified name of a support class for the color and vector classes to use throughout XML attribute values in JetXML files.</p>
+<ul>
+<li>It is a verify error if the fully package qualified names specified within <code>JetXML</code> do not resolve to a class.</li>
+<li>It is a verify error if the class specified by <code>colorClass</code> does not contain a constructor with the signature <code>(...arguments: [*]) =&gt; void</code>.</li>
+<li>It is a verify error if the class specified by <code>vectorClass</code> does not contain a constructor that takes parameters of a same number type.</li>
+<li>Only one <code>colorClass</code> occurrence is allowed, contributing the class to the [[<em>JetXMLColorClass</em>]] property.</li>
+<li>Multiple <code>vectorClass</code> occurrences are allowed, contributing multiple classes to the annotated class's [[<em>JetXMLVectorClasses</em>]] property.</li>
+</ul>
+<pre><code>package org.myEngine {
+    [JetXML(
+        colorClass = org.myEngine.Color,
+        vectorClass = org.myEngine.Vector,
+        vectorClass = org.myEngine.Vector3D
+    )]
+    public abstract class Node implements JetXML {
+        /* JetXML... */
+    }
+}
+</code></pre>
 
                     </main>
 

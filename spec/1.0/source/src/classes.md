@@ -17,6 +17,8 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*TypeParameters*\]\] | The type parameter sequence of the class. |
 | \[\[*StaticProperties*\]\] | Static properties of the class. |
 | \[\[*Prototype*\]\] | The class prototype. |
+| \[\[*JetXMLColorClass*\]\] | For a JetXML base class, indicates the supported color class. |
+| \[\[*JetXMLVectorClasses*\]\] | For a JetXML base class, indicates the supported vector class. |
 
 ## Super class
 
@@ -30,3 +32,26 @@ It is a verify error if:
 ## Parent definition
 
 When the parent definition of a class is a package, the class has a fully package qualified name.
+
+## JetXML color and vector support
+
+A JetXML base class may contain a `JetXML` meta-data with two optional options `colorClass` and `vectorClass` that specify the fully package qualified name of a support class for the color and vector classes to use throughout XML attribute values in JetXML files.
+
+* It is a verify error if the fully package qualified names specified within `JetXML` do not resolve to a class.
+* It is a verify error if the class specified by `colorClass` does not contain a constructor with the signature `(...arguments: [*]) => void`.
+* It is a verify error if the class specified by `vectorClass` does not contain a constructor that takes parameters of a same number type.
+* Only one `colorClass` occurrence is allowed, contributing the class to the \[\[*JetXMLColorClass*\]\] property.
+* Multiple `vectorClass` occurrences are allowed, contributing multiple classes to the annotated class's \[\[*JetXMLVectorClasses*\]\] property.
+
+```
+package org.myEngine {
+    [JetXML(
+        colorClass = org.myEngine.Color,
+        vectorClass = org.myEngine.Vector,
+        vectorClass = org.myEngine.Vector3D
+    )]
+    public abstract class Node implements JetXML {
+        /* JetXML... */
+    }
+}
+```

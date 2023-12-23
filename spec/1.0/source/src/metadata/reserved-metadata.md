@@ -2,11 +2,16 @@
 
 Reserved meta-data are meta-data that cannot be overriden by user decorators. This section enumerates all reserved meta-data.
 
+* [JetXML](#jetxml)
 * [Literal](#literal)
 * [Metadata](#metadata)
 * [Number](#number)
 * [Set](#set)
 * [Test](#test)
+
+## JetXML
+
+The `JetXML` meta-data is reserved at the `class` definition. It is used for indicating supported vector and color classes in a base class that implements `JetXML`.
 
 ## Literal
 

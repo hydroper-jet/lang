@@ -1297,12 +1297,15 @@ function f.&lt;T&gt;(): void {}
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reserved-meta-data"><a class="header" href="#reserved-meta-data">Reserved meta-data</a></h1>
 <p>Reserved meta-data are meta-data that cannot be overriden by user decorators. This section enumerates all reserved meta-data.</p>
 <ul>
+<li><a href="metadata/reserved-metadata.html#jetxml">JetXML</a></li>
 <li><a href="metadata/reserved-metadata.html#literal">Literal</a></li>
 <li><a href="metadata/reserved-metadata.html#metadata">Metadata</a></li>
 <li><a href="metadata/reserved-metadata.html#number">Number</a></li>
 <li><a href="metadata/reserved-metadata.html#set">Set</a></li>
 <li><a href="metadata/reserved-metadata.html#test">Test</a></li>
 </ul>
+<h2 id="jetxml"><a class="header" href="#jetxml">JetXML</a></h2>
+<p>The <code>JetXML</code> meta-data is reserved at the <code>class</code> definition. It is used for indicating supported vector and color classes in a base class that implements <code>JetXML</code>.</p>
 <h2 id="literal"><a class="header" href="#literal">Literal</a></h2>
 <p>The <code>Literal</code> meta-data is reserved at the <code>class</code> definition. It is used for indicating that the class can be initialized through an object initializer.</p>
 <h2 id="metadata"><a class="header" href="#metadata">Metadata</a></h2>
@@ -1359,6 +1362,7 @@ class ExampleClass {}
 [Metadata(N2)]
 class C {}
 </code></pre>
+<p>The entry keys are not unique and may appear more than once.</p>
 <h2 id="file"><a class="header" href="#file">File</a></h2>
 <p>A <code>File</code> value may be in one of the forms:</p>
 <ul>
@@ -1496,6 +1500,8 @@ proxy function has(value: E): Boolean (
 <tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the class.</td></tr>
 <tr><td>[[<em>StaticProperties</em>]]</td><td>Static properties of the class.</td></tr>
 <tr><td>[[<em>Prototype</em>]]</td><td>The class prototype.</td></tr>
+<tr><td>[[<em>JetXMLColorClass</em>]]</td><td>For a JetXML base class, indicates the supported color class.</td></tr>
+<tr><td>[[<em>JetXMLVectorClasses</em>]]</td><td>For a JetXML base class, indicates the supported vector class.</td></tr>
 </tbody></table>
 </div>
 <h2 id="super-class"><a class="header" href="#super-class">Super class</a></h2>
@@ -1507,6 +1513,26 @@ proxy function has(value: E): Boolean (
 </ul>
 <h2 id="parent-definition-3"><a class="header" href="#parent-definition-3">Parent definition</a></h2>
 <p>When the parent definition of a class is a package, the class has a fully package qualified name.</p>
+<h2 id="jetxml-color-and-vector-support"><a class="header" href="#jetxml-color-and-vector-support">JetXML color and vector support</a></h2>
+<p>A JetXML base class may contain a <code>JetXML</code> meta-data with two optional options <code>colorClass</code> and <code>vectorClass</code> that specify the fully package qualified name of a support class for the color and vector classes to use throughout XML attribute values in JetXML files.</p>
+<ul>
+<li>It is a verify error if the fully package qualified names specified within <code>JetXML</code> do not resolve to a class.</li>
+<li>It is a verify error if the class specified by <code>colorClass</code> does not contain a constructor with the signature <code>(...arguments: [*]) =&gt; void</code>.</li>
+<li>It is a verify error if the class specified by <code>vectorClass</code> does not contain a constructor that takes parameters of a same number type.</li>
+<li>Only one <code>colorClass</code> occurrence is allowed, contributing the class to the [[<em>JetXMLColorClass</em>]] property.</li>
+<li>Multiple <code>vectorClass</code> occurrences are allowed, contributing multiple classes to the annotated class's [[<em>JetXMLVectorClasses</em>]] property.</li>
+</ul>
+<pre><code>package org.myEngine {
+    [JetXML(
+        colorClass = org.myEngine.Color,
+        vectorClass = org.myEngine.Vector,
+        vectorClass = org.myEngine.Vector3D
+    )]
+    public abstract class Node implements JetXML {
+        /* JetXML... */
+    }
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="interfaces"><a class="header" href="#interfaces">Interfaces</a></h1>
 <p>An interface represents an abstract object type.</p>
 <p>Interfaces consist of a small number of internal properties, described in the following table:</p>
@@ -1589,7 +1615,30 @@ Future data bindings support:
 <li>If <em>t</em> is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is a Set <code>enum</code>, assert that the attribute value is a comma-separated list identifying one or more members of the <code>enum</code> by their string components and assign such members to <em>p</em>.</li>
 </ol>
 </li>
-<li>It is a verify error if none of the previous steps are executed.</li>
+<li>Otherwise:
+<ol>
+<li>Let <em>colorClass</em> be [[<em>JetXMLColorClass</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
+<li>If <em>colorClass</em> exists and <em>t</em> is equals <em>colorClass</em>, assign <code>new colorClass(v)</code> to <em>p</em> where <code>v</code> is the attribute value as a <code>String</code>.</li>
+<li>Otherwise:
+<ol>
+<li>Let <em>vectorClasses</em> be [[<em>JetXMLVectorClasses</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
+<li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
+<li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, do the following steps:
+<ol>
+<li>If the constructor of <em>vectorClass</em> takes integer parameters, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing the mathematical value of every element in <em>vectorComponents</em>.</li>
+<li>Otherwise, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing the processing of every element <em>component</em> in <em>vectorComponents</em> as follows:
+<ol>
+<li>If the <em>component</em> is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, the processed value is the representation of <em>component</em> in the floating point type.</li>
+<li>Otherwise, the processed value is the mathematical value of <em>component</em> as a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em> in the floating point type.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Otherwise throw a verify error.</li>
+</ol>
+</li>
+</ol>
+</li>
 </ol>
 <h2 id="instance-variables-1"><a class="header" href="#instance-variables-1">Instance variables</a></h2>
 <p>Instance variables belonging to <code>descClass</code> are JetXML variables with special behavior as described by section <a href="variables.html#jetxml-variables">Variables</a>.</p>

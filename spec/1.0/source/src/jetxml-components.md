@@ -6,22 +6,6 @@ Future data bindings support:
 
 * Consider using a particular XML namespace for data binding attributes.
 
-JetXML components:
-
-* Attribute constants:
-  * `Optional.<N>` where `N` is a number type: accepts an attribute constant of `N` type
-  * `NF` where `NF` is a floating point type: accepts a floating point, `-Infinity`, `+Infinity`, `Infinity`, and `NaN`
-  * `Boolean` allows for `true` and `false`
-  * `Optional.<Char>` allows for a single character
-  * `Char` allows for a single character
-  * `Optional.<String>` allows for any attribute value (interpreted as a String)
-  * `String` allows for any attribute value (interpreted as a String)
-  * Non-Set `enum` allows for a member string
-  * `Optional.<E>` where `E` is a non-Set `enum` allows for a member string
-  * Set `enum` allows for comma-separated member strings
-  * `Optional.<E>` where `E` is a Set `enum` allows for comma-separated member strings
-  * Any other type may not be expressed as an attribute constant.
-
 -->
 
 A JetXML component is a XML file with the extension `.jetxml` describing a class that inherits from a `JetXML` subclass. The class being described the XML file is referred throughout this section as `descClass`.
@@ -72,7 +56,7 @@ The `Children` tag is replaced by zero or more component instantiations that app
 
 All XML elements that are not in the **jetxml** namespace are component instantiations. Given that `cbi` is the component being instantiated:
 
-* `cbi` is valid if and only if the tag name identifies a fully package qualified class that inherits from the `JetXML` class, where the tag namespace identifies the package and the tag non qualified name identifies the class name.
+* `cbi` is valid if and only if the tag name identifies a fully package qualified class that inherits from the `JetXML` class, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
 * A component instantiation returns `result = new cbi()` followed by zero or more property assignments at `result` and zero or more `result.jetxmlAppend()` calls.
 
 Children components are processed as follows:
@@ -82,6 +66,18 @@ Children components are processed as follows:
 
 ### Attributes
 
-Attributes at the **jetxml** namespace applied to the instantiation are processed as follows:
+XML attributes at the **jetxml** namespace applied to the instantiation are processed as follows:
 
-* To do
+1. Let *p* be a property of the result object whose name matches the attribute unqualified name.
+2. It is a verify error if either *p* is not defined or *p* is read-only.
+3. It is a verify error if *p* is neither a variable property or a virtual property.
+4. Let *t* be the static type of *p*.
+5. Do one of the following steps:
+  1. If *t* is `N` or `Optional.<N>` where `N` is a number type and the attribute value is a *DecimalLiteral* or *HexIntegerLiteral*, assign the mathematical value of that attribute value to *p*.
+  2. If *t* is `N` or `Optional.<N>` where `N` is a floating point type and the attribute value is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, assign the equivalent floating point constant of that attribute value to *p*.
+  3. If *t* is `Boolean` or `Optional.<Boolean>` and the attribute value is `false` or `true`, assign the equivalent boolean constant of that attribute value to *p*.
+  4. If *t* is `Char` or `Optional.<Char>`, assert that the attribute value consists of one character and assign the first Unicode code point of the attribute value to *p*.
+  5. If *t* is `String` or `Optional.<String>`, assign the the attribute value to *p*.
+  6. If *t* is `E` or `Optional.<E>` where `E` is a non Set `enum`, assert that the attribute value identifies a member of the `enum` by its string component and assign such member to *p*.
+  6. If *t* is `E` or `Optional.<E>` where `E` is a Set `enum`, assert that the attribute value is a comma-separated list identifying one or more members of the `enum` by their string components and assign such members to *p*.
+6. It is a verify error if none of the previous steps are executed.

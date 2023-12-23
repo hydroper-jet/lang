@@ -172,22 +172,6 @@ Future data bindings support:
 
 * Consider using a particular XML namespace for data binding attributes.
 
-JetXML components:
-
-* Attribute constants:
-  * `Optional.<N>` where `N` is a number type: accepts an attribute constant of `N` type
-  * `NF` where `NF` is a floating point type: accepts a floating point, `-Infinity`, `+Infinity`, `Infinity`, and `NaN`
-  * `Boolean` allows for `true` and `false`
-  * `Optional.<Char>` allows for a single character
-  * `Char` allows for a single character
-  * `Optional.<String>` allows for any attribute value (interpreted as a String)
-  * `String` allows for any attribute value (interpreted as a String)
-  * Non-Set `enum` allows for a member string
-  * `Optional.<E>` where `E` is a non-Set `enum` allows for a member string
-  * Set `enum` allows for comma-separated member strings
-  * `Optional.<E>` where `E` is a Set `enum` allows for comma-separated member strings
-  * Any other type may not be expressed as an attribute constant.
-
 -->
 <p>A JetXML component is a XML file with the extension <code>.jetxml</code> describing a class that inherits from a <code>JetXML</code> subclass. The class being described the XML file is referred throughout this section as <code>descClass</code>.</p>
 <p>The default XML namespace used throughout this section is the <strong>jetxml</strong> string, as if the attribute <code>xmlns=&quot;jetxml&quot;</code> were applied to the root XML element.</p>
@@ -218,7 +202,7 @@ JetXML components:
 <h2 id="component-instantiation"><a class="header" href="#component-instantiation">Component instantiation</a></h2>
 <p>All XML elements that are not in the <strong>jetxml</strong> namespace are component instantiations. Given that <code>cbi</code> is the component being instantiated:</p>
 <ul>
-<li><code>cbi</code> is valid if and only if the tag name identifies a fully package qualified class that inherits from the <code>JetXML</code> class, where the tag namespace identifies the package and the tag non qualified name identifies the class name.</li>
+<li><code>cbi</code> is valid if and only if the tag name identifies a fully package qualified class that inherits from the <code>JetXML</code> class, where the tag namespace identifies the package and the tag unqualified name identifies the class name.</li>
 <li>A component instantiation returns <code>result = new cbi()</code> followed by zero or more property assignments at <code>result</code> and zero or more <code>result.jetxmlAppend()</code> calls.</li>
 </ul>
 <p>Children components are processed as follows:</p>
@@ -227,10 +211,22 @@ JetXML components:
 <li>Otherwise, for each child component, call <code>result.jetxmlAppend()</code> with the result of the child instantiation.</li>
 </ol>
 <h3 id="attributes"><a class="header" href="#attributes">Attributes</a></h3>
-<p>Attributes at the <strong>jetxml</strong> namespace applied to the instantiation are processed as follows:</p>
-<ul>
-<li>To do</li>
-</ul>
+<p>XML attributes at the <strong>jetxml</strong> namespace applied to the instantiation are processed as follows:</p>
+<ol>
+<li>Let <em>p</em> be a property of the result object whose name matches the attribute unqualified name.</li>
+<li>It is a verify error if either <em>p</em> is not defined or <em>p</em> is read-only.</li>
+<li>It is a verify error if <em>p</em> is neither a variable property or a virtual property.</li>
+<li>Let <em>t</em> be the static type of <em>p</em>.</li>
+<li>Do one of the following steps:</li>
+<li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type and the attribute value is a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em>, assign the mathematical value of that attribute value to <em>p</em>.</li>
+<li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a floating point type and the attribute value is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, assign the equivalent floating point constant of that attribute value to <em>p</em>.</li>
+<li>If <em>t</em> is <code>Boolean</code> or <code>Optional.&lt;Boolean&gt;</code> and the attribute value is <code>false</code> or <code>true</code>, assign the equivalent boolean constant of that attribute value to <em>p</em>.</li>
+<li>If <em>t</em> is <code>Char</code> or <code>Optional.&lt;Char&gt;</code>, assert that the attribute value consists of one character and assign the first Unicode code point of the attribute value to <em>p</em>.</li>
+<li>If <em>t</em> is <code>String</code> or <code>Optional.&lt;String&gt;</code>, assign the the attribute value to <em>p</em>.</li>
+<li>If <em>t</em> is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is a non Set <code>enum</code>, assert that the attribute value identifies a member of the <code>enum</code> by its string component and assign such member to <em>p</em>.</li>
+<li>If <em>t</em> is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is a Set <code>enum</code>, assert that the attribute value is a comma-separated list identifying one or more members of the <code>enum</code> by their string components and assign such members to <em>p</em>.</li>
+<li>It is a verify error if none of the previous steps are executed.</li>
+</ol>
 
                     </main>
 

@@ -11,7 +11,7 @@ const y: Number;
 
 Variables are lazily initialized with the exception of variables whose static type has a *default* value, such as a [primitive type](types.md#primitive-types) or the `Optional` type.
 
-* It is a fatal exception if the value of a variable is accessed before initialized and the static type of that variable includes no default value.
+* It is a `ReferenceError` if the value of a variable is accessed before initialized and the static type of that variable includes no default value.
 
 ```
 public class C {
@@ -19,12 +19,12 @@ public class C {
     public const y: RegExp
     public function C() {
         x // 0
-        y // Fatal exception
+        y // ReferenceError
     }
 }
 ```
 
-* It is a fatal exception if a constant variable is assigned more than once.
+* It is a `VerifyError` if a constant variable is assigned more than once.
 * A constant variable that is not an instance variable must contain an initializer.
 * A constant variable that is not an instance variable must not be assigned by an assignment expression.
 * A constant variable that is an instance variable may be assigned in the constructor body.

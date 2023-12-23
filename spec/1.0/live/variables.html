@@ -173,19 +173,19 @@ const y: Number;
 <h2 id="initializer"><a class="header" href="#initializer">Initializer</a></h2>
 <p>Variables are lazily initialized with the exception of variables whose static type has a <em>default</em> value, such as a <a href="types.html#primitive-types">primitive type</a> or the <code>Optional</code> type.</p>
 <ul>
-<li>It is a fatal exception if the value of a variable is accessed before initialized and the static type of that variable includes no default value.</li>
+<li>It is a <code>ReferenceError</code> if the value of a variable is accessed before initialized and the static type of that variable includes no default value.</li>
 </ul>
 <pre><code>public class C {
     public const x: Number
     public const y: RegExp
     public function C() {
         x // 0
-        y // Fatal exception
+        y // ReferenceError
     }
 }
 </code></pre>
 <ul>
-<li>It is a fatal exception if a constant variable is assigned more than once.</li>
+<li>It is a <code>VerifyError</code> if a constant variable is assigned more than once.</li>
 <li>A constant variable that is not an instance variable must contain an initializer.</li>
 <li>A constant variable that is not an instance variable must not be assigned by an assignment expression.</li>
 <li>A constant variable that is an instance variable may be assigned in the constructor body.</li>

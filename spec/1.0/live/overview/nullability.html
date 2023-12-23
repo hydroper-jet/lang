@@ -185,13 +185,13 @@ trace(new ExampleClass(undefined).doubleIt().data);
 trace(new ExampleClass(10).doubleIt().data);
 </code></pre>
 <ul>
-<li>The non-erroneous assertion operator ensures the operand is not <code>undefined</code> and not an exception.</li>
+<li>The non-null operator ensures the operand is not <code>undefined</code>.</li>
 </ul>
-<pre><code>// Fatal exception
+<pre><code>// TypeError
 trace(new ExampleClass(undefined).data!);
 </code></pre>
 <ul>
-<li>For <code>Optional.&lt;T&gt;</code>, the error propagation operator returns <code>undefined</code> from the enclosing function or containing <code>try</code> expression if the operand is <code>undefined</code>.</li>
+<li>For <code>Optional.&lt;T&gt;</code>, the optional chaining operator returns <code>undefined</code> if the operand is <code>undefined</code>.</li>
 </ul>
 <pre><code>public function process(a: Optional.&lt;Number&gt;): Optional.&lt;String&gt; (
     a?.toString(16)

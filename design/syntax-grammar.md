@@ -45,11 +45,6 @@ Statements:
 * [ ] Throw statement
 * [ ] With statement
 * [ ] Try statement
-  * [ ] `catch fatal {}` clause
-  * [ ] `catch fatal (message) {}` clause
-    * Syntax uses the *Identifier* nonterminal for the message parameter
-  * [ ] Creates a new scope for the `?` operator.
-  * [ ] Catch clauses must be exhaustive based on exception covariance.
 * [ ] Expression statement
   * `lookahead != ["{", "function"]`
 * [ ] Labeled statement
@@ -116,7 +111,6 @@ Type expressions:
 * [ ] Void
 * [ ] Undefined
 * [ ] Function
-  * [ ] `throws`
 * [ ] Array
 * [ ] Optional (`T?`, `?T`)
 * [ ] Tuple

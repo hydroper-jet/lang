@@ -103,7 +103,7 @@ Set enumerations can additionally be initialized through an array or object init
 
 ## Conversion
 
-It is allowed to convert to an enumeration using the call operator. The conversion accepts a `String` or a number of the representation type. It is a fatal exception if such conversions fail due to unrecognized `String` or number. For set enumerations, converting from a number always succeeds, as the members are identified by the corresponding bits and the unrecognized bits are ignored.
+It is allowed to convert to an enumeration using the call operator. The conversion accepts a `String` or a number of the representation type. It is a `TypeError` if such conversions fail due to unrecognized `String` or number. For set enumerations, converting from a number always succeeds, as the members are identified by the corresponding bits and the unrecognized bits are ignored.
 
 ```
 E(v)
@@ -142,7 +142,7 @@ public function include(other: E): E (
 );
 
 public function exclude(other: E): E (
-    E(if (other in this) this.valueOf() ^ other.valueOf() else this.valueOf())
+    E(other in this ? this.valueOf() ^ other.valueOf() : this.valueOf())
 );
 
 public function toggle(other: E): E (

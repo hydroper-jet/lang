@@ -91,13 +91,12 @@ The `CharIndex` type is a group (*string*, *index*) where *string* is a `String`
 
 ## Function types
 
-Function types consist of zero or more parameters, a return type annotation and zero or more exception types. Function types appear in the forms:
+Function types consist of zero or more parameters and a return type annotation. Function types appear in the forms:
 
 ```
 (a: T) => E
 (a?: T) => E
 (...a: [T]) => E
-() => E throws E1, EN
 ```
 
 * Function types inherit from the `Function` class.
@@ -105,7 +104,6 @@ Function types consist of zero or more parameters, a return type annotation and 
 * The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.
 * The rest parameter must appear at most once.
 * The rest parameter must be of type `Array`.
-* A trailing `throws` clause is used to indicate exceptions that the function throws.
 
 ## Tuple types
 

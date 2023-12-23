@@ -100,20 +100,6 @@ Compound:
 - `Array.<T>` or `[T]`
   - A growable array.
 
-# Conditional expression
-
-```
-const v = if (true) x else y;
-```
-
-# Error propagation operator
-
-The postfix `?` operator is called *error propagation* operator. It returns from a function or `try` expression if the base is `undefined` or an exception, or otherwise lets zero or more postfix operators perform computation on the success value.
-
-```
-o?
-```
-
 # `Optional.<T>`
 
 The `Optional.<T>` type (or `T?`) allows assigning `undefined` or `T` to a variable and comparing it to `undefined` or `T` through `==`.
@@ -125,7 +111,7 @@ var o: T? = undefined;
 o!.f();
 
 // Optional chaining
-try o?.f();
+o?.f();
 
 // Nullish-coalescing
 (o ?? new T()).action();
@@ -133,29 +119,7 @@ try o?.f();
 
 # Function exceptions
 
-A function may throw exceptions, specifying each exception type in the `throws` clause. Such exceptions are also referred to as *checked* exceptions.
-
-```
-function f(): T throws TypeError, RangeError {
-    throw new TypeError("Type error");
-}
-try {
-    f();
-} catch (error: TypeError) {
-    // Type error
-}
-
-// Succeed or throw
-f()?
-
-// Optional chaining
-try f()?.x
-
-// Non error assertion
-f()!.x
-```
-
-Fatal exceptions are described later.
+A function is allowed to throw errors normally as in ActionScript.
 
 # Literal class
 
@@ -175,7 +139,7 @@ The language includes runtime type reflection and dynamic typing.
 
 ```
 const v: * = v;
-v.inexistent; // May throw a fatal exception
+v.inexistent; // May throw a ReferenceError
 ```
 
 # Name resolution and packages
@@ -199,7 +163,7 @@ class C {
 
 JetWork uses garbage collection for all types.
 
-* `[object Object].clone()` — Throws a fatal exception by default.
+* `[object Object].clone()` — Throws a `TypeError` by default.
 * `[object Object].equals()` — By default, compares object equality by reference.
 * `[object Object].hash()` — Returns the hash code of an object.
 
@@ -286,7 +250,7 @@ The language supports single-class inheritance as in ActionScript, featuring:
 * `v is T`
 * `v is not T`
 * `v as T` — Optional conversion
-* `C(v)` — Conversion or fatal exception
+* `C(v)` — Converts or throws `TypeError`
 
 # Property accessibility
 
@@ -315,22 +279,13 @@ Meta data can be attached to items. There are three categories of meta data: res
 [Metadata(N1(x = "y", z, "w", File("myExtension.dll")))]
 ```
 
-# Fatal exceptions
-
-Fatal exceptions are exceptions that may be thrown at runtime and cannot be caught by the user.
-
-```
-fatalError();
-fatalError("Error message");
-```
-
 # Assertion
 
-The language comes with built-in assertion facilities, which throw fatal exceptions when an assertion fails.
+The language comes with built-in assertion facilities, which throw `AssertionError` errors when an assertion fails.
 
 # Test
 
-Test functions can be defined with the `[Test]` meta data. Such functions are invoked by the unit testing tool. A test fails when a fatal exception is thrown.
+Test functions can be defined with the `[Test]` meta data. Such functions are invoked by the unit testing tool. A test fails when an error is thrown.
 
 ```
 [Test]

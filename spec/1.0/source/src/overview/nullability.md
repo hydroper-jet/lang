@@ -20,14 +20,14 @@ trace(new ExampleClass(undefined).doubleIt().data);
 trace(new ExampleClass(10).doubleIt().data);
 ```
 
-* The non-erroneous assertion operator ensures the operand is not `undefined` and not an exception.
+* The non-null operator ensures the operand is not `undefined`.
 
 ```
-// Fatal exception
+// TypeError
 trace(new ExampleClass(undefined).data!);
 ```
 
-* For `Optional.<T>`, the error propagation operator returns `undefined` from the enclosing function or containing `try` expression if the operand is `undefined`.
+* For `Optional.<T>`, the optional chaining operator returns `undefined` if the operand is `undefined`.
 
 ```
 public function process(a: Optional.<Number>): Optional.<String> (

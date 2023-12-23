@@ -234,7 +234,7 @@ trace(peopleEat(&quot;solid&quot;));
 </code></pre>
 <p>Set enumerations can additionally be initialized through an array or object initializer.</p>
 <h2 id="conversion"><a class="header" href="#conversion">Conversion</a></h2>
-<p>It is allowed to convert to an enumeration using the call operator. The conversion accepts a <code>String</code> or a number of the representation type. It is a fatal exception if such conversions fail due to unrecognized <code>String</code> or number. For set enumerations, converting from a number always succeeds, as the members are identified by the corresponding bits and the unrecognized bits are ignored.</p>
+<p>It is allowed to convert to an enumeration using the call operator. The conversion accepts a <code>String</code> or a number of the representation type. It is a <code>TypeError</code> if such conversions fail due to unrecognized <code>String</code> or number. For set enumerations, converting from a number always succeeds, as the members are identified by the corresponding bits and the unrecognized bits are ignored.</p>
 <pre><code>E(v)
 </code></pre>
 <h2 id="native-methods"><a class="header" href="#native-methods">Native methods</a></h2>
@@ -261,7 +261,7 @@ public static const all: E;
 );
 
 public function exclude(other: E): E (
-    E(if (other in this) this.valueOf() ^ other.valueOf() else this.valueOf())
+    E(other in this ? this.valueOf() ^ other.valueOf() : this.valueOf())
 );
 
 public function toggle(other: E): E (

@@ -344,39 +344,24 @@ jetpm build --define air::target=ios
 <tr><td><code>for each (const ch in string) {}</code></td><td>Iterates every character</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h1>
-<p>JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are unchecked errors that may occur during program execution.</p>
-<pre><code>function task(): void throws RangeError {
-    throw new RangeError(&quot;Error&quot;);
-}
-fatalError(&quot;Fatal error&quot;);
-</code></pre>
-<p>Functions that throw checked exceptions must be immediately used in one the following ways:</p>
-<ul>
-<li>within a <code>f()?</code> expression;</li>
-<li>within a <code>f()!</code> expression;</li>
-<li>within a <code>f() ?? v</code> expression.</li>
-</ul>
-<pre><code>// Catch any exception and throw a fatal exception
-task()!;
-
-function task2(): void throws RangeError {
-    // Propagate any exception from task() to task2
-    task()?;
-}
-
-task2()!;
-</code></pre>
-<h2 id="catching-fatal-exceptions"><a class="header" href="#catching-fatal-exceptions">Catching fatal exceptions</a></h2>
-<p>Fatal exceptions may be caught by using the <code>try</code> statement with the special <code>catch fatal</code> clause:</p>
-<pre><code>try {
-    logic()
-} catch fatal {
-    logic()
+<p>JetWork supports throwing errors as in Java, in the form of unchecked exceptions that may occur during program execution.</p>
+<pre><code>function task(): void {
+    throw new RangeError(&quot;Error&quot;)
 }
 try {
-    logic()
-} catch fatal (message) {
-    /* message: String */
+    doSomething()
+} catch (error: RangeError) {
+    doSomething()
+}
+</code></pre>
+<p>Documentation comments use the <code>@throws</code> tag to document thrown errors, as in:</p>
+<pre><code>package com.mrrunner {
+    /**
+     * @throws com.mrrunner.MrRunnerError Thrown when run is a failure.
+     */
+    public function run(): void {
+        /* ... */
+    }
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nullability"><a class="header" href="#nullability">Nullability</a></h1>
@@ -399,13 +384,13 @@ trace(new ExampleClass(undefined).doubleIt().data);
 trace(new ExampleClass(10).doubleIt().data);
 </code></pre>
 <ul>
-<li>The non-erroneous assertion operator ensures the operand is not <code>undefined</code> and not an exception.</li>
+<li>The non-null operator ensures the operand is not <code>undefined</code>.</li>
 </ul>
-<pre><code>// Fatal exception
+<pre><code>// TypeError
 trace(new ExampleClass(undefined).data!);
 </code></pre>
 <ul>
-<li>For <code>Optional.&lt;T&gt;</code>, the error propagation operator returns <code>undefined</code> from the enclosing function or containing <code>try</code> expression if the operand is <code>undefined</code>.</li>
+<li>For <code>Optional.&lt;T&gt;</code>, the optional chaining operator returns <code>undefined</code> if the operand is <code>undefined</code>.</li>
 </ul>
 <pre><code>public function process(a: Optional.&lt;Number&gt;): Optional.&lt;String&gt; (
     a?.toString(16)
@@ -716,7 +701,6 @@ import
 public
 return
 switch
-throws
 typeof
 
 extends
@@ -735,6 +719,7 @@ implements
 </code></pre>
 <p><em>ReservedWord</em> includes <em>FutureReservedWord</em>. <em>FutureReservedWord</em> is one of the following:</p>
 <pre><code class="language-plain">export
+throws
 </code></pre>
 <p><em>ReservedWord</em> includes <em>ContextKeyword</em>. <em>ContextKeyword</em> is one of the following in certain syntactic contexts:</p>
 <pre><code class="language-plain">get
@@ -748,7 +733,6 @@ meta
 type
 
 embed
-fatal
 final
 never
 proxy
@@ -770,6 +754,7 @@ undefined
 (  )  [  ]  {  }
 :  ;  ,
 ?  !  =  =&gt;
+?.
 &lt;  &lt;=
 &gt;  &gt;=
 ==  ===
@@ -889,11 +874,10 @@ x == y
 <h2 id="charindex-type"><a class="header" href="#charindex-type">CharIndex type</a></h2>
 <p>The <code>CharIndex</code> type is a group (<em>string</em>, <em>index</em>) where <em>string</em> is a <code>String</code> and <em>index</em> is an <code>UnsignedInt</code> identifying a zero based index into <em>string</em>.</p>
 <h2 id="function-types"><a class="header" href="#function-types">Function types</a></h2>
-<p>Function types consist of zero or more parameters, a return type annotation and zero or more exception types. Function types appear in the forms:</p>
+<p>Function types consist of zero or more parameters and a return type annotation. Function types appear in the forms:</p>
 <pre><code>(a: T) =&gt; E
 (a?: T) =&gt; E
 (...a: [T]) =&gt; E
-() =&gt; E throws E1, EN
 </code></pre>
 <ul>
 <li>Function types inherit from the <code>Function</code> class.</li>
@@ -901,7 +885,6 @@ x == y
 <li>The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.</li>
 <li>The rest parameter must appear at most once.</li>
 <li>The rest parameter must be of type <code>Array</code>.</li>
-<li>A trailing <code>throws</code> clause is used to indicate exceptions that the function throws.</li>
 </ul>
 <h2 id="tuple-types"><a class="header" href="#tuple-types">Tuple types</a></h2>
 <p>Tuple types are in the form <code>[T1, T2, ...TN]</code>.</p>
@@ -1022,19 +1005,19 @@ const y: Number;
 <h2 id="initializer"><a class="header" href="#initializer">Initializer</a></h2>
 <p>Variables are lazily initialized with the exception of variables whose static type has a <em>default</em> value, such as a <a href="types.html#primitive-types">primitive type</a> or the <code>Optional</code> type.</p>
 <ul>
-<li>It is a fatal exception if the value of a variable is accessed before initialized and the static type of that variable includes no default value.</li>
+<li>It is a <code>ReferenceError</code> if the value of a variable is accessed before initialized and the static type of that variable includes no default value.</li>
 </ul>
 <pre><code>public class C {
     public const x: Number
     public const y: RegExp
     public function C() {
         x // 0
-        y // Fatal exception
+        y // ReferenceError
     }
 }
 </code></pre>
 <ul>
-<li>It is a fatal exception if a constant variable is assigned more than once.</li>
+<li>It is a <code>VerifyError</code> if a constant variable is assigned more than once.</li>
 <li>A constant variable that is not an instance variable must contain an initializer.</li>
 <li>A constant variable that is not an instance variable must not be assigned by an assignment expression.</li>
 <li>A constant variable that is an instance variable may be assigned in the constructor body.</li>
@@ -1479,7 +1462,7 @@ trace(peopleEat(&quot;solid&quot;));
 </code></pre>
 <p>Set enumerations can additionally be initialized through an array or object initializer.</p>
 <h2 id="conversion"><a class="header" href="#conversion">Conversion</a></h2>
-<p>It is allowed to convert to an enumeration using the call operator. The conversion accepts a <code>String</code> or a number of the representation type. It is a fatal exception if such conversions fail due to unrecognized <code>String</code> or number. For set enumerations, converting from a number always succeeds, as the members are identified by the corresponding bits and the unrecognized bits are ignored.</p>
+<p>It is allowed to convert to an enumeration using the call operator. The conversion accepts a <code>String</code> or a number of the representation type. It is a <code>TypeError</code> if such conversions fail due to unrecognized <code>String</code> or number. For set enumerations, converting from a number always succeeds, as the members are identified by the corresponding bits and the unrecognized bits are ignored.</p>
 <pre><code>E(v)
 </code></pre>
 <h2 id="native-methods"><a class="header" href="#native-methods">Native methods</a></h2>
@@ -1506,7 +1489,7 @@ public static const all: E;
 );
 
 public function exclude(other: E): E (
-    E(if (other in this) this.valueOf() ^ other.valueOf() else this.valueOf())
+    E(other in this ? this.valueOf() ^ other.valueOf() : this.valueOf())
 );
 
 public function toggle(other: E): E (

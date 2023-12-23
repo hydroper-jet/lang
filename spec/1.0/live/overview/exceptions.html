@@ -166,39 +166,24 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h1>
-<p>JetWork supports checked exceptions and fatal exceptions. Fatal exceptions are unchecked errors that may occur during program execution.</p>
-<pre><code>function task(): void throws RangeError {
-    throw new RangeError(&quot;Error&quot;);
-}
-fatalError(&quot;Fatal error&quot;);
-</code></pre>
-<p>Functions that throw checked exceptions must be immediately used in one the following ways:</p>
-<ul>
-<li>within a <code>f()?</code> expression;</li>
-<li>within a <code>f()!</code> expression;</li>
-<li>within a <code>f() ?? v</code> expression.</li>
-</ul>
-<pre><code>// Catch any exception and throw a fatal exception
-task()!;
-
-function task2(): void throws RangeError {
-    // Propagate any exception from task() to task2
-    task()?;
-}
-
-task2()!;
-</code></pre>
-<h2 id="catching-fatal-exceptions"><a class="header" href="#catching-fatal-exceptions">Catching fatal exceptions</a></h2>
-<p>Fatal exceptions may be caught by using the <code>try</code> statement with the special <code>catch fatal</code> clause:</p>
-<pre><code>try {
-    logic()
-} catch fatal {
-    logic()
+<p>JetWork supports throwing errors as in Java, in the form of unchecked exceptions that may occur during program execution.</p>
+<pre><code>function task(): void {
+    throw new RangeError(&quot;Error&quot;)
 }
 try {
-    logic()
-} catch fatal (message) {
-    /* message: String */
+    doSomething()
+} catch (error: RangeError) {
+    doSomething()
+}
+</code></pre>
+<p>Documentation comments use the <code>@throws</code> tag to document thrown errors, as in:</p>
+<pre><code>package com.mrrunner {
+    /**
+     * @throws com.mrrunner.MrRunnerError Thrown when run is a failure.
+     */
+    public function run(): void {
+        /* ... */
+    }
 }
 </code></pre>
 

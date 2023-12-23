@@ -234,11 +234,10 @@ x == y
 <h2 id="charindex-type"><a class="header" href="#charindex-type">CharIndex type</a></h2>
 <p>The <code>CharIndex</code> type is a group (<em>string</em>, <em>index</em>) where <em>string</em> is a <code>String</code> and <em>index</em> is an <code>UnsignedInt</code> identifying a zero based index into <em>string</em>.</p>
 <h2 id="function-types"><a class="header" href="#function-types">Function types</a></h2>
-<p>Function types consist of zero or more parameters, a return type annotation and zero or more exception types. Function types appear in the forms:</p>
+<p>Function types consist of zero or more parameters and a return type annotation. Function types appear in the forms:</p>
 <pre><code>(a: T) =&gt; E
 (a?: T) =&gt; E
 (...a: [T]) =&gt; E
-() =&gt; E throws E1, EN
 </code></pre>
 <ul>
 <li>Function types inherit from the <code>Function</code> class.</li>
@@ -246,7 +245,6 @@ x == y
 <li>The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.</li>
 <li>The rest parameter must appear at most once.</li>
 <li>The rest parameter must be of type <code>Array</code>.</li>
-<li>A trailing <code>throws</code> clause is used to indicate exceptions that the function throws.</li>
 </ul>
 <h2 id="tuple-types"><a class="header" href="#tuple-types">Tuple types</a></h2>
 <p>Tuple types are in the form <code>[T1, T2, ...TN]</code>.</p>

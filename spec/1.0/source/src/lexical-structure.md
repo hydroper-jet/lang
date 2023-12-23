@@ -191,7 +191,6 @@ import
 public
 return
 switch
-throws
 typeof
 
 extends
@@ -213,6 +212,7 @@ implements
 
 ```plain
 export
+throws
 ```
 
 *ReservedWord* includes *ContextKeyword*. *ContextKeyword* is one of the following in certain syntactic contexts:
@@ -229,7 +229,6 @@ meta
 type
 
 embed
-fatal
 final
 never
 proxy
@@ -255,6 +254,7 @@ undefined
 (  )  [  ]  {  }
 :  ;  ,
 ?  !  =  =>
+?.
 <  <=
 >  >=
 ==  ===

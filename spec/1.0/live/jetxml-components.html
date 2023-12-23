@@ -223,7 +223,7 @@ Future data bindings support:
 <li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a floating point type and the attribute value is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, assign the equivalent floating point constant of that attribute value to <em>p</em>.</li>
 <li>If <em>t</em> is <code>Boolean</code> or <code>Optional.&lt;Boolean&gt;</code> and the attribute value is <code>false</code> or <code>true</code>, assign the equivalent boolean constant of that attribute value to <em>p</em>.</li>
 <li>If <em>t</em> is <code>Char</code> or <code>Optional.&lt;Char&gt;</code>, assert that the attribute value consists of one character and assign the first Unicode code point of the attribute value to <em>p</em>.</li>
-<li>If <em>t</em> is <code>String</code> or <code>Optional.&lt;String&gt;</code>, assign the the attribute value to <em>p</em>.</li>
+<li>If <em>t</em> is <code>String</code> or <code>Optional.&lt;String&gt;</code>, assign the attribute value to <em>p</em>.</li>
 <li>If <em>t</em> is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is a non Set <code>enum</code>, assert that the attribute value identifies a member of the <code>enum</code> by its string component and assign such member to <em>p</em>.</li>
 <li>If <em>t</em> is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is a Set <code>enum</code>, assert that the attribute value is a comma-separated list identifying one or more members of the <code>enum</code> by their string components and assign such members to <em>p</em>.</li>
 </ol>

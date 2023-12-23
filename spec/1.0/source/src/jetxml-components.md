@@ -81,3 +81,7 @@ XML attributes at the **jetxml** namespace applied to the instantiation are proc
     6. If *t* is `E` or `Optional.<E>` where `E` is a non Set `enum`, assert that the attribute value identifies a member of the `enum` by its string component and assign such member to *p*.
     7. If *t* is `E` or `Optional.<E>` where `E` is a Set `enum`, assert that the attribute value is a comma-separated list identifying one or more members of the `enum` by their string components and assign such members to *p*.
 6. It is a verify error if none of the previous steps are executed.
+
+## Instance variables
+
+Instance variables belonging to `descClass` are JetXML variables with special behavior as described by section [Variables](variables.md#jetxml-variables).

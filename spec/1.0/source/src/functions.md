@@ -57,7 +57,7 @@ native function f(): void;
 
 ## Meta data
 
-A function may contain zero or more arbitrary plain meta-data.
+A function may contain zero or more plain meta-data.
 
 ```
 [[N1(n2)]]

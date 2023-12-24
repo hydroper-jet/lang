@@ -12,7 +12,7 @@ Interfaces consist of a small number of internal properties, described in the fo
 | \[\[*SuperInterfaces*\]\] | The super interfaces of the interface. |
 | \[\[*TypeParameters*\]\] | The type parameter sequence of the interface. |
 | \[\[*Prototype*\]\] | The interface prototype. |
-| \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |
+| \[\[*PlainMetadata*\]\] | Plain meta-data attached to the interface. |
 
 ## Super interfaces
 
@@ -24,3 +24,12 @@ It is a verify error if:
 ## Parent definition
 
 When the parent definition of an interface is a package, the interface has a fully package qualified name.
+
+## Meta data
+
+An interface may contain zero or more plain meta-data:
+
+```
+[[N1(n2)]]
+interface I {}
+```

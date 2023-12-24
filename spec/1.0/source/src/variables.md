@@ -51,7 +51,7 @@ public class C {
 
 ## Meta data
 
-A variable may contain zero or more arbitrary plain meta-data.
+A variable may contain zero or more plain meta-data.
 
 ```
 [[N1(n2)]]

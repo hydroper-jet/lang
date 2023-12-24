@@ -58,3 +58,12 @@ package org.myEngine {
     }
 }
 ```
+
+## Meta data
+
+A class may contain zero or more plain meta-data:
+
+```
+[[N1(n2)]]
+class C {}
+```

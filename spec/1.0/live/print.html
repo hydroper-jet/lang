@@ -1016,7 +1016,7 @@ const y: Number;
 </ul>
 <p><em>Constant initializer</em>: A variable may consist of a constant initializer. A constant initializer consists of a constant expression.</p>
 <h2 id="meta-data"><a class="header" href="#meta-data">Meta data</a></h2>
-<p>A variable may contain zero or more arbitrary plain meta-data.</p>
+<p>A variable may contain zero or more plain meta-data.</p>
 <pre><code>[[N1(n2)]]
 const x: T;
 </code></pre>
@@ -1104,7 +1104,7 @@ function set x(v: T): void {}
 <pre><code>native function f(): void;
 </code></pre>
 <h2 id="meta-data-1"><a class="header" href="#meta-data-1">Meta data</a></h2>
-<p>A function may contain zero or more arbitrary plain meta-data.</p>
+<p>A function may contain zero or more plain meta-data.</p>
 <pre><code>[[N1(n2)]]
 function f1(): void {}
 </code></pre>
@@ -1595,6 +1595,11 @@ proxy function has(value: E): Boolean (
     }
 }
 </code></pre>
+<h2 id="meta-data-3"><a class="header" href="#meta-data-3">Meta data</a></h2>
+<p>A class may contain zero or more plain meta-data:</p>
+<pre><code>[[N1(n2)]]
+class C {}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="interfaces"><a class="header" href="#interfaces">Interfaces</a></h1>
 <p>An interface represents an abstract object type.</p>
 <p>Interfaces consist of a small number of internal properties, described in the following table:</p>
@@ -1605,7 +1610,7 @@ proxy function has(value: E): Boolean (
 <tr><td>[[<em>SuperInterfaces</em>]]</td><td>The super interfaces of the interface.</td></tr>
 <tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the interface.</td></tr>
 <tr><td>[[<em>Prototype</em>]]</td><td>The interface prototype.</td></tr>
-<tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the class.</td></tr>
+<tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the interface.</td></tr>
 </tbody></table>
 </div>
 <h2 id="super-interfaces"><a class="header" href="#super-interfaces">Super interfaces</a></h2>
@@ -1616,6 +1621,11 @@ proxy function has(value: E): Boolean (
 </ul>
 <h2 id="parent-definition-4"><a class="header" href="#parent-definition-4">Parent definition</a></h2>
 <p>When the parent definition of an interface is a package, the interface has a fully package qualified name.</p>
+<h2 id="meta-data-4"><a class="header" href="#meta-data-4">Meta data</a></h2>
+<p>An interface may contain zero or more plain meta-data:</p>
+<pre><code>[[N1(n2)]]
+interface I {}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jetxml-components-1"><a class="header" href="#jetxml-components-1">JetXML components</a></h1>
 <!--
 

@@ -1,4 +1,4 @@
-# Plain meta-data
+ # Plain meta-data
 
 Plain meta-data are uninterpreted meta-data attached to a definition, using the `Metadata` meta-data.
 
@@ -6,15 +6,18 @@ Plain meta-data consists of a `Name()` or `Name` form that consists of zero or m
 
 * `key = "value"`
 * `key = File("path/to/file")` — File entry
+* `key = Map(...)` — Entry consisting of a map of other meta-data entries
 * `value` — Keyless entry, equivalent to `"value"`
 * `"value"` — Keyless entry, equivalent to `value`
 * `File("path/to/file")` — Keyless file entry
+* `Map(...)` — Keyless entry consisting of a map of other meta-data entries
 
 The identifiers used in the meta-data form and the entries are allowed to use a `::` separator, as in `q::N`.
 
 ```
 [Metadata(N1(x = "y", z, "w", File("myExtension.dll")))]
 [Metadata(N2)]
+[Metadata(N3(x = Map(x = "v"), y = "v"))]
 class C {}
 ```
 

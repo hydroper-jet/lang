@@ -1560,7 +1560,7 @@ Future data bindings support:
 * Consider using a particular XML namespace for data binding attributes.
 
 -->
-<p>A JetXML component is a XML file with the extension <code>.jetxml</code> describing a class that inherits from a <code>JetXML</code> implementor. The class being described the XML file is referred throughout this section as <code>descClass</code>.</p>
+<p>A JetXML component is a XML file with the extension <code>.jetxml</code> describing a class that inherits from a <code>JetXML</code> implementor. The class being described in the XML file is referred throughout this section as <code>descClass</code>.</p>
 <p>The default XML namespace used throughout this section is the <strong>jetxml</strong> string, as if the attribute <code>xmlns=&quot;jetxml&quot;</code> were applied to the root XML element.</p>
 <h2 id="class-name"><a class="header" href="#class-name">Class name</a></h2>
 <p>The root element must assign the attribute <code>className</code> a fully package qualified name whose trailing name identifies the class name of <code>descClass</code>, as in:</p>
@@ -1633,7 +1633,7 @@ Future data bindings support:
 <p>The internal <em>AttributeValueToNumber</em>() function takes a string <em>s</em> and returns a number of a specific number type <em>N</em>. The function performs the following steps:</p>
 <ul>
 <li>Let <em>s</em> be the result of trimming Unicode Whitespace characters out of both ends of <em>s</em>.</li>
-<li>If <em>N</em> is a floating point type and <em>seq</em> is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, return the <em>N</em> representation of <em>s</em> as a floating point constant.</li>
+<li>If <em>N</em> is a floating point type and <em>s</em> is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, return the <em>N</em> representation of <em>s</em> as a floating point constant.</li>
 <li>Return the mathematical value of <em>s</em> as a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em>.</li>
 </ul>
 <h3 id="commaseparatedstringstonumbers"><a class="header" href="#commaseparatedstringstonumbers">CommaSeparatedStringsToNumbers()</a></h3>

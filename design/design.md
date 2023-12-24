@@ -263,10 +263,9 @@ The accessibility of a property is either `public`, `private`, `internal`, or `p
 
 # Meta data
 
-Meta data can be attached to items. There are three categories of meta data: reserved meta data, user meta data and plain meta data.
+Meta data can be attached to items. There are three categories of meta data: reserved meta data, decorator meta data and plain meta data.
 
 * Plain meta data is uninterpreted meta data placed inside a `[[...]]` notation.
-* User meta data has the same semantics as per the reference in VioletScript.
 
 ## Plain meta data
 

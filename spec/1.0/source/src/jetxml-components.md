@@ -93,7 +93,7 @@ XML attributes at the **jetxml** namespace applied to the instantiation are proc
 The internal *AttributeValueToNumber*() function takes a string *s* and returns a number of a specific number type *N*. The function performs the following steps:
 
 * Let *s* be the result of trimming Unicode Whitespace characters out of both ends of *s*.
-* If *N* is a floating point type and *seq* is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, return the *N* representation of *s* as a floating point constant.
+* If *N* is a floating point type and *s* is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, return the *N* representation of *s* as a floating point constant.
 * Return the mathematical value of *s* as a *DecimalLiteral* or *HexIntegerLiteral*.
 
 ### CommaSeparatedStringsToNumbers()

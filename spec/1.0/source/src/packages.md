@@ -46,6 +46,16 @@ trace(org);
 trace(org.x.y.xyProperty);
 ```
 
+Packages consist of the following internal properties:
+
+| Internal property | Description |
+| ----------------- | ----------- |
+| \[\[*Name*\]\] | The unqualified name of the package. |
+| \[\[*ParentDefinition*\]\] | Optional parent package. |
+| \[\[*Properties*\]\] | The properties of the package. |
+| \[\[*WildcardUses*\]\] | The wildcard uses of the package. |
+| \[\[*Subpackages*\]\] | The subpackages of the package. |
+
 ## Wildcard uses
 
 Directives of the form `public use q.*;` contribute a wildcard use to a package. Wildcard uses are used in name resolution to resolve to names from another package.

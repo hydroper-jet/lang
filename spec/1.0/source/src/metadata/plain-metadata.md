@@ -12,7 +12,7 @@ Plain meta-data consists of a `Name()` or `Name` form that consists of zero or m
 * `value` — Keyless string entry, equivalent to `"value"`
 * `"value"` — Keyless string entry, equivalent to `value`
 * `boolean` — Keyless boolean entry
-* `number` — Number boolean entry
+* `number` — Keyless number entry
 * `File("path/to/file")` — Keyless file entry
 * `(...)` — Keyless entry consisting of a collection of other key-value entries
 

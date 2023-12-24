@@ -205,6 +205,16 @@ kbd {
     font-weight: bold;
 }
 
+.chapter li a,
+.chapter li strong {
+    font-weight: lighter;
+}
+
+.chapter li a,
+.chapter li strong {
+    font-size: 2rem;
+}
+
 .result-no-output {
     font-style: italic;
 }

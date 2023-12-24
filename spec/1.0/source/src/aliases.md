@@ -17,3 +17,10 @@ Aliases consist of the following internal properties:
 | \[\[*Visibility*\]\] | The [visibility](visibility.md) of the alias. |
 | \[\[*AliasOf*\]\] | The symbol to which this alias translates. |
 | \[\[*ParentDefinition*\]\] | The parent definition of the alias. |
+
+## ResolveAlias()
+
+The internal *ResolveAlias*(*type*) function takes the following steps:
+
+1. If *type* is an alias, return *ResolveAlias*(*type*\[\[*AliasOf*\]\]).
+2. Return *type*.

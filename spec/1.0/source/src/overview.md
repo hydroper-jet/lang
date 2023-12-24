@@ -6,6 +6,8 @@
 
 JetWork is a flexible, productive, robust, strongly typed, object-oriented, multi-purpose scripting language. JetWork is influenced by ActionScript.
 
+This document specifies the language syntax, semantics and execution, but may lack some definitions from the ECMA-262 standard in which it is partially based.
+
 ## Native extensions
 
 The language allows libraries known as *native extensions* to be developed through the combination of [plain meta-data](metadata/plain-metadata.md) and [conditional configuration](overview/package-manager.md#conditional-configuration).

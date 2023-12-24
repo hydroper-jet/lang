@@ -1,4 +1,4 @@
- # Plain meta-data
+# Plain meta-data
 
 Plain meta-data are uninterpreted meta-data attached to a definition, using the `Metadata` meta-data.
 

@@ -33,7 +33,7 @@ The entry keys are not unique and may appear more than once.
 
 ## File
 
-A `File` value may be in one of the forms:
+The `File` value of a file entry may be in one of the forms:
 
 * `File("path/to/file")`
 * `File(import.meta.outputDirectory, "path/to/file")` — Resolves file from the output directory of the JetPM build process.

@@ -52,7 +52,7 @@ Packages consist of the following internal properties:
 | ----------------- | ----------- |
 | \[\[*Name*\]\] | The unqualified name of the package. |
 | \[\[*ParentDefinition*\]\] | Optional parent package. |
-| \[\[*Properties*\]\] | The properties of the package. |
+| \[\[*Properties*\]\] | Properties of the package as a dictionary from string to symbol. |
 | \[\[*WildcardUses*\]\] | The wildcard uses of the package. |
 | \[\[*Subpackages*\]\] | The subpackages of the package. |
 

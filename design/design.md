@@ -28,7 +28,7 @@ The identifying file extensions for Jetwork programs are:
 
 # Properties
 
-Property access operators are similiar to ECMAScript property operators, with the exclusion of implicit conversion. Solely string and number types can be used to index.
+Property access operators are similiar to ECMAScript property operators.
 
 Indexing by a number value is equivalent to using one of the proxies `getProperty`, `setProperty`, and `deleteProperty`.
 

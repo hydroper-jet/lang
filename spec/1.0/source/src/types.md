@@ -100,6 +100,7 @@ Function types consist of zero or more parameters and a return type annotation. 
 ```
 
 * Function types inherit from the `Function` class.
+* Function types are final classes.
 * Each parameter is either a required, optional or rest parameter.
 * The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.
 * The rest parameter must appear at most once.
@@ -107,7 +108,10 @@ Function types consist of zero or more parameters and a return type annotation. 
 
 ## Tuple types
 
-Tuple types are in the form `[T1, T2, ...TN]`.
+Tuple types are in the form `[T1, T2, ...TN]` and consist of a sequence of two or more element types.
+
+* Tuple types inherit from the `Object` class.
+* Tuple types are final classes.
 
 ## Optional type
 
@@ -119,6 +123,9 @@ It is not allowed for `T` to be of the `Optional` type.
 // Error
 type O = Optional.<Optional.<T>>;
 ```
+
+* The `Optional.<T>` type is a final class type.
+* The `Optional.<T>` type inherits from `Object`.
 
 ## Array type
 

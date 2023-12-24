@@ -880,19 +880,28 @@ x == y
 </code></pre>
 <ul>
 <li>Function types inherit from the <code>Function</code> class.</li>
+<li>Function types are final classes.</li>
 <li>Each parameter is either a required, optional or rest parameter.</li>
 <li>The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.</li>
 <li>The rest parameter must appear at most once.</li>
 <li>The rest parameter must be of type <code>Array</code>.</li>
 </ul>
 <h2 id="tuple-types"><a class="header" href="#tuple-types">Tuple types</a></h2>
-<p>Tuple types are in the form <code>[T1, T2, ...TN]</code>.</p>
+<p>Tuple types are in the form <code>[T1, T2, ...TN]</code> and consist of a sequence of two or more element types.</p>
+<ul>
+<li>Tuple types inherit from the <code>Object</code> class.</li>
+<li>Tuple types are final classes.</li>
+</ul>
 <h2 id="optional-type"><a class="header" href="#optional-type">Optional type</a></h2>
 <p>The <code>Optional.&lt;T&gt;</code> type is an union of <code>undefined</code> and <code>T</code>. <code>Optional.&lt;T&gt;</code> may be expressed as <code>Optional.&lt;T&gt;</code>, <code>T?</code>, or <code>?T</code>.</p>
 <p>It is not allowed for <code>T</code> to be of the <code>Optional</code> type.</p>
 <pre><code>// Error
 type O = Optional.&lt;Optional.&lt;T&gt;&gt;;
 </code></pre>
+<ul>
+<li>The <code>Optional.&lt;T&gt;</code> type is a final class type.</li>
+<li>The <code>Optional.&lt;T&gt;</code> type inherits from <code>Object</code>.</li>
+</ul>
 <h2 id="array-type"><a class="header" href="#array-type">Array type</a></h2>
 <p>The <code>Array.&lt;T&gt;</code> type is a growable collection of <code>T</code> values. <code>Array</code> may be expressed as <code>Array.&lt;T&gt;</code> or <code>[T]</code>.</p>
 <h2 id="object-type"><a class="header" href="#object-type">Object type</a></h2>
@@ -990,7 +999,7 @@ trace(org.x.y.xyProperty);
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
 <tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the package.</td></tr>
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>Optional parent package.</td></tr>
-<tr><td>[[<em>Properties</em>]]</td><td>The properties of the package.</td></tr>
+<tr><td>[[<em>Properties</em>]]</td><td>Properties of the package as a dictionary from string to symbol.</td></tr>
 <tr><td>[[<em>WildcardUses</em>]]</td><td>The wildcard uses of the package.</td></tr>
 <tr><td>[[<em>Subpackages</em>]]</td><td>The subpackages of the package.</td></tr>
 </tbody></table>
@@ -1461,6 +1470,8 @@ class C {}
 <p>An alias is a symbol that translates to another symbol. Aliases are a result from <code>type</code> definitions and alias <code>import</code> directives.</p>
 <pre><code>type Double = Number;
 import N2 = p.N1;
+// Package alias
+import p2 = p.*;
 </code></pre>
 <p>Aliases consist of the following internal properties:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
@@ -1595,8 +1606,8 @@ proxy function has(value: E): Boolean (
 <tr><td>[[<em>AllowLiteral</em>]]</td><td>Indicates whether the class may be initialized through an object initializer or not; that is, if it has the <code>[Literal]</code> meta-data.</td></tr>
 <tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the class.</td></tr>
 <tr><td>[[<em>StaticProperties</em>]]</td><td>Static properties of the class.</td></tr>
-<tr><td>[[<em>Prototype</em>]]</td><td>The class prototype.</td></tr>
-<tr><td>[[<em>Proxies</em>]]</td><td>Proxies defined by the class.</td></tr>
+<tr><td>[[<em>Prototype</em>]]</td><td>Properties of the class prototype as a dictionary from string to symbol.</td></tr>
+<tr><td>[[<em>Proxies</em>]]</td><td>Proxies defined by the class as a dictionary from string to function symbol.</td></tr>
 <tr><td>[[<em>JetXMLColorClass</em>]]</td><td>For a JetXML base class, indicates the supported color class.</td></tr>
 <tr><td>[[<em>JetXMLVectorClasses</em>]]</td><td>For a JetXML base class, indicates the supported vector class.</td></tr>
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the class.</td></tr>
@@ -1645,7 +1656,7 @@ class C {}
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the interface.</td></tr>
 <tr><td>[[<em>SuperInterfaces</em>]]</td><td>The super interfaces of the interface.</td></tr>
 <tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the interface.</td></tr>
-<tr><td>[[<em>Prototype</em>]]</td><td>The interface prototype.</td></tr>
+<tr><td>[[<em>Prototype</em>]]</td><td>Properties of the interface prototype as a dictionary from string to symbol.</td></tr>
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the interface.</td></tr>
 </tbody></table>
 </div>
@@ -1716,7 +1727,7 @@ Future data bindings support:
 <li>Let <em>t</em> be the static type of <em>p</em>.</li>
 <li>Do one of the following steps:
 <ol>
-<li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type, assign <em>AttributeValueToNumber</em>(<em>v</em>) to <em>p</em> where <em>v</em> is the attribute value.</li>
+<li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type, assign <em>AttributeValueToNumber</em>(<em>v</em>, <code>N</code>) to <em>p</em> where <em>v</em> is the attribute value.</li>
 <li>If <em>t</em> is <code>Boolean</code> or <code>Optional.&lt;Boolean&gt;</code> and the attribute value is <code>false</code> or <code>true</code>, assign the equivalent boolean constant of that attribute value to <em>p</em>.</li>
 <li>If <em>t</em> is <code>Char</code> or <code>Optional.&lt;Char&gt;</code>, assert that the attribute value consists of one character and assign the first Unicode code point of the attribute value to <em>p</em>.</li>
 <li>If <em>t</em> is <code>String</code> or <code>Optional.&lt;String&gt;</code>, assign the attribute value to <em>p</em>.</li>
@@ -1732,7 +1743,7 @@ Future data bindings support:
 <ol>
 <li>Let <em>vectorClasses</em> be [[<em>JetXMLVectorClasses</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
 <li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
-<li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>CommaSeparatedStringsToNumbers</em>(<em>vectorComponents</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
+<li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>StringSequenceToNumberSequence</em>(<em>vectorComponents</em>, <em>N</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
 <li>Otherwise throw a verify error.</li>
 </ol>
 </li>
@@ -1740,14 +1751,14 @@ Future data bindings support:
 </li>
 </ol>
 <h3 id="attributevaluetonumber"><a class="header" href="#attributevaluetonumber">AttributeValueToNumber()</a></h3>
-<p>The internal <em>AttributeValueToNumber</em>() function takes a string <em>s</em> and returns a number of a specific number type <em>N</em>. The function performs the following steps:</p>
+<p>The internal <em>AttributeValueToNumber</em>(<em>s</em>, <em>N</em>) function takes a string <em>s</em> and returns a number of a specific number type <em>N</em>. The function performs the following steps:</p>
 <ul>
 <li>Let <em>s</em> be the result of trimming Unicode Whitespace characters out of both ends of <em>s</em>.</li>
 <li>If <em>N</em> is a floating point type and <em>s</em> is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, return the <em>N</em> representation of <em>s</em> as a floating point constant.</li>
 <li>Return the mathematical value of <em>s</em> as a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em>.</li>
 </ul>
-<h3 id="commaseparatedstringstonumbers"><a class="header" href="#commaseparatedstringstonumbers">CommaSeparatedStringsToNumbers()</a></h3>
-<p>The internal <em>CommaSeparatedStringsToNumbers</em>() function takes a sequence of strings <em>seq</em> and returns a number sequence of a specific number type <em>N</em>. The function returns a processing of every element <em>s</em> in <em>seq</em> as the result of calling <em>AttributeValueToNumber</em>(<em>s</em>).</p>
+<h3 id="stringsequencetonumbersequence"><a class="header" href="#stringsequencetonumbersequence">StringSequenceToNumberSequence()</a></h3>
+<p>The internal <em>StringSequenceToNumberSequence</em>(<em>seq</em>, <em>N</em>) function takes a sequence of strings <em>seq</em> and returns a number sequence of a specific number type <em>N</em>. The function returns a processing of every element <em>s</em> in <em>seq</em> as the result of calling <em>AttributeValueToNumber</em>(<em>s</em>).</p>
 <h2 id="instance-variables-1"><a class="header" href="#instance-variables-1">Instance variables</a></h2>
 <p>Instance variables belonging to <code>descClass</code> are JetXML variables with special behavior as described by section <a href="variables.html#jetxml-variables">Variables</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="property-resolution"><a class="header" href="#property-resolution">Property resolution</a></h1>
@@ -1760,6 +1771,91 @@ Future data bindings support:
 * Consider package wildcard uses in lexical references
 
 -->
+<h2 id="resolveproperty"><a class="header" href="#resolveproperty">ResolveProperty()</a></h2>
+<p>The internal <em>ResolveProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>) function takes a <em>base</em> object, a <em>qual</em> qualifier value and a <em>key</em> value, and resolves to a reference value. <em>ResolveProperty</em> takes the following steps:</p>
+<ol>
+<li>If the type o <em>base</em> is one of { <code>XML</code>, <code>XMLList</code> }, return <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+<li>If <em>base</em> is a scope, return <em>ResolveScopeProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+<li>If <em>base</em> is a value whose type is <code>*</code>
+<ol>
+<li>Return <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>)</li>
+</ol>
+</li>
+<li>Throw a verify error if <em>qual</em> is defined.</li>
+<li>If <em>base</em> is a <code>class</code> or <code>enum</code>
+<ol>
+<li>It is a verify error if <em>key</em> is not a <code>String</code> value.</li>
+<li>While <em>base</em> is defined
+<ol>
+<li>Let <em>r</em> be the symbol in <em>base</em>[[<em>StaticProperties</em>]] whose key is equals <em>key</em>.</li>
+<li>Return <em>r</em> if it is defined.</li>
+<li>Assign <em>base</em> = <em>base</em>[[<em>SuperClass</em>]]</li>
+</ol>
+</li>
+<li>Return undefined.</li>
+</ol>
+</li>
+<li>If <em>base</em> is a value
+<ol>
+<li>It is a verify error if the type of <em>base</em> is <code>undefined</code>.</li>
+<li>If <em>key</em> is a <code>String</code> value
+<ol>
+<li>For every descending <em>type</em> in the type hierarchy of <em>base</em>
+<ol>
+<li>For every <em>prop</em> in <em>type</em>[[<em>Prototype</em>]]
+<ol>
+<li>If <em>prop</em>[[<em>Name</em>]] is equals <em>key</em>, return <em>InstanceReferenceValue</em>(<em>base</em>, <em>prop</em>).</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>For every descending <em>type</em> in the type hierarchy of <em>base</em>
+<ol>
+<li>Let <em>proxy</em> be <em>FindPropertyProxy</em>(<em>type</em>)</li>
+<li>If <em>proxy</em> is defined
+<ol>
+<li>If the first parameter type of <em>proxy</em> is equals the type of <em>key</em> or if the type of <em>key</em> is a subtype of the first parameter type of <em>proxy</em>
+<ol>
+<li>Return <em>ProxyReferenceValue</em>(<em>base</em>, <em>proxy</em>)</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Return undefined.</li>
+</ol>
+</li>
+<li>If <em>base</em> is a package
+<ol>
+<li>It is a verify error if <em>key</em> is not a <code>String</code> value.</li>
+<li>Let <em>r</em> be a symbol in <em>base</em>[[<em>Properties</em>]] whose key is equals <em>key</em>.</li>
+<li>Return <em>r</em> if it is defined.</li>
+<li>For each <em>p</em> in <em>base</em>[[<em>WildcardUses</em>]]
+<ol>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>p</em>, undefined, <em>key</em>)</li>
+<li>Return <em>r</em> if it is defined.</li>
+</ol>
+</li>
+<li>Return undefined.</li>
+</ol>
+</li>
+<li>Return undefined.</li>
+</ol>
+<h2 id="findpropertyproxy"><a class="header" href="#findpropertyproxy">FindPropertyProxy()</a></h2>
+<p>The internal <em>FindPropertyProxy</em>(<em>type</em>) function takes the following steps:</p>
+<ol>
+<li>Return undefined if <em>type</em> does not contain [[<em>Proxies</em>]].</li>
+<li>Return a function of <em>type</em>[[<em>Proxies</em>]] whose key equals <code>getProperty</code>.</li>
+</ol>
+<h2 id="resolvescopeproperty"><a class="header" href="#resolvescopeproperty">ResolveScopeProperty()</a></h2>
+<p>The internal <em>ResolveScopeProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>) takes the following steps:</p>
+<ul>
+<li>To be written</li>
+</ul>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

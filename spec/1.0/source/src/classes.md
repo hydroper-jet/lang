@@ -17,8 +17,8 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*AllowLiteral*\]\] | Indicates whether the class may be initialized through an object initializer or not; that is, if it has the `[Literal]` meta-data. |
 | \[\[*TypeParameters*\]\] | The type parameter sequence of the class. |
 | \[\[*StaticProperties*\]\] | Static properties of the class. |
-| \[\[*Prototype*\]\] | The class prototype. |
-| \[\[*Proxies*\]\] | Proxies defined by the class. |
+| \[\[*Prototype*\]\] | Properties of the class prototype as a dictionary from string to symbol. |
+| \[\[*Proxies*\]\] | Proxies defined by the class as a dictionary from string to function symbol. |
 | \[\[*JetXMLColorClass*\]\] | For a JetXML base class, indicates the supported color class. |
 | \[\[*JetXMLVectorClasses*\]\] | For a JetXML base class, indicates the supported vector class. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |

@@ -11,7 +11,7 @@ Interfaces consist of a small number of internal properties, described in the fo
 | \[\[*ParentDefinition*\]\] | The parent definition of the interface. |
 | \[\[*SuperInterfaces*\]\] | The super interfaces of the interface. |
 | \[\[*TypeParameters*\]\] | The type parameter sequence of the interface. |
-| \[\[*Prototype*\]\] | The interface prototype. |
+| \[\[*Prototype*\]\] | Properties of the interface prototype as a dictionary from string to symbol. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the interface. |
 
 ## Super interfaces

@@ -175,6 +175,91 @@
 * Consider package wildcard uses in lexical references
 
 -->
+<h2 id="resolveproperty"><a class="header" href="#resolveproperty">ResolveProperty()</a></h2>
+<p>The internal <em>ResolveProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>) function takes a <em>base</em> object, a <em>qual</em> qualifier value and a <em>key</em> value, and resolves to a reference value. <em>ResolveProperty</em> takes the following steps:</p>
+<ol>
+<li>If the type o <em>base</em> is one of { <code>XML</code>, <code>XMLList</code> }, return <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+<li>If <em>base</em> is a scope, return <em>ResolveScopeProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+<li>If <em>base</em> is a value whose type is <code>*</code>
+<ol>
+<li>Return <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>)</li>
+</ol>
+</li>
+<li>Throw a verify error if <em>qual</em> is defined.</li>
+<li>If <em>base</em> is a <code>class</code> or <code>enum</code>
+<ol>
+<li>It is a verify error if <em>key</em> is not a <code>String</code> value.</li>
+<li>While <em>base</em> is defined
+<ol>
+<li>Let <em>r</em> be the symbol in <em>base</em>[[<em>StaticProperties</em>]] whose key is equals <em>key</em>.</li>
+<li>Return <em>r</em> if it is defined.</li>
+<li>Assign <em>base</em> = <em>base</em>[[<em>SuperClass</em>]]</li>
+</ol>
+</li>
+<li>Return undefined.</li>
+</ol>
+</li>
+<li>If <em>base</em> is a value
+<ol>
+<li>It is a verify error if the type of <em>base</em> is <code>undefined</code>.</li>
+<li>If <em>key</em> is a <code>String</code> value
+<ol>
+<li>For every descending <em>type</em> in the type hierarchy of <em>base</em>
+<ol>
+<li>For every <em>prop</em> in <em>type</em>[[<em>Prototype</em>]]
+<ol>
+<li>If <em>prop</em>[[<em>Name</em>]] is equals <em>key</em>, return <em>InstanceReferenceValue</em>(<em>base</em>, <em>prop</em>).</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>For every descending <em>type</em> in the type hierarchy of <em>base</em>
+<ol>
+<li>Let <em>proxy</em> be <em>FindPropertyProxy</em>(<em>type</em>)</li>
+<li>If <em>proxy</em> is defined
+<ol>
+<li>If the first parameter type of <em>proxy</em> is equals the type of <em>key</em> or if the type of <em>key</em> is a subtype of the first parameter type of <em>proxy</em>
+<ol>
+<li>Return <em>ProxyReferenceValue</em>(<em>base</em>, <em>proxy</em>)</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Return undefined.</li>
+</ol>
+</li>
+<li>If <em>base</em> is a package
+<ol>
+<li>It is a verify error if <em>key</em> is not a <code>String</code> value.</li>
+<li>Let <em>r</em> be a symbol in <em>base</em>[[<em>Properties</em>]] whose key is equals <em>key</em>.</li>
+<li>Return <em>r</em> if it is defined.</li>
+<li>For each <em>p</em> in <em>base</em>[[<em>WildcardUses</em>]]
+<ol>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>p</em>, undefined, <em>key</em>)</li>
+<li>Return <em>r</em> if it is defined.</li>
+</ol>
+</li>
+<li>Return undefined.</li>
+</ol>
+</li>
+<li>Return undefined.</li>
+</ol>
+<h2 id="findpropertyproxy"><a class="header" href="#findpropertyproxy">FindPropertyProxy()</a></h2>
+<p>The internal <em>FindPropertyProxy</em>(<em>type</em>) function takes the following steps:</p>
+<ol>
+<li>Return undefined if <em>type</em> does not contain [[<em>Proxies</em>]].</li>
+<li>Return a function of <em>type</em>[[<em>Proxies</em>]] whose key equals <code>getProperty</code>.</li>
+</ol>
+<h2 id="resolvescopeproperty"><a class="header" href="#resolvescopeproperty">ResolveScopeProperty()</a></h2>
+<p>The internal <em>ResolveScopeProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>) takes the following steps:</p>
+<ul>
+<li>To be written</li>
+</ul>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

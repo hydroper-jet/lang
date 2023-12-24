@@ -73,7 +73,7 @@ XML attributes at the **jetxml** namespace applied to the instantiation are proc
 3. It is a verify error if *p* is neither a variable property or a virtual property.
 4. Let *t* be the static type of *p*.
 5. Do one of the following steps:
-    1. If *t* is `N` or `Optional.<N>` where `N` is a number type, assign *AttributeValueToNumber*(*v*) to *p* where *v* is the attribute value.
+    1. If *t* is `N` or `Optional.<N>` where `N` is a number type, assign *AttributeValueToNumber*(*v*, `N`) to *p* where *v* is the attribute value.
     2. If *t* is `Boolean` or `Optional.<Boolean>` and the attribute value is `false` or `true`, assign the equivalent boolean constant of that attribute value to *p*.
     3. If *t* is `Char` or `Optional.<Char>`, assert that the attribute value consists of one character and assign the first Unicode code point of the attribute value to *p*.
     4. If *t* is `String` or `Optional.<String>`, assign the attribute value to *p*.
@@ -85,20 +85,20 @@ XML attributes at the **jetxml** namespace applied to the instantiation are proc
     3. Otherwise:
         1. Let *vectorClasses* be \[\[*JetXMLVectorClasses*\]\] from either `cbi` or a super class of `cbi`.
         2. Let *vectorComponents* be the result of spliting the attribute value by comma.
-        3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *CommaSeparatedStringsToNumbers*(*vectorComponents*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
+        3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *StringSequenceToNumberSequence*(*vectorComponents*, *N*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
         4. Otherwise throw a verify error.
 
 ### AttributeValueToNumber()
 
-The internal *AttributeValueToNumber*() function takes a string *s* and returns a number of a specific number type *N*. The function performs the following steps:
+The internal *AttributeValueToNumber*(*s*, *N*) function takes a string *s* and returns a number of a specific number type *N*. The function performs the following steps:
 
 * Let *s* be the result of trimming Unicode Whitespace characters out of both ends of *s*.
 * If *N* is a floating point type and *s* is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, return the *N* representation of *s* as a floating point constant.
 * Return the mathematical value of *s* as a *DecimalLiteral* or *HexIntegerLiteral*.
 
-### CommaSeparatedStringsToNumbers()
+### StringSequenceToNumberSequence()
 
-The internal *CommaSeparatedStringsToNumbers*() function takes a sequence of strings *seq* and returns a number sequence of a specific number type *N*. The function returns a processing of every element *s* in *seq* as the result of calling *AttributeValueToNumber*(*s*).
+The internal *StringSequenceToNumberSequence*(*seq*, *N*) function takes a sequence of strings *seq* and returns a number sequence of a specific number type *N*. The function returns a processing of every element *s* in *seq* as the result of calling *AttributeValueToNumber*(*s*).
 
 ## Instance variables
 

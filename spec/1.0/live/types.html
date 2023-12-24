@@ -241,19 +241,28 @@ x == y
 </code></pre>
 <ul>
 <li>Function types inherit from the <code>Function</code> class.</li>
+<li>Function types are final classes.</li>
 <li>Each parameter is either a required, optional or rest parameter.</li>
 <li>The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.</li>
 <li>The rest parameter must appear at most once.</li>
 <li>The rest parameter must be of type <code>Array</code>.</li>
 </ul>
 <h2 id="tuple-types"><a class="header" href="#tuple-types">Tuple types</a></h2>
-<p>Tuple types are in the form <code>[T1, T2, ...TN]</code>.</p>
+<p>Tuple types are in the form <code>[T1, T2, ...TN]</code> and consist of a sequence of two or more element types.</p>
+<ul>
+<li>Tuple types inherit from the <code>Object</code> class.</li>
+<li>Tuple types are final classes.</li>
+</ul>
 <h2 id="optional-type"><a class="header" href="#optional-type">Optional type</a></h2>
 <p>The <code>Optional.&lt;T&gt;</code> type is an union of <code>undefined</code> and <code>T</code>. <code>Optional.&lt;T&gt;</code> may be expressed as <code>Optional.&lt;T&gt;</code>, <code>T?</code>, or <code>?T</code>.</p>
 <p>It is not allowed for <code>T</code> to be of the <code>Optional</code> type.</p>
 <pre><code>// Error
 type O = Optional.&lt;Optional.&lt;T&gt;&gt;;
 </code></pre>
+<ul>
+<li>The <code>Optional.&lt;T&gt;</code> type is a final class type.</li>
+<li>The <code>Optional.&lt;T&gt;</code> type inherits from <code>Object</code>.</li>
+</ul>
 <h2 id="array-type"><a class="header" href="#array-type">Array type</a></h2>
 <p>The <code>Array.&lt;T&gt;</code> type is a growable collection of <code>T</code> values. <code>Array</code> may be expressed as <code>Array.&lt;T&gt;</code> or <code>[T]</code>.</p>
 <h2 id="object-type"><a class="header" href="#object-type">Object type</a></h2>

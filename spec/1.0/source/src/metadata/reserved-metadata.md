@@ -4,7 +4,6 @@ Reserved meta-data are meta-data that cannot be overriden by user decorators. Th
 
 * [JetXML](#jetxml)
 * [Literal](#literal)
-* [Metadata](#metadata)
 * [Number](#number)
 * [Set](#set)
 * [Test](#test)
@@ -16,10 +15,6 @@ The `JetXML` meta-data is reserved at the `class` definition. It is used for ind
 ## Literal
 
 The `Literal` meta-data is reserved at the `class` definition. It is used for indicating that the class can be initialized through an object initializer.
-
-## Metadata
-
-The `Metadata` meta-data is used for defining plain meta-data, as described in the [Plain meta-data](plain-metadata.md) section.
 
 ## Number
 

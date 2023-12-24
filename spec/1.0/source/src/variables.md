@@ -37,7 +37,7 @@ public class C {
 A variable may contain zero or more arbitrary plain meta-data.
 
 ```
-[Metadata(N1(n2))]
+[[N1(n2)]]
 const x: T;
 ```
 

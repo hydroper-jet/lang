@@ -265,7 +265,7 @@ The accessibility of a property is either `public`, `private`, `internal`, or `p
 
 Meta data can be attached to items. There are three categories of meta data: reserved meta data, user meta data and plain meta data.
 
-* Plain meta data is uninterpreted meta data placed inside a `[Metadata()]` meta data.
+* Plain meta data is uninterpreted meta data placed inside a `[[...]]` notation.
 * User meta data has the same semantics as per the reference in VioletScript.
 
 ## Plain meta data
@@ -274,9 +274,10 @@ Meta data can be attached to items. There are three categories of meta data: res
 * The entries are in the `x = "y"` pair form
 * Keyless entries are either in the form `q::n`, `n` or `"n"` and map to a value string
 * A value file is allowed by using an expression in the form `File("path/to/file")`
+* Map values consisting of further key-value entries are allowed using the `Map(...)` group
 
 ```
-[Metadata(N1(x = "y", z, "w", File("myExtension.dll")))]
+[[N1(x = "y", z, "w", File("myExtension.dll"))]]
 ```
 
 # Assertion

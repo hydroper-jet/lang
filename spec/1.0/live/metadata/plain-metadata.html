@@ -166,21 +166,21 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="plain-meta-data"><a class="header" href="#plain-meta-data">Plain meta-data</a></h1>
-<p>Plain meta-data are uninterpreted meta-data attached to a definition, using the <code>Metadata</code> meta-data.</p>
+<p>Plain meta-data are uninterpreted meta-data attached to a definition, using two-bracketed notation (<code>[[]]</code>).</p>
 <p>Plain meta-data consists of a <code>Name()</code> or <code>Name</code> form that consists of zero or more entries. The following are the possible entry forms:</p>
 <ul>
 <li><code>key = &quot;value&quot;</code></li>
 <li><code>key = File(&quot;path/to/file&quot;)</code> — File entry</li>
-<li><code>key = Map(...)</code> — Entry consisting of a map of other meta-data entries</li>
+<li><code>key = Map(...)</code> — Entry consisting of a map of other key-value entries</li>
 <li><code>value</code> — Keyless entry, equivalent to <code>&quot;value&quot;</code></li>
 <li><code>&quot;value&quot;</code> — Keyless entry, equivalent to <code>value</code></li>
 <li><code>File(&quot;path/to/file&quot;)</code> — Keyless file entry</li>
-<li><code>Map(...)</code> — Keyless entry consisting of a map of other meta-data entries</li>
+<li><code>Map(...)</code> — Keyless entry consisting of a map of other key-value entries</li>
 </ul>
 <p>The identifiers used in the meta-data form and the entries are allowed to use a <code>::</code> separator, as in <code>q::N</code>.</p>
-<pre><code>[Metadata(N1(x = &quot;y&quot;, z, &quot;w&quot;, File(&quot;myExtension.dll&quot;)))]
-[Metadata(N2)]
-[Metadata(N3(x = Map(x = &quot;v&quot;), y = &quot;v&quot;))]
+<pre><code>[[N1(x = &quot;y&quot;, z, &quot;w&quot;, File(&quot;myExtension.dll&quot;))]]
+[[N2]]
+[[N3(x = Map(x = &quot;v&quot;), y = &quot;v&quot;)]]
 class C {}
 </code></pre>
 <p>The entry keys are not unique and may appear more than once.</p>

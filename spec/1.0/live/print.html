@@ -1003,7 +1003,7 @@ const y: Number;
 <p><em>Constant initializer</em>: A variable may consist of a constant initializer. A constant initializer consists of a constant expression.</p>
 <h2 id="meta-data"><a class="header" href="#meta-data">Meta data</a></h2>
 <p>A variable may contain zero or more arbitrary plain meta-data.</p>
-<pre><code>[Metadata(N1(n2))]
+<pre><code>[[N1(n2)]]
 const x: T;
 </code></pre>
 <h2 id="jetxml-variables"><a class="header" href="#jetxml-variables">JetXML variables</a></h2>
@@ -1062,7 +1062,7 @@ function set x(v: T): void {}
 </code></pre>
 <h2 id="meta-data-1"><a class="header" href="#meta-data-1">Meta data</a></h2>
 <p>A function may contain zero or more arbitrary plain meta-data.</p>
-<pre><code>[Metadata(N1(n2))]
+<pre><code>[[N1(n2)]]
 function f1(): void {}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="instance-methods"><a class="header" href="#instance-methods">Instance methods</a></h1>
@@ -1299,7 +1299,6 @@ function f.&lt;T&gt;(): void {}
 <ul>
 <li><a href="metadata/reserved-metadata.html#jetxml">JetXML</a></li>
 <li><a href="metadata/reserved-metadata.html#literal">Literal</a></li>
-<li><a href="metadata/reserved-metadata.html#metadata">Metadata</a></li>
 <li><a href="metadata/reserved-metadata.html#number">Number</a></li>
 <li><a href="metadata/reserved-metadata.html#set">Set</a></li>
 <li><a href="metadata/reserved-metadata.html#test">Test</a></li>
@@ -1308,8 +1307,6 @@ function f.&lt;T&gt;(): void {}
 <p>The <code>JetXML</code> meta-data is reserved at the <code>class</code> definition. It is used for indicating supported vector and color classes in a base class that implements <code>JetXML</code>.</p>
 <h2 id="literal"><a class="header" href="#literal">Literal</a></h2>
 <p>The <code>Literal</code> meta-data is reserved at the <code>class</code> definition. It is used for indicating that the class can be initialized through an object initializer.</p>
-<h2 id="metadata"><a class="header" href="#metadata">Metadata</a></h2>
-<p>The <code>Metadata</code> meta-data is used for defining plain meta-data, as described in the <a href="metadata/plain-metadata.html">Plain meta-data</a> section.</p>
 <h2 id="number"><a class="header" href="#number">Number</a></h2>
 <p>The <code>Number</code> meta-data is reserved at the <code>enum</code> definition. It is used for selecting the number type to use for representing instances of the <code>enum</code>.</p>
 <h2 id="set"><a class="header" href="#set">Set</a></h2>
@@ -1348,21 +1345,21 @@ class ExampleClass {
 class ExampleClass {}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="plain-meta-data"><a class="header" href="#plain-meta-data">Plain meta-data</a></h1>
-<p>Plain meta-data are uninterpreted meta-data attached to a definition, using the <code>Metadata</code> meta-data.</p>
+<p>Plain meta-data are uninterpreted meta-data attached to a definition, using two-bracketed notation (<code>[[]]</code>).</p>
 <p>Plain meta-data consists of a <code>Name()</code> or <code>Name</code> form that consists of zero or more entries. The following are the possible entry forms:</p>
 <ul>
 <li><code>key = &quot;value&quot;</code></li>
 <li><code>key = File(&quot;path/to/file&quot;)</code> — File entry</li>
-<li><code>key = Map(...)</code> — Entry consisting of a map of other meta-data entries</li>
+<li><code>key = Map(...)</code> — Entry consisting of a map of other key-value entries</li>
 <li><code>value</code> — Keyless entry, equivalent to <code>&quot;value&quot;</code></li>
 <li><code>&quot;value&quot;</code> — Keyless entry, equivalent to <code>value</code></li>
 <li><code>File(&quot;path/to/file&quot;)</code> — Keyless file entry</li>
-<li><code>Map(...)</code> — Keyless entry consisting of a map of other meta-data entries</li>
+<li><code>Map(...)</code> — Keyless entry consisting of a map of other key-value entries</li>
 </ul>
 <p>The identifiers used in the meta-data form and the entries are allowed to use a <code>::</code> separator, as in <code>q::N</code>.</p>
-<pre><code>[Metadata(N1(x = &quot;y&quot;, z, &quot;w&quot;, File(&quot;myExtension.dll&quot;)))]
-[Metadata(N2)]
-[Metadata(N3(x = Map(x = &quot;v&quot;), y = &quot;v&quot;))]
+<pre><code>[[N1(x = &quot;y&quot;, z, &quot;w&quot;, File(&quot;myExtension.dll&quot;))]]
+[[N2]]
+[[N3(x = Map(x = &quot;v&quot;), y = &quot;v&quot;)]]
 class C {}
 </code></pre>
 <p>The entry keys are not unique and may appear more than once.</p>

@@ -8,7 +8,7 @@ Future data bindings support:
 
 -->
 
-A JetXML component is a XML file with the extension `.jetxml` describing a class that inherits from a `JetXML` implementor. The class being described the XML file is referred throughout this section as `descClass`.
+A JetXML component is a XML file with the extension `.jetxml` describing a class that inherits from a `JetXML` implementor. The class being described in the XML file is referred throughout this section as `descClass`.
 
 The default XML namespace used throughout this section is the **jetxml** string, as if the attribute `xmlns="jetxml"` were applied to the root XML element.
 

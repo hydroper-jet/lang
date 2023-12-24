@@ -1,11 +1,28 @@
 # Variables
 
-A variable consists of a name, a static type, a [visibility](visibility.md), and miscellaneous. A variable may be read-only or constant by using the `const` keyword.
+A variable is a fixed slot storing a value.
 
 ```
 var x: Number;
 const y: Number;
 ```
+
+A variable consists of the following internal properties:
+
+| Internal property | Description |
+| ----------------- | ----------- |
+| \[\[*Name*\]\] | The unqualified name of the variable. |
+| \[\[*Type*\]\] | The type of the variable. |
+| \[\[*Visibility*\]\] | The [visibility](visibility.md) of the variable. |
+| \[\[*ParentDefinition*\]\] | The parent definition of the variable. |
+| \[\[*ReadOnly*\]\] | Indicates whether the variable is read-only or not. |
+| \[\[*IsJetXMLVariable*\]\] | Indicates whether it is a JetXML instance variable belonging to a JetXML file. |
+| \[\[*ConstantInitializer*\]\] | Constant initializer of the variable as a constant value. |
+| \[\[*PlainMetadata*\]\] | Plain meta-data attached to the variable. |
+
+## Read-only variables
+
+A variable may be read-only by using the `const` keyword instead of the `var` keyword when defining it.
 
 ## Initializer
 
@@ -45,7 +62,7 @@ const x: T;
 
 A JetXML variable is an instance variable belonging to a JetXML file.
 
-* Assigning value to a JetXML variable causes the following assigment to the instance object:
+* Assigning value to a JetXML variable causes the following post assigment to the instance object:
 
 ```
 instance.jetxmlStatus = "outdated";

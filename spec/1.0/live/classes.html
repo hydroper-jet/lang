@@ -169,7 +169,8 @@
 <p>A class represents an object type.</p>
 <p>Classes consist of several internal properties, as described in the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
-<tr><td>[[<em>Name</em>]]</td><td>The non fully qualified name of the class.</td></tr>
+<tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the class.</td></tr>
+<tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the class.</td></tr>
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the class.</td></tr>
 <tr><td>[[<em>SuperClass</em>]]</td><td>The super class of the class. It is undefined if the class is the <code>Object</code> class.</td></tr>
 <tr><td>[[<em>Implements</em>]]</td><td>Set of interfaces the class implements.</td></tr>
@@ -180,8 +181,10 @@
 <tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the class.</td></tr>
 <tr><td>[[<em>StaticProperties</em>]]</td><td>Static properties of the class.</td></tr>
 <tr><td>[[<em>Prototype</em>]]</td><td>The class prototype.</td></tr>
+<tr><td>[[<em>Proxies</em>]]</td><td>Proxies defined by the class.</td></tr>
 <tr><td>[[<em>JetXMLColorClass</em>]]</td><td>For a JetXML base class, indicates the supported color class.</td></tr>
 <tr><td>[[<em>JetXMLVectorClasses</em>]]</td><td>For a JetXML base class, indicates the supported vector class.</td></tr>
+<tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the class.</td></tr>
 </tbody></table>
 </div>
 <h2 id="super-class"><a class="header" href="#super-class">Super class</a></h2>

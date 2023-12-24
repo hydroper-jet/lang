@@ -975,10 +975,24 @@ package q1.q2 {}
 package q1.q2.qN {}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="variables"><a class="header" href="#variables">Variables</a></h1>
-<p>A variable consists of a name, a static type, a <a href="visibility.html">visibility</a>, and miscellaneous. A variable may be read-only or constant by using the <code>const</code> keyword.</p>
+<p>A variable is a fixed slot storing a value.</p>
 <pre><code>var x: Number;
 const y: Number;
 </code></pre>
+<p>A variable consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the variable.</td></tr>
+<tr><td>[[<em>Type</em>]]</td><td>The type of the variable.</td></tr>
+<tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the variable.</td></tr>
+<tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the variable.</td></tr>
+<tr><td>[[<em>ReadOnly</em>]]</td><td>Indicates whether the variable is read-only or not.</td></tr>
+<tr><td>[[<em>IsJetXMLVariable</em>]]</td><td>Indicates whether it is a JetXML instance variable belonging to a JetXML file.</td></tr>
+<tr><td>[[<em>ConstantInitializer</em>]]</td><td>Constant initializer of the variable as a constant value.</td></tr>
+<tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the variable.</td></tr>
+</tbody></table>
+</div>
+<h2 id="read-only-variables"><a class="header" href="#read-only-variables">Read-only variables</a></h2>
+<p>A variable may be read-only by using the <code>const</code> keyword instead of the <code>var</code> keyword when defining it.</p>
 <h2 id="initializer"><a class="header" href="#initializer">Initializer</a></h2>
 <p>Variables are lazily initialized with the exception of variables whose static type has a <em>default</em> value, such as a <a href="types.html#primitive-types">primitive type</a> or the <code>Optional</code> type.</p>
 <ul>
@@ -1009,7 +1023,7 @@ const x: T;
 <h2 id="jetxml-variables"><a class="header" href="#jetxml-variables">JetXML variables</a></h2>
 <p>A JetXML variable is an instance variable belonging to a JetXML file.</p>
 <ul>
-<li>Assigning value to a JetXML variable causes the following assigment to the instance object:</li>
+<li>Assigning value to a JetXML variable causes the following post assigment to the instance object:</li>
 </ul>
 <pre><code>instance.jetxmlStatus = &quot;outdated&quot;;
 </code></pre>
@@ -1025,7 +1039,7 @@ const o: C = {};
 <h2 id="parent-definition"><a class="header" href="#parent-definition">Parent definition</a></h2>
 <p>When the parent definition of a variable is a package, the variable has a fully package qualified name.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="virtual-properties"><a class="header" href="#virtual-properties">Virtual properties</a></h1>
-<p>A virtual property consists of a name, a static type, a possibly omitted getter, a possibly omitted setter, a <a href="visibility.html">visibility</a>, and miscellaneous.</p>
+<p>A virtual property is an accessor that may be used as a variable.</p>
 <ul>
 <li>A virtual property is read-only if it has only a getter.</li>
 <li>A virtual property is write-only if it has only a setter.</li>
@@ -1034,10 +1048,39 @@ const o: C = {};
 <pre><code>function get x(): T (v);
 function set x(v: T): void {}
 </code></pre>
+<p>Virtual properties consist of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the virtual property.</td></tr>
+<tr><td>[[<em>Type</em>]]</td><td>The type of the virtual property, inferred from the getter or setter.</td></tr>
+<tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the virtual property.</td></tr>
+<tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the virtual property.</td></tr>
+<tr><td>[[<em>ReadOnly</em>]]</td><td>Indicates whether the virtual property is read-only or not.</td></tr>
+<tr><td>[[<em>WriteOnly</em>]]</td><td>Indicates whether the virtual property is write-only or not.</td></tr>
+<tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the virtual property.</td></tr>
+</tbody></table>
+</div>
 <h2 id="parent-definition-1"><a class="header" href="#parent-definition-1">Parent definition</a></h2>
 <p>When the parent definition of a virtual property is a package, the virtual property has a fully package qualified name.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
-<p>A function consists of a name, a static function type as function signature, a <a href="visibility.html">visibility</a>, and miscellaneous.</p>
+<p>A function represents an invokable symbol that takes parameters and returns a value.</p>
+<p>Functions consist of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the function.</td></tr>
+<tr><td>[[<em>Signature</em>]]</td><td>A static function type describing the function signature.</td></tr>
+<tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the function.</td></tr>
+<tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the function.</td></tr>
+<tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the function if it is generic.</td></tr>
+<tr><td>[[<em>IsGenerator</em>]]</td><td>Indicates whether the function is a generator.</td></tr>
+<tr><td>[[<em>IsAsync</em>]]</td><td>Indicates whether the function is asynchronous.</td></tr>
+<tr><td>[[<em>IsNative</em>]]</td><td>Indicates whether the function is native.</td></tr>
+<tr><td>[[<em>IsOptionalInterfaceMethod</em>]]</td><td>Indicates whether the function is an optional interface method.</td></tr>
+<tr><td>[[<em>IsOverriding</em>]]</td><td>Indicates whether the function is overriding another function.</td></tr>
+<tr><td>[[<em>IsFinal</em>]]</td><td>Indicates whether a method is final.</td></tr>
+<tr><td>[[<em>IsAbstract</em>]]</td><td>Indicates whether a method is abstract.</td></tr>
+<tr><td>[[<em>OfVirtualProperty</em>]]</td><td>Indicates the virtual property to which a getter or setter belongs.</td></tr>
+<tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the function.</td></tr>
+</tbody></table>
+</div>
 <h2 id="parent-definition-2"><a class="header" href="#parent-definition-2">Parent definition</a></h2>
 <p>When the parent definition of a function is a package, the function has a fully package qualified name.</p>
 <h2 id="generics"><a class="header" href="#generics">Generics</a></h2>
@@ -1379,11 +1422,18 @@ class C {}
 <li><code>File(import.meta.outputDirectory, &quot;path/to/file&quot;)</code> — Resolves file from the output directory of the JetPM build process.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="aliases"><a class="header" href="#aliases">Aliases</a></h1>
-<p>An alias is a named symbol that translates to another symbol. Aliases are a result from <code>type</code> definitions and alias <code>import</code> directives.</p>
+<p>An alias is a symbol that translates to another symbol. Aliases are a result from <code>type</code> definitions and alias <code>import</code> directives.</p>
 <pre><code>type Double = Number;
 import N2 = p.N1;
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="enumerations"><a class="header" href="#enumerations">Enumerations</a></h1>
+<p>Aliases consist of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the alias.</td></tr>
+<tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the alias.</td></tr>
+<tr><td>[[<em>AliasOf</em>]]</td><td>The symbol to which this alias translates.</td></tr>
+<tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the alias.</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="enumerations"><a class="header" href="#enumerations">Enumerations</a></h1>
 <p>The language supports user enumerations based on (<em>string</em>, <em>number</em>) groups. Enumerations are defined using the <code>enum</code> keyword.</p>
 <p>An enumeration is a final class that inherits the <code>Object</code> type.</p>
 <pre><code>enum FoodType {
@@ -1498,7 +1548,8 @@ proxy function has(value: E): Boolean (
 <p>A class represents an object type.</p>
 <p>Classes consist of several internal properties, as described in the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
-<tr><td>[[<em>Name</em>]]</td><td>The non fully qualified name of the class.</td></tr>
+<tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the class.</td></tr>
+<tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the class.</td></tr>
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the class.</td></tr>
 <tr><td>[[<em>SuperClass</em>]]</td><td>The super class of the class. It is undefined if the class is the <code>Object</code> class.</td></tr>
 <tr><td>[[<em>Implements</em>]]</td><td>Set of interfaces the class implements.</td></tr>
@@ -1509,8 +1560,10 @@ proxy function has(value: E): Boolean (
 <tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the class.</td></tr>
 <tr><td>[[<em>StaticProperties</em>]]</td><td>Static properties of the class.</td></tr>
 <tr><td>[[<em>Prototype</em>]]</td><td>The class prototype.</td></tr>
+<tr><td>[[<em>Proxies</em>]]</td><td>Proxies defined by the class.</td></tr>
 <tr><td>[[<em>JetXMLColorClass</em>]]</td><td>For a JetXML base class, indicates the supported color class.</td></tr>
 <tr><td>[[<em>JetXMLVectorClasses</em>]]</td><td>For a JetXML base class, indicates the supported vector class.</td></tr>
+<tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the class.</td></tr>
 </tbody></table>
 </div>
 <h2 id="super-class"><a class="header" href="#super-class">Super class</a></h2>
@@ -1546,11 +1599,13 @@ proxy function has(value: E): Boolean (
 <p>An interface represents an abstract object type.</p>
 <p>Interfaces consist of a small number of internal properties, described in the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
-<tr><td>[[<em>Name</em>]]</td><td>The non fully qualified name of the interface.</td></tr>
+<tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the interface.</td></tr>
+<tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the interface.</td></tr>
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the interface.</td></tr>
 <tr><td>[[<em>SuperInterfaces</em>]]</td><td>The super interfaces of the interface.</td></tr>
 <tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the interface.</td></tr>
 <tr><td>[[<em>Prototype</em>]]</td><td>The interface prototype.</td></tr>
+<tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the class.</td></tr>
 </tbody></table>
 </div>
 <h2 id="super-interfaces"><a class="header" href="#super-interfaces">Super interfaces</a></h2>

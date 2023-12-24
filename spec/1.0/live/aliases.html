@@ -166,11 +166,18 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="aliases"><a class="header" href="#aliases">Aliases</a></h1>
-<p>An alias is a named symbol that translates to another symbol. Aliases are a result from <code>type</code> definitions and alias <code>import</code> directives.</p>
+<p>An alias is a symbol that translates to another symbol. Aliases are a result from <code>type</code> definitions and alias <code>import</code> directives.</p>
 <pre><code>type Double = Number;
 import N2 = p.N1;
 </code></pre>
-
+<p>Aliases consist of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the alias.</td></tr>
+<tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the alias.</td></tr>
+<tr><td>[[<em>AliasOf</em>]]</td><td>The symbol to which this alias translates.</td></tr>
+<tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the alias.</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

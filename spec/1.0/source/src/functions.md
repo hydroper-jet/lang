@@ -1,6 +1,25 @@
 # Functions
 
-A function consists of a name, a static function type as function signature, a [visibility](visibility.md), and miscellaneous.
+A function represents an invokable symbol that takes parameters and returns a value.
+
+Functions consist of the following internal properties:
+
+| Internal property | Description |
+| ----------------- | ----------- |
+| \[\[*Name*\]\] | The unqualified name of the function. |
+| \[\[*Signature*\]\] | A static function type describing the function signature. |
+| \[\[*Visibility*\]\] | The [visibility](visibility.md) of the function. |
+| \[\[*ParentDefinition*\]\] | The parent definition of the function. |
+| \[\[*TypeParameters*\]\] | The type parameter sequence of the function if it is generic. |
+| \[\[*IsGenerator*\]\] | Indicates whether the function is a generator. |
+| \[\[*IsAsync*\]\] | Indicates whether the function is asynchronous. |
+| \[\[*IsNative*\]\] | Indicates whether the function is native. |
+| \[\[*IsOptionalInterfaceMethod*\]\] | Indicates whether the function is an optional interface method. |
+| \[\[*IsOverriding*\]\] | Indicates whether the function is overriding another function. |
+| \[\[*IsFinal*\]\] | Indicates whether a method is final. |
+| \[\[*IsAbstract*\]\] | Indicates whether a method is abstract. |
+| \[\[*OfVirtualProperty*\]\] | Indicates the virtual property to which a getter or setter belongs. |
+| \[\[*PlainMetadata*\]\] | Plain meta-data attached to the function. |
 
 ## Parent definition
 

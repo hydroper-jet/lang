@@ -6,11 +6,13 @@ Interfaces consist of a small number of internal properties, described in the fo
 
 | Internal property | Description |
 | ----------------- | ----------- |
-| \[\[*Name*\]\] | The non fully qualified name of the interface. |
+| \[\[*Name*\]\] | The unqualified name of the interface. |
+| \[\[*Visibility*\]\] | The [visibility](visibility.md) of the interface. |
 | \[\[*ParentDefinition*\]\] | The parent definition of the interface. |
 | \[\[*SuperInterfaces*\]\] | The super interfaces of the interface. |
 | \[\[*TypeParameters*\]\] | The type parameter sequence of the interface. |
 | \[\[*Prototype*\]\] | The interface prototype. |
+| \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |
 
 ## Super interfaces
 

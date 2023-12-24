@@ -166,10 +166,24 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="variables"><a class="header" href="#variables">Variables</a></h1>
-<p>A variable consists of a name, a static type, a <a href="visibility.html">visibility</a>, and miscellaneous. A variable may be read-only or constant by using the <code>const</code> keyword.</p>
+<p>A variable is a fixed slot storing a value.</p>
 <pre><code>var x: Number;
 const y: Number;
 </code></pre>
+<p>A variable consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the variable.</td></tr>
+<tr><td>[[<em>Type</em>]]</td><td>The type of the variable.</td></tr>
+<tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the variable.</td></tr>
+<tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the variable.</td></tr>
+<tr><td>[[<em>ReadOnly</em>]]</td><td>Indicates whether the variable is read-only or not.</td></tr>
+<tr><td>[[<em>IsJetXMLVariable</em>]]</td><td>Indicates whether it is a JetXML instance variable belonging to a JetXML file.</td></tr>
+<tr><td>[[<em>ConstantInitializer</em>]]</td><td>Constant initializer of the variable as a constant value.</td></tr>
+<tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the variable.</td></tr>
+</tbody></table>
+</div>
+<h2 id="read-only-variables"><a class="header" href="#read-only-variables">Read-only variables</a></h2>
+<p>A variable may be read-only by using the <code>const</code> keyword instead of the <code>var</code> keyword when defining it.</p>
 <h2 id="initializer"><a class="header" href="#initializer">Initializer</a></h2>
 <p>Variables are lazily initialized with the exception of variables whose static type has a <em>default</em> value, such as a <a href="types.html#primitive-types">primitive type</a> or the <code>Optional</code> type.</p>
 <ul>
@@ -200,7 +214,7 @@ const x: T;
 <h2 id="jetxml-variables"><a class="header" href="#jetxml-variables">JetXML variables</a></h2>
 <p>A JetXML variable is an instance variable belonging to a JetXML file.</p>
 <ul>
-<li>Assigning value to a JetXML variable causes the following assigment to the instance object:</li>
+<li>Assigning value to a JetXML variable causes the following post assigment to the instance object:</li>
 </ul>
 <pre><code>instance.jetxmlStatus = &quot;outdated&quot;;
 </code></pre>

@@ -6,7 +6,8 @@ Classes consist of several internal properties, as described in the following ta
 
 | Internal property | Description |
 | ----------------- | ----------- |
-| \[\[*Name*\]\] | The non fully qualified name of the class. |
+| \[\[*Name*\]\] | The unqualified name of the class. |
+| \[\[*Visibility*\]\] | The [visibility](visibility.md) of the class. |
 | \[\[*ParentDefinition*\]\] | The parent definition of the class. |
 | \[\[*SuperClass*\]\] | The super class of the class. It is undefined if the class is the `Object` class. |
 | \[\[*Implements*\]\] | Set of interfaces the class implements. |
@@ -17,8 +18,10 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*TypeParameters*\]\] | The type parameter sequence of the class. |
 | \[\[*StaticProperties*\]\] | Static properties of the class. |
 | \[\[*Prototype*\]\] | The class prototype. |
+| \[\[*Proxies*\]\] | Proxies defined by the class. |
 | \[\[*JetXMLColorClass*\]\] | For a JetXML base class, indicates the supported color class. |
 | \[\[*JetXMLVectorClasses*\]\] | For a JetXML base class, indicates the supported vector class. |
+| \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |
 
 ## Super class
 

@@ -166,7 +166,25 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
-<p>A function consists of a name, a static function type as function signature, a <a href="visibility.html">visibility</a>, and miscellaneous.</p>
+<p>A function represents an invokable symbol that takes parameters and returns a value.</p>
+<p>Functions consist of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the function.</td></tr>
+<tr><td>[[<em>Signature</em>]]</td><td>A static function type describing the function signature.</td></tr>
+<tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the function.</td></tr>
+<tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the function.</td></tr>
+<tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the function if it is generic.</td></tr>
+<tr><td>[[<em>IsGenerator</em>]]</td><td>Indicates whether the function is a generator.</td></tr>
+<tr><td>[[<em>IsAsync</em>]]</td><td>Indicates whether the function is asynchronous.</td></tr>
+<tr><td>[[<em>IsNative</em>]]</td><td>Indicates whether the function is native.</td></tr>
+<tr><td>[[<em>IsOptionalInterfaceMethod</em>]]</td><td>Indicates whether the function is an optional interface method.</td></tr>
+<tr><td>[[<em>IsOverriding</em>]]</td><td>Indicates whether the function is overriding another function.</td></tr>
+<tr><td>[[<em>IsFinal</em>]]</td><td>Indicates whether a method is final.</td></tr>
+<tr><td>[[<em>IsAbstract</em>]]</td><td>Indicates whether a method is abstract.</td></tr>
+<tr><td>[[<em>OfVirtualProperty</em>]]</td><td>Indicates the virtual property to which a getter or setter belongs.</td></tr>
+<tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the function.</td></tr>
+</tbody></table>
+</div>
 <h2 id="parent-definition"><a class="header" href="#parent-definition">Parent definition</a></h2>
 <p>When the parent definition of a function is a package, the function has a fully package qualified name.</p>
 <h2 id="generics"><a class="header" href="#generics">Generics</a></h2>

@@ -56,6 +56,11 @@
 
 **Verification**
 
+<i>TypeExpression</i> : <b>?</b> <i>NoQuestionPrefixTypeExpression</i>
+
+* Return the verification result of <i>NoQuestionPrefixTypeExpression</i> if it is the `Optional` type.
+* Return an `Optional` type consisting of the verification result of <i>NoQuestionPrefixTypeExpression</i>.
+
 <i>NoQuestionPrefixTypeExpression</i> : <b>*</b>
 
 * Return the any type.

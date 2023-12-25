@@ -219,6 +219,11 @@
     </tr>
 </table>
 <p><strong>Verification</strong></p>
+<p><i>TypeExpression</i> : <b>?</b> <i>NoQuestionPrefixTypeExpression</i></p>
+<ul>
+<li>Return the verification result of <i>NoQuestionPrefixTypeExpression</i> if it is the <code>Optional</code> type.</li>
+<li>Return an <code>Optional</code> type consisting of the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
+</ul>
 <p><i>NoQuestionPrefixTypeExpression</i> : <b>*</b></p>
 <ul>
 <li>Return the any type.</li>

@@ -37,3 +37,4 @@
 - [JetXML components](jetxml-components.md)
 - [Property resolution](property-resolution.md)
 - [Scopes](scopes.md)
+- [Type expressions](type-expressions.md)

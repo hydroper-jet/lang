@@ -224,13 +224,11 @@ xml
 
 each
 enum
-from
 meta
 type
 
 embed
 final
-never
 proxy
 where
 

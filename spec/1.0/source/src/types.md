@@ -47,10 +47,6 @@ The `*` type contains values from all other types.
 
 The `undefined` or `void` type consists of the `undefined` constant.
 
-## Never type
-
-The `never` type contains no value.
-
 ## Number types
 
 *IEEE 754 floating point*:

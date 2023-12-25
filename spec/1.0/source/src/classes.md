@@ -20,7 +20,7 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*Prototype*\]\] | Properties of the class prototype as a dictionary from string to symbol. |
 | \[\[*Proxies*\]\] | Proxies defined by the class as a dictionary from string to function symbol. |
 | \[\[*JetXMLColorClass*\]\] | For a JetXML base class, indicates the supported color class. |
-| \[\[*JetXMLVectorClasses*\]\] | For a JetXML base class, indicates the supported vector class. |
+| \[\[*JetXMLVectorClasses*\]\] | For a JetXML base class, indicates the supported vector classes. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |
 
 ## Super class

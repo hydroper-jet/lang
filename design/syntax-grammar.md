@@ -103,7 +103,6 @@ Expressions:
 
 Type expressions:
 
-* [ ] Never
 * [ ] Any
 * [ ] Identifier
 * [ ] Member

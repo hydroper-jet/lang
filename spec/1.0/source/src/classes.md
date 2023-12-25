@@ -19,8 +19,8 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*StaticProperties*\]\] | Static properties of the class. |
 | \[\[*Prototype*\]\] | Properties of the class prototype as a dictionary from string to symbol. |
 | \[\[*Proxies*\]\] | Proxies defined by the class as a dictionary from string to function symbol. |
-| \[\[*JetXMLColorClass*\]\] | For a JetXML base class, indicates the supported color class. |
-| \[\[*JetXMLVectorClasses*\]\] | For a JetXML base class, indicates the supported vector classes. |
+| \[\[*JetXMLColor*\]\] | For a JetXML base class, indicates the supported color class. |
+| \[\[*JetXMLVectors*\]\] | For a JetXML base class, indicates the supported vector classes. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |
 
 ## Super class
@@ -43,8 +43,8 @@ A JetXML base class may contain a `JetXML` meta-data with two optional options `
 * It is a verify error if the fully package qualified names specified within `JetXML` do not resolve to a class.
 * It is a verify error if the class specified by `colorClass` does not contain a constructor with the signature `(...arguments: [*]) => void`.
 * It is a verify error if the class specified by `vectorClass` does not contain a constructor that takes parameters of a same number type.
-* Only one `colorClass` occurrence is allowed, contributing the class to the \[\[*JetXMLColorClass*\]\] property.
-* Multiple `vectorClass` occurrences are allowed, contributing multiple classes to the annotated class's \[\[*JetXMLVectorClasses*\]\] property.
+* Only one `colorClass` occurrence is allowed, contributing the class to the \[\[*JetXMLColor*\]\] property.
+* Multiple `vectorClass` occurrences are allowed, contributing multiple classes to the annotated class's \[\[*JetXMLVectors*\]\] property.
 
 ```
 package org.myEngine {

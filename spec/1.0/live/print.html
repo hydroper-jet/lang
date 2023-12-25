@@ -1614,8 +1614,8 @@ proxy function has(value: E): Boolean (
 <tr><td>[[<em>StaticProperties</em>]]</td><td>Static properties of the class.</td></tr>
 <tr><td>[[<em>Prototype</em>]]</td><td>Properties of the class prototype as a dictionary from string to symbol.</td></tr>
 <tr><td>[[<em>Proxies</em>]]</td><td>Proxies defined by the class as a dictionary from string to function symbol.</td></tr>
-<tr><td>[[<em>JetXMLColorClass</em>]]</td><td>For a JetXML base class, indicates the supported color class.</td></tr>
-<tr><td>[[<em>JetXMLVectorClasses</em>]]</td><td>For a JetXML base class, indicates the supported vector classes.</td></tr>
+<tr><td>[[<em>JetXMLColor</em>]]</td><td>For a JetXML base class, indicates the supported color class.</td></tr>
+<tr><td>[[<em>JetXMLVectors</em>]]</td><td>For a JetXML base class, indicates the supported vector classes.</td></tr>
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the class.</td></tr>
 </tbody></table>
 </div>
@@ -1634,8 +1634,8 @@ proxy function has(value: E): Boolean (
 <li>It is a verify error if the fully package qualified names specified within <code>JetXML</code> do not resolve to a class.</li>
 <li>It is a verify error if the class specified by <code>colorClass</code> does not contain a constructor with the signature <code>(...arguments: [*]) =&gt; void</code>.</li>
 <li>It is a verify error if the class specified by <code>vectorClass</code> does not contain a constructor that takes parameters of a same number type.</li>
-<li>Only one <code>colorClass</code> occurrence is allowed, contributing the class to the [[<em>JetXMLColorClass</em>]] property.</li>
-<li>Multiple <code>vectorClass</code> occurrences are allowed, contributing multiple classes to the annotated class's [[<em>JetXMLVectorClasses</em>]] property.</li>
+<li>Only one <code>colorClass</code> occurrence is allowed, contributing the class to the [[<em>JetXMLColor</em>]] property.</li>
+<li>Multiple <code>vectorClass</code> occurrences are allowed, contributing multiple classes to the annotated class's [[<em>JetXMLVectors</em>]] property.</li>
 </ul>
 <pre><code>package org.myEngine {
     [JetXML(
@@ -1743,11 +1743,11 @@ Future data bindings support:
 </li>
 <li>Otherwise:
 <ol>
-<li>Let <em>colorClass</em> be [[<em>JetXMLColorClass</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
+<li>Let <em>colorClass</em> be [[<em>JetXMLColor</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
 <li>If <em>colorClass</em> exists and <em>t</em> is equals <em>colorClass</em>, assign <code>new colorClass(v)</code> to <em>p</em> where <code>v</code> is the attribute value as a <code>String</code>.</li>
 <li>Otherwise:
 <ol>
-<li>Let <em>vectorClasses</em> be [[<em>JetXMLVectorClasses</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
+<li>Let <em>vectorClasses</em> be [[<em>JetXMLVectors</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
 <li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
 <li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>StringSequenceToNumberSequence</em>(<em>vectorComponents</em>, <em>N</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
 <li>Otherwise throw a verify error.</li>

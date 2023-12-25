@@ -182,8 +182,8 @@
 <tr><td>[[<em>StaticProperties</em>]]</td><td>Static properties of the class.</td></tr>
 <tr><td>[[<em>Prototype</em>]]</td><td>Properties of the class prototype as a dictionary from string to symbol.</td></tr>
 <tr><td>[[<em>Proxies</em>]]</td><td>Proxies defined by the class as a dictionary from string to function symbol.</td></tr>
-<tr><td>[[<em>JetXMLColorClass</em>]]</td><td>For a JetXML base class, indicates the supported color class.</td></tr>
-<tr><td>[[<em>JetXMLVectorClasses</em>]]</td><td>For a JetXML base class, indicates the supported vector classes.</td></tr>
+<tr><td>[[<em>JetXMLColor</em>]]</td><td>For a JetXML base class, indicates the supported color class.</td></tr>
+<tr><td>[[<em>JetXMLVectors</em>]]</td><td>For a JetXML base class, indicates the supported vector classes.</td></tr>
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the class.</td></tr>
 </tbody></table>
 </div>
@@ -202,8 +202,8 @@
 <li>It is a verify error if the fully package qualified names specified within <code>JetXML</code> do not resolve to a class.</li>
 <li>It is a verify error if the class specified by <code>colorClass</code> does not contain a constructor with the signature <code>(...arguments: [*]) =&gt; void</code>.</li>
 <li>It is a verify error if the class specified by <code>vectorClass</code> does not contain a constructor that takes parameters of a same number type.</li>
-<li>Only one <code>colorClass</code> occurrence is allowed, contributing the class to the [[<em>JetXMLColorClass</em>]] property.</li>
-<li>Multiple <code>vectorClass</code> occurrences are allowed, contributing multiple classes to the annotated class's [[<em>JetXMLVectorClasses</em>]] property.</li>
+<li>Only one <code>colorClass</code> occurrence is allowed, contributing the class to the [[<em>JetXMLColor</em>]] property.</li>
+<li>Multiple <code>vectorClass</code> occurrences are allowed, contributing multiple classes to the annotated class's [[<em>JetXMLVectors</em>]] property.</li>
 </ul>
 <pre><code>package org.myEngine {
     [JetXML(

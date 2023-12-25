@@ -9,6 +9,12 @@ A scope consists of the following internal properties:
 | \[\[*Imports*\]\] | Set of package imported properties. |
 | \[\[*OpenPackages*\]\] | Set of open packages. |
 
+The \[\[*Imports*\]\] property of a scope holds *non aliased* properties imported from a package.
+
+The \[\[*OpenPackages*\]\] property of a scope holds *non aliased* opened packages.
+
+An `import` directive that aliases a property or package contributes an alias to \[\[*Properties*\]\].
+
 ## With scope
 
 A `with` scope in addition consists of the following internal properties:
@@ -35,7 +41,7 @@ An activation scope in addition consists of the following internal properties:
 
 ## Class scope
 
-A class scope in addition consists of the following internal properties:
+A `class` scope in addition consists of the following internal properties:
 
 | Internal property | Description |
 | ----------------- | ----------- |

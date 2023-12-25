@@ -1959,6 +1959,9 @@ Future data bindings support:
 <tr><td>[[<em>OpenPackages</em>]]</td><td>Set of open packages.</td></tr>
 </tbody></table>
 </div>
+<p>The [[<em>Imports</em>]] property of a scope holds <em>non aliased</em> properties imported from a package.</p>
+<p>The [[<em>OpenPackages</em>]] property of a scope holds <em>non aliased</em> opened packages.</p>
+<p>An <code>import</code> directive that aliases a property or package contributes an alias to [[<em>Properties</em>]].</p>
 <h2 id="with-scope"><a class="header" href="#with-scope">With scope</a></h2>
 <p>A <code>with</code> scope in addition consists of the following internal properties:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
@@ -1978,7 +1981,7 @@ Future data bindings support:
 </tbody></table>
 </div>
 <h2 id="class-scope"><a class="header" href="#class-scope">Class scope</a></h2>
-<p>A class scope in addition consists of the following internal properties:</p>
+<p>A <code>class</code> scope in addition consists of the following internal properties:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
 <tr><td>[[<em>Class</em>]]</td><td>The enclosing class.</td></tr>
 </tbody></table>

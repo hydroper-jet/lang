@@ -37,6 +37,7 @@ An activation scope in addition consists of the following internal properties:
 
 | Internal property | Description |
 | ----------------- | ----------- |
+| \[\[*Function*\]\] | The function to which this scope belongs. |
 | \[\[*This*\]\] | The object returned by the `this` literal. |
 
 ## Class scope

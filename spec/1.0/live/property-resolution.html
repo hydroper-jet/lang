@@ -166,15 +166,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="property-resolution"><a class="header" href="#property-resolution">Property resolution</a></h1>
-<!--
-
-* Dynamic resolution for:
-  * `*`, `XML`, `XMLList`
-* Resolving property by number value always uses {proxy::getProperty, proxy::setProperty, proxy::deleteProperty}
-* Fully package qualified names shadow any matching variable names
-* Consider package wildcard uses in lexical references
-
--->
 <h2 id="resolveproperty"><a class="header" href="#resolveproperty">ResolveProperty()</a></h2>
 <p>The internal <em>ResolveProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>) function takes a <em>base</em> object, a <em>qual</em> qualifier value and a <em>key</em> value, and resolves to a reference value. <em>ResolveProperty</em> takes the following steps:</p>
 <ol>
@@ -185,10 +176,10 @@
 <li>Return <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>)</li>
 </ol>
 </li>
-<li>Throw a verify error if <em>qual</em> is defined.</li>
+<li>Return undefined if <em>qual</em> is defined.</li>
 <li>If <em>base</em> is a <code>class</code> or <code>enum</code>
 <ol>
-<li>It is a verify error if <em>key</em> is not a <code>String</code> value.</li>
+<li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
 <li>While <em>base</em> is defined
 <ol>
 <li>Let <em>r</em> be the symbol in <em>base</em>[[<em>StaticProperties</em>]] whose key is equals <em>key</em>.</li>
@@ -229,14 +220,24 @@
 </li>
 </ol>
 </li>
+<li>If <em>key</em> is a <code>Number</code> value and <em>base</em> is of a tuple type
+<ol>
+<li>Let <em>key</em> be <em>ToUInt32</em>(<em>key</em>)</li>
+<li>Assuming <em>key</em> to be a zero-based index, if the <em>key</em> index is not out of bounds of the element sequence of the tuple type of <em>base</em>
+<ol>
+<li>Return <em>TupleReferenceValue</em>(<em>base</em>, <em>key</em>).</li>
+</ol>
+</li>
+</ol>
+</li>
 <li>Return undefined.</li>
 </ol>
 </li>
-<li>If <em>base</em> is a package
+<li>If <em>base</em> is a <code>package</code>
 <ol>
 <li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
 <li>Let <em>r</em> be a symbol in <em>base</em>[[<em>Properties</em>]] whose key is equals <em>key</em>.</li>
-<li>Return <em>WrapPropertyIntoValue</em>(<em>ResolveAlias</em>(<em>r</em>)) if <em>r</em> is defined.</li>
+<li>Return <em>WrapPropertyReference</em>(<em>ResolveAlias</em>(<em>r</em>)) if <em>r</em> is defined.</li>
 <li>For each <em>p</em> in <em>base</em>[[<em>WildcardUses</em>]]
 <ol>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(<em>p</em>, undefined, <em>key</em>)</li>
@@ -257,22 +258,91 @@
 <h2 id="resolvescopeproperty"><a class="header" href="#resolvescopeproperty">ResolveScopeProperty()</a></h2>
 <p>The internal <em>ResolveScopeProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>) takes the following steps:</p>
 <ol>
-<li>If <em>base</em> is a <code>with</code> scope or filter operator scope, return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
-<li>Throw a verify error if either <em>qual</em> is defined or <em>key</em> is not a <code>String</code> value.</li>
-<li>Let <em>r</em> be a symbol of <em>base</em>[[<em>Properties</em>]] whose key equals <em>key</em>.</li>
-<li>If <em>r</em> is defined
+<li>If <em>base</em> is a <code>with</code> scope
 <ol>
-<li>?</li>
+<li>If <em>base</em>[[<em>Object</em>]] is of one of the types { <code>*</code>, <code>XML</code>, <code>XMLList</code> }
+<ol>
+<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>)</li>
 </ol>
 </li>
-<li>?</li>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>base</em>[[<em>Object</em>]], <em>qual</em>, <em>key</em>)</li>
+<li>Return <em>r</em> if it is defined.</li>
 </ol>
-<h2 id="wrappropertyintovalue"><a class="header" href="#wrappropertyintovalue">WrapPropertyIntoValue()</a></h2>
-<p>The internal <em>WrapPropertyIntoValue</em>(<em>prop</em>) takes the following steps:</p>
+</li>
+<li>If <em>base</em> is a filter operator scope
+<ol>
+<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+</ol>
+</li>
+<li>Throw a verify error if either <em>qual</em> is defined or <em>key</em> is not a <code>String</code> value.</li>
+<li>Let <em>r</em> be undefined.</li>
+<li>If <em>qual</em> is not defined
+<ol>
+<li>Assign <em>r</em> = a symbol of <em>base</em>[[<em>Properties</em>]] whose key equals <em>key</em>.</li>
+</ol>
+</li>
+<li>If <em>r</em> is defined
+<ol>
+<li>Assign <em>r</em> = <em>WrapPropertyReference</em>(<em>ResolveAlias</em>(<em>r</em>))</li>
+<li>Return <em>r</em></li>
+</ol>
+</li>
+<li>If <em>base</em> is an activation scope and <em>base</em>[[<em>This</em>]] is defined
+<ol>
+<li>Assign <em>r</em> = <em>ResolveProperty</em>(<em>base</em>[[<em>This</em>]], <em>qual</em>, <em>key</em>)</li>
+<li>Return <em>r</em> if it is defined.</li>
+</ol>
+</li>
+<li>If <em>base</em> is a <code>class</code> or <code>enum</code> scope
+<ol>
+<li>Assign <em>r</em> = <em>ResolveProperty</em>(<em>base</em>[[<em>Class</em>]], <em>qual</em>, <em>key</em>)</li>
+</ol>
+</li>
+<li>Let <em>amb</em> be undefined.</li>
+<li>If <em>base</em> is a <code>package</code> scope
+<ol>
+<li>Assign <em>amb</em> = <em>ResolveProperty</em>(<em>base</em>[[<em>Package</em>]], <em>qual</em>, <em>key</em>)</li>
+<li>It is an ambiguous reference error if <em>r</em> is defined</li>
+<li>Assign <em>r</em> = <em>amb</em></li>
+</ol>
+</li>
+<li>If <em>qual</em> is not defined
+<ol>
+<li>For each <em>p</em> in <em>base</em>[[<em>Imports</em>]]
+<ol>
+<li>If <em>p</em>[[<em>Name</em>]] equals <em>key</em>
+<ol>
+<li>Assign <em>amb</em> = <em>WrapPropertyReference</em>(<em>ResolveAlias</em>(<em>p</em>))</li>
+<li>It is an ambiguous reference error if <em>r</em> is defined</li>
+<li>Assign <em>r</em> = <em>amb</em></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>For each <em>op</em> in <em>base</em>[[<em>OpenPackages</em>]]
+<ol>
+<li>Assign <em>amb</em> = <em>ResolveProperty</em>(<em>op</em>, <em>qual</em>, <em>key</em>)</li>
+<li>It is an ambiguous reference error if <em>r</em> is defined</li>
+<li>Assign <em>r</em> = <em>amb</em></li>
+</ol>
+</li>
+<li>If <em>r</em> is not defined and <em>base</em>[[<em>ParentScope</em>]] is defined
+<ol>
+<li>Return <em>ResolveScopeProperty</em>(<em>base</em>[[<em>ParentScope</em>]], <em>qual</em>, <em>key</em>)</li>
+</ol>
+</li>
+<li>Return <em>r</em></li>
+</ol>
+<h2 id="wrappropertyreference"><a class="header" href="#wrappropertyreference">WrapPropertyReference()</a></h2>
+<p>The internal <em>WrapPropertyReference</em>(<em>prop</em>) function takes the following steps:</p>
 <ol>
 <li>Let <em>parent</em> be <em>prop</em>[[<em>ParentDefinition</em>]]</li>
-<li>If <em>parent</em> is a <code>class</code> or <code>enum</code>, return <em>StaticReferenceValue</em>().</li>
-<li>?</li>
+<li>If <em>parent</em> is a <code>class</code> or <code>enum</code>, return <em>StaticReferenceValue</em>(<em>parent</em>, <em>prop</em>)</li>
+<li>If <em>parent</em> is a <code>package</code>, return <em>PackageReferenceValue</em>(<em>parent</em>, <em>prop</em>)</li>
+<li>Assert that <em>parent</em> is a scope.</li>
+<li>Return <em>ScopeReferenceValue</em>(<em>parent</em>, <em>prop</em>)</li>
 </ol>
 
                     </main>

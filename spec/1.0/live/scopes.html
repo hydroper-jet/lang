@@ -166,7 +166,50 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="scopes"><a class="header" href="#scopes">Scopes</a></h1>
-
+<p>A scope consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>ParentScope</em>]]</td><td>The parent scope.</td></tr>
+<tr><td>[[<em>Properties</em>]]</td><td>Properties of the scope as a dictionary of string to symbol.</td></tr>
+<tr><td>[[<em>Imports</em>]]</td><td>Set of package imported properties.</td></tr>
+<tr><td>[[<em>OpenPackages</em>]]</td><td>Set of open packages.</td></tr>
+</tbody></table>
+</div>
+<h2 id="with-scope"><a class="header" href="#with-scope">With scope</a></h2>
+<p>A <code>with</code> scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Object</em>]]</td><td>The object specified in the <code>with</code> statement.</td></tr>
+</tbody></table>
+</div>
+<h2 id="filter-operator-scope"><a class="header" href="#filter-operator-scope">Filter operator scope</a></h2>
+<p>A filter operator scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Base</em>]]</td><td>The base object of the filter operator.</td></tr>
+</tbody></table>
+</div>
+<h2 id="activation-scope"><a class="header" href="#activation-scope">Activation scope</a></h2>
+<p>An activation scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>This</em>]]</td><td>The object returned by the <code>this</code> literal.</td></tr>
+</tbody></table>
+</div>
+<h2 id="class-scope"><a class="header" href="#class-scope">Class scope</a></h2>
+<p>A class scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Class</em>]]</td><td>The enclosing class.</td></tr>
+</tbody></table>
+</div>
+<h2 id="enum-scope"><a class="header" href="#enum-scope">Enum scope</a></h2>
+<p>A <code>enum</code> scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Class</em>]]</td><td>The enclosing <code>enum</code>.</td></tr>
+</tbody></table>
+</div>
+<h2 id="package-scope"><a class="header" href="#package-scope">Package scope</a></h2>
+<p>A <code>package</code> scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Package</em>]]</td><td>The enclosing <code>package</code>.</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

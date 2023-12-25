@@ -18,6 +18,10 @@ Aliases consist of the following internal properties:
 | \[\[*AliasOf*\]\] | The symbol to which this alias translates. |
 | \[\[*ParentDefinition*\]\] | The parent definition of the alias. |
 
+## Parent definition
+
+When the parent definition of an alias is a package, the alias has a fully package qualified name.
+
 ## ResolveAlias()
 
 The internal *ResolveAlias*(*type*) function takes the following steps:

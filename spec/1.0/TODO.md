@@ -2,11 +2,16 @@
 
 ## Variable bindings
 
-* Remember of supporting variable shadowing for activation-scoped variables, which creates new scopes after each variable.
+* [ ] Remember of supporting variable shadowing for activation-scoped variables, which creates new scopes after each variable.
+
+## Property operator
+
+* [ ] Fully package qualified names shadow any matching variable names within a dot operator chain consisting of identifiers
+  * Consider \[\[*Imports*\]\]
+  * Consider \[\[*OpenPackages*\]\]
 
 ## ResolveAlias
 
-*ResolveAlias*(t) must be used in several places:
+*ResolveAlias*(t) must be used in these places:
 
-* [ ] Types at `extends` clauses
-* [ ] Types at `implements` clauses
+* [ ] Fully package qualified names

@@ -1,6 +1,6 @@
 # Packages
 
-Packages are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an `import` directive or an `use` definition.
+Packages as denoted by the `package` keyword are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an `import` directive or an `use` definition.
 
 ```
 // Top-level package

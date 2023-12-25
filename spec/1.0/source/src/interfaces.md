@@ -1,6 +1,6 @@
 # Interfaces
 
-An interface represents an abstract object type.
+An interface as denoted by the `interface` keyword represents an abstract object type.
 
 Interfaces consist of a small number of internal properties, described in the following table:
 

@@ -1,15 +1,5 @@
 # Property resolution
 
-<!--
-
-* Dynamic resolution for:
-  * `*`, `XML`, `XMLList`
-* Resolving property by number value always uses {proxy::getProperty, proxy::setProperty, proxy::deleteProperty}
-* Fully package qualified names shadow any matching variable names
-* Consider package wildcard uses in lexical references
-
--->
-
 ## ResolveProperty()
 
 The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* object, a *qual* qualifier value and a *key* value, and resolves to a reference value. *ResolveProperty* takes the following steps:
@@ -18,9 +8,9 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
 2. If *base* is a scope, return *ResolveScopeProperty*(*base*, *qual*, *key*).
 3. If *base* is a value whose type is `*`
     1. Return *DynamicReferenceValue*(*base*, *qual*, *key*)
-4. Throw a verify error if *qual* is defined.
+4. Return undefined if *qual* is defined.
 5. If *base* is a `class` or `enum`
-    1. It is a verify error if *key* is not a `String` value.
+    1. Return undefined if *key* is not a `String` value.
     2. While *base* is defined
         1. Let *r* be the symbol in *base*\[\[*StaticProperties*\]\] whose key is equals *key*.
         2. Return *StaticReferenceValue*(*base*, *r*) if *r* is defined.
@@ -37,11 +27,15 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
         2. If *proxy* is defined
             1. If the first parameter type of *proxy* is equals the type of *key* or if the type of *key* is a subtype of the first parameter type of *proxy*
                 1. Return *ProxyReferenceValue*(*base*, *proxy*)
-    4. Return undefined.
-7. If *base* is a package
+    5. If *key* is a `Number` value and *base* is of a tuple type
+        1. Let *key* be *ToUInt32*(*key*)
+        2. Assuming *key* to be a zero-based index, if the *key* index is not out of bounds of the element sequence of the tuple type of *base*
+            1. Return *TupleReferenceValue*(*base*, *key*).
+    6. Return undefined.
+7. If *base* is a `package`
     1. Return undefined if *key* is not a `String` value.
     2. Let *r* be a symbol in *base*\[\[*Properties*\]\] whose key is equals *key*.
-    3. Return *WrapPropertyIntoValue*(*ResolveAlias*(*r*)) if *r* is defined.
+    3. Return *WrapPropertyReference*(*ResolveAlias*(*r*)) if *r* is defined.
     4. For each *p* in *base*\[\[*WildcardUses*\]\]
         1. Let *r* be *ResolveProperty*(*p*, undefined, *key*)
         2. Return *r* if it is defined.
@@ -59,19 +53,52 @@ The internal *FindPropertyProxy*(*type*) function takes the following steps:
 
 The internal *ResolveScopeProperty*(*base*, *qual*, *key*) takes the following steps:
 
-1. If *base* is a `with` scope or filter operator scope, return *DynamicScopeReferenceValue*(*base*, *qual*, *key*).
-2. Throw a verify error if either *qual* is defined or *key* is not a `String` value.
-3. Let *r* be a symbol of *base*\[\[*Properties*\]\] whose key equals *key*.
-4. If *r* is defined
-    1. ?
-5. ?
+1. If *base* is a `with` scope
+    1. If *base*\[\[*Object*\]\] is of one of the types \{ `*`, `XML`, `XMLList` \}
+        1. Return *DynamicScopeReferenceValue*(*base*, *qual*, *key*)
+    2. Let *r* be *ResolveProperty*(*base*\[\[*Object*\]\], *qual*, *key*)
+    3. Return *r* if it is defined.
+2. If *base* is a filter operator scope
+    1. Return *DynamicScopeReferenceValue*(*base*, *qual*, *key*).
+3. Throw a verify error if either *qual* is defined or *key* is not a `String` value.
+4. Let *r* be undefined.
+5. If *qual* is not defined
+    1. Assign *r* = a symbol of *base*\[\[*Properties*\]\] whose key equals *key*.
+6. If *r* is defined
+    1. Assign *r* = *WrapPropertyReference*(*ResolveAlias*(*r*))
+    2. Return *r*
+7. If *base* is an activation scope and *base*\[\[*This*\]\] is defined
+    1. Assign *r* = *ResolveProperty*(*base*\[\[*This*\]\], *qual*, *key*)
+    2. Return *r* if it is defined.
+8. If *base* is a `class` or `enum` scope
+    1. Assign *r* = *ResolveProperty*(*base*\[\[*Class*\]\], *qual*, *key*)
+9. Let *amb* be undefined.
+10. If *base* is a `package` scope
+    1. Assign *amb* = *ResolveProperty*(*base*\[\[*Package*\]\], *qual*, *key*)
+    2. It is an ambiguous reference error if *r* is defined
+    3. Assign *r* = *amb*
+11. If *qual* is not defined
+    1. For each *p* in *base*\[\[*Imports*\]\]
+        1. If *p*\[\[*Name*\]\] equals *key*
+            1. Assign *amb* = *WrapPropertyReference*(*ResolveAlias*(*p*))
+            2. It is an ambiguous reference error if *r* is defined
+            3. Assign *r* = *amb*
+12. For each *op* in *base*\[\[*OpenPackages*\]\]
+    1. Assign *amb* = *ResolveProperty*(*op*, *qual*, *key*)
+    2. It is an ambiguous reference error if *r* is defined
+    3. Assign *r* = *amb*
+13. If *r* is not defined and *base*\[\[*ParentScope*\]\] is defined
+    1. Return *ResolveScopeProperty*(*base*\[\[*ParentScope*\]\], *qual*, *key*)
+14. Return *r*
 
-## WrapPropertyIntoValue()
+## WrapPropertyReference()
 
-The internal *WrapPropertyIntoValue*(*prop*) takes the following steps:
+The internal *WrapPropertyReference*(*prop*) function takes the following steps:
 
 1. Let *parent* be *prop*\[\[*ParentDefinition*\]\]
-2. If *parent* is a `class` or `enum`, return *StaticReferenceValue*().
-3. ?
+2. If *parent* is a `class` or `enum`, return *StaticReferenceValue*(*parent*, *prop*)
+3. If *parent* is a `package`, return *PackageReferenceValue*(*parent*, *prop*)
+4. Assert that *parent* is a scope.
+5. Return *ScopeReferenceValue*(*parent*, *prop*)
 
 [*ResolveAlias*]: aliases.md#resolvealias

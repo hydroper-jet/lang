@@ -956,7 +956,7 @@ type O = Optional.&lt;Optional.&lt;T&gt;&gt;;
 <li>When a property is not <code>public</code>, it is not contained in the runtime type information.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="packages"><a class="header" href="#packages">Packages</a></h1>
-<p>Packages are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an <code>import</code> directive or an <code>use</code> definition.</p>
+<p>Packages as denoted by the <code>package</code> keyword are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an <code>import</code> directive or an <code>use</code> definition.</p>
 <pre><code>// Top-level package
 package {
     public const globalProperty: Number = Infinity;
@@ -1482,6 +1482,8 @@ import p2 = p.*;
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the alias.</td></tr>
 </tbody></table>
 </div>
+<h2 id="parent-definition-3"><a class="header" href="#parent-definition-3">Parent definition</a></h2>
+<p>When the parent definition of an alias is a package, the alias has a fully package qualified name.</p>
 <h2 id="resolvealias"><a class="header" href="#resolvealias">ResolveAlias()</a></h2>
 <p>The internal <em>ResolveAlias</em>(<em>type</em>) function takes the following steps:</p>
 <ol>
@@ -1600,7 +1602,7 @@ proxy function has(value: E): Boolean (
 );
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="classes"><a class="header" href="#classes">Classes</a></h1>
-<p>A class represents an object type.</p>
+<p>A class as denoted by the <code>class</code> keyword represents an object type.</p>
 <p>Classes consist of several internal properties, as described in the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
 <tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the class.</td></tr>
@@ -1628,7 +1630,7 @@ proxy function has(value: E): Boolean (
 <li>a class attempts to extend itself;</li>
 <li>a class attempts to extend a subclass of itself.</li>
 </ul>
-<h2 id="parent-definition-3"><a class="header" href="#parent-definition-3">Parent definition</a></h2>
+<h2 id="parent-definition-4"><a class="header" href="#parent-definition-4">Parent definition</a></h2>
 <p>When the parent definition of a class is a package, the class has a fully package qualified name.</p>
 <h2 id="jetxml-color-and-vector-support"><a class="header" href="#jetxml-color-and-vector-support">JetXML color and vector support</a></h2>
 <p>A JetXML base class may contain a <code>JetXML</code> meta-data with two optional options <code>colorClass</code> and <code>vectorClass</code> that specify the fully package qualified name of a support class for the color and vector classes to use throughout XML attribute values in JetXML files.</p>
@@ -1656,7 +1658,7 @@ proxy function has(value: E): Boolean (
 class C {}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="interfaces"><a class="header" href="#interfaces">Interfaces</a></h1>
-<p>An interface represents an abstract object type.</p>
+<p>An interface as denoted by the <code>interface</code> keyword represents an abstract object type.</p>
 <p>Interfaces consist of a small number of internal properties, described in the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
 <tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the interface.</td></tr>
@@ -1674,7 +1676,7 @@ class C {}
 <li>an interface attempts to extend itself;</li>
 <li>an interface attempts to extend a subtype of itself.</li>
 </ul>
-<h2 id="parent-definition-4"><a class="header" href="#parent-definition-4">Parent definition</a></h2>
+<h2 id="parent-definition-5"><a class="header" href="#parent-definition-5">Parent definition</a></h2>
 <p>When the parent definition of an interface is a package, the interface has a fully package qualified name.</p>
 <h2 id="meta-data-4"><a class="header" href="#meta-data-4">Meta data</a></h2>
 <p>An interface may contain zero or more plain meta-data:</p>
@@ -1770,15 +1772,6 @@ Future data bindings support:
 <h2 id="instance-variables-1"><a class="header" href="#instance-variables-1">Instance variables</a></h2>
 <p>Instance variables belonging to <code>descClass</code> are JetXML variables with special behavior as described by section <a href="variables.html#jetxml-variables">Variables</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="property-resolution"><a class="header" href="#property-resolution">Property resolution</a></h1>
-<!--
-
-* Dynamic resolution for:
-  * `*`, `XML`, `XMLList`
-* Resolving property by number value always uses {proxy::getProperty, proxy::setProperty, proxy::deleteProperty}
-* Fully package qualified names shadow any matching variable names
-* Consider package wildcard uses in lexical references
-
--->
 <h2 id="resolveproperty"><a class="header" href="#resolveproperty">ResolveProperty()</a></h2>
 <p>The internal <em>ResolveProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>) function takes a <em>base</em> object, a <em>qual</em> qualifier value and a <em>key</em> value, and resolves to a reference value. <em>ResolveProperty</em> takes the following steps:</p>
 <ol>
@@ -1789,10 +1782,10 @@ Future data bindings support:
 <li>Return <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>)</li>
 </ol>
 </li>
-<li>Throw a verify error if <em>qual</em> is defined.</li>
+<li>Return undefined if <em>qual</em> is defined.</li>
 <li>If <em>base</em> is a <code>class</code> or <code>enum</code>
 <ol>
-<li>It is a verify error if <em>key</em> is not a <code>String</code> value.</li>
+<li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
 <li>While <em>base</em> is defined
 <ol>
 <li>Let <em>r</em> be the symbol in <em>base</em>[[<em>StaticProperties</em>]] whose key is equals <em>key</em>.</li>
@@ -1833,14 +1826,24 @@ Future data bindings support:
 </li>
 </ol>
 </li>
+<li>If <em>key</em> is a <code>Number</code> value and <em>base</em> is of a tuple type
+<ol>
+<li>Let <em>key</em> be <em>ToUInt32</em>(<em>key</em>)</li>
+<li>Assuming <em>key</em> to be a zero-based index, if the <em>key</em> index is not out of bounds of the element sequence of the tuple type of <em>base</em>
+<ol>
+<li>Return <em>TupleReferenceValue</em>(<em>base</em>, <em>key</em>).</li>
+</ol>
+</li>
+</ol>
+</li>
 <li>Return undefined.</li>
 </ol>
 </li>
-<li>If <em>base</em> is a package
+<li>If <em>base</em> is a <code>package</code>
 <ol>
 <li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
 <li>Let <em>r</em> be a symbol in <em>base</em>[[<em>Properties</em>]] whose key is equals <em>key</em>.</li>
-<li>Return <em>WrapPropertyIntoValue</em>(<em>ResolveAlias</em>(<em>r</em>)) if <em>r</em> is defined.</li>
+<li>Return <em>WrapPropertyReference</em>(<em>ResolveAlias</em>(<em>r</em>)) if <em>r</em> is defined.</li>
 <li>For each <em>p</em> in <em>base</em>[[<em>WildcardUses</em>]]
 <ol>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(<em>p</em>, undefined, <em>key</em>)</li>
@@ -1861,25 +1864,137 @@ Future data bindings support:
 <h2 id="resolvescopeproperty"><a class="header" href="#resolvescopeproperty">ResolveScopeProperty()</a></h2>
 <p>The internal <em>ResolveScopeProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>) takes the following steps:</p>
 <ol>
-<li>If <em>base</em> is a <code>with</code> scope or filter operator scope, return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
-<li>Throw a verify error if either <em>qual</em> is defined or <em>key</em> is not a <code>String</code> value.</li>
-<li>Let <em>r</em> be a symbol of <em>base</em>[[<em>Properties</em>]] whose key equals <em>key</em>.</li>
-<li>If <em>r</em> is defined
+<li>If <em>base</em> is a <code>with</code> scope
 <ol>
-<li>?</li>
+<li>If <em>base</em>[[<em>Object</em>]] is of one of the types { <code>*</code>, <code>XML</code>, <code>XMLList</code> }
+<ol>
+<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>)</li>
 </ol>
 </li>
-<li>?</li>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>base</em>[[<em>Object</em>]], <em>qual</em>, <em>key</em>)</li>
+<li>Return <em>r</em> if it is defined.</li>
 </ol>
-<h2 id="wrappropertyintovalue"><a class="header" href="#wrappropertyintovalue">WrapPropertyIntoValue()</a></h2>
-<p>The internal <em>WrapPropertyIntoValue</em>(<em>prop</em>) takes the following steps:</p>
+</li>
+<li>If <em>base</em> is a filter operator scope
+<ol>
+<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+</ol>
+</li>
+<li>Throw a verify error if either <em>qual</em> is defined or <em>key</em> is not a <code>String</code> value.</li>
+<li>Let <em>r</em> be undefined.</li>
+<li>If <em>qual</em> is not defined
+<ol>
+<li>Assign <em>r</em> = a symbol of <em>base</em>[[<em>Properties</em>]] whose key equals <em>key</em>.</li>
+</ol>
+</li>
+<li>If <em>r</em> is defined
+<ol>
+<li>Assign <em>r</em> = <em>WrapPropertyReference</em>(<em>ResolveAlias</em>(<em>r</em>))</li>
+<li>Return <em>r</em></li>
+</ol>
+</li>
+<li>If <em>base</em> is an activation scope and <em>base</em>[[<em>This</em>]] is defined
+<ol>
+<li>Assign <em>r</em> = <em>ResolveProperty</em>(<em>base</em>[[<em>This</em>]], <em>qual</em>, <em>key</em>)</li>
+<li>Return <em>r</em> if it is defined.</li>
+</ol>
+</li>
+<li>If <em>base</em> is a <code>class</code> or <code>enum</code> scope
+<ol>
+<li>Assign <em>r</em> = <em>ResolveProperty</em>(<em>base</em>[[<em>Class</em>]], <em>qual</em>, <em>key</em>)</li>
+</ol>
+</li>
+<li>Let <em>amb</em> be undefined.</li>
+<li>If <em>base</em> is a <code>package</code> scope
+<ol>
+<li>Assign <em>amb</em> = <em>ResolveProperty</em>(<em>base</em>[[<em>Package</em>]], <em>qual</em>, <em>key</em>)</li>
+<li>It is an ambiguous reference error if <em>r</em> is defined</li>
+<li>Assign <em>r</em> = <em>amb</em></li>
+</ol>
+</li>
+<li>If <em>qual</em> is not defined
+<ol>
+<li>For each <em>p</em> in <em>base</em>[[<em>Imports</em>]]
+<ol>
+<li>If <em>p</em>[[<em>Name</em>]] equals <em>key</em>
+<ol>
+<li>Assign <em>amb</em> = <em>WrapPropertyReference</em>(<em>ResolveAlias</em>(<em>p</em>))</li>
+<li>It is an ambiguous reference error if <em>r</em> is defined</li>
+<li>Assign <em>r</em> = <em>amb</em></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>For each <em>op</em> in <em>base</em>[[<em>OpenPackages</em>]]
+<ol>
+<li>Assign <em>amb</em> = <em>ResolveProperty</em>(<em>op</em>, <em>qual</em>, <em>key</em>)</li>
+<li>It is an ambiguous reference error if <em>r</em> is defined</li>
+<li>Assign <em>r</em> = <em>amb</em></li>
+</ol>
+</li>
+<li>If <em>r</em> is not defined and <em>base</em>[[<em>ParentScope</em>]] is defined
+<ol>
+<li>Return <em>ResolveScopeProperty</em>(<em>base</em>[[<em>ParentScope</em>]], <em>qual</em>, <em>key</em>)</li>
+</ol>
+</li>
+<li>Return <em>r</em></li>
+</ol>
+<h2 id="wrappropertyreference"><a class="header" href="#wrappropertyreference">WrapPropertyReference()</a></h2>
+<p>The internal <em>WrapPropertyReference</em>(<em>prop</em>) function takes the following steps:</p>
 <ol>
 <li>Let <em>parent</em> be <em>prop</em>[[<em>ParentDefinition</em>]]</li>
-<li>If <em>parent</em> is a <code>class</code> or <code>enum</code>, return <em>StaticReferenceValue</em>().</li>
-<li>?</li>
+<li>If <em>parent</em> is a <code>class</code> or <code>enum</code>, return <em>StaticReferenceValue</em>(<em>parent</em>, <em>prop</em>)</li>
+<li>If <em>parent</em> is a <code>package</code>, return <em>PackageReferenceValue</em>(<em>parent</em>, <em>prop</em>)</li>
+<li>Assert that <em>parent</em> is a scope.</li>
+<li>Return <em>ScopeReferenceValue</em>(<em>parent</em>, <em>prop</em>)</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="scopes"><a class="header" href="#scopes">Scopes</a></h1>
-
+<p>A scope consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>ParentScope</em>]]</td><td>The parent scope.</td></tr>
+<tr><td>[[<em>Properties</em>]]</td><td>Properties of the scope as a dictionary of string to symbol.</td></tr>
+<tr><td>[[<em>Imports</em>]]</td><td>Set of package imported properties.</td></tr>
+<tr><td>[[<em>OpenPackages</em>]]</td><td>Set of open packages.</td></tr>
+</tbody></table>
+</div>
+<h2 id="with-scope"><a class="header" href="#with-scope">With scope</a></h2>
+<p>A <code>with</code> scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Object</em>]]</td><td>The object specified in the <code>with</code> statement.</td></tr>
+</tbody></table>
+</div>
+<h2 id="filter-operator-scope"><a class="header" href="#filter-operator-scope">Filter operator scope</a></h2>
+<p>A filter operator scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Base</em>]]</td><td>The base object of the filter operator.</td></tr>
+</tbody></table>
+</div>
+<h2 id="activation-scope"><a class="header" href="#activation-scope">Activation scope</a></h2>
+<p>An activation scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>This</em>]]</td><td>The object returned by the <code>this</code> literal.</td></tr>
+</tbody></table>
+</div>
+<h2 id="class-scope"><a class="header" href="#class-scope">Class scope</a></h2>
+<p>A class scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Class</em>]]</td><td>The enclosing class.</td></tr>
+</tbody></table>
+</div>
+<h2 id="enum-scope"><a class="header" href="#enum-scope">Enum scope</a></h2>
+<p>A <code>enum</code> scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Class</em>]]</td><td>The enclosing <code>enum</code>.</td></tr>
+</tbody></table>
+</div>
+<h2 id="package-scope"><a class="header" href="#package-scope">Package scope</a></h2>
+<p>A <code>package</code> scope in addition consists of the following internal properties:</p>
+<div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
+<tr><td>[[<em>Package</em>]]</td><td>The enclosing <code>package</code>.</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

@@ -838,8 +838,8 @@ x == y
 </code></pre>
 <h2 id="any-type"><a class="header" href="#any-type">Any type</a></h2>
 <p>The <code>*</code> type contains values from all other types.</p>
-<h2 id="undefined-type"><a class="header" href="#undefined-type">Undefined type</a></h2>
-<p>The <code>undefined</code> or <code>void</code> type consists of the <code>undefined</code> constant.</p>
+<h2 id="void-type"><a class="header" href="#void-type">Void type</a></h2>
+<p>The <code>void</code> type consists of the <code>undefined</code> constant. The <code>void</code> type may alternatively be expressed as <code>undefined</code>.</p>
 <h2 id="number-types"><a class="header" href="#number-types">Number types</a></h2>
 <p><em>IEEE 754 floating point</em>:</p>
 <ul>
@@ -1995,6 +1995,92 @@ Future data bindings support:
 <tr><td>[[<em>Package</em>]]</td><td>The enclosing <code>package</code>.</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="type-expressions"><a class="header" href="#type-expressions">Type expressions</a></h1>
+<table>
+    <tr>
+        <td colspan="2"><i>TypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>?</b> <i>NoQuestionPrefixTypeExpression</i></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>NoQuestionPrefixTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>*</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Identifier</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>void</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>undefined</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FunctionTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>&#x5B;</b> <i>TypeExpression</i> <b>&#x5D;</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>&#x28;</b> <i>TypeExpression</i> <b>&#x29;</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TupleTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FunctionTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i> <b>.</b> <i>IdentifierName</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i> <i>TypeArguments</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i> <b>?</b></td>
+    </tr>
+</table>
+<p><strong>Verification</strong></p>
+<p><i>NoQuestionPrefixTypeExpression</i> : <b>*</b></p>
+<ul>
+<li>Return the any type.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <i>Identifier</i></p>
+<ul>
+<li>Let <em>p</em> be <em>ResolveProperty</em>(<em>current scope</em>, undefined, string of <i>Identifier</i>)</li>
+<li>It is a verify error if <em>p</em> is undefined.</li>
+<li>Return <em>p</em>.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <b>void</b></p>
+<ul>
+<li>Return the void type.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <b>undefined</b></p>
+<ul>
+<li>Return the void type.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <b>[</b> <i>TypeExpression</i> <b>]</b></p>
+<ul>
+<li>Return an array type consisting of the verification result of <i>TypeExpression</i>.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <b>(</b> <i>TypeExpression</i> <b>)</b></p>
+<ul>
+<li>Return the verification result of <i>TypeExpression</i>.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i> <b>.</b> <i>IdentifierName</i></p>
+<ul>
+<li>Let <em>base</em> be the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
+<li>Let <em>p</em> be <em>ResolveProperty</em>(<em>base</em>, undefined, string of <i>IdentifierName</i>)</li>
+<li>It is a verify error if <em>p</em> is undefined.</li>
+<li>Return <em>p</em>.</li>
+</ul>
 
                     </main>
 

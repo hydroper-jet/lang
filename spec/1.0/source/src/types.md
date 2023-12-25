@@ -43,9 +43,9 @@ x == y
 
 The `*` type contains values from all other types.
 
-## Undefined type
+## Void type
 
-The `undefined` or `void` type consists of the `undefined` constant.
+The `void` type consists of the `undefined` constant. The `void` type may alternatively be expressed as `undefined`.
 
 ## Number types
 

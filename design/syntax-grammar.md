@@ -114,3 +114,4 @@ Type expressions:
 * [ ] Optional (`T?`, `?T`)
 * [ ] Tuple
 * [ ] TypeExpressionWithTypeArguments (`G.<T1, ...Tn>`)
+* [ ] Parenthesized

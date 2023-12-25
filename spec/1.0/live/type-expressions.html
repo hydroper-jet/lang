@@ -166,6 +166,92 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="type-expressions"><a class="header" href="#type-expressions">Type expressions</a></h1>
+<table>
+    <tr>
+        <td colspan="2"><i>TypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>?</b> <i>NoQuestionPrefixTypeExpression</i></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>NoQuestionPrefixTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>*</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Identifier</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>void</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>undefined</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FunctionTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>&#x5B;</b> <i>TypeExpression</i> <b>&#x5D;</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>&#x28;</b> <i>TypeExpression</i> <b>&#x29;</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TupleTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FunctionTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i> <b>.</b> <i>IdentifierName</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i> <i>TypeArguments</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i> <b>?</b></td>
+    </tr>
+</table>
+<p><strong>Verification</strong></p>
+<p><i>NoQuestionPrefixTypeExpression</i> : <b>*</b></p>
+<ul>
+<li>Return the any type.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <i>Identifier</i></p>
+<ul>
+<li>Let <em>p</em> be <em>ResolveProperty</em>(<em>current scope</em>, undefined, string of <i>Identifier</i>)</li>
+<li>It is a verify error if <em>p</em> is undefined.</li>
+<li>Return <em>p</em>.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <b>void</b></p>
+<ul>
+<li>Return the void type.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <b>undefined</b></p>
+<ul>
+<li>Return the void type.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <b>[</b> <i>TypeExpression</i> <b>]</b></p>
+<ul>
+<li>Return an array type consisting of the verification result of <i>TypeExpression</i>.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <b>(</b> <i>TypeExpression</i> <b>)</b></p>
+<ul>
+<li>Return the verification result of <i>TypeExpression</i>.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i> <b>.</b> <i>IdentifierName</i></p>
+<ul>
+<li>Let <em>base</em> be the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
+<li>Let <em>p</em> be <em>ResolveProperty</em>(<em>base</em>, undefined, string of <i>IdentifierName</i>)</li>
+<li>It is a verify error if <em>p</em> is undefined.</li>
+<li>Return <em>p</em>.</li>
+</ul>
 
                     </main>
 

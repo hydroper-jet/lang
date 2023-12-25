@@ -10,6 +10,10 @@
   * Consider \[\[*Imports*\]\]
   * Consider \[\[*OpenPackages*\]\]
 
+## Qualified identifier
+
+* [ ] Make sure to use *IdentifierName* instead of *Identifier* wherever appllicable and describe that any context expecting a keyword takes the place of such *IdentifierName*.
+
 ## ResolveAlias
 
 *ResolveAlias*(t) must be used in these places:

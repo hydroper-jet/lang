@@ -54,6 +54,27 @@
     </tr>
 </table>
 
+<table>
+    <tr>
+        <td colspan="2"><i>TupleTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i><b>&#x5B;</b> <i>AtLeast2TypeExpressions</i> <b>&#x5D;</b></i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>AtLeast2TypeExpressions</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i><i>TypeExpression</i> <b>,</b> <i>TypeExpression</i></i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i><i>AtLeast2TypeExpressions</i> <b>,</b> <i>TypeExpression</i></i></td>
+    </tr>
+</table>
+
 **Verification**
 
 <i>TypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i>

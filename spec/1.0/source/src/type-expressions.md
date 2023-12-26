@@ -80,6 +80,14 @@
 
 * Return the void type.
 
+<i>NoQuestionPrefixTypeExpression</i> : <i>TupleTypeExpression</i>
+
+* Return the verification of <i>TupleTypeExpression</i>.
+
+<i>NoQuestionPrefixTypeExpression</i> : <i>FunctionTypeExpression</i>
+
+* Return the verification of <i>FunctionTypeExpression</i>.
+
 <i>NoQuestionPrefixTypeExpression</i> : <b>&#x5B;</b> <i>TypeExpression</i> <b>&#x5D;</b>
 
 * Return an array type consisting of the verification result of <i>TypeExpression</i>.

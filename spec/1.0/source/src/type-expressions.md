@@ -69,7 +69,7 @@
 
 * Let *p* be *ResolveProperty*(*current scope*, undefined, string of <i>Identifier</i>)
 * It is a verify error if *p* is undefined.
-* It is a verify error if *PropertyIsVisible*(*p*, *current scope*) is false.
+* It is a verify error if [*PropertyIsVisible*](*p*, *current scope*) is false.
 * Return *p*.
 
 <i>NoQuestionPrefixTypeExpression</i> : <b>void</b>
@@ -93,5 +93,7 @@
 * Let *base* be the verification result of <i>NoQuestionPrefixTypeExpression</i>.
 * Let *p* be *ResolveProperty*(*base*, undefined, string of <i>IdentifierName</i>)
 * It is a verify error if *p* is undefined.
-* It is a verify error if *PropertyIsVisible*(*p*, *current scope*) is false.
+* It is a verify error if [*PropertyIsVisible*](*p*, *current scope*) is false.
 * Return *p*.
+
+[*PropertyIsVisible*]: visibility.md#propertyisvisible

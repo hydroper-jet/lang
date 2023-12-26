@@ -4,7 +4,7 @@
 
 The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* object, a *qual* qualifier value and a *key* value, and resolves to a reference value. *ResolveProperty* takes the following steps:
 
-1. If the type o *base* is one of \{ `XML`, `XMLList` \}, return *XMLReferenceValue*(*base*, *qual*, *key*).
+1. If *base* is a value whose type is one of \{ `XML`, `XMLList` \}, return *XMLReferenceValue*(*base*, *qual*, *key*).
 2. If *base* is a scope, return *ResolveScopeProperty*(*base*, *qual*, *key*).
 3. If *base* is a value whose type is `*`
     1. Return *DynamicReferenceValue*(*base*, *qual*, *key*)

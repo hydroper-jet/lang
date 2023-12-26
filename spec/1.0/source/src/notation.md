@@ -30,3 +30,9 @@ A bracketed clause or predicate may appear between the rules of a production, su
         <td>&nbsp;</td><td><i>SourceCharacters</i> [but no embedded <b>&lt;!&#x5b;CDATA&#x5b;</b>] <i>Rule3</i></td>
     </tr>
 </table>
+
+Braces subscripts are used to quantify a rule:
+
+* <i>Rule</i><sub>{4}</sub> — Four of <i>Rule</i>
+* <i>Rule</i><sub>{2,}</sub> — At least two of <i>Rule</i>
+* <i>Rule</i><sub>{1,4}</sub> — One to four of <i>Rule</i>

@@ -64,10 +64,10 @@
         <td colspan="2"><i>UnicodeEscapeSequence</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>&#x5c;u</b> <i>HexDigit</i> <i>HexDigit</i> <i>HexDigit</i> <i>HexDigit</i></td>
+        <td>&nbsp;</td><td><b>&#x5c;u</b> <i>HexDigit</i><sub>{4}</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>&#x5c;u</b> <b>&#x7b;</b> <i>HexDigits</i> <b>&#x7d;</b></td>
+        <td>&nbsp;</td><td><b>&#x5c;u</b> <b>&#x7b;</b> <i>HexDigit</i><sub>{1,}</sub> <b>&#x7d;</b></td>
     </tr>
 </table>
 

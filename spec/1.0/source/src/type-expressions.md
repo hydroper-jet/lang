@@ -59,19 +59,19 @@
         <td colspan="2"><i>TupleTypeExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i><b>&#x5B;</b> <i>AtLeast2TypeExpressions</i> <b>&#x5D;</b></i></td>
+        <td>&nbsp;</td><td><i><b>&#x5B;</b> <i>TupleElementTypes</i> <b>&#x5D;</b></i></td>
     </tr>
 </table>
 
 <table>
     <tr>
-        <td colspan="2"><i>AtLeast2TypeExpressions</i></td>
+        <td colspan="2"><i>TupleElementTypes</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i><i>TypeExpression</i> <b>,</b> <i>TypeExpression</i></i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i><i>AtLeast2TypeExpressions</i> <b>,</b> <i>TypeExpression</i></i></td>
+        <td>&nbsp;</td><td><i><i>TupleElementTypes</i> <b>,</b> <i>TypeExpression</i></i></td>
     </tr>
 </table>
 

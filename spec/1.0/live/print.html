@@ -521,7 +521,14 @@ trace(new ExampleClass(undefined).data!);
     </tr>
         <td>&nbsp;</td><td><i>SourceCharacters</i> [but no embedded <b>&lt;!&#x5b;CDATA&#x5b;</b>] <i>Rule3</i></td>
     </tr>
-</table><div style="break-before: page; page-break-before: always;"></div><h1 id="lexical-structure"><a class="header" href="#lexical-structure">Lexical structure</a></h1>
+</table>
+<p>Braces subscripts are used to quantify a rule:</p>
+<ul>
+<li><i>Rule</i><sub>{4}</sub> — Four of <i>Rule</i></li>
+<li><i>Rule</i><sub>{2,}</sub> — At least two of <i>Rule</i></li>
+<li><i>Rule</i><sub>{1,4}</sub> — One to four of <i>Rule</i></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lexical-structure"><a class="header" href="#lexical-structure">Lexical structure</a></h1>
 <table>
     <tr>
         <td colspan="2"><i>InputElementDiv</i></td>
@@ -583,10 +590,10 @@ trace(new ExampleClass(undefined).data!);
         <td colspan="2"><i>UnicodeEscapeSequence</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>&#x5c;u</b> <i>HexDigit</i> <i>HexDigit</i> <i>HexDigit</i> <i>HexDigit</i></td>
+        <td>&nbsp;</td><td><b>&#x5c;u</b> <i>HexDigit</i><sub>{4}</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>&#x5c;u</b> <b>&#x7b;</b> <i>HexDigits</i> <b>&#x7d;</b></td>
+        <td>&nbsp;</td><td><b>&#x5c;u</b> <b>&#x7b;</b> <i>HexDigit</i><sub>{1,}</sub> <b>&#x7d;</b></td>
     </tr>
 </table>
 <h2 id="identifier"><a class="header" href="#identifier">Identifier</a></h2>
@@ -2187,18 +2194,18 @@ Future data binding support:
         <td colspan="2"><i>TupleTypeExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i><b>&#x5B;</b> <i>AtLeast2TypeExpressions</i> <b>&#x5D;</b></i></td>
+        <td>&nbsp;</td><td><i><b>&#x5B;</b> <i>TupleElementTypes</i> <b>&#x5D;</b></i></td>
     </tr>
 </table>
 <table>
     <tr>
-        <td colspan="2"><i>AtLeast2TypeExpressions</i></td>
+        <td colspan="2"><i>TupleElementTypes</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i><i>TypeExpression</i> <b>,</b> <i>TypeExpression</i></i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i><i>AtLeast2TypeExpressions</i> <b>,</b> <i>TypeExpression</i></i></td>
+        <td>&nbsp;</td><td><i><i>TupleElementTypes</i> <b>,</b> <i>TypeExpression</i></i></td>
     </tr>
 </table>
 <p><strong>Verification</strong></p>

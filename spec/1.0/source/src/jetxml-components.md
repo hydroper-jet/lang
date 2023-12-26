@@ -2,9 +2,10 @@
 
 <!--
 
-Future data bindings support:
+Future data binding support:
 
-* Consider using a particular XML namespace for data binding attributes.
+* Consider using a particular XML namespace for data binding attributes (prefix usually being "bind").
+* A p={o.p} attribute would be a data binding if o is a binding from within the JetXML component
 
 -->
 

@@ -5,7 +5,7 @@ JetWork supports classes in XML form called *JetXML* components. A JetXML compon
 Here is an example JetXML:
 
 ```xml
-<k:Container xmlns="jetxml" xmlns:k="org.k" className="org.example.Example">
+<k:Container xmlns:k="org.k" className="org.example.Example">
     <Script>
         <![CDATA[
             public var exampleProperty: Number = Infinity;
@@ -32,16 +32,16 @@ Explanatory comments:
 * The `jetxmlStatus` property may be used to cause a new rendering of the node on a next frame iteration.
 * The `jetxmlStatus` property as defined by the `JetXML` interface is allowed to emit an event when assigned.
 
-## Data bindings
+## Data binding
 
-JetXML may support data bindings in the future. Data bindings allow connecting property values through events.
+JetXML may support data binding in the future. Data binding allows transferring the value from an source property to a destination property through an event.
 
 ## \<Children/\>
 
 The empty `<Children/>` tag may appear anywhere in a JetXML file to indicate where to add the tag's children:
 
 ```xml
-<k:Container xmlns="jetxml" xmlns:k="org.k" className="org.example.Example">
+<k:Container xmlns:k="org.k" className="org.example.Example">
     <k:Container>
         <k:Container>
             <Children/>
@@ -59,7 +59,7 @@ The `<Script>` tag may appear once in the root of a JetXML file to attach code t
 JetWork imposes no restrictions for the JetXML component constructor and it may be defined as a normal constructor:
 
 ```xml
-<k:Container xmlns="jetxml" xmlns:k="org.k" className="org.example.Example">
+<k:Container xmlns:k="org.k" className="org.example.Example">
     <Script>
         <![CDATA[
             public function Example() {

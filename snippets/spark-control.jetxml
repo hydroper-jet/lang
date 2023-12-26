@@ -1,4 +1,4 @@
-<s:Application xmlns="jetxml" xmlns:s="spark.controls" className="ExampleApplication">
+<s:Application xmlns:s="spark.controls" className="ExampleApplication">
     <Script>
         <![CDATA[
             public function ExampleApplication() {

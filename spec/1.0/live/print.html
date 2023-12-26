@@ -425,7 +425,7 @@ trace(new ExampleClass(undefined).data!);
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jetxml-components"><a class="header" href="#jetxml-components">JetXML components</a></h1>
 <p>JetWork supports classes in XML form called <em>JetXML</em> components. A JetXML component is a file with the extension <code>.jetxml</code>.</p>
 <p>Here is an example JetXML:</p>
-<pre><code class="language-xml">&lt;k:Container xmlns=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
+<pre><code class="language-xml">&lt;k:Container xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
     &lt;Script&gt;
         &lt;![CDATA[
             public var exampleProperty: Number = Infinity;
@@ -448,11 +448,11 @@ trace(new ExampleClass(undefined).data!);
 <li>The <code>jetxmlStatus</code> property may be used to cause a new rendering of the node on a next frame iteration.</li>
 <li>The <code>jetxmlStatus</code> property as defined by the <code>JetXML</code> interface is allowed to emit an event when assigned.</li>
 </ul>
-<h2 id="data-bindings"><a class="header" href="#data-bindings">Data bindings</a></h2>
-<p>JetXML may support data bindings in the future. Data bindings allow connecting property values through events.</p>
+<h2 id="data-binding"><a class="header" href="#data-binding">Data binding</a></h2>
+<p>JetXML may support data binding in the future. Data binding allows transferring the value from an source property to a destination property through an event.</p>
 <h2 id="children"><a class="header" href="#children">&lt;Children/&gt;</a></h2>
 <p>The empty <code>&lt;Children/&gt;</code> tag may appear anywhere in a JetXML file to indicate where to add the tag's children:</p>
-<pre><code class="language-xml">&lt;k:Container xmlns=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
+<pre><code class="language-xml">&lt;k:Container xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
     &lt;k:Container&gt;
         &lt;k:Container&gt;
             &lt;Children/&gt;
@@ -464,7 +464,7 @@ trace(new ExampleClass(undefined).data!);
 <p>The <code>&lt;Script&gt;</code> tag may appear once in the root of a JetXML file to attach code to the class block.</p>
 <h2 id="initialization"><a class="header" href="#initialization">Initialization</a></h2>
 <p>JetWork imposes no restrictions for the JetXML component constructor and it may be defined as a normal constructor:</p>
-<pre><code class="language-xml">&lt;k:Container xmlns=&quot;jetxml&quot; xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
+<pre><code class="language-xml">&lt;k:Container xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
     &lt;Script&gt;
         &lt;![CDATA[
             public function Example() {
@@ -1800,10 +1800,9 @@ Future data bindings support:
 
 -->
 <p>A JetXML component is a XML file with the extension <code>.jetxml</code> describing a class that inherits from a <code>JetXML</code> implementor. The class being described in the XML file is referred throughout this section as <code>descClass</code>.</p>
-<p>The default XML namespace used throughout this section is the <strong>jetxml</strong> string, as if the attribute <code>xmlns=&quot;jetxml&quot;</code> were applied to the root XML element.</p>
 <h2 id="class-name"><a class="header" href="#class-name">Class name</a></h2>
 <p>The root element must assign the attribute <code>className</code> a fully package qualified name whose trailing name identifies the class name of <code>descClass</code>, as in:</p>
-<pre><code class="language-xml">&lt;e:Application xmlns=&quot;jetxml&quot; xmlns:e=&quot;org.example&quot; className=&quot;org.example.Main&quot;&gt;
+<pre><code class="language-xml">&lt;e:Application xmlns:e=&quot;org.example&quot; className=&quot;org.example.Main&quot;&gt;
     &lt;!-- Class contents --&gt;
 &lt;/e:Application&gt;
 </code></pre>
@@ -1820,7 +1819,7 @@ Future data bindings support:
 <p>The <code>Script</code> element is allowed at the root element and may appear at most once. If an <code>Script</code> element appears, it must only contain a CDATA section.</p>
 <p>The CDATA section contains a JetWork source as the contents of a <code>class</code> block. Such contents are contributed to <code>descClass</code>.</p>
 <p>The <code>Script</code> element must be interpreted before the XML attributes of the root element are processed. This behavior allows code in attribute values to rely on <code>import</code> directives, as in the following JetXML component:</p>
-<pre><code class="language-xml">&lt;e:Application xmlns=&quot;jetxml&quot; xmlns:e=&quot;org.example&quot;
+<pre><code class="language-xml">&lt;e:Application xmlns:e=&quot;org.example&quot;
     className=&quot;org.example.Main&quot;
     rectangle=&quot;{new Rectangle(0, 0, 100, 100)}&quot;&gt;
     &lt;Script&gt;
@@ -1831,12 +1830,12 @@ Future data bindings support:
 <h2 id="children-1"><a class="header" href="#children-1">&lt;Children/&gt;</a></h2>
 <p>The empty <code>Children</code> element is allowed anywhere within the root element and may appear at most once.</p>
 <p>The <code>Children</code> tag is replaced by zero or more component instantiations that appear as children of the JetXML component.</p>
-<pre><code class="language-xml">&lt;e:C1 xmlns=&quot;jetxml&quot; xmlns:e=&quot;org.example&quot; className=&quot;org.example.C2&quot;&gt;
+<pre><code class="language-xml">&lt;e:C1 xmlns:e=&quot;org.example&quot; className=&quot;org.example.C2&quot;&gt;
     &lt;Children/&gt;
 &lt;/e:C1&gt;
 </code></pre>
 <h2 id="component-instantiation"><a class="header" href="#component-instantiation">Component instantiation</a></h2>
-<p>All XML elements that are not in the <strong>jetxml</strong> namespace are component instantiations. Given that <code>cbi</code> is the component being instantiated:</p>
+<p>All XML elements that are not of the empty namespace are component instantiations. Given that <code>cbi</code> is the component being instantiated:</p>
 <ul>
 <li><code>cbi</code> is valid if and only if the tag name identifies a fully package qualified class that implements the <code>JetXML</code> interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.</li>
 <li>A component instantiation returns <code>result = new cbi()</code> followed by zero or more property assignments at <code>result</code> and zero or more <code>result.jetxmlAppend()</code> calls.</li>
@@ -1847,7 +1846,7 @@ Future data bindings support:
 <li>Otherwise, for each child component, call <code>result.jetxmlAppend()</code> with the result of the child instantiation.</li>
 </ol>
 <h3 id="attributes"><a class="header" href="#attributes">Attributes</a></h3>
-<p>XML attributes at the <strong>jetxml</strong> namespace applied to the instantiation are processed as follows:</p>
+<p>XML attributes of the empty namespace applied to the instantiation are processed as follows:</p>
 <ol>
 <li>Let <em>p</em> be a property of the result object whose name matches the attribute unqualified name.</li>
 <li>It is a verify error if either <em>p</em> is not defined or <em>p</em> is read-only.</li>

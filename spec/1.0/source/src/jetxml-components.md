@@ -10,14 +10,12 @@ Future data bindings support:
 
 A JetXML component is a XML file with the extension `.jetxml` describing a class that inherits from a `JetXML` implementor. The class being described in the XML file is referred throughout this section as `descClass`.
 
-The default XML namespace used throughout this section is the **jetxml** string, as if the attribute `xmlns="jetxml"` were applied to the root XML element.
-
 ## Class name
 
 The root element must assign the attribute `className` a fully package qualified name whose trailing name identifies the class name of `descClass`, as in:
 
 ```xml
-<e:Application xmlns="jetxml" xmlns:e="org.example" className="org.example.Main">
+<e:Application xmlns:e="org.example" className="org.example.Main">
     <!-- Class contents -->
 </e:Application>
 ```
@@ -45,7 +43,7 @@ The CDATA section contains a JetWork source as the contents of a `class` block. 
 The `Script` element must be interpreted before the XML attributes of the root element are processed. This behavior allows code in attribute values to rely on `import` directives, as in the following JetXML component:
 
 ```xml
-<e:Application xmlns="jetxml" xmlns:e="org.example"
+<e:Application xmlns:e="org.example"
     className="org.example.Main"
     rectangle="{new Rectangle(0, 0, 100, 100)}">
     <Script>
@@ -61,14 +59,14 @@ The empty `Children` element is allowed anywhere within the root element and may
 The `Children` tag is replaced by zero or more component instantiations that appear as children of the JetXML component.
 
 ```xml
-<e:C1 xmlns="jetxml" xmlns:e="org.example" className="org.example.C2">
+<e:C1 xmlns:e="org.example" className="org.example.C2">
     <Children/>
 </e:C1>
 ```
 
 ## Component instantiation
 
-All XML elements that are not in the **jetxml** namespace are component instantiations. Given that `cbi` is the component being instantiated:
+All XML elements that are not of the empty namespace are component instantiations. Given that `cbi` is the component being instantiated:
 
 * `cbi` is valid if and only if the tag name identifies a fully package qualified class that implements the `JetXML` interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
 * A component instantiation returns `result = new cbi()` followed by zero or more property assignments at `result` and zero or more `result.jetxmlAppend()` calls.
@@ -80,7 +78,7 @@ Children components are processed as follows:
 
 ### Attributes
 
-XML attributes at the **jetxml** namespace applied to the instantiation are processed as follows:
+XML attributes of the empty namespace applied to the instantiation are processed as follows:
 
 1. Let *p* be a property of the result object whose name matches the attribute unqualified name.
 2. It is a verify error if either *p* is not defined or *p* is read-only.

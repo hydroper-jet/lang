@@ -944,7 +944,7 @@ type O = Optional.&lt;Optional.&lt;T&gt;&gt;;
 <div class="table-wrapper"><table><thead><tr><th>Visibility</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>public</code></td><td>The <code>public</code> visibility indicates that a property is accessible from anywhere.</td></tr>
 <tr><td><code>private</code></td><td>The <code>private</code> visibility indicates that a property is accessible from within a class block.</td></tr>
-<tr><td><code>protected</code></td><td>The <code>protected</code> visibility indicates that a property is accessible from a class and any subclasses.</td></tr>
+<tr><td><code>protected</code></td><td>The <code>protected</code> visibility indicates that a property is accessible from the block of a class and any subclasses.</td></tr>
 <tr><td><code>internal</code></td><td>The <code>internal</code> visibility indicates that a property is accessible from the enclosing package, excluding subpackages.</td></tr>
 </tbody></table>
 </div>
@@ -952,6 +952,117 @@ type O = Optional.&lt;Optional.&lt;T&gt;&gt;;
 <li>When a property is not <code>public</code>, it is not allowed for such property to be found at runtime.</li>
 <li>When a property is not <code>public</code>, it is not contained in the runtime type information.</li>
 </ul>
+<h2 id="propertyisvisible"><a class="header" href="#propertyisvisible">PropertyIsVisible()</a></h2>
+<p>The internal <em>PropertyIsVisible</em>(<em>prop</em>, <em>scope</em>) function takes the following steps:</p>
+<ol>
+<li>Let <em>v</em> be <em>prop</em>[[<em>Visibility</em>]]</li>
+<li>If <em>v</em> is <code>public</code>, return true.</li>
+<li>If <em>v</em> is <code>internal</code>
+<ol>
+<li>Let <em>p</em> be undefined.</li>
+<li>Let <em>p1</em> be <em>prop</em>[[<em>ParentDefinition</em>]]</li>
+<li>While <em>p1</em> is defined
+<ol>
+<li>If <em>p1</em> is a <code>package</code>
+<ol>
+<li>Assign <em>p</em> = <em>p1</em></li>
+<li>Exit loop</li>
+</ol>
+</li>
+<li>Assign <em>p1</em> = <em>p1</em>[[<em>ParentDefinition</em>]]</li>
+</ol>
+</li>
+<li>If <em>p</em> is undefined
+<ol>
+<li>Return true.</li>
+</ol>
+</li>
+<li>While <em>scope</em> is defined
+<ol>
+<li>If <em>scope</em> is a <code>package</code> scope and <em>scope</em>[[<em>Package</em>]] equals <em>p</em>
+<ol>
+<li>Return true.</li>
+</ol>
+</li>
+<li>Assign <em>scope</em> = <em>scope</em>[[<em>ParentScope</em>]]</li>
+</ol>
+</li>
+<li>Return false.</li>
+</ol>
+</li>
+<li>If <em>v</em> is <code>private</code>
+<ol>
+<li>Let <em>t</em> be undefined.</li>
+<li>Let <em>p</em> be <em>prop</em>[[<em>ParentDefinition</em>]]</li>
+<li>While <em>p</em> is defined
+<ol>
+<li>If <em>p</em> is a <code>class</code> or <code>enum</code>
+<ol>
+<li>Assign <em>t</em> = <em>p</em></li>
+<li>Exit loop</li>
+</ol>
+</li>
+<li>Assign <em>p</em> = <em>p</em>[[<em>ParentDefinition</em>]]</li>
+</ol>
+</li>
+<li>If <em>t</em> is undefined
+<ol>
+<li>Return false</li>
+</ol>
+</li>
+<li>While <em>scope</em> is defined
+<ol>
+<li>If <em>scope</em> is a <code>class</code> scope or <code>enum</code> scope and <em>scope</em>[[<em>Class</em>]] equals <em>t</em>
+<ol>
+<li>Return true.</li>
+</ol>
+</li>
+<li>Assign <em>scope</em> = <em>scope</em>[[<em>ParentScope</em>]]</li>
+</ol>
+</li>
+<li>Return false.</li>
+</ol>
+</li>
+<li>If <em>v</em> is <code>protected</code>
+<ol>
+<li>Let <em>t</em> be undefined.</li>
+<li>Let <em>p</em> be <em>prop</em>[[<em>ParentDefinition</em>]]</li>
+<li>While <em>p</em> is defined
+<ol>
+<li>If <em>p</em> is a <code>class</code> or <code>enum</code>
+<ol>
+<li>Assign <em>t</em> = <em>p</em></li>
+<li>Exit loop</li>
+</ol>
+</li>
+<li>Assign <em>p</em> = <em>p</em>[[<em>ParentDefinition</em>]]</li>
+</ol>
+</li>
+<li>If <em>t</em> is undefined
+<ol>
+<li>Return false</li>
+</ol>
+</li>
+<li>While <em>scope</em> is defined
+<ol>
+<li>If <em>scope</em> is a <code>class</code> scope or <code>enum</code> scope
+<ol>
+<li>Let <em>scopeClass</em> be <em>scope</em>[[<em>Class</em>]]</li>
+<li>If <em>scopeClass</em> equals <em>t</em> or <em>scopeClass</em> is a subtype of <em>t</em>
+<ol>
+<li>Return true.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Assign <em>scope</em> = <em>scope</em>[[<em>ParentScope</em>]]</li>
+</ol>
+</li>
+<li>Return false.</li>
+</ol>
+</li>
+<li>Return false.</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="packages"><a class="header" href="#packages">Packages</a></h1>
 <p>Packages as denoted by the <code>package</code> keyword are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an <code>import</code> directive or an <code>use</code> definition.</p>
 <pre><code>// Top-level package
@@ -1772,7 +1883,7 @@ Future data bindings support:
 <h2 id="resolveproperty"><a class="header" href="#resolveproperty">ResolveProperty()</a></h2>
 <p>The internal <em>ResolveProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>) function takes a <em>base</em> object, a <em>qual</em> qualifier value and a <em>key</em> value, and resolves to a reference value. <em>ResolveProperty</em> takes the following steps:</p>
 <ol>
-<li>If the type o <em>base</em> is one of { <code>XML</code>, <code>XMLList</code> }, return <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+<li>If <em>base</em> is a value whose type is one of { <code>XML</code>, <code>XMLList</code> }, return <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
 <li>If <em>base</em> is a scope, return <em>ResolveScopeProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
 <li>If <em>base</em> is a value whose type is <code>*</code>
 <ol>
@@ -2062,6 +2173,7 @@ Future data bindings support:
 <ul>
 <li>Let <em>p</em> be <em>ResolveProperty</em>(<em>current scope</em>, undefined, string of <i>Identifier</i>)</li>
 <li>It is a verify error if <em>p</em> is undefined.</li>
+<li>It is a verify error if <em>PropertyIsVisible</em>(<em>p</em>, <em>current scope</em>) is false.</li>
 <li>Return <em>p</em>.</li>
 </ul>
 <p><i>NoQuestionPrefixTypeExpression</i> : <b>void</b></p>
@@ -2085,6 +2197,7 @@ Future data bindings support:
 <li>Let <em>base</em> be the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
 <li>Let <em>p</em> be <em>ResolveProperty</em>(<em>base</em>, undefined, string of <i>IdentifierName</i>)</li>
 <li>It is a verify error if <em>p</em> is undefined.</li>
+<li>It is a verify error if <em>PropertyIsVisible</em>(<em>p</em>, <em>current scope</em>) is false.</li>
 <li>Return <em>p</em>.</li>
 </ul>
 

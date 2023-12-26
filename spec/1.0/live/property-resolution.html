@@ -169,7 +169,7 @@
 <h2 id="resolveproperty"><a class="header" href="#resolveproperty">ResolveProperty()</a></h2>
 <p>The internal <em>ResolveProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>) function takes a <em>base</em> object, a <em>qual</em> qualifier value and a <em>key</em> value, and resolves to a reference value. <em>ResolveProperty</em> takes the following steps:</p>
 <ol>
-<li>If the type o <em>base</em> is one of { <code>XML</code>, <code>XMLList</code> }, return <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+<li>If <em>base</em> is a value whose type is one of { <code>XML</code>, <code>XMLList</code> }, return <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
 <li>If <em>base</em> is a scope, return <em>ResolveScopeProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
 <li>If <em>base</em> is a value whose type is <code>*</code>
 <ol>

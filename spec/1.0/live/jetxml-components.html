@@ -203,21 +203,21 @@ Future data bindings support:
 </code></pre>
 <h2 id="children"><a class="header" href="#children">&lt;Children/&gt;</a></h2>
 <p>The empty <code>Children</code> element is allowed anywhere within the root element and may appear at most once.</p>
-<p>The <code>Children</code> tag is replaced by zero or more component instantiations that appear as children of the JetXML component.</p>
+<p>The <code>Children</code> tag is replaced by zero or more JetXML instantiations that appear as children of the JetXML component.</p>
 <pre><code class="language-xml">&lt;e:C1 xmlns:e=&quot;org.example&quot; className=&quot;org.example.C2&quot;&gt;
     &lt;Children/&gt;
 &lt;/e:C1&gt;
 </code></pre>
-<h2 id="component-instantiation"><a class="header" href="#component-instantiation">Component instantiation</a></h2>
-<p>All XML elements that are not of the empty namespace are component instantiations. Given that <code>cbi</code> is the component being instantiated:</p>
+<h2 id="jetxml-instantiation"><a class="header" href="#jetxml-instantiation">JetXML instantiation</a></h2>
+<p>All XML elements that are not of the empty namespace are JetXML instantiations. Given that <code>comp</code> is the component being instantiated:</p>
 <ul>
-<li><code>cbi</code> is valid if and only if the tag name identifies a fully package qualified class that implements the <code>JetXML</code> interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.</li>
-<li>A component instantiation returns <code>result = new cbi()</code> followed by zero or more property assignments at <code>result</code> and zero or more <code>result.jetxmlAppend()</code> calls.</li>
+<li><code>comp</code> is valid if and only if the tag name identifies a fully package qualified class that implements the <code>JetXML</code> interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.</li>
+<li>A JetXML instantiation returns <code>result = new comp()</code> followed by zero or more property assignments at <code>result</code> and zero or more <code>result.jetxmlAppend()</code> calls.</li>
 </ul>
 <p>Children components are processed as follows:</p>
 <ol>
-<li>If <code>cbi</code> contains a <code>&lt;Children/&gt;</code> tag, children components take the place of such <code>&lt;Children/&gt;</code> tag.</li>
-<li>Otherwise, for each child component, call <code>result.jetxmlAppend()</code> with the result of the child instantiation.</li>
+<li>If <code>comp</code> contains a <code>&lt;Children/&gt;</code> tag, children components take the place of such <code>&lt;Children/&gt;</code> tag.</li>
+<li>Otherwise, for each child component, call <code>result.jetxmlAppend()</code> with the result of the child JetXML instantiation.</li>
 </ol>
 <h3 id="attributes"><a class="header" href="#attributes">Attributes</a></h3>
 <p>XML attributes of the empty namespace applied to the instantiation are processed as follows:</p>
@@ -249,11 +249,11 @@ Future data bindings support:
 </li>
 <li>Otherwise:
 <ol>
-<li>Let <em>colorClass</em> be [[<em>JetXMLColor</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
+<li>Let <em>colorClass</em> be [[<em>JetXMLColor</em>]] from either <code>comp</code> or a super class of <code>comp</code>.</li>
 <li>If <em>colorClass</em> exists and <em>t</em> is equals <em>colorClass</em>, assign <code>new colorClass(v)</code> to <em>p</em> where <code>v</code> is the attribute value as a <code>String</code>.</li>
 <li>Otherwise:
 <ol>
-<li>Let <em>vectorClasses</em> be [[<em>JetXMLVectors</em>]] from either <code>cbi</code> or a super class of <code>cbi</code>.</li>
+<li>Let <em>vectorClasses</em> be [[<em>JetXMLVectors</em>]] from either <code>comp</code> or a super class of <code>comp</code>.</li>
 <li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
 <li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>StringSequenceToNumberSequence</em>(<em>vectorComponents</em>, <em>N</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
 <li>Otherwise throw a verify error.</li>

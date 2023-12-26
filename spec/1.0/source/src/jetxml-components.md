@@ -56,7 +56,7 @@ The `Script` element must be interpreted before the XML attributes of the root e
 
 The empty `Children` element is allowed anywhere within the root element and may appear at most once.
 
-The `Children` tag is replaced by zero or more component instantiations that appear as children of the JetXML component.
+The `Children` tag is replaced by zero or more JetXML instantiations that appear as children of the JetXML component.
 
 ```xml
 <e:C1 xmlns:e="org.example" className="org.example.C2">
@@ -64,17 +64,17 @@ The `Children` tag is replaced by zero or more component instantiations that app
 </e:C1>
 ```
 
-## Component instantiation
+## JetXML instantiation
 
-All XML elements that are not of the empty namespace are component instantiations. Given that `cbi` is the component being instantiated:
+All XML elements that are not of the empty namespace are JetXML instantiations. Given that `comp` is the component being instantiated:
 
-* `cbi` is valid if and only if the tag name identifies a fully package qualified class that implements the `JetXML` interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
-* A component instantiation returns `result = new cbi()` followed by zero or more property assignments at `result` and zero or more `result.jetxmlAppend()` calls.
+* `comp` is valid if and only if the tag name identifies a fully package qualified class that implements the `JetXML` interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
+* A JetXML instantiation returns `result = new comp()` followed by zero or more property assignments at `result` and zero or more `result.jetxmlAppend()` calls.
 
 Children components are processed as follows:
 
-1. If `cbi` contains a `<Children/>` tag, children components take the place of such `<Children/>` tag.
-2. Otherwise, for each child component, call `result.jetxmlAppend()` with the result of the child instantiation.
+1. If `comp` contains a `<Children/>` tag, children components take the place of such `<Children/>` tag.
+2. Otherwise, for each child component, call `result.jetxmlAppend()` with the result of the child JetXML instantiation.
 
 ### Attributes
 
@@ -99,10 +99,10 @@ XML attributes of the empty namespace applied to the instantiation are processed
         5. If *t* is `E` or `Optional.<E>` where `E` is a non Set `enum`, assert that the attribute value identifies a member of the `enum` by its string component and assign such member to *p*.
         6. If *t* is `E` or `Optional.<E>` where `E` is a Set `enum`, assert that the attribute value is a comma-separated list identifying one or more members of the `enum` by their string components and assign such members to *p*.
     2. Otherwise:
-        1. Let *colorClass* be \[\[*JetXMLColor*\]\] from either `cbi` or a super class of `cbi`.
+        1. Let *colorClass* be \[\[*JetXMLColor*\]\] from either `comp` or a super class of `comp`.
         2. If *colorClass* exists and *t* is equals *colorClass*, assign `new colorClass(v)` to *p* where `v` is the attribute value as a `String`.
         3. Otherwise:
-            1. Let *vectorClasses* be \[\[*JetXMLVectors*\]\] from either `cbi` or a super class of `cbi`.
+            1. Let *vectorClasses* be \[\[*JetXMLVectors*\]\] from either `comp` or a super class of `comp`.
             2. Let *vectorComponents* be the result of spliting the attribute value by comma.
             3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *StringSequenceToNumberSequence*(*vectorComponents*, *N*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
             4. Otherwise throw a verify error.

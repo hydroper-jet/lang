@@ -185,6 +185,7 @@ Future data bindings support:
 <h2 id="root-element"><a class="header" href="#root-element">Root element</a></h2>
 <p>The root element of the XML file instantiates a JetXML component and determines the class from which <code>descClass</code> inherits.</p>
 <h2 id="class-constructor"><a class="header" href="#class-constructor">Class constructor</a></h2>
+<p>The class constructor of <code>descClass</code> is implicitly defined if not already defined by the <code>&lt;Script&gt;</code> element.</p>
 <p>The following restrictions apply to JetXML components:</p>
 <ul>
 <li>The constructor of <code>descClass</code> is only allowed to receive optional parameters.</li>
@@ -192,6 +193,15 @@ Future data bindings support:
 <h2 id="script"><a class="header" href="#script">&lt;Script&gt;</a></h2>
 <p>The <code>Script</code> element is allowed at the root element and may appear at most once. If an <code>Script</code> element appears, it must only contain a CDATA section.</p>
 <p>The CDATA section contains a JetWork source as the contents of a <code>class</code> block. Such contents are contributed to <code>descClass</code>.</p>
+<p>The <code>Script</code> element must be interpreted before the XML attributes of the root element are processed. This behavior allows code in attribute values to rely on <code>import</code> directives, as in the following JetXML component:</p>
+<pre><code class="language-xml">&lt;e:Application xmlns=&quot;jetxml&quot; xmlns:e=&quot;org.example&quot;
+    className=&quot;org.example.Main&quot;
+    rectangle=&quot;{new Rectangle(0, 0, 100, 100)}&quot;&gt;
+    &lt;Script&gt;
+        import org.foundation.geom.*;
+    &lt;/Script&gt;
+&lt;/e:Application&gt;
+</code></pre>
 <h2 id="children"><a class="header" href="#children">&lt;Children/&gt;</a></h2>
 <p>The empty <code>Children</code> element is allowed anywhere within the root element and may appear at most once.</p>
 <p>The <code>Children</code> tag is replaced by zero or more component instantiations that appear as children of the JetXML component.</p>
@@ -217,6 +227,17 @@ Future data bindings support:
 <li>It is a verify error if either <em>p</em> is not defined or <em>p</em> is read-only.</li>
 <li>It is a verify error if <em>p</em> is neither a variable property or a virtual property.</li>
 <li>Let <em>t</em> be the static type of <em>p</em>.</li>
+<li>If the attribute value starts with the <strong>{</strong> character and ends with the <strong>}</strong> character
+<ol>
+<li>Let <em>src</em> be a substring of the attribute value from the second character until the last character.</li>
+<li>Let <em>v</em> be the verification of <em>src</em> as an <em>AssignmentExpression</em> with the context type <em>t</em> and with the initial scope as the <code>descClass</code> constructor scope.</li>
+<li>Assign <em>v</em> = <em>ConvertImplicitly</em>(<em>v</em>, <em>t</em>)</li>
+<li>It is a verify error if <em>v</em> is an incompatible conversion.</li>
+<li>Assign <em>p</em> the evaluation of <em>v</em></li>
+</ol>
+</li>
+<li>Otherwise
+<ol>
 <li>Do one of the following steps:
 <ol>
 <li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type, assign <em>AttributeValueToNumber</em>(<em>v</em>, <code>N</code>) to <em>p</em> where <em>v</em> is the attribute value.</li>
@@ -237,6 +258,8 @@ Future data bindings support:
 <li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
 <li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>StringSequenceToNumberSequence</em>(<em>vectorComponents</em>, <em>N</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
 <li>Otherwise throw a verify error.</li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>

@@ -168,9 +168,10 @@
                         <h1 id="jetxml-components"><a class="header" href="#jetxml-components">JetXML components</a></h1>
 <!--
 
-Future data bindings support:
+Future data binding support:
 
-* Consider using a particular XML namespace for data binding attributes.
+* Consider using a particular XML namespace for data binding attributes (prefix usually being "bind").
+* A p={o.p} attribute would be a data binding if o is a binding from within the JetXML component
 
 -->
 <p>A JetXML component is a XML file with the extension <code>.jetxml</code> describing a class that inherits from a <code>JetXML</code> implementor. The class being described in the XML file is referred throughout this section as <code>descClass</code>.</p>

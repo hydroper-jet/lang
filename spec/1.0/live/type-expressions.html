@@ -171,15 +171,15 @@
         <td colspan="2"><i>TypeExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i></td>
+        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>?</b> <i>NoQuestionPrefixTypeExpression</i></td>
+        <td>&nbsp;</td><td><b>?</b> <i>TypeExpression</i><sup>noPrefix</sup></td>
     </tr>
 </table>
 <table>
     <tr>
-        <td colspan="2"><i>NoQuestionPrefixTypeExpression</i></td>
+        <td colspan="2"><i>TypeExpression</i><sup>noPrefix</sup></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><b>*</b></td>
@@ -209,30 +209,49 @@
         <td>&nbsp;</td><td><i>FunctionTypeExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i> <b>.</b> <i>IdentifierName</i></td>
+        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <b>.</b> <i>IdentifierName</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i> <i>TypeArguments</i></td>
+        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <i>TypeArguments</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>NoQuestionPrefixTypeExpression</i> <b>?</b></td>
+        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <b>?</b></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>TupleTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i><b>&#x5B;</b> <i>AtLeast2TypeExpressions</i> <b>&#x5D;</b></i></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>AtLeast2TypeExpressions</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i><i>TypeExpression</i> <b>,</b> <i>TypeExpression</i></i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i><i>AtLeast2TypeExpressions</i> <b>,</b> <i>TypeExpression</i></i></td>
     </tr>
 </table>
 <p><strong>Verification</strong></p>
-<p><i>TypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i></p>
+<p><i>TypeExpression</i> : <i>TypeExpression</i><sup>noPrefix</sup></p>
 <ul>
-<li>Return the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
+<li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
 </ul>
-<p><i>TypeExpression</i> : <b>?</b> <i>NoQuestionPrefixTypeExpression</i></p>
+<p><i>TypeExpression</i> : <b>?</b> <i>TypeExpression</i><sup>noPrefix</sup></p>
 <ul>
-<li>Return the verification result of <i>NoQuestionPrefixTypeExpression</i> if it is the <code>Optional</code> type.</li>
-<li>Return an <code>Optional</code> type consisting of the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
+<li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is the <code>Optional</code> type.</li>
+<li>Return an <code>Optional</code> type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
 </ul>
-<p><i>NoQuestionPrefixTypeExpression</i> : <b>*</b></p>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <b>*</b></p>
 <ul>
 <li>Return the any type.</li>
 </ul>
-<p><i>NoQuestionPrefixTypeExpression</i> : <i>Identifier</i></p>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <i>Identifier</i></p>
 <ul>
 <li>Let <em>p</em> be <em>ResolveProperty</em>(<em>current scope</em>, undefined, string of <i>Identifier</i>)</li>
 <li>It is a verify error if <em>p</em> is undefined.</li>
@@ -240,41 +259,41 @@
 <li>It is a verify error if <em>p</em> is not a type and the rule is not followed by a postfix operator.</li>
 <li>Return <em>p</em>.</li>
 </ul>
-<p><i>NoQuestionPrefixTypeExpression</i> : <b>void</b></p>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <b>void</b></p>
 <ul>
 <li>Return the void type.</li>
 </ul>
-<p><i>NoQuestionPrefixTypeExpression</i> : <b>undefined</b></p>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <b>undefined</b></p>
 <ul>
 <li>Return the void type.</li>
 </ul>
-<p><i>NoQuestionPrefixTypeExpression</i> : <i>TupleTypeExpression</i></p>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TupleTypeExpression</i></p>
 <ul>
 <li>Return the verification of <i>TupleTypeExpression</i>.</li>
 </ul>
-<p><i>NoQuestionPrefixTypeExpression</i> : <i>FunctionTypeExpression</i></p>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <i>FunctionTypeExpression</i></p>
 <ul>
 <li>Return the verification of <i>FunctionTypeExpression</i>.</li>
 </ul>
-<p><i>NoQuestionPrefixTypeExpression</i> : <b>[</b> <i>TypeExpression</i> <b>]</b></p>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <b>[</b> <i>TypeExpression</i> <b>]</b></p>
 <ul>
 <li>Return an array type consisting of the verification result of <i>TypeExpression</i>.</li>
 </ul>
-<p><i>NoQuestionPrefixTypeExpression</i> : <b>(</b> <i>TypeExpression</i> <b>)</b></p>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <b>(</b> <i>TypeExpression</i> <b>)</b></p>
 <ul>
 <li>Return the verification result of <i>TypeExpression</i>.</li>
 </ul>
-<p><i>NoQuestionPrefixTypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i> <b>.</b> <i>IdentifierName</i></p>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>.</b> <i>IdentifierName</i></p>
 <ul>
-<li>Let <em>base</em> be the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
+<li>Let <em>base</em> be the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
 <li>Let <em>p</em> be <em>ResolveProperty</em>(<em>base</em>, undefined, string of <i>IdentifierName</i>)</li>
 <li>It is a verify error if <em>p</em> is undefined.</li>
 <li>It is a verify error if <a href="visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<em>p</em>, <em>current scope</em>) is false.</li>
 <li>Return <em>p</em>.</li>
 </ul>
-<p><i>NoQuestionPrefixTypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i> <i>TypeArguments</i></p>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <i>TypeArguments</i></p>
 <ul>
-<li>Let <em>base</em> be the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
+<li>Let <em>base</em> be the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
 <li>It is a verify error if <em>base</em> is not a type with [[<em>TypeParameters</em>]].</li>
 <li>It is a verify error if <em>base</em>[[<em>TypeParameters</em>]] is empty.</li>
 <li>Let <em>a</em> be the verification sequence of <i>TypeArguments</i>.</li>
@@ -285,10 +304,10 @@
 </li>
 <li>Return a type substitution in <em>base</em> with <em>a</em> as type arguments.</li>
 </ul>
-<p><i>NoQuestionPrefixTypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i> <b>?</b></p>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>?</b></p>
 <ul>
-<li>Return the verification result of <i>NoQuestionPrefixTypeExpression</i> if it is the <code>Optional</code> type.</li>
-<li>Return an <code>Optional</code> type consisting of the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
+<li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is the <code>Optional</code> type.</li>
+<li>Return an <code>Optional</code> type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
 </ul>
 
                     </main>

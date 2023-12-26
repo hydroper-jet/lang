@@ -219,6 +219,10 @@
     </tr>
 </table>
 <p><strong>Verification</strong></p>
+<p><i>TypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i></p>
+<ul>
+<li>Return the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
+</ul>
 <p><i>TypeExpression</i> : <b>?</b> <i>NoQuestionPrefixTypeExpression</i></p>
 <ul>
 <li>Return the verification result of <i>NoQuestionPrefixTypeExpression</i> if it is the <code>Optional</code> type.</li>
@@ -233,6 +237,7 @@
 <li>Let <em>p</em> be <em>ResolveProperty</em>(<em>current scope</em>, undefined, string of <i>Identifier</i>)</li>
 <li>It is a verify error if <em>p</em> is undefined.</li>
 <li>It is a verify error if <a href="visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<em>p</em>, <em>current scope</em>) is false.</li>
+<li>It is a verify error if <em>p</em> is not a type and the rule is not followed by a postfix operator.</li>
 <li>Return <em>p</em>.</li>
 </ul>
 <p><i>NoQuestionPrefixTypeExpression</i> : <b>void</b></p>
@@ -266,6 +271,24 @@
 <li>It is a verify error if <em>p</em> is undefined.</li>
 <li>It is a verify error if <a href="visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<em>p</em>, <em>current scope</em>) is false.</li>
 <li>Return <em>p</em>.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i> <i>TypeArguments</i></p>
+<ul>
+<li>Let <em>base</em> be the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
+<li>It is a verify error if <em>base</em> is not a type with [[<em>TypeParameters</em>]].</li>
+<li>It is a verify error if <em>base</em>[[<em>TypeParameters</em>]] is empty.</li>
+<li>Let <em>a</em> be the verification sequence of <i>TypeArguments</i>.</li>
+<li>If <em>base</em> is <code>Optional</code> and <em>a</em><sub>0</sub> is <code>Optional</code>
+<ul>
+<li>Return <em>a</em><sub>0</sub></li>
+</ul>
+</li>
+<li>Return a type substitution in <em>base</em> with <em>a</em> as type arguments.</li>
+</ul>
+<p><i>NoQuestionPrefixTypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i> <b>?</b></p>
+<ul>
+<li>Return the verification result of <i>NoQuestionPrefixTypeExpression</i> if it is the <code>Optional</code> type.</li>
+<li>Return an <code>Optional</code> type consisting of the verification result of <i>NoQuestionPrefixTypeExpression</i>.</li>
 </ul>
 
                     </main>

@@ -56,6 +56,10 @@
 
 **Verification**
 
+<i>TypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i>
+
+* Return the verification result of <i>NoQuestionPrefixTypeExpression</i>.
+
 <i>TypeExpression</i> : <b>?</b> <i>NoQuestionPrefixTypeExpression</i>
 
 * Return the verification result of <i>NoQuestionPrefixTypeExpression</i> if it is the `Optional` type.
@@ -70,6 +74,7 @@
 * Let *p* be *ResolveProperty*(*current scope*, undefined, string of <i>Identifier</i>)
 * It is a verify error if *p* is undefined.
 * It is a verify error if [*PropertyIsVisible*](*p*, *current scope*) is false.
+* It is a verify error if *p* is not a type and the rule is not followed by a postfix operator.
 * Return *p*.
 
 <i>NoQuestionPrefixTypeExpression</i> : <b>void</b>
@@ -103,5 +108,20 @@
 * It is a verify error if *p* is undefined.
 * It is a verify error if [*PropertyIsVisible*](*p*, *current scope*) is false.
 * Return *p*.
+
+<i>NoQuestionPrefixTypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i> <i>TypeArguments</i>
+
+* Let *base* be the verification result of <i>NoQuestionPrefixTypeExpression</i>.
+* It is a verify error if *base* is not a type with \[\[*TypeParameters*\]\].
+* It is a verify error if *base*\[\[*TypeParameters*\]\] is empty.
+* Let *a* be the verification sequence of <i>TypeArguments</i>.
+* If *base* is `Optional` and *a*<sub>0</sub> is `Optional`
+  * Return *a*<sub>0</sub>
+* Return a type substitution in *base* with *a* as type arguments.
+
+<i>NoQuestionPrefixTypeExpression</i> : <i>NoQuestionPrefixTypeExpression</i> <b>?</b>
+
+* Return the verification result of <i>NoQuestionPrefixTypeExpression</i> if it is the `Optional` type.
+* Return an `Optional` type consisting of the verification result of <i>NoQuestionPrefixTypeExpression</i>.
 
 [*PropertyIsVisible*]: visibility.md#propertyisvisible

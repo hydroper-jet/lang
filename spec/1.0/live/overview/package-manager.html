@@ -185,25 +185,20 @@
 }
 </code></pre>
 <h2 id="registry-namespaces"><a class="header" href="#registry-namespaces">Registry namespaces</a></h2>
-<p>Registry namespaces allow distinguishing dependencies from different platforms; without registry namespaces, the registry can get cluttered over time and working with different platforms can be a confusing experience.</p>
-<p>A particular package can only depend in two registry namespaces: <code>*</code> and another optional registry namespace specified by the package manifest's top-level <code>registryNamespace</code> option. The <code>*</code> registry namespace indicates that the package does not rely on a platform.</p>
-<p>Here is an example of a potential package manifest that uses <code>http://www.w3.org/web</code> as its registry namespace:</p>
+<p>Registry namespaces are required to distinguish platforms on which the JetWork program executes. Platforms may have incompatible implementations, such as regular expressions, or lacking implementations of certain functions, therefore sharing packages between platforms is not allowed in JetPM.</p>
+<p>The package manifest's top-level <code>registryNamespace</code> option is required and indicates the registry namespace to which the package belongs as well as the namespace on which dependencies are found in the package registry.</p>
+<p>Here is an example of a potential package manifest that uses <code>http://www.airsdk.dev/2008</code> as its registry namespace:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;org.q.f&quot;,
     &quot;version&quot;: &quot;0.1.0&quot;,
-    &quot;registryNamespace&quot;: &quot;http://www.w3.org/web&quot;,
+    &quot;registryNamespace&quot;: &quot;http://www.airsdk.dev/2008&quot;,
     &quot;dependencies&quot;: {
-        &quot;*&quot;: {
-            &quot;org.collada.fileFormats&quot;: &quot;1.0.0&quot;
-        },
-        &quot;http://www.w3.org/web&quot;: {
-            &quot;goog.g&quot;: &quot;1.0.0&quot;
-        }
+        &quot;goog.firebase&quot;: &quot;1.0.0&quot;
     }
 }
 </code></pre>
-<p>Note that registry namespaces are only defined by the registry and not by the developers. This decision prevents accidental mistyping of registry namespace URIs and prevents cluttering of the registry with arbitrary registry namespaces.</p>
+<p>Note that registry namespaces are defined internally in the registry and may not be arbitrary. Registry namespaces are available as platforms are supported.</p>
 <h2 id="conditional-configuration"><a class="header" href="#conditional-configuration">Conditional configuration</a></h2>
 <p>The package manager supports configuration constants that allow for conditional configuration within a manifest through the top-level <code>conditional</code> property. The matching options are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.</p>
 <p>The conditions in <code>conditional</code> support a minimal conditional language:</p>
@@ -282,9 +277,7 @@ jetpm build --define air::target=ios
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
     &quot;dependencies&quot;: {
-        &quot;*&quot;: {
-            &quot;com.c.s.p1&quot;: &quot;file:../com.c.s.p1&quot;
-        }
+        &quot;com.c.s.p1&quot;: &quot;file:../com.c.s.p1&quot;
     }
 }
 </code></pre>

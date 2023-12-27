@@ -221,7 +221,7 @@ Future data binding support:
 <li>Otherwise, for each child component, call <code>result.jetxmlAppend()</code> with the result of the child JetXML instantiation.</li>
 </ol>
 <h3 id="attributes"><a class="header" href="#attributes">Attributes</a></h3>
-<p>XML attributes of the empty namespace applied to the instantiation are processed as follows:</p>
+<p>XML attributes of the empty namespace, excluding the <strong>className</strong> attribute at the root element, applied to the instantiation are processed as follows:</p>
 <ol>
 <li>Let <em>p</em> be a property of the result object whose name matches the attribute unqualified name.</li>
 <li>It is a verify error if either <em>p</em> is not defined or <em>p</em> is read-only.</li>

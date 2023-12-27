@@ -24,7 +24,7 @@ The identifying file extensions for Jetwork programs are:
 
 * `.jet`
 * `.jetwork`
-* `.jetxml` (JetXML class)
+* `.jxml` (JXML class)
 
 # Properties
 
@@ -397,4 +397,4 @@ Each destructuring allow for a non-erroneous assertion operator.
 
 Sources are simply recursively collected from specified directories and supplied to the compiler:
 
-* Not only regular file extensions are included, but also JetXML file extensions.
+* Not only regular file extensions are included, but also JXML file extensions.

@@ -19,8 +19,8 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*StaticProperties*\]\] | Static properties of the class. |
 | \[\[*Prototype*\]\] | Properties of the class prototype as a dictionary from string to symbol. |
 | \[\[*Proxies*\]\] | Proxies defined by the class as a dictionary from string to function symbol. |
-| \[\[*JetXMLColor*\]\] | For a JetXML base class, indicates the supported color class. |
-| \[\[*JetXMLVectors*\]\] | For a JetXML base class, indicates the supported vector classes. |
+| \[\[*JXMLColor*\]\] | For a JXML base class, indicates the supported color class. |
+| \[\[*JXMLVectors*\]\] | For a JXML base class, indicates the supported vector classes. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |
 
 ## Super class
@@ -36,25 +36,25 @@ It is a verify error if:
 
 When the parent definition of a class is a package, the class has a fully package qualified name.
 
-## JetXML color and vector support
+## JXML color and vector support
 
-A JetXML base class may contain a `JetXML` meta-data with two optional options `colorClass` and `vectorClass` that specify the fully package qualified name of a support class for the color and vector classes to use throughout XML attribute values in JetXML files.
+A JXML base class may contain a `JXML` meta-data with two optional options `colorClass` and `vectorClass` that specify the fully package qualified name of a support class for the color and vector classes to use throughout XML attribute values in JXML files.
 
-* It is a verify error if the fully package qualified names specified within `JetXML` do not resolve to a class.
+* It is a verify error if the fully package qualified names specified within `JXML` do not resolve to a class.
 * It is a verify error if the class specified by `colorClass` does not contain a constructor with the signature `(...arguments: [*]) => void`.
 * It is a verify error if the class specified by `vectorClass` does not contain a constructor that takes parameters of a same number type.
-* Only one `colorClass` occurrence is allowed, contributing the class to the \[\[*JetXMLColor*\]\] property.
-* Multiple `vectorClass` occurrences are allowed, contributing multiple classes to the annotated class's \[\[*JetXMLVectors*\]\] property.
+* Only one `colorClass` occurrence is allowed, contributing the class to the \[\[*JXMLColor*\]\] property.
+* Multiple `vectorClass` occurrences are allowed, contributing multiple classes to the annotated class's \[\[*JXMLVectors*\]\] property.
 
 ```
 package org.myEngine {
-    [JetXML(
+    [JXML(
         colorClass = org.myEngine.Color,
         vectorClass = org.myEngine.Vector,
         vectorClass = org.myEngine.Vector3D
     )]
-    public abstract class Node implements JetXML {
-        /* JetXML... */
+    public abstract class Node implements JXML {
+        /* JXML... */
     }
 }
 ```

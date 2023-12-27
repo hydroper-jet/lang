@@ -26,11 +26,11 @@ Here is an example package manifest:
 
 ## Registry namespaces
 
-Registry namespaces allow distinguishing dependencies from different platforms; without registry namespaces, the registry can get cluttered over time and working with different platforms can be a confusing experience.
+Registry namespaces are required to distinguish platforms on which the JetWork program executes. Platforms may have incompatible implementations, such as regular expressions, or lacking implementations of certain functions, therefore sharing packages between platforms is not allowed in JetPM.
 
-A particular package can only depend in two registry namespaces: `*` and another optional registry namespace specified by the package manifest's top-level `registryNamespace` option. The `*` registry namespace indicates that the package does not rely on a platform.
+The package manifest's top-level `registryNamespace` option is required and indicates the registry namespace to which the package belongs as well as the namespace on which dependencies are found in the package registry.
 
-Here is an example of a potential package manifest that uses `http://www.w3.org/web` as its registry namespace:
+Here is an example of a potential package manifest that uses `http://www.airsdk.dev/2008` as its registry namespace:
 
 **package.json**
 
@@ -38,19 +38,14 @@ Here is an example of a potential package manifest that uses `http://www.w3.org/
 {
     "id": "org.q.f",
     "version": "0.1.0",
-    "registryNamespace": "http://www.w3.org/web",
+    "registryNamespace": "http://www.airsdk.dev/2008",
     "dependencies": {
-        "*": {
-            "org.collada.fileFormats": "1.0.0"
-        },
-        "http://www.w3.org/web": {
-            "goog.g": "1.0.0"
-        }
+        "goog.firebase": "1.0.0"
     }
 }
 ```
 
-Note that registry namespaces are only defined by the registry and not by the developers. This decision prevents accidental mistyping of registry namespace URIs and prevents cluttering of the registry with arbitrary registry namespaces.
+Note that registry namespaces are defined internally in the registry and may not be arbitrary. Registry namespaces are available as platforms are supported.
 
 ## Conditional configuration
 
@@ -152,9 +147,7 @@ A member package may depend in another member package by using a `file:` URL:
 ```json
 {
     "dependencies": {
-        "*": {
-            "com.c.s.p1": "file:../com.c.s.p1"
-        }
+        "com.c.s.p1": "file:../com.c.s.p1"
     }
 }
 ```

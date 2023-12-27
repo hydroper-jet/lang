@@ -79,7 +79,7 @@ Children components are processed as follows:
 
 ### Attributes
 
-XML attributes of the empty namespace applied to the instantiation are processed as follows:
+XML attributes of the empty namespace, excluding the **className** attribute at the root element, applied to the instantiation are processed as follows:
 
 1. Let *p* be a property of the result object whose name matches the attribute unqualified name.
 2. It is a verify error if either *p* is not defined or *p* is read-only.

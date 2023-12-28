@@ -177,7 +177,6 @@ const y: Number;
 <tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the variable.</td></tr>
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the variable.</td></tr>
 <tr><td>[[<em>ReadOnly</em>]]</td><td>Indicates whether the variable is read-only or not.</td></tr>
-<tr><td>[[<em>IsJXMLVariable</em>]]</td><td>Indicates whether it is a JXML instance variable belonging to a JXML file.</td></tr>
 <tr><td>[[<em>ConstantInitializer</em>]]</td><td>Constant initializer of the variable as a constant value.</td></tr>
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the variable.</td></tr>
 </tbody></table>
@@ -210,13 +209,6 @@ const y: Number;
 <p>A variable may contain zero or more plain meta-data.</p>
 <pre><code>[[N1(n2)]]
 const x: T;
-</code></pre>
-<h2 id="jxml-variables"><a class="header" href="#jxml-variables">JXML variables</a></h2>
-<p>A JXML variable is an instance variable belonging to a JXML file.</p>
-<ul>
-<li>Assigning value to a JXML variable causes the following post assigment to the instance object:</li>
-</ul>
-<pre><code>instance.jxmlStatus = &quot;outdated&quot;;
 </code></pre>
 <h2 id="optional-variables"><a class="header" href="#optional-variables">Optional variables</a></h2>
 <p>Optional variables do not need to be specified when using an object initializer:</p>

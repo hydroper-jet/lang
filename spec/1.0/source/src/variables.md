@@ -16,7 +16,6 @@ A variable consists of the following internal properties:
 | \[\[*Visibility*\]\] | The [visibility](visibility.md) of the variable. |
 | \[\[*ParentDefinition*\]\] | The parent definition of the variable. |
 | \[\[*ReadOnly*\]\] | Indicates whether the variable is read-only or not. |
-| \[\[*IsJXMLVariable*\]\] | Indicates whether it is a JXML instance variable belonging to a JXML file. |
 | \[\[*ConstantInitializer*\]\] | Constant initializer of the variable as a constant value. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the variable. |
 
@@ -56,16 +55,6 @@ A variable may contain zero or more plain meta-data.
 ```
 [[N1(n2)]]
 const x: T;
-```
-
-## JXML variables
-
-A JXML variable is an instance variable belonging to a JXML file.
-
-* Assigning value to a JXML variable causes the following post assigment to the instance object:
-
-```
-instance.jxmlStatus = "outdated";
 ```
 
 ## Optional variables

@@ -21,7 +21,7 @@ For the above example, `k:Container` inherits from the following abstract `Node`
 
 ```
 package org.k {
-    public abstract class Node implements JXML { /* ... */ }
+    public abstract class Node implements JXML.<Node> { /* ... */ }
 }
 ```
 

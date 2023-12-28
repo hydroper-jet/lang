@@ -431,7 +431,7 @@ trace(new ExampleClass(undefined).data!);
 </code></pre>
 <p>For the above example, <code>k:Container</code> inherits from the following abstract <code>Node</code> class from <code>org.k</code>:</p>
 <pre><code>package org.k {
-    public abstract class Node implements JXML { /* ... */ }
+    public abstract class Node implements JXML.&lt;Node&gt; { /* ... */ }
 }
 </code></pre>
 <h2 id="data-binding"><a class="header" href="#data-binding">Data binding</a></h2>
@@ -1122,7 +1122,6 @@ const y: Number;
 <tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the variable.</td></tr>
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the variable.</td></tr>
 <tr><td>[[<em>ReadOnly</em>]]</td><td>Indicates whether the variable is read-only or not.</td></tr>
-<tr><td>[[<em>IsJXMLVariable</em>]]</td><td>Indicates whether it is a JXML instance variable belonging to a JXML file.</td></tr>
 <tr><td>[[<em>ConstantInitializer</em>]]</td><td>Constant initializer of the variable as a constant value.</td></tr>
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the variable.</td></tr>
 </tbody></table>
@@ -1155,13 +1154,6 @@ const y: Number;
 <p>A variable may contain zero or more plain meta-data.</p>
 <pre><code>[[N1(n2)]]
 const x: T;
-</code></pre>
-<h2 id="jxml-variables"><a class="header" href="#jxml-variables">JXML variables</a></h2>
-<p>A JXML variable is an instance variable belonging to a JXML file.</p>
-<ul>
-<li>Assigning value to a JXML variable causes the following post assigment to the instance object:</li>
-</ul>
-<pre><code>instance.jxmlStatus = &quot;outdated&quot;;
 </code></pre>
 <h2 id="optional-variables"><a class="header" href="#optional-variables">Optional variables</a></h2>
 <p>Optional variables do not need to be specified when using an object initializer:</p>
@@ -1801,6 +1793,10 @@ Future data binding support:
 <ul>
 <li>The constructor of <em>descClass</em> is only allowed to receive optional parameters.</li>
 </ul>
+<p>The following semantics apply to JXML components:</p>
+<ul>
+<li>A <code>children?: [T]</code> parameter is automatically contributed to the end of the formal parameter list of the <em>descClass</em> constructor, where <code>T</code> is the type argument to the implemented <code>JXML</code> interface in <em>descClass</em>.</li>
+</ul>
 <h2 id="script-1"><a class="header" href="#script-1">&lt;Script&gt;</a></h2>
 <p>The <code>Script</code> element is allowed at the root element and may appear at most once. If an <code>Script</code> element appears, it must only contain a CDATA section.</p>
 <p>The CDATA section contains a JetWork source as the contents of a <code>class</code> block. Such contents are contributed to <em>descClass</em>.</p>
@@ -1824,44 +1820,31 @@ Future data binding support:
 <p>All XML elements that are not of the empty namespace are JXML instantiations. Given that <em>comp</em> is the component being instantiated:</p>
 <ul>
 <li><em>comp</em> is valid if and only if the tag name identifies a fully package qualified class that implements the <code>JXML</code> interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.</li>
-<li>A JXML instantiation creates a <em>scope</em> scope and returns <code>result = new comp()</code> followed by processing of attributes followed by children processing.</li>
+<li>A JXML instantiation returns <code>result = new comp()</code>.</li>
+<li>JXML instantiation requires contributing code to <em>descClass</em> constructor.</li>
 </ul>
-<p>The <em>scope</em> scope is created as follows:</p>
+<p>Code is contributed to the <em>descClass</em> constructor as follows:</p>
 <ul>
-<li>Let <em>scope</em> be an empty scope.</li>
-<li>Let <em>classScope</em> be the scope of the <em>descClass</em> block.</li>
-<li>For each <em>p</em> in <em>classScope</em>[[<em>Imports</em>]]
+<li>Let <em>codeLocation</em> be undefined.</li>
+<li>If there is a <code>super</code> statement in the constructor
 <ul>
-<li>Contribute <em>p</em> to <em>scope</em>[[<em>Imports</em>]]</li>
-</ul>
-</li>
-<li>For each <em>p</em> in <em>classScope</em>[[<em>OpenPackages</em>]]
-<ul>
-<li>Contribute <em>p</em> to <em>scope</em>[[<em>OpenPackages</em>]]</li>
+<li>Assign <em>codeLocation</em> = the location immediately after the <code>super</code> statement</li>
 </ul>
 </li>
-<li>For each <em>p</em> in <em>classScope</em>[[<em>Properties</em>]]
+<li>Otherwise
 <ul>
-<li>If <em>p</em> is an alias
-<ul>
-<li>Contribute <em>p</em> to <em>scope</em>[[<em>Properties</em>]]</li>
+<li>Assign <em>codeLocation</em> = the initial location of the constructor.</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>Return <em>scope</em>.</li>
+<li>Contribute to <em>codeLocation</em> the processing of attributes followed by children processing.</li>
 </ul>
 <p>Attributes are processed as follows:</p>
-<ul>
-<li>Inside <em>scope</em>
 <ul>
 <li>For each XML attribute of the instantiation tag
 <ul>
 <li>If the XML attribute name is not <strong>className</strong>
 <ul>
-<li>Call <em>AssignJXMLAttribute</em>(<em>comp</em>, <em>scope</em>, XML attribute)</li>
-</ul>
-</li>
+<li>Call <em>AssignJXMLAttribute</em>(<em>comp</em>, constructor scope, XML attribute)</li>
 </ul>
 </li>
 </ul>
@@ -1869,19 +1852,15 @@ Future data binding support:
 </ul>
 <p>Children are processed as follows:</p>
 <ul>
+<li>Let <em>parent</em> be <code>result</code>.</li>
 <li>If <em>comp</em> contains a <code>&lt;Children/&gt;</code> tag
 <ul>
-<li>Move children to the location of the <code>&lt;Children/&gt;</code> tag.</li>
-<li>Remove the <code>&lt;Children/&gt;</code> tag.</li>
+<li>Assign <em>parent</em> = the parent containing the <code>&lt;Children/&gt;</code> tag.</li>
 </ul>
 </li>
-<li>Otherwise
+<li>For each <em>child</em> in the constructor <code>children</code> parameter
 <ul>
-<li>For each child JXML instantiation <em>ji</em>
-<ul>
-<li>Call <code>result.jxmlAppend()</code> passing the result of <em>ji</em>.</li>
-</ul>
-</li>
+<li>Call <code>parent.jxmlAppend(child)</code>.</li>
 </ul>
 </li>
 </ul>

@@ -36,6 +36,10 @@ The following restrictions apply to JXML components:
 
 * The constructor of *descClass* is only allowed to receive optional parameters.
 
+The following semantics apply to JXML components:
+
+* A `children?: [T]` parameter is automatically contributed to the end of the formal parameter list of the *descClass* constructor, where `T` is the type argument to the implemented `JXML` interface in *descClass*.
+
 ## \<Script\>
 
 The `Script` element is allowed at the root element and may appear at most once. If an `Script` element appears, it must only contain a CDATA section.
@@ -71,36 +75,31 @@ The `Children` tag is replaced by zero or more JXML instantiations that appear a
 All XML elements that are not of the empty namespace are JXML instantiations. Given that *comp* is the component being instantiated:
 
 * *comp* is valid if and only if the tag name identifies a fully package qualified class that implements the `JXML` interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
-* A JXML instantiation creates a *scope* scope and returns `result = new comp()` followed by processing of attributes followed by children processing.
+* A JXML instantiation returns `result = new comp()`.
+* JXML instantiation requires contributing code to *descClass* constructor.
 
-The *scope* scope is created as follows:
+Code is contributed to the *descClass* constructor as follows:
 
-* Let *scope* be an empty scope.
-* Let *classScope* be the scope of the *descClass* block.
-* For each *p* in *classScope*\[\[*Imports*\]\]
-  * Contribute *p* to *scope*\[\[*Imports*\]\]
-* For each *p* in *classScope*\[\[*OpenPackages*\]\]
-  * Contribute *p* to *scope*\[\[*OpenPackages*\]\]
-* For each *p* in *classScope*\[\[*Properties*\]\]
-  * If *p* is an alias
-    * Contribute *p* to *scope*\[\[*Properties*\]\]
-* Return *scope*.
+* Let *codeLocation* be undefined.
+* If there is a `super` statement in the constructor
+  * Assign *codeLocation* = the location immediately after the `super` statement
+* Otherwise
+  * Assign *codeLocation* = the initial location of the constructor.
+* Contribute to *codeLocation* the processing of attributes followed by children processing.
 
 Attributes are processed as follows:
 
-* Inside *scope*
-  * For each XML attribute of the instantiation tag
-    * If the XML attribute name is not **className**
-      * Call *AssignJXMLAttribute*(*comp*, *scope*, XML attribute)
+* For each XML attribute of the instantiation tag
+  * If the XML attribute name is not **className**
+    * Call *AssignJXMLAttribute*(*comp*, constructor scope, XML attribute)
 
 Children are processed as follows:
 
+* Let *parent* be `result`.
 * If *comp* contains a `<Children/>` tag
-  * Move children to the location of the `<Children/>` tag.
-  * Remove the `<Children/>` tag.
-* Otherwise
-  * For each child JXML instantiation *ji*
-    * Call `result.jxmlAppend()` passing the result of *ji*.
+  * Assign *parent* = the parent containing the `<Children/>` tag.
+* For each *child* in the constructor `children` parameter
+  * Call `parent.jxmlAppend(child)`.
 
 ### AssignJXMLAttribute()
 

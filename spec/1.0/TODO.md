@@ -24,3 +24,7 @@
 *ResolveAlias*(t) must be used in these places:
 
 * [ ] Fully package qualified names
+
+## Super statement
+
+Super statement is allowed among the top-level directives of a constructor block and must appear at most once.

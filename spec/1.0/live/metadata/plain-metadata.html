@@ -166,7 +166,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="plain-meta-data"><a class="header" href="#plain-meta-data">Plain meta-data</a></h1>
-<p>Plain meta-data are uninterpreted meta-data attached to a definition, using two-bracketed notation (<code>[[]]</code>).</p>
+<p>Plain meta-data are uninterpreted meta-data attached to a definition, using double bracketed notation (<code>[[]]</code>).</p>
 <p>Plain meta-data consists of a <code>Name()</code> or <code>Name</code> form that consists of zero or more entries. The following are the possible entry forms:</p>
 <ul>
 <li><code>key = &quot;value&quot;</code> — String entry</li>
@@ -197,7 +197,7 @@ class C {}
 <p>The <code>File</code> value of a file entry may be in one of the forms:</p>
 <ul>
 <li><code>File(&quot;path/to/file&quot;)</code></li>
-<li><code>File(import.meta.outputDirectory, &quot;path/to/file&quot;)</code> — Resolves file from the output directory of the JetPM build process.</li>
+<li><code>File(outputPath, &quot;path/to/file&quot;)</code> — Resolves file from the output directory of the JetPM build process.</li>
 </ul>
 
                     </main>

@@ -1,6 +1,6 @@
 # Plain meta-data
 
-Plain meta-data are uninterpreted meta-data attached to a definition, using two-bracketed notation (`[[]]`).
+Plain meta-data are uninterpreted meta-data attached to a definition, using double bracketed notation (`[[]]`).
 
 Plain meta-data consists of a `Name()` or `Name` form that consists of zero or more entries. The following are the possible entry forms:
 
@@ -36,4 +36,4 @@ The entry keys are not unique and may appear more than once.
 The `File` value of a file entry may be in one of the forms:
 
 * `File("path/to/file")`
-* `File(import.meta.outputDirectory, "path/to/file")` — Resolves file from the output directory of the JetPM build process.
+* `File(outputPath, "path/to/file")` — Resolves file from the output directory of the JetPM build process.

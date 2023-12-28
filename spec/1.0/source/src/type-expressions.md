@@ -235,7 +235,7 @@
   * Contribute (*name*, *type*) to *p*<sub>0</sub>.
 * For each <i>TypedIdentifier</i> <b>?</b> as *typedId* in <i>FunctionTypeParameters</i>
   * Let (*name*, *type*) be the verification of *typedId*.
-  * Contribute (*name*, *type*) to *p*<sub>0</sub>.
+  * Contribute (*name*, *type*) to *p*<sub>1</sub>.
 * If <i>FunctionTypeParameters</i> contains <b>...</b> <i>TypedIdentifier</i> as *typeId*
   * Let (*name*, *type*) be the verification of *typedId*.
   * It is a verify error if *type* is not the `Array` type.

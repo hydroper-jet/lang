@@ -35,6 +35,7 @@ The constructor of *descClass* is implicitly defined if not already defined by t
 The following restrictions apply to JXML components:
 
 * The constructor of *descClass* is only allowed to receive optional parameters.
+* The constructor of *descClass* must not include the rest parameter.
 
 The following semantics apply to JXML components:
 
@@ -75,7 +76,8 @@ The `Children` tag is replaced by zero or more JXML instantiations that appear a
 All XML elements that are not of the empty namespace are JXML instantiations. Given that *comp* is the component being instantiated:
 
 * *comp* is valid if and only if the tag name identifies a fully package qualified class that implements the `JXML` interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
-* A JXML instantiation returns `result = new comp(..., children)` passing a children array as the last argument and `default()` for any other parameters.
+* A JXML instantiation returns `result = new comp(..., children)` passing a children array as the last argument and the default value for any other parameters.
+  * It is a verify error if any of the parameter other than `children` have no default value.
 * JXML instantiation requires contributing code to *descClass* constructor.
 
 Code is contributed to the *descClass* constructor as follows:

@@ -1803,6 +1803,7 @@ Future data binding support:
 <p>The following restrictions apply to JXML components:</p>
 <ul>
 <li>The constructor of <em>descClass</em> is only allowed to receive optional parameters.</li>
+<li>The constructor of <em>descClass</em> must not include the rest parameter.</li>
 </ul>
 <p>The following semantics apply to JXML components:</p>
 <ul>
@@ -1831,7 +1832,11 @@ Future data binding support:
 <p>All XML elements that are not of the empty namespace are JXML instantiations. Given that <em>comp</em> is the component being instantiated:</p>
 <ul>
 <li><em>comp</em> is valid if and only if the tag name identifies a fully package qualified class that implements the <code>JXML</code> interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.</li>
-<li>A JXML instantiation returns <code>result = new comp(..., children)</code> passing a children array as the last argument and <code>default()</code> for any other parameters.</li>
+<li>A JXML instantiation returns <code>result = new comp(..., children)</code> passing a children array as the last argument and the default value for any other parameters.
+<ul>
+<li>It is a verify error if any of the parameter other than <code>children</code> have no default value.</li>
+</ul>
+</li>
 <li>JXML instantiation requires contributing code to <em>descClass</em> constructor.</li>
 </ul>
 <p>Code is contributed to the <em>descClass</em> constructor as follows:</p>

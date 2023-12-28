@@ -111,11 +111,9 @@ The internal *AssignJXMLAttribute*(*comp*, *scope*, XML attribute) function take
 4. Let *t* be the static type of *p*.
 5. If the attribute value starts with the **&#x7B;** character and ends with the **&#x7D;** character
     1. Call *AssignJXMLExpressionAttribute*(*comp*, *scope*, *p*, *t*, XML attribute)
-6. Otherwise
-    1. Call *AssignJXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute)
-    2. Otherwise:
-        1. Call *AssignJXMLColorAttribute*(*comp*, *p*, *t*, XML attribute)
-        2. Otherwise call *AssignJXMLVectorAttribute*(*comp*, *p*, *t*, XML attribute)
+6. Otherwise call *AssignJXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute)
+7. Otherwise call *AssignJXMLColorAttribute*(*comp*, *p*, *t*, XML attribute)
+8. Otherwise call *AssignJXMLVectorAttribute*(*comp*, *p*, *t*, XML attribute)
 
 ### AssignJXMLExpressionAttribute()
 

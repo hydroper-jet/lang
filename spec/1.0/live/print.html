@@ -1876,17 +1876,9 @@ Future data binding support:
 <li>Call <em>AssignJXMLExpressionAttribute</em>(<em>comp</em>, <em>scope</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
 </ol>
 </li>
-<li>Otherwise
-<ol>
-<li>Call <em>AssignJXMLConstantAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
-<li>Otherwise:
-<ol>
-<li>Call <em>AssignJXMLColorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Otherwise call <em>AssignJXMLConstantAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Otherwise call <em>AssignJXMLColorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
 <li>Otherwise call <em>AssignJXMLVectorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
-</ol>
-</li>
-</ol>
-</li>
 </ol>
 <h3 id="assignjxmlexpressionattribute"><a class="header" href="#assignjxmlexpressionattribute">AssignJXMLExpressionAttribute()</a></h3>
 <p>The internal <em>AssignJXMLExpressionAttribute</em>(<em>comp</em>, <em>scope</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>

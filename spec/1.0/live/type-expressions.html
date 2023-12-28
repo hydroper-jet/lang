@@ -217,6 +217,28 @@
 </table>
 <table>
     <tr>
+        <td colspan="2"><i>TypeArguments</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> <b>&gt;</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> [initial <b>&gt;</b> from the offending token]</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>TypeArgumentsList</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypeExpressionList</i> <b>,</b> <i>TypeExpression</i></td>
+    </tr>
+</table>
+<table>
+    <tr>
         <td colspan="2"><i>TupleTypeExpression</i></td>
     </tr>
     <tr>
@@ -399,6 +421,11 @@
 <p><i>TypedIdentifier</i> : <i>IdentifierName</i> <b>:</b> <i>TypeExpression</i></p>
 <ul>
 <li>Return (string of <i>IdentifierName</i>, verification of <i>TypeExpression</i>)</li>
+</ul>
+<p><i>TypeArguments</i> : <b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> <b>&gt;</b><br>
+<i>TypeArguments</i> : <b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> <b>&gt;</b> [initial <b>&gt;</b> from the offending token]</p>
+<ul>
+<li>Return the verification of each <i>TypeExpression</i> in <i>TypeArgumentsList</i> in a sequence.</li>
 </ul>
 
                     </main>

@@ -86,22 +86,12 @@ XML attributes of the empty namespace, excluding the **className** attribute at 
 3. It is a verify error if *p* is neither a variable property or a virtual property.
 4. Let *t* be the static type of *p*.
 5. If the attribute value starts with the **&#x7B;** character and ends with the **&#x7D;** character
-    1. Let *src* be a substring of the attribute value from the second character until the last character.
-    2. Let *v* be the verification of *src* as an *AssignmentExpression* with the context type *t* and with the initial scope as the `descClass` constructor scope.
-    3. Assign *v* = *ConvertImplicitly*(*v*, *t*)
-    4. It is a verify error if *v* is an incompatible conversion.
-    5. Assign *p* the evaluation of *v*
+    1. Call *AssignExpressionAttribute*(`comp`, *p*, *t*, XML attribute)
 6. Otherwise
-    1. Do one of the following steps:
-        1. If *t* is `N` or `Optional.<N>` where `N` is a number type, assign *AttributeValueToNumber*(*v*, `N`) to *p* where *v* is the attribute value.
-        2. If *t* is `Boolean` or `Optional.<Boolean>` and the attribute value is `false` or `true`, assign the equivalent boolean constant of that attribute value to *p*.
-        3. If *t* is `Char` or `Optional.<Char>`, assert that the attribute value consists of one character and assign the first Unicode code point of the attribute value to *p*.
-        4. If *t* is `String` or `Optional.<String>`, assign the attribute value to *p*.
-        5. If *t* is `E` or `Optional.<E>` where `E` is a non Set `enum`, assert that the attribute value identifies a member of the `enum` by its string component and assign such member to *p*.
-        6. If *t* is `E` or `Optional.<E>` where `E` is a Set `enum`, assert that the attribute value is a comma-separated list identifying one or more members of the `enum` by their string components and assign such members to *p*.
+    1. Call *AssignConstantAttribute*(`comp`, *p*, *t*, XML attribute)
     2. Otherwise:
-        1. Call *AssignColorAttribute*(`comp`, *p*, *t*)
-        3. Otherwise call *AssignVectorAttribute*(`comp`, *p*, *t*)
+        1. Call *AssignColorAttribute*(`comp`, *p*, *t*, XML attribute)
+        3. Otherwise call *AssignVectorAttribute*(`comp`, *p*, *t*, XML attribute)
 
 ### AttributeValueToNumber()
 
@@ -115,22 +105,58 @@ The internal *AttributeValueToNumber*(*s*, *N*) function takes a string *s* and 
 
 The internal *StringSequenceToNumberSequence*(*seq*, *N*) function takes a sequence of strings *seq* and returns a number sequence of a specific number type *N*. The function returns a processing of every element *s* in *seq* as the result of calling *AttributeValueToNumber*(*s*).
 
+### AssignExpressionAttribute()
+
+The internal *AssignExpressionAttribute*(`comp`, *p*, *t*, XML attribute) function takes the following steps:
+
+1. Let *src* be a substring of the attribute value from the second character (**&#x7B;**) until the last character (**&#x7D;**).
+2. Let *v* be the verification of *src* as an *AssignmentExpression* with the context type *t* and with the initial scope as the `descClass` constructor scope.
+3. Assign *v* = *ConvertImplicitly*(*v*, *t*)
+4. It is a verify error if *v* is an incompatible conversion.
+5. Assign *p* the evaluation of *v*
+
+### AssignConstantAttribute()
+
+The internal *AssignConstantAttribute*(`comp`, *p*, *t*, XML attribute) function takes the following steps:
+
+1. If *t* is `N` or `Optional.<N>` where `N` is a number type
+    1. Assign *AttributeValueToNumber*(*v*, `N`) to *p* where *v* is the attribute value.
+    2. Exit function
+2. If *t* is `Boolean` or `Optional.<Boolean>` and the attribute value is `false` or `true`, 
+    1. Assign the equivalent boolean constant of that attribute value to *p*.
+    2. Exit function
+3. If *t* is `Char` or `Optional.<Char>`
+    1. Assert that the attribute value consists of one character.
+    2. Assign the first Unicode code point of the attribute value to *p*.
+    3. Exit function
+4. If *t* is `String` or `Optional.<String>`
+    1. Assign the attribute value to *p*.
+    2. Exit function
+5. If *t* is `E` or `Optional.<E>` where `E` is a non Set `enum`
+    1. Assert that the attribute value identifies a member of the `enum` by its string component and assign such member to *p*.
+    2. Exit function
+6. If *t* is `E` or `Optional.<E>` where `E` is a Set `enum`.
+    1. Assert that the attribute value is a comma-separated list identifying one or more members of the `enum` by their string components.
+    2. Assign such members to *p*.
+    3. Exit function
+7. Return assignment failure.
+
 ### AssignColorAttribute()
 
-The internal *AssignColorAttribute*(`comp`, *p*, *t*) function takes the following steps:
+The internal *AssignColorAttribute*(`comp`, *p*, *t*, XML attribute) function takes the following steps:
 
 1. Let *colorClass* be \[\[*JXMLColor*\]\] from either `comp` or a super class of `comp`.
 2. If *colorClass* exists and *t* is equals *colorClass*, assign `new colorClass(v)` to *p* where `v` is the attribute value as a `String`.
-3. Otherwise throw a verify error.
+3. Otherwise return assignment failure.
 
 ### AssignVectorAttribute()
 
-The internal *AssignVectorAttribute*(`comp`, *p*, *t*) function takes the following steps:
+The internal *AssignVectorAttribute*(`comp`, *p*, *t*, XML attribute) function takes the following steps:
 
 1. Let *vectorClasses* be \[\[*JXMLVectors*\]\] from either `comp` or a super class of `comp`.
 2. Let *vectorComponents* be the result of spliting the attribute value by comma.
 3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents* and *t* is equals *vectorClass*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *StringSequenceToNumberSequence*(*vectorComponents*, *N*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
-4. Otherwise throw a verify error.
+4. Otherwise return assignment failure.
 
 ## Instance variables
 

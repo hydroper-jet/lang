@@ -1856,29 +1856,16 @@ Future data binding support:
 <li>Let <em>t</em> be the static type of <em>p</em>.</li>
 <li>If the attribute value starts with the <strong>{</strong> character and ends with the <strong>}</strong> character
 <ol>
-<li>Let <em>src</em> be a substring of the attribute value from the second character until the last character.</li>
-<li>Let <em>v</em> be the verification of <em>src</em> as an <em>AssignmentExpression</em> with the context type <em>t</em> and with the initial scope as the <code>descClass</code> constructor scope.</li>
-<li>Assign <em>v</em> = <em>ConvertImplicitly</em>(<em>v</em>, <em>t</em>)</li>
-<li>It is a verify error if <em>v</em> is an incompatible conversion.</li>
-<li>Assign <em>p</em> the evaluation of <em>v</em></li>
+<li>Call <em>AssignExpressionAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute)</li>
 </ol>
 </li>
 <li>Otherwise
 <ol>
-<li>Do one of the following steps:
-<ol>
-<li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type, assign <em>AttributeValueToNumber</em>(<em>v</em>, <code>N</code>) to <em>p</em> where <em>v</em> is the attribute value.</li>
-<li>If <em>t</em> is <code>Boolean</code> or <code>Optional.&lt;Boolean&gt;</code> and the attribute value is <code>false</code> or <code>true</code>, assign the equivalent boolean constant of that attribute value to <em>p</em>.</li>
-<li>If <em>t</em> is <code>Char</code> or <code>Optional.&lt;Char&gt;</code>, assert that the attribute value consists of one character and assign the first Unicode code point of the attribute value to <em>p</em>.</li>
-<li>If <em>t</em> is <code>String</code> or <code>Optional.&lt;String&gt;</code>, assign the attribute value to <em>p</em>.</li>
-<li>If <em>t</em> is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is a non Set <code>enum</code>, assert that the attribute value identifies a member of the <code>enum</code> by its string component and assign such member to <em>p</em>.</li>
-<li>If <em>t</em> is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is a Set <code>enum</code>, assert that the attribute value is a comma-separated list identifying one or more members of the <code>enum</code> by their string components and assign such members to <em>p</em>.</li>
-</ol>
-</li>
+<li>Call <em>AssignConstantAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute)</li>
 <li>Otherwise:
 <ol>
-<li>Call <em>AssignColorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>)</li>
-<li>Otherwise call <em>AssignVectorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>)</li>
+<li>Call <em>AssignColorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Otherwise call <em>AssignVectorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute)</li>
 </ol>
 </li>
 </ol>
@@ -1893,20 +1880,72 @@ Future data binding support:
 </ul>
 <h3 id="stringsequencetonumbersequence"><a class="header" href="#stringsequencetonumbersequence">StringSequenceToNumberSequence()</a></h3>
 <p>The internal <em>StringSequenceToNumberSequence</em>(<em>seq</em>, <em>N</em>) function takes a sequence of strings <em>seq</em> and returns a number sequence of a specific number type <em>N</em>. The function returns a processing of every element <em>s</em> in <em>seq</em> as the result of calling <em>AttributeValueToNumber</em>(<em>s</em>).</p>
+<h3 id="assignexpressionattribute"><a class="header" href="#assignexpressionattribute">AssignExpressionAttribute()</a></h3>
+<p>The internal <em>AssignExpressionAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
+<ol>
+<li>Let <em>src</em> be a substring of the attribute value from the second character (<strong>{</strong>) until the last character (<strong>}</strong>).</li>
+<li>Let <em>v</em> be the verification of <em>src</em> as an <em>AssignmentExpression</em> with the context type <em>t</em> and with the initial scope as the <code>descClass</code> constructor scope.</li>
+<li>Assign <em>v</em> = <em>ConvertImplicitly</em>(<em>v</em>, <em>t</em>)</li>
+<li>It is a verify error if <em>v</em> is an incompatible conversion.</li>
+<li>Assign <em>p</em> the evaluation of <em>v</em></li>
+</ol>
+<h3 id="assignconstantattribute"><a class="header" href="#assignconstantattribute">AssignConstantAttribute()</a></h3>
+<p>The internal <em>AssignConstantAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
+<ol>
+<li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type
+<ol>
+<li>Assign <em>AttributeValueToNumber</em>(<em>v</em>, <code>N</code>) to <em>p</em> where <em>v</em> is the attribute value.</li>
+<li>Exit function</li>
+</ol>
+</li>
+<li>If <em>t</em> is <code>Boolean</code> or <code>Optional.&lt;Boolean&gt;</code> and the attribute value is <code>false</code> or <code>true</code>, 
+<ol>
+<li>Assign the equivalent boolean constant of that attribute value to <em>p</em>.</li>
+<li>Exit function</li>
+</ol>
+</li>
+<li>If <em>t</em> is <code>Char</code> or <code>Optional.&lt;Char&gt;</code>
+<ol>
+<li>Assert that the attribute value consists of one character.</li>
+<li>Assign the first Unicode code point of the attribute value to <em>p</em>.</li>
+<li>Exit function</li>
+</ol>
+</li>
+<li>If <em>t</em> is <code>String</code> or <code>Optional.&lt;String&gt;</code>
+<ol>
+<li>Assign the attribute value to <em>p</em>.</li>
+<li>Exit function</li>
+</ol>
+</li>
+<li>If <em>t</em> is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is a non Set <code>enum</code>
+<ol>
+<li>Assert that the attribute value identifies a member of the <code>enum</code> by its string component and assign such member to <em>p</em>.</li>
+<li>Exit function</li>
+</ol>
+</li>
+<li>If <em>t</em> is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is a Set <code>enum</code>.
+<ol>
+<li>Assert that the attribute value is a comma-separated list identifying one or more members of the <code>enum</code> by their string components.</li>
+<li>Assign such members to <em>p</em>.</li>
+<li>Exit function</li>
+</ol>
+</li>
+<li>Return assignment failure.</li>
+</ol>
 <h3 id="assigncolorattribute"><a class="header" href="#assigncolorattribute">AssignColorAttribute()</a></h3>
-<p>The internal <em>AssignColorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>) function takes the following steps:</p>
+<p>The internal <em>AssignColorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>Let <em>colorClass</em> be [[<em>JXMLColor</em>]] from either <code>comp</code> or a super class of <code>comp</code>.</li>
 <li>If <em>colorClass</em> exists and <em>t</em> is equals <em>colorClass</em>, assign <code>new colorClass(v)</code> to <em>p</em> where <code>v</code> is the attribute value as a <code>String</code>.</li>
-<li>Otherwise throw a verify error.</li>
+<li>Otherwise return assignment failure.</li>
 </ol>
 <h3 id="assignvectorattribute"><a class="header" href="#assignvectorattribute">AssignVectorAttribute()</a></h3>
-<p>The internal <em>AssignVectorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>) function takes the following steps:</p>
+<p>The internal <em>AssignVectorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>Let <em>vectorClasses</em> be [[<em>JXMLVectors</em>]] from either <code>comp</code> or a super class of <code>comp</code>.</li>
 <li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
 <li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em> and <em>t</em> is equals <em>vectorClass</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>StringSequenceToNumberSequence</em>(<em>vectorComponents</em>, <em>N</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
-<li>Otherwise throw a verify error.</li>
+<li>Otherwise return assignment failure.</li>
 </ol>
 <h2 id="instance-variables-1"><a class="header" href="#instance-variables-1">Instance variables</a></h2>
 <p>Instance variables belonging to <code>descClass</code> are JXML variables with special behavior as described by section <a href="variables.html#jxml-variables">Variables</a>.</p>

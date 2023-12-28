@@ -75,7 +75,7 @@ The `Children` tag is replaced by zero or more JXML instantiations that appear a
 All XML elements that are not of the empty namespace are JXML instantiations. Given that *comp* is the component being instantiated:
 
 * *comp* is valid if and only if the tag name identifies a fully package qualified class that implements the `JXML` interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
-* A JXML instantiation returns `result = new comp()`.
+* A JXML instantiation returns `result = new comp(..., children)` passing a children array as the last argument.
 * JXML instantiation requires contributing code to *descClass* constructor.
 
 Code is contributed to the *descClass* constructor as follows:

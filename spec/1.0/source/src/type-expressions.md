@@ -111,6 +111,18 @@
     </tr>
 </table>
 
+<table>
+    <tr>
+        <td colspan="2"><i>TypedIdentifier</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>IdentifierName</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>IdentifierName</i> <b>:</b> <i>TypeExpression</i></td>
+    </tr>
+</table>
+
 **Verification**
 
 <i>TypeExpression</i> : <i>TypeExpression</i><sup>noPrefix</sup>
@@ -206,5 +218,14 @@
   * Assign *p*<sub>2</sub> = (*name*, *type*)
 * Let *returnType* be the verification of <i>TypeExpression</i> preceded by <b>=></b>.
 * Return a function type consisting of required parameters *p*<sub>0</sub>, optional parameters *p*<sub>1</sub>, rest parameter *p*<sub>2</sub> and return type *returnType*.
+
+<i>TypedIdentifier</i> : <i>IdentifierName</i>
+
+* It is a verify error if no context type is given.
+* Return (string of <i>IdentifierName</i>, context type)
+
+<i>TypedIdentifier</i> : <i>IdentifierName</i> <b>:</b> <i>TypeExpression</i>
+
+* Return (string of <i>IdentifierName</i>, verification of <i>TypeExpression</i>)
 
 [*PropertyIsVisible*]: visibility.md#propertyisvisible

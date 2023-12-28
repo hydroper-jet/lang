@@ -179,18 +179,11 @@
     &lt;/k:Container&gt;
 &lt;/k:Container&gt;
 </code></pre>
-<p>For the given example, <code>k:Container</code> inherits from the following abstract <code>Node</code> class from <code>org.k</code>:</p>
+<p>For the above example, <code>k:Container</code> inherits from the following abstract <code>Node</code> class from <code>org.k</code>:</p>
 <pre><code>package org.k {
     public abstract class Node implements JXML { /* ... */ }
 }
 </code></pre>
-<p>Explanatory comments:</p>
-<ul>
-<li>The example Example.jxml file defines a class that inherits from the <code>k:Container</code> class.</li>
-<li>The instance variable <code>exampleProperty</code> declared within the <code>Script</code> tag automatically alters the rendering status of the <code>Example</code> instance when the direct value of the <code>exampleProperty</code> property is updated by an assignment; that is, assignments to <code>exampleProperty</code> are implicitly followed by a <code>node.jxmlStatus = &quot;outdated&quot;;</code> assignment.</li>
-<li>The <code>jxmlStatus</code> property may be used to cause a new rendering of the node on a next frame iteration.</li>
-<li>The <code>jxmlStatus</code> property as defined by the <code>JXML</code> interface is allowed to emit an event when assigned.</li>
-</ul>
 <h2 id="data-binding"><a class="header" href="#data-binding">Data binding</a></h2>
 <p>JXML may support data binding in the future. Data binding allows transferring the value from an source property to a destination property through an event.</p>
 <h2 id="children"><a class="header" href="#children">&lt;Children/&gt;</a></h2>
@@ -205,18 +198,6 @@
 </code></pre>
 <h2 id="script"><a class="header" href="#script">&lt;Script&gt;</a></h2>
 <p>The <code>&lt;Script&gt;</code> tag may appear once in the root of a JXML file to attach code to the class block.</p>
-<h2 id="initialization"><a class="header" href="#initialization">Initialization</a></h2>
-<p>JetWork imposes no restrictions for the JXML component constructor and it may be defined as a normal constructor:</p>
-<pre><code class="language-xml">&lt;k:Container xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
-    &lt;Script&gt;
-        &lt;![CDATA[
-            public function Example() {
-                super();
-            }
-        ]]&gt;
-    &lt;/Script&gt;
-&lt;/k:Container&gt;
-</code></pre>
 
                     </main>
 

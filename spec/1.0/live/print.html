@@ -429,18 +429,11 @@ trace(new ExampleClass(undefined).data!);
     &lt;/k:Container&gt;
 &lt;/k:Container&gt;
 </code></pre>
-<p>For the given example, <code>k:Container</code> inherits from the following abstract <code>Node</code> class from <code>org.k</code>:</p>
+<p>For the above example, <code>k:Container</code> inherits from the following abstract <code>Node</code> class from <code>org.k</code>:</p>
 <pre><code>package org.k {
     public abstract class Node implements JXML { /* ... */ }
 }
 </code></pre>
-<p>Explanatory comments:</p>
-<ul>
-<li>The example Example.jxml file defines a class that inherits from the <code>k:Container</code> class.</li>
-<li>The instance variable <code>exampleProperty</code> declared within the <code>Script</code> tag automatically alters the rendering status of the <code>Example</code> instance when the direct value of the <code>exampleProperty</code> property is updated by an assignment; that is, assignments to <code>exampleProperty</code> are implicitly followed by a <code>node.jxmlStatus = &quot;outdated&quot;;</code> assignment.</li>
-<li>The <code>jxmlStatus</code> property may be used to cause a new rendering of the node on a next frame iteration.</li>
-<li>The <code>jxmlStatus</code> property as defined by the <code>JXML</code> interface is allowed to emit an event when assigned.</li>
-</ul>
 <h2 id="data-binding"><a class="header" href="#data-binding">Data binding</a></h2>
 <p>JXML may support data binding in the future. Data binding allows transferring the value from an source property to a destination property through an event.</p>
 <h2 id="children"><a class="header" href="#children">&lt;Children/&gt;</a></h2>
@@ -455,18 +448,6 @@ trace(new ExampleClass(undefined).data!);
 </code></pre>
 <h2 id="script"><a class="header" href="#script">&lt;Script&gt;</a></h2>
 <p>The <code>&lt;Script&gt;</code> tag may appear once in the root of a JXML file to attach code to the class block.</p>
-<h2 id="initialization"><a class="header" href="#initialization">Initialization</a></h2>
-<p>JetWork imposes no restrictions for the JXML component constructor and it may be defined as a normal constructor:</p>
-<pre><code class="language-xml">&lt;k:Container xmlns:k=&quot;org.k&quot; className=&quot;org.example.Example&quot;&gt;
-    &lt;Script&gt;
-        &lt;![CDATA[
-            public function Example() {
-                super();
-            }
-        ]]&gt;
-    &lt;/Script&gt;
-&lt;/k:Container&gt;
-</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jetdoc-comments"><a class="header" href="#jetdoc-comments">JetDoc comments</a></h1>
 <p>JetDoc comments are used to document APIs to the public. JetDoc allows Markdown text to appear within documentation comments and supports special <code>@</code> tags for extended use.</p>
 <pre><code>package org.ourdelivery.api {
@@ -1801,25 +1782,26 @@ Future data binding support:
 * A p={o.p} attribute would be a data binding if o is a binding from within the JXML component
 
 -->
-<p>A JXML component is a XML file with the extension <code>.jxml</code> describing a class that inherits from a <code>JXML</code> implementor. The class being described in the XML file is referred throughout this section as <code>descClass</code>.</p>
-<h2 id="class-name"><a class="header" href="#class-name">Class name</a></h2>
-<p>The root element must assign the attribute <code>className</code> a fully package qualified name whose trailing name identifies the class name of <code>descClass</code>, as in:</p>
+<p>A JXML component is a XML file with the extension <code>.jxml</code> describing a class that inherits from a <code>JXML</code> implementor.</p>
+<p>The class described in the XML file is referred throughout this section as <em>descClass</em>.</p>
+<h2 id="classname"><a class="header" href="#classname">className</a></h2>
+<p>The root element must assign the attribute <code>className</code> a fully package qualified name whose trailing name identifies the class name of <em>descClass</em>, as in:</p>
 <pre><code class="language-xml">&lt;e:Application xmlns:e=&quot;org.example&quot; className=&quot;org.example.Main&quot;&gt;
     &lt;!-- org.example.Main --&gt;
 &lt;/e:Application&gt;
 </code></pre>
-<p>Such XML file results into defining <code>descClass</code> as a <code>Main</code> class that belongs to the <code>org.example</code> package. It is a verify error if the class is already defined.</p>
+<p>Such XML file results into defining <em>descClass</em> as a <code>Main</code> class that belongs to the <code>org.example</code> package. It is a verify error if the class is already defined.</p>
 <h2 id="root-element"><a class="header" href="#root-element">Root element</a></h2>
-<p>The root element of the XML file instantiates a JXML component and determines the class from which <code>descClass</code> inherits.</p>
-<h2 id="class-constructor"><a class="header" href="#class-constructor">Class constructor</a></h2>
-<p>The class constructor of <code>descClass</code> is implicitly defined if not already defined by the <code>&lt;Script&gt;</code> element.</p>
+<p>The root element of the XML file is a JXML instantiation. The component of the JXML instantiation is the class from which <em>descClass</em> inherits.</p>
+<h2 id="constructor"><a class="header" href="#constructor">Constructor</a></h2>
+<p>The constructor of <em>descClass</em> is implicitly defined if not already defined by the <code>&lt;Script&gt;</code> element.</p>
 <p>The following restrictions apply to JXML components:</p>
 <ul>
-<li>The constructor of <code>descClass</code> is only allowed to receive optional parameters.</li>
+<li>The constructor of <em>descClass</em> is only allowed to receive optional parameters.</li>
 </ul>
 <h2 id="script-1"><a class="header" href="#script-1">&lt;Script&gt;</a></h2>
 <p>The <code>Script</code> element is allowed at the root element and may appear at most once. If an <code>Script</code> element appears, it must only contain a CDATA section.</p>
-<p>The CDATA section contains a JetWork source as the contents of a <code>class</code> block. Such contents are contributed to <code>descClass</code>.</p>
+<p>The CDATA section contains a JetWork source as the contents of a <code>class</code> block. Such contents are contributed to <em>descClass</em>.</p>
 <p>The <code>Script</code> element must be interpreted before the XML attributes of the root element are processed. This behavior allows code in attribute values to rely on <code>import</code> directives, as in the following JXML component:</p>
 <pre><code class="language-xml">&lt;e:Application xmlns:e=&quot;org.example&quot;
     className=&quot;org.example.Main&quot;
@@ -1837,14 +1819,14 @@ Future data binding support:
 &lt;/e:C1&gt;
 </code></pre>
 <h2 id="jxml-instantiation"><a class="header" href="#jxml-instantiation">JXML instantiation</a></h2>
-<p>All XML elements that are not of the empty namespace are JXML instantiations. Given that <code>comp</code> is the component being instantiated:</p>
+<p>All XML elements that are not of the empty namespace are JXML instantiations. Given that <em>comp</em> is the component being instantiated:</p>
 <ul>
-<li><code>comp</code> is valid if and only if the tag name identifies a fully package qualified class that implements the <code>JXML</code> interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.</li>
+<li><em>comp</em> is valid if and only if the tag name identifies a fully package qualified class that implements the <code>JXML</code> interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.</li>
 <li>A JXML instantiation returns <code>result = new comp()</code> followed by zero or more property assignments at <code>result</code> and zero or more <code>result.jxmlAppend()</code> calls.</li>
 </ul>
 <p>Children components are processed as follows:</p>
 <ol>
-<li>If <code>comp</code> contains a <code>&lt;Children/&gt;</code> tag, children components take the place of such <code>&lt;Children/&gt;</code> tag.</li>
+<li>If <em>comp</em> contains a <code>&lt;Children/&gt;</code> tag, children components take the place of such <code>&lt;Children/&gt;</code> tag.</li>
 <li>Otherwise, for each child component, call <code>result.jxmlAppend()</code> with the result of the child JXML instantiation.</li>
 </ol>
 <h3 id="attributes"><a class="header" href="#attributes">Attributes</a></h3>
@@ -1856,16 +1838,16 @@ Future data binding support:
 <li>Let <em>t</em> be the static type of <em>p</em>.</li>
 <li>If the attribute value starts with the <strong>{</strong> character and ends with the <strong>}</strong> character
 <ol>
-<li>Call <em>AssignExpressionAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Call <em>AssignExpressionAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
 </ol>
 </li>
 <li>Otherwise
 <ol>
-<li>Call <em>AssignConstantAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Call <em>AssignConstantAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
 <li>Otherwise:
 <ol>
-<li>Call <em>AssignColorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute)</li>
-<li>Otherwise call <em>AssignVectorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Call <em>AssignColorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Otherwise call <em>AssignVectorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
 </ol>
 </li>
 </ol>
@@ -1881,16 +1863,16 @@ Future data binding support:
 <h3 id="stringsequencetonumbersequence"><a class="header" href="#stringsequencetonumbersequence">StringSequenceToNumberSequence()</a></h3>
 <p>The internal <em>StringSequenceToNumberSequence</em>(<em>seq</em>, <em>N</em>) function takes a sequence of strings <em>seq</em> and returns a number sequence of a specific number type <em>N</em>. The function returns a processing of every element <em>s</em> in <em>seq</em> as the result of calling <em>AttributeValueToNumber</em>(<em>s</em>).</p>
 <h3 id="assignexpressionattribute"><a class="header" href="#assignexpressionattribute">AssignExpressionAttribute()</a></h3>
-<p>The internal <em>AssignExpressionAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
+<p>The internal <em>AssignExpressionAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
-<li>Let <em>src</em> be a substring of the attribute value from the second character (<strong>{</strong>) until the last character (<strong>}</strong>).</li>
-<li>Let <em>v</em> be the verification of <em>src</em> as an <em>AssignmentExpression</em> with the context type <em>t</em> and with the initial scope as the <code>descClass</code> constructor scope.</li>
+<li>Let <em>src</em> be a substring of the attribute value from the second character until the last character (<strong>}</strong>).</li>
+<li>Let <em>v</em> be the verification of <em>src</em> as an <em>AssignmentExpression</em> with the context type <em>t</em> and with the initial scope as the <em>descClass</em> constructor scope.</li>
 <li>Assign <em>v</em> = <em>ConvertImplicitly</em>(<em>v</em>, <em>t</em>)</li>
 <li>It is a verify error if <em>v</em> is an incompatible conversion.</li>
 <li>Assign <em>p</em> the evaluation of <em>v</em></li>
 </ol>
 <h3 id="assignconstantattribute"><a class="header" href="#assignconstantattribute">AssignConstantAttribute()</a></h3>
-<p>The internal <em>AssignConstantAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
+<p>The internal <em>AssignConstantAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type
 <ol>
@@ -1933,22 +1915,20 @@ Future data binding support:
 <li>Return assignment failure.</li>
 </ol>
 <h3 id="assigncolorattribute"><a class="header" href="#assigncolorattribute">AssignColorAttribute()</a></h3>
-<p>The internal <em>AssignColorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
+<p>The internal <em>AssignColorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
-<li>Let <em>colorClass</em> be [[<em>JXMLColor</em>]] from either <code>comp</code> or a super class of <code>comp</code>.</li>
+<li>Let <em>colorClass</em> be [[<em>JXMLColor</em>]] from either <em>comp</em> or a super class of <em>comp</em>.</li>
 <li>If <em>colorClass</em> exists and <em>t</em> is equals <em>colorClass</em>, assign <code>new colorClass(v)</code> to <em>p</em> where <code>v</code> is the attribute value as a <code>String</code>.</li>
 <li>Otherwise return assignment failure.</li>
 </ol>
 <h3 id="assignvectorattribute"><a class="header" href="#assignvectorattribute">AssignVectorAttribute()</a></h3>
-<p>The internal <em>AssignVectorAttribute</em>(<code>comp</code>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
+<p>The internal <em>AssignVectorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
-<li>Let <em>vectorClasses</em> be [[<em>JXMLVectors</em>]] from either <code>comp</code> or a super class of <code>comp</code>.</li>
+<li>Let <em>vectorClasses</em> be [[<em>JXMLVectors</em>]] from either <em>comp</em> or a super class of <em>comp</em>.</li>
 <li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
 <li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em> and <em>t</em> is equals <em>vectorClass</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>StringSequenceToNumberSequence</em>(<em>vectorComponents</em>, <em>N</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
 <li>Otherwise return assignment failure.</li>
 </ol>
-<h2 id="instance-variables-1"><a class="header" href="#instance-variables-1">Instance variables</a></h2>
-<p>Instance variables belonging to <code>descClass</code> are JXML variables with special behavior as described by section <a href="variables.html#jxml-variables">Variables</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="property-resolution"><a class="header" href="#property-resolution">Property resolution</a></h1>
 <h2 id="resolveproperty"><a class="header" href="#resolveproperty">ResolveProperty()</a></h2>
 <p>The internal <em>ResolveProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>) function takes a <em>base</em> object, a <em>qual</em> qualifier value and a <em>key</em> value, and resolves to a reference value. <em>ResolveProperty</em> takes the following steps:</p>

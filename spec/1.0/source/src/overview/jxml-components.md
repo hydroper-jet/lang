@@ -17,20 +17,13 @@ Here is an example JXML:
 </k:Container>
 ```
 
-For the given example, `k:Container` inherits from the following abstract `Node` class from `org.k`:
+For the above example, `k:Container` inherits from the following abstract `Node` class from `org.k`:
 
 ```
 package org.k {
     public abstract class Node implements JXML { /* ... */ }
 }
 ```
-
-Explanatory comments:
-
-* The example Example.jxml file defines a class that inherits from the `k:Container` class.
-* The instance variable `exampleProperty` declared within the `Script` tag automatically alters the rendering status of the `Example` instance when the direct value of the `exampleProperty` property is updated by an assignment; that is, assignments to `exampleProperty` are implicitly followed by a `node.jxmlStatus = "outdated";` assignment.
-* The `jxmlStatus` property may be used to cause a new rendering of the node on a next frame iteration.
-* The `jxmlStatus` property as defined by the `JXML` interface is allowed to emit an event when assigned.
 
 ## Data binding
 
@@ -53,19 +46,3 @@ The empty `<Children/>` tag may appear anywhere in a JXML file to indicate where
 ## \<Script\>
 
 The `<Script>` tag may appear once in the root of a JXML file to attach code to the class block.
-
-## Initialization
-
-JetWork imposes no restrictions for the JXML component constructor and it may be defined as a normal constructor:
-
-```xml
-<k:Container xmlns:k="org.k" className="org.example.Example">
-    <Script>
-        <![CDATA[
-            public function Example() {
-                super();
-            }
-        ]]>
-    </Script>
-</k:Container>
-```

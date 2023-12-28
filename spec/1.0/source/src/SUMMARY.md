@@ -8,6 +8,7 @@
   - [Exceptions](overview/exceptions.md)
   - [Nullability](overview/nullability.md)
   - [Proxy](overview/proxy.md)
+  - [Destructuring](overview/destructuring.md)
   - [JetWork for XML](overview/j4x.md)
   - [JXML components](overview/jxml-components.md)
   - [JetDoc comments](overview/jetdoc-comments.md)

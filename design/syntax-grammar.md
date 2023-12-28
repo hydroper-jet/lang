@@ -98,6 +98,7 @@ Expressions:
 * [ ] ExpressionWithTypeArguments (`e.<T1, ...Tn>`)
 * [ ] EmbedExpression
 * [ ] ImportMeta (`import.meta`)
+* [ ] DefaultExpression
 - [ ] AwaitExpression
 - [ ] YieldExpression
 

@@ -169,6 +169,7 @@ use
 try
 var
 
+case
 else
 this
 true
@@ -193,6 +194,7 @@ return
 switch
 typeof
 
+default
 extends
 finally
 package

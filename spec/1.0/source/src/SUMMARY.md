@@ -38,3 +38,5 @@
 - [Property resolution](property-resolution.md)
 - [Scopes](scopes.md)
 - [Type expressions](type-expressions.md)
+- [Environment variables](environment-variables.md)
+- [Build facilities](build-facilities.md)

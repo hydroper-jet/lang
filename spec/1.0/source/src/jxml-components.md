@@ -112,7 +112,7 @@ The internal *StringSequenceToNumberSequence*(*seq*, *N*) function takes a seque
 The internal *AssignExpressionAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
 1. Let *src* be a substring of the attribute value from the second character until the last character (**&#x7D;**).
-2. Let *v* be the verification of *src* as an *AssignmentExpression* with the context type *t* and with the initial scope as the *descClass* constructor scope.
+2. Let *v* be the verification of *src* as an *AssignmentExpression* with the context type *t* and with the initial scope as the JXML instantiation scope.
 3. Assign *v* = *ConvertImplicitly*(*v*, *t*)
 4. It is a verify error if *v* is an incompatible conversion.
 5. Assign *p* the evaluation of *v*

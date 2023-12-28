@@ -258,7 +258,7 @@ Future data binding support:
 <p>The internal <em>AssignExpressionAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>Let <em>src</em> be a substring of the attribute value from the second character until the last character (<strong>}</strong>).</li>
-<li>Let <em>v</em> be the verification of <em>src</em> as an <em>AssignmentExpression</em> with the context type <em>t</em> and with the initial scope as the <em>descClass</em> constructor scope.</li>
+<li>Let <em>v</em> be the verification of <em>src</em> as an <em>AssignmentExpression</em> with the context type <em>t</em> and with the initial scope as the JXML instantiation scope.</li>
 <li>Assign <em>v</em> = <em>ConvertImplicitly</em>(<em>v</em>, <em>t</em>)</li>
 <li>It is a verify error if <em>v</em> is an incompatible conversion.</li>
 <li>Assign <em>p</em> the evaluation of <em>v</em></li>

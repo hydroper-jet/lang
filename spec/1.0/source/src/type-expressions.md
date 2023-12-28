@@ -256,12 +256,12 @@
 * Return a function type consisting of required parameters *p*<sub>0</sub>, optional parameters *p*<sub>1</sub>, rest parameter *p*<sub>2</sub> and return type *returnType*.
 
 <i>TypedIdentifier</i> : <i>IdentifierName</i><br>
-<i>FunctionTypeOptionalParameter</i> : <i>IdentifierName</i>
+<i>FunctionTypeOptionalParameter</i> : <i>IdentifierName</i> <b>?</b>
 
 * It is a verify error if no context type is given.
 * Return (string of <i>IdentifierName</i>, context type)
 
-<i>TypedIdentifier</i> : <i>IdentifierName</i> <b>?</b> <b>:</b> <i>TypeExpression</i><br>
+<i>TypedIdentifier</i> : <i>IdentifierName</i> <b>:</b> <i>TypeExpression</i><br>
 <i>FunctionTypeOptionalParameter</i> : <i>IdentifierName</i> <b>?</b> <b>:</b> <i>TypeExpression</i>
 
 * Return (string of <i>IdentifierName</i>, verification of <i>TypeExpression</i>)

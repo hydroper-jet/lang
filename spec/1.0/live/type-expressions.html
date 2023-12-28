@@ -425,12 +425,12 @@
 <li>Return a function type consisting of required parameters <em>p</em><sub>0</sub>, optional parameters <em>p</em><sub>1</sub>, rest parameter <em>p</em><sub>2</sub> and return type <em>returnType</em>.</li>
 </ul>
 <p><i>TypedIdentifier</i> : <i>IdentifierName</i><br>
-<i>FunctionTypeOptionalParameter</i> : <i>IdentifierName</i></p>
+<i>FunctionTypeOptionalParameter</i> : <i>IdentifierName</i> <b>?</b></p>
 <ul>
 <li>It is a verify error if no context type is given.</li>
 <li>Return (string of <i>IdentifierName</i>, context type)</li>
 </ul>
-<p><i>TypedIdentifier</i> : <i>IdentifierName</i> <b>?</b> <b>:</b> <i>TypeExpression</i><br>
+<p><i>TypedIdentifier</i> : <i>IdentifierName</i> <b>:</b> <i>TypeExpression</i><br>
 <i>FunctionTypeOptionalParameter</i> : <i>IdentifierName</i> <b>?</b> <b>:</b> <i>TypeExpression</i></p>
 <ul>
 <li>Return (string of <i>IdentifierName</i>, verification of <i>TypeExpression</i>)</li>

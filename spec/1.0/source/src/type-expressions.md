@@ -125,10 +125,10 @@
         <td colspan="2"><i>FunctionTypeParameter</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>TypedIdentifier</i> [lookahead ∉ {<b>?</b>}]</td>
+        <td>&nbsp;</td><td><i>TypedIdentifier</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>TypedIdentifier</i> <b>?</b></td>
+        <td>&nbsp;</td><td><i>FunctionTypeOptionalParameter</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><b>...</b> <i>TypedIdentifier</i></td>
@@ -144,6 +144,18 @@
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>IdentifierName</i> <b>:</b> <i>TypeExpression</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>FunctionTypeOptionalParameter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>IdentifierName</i> <b>?</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>IdentifierName</i> <b>?</b> <b>:</b> <i>TypeExpression</i></td>
     </tr>
 </table>
 
@@ -226,15 +238,15 @@
 
 <i>FunctionTypeExpression</i> : <b>(</b> <i>FunctionTypeParameters</i> <b>)</b> <b>=></b> <i>TypeExpression</i>
 
-* It is a verify error if <i>FunctionTypeParameters</i> is not a sequence of zero or more <i>TypedIdentifier</i> \[lookahead ∉ \{<b>?</b>\}\] followed by zero or more <i>TypedIdentifier</i> <b>?</b> followed by optional <b>...</b> <i>TypedIdentifier</i>.
+* It is a verify error if <i>FunctionTypeParameters</i> is not a sequence of zero or more <i>TypedIdentifier</i> followed by zero or more <i>FunctionTypeOptionalParameter</i> followed by optional <b>...</b> <i>TypedIdentifier</i>.
 * Let *p*<sub>0</sub> be an empty list.
 * Let *p*<sub>1</sub> be an empty list.
 * Let *p*<sub>2</sub> be undefined.
-* For each <i>TypedIdentifier</i> \[lookahead ∉ \{<b>?</b>\}\] as *typedId* in <i>FunctionTypeParameters</i>
+* For each <i>TypedIdentifier</i> as *typedId* in <i>FunctionTypeParameters</i>
   * Let (*name*, *type*) be the verification of *typedId*.
   * Contribute (*name*, *type*) to *p*<sub>0</sub>.
-* For each <i>TypedIdentifier</i> <b>?</b> as *typedId* in <i>FunctionTypeParameters</i>
-  * Let (*name*, *type*) be the verification of *typedId*.
+* For each <i>FunctionTypeOptionalParameter</i> as *optParam* in <i>FunctionTypeParameters</i>
+  * Let (*name*, *type*) be the verification of *optParam*.
   * Contribute (*name*, *type*) to *p*<sub>1</sub>.
 * If <i>FunctionTypeParameters</i> contains <b>...</b> <i>TypedIdentifier</i> as *typeId*
   * Let (*name*, *type*) be the verification of *typedId*.
@@ -243,12 +255,14 @@
 * Let *returnType* be the verification of <i>TypeExpression</i> preceded by <b>=></b>.
 * Return a function type consisting of required parameters *p*<sub>0</sub>, optional parameters *p*<sub>1</sub>, rest parameter *p*<sub>2</sub> and return type *returnType*.
 
-<i>TypedIdentifier</i> : <i>IdentifierName</i>
+<i>TypedIdentifier</i> : <i>IdentifierName</i><br>
+<i>FunctionTypeOptionalParameter</i> : <i>IdentifierName</i>
 
 * It is a verify error if no context type is given.
 * Return (string of <i>IdentifierName</i>, context type)
 
-<i>TypedIdentifier</i> : <i>IdentifierName</i> <b>:</b> <i>TypeExpression</i>
+<i>TypedIdentifier</i> : <i>IdentifierName</i> <b>?</b> <b>:</b> <i>TypeExpression</i><br>
+<i>FunctionTypeOptionalParameter</i> : <i>IdentifierName</i> <b>?</b> <b>:</b> <i>TypeExpression</i>
 
 * Return (string of <i>IdentifierName</i>, verification of <i>TypeExpression</i>)
 

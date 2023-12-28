@@ -253,7 +253,7 @@
 * Return (string of <i>IdentifierName</i>, verification of <i>TypeExpression</i>)
 
 <i>TypeArguments</i> : <b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> <b>&gt;</b><br>
-<i>TypeArguments</i> : <b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> <b>&gt;</b> \[initial <b>&gt;</b> from the offending token\]
+<i>TypeArguments</i> : <b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> \[initial <b>&gt;</b> from the offending token\]
 
 * Return the verification of each <i>TypeExpression</i> in <i>TypeArgumentsList</i> in a sequence.
 

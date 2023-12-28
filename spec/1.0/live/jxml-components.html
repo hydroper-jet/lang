@@ -245,21 +245,12 @@ Future data binding support:
 </ol>
 </li>
 </ol>
-<h3 id="attributevaluetonumber"><a class="header" href="#attributevaluetonumber">AttributeValueToNumber()</a></h3>
-<p>The internal <em>AttributeValueToNumber</em>(<em>s</em>, <em>N</em>) function takes a string <em>s</em> and returns a number of a specific number type <em>N</em>. The function performs the following steps:</p>
-<ul>
-<li>Let <em>s</em> be the result of trimming Unicode Whitespace characters out of both ends of <em>s</em>.</li>
-<li>If <em>N</em> is a floating point type and <em>s</em> is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, return the <em>N</em> representation of <em>s</em> as a floating point constant.</li>
-<li>Return the mathematical value of <em>s</em> as a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em>.</li>
-</ul>
-<h3 id="stringsequencetonumbersequence"><a class="header" href="#stringsequencetonumbersequence">StringSequenceToNumberSequence()</a></h3>
-<p>The internal <em>StringSequenceToNumberSequence</em>(<em>seq</em>, <em>N</em>) function takes a sequence of strings <em>seq</em> and returns a number sequence of a specific number type <em>N</em>. The function returns a processing of every element <em>s</em> in <em>seq</em> as the result of calling <em>AttributeValueToNumber</em>(<em>s</em>).</p>
 <h3 id="assignexpressionattribute"><a class="header" href="#assignexpressionattribute">AssignExpressionAttribute()</a></h3>
 <p>The internal <em>AssignExpressionAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>Let <em>src</em> be a substring of the attribute value from the second character until the last character (<strong>}</strong>).</li>
 <li>Let <em>v</em> be the verification of <em>src</em> as an <em>AssignmentExpression</em> with the context type <em>t</em> and with the initial scope as the JXML instantiation scope.</li>
-<li>Assign <em>v</em> = <em>ConvertImplicitly</em>(<em>v</em>, <em>t</em>)</li>
+<li>Assign <em>v</em> = implicit conversion from <em>v</em> to <em>t</em>.</li>
 <li>It is a verify error if <em>v</em> is an incompatible conversion.</li>
 <li>Assign <em>p</em> the evaluation of <em>v</em></li>
 </ol>
@@ -281,7 +272,7 @@ Future data binding support:
 <li>If <em>t</em> is <code>Char</code> or <code>Optional.&lt;Char&gt;</code>
 <ol>
 <li>Assert that the attribute value consists of one character.</li>
-<li>Assign the first Unicode code point of the attribute value to <em>p</em>.</li>
+<li>Assign the first Unicode Code Point of the attribute value to <em>p</em>.</li>
 <li>Exit function</li>
 </ol>
 </li>
@@ -318,9 +309,18 @@ Future data binding support:
 <ol>
 <li>Let <em>vectorClasses</em> be [[<em>JXMLVectors</em>]] from either <em>comp</em> or a super class of <em>comp</em>.</li>
 <li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>
-<li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em> and <em>t</em> is equals <em>vectorClass</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>StringSequenceToNumberSequence</em>(<em>vectorComponents</em>, <em>N</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
+<li>If a class <em>vectorClass</em> from <em>vectorClasses</em> has a constructor whose number of formal parameters equals to the length of <em>vectorComponents</em> and <em>t</em> is equals <em>vectorClass</em>, assign <em>p</em> the expression <code>new vectorClass(...)</code> passing every value from the sequence returned by <em>StringsToNumbers</em>(<em>vectorComponents</em>, <em>N</em>) with <em>N</em> being the number type expected by the <em>vectorClass</em> constructor's formal parameters.</li>
 <li>Otherwise return assignment failure.</li>
 </ol>
+<h3 id="attributevaluetonumber"><a class="header" href="#attributevaluetonumber">AttributeValueToNumber()</a></h3>
+<p>The internal <em>AttributeValueToNumber</em>(<em>s</em>, <em>N</em>) function takes a string <em>s</em> and returns a number of a specific number type <em>N</em>. The function performs the following steps:</p>
+<ul>
+<li>Let <em>s</em> be the result of trimming Unicode Whitespace characters out of both ends of <em>s</em>.</li>
+<li>If <em>N</em> is a floating point type and <em>s</em> is one of { <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>+Infinity</code> }, return the <em>N</em> representation of <em>s</em> as a floating point constant.</li>
+<li>Return the mathematical value of <em>s</em> as a <em>DecimalLiteral</em> or <em>HexIntegerLiteral</em>.</li>
+</ul>
+<h3 id="stringstonumbers"><a class="header" href="#stringstonumbers">StringsToNumbers()</a></h3>
+<p>The internal <em>StringsToNumbers</em>(<em>seq</em>, <em>N</em>) function takes a sequence of strings <em>seq</em> and returns a number sequence of a specific number type <em>N</em>. The function returns a processing of every element <em>s</em> in <em>seq</em> as the result of calling <em>AttributeValueToNumber</em>(<em>s</em>).</p>
 
                     </main>
 

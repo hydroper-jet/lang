@@ -95,25 +95,13 @@ XML attributes of the empty namespace, excluding the **className** attribute at 
         1. Call *AssignColorAttribute*(*comp*, *p*, *t*, XML attribute)
         3. Otherwise call *AssignVectorAttribute*(*comp*, *p*, *t*, XML attribute)
 
-### AttributeValueToNumber()
-
-The internal *AttributeValueToNumber*(*s*, *N*) function takes a string *s* and returns a number of a specific number type *N*. The function performs the following steps:
-
-* Let *s* be the result of trimming Unicode Whitespace characters out of both ends of *s*.
-* If *N* is a floating point type and *s* is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, return the *N* representation of *s* as a floating point constant.
-* Return the mathematical value of *s* as a *DecimalLiteral* or *HexIntegerLiteral*.
-
-### StringSequenceToNumberSequence()
-
-The internal *StringSequenceToNumberSequence*(*seq*, *N*) function takes a sequence of strings *seq* and returns a number sequence of a specific number type *N*. The function returns a processing of every element *s* in *seq* as the result of calling *AttributeValueToNumber*(*s*).
-
 ### AssignExpressionAttribute()
 
 The internal *AssignExpressionAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
 1. Let *src* be a substring of the attribute value from the second character until the last character (**&#x7D;**).
 2. Let *v* be the verification of *src* as an *AssignmentExpression* with the context type *t* and with the initial scope as the JXML instantiation scope.
-3. Assign *v* = *ConvertImplicitly*(*v*, *t*)
+3. Assign *v* = implicit conversion from *v* to *t*.
 4. It is a verify error if *v* is an incompatible conversion.
 5. Assign *p* the evaluation of *v*
 
@@ -129,7 +117,7 @@ The internal *AssignConstantAttribute*(*comp*, *p*, *t*, XML attribute) function
     2. Exit function
 3. If *t* is `Char` or `Optional.<Char>`
     1. Assert that the attribute value consists of one character.
-    2. Assign the first Unicode code point of the attribute value to *p*.
+    2. Assign the first Unicode Code Point of the attribute value to *p*.
     3. Exit function
 4. If *t* is `String` or `Optional.<String>`
     1. Assign the attribute value to *p*.
@@ -157,5 +145,17 @@ The internal *AssignVectorAttribute*(*comp*, *p*, *t*, XML attribute) function t
 
 1. Let *vectorClasses* be \[\[*JXMLVectors*\]\] from either *comp* or a super class of *comp*.
 2. Let *vectorComponents* be the result of spliting the attribute value by comma.
-3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents* and *t* is equals *vectorClass*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *StringSequenceToNumberSequence*(*vectorComponents*, *N*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
+3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents* and *t* is equals *vectorClass*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *StringsToNumbers*(*vectorComponents*, *N*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
 4. Otherwise return assignment failure.
+
+### AttributeValueToNumber()
+
+The internal *AttributeValueToNumber*(*s*, *N*) function takes a string *s* and returns a number of a specific number type *N*. The function performs the following steps:
+
+* Let *s* be the result of trimming Unicode Whitespace characters out of both ends of *s*.
+* If *N* is a floating point type and *s* is one of \{ `NaN`, `Infinity`, `-Infinity`, `+Infinity` \}, return the *N* representation of *s* as a floating point constant.
+* Return the mathematical value of *s* as a *DecimalLiteral* or *HexIntegerLiteral*.
+
+### StringsToNumbers()
+
+The internal *StringsToNumbers*(*seq*, *N*) function takes a sequence of strings *seq* and returns a number sequence of a specific number type *N*. The function returns a processing of every element *s* in *seq* as the result of calling *AttributeValueToNumber*(*s*).

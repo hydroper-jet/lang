@@ -17,7 +17,7 @@ The root element must assign the attribute `className` a fully package qualified
 
 ```xml
 <e:Application xmlns:e="org.example" className="org.example.Main">
-    <!-- Class contents -->
+    <!-- org.example.Main -->
 </e:Application>
 ```
 

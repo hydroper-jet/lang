@@ -29,9 +29,6 @@
         <td>&nbsp;</td><td><b>undefined</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>FunctionTypeExpression</i></td>
-    </tr>
-    <tr>
         <td>&nbsp;</td><td><b>&#x5B;</b> <i>TypeExpression</i> <b>&#x5D;</b></td>
     </tr>
     <tr>
@@ -59,7 +56,7 @@
         <td colspan="2"><i>TupleTypeExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i><b>&#x5B;</b> <i>TupleElementTypes</i> <b>&#x5D;</b></i></td>
+        <td>&nbsp;</td><td><b>&#x5B;</b> <i>TupleElementTypes</i> <b>&#x5D;</b></td>
     </tr>
 </table>
 
@@ -72,6 +69,45 @@
     </tr>
     <tr>
         <td>&nbsp;</td><td><i><i>TupleElementTypes</i> <b>,</b> <i>TypeExpression</i></i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>FunctionTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>(</b> <i>FunctionTypeParameters</i> <b>)</b> <b>=></b> <i>TypeExpression</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>FunctionTypeParameters</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[empty]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FunctionTypeParameter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FunctionTypeParameters</i> <b>,</b> <i>FunctionTypeParameter</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>FunctionTypeParameter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypedIdentifier</i> [lookahead ∉ {<b>?</b>}]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypedIdentifier</i> <b>?</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>...</b> <i>TypedIdentifier</i></td>
     </tr>
 </table>
 
@@ -144,5 +180,31 @@
 
 * Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is the `Optional` type.
 * Return an `Optional` type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.
+
+<i>TupleTypeExpression</i> : <b>&#x5B;</b> <i>TupleElementTypes</i> <b>&#x5D;</b>
+
+* Let *e* be an empty list.
+* For each *e*<sub>0</sub> <i>TypeExpression</i> in <i>TupleElementTypes</i>
+  * Append to *e* the verification result of *e*<sub>0</sub>
+* Return a tuple type consisting of the element types *e*.
+
+<i>FunctionTypeExpression</i> : <b>(</b> <i>FunctionTypeParameters</i> <b>)</b> <b>=></b> <i>TypeExpression</i>
+
+* It is a verify error if <i>FunctionTypeParameters</i> is not a sequence of zero or more <i>TypedIdentifier</i> \[lookahead ∉ \{<b>?</b>\}\] followed by zero or more <i>TypedIdentifier</i> <b>?</b> followed by optional <b>...</b> <i>TypedIdentifier</i>.
+* Let *p*<sub>0</sub> be an empty list.
+* Let *p*<sub>1</sub> be an empty list.
+* Let *p*<sub>2</sub> be undefined.
+* For each <i>TypedIdentifier</i> \[lookahead ∉ \{<b>?</b>\}\] as *typedId* in <i>FunctionTypeParameters</i>
+  * Let (*name*, *type*) be the verification of *typedId*.
+  * Contribute (*name*, *type*) to *p*<sub>0</sub>.
+* For each <i>TypedIdentifier</i> <b>?</b> as *typedId* in <i>FunctionTypeParameters</i>
+  * Let (*name*, *type*) be the verification of *typedId*.
+  * Contribute (*name*, *type*) to *p*<sub>0</sub>.
+* If <i>FunctionTypeParameters</i> contains <b>...</b> <i>TypedIdentifier</i> as *typeId*
+  * Let (*name*, *type*) be the verification of *typedId*.
+  * It is a verify error if *type* is not the `Array` type.
+  * Assign *p*<sub>2</sub> = (*name*, *type*)
+* Let *returnType* be the verification of <i>TypeExpression</i> preceded by <b>=></b>.
+* Return a function type consisting of required parameters *p*<sub>0</sub>, optional parameters *p*<sub>1</sub>, rest parameter *p*<sub>2</sub> and return type *returnType*.
 
 [*PropertyIsVisible*]: visibility.md#propertyisvisible

@@ -2241,9 +2241,6 @@ Future data binding support:
         <td>&nbsp;</td><td><b>undefined</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>FunctionTypeExpression</i></td>
-    </tr>
-    <tr>
         <td>&nbsp;</td><td><b>&#x5B;</b> <i>TypeExpression</i> <b>&#x5D;</b></td>
     </tr>
     <tr>
@@ -2270,7 +2267,7 @@ Future data binding support:
         <td colspan="2"><i>TupleTypeExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i><b>&#x5B;</b> <i>TupleElementTypes</i> <b>&#x5D;</b></i></td>
+        <td>&nbsp;</td><td><b>&#x5B;</b> <i>TupleElementTypes</i> <b>&#x5D;</b></td>
     </tr>
 </table>
 <table>
@@ -2282,6 +2279,42 @@ Future data binding support:
     </tr>
     <tr>
         <td>&nbsp;</td><td><i><i>TupleElementTypes</i> <b>,</b> <i>TypeExpression</i></i></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>FunctionTypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>(</b> <i>FunctionTypeParameters</i> <b>)</b> <b>=></b> <i>TypeExpression</i></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>FunctionTypeParameters</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[empty]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FunctionTypeParameter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FunctionTypeParameters</i> <b>,</b> <i>FunctionTypeParameter</i></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>FunctionTypeParameter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypedIdentifier</i> [lookahead ∉ {<b>?</b>}]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypedIdentifier</i> <b>?</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>...</b> <i>TypedIdentifier</i></td>
     </tr>
 </table>
 <p><strong>Verification</strong></p>
@@ -2355,6 +2388,44 @@ Future data binding support:
 <ul>
 <li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is the <code>Optional</code> type.</li>
 <li>Return an <code>Optional</code> type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
+</ul>
+<p><i>TupleTypeExpression</i> : <b>[</b> <i>TupleElementTypes</i> <b>]</b></p>
+<ul>
+<li>Let <em>e</em> be an empty list.</li>
+<li>For each <em>e</em><sub>0</sub> <i>TypeExpression</i> in <i>TupleElementTypes</i>
+<ul>
+<li>Append to <em>e</em> the verification result of <em>e</em><sub>0</sub></li>
+</ul>
+</li>
+<li>Return a tuple type consisting of the element types <em>e</em>.</li>
+</ul>
+<p><i>FunctionTypeExpression</i> : <b>(</b> <i>FunctionTypeParameters</i> <b>)</b> <b>=&gt;</b> <i>TypeExpression</i></p>
+<ul>
+<li>It is a verify error if <i>FunctionTypeParameters</i> is not a sequence of zero or more <i>TypedIdentifier</i> [lookahead ∉ {<b>?</b>}] followed by zero or more <i>TypedIdentifier</i> <b>?</b> followed by optional <b>...</b> <i>TypedIdentifier</i>.</li>
+<li>Let <em>p</em><sub>0</sub> be an empty list.</li>
+<li>Let <em>p</em><sub>1</sub> be an empty list.</li>
+<li>Let <em>p</em><sub>2</sub> be undefined.</li>
+<li>For each <i>TypedIdentifier</i> [lookahead ∉ {<b>?</b>}] as <em>typedId</em> in <i>FunctionTypeParameters</i>
+<ul>
+<li>Let (<em>name</em>, <em>type</em>) be the verification of <em>typedId</em>.</li>
+<li>Contribute (<em>name</em>, <em>type</em>) to <em>p</em><sub>0</sub>.</li>
+</ul>
+</li>
+<li>For each <i>TypedIdentifier</i> <b>?</b> as <em>typedId</em> in <i>FunctionTypeParameters</i>
+<ul>
+<li>Let (<em>name</em>, <em>type</em>) be the verification of <em>typedId</em>.</li>
+<li>Contribute (<em>name</em>, <em>type</em>) to <em>p</em><sub>0</sub>.</li>
+</ul>
+</li>
+<li>If <i>FunctionTypeParameters</i> contains <b>...</b> <i>TypedIdentifier</i> as <em>typeId</em>
+<ul>
+<li>Let (<em>name</em>, <em>type</em>) be the verification of <em>typedId</em>.</li>
+<li>It is a verify error if <em>type</em> is not the <code>Array</code> type.</li>
+<li>Assign <em>p</em><sub>2</sub> = (<em>name</em>, <em>type</em>)</li>
+</ul>
+</li>
+<li>Let <em>returnType</em> be the verification of <i>TypeExpression</i> preceded by <b>=&gt;</b>.</li>
+<li>Return a function type consisting of required parameters <em>p</em><sub>0</sub>, optional parameters <em>p</em><sub>1</sub>, rest parameter <em>p</em><sub>2</sub> and return type <em>returnType</em>.</li>
 </ul>
 
                     </main>

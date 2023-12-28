@@ -100,8 +100,7 @@ XML attributes of the empty namespace, excluding the **className** attribute at 
         5. If *t* is `E` or `Optional.<E>` where `E` is a non Set `enum`, assert that the attribute value identifies a member of the `enum` by its string component and assign such member to *p*.
         6. If *t* is `E` or `Optional.<E>` where `E` is a Set `enum`, assert that the attribute value is a comma-separated list identifying one or more members of the `enum` by their string components and assign such members to *p*.
     2. Otherwise:
-        1. Let *colorClass* be \[\[*JXMLColor*\]\] from either `comp` or a super class of `comp`.
-        2. If *colorClass* exists and *t* is equals *colorClass*, assign `new colorClass(v)` to *p* where `v` is the attribute value as a `String`.
+        1. Call *AssignColorAttribute*(`comp`, *p*, *t*)
         3. Otherwise call *AssignVectorAttribute*(`comp`, *p*, *t*)
 
 ### AttributeValueToNumber()
@@ -115,6 +114,14 @@ The internal *AttributeValueToNumber*(*s*, *N*) function takes a string *s* and 
 ### StringSequenceToNumberSequence()
 
 The internal *StringSequenceToNumberSequence*(*seq*, *N*) function takes a sequence of strings *seq* and returns a number sequence of a specific number type *N*. The function returns a processing of every element *s* in *seq* as the result of calling *AttributeValueToNumber*(*s*).
+
+### AssignColorAttribute()
+
+The internal *AssignColorAttribute*(`comp`, *p*, *t*) function takes the following steps:
+
+1. Let *colorClass* be \[\[*JXMLColor*\]\] from either `comp` or a super class of `comp`.
+2. If *colorClass* exists and *t* is equals *colorClass*, assign `new colorClass(v)` to *p* where `v` is the attribute value as a `String`.
+3. Otherwise throw a verify error.
 
 ### AssignVectorAttribute()
 

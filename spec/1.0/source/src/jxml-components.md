@@ -13,9 +13,12 @@ A JXML component is a XML file with the extension `.jxml` describing a class tha
 
 The class described in the XML file is referred throughout this section as *descClass*.
 
-## className
+## Root element
 
-The root element must assign the attribute `className` a fully package qualified name whose trailing name identifies the class name of *descClass*, as in:
+The following semantics apply to the root element:
+
+* The root element of the XML file is a JXML instantiation. The component of the JXML instantiation is the class from which *descClass* inherits.
+* The root element must assign the attribute `className` a fully package qualified name whose trailing name identifies the class name of *descClass*, as in:
 
 ```xml
 <e:Application xmlns:e="org.example" className="org.example.Main">
@@ -24,10 +27,6 @@ The root element must assign the attribute `className` a fully package qualified
 ```
 
 Such XML file results into defining *descClass* as a `Main` class that belongs to the `org.example` package. It is a verify error if the class is already defined.
-
-## Root element
-
-The root element of the XML file is a JXML instantiation. The component of the JXML instantiation is the class from which *descClass* inherits.
 
 ## Constructor
 
@@ -72,13 +71,27 @@ The `Children` tag is replaced by zero or more JXML instantiations that appear a
 All XML elements that are not of the empty namespace are JXML instantiations. Given that *comp* is the component being instantiated:
 
 * *comp* is valid if and only if the tag name identifies a fully package qualified class that implements the `JXML` interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
-* A JXML instantiation returns `result = new comp()` followed by processing of attributes followed by children processing.
+* A JXML instantiation creates a *scope* scope and returns `result = new comp()` followed by processing of attributes followed by children processing.
+
+The *scope* scope is created as follows:
+
+* Let *scope* be an empty scope.
+* Let *classScope* be the scope of the *descClass* block.
+* For each *p* in *classScope*\[\[*Imports*\]\]
+  * Contribute *p* to *scope*\[\[*Imports*\]\]
+* For each *p* in *classScope*\[\[*OpenPackages*\]\]
+  * Contribute *p* to *scope*\[\[*OpenPackages*\]\]
+* For each *p* in *classScope*\[\[*Properties*\]\]
+  * If *p* is an alias
+    * Contribute *p* to *scope*\[\[*Properties*\]\]
+* Return *scope*.
 
 Attributes are processed as follows:
 
-* For each XML attribute of the instantiation tag
-  * If the XML attribute name is not **className**
-    * Call *AssignJXMLAttribute*(*comp*, XML attribute)
+* Inside *scope*
+  * For each XML attribute of the instantiation tag
+    * If the XML attribute name is not **className**
+      * Call *AssignJXMLAttribute*(*comp*, *scope*, XML attribute)
 
 Children are processed as follows:
 
@@ -91,14 +104,14 @@ Children are processed as follows:
 
 ### AssignJXMLAttribute()
 
-The internal *AssignJXMLAttribute*(*comp*, XML attribute) function takes the following steps:
+The internal *AssignJXMLAttribute*(*comp*, *scope*, XML attribute) function takes the following steps:
 
 1. Let *p* be a property of the result object whose name matches the attribute unqualified name.
 2. It is a verify error if either *p* is not defined or *p* is read-only.
 3. It is a verify error if *p* is neither a variable property or a virtual property.
 4. Let *t* be the static type of *p*.
 5. If the attribute value starts with the **&#x7B;** character and ends with the **&#x7D;** character
-    1. Call *AssignJXMLExpressionAttribute*(*comp*, *p*, *t*, XML attribute)
+    1. Call *AssignJXMLExpressionAttribute*(*comp*, *scope*, *p*, *t*, XML attribute)
 6. Otherwise
     1. Call *AssignJXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute)
     2. Otherwise:
@@ -107,10 +120,10 @@ The internal *AssignJXMLAttribute*(*comp*, XML attribute) function takes the fol
 
 ### AssignJXMLExpressionAttribute()
 
-The internal *AssignJXMLExpressionAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
+The internal *AssignJXMLExpressionAttribute*(*comp*, *scope*, *p*, *t*, XML attribute) function takes the following steps:
 
 1. Let *src* be a substring of the attribute value from the second character until the last character (**&#x7D;**).
-2. Let *v* be the verification of *src* as an *AssignmentExpression* with the context type *t* and with the initial scope as the JXML instantiation scope.
+2. Let *v* be the verification of *src* as an *AssignmentExpression* with the context type *t* and with the initial scope as *scope*.
 3. Assign *v* = implicit conversion from *v* to *t*.
 4. It is a verify error if *v* is an incompatible conversion.
 5. Assign *p* the evaluation of *v*

@@ -176,15 +176,17 @@ Future data binding support:
 -->
 <p>A JXML component is a XML file with the extension <code>.jxml</code> describing a class that inherits from a <code>JXML</code> implementor.</p>
 <p>The class described in the XML file is referred throughout this section as <em>descClass</em>.</p>
-<h2 id="classname"><a class="header" href="#classname">className</a></h2>
-<p>The root element must assign the attribute <code>className</code> a fully package qualified name whose trailing name identifies the class name of <em>descClass</em>, as in:</p>
+<h2 id="root-element"><a class="header" href="#root-element">Root element</a></h2>
+<p>The following semantics apply to the root element:</p>
+<ul>
+<li>The root element of the XML file is a JXML instantiation. The component of the JXML instantiation is the class from which <em>descClass</em> inherits.</li>
+<li>The root element must assign the attribute <code>className</code> a fully package qualified name whose trailing name identifies the class name of <em>descClass</em>, as in:</li>
+</ul>
 <pre><code class="language-xml">&lt;e:Application xmlns:e=&quot;org.example&quot; className=&quot;org.example.Main&quot;&gt;
     &lt;!-- org.example.Main --&gt;
 &lt;/e:Application&gt;
 </code></pre>
 <p>Such XML file results into defining <em>descClass</em> as a <code>Main</code> class that belongs to the <code>org.example</code> package. It is a verify error if the class is already defined.</p>
-<h2 id="root-element"><a class="header" href="#root-element">Root element</a></h2>
-<p>The root element of the XML file is a JXML instantiation. The component of the JXML instantiation is the class from which <em>descClass</em> inherits.</p>
 <h2 id="constructor"><a class="header" href="#constructor">Constructor</a></h2>
 <p>The constructor of <em>descClass</em> is implicitly defined if not already defined by the <code>&lt;Script&gt;</code> element.</p>
 <p>The following restrictions apply to JXML components:</p>
@@ -214,15 +216,44 @@ Future data binding support:
 <p>All XML elements that are not of the empty namespace are JXML instantiations. Given that <em>comp</em> is the component being instantiated:</p>
 <ul>
 <li><em>comp</em> is valid if and only if the tag name identifies a fully package qualified class that implements the <code>JXML</code> interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.</li>
-<li>A JXML instantiation returns <code>result = new comp()</code> followed by processing of attributes followed by children processing.</li>
+<li>A JXML instantiation creates a <em>scope</em> scope and returns <code>result = new comp()</code> followed by processing of attributes followed by children processing.</li>
+</ul>
+<p>The <em>scope</em> scope is created as follows:</p>
+<ul>
+<li>Let <em>scope</em> be an empty scope.</li>
+<li>Let <em>classScope</em> be the scope of the <em>descClass</em> block.</li>
+<li>For each <em>p</em> in <em>classScope</em>[[<em>Imports</em>]]
+<ul>
+<li>Contribute <em>p</em> to <em>scope</em>[[<em>Imports</em>]]</li>
+</ul>
+</li>
+<li>For each <em>p</em> in <em>classScope</em>[[<em>OpenPackages</em>]]
+<ul>
+<li>Contribute <em>p</em> to <em>scope</em>[[<em>OpenPackages</em>]]</li>
+</ul>
+</li>
+<li>For each <em>p</em> in <em>classScope</em>[[<em>Properties</em>]]
+<ul>
+<li>If <em>p</em> is an alias
+<ul>
+<li>Contribute <em>p</em> to <em>scope</em>[[<em>Properties</em>]]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return <em>scope</em>.</li>
 </ul>
 <p>Attributes are processed as follows:</p>
+<ul>
+<li>Inside <em>scope</em>
 <ul>
 <li>For each XML attribute of the instantiation tag
 <ul>
 <li>If the XML attribute name is not <strong>className</strong>
 <ul>
-<li>Call <em>AssignJXMLAttribute</em>(<em>comp</em>, XML attribute)</li>
+<li>Call <em>AssignJXMLAttribute</em>(<em>comp</em>, <em>scope</em>, XML attribute)</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -247,7 +278,7 @@ Future data binding support:
 </li>
 </ul>
 <h3 id="assignjxmlattribute"><a class="header" href="#assignjxmlattribute">AssignJXMLAttribute()</a></h3>
-<p>The internal <em>AssignJXMLAttribute</em>(<em>comp</em>, XML attribute) function takes the following steps:</p>
+<p>The internal <em>AssignJXMLAttribute</em>(<em>comp</em>, <em>scope</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>Let <em>p</em> be a property of the result object whose name matches the attribute unqualified name.</li>
 <li>It is a verify error if either <em>p</em> is not defined or <em>p</em> is read-only.</li>
@@ -255,7 +286,7 @@ Future data binding support:
 <li>Let <em>t</em> be the static type of <em>p</em>.</li>
 <li>If the attribute value starts with the <strong>{</strong> character and ends with the <strong>}</strong> character
 <ol>
-<li>Call <em>AssignJXMLExpressionAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Call <em>AssignJXMLExpressionAttribute</em>(<em>comp</em>, <em>scope</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
 </ol>
 </li>
 <li>Otherwise
@@ -271,10 +302,10 @@ Future data binding support:
 </li>
 </ol>
 <h3 id="assignjxmlexpressionattribute"><a class="header" href="#assignjxmlexpressionattribute">AssignJXMLExpressionAttribute()</a></h3>
-<p>The internal <em>AssignJXMLExpressionAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
+<p>The internal <em>AssignJXMLExpressionAttribute</em>(<em>comp</em>, <em>scope</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>Let <em>src</em> be a substring of the attribute value from the second character until the last character (<strong>}</strong>).</li>
-<li>Let <em>v</em> be the verification of <em>src</em> as an <em>AssignmentExpression</em> with the context type <em>t</em> and with the initial scope as the JXML instantiation scope.</li>
+<li>Let <em>v</em> be the verification of <em>src</em> as an <em>AssignmentExpression</em> with the context type <em>t</em> and with the initial scope as <em>scope</em>.</li>
 <li>Assign <em>v</em> = implicit conversion from <em>v</em> to <em>t</em>.</li>
 <li>It is a verify error if <em>v</em> is an incompatible conversion.</li>
 <li>Assign <em>p</em> the evaluation of <em>v</em></li>

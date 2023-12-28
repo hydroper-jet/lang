@@ -252,10 +252,9 @@
 
 * Return (string of <i>IdentifierName</i>, verification of <i>TypeExpression</i>)
 
-[*PropertyIsVisible*]: visibility.md#propertyisvisible
-
-
 <i>TypeArguments</i> : <b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> <b>&gt;</b><br>
 <i>TypeArguments</i> : <b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> <b>&gt;</b> \[initial <b>&gt;</b> from the offending token\]
 
 * Return the verification of each <i>TypeExpression</i> in <i>TypeArgumentsList</i> in a sequence.
+
+[*PropertyIsVisible*]: visibility.md#propertyisvisible

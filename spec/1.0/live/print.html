@@ -1822,15 +1822,42 @@ Future data binding support:
 <p>All XML elements that are not of the empty namespace are JXML instantiations. Given that <em>comp</em> is the component being instantiated:</p>
 <ul>
 <li><em>comp</em> is valid if and only if the tag name identifies a fully package qualified class that implements the <code>JXML</code> interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.</li>
-<li>A JXML instantiation returns <code>result = new comp()</code> followed by zero or more property assignments at <code>result</code> and zero or more <code>result.jxmlAppend()</code> calls.</li>
+<li>A JXML instantiation returns <code>result = new comp()</code> followed by processing of attributes followed by children processing.</li>
 </ul>
-<p>Children components are processed as follows:</p>
-<ol>
-<li>If <em>comp</em> contains a <code>&lt;Children/&gt;</code> tag, children components take the place of such <code>&lt;Children/&gt;</code> tag.</li>
-<li>Otherwise, for each child component, call <code>result.jxmlAppend()</code> with the result of the child JXML instantiation.</li>
-</ol>
+<p>Attributes are processed as follows:</p>
+<ul>
+<li>For each XML attribute of the instantiation tag
+<ul>
+<li>If the XML attribute name is not <strong>className</strong>
+<ul>
+<li>Call <em>AssignAttribute</em>(<em>comp</em>, XML attribute)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Children are processed as follows:</p>
+<ul>
+<li>If <em>comp</em> contains a <code>&lt;Children/&gt;</code> tag
+<ul>
+<li>Move children to the location of the <code>&lt;Children/&gt;</code> tag.</li>
+<li>Remove the <code>&lt;Children/&gt;</code> tag.</li>
+</ul>
+</li>
+<li>Otherwise
+<ul>
+<li>For each child JXML instantiation <em>ji</em>
+<ul>
+<li>Call <code>result.jxmlAppend()</code> passing the result of <em>ji</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h3 id="attributes"><a class="header" href="#attributes">Attributes</a></h3>
 <p>XML attributes of the empty namespace, excluding the <strong>className</strong> attribute at the root element, applied to the instantiation are processed as follows:</p>
+<h3 id="assignattribute"><a class="header" href="#assignattribute">AssignAttribute()</a></h3>
+<p>The internal <em>AssignAttribute</em>(<em>comp</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>Let <em>p</em> be a property of the result object whose name matches the attribute unqualified name.</li>
 <li>It is a verify error if either <em>p</em> is not defined or <em>p</em> is read-only.</li>

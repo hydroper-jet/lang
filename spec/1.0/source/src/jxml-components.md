@@ -72,16 +72,30 @@ The `Children` tag is replaced by zero or more JXML instantiations that appear a
 All XML elements that are not of the empty namespace are JXML instantiations. Given that *comp* is the component being instantiated:
 
 * *comp* is valid if and only if the tag name identifies a fully package qualified class that implements the `JXML` interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
-* A JXML instantiation returns `result = new comp()` followed by zero or more property assignments at `result` and zero or more `result.jxmlAppend()` calls.
+* A JXML instantiation returns `result = new comp()` followed by processing of attributes followed by children processing.
 
-Children components are processed as follows:
+Attributes are processed as follows:
 
-1. If *comp* contains a `<Children/>` tag, children components take the place of such `<Children/>` tag.
-2. Otherwise, for each child component, call `result.jxmlAppend()` with the result of the child JXML instantiation.
+* For each XML attribute of the instantiation tag
+  * If the XML attribute name is not **className**
+    * Call *AssignAttribute*(*comp*, XML attribute)
+
+Children are processed as follows:
+
+* If *comp* contains a `<Children/>` tag
+  * Move children to the location of the `<Children/>` tag.
+  * Remove the `<Children/>` tag.
+* Otherwise
+  * For each child JXML instantiation *ji*
+    * Call `result.jxmlAppend()` passing the result of *ji*.
 
 ### Attributes
 
 XML attributes of the empty namespace, excluding the **className** attribute at the root element, applied to the instantiation are processed as follows:
+
+### AssignAttribute()
+
+The internal *AssignAttribute*(*comp*, XML attribute) function takes the following steps:
 
 1. Let *p* be a property of the result object whose name matches the attribute unqualified name.
 2. It is a verify error if either *p* is not defined or *p* is read-only.

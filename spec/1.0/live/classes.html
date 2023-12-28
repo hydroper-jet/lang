@@ -202,8 +202,8 @@
 <li>It is a verify error if the fully package qualified names specified within <code>JXML</code> do not resolve to a class.</li>
 <li>It is a verify error if the class specified by <code>colorClass</code> does not contain a constructor with the signature <code>(...arguments: [*]) =&gt; void</code>.</li>
 <li>It is a verify error if the class specified by <code>vectorClass</code> does not contain a constructor that takes parameters of a same number type.</li>
-<li>Only one <code>colorClass</code> occurrence is allowed, contributing the class to the [[<em>JXMLColor</em>]] property.</li>
-<li>Multiple <code>vectorClass</code> occurrences are allowed, contributing multiple classes to the annotated class's [[<em>JXMLVectors</em>]] property.</li>
+<li>Only one <code>colorClass</code> occurrence is allowed, contributing the class to the annotated class [[<em>JXMLColor</em>]] property.</li>
+<li>Multiple <code>vectorClass</code> occurrences are allowed, contributing multiple classes to the annotated class [[<em>JXMLVectors</em>]] property.</li>
 </ul>
 <pre><code>package org.myEngine {
     [JXML(

@@ -43,8 +43,8 @@ A JXML base class may contain a `JXML` meta-data with two optional options `colo
 * It is a verify error if the fully package qualified names specified within `JXML` do not resolve to a class.
 * It is a verify error if the class specified by `colorClass` does not contain a constructor with the signature `(...arguments: [*]) => void`.
 * It is a verify error if the class specified by `vectorClass` does not contain a constructor that takes parameters of a same number type.
-* Only one `colorClass` occurrence is allowed, contributing the class to the \[\[*JXMLColor*\]\] property.
-* Multiple `vectorClass` occurrences are allowed, contributing multiple classes to the annotated class's \[\[*JXMLVectors*\]\] property.
+* Only one `colorClass` occurrence is allowed, contributing the class to the annotated class \[\[*JXMLColor*\]\] property.
+* Multiple `vectorClass` occurrences are allowed, contributing multiple classes to the annotated class \[\[*JXMLVectors*\]\] property.
 
 ```
 package org.myEngine {

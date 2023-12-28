@@ -78,7 +78,7 @@ Attributes are processed as follows:
 
 * For each XML attribute of the instantiation tag
   * If the XML attribute name is not **className**
-    * Call *AssignAttribute*(*comp*, XML attribute)
+    * Call *AssignJXMLAttribute*(*comp*, XML attribute)
 
 Children are processed as follows:
 
@@ -89,29 +89,25 @@ Children are processed as follows:
   * For each child JXML instantiation *ji*
     * Call `result.jxmlAppend()` passing the result of *ji*.
 
-### Attributes
+### AssignJXMLAttribute()
 
-XML attributes of the empty namespace, excluding the **className** attribute at the root element, applied to the instantiation are processed as follows:
-
-### AssignAttribute()
-
-The internal *AssignAttribute*(*comp*, XML attribute) function takes the following steps:
+The internal *AssignJXMLAttribute*(*comp*, XML attribute) function takes the following steps:
 
 1. Let *p* be a property of the result object whose name matches the attribute unqualified name.
 2. It is a verify error if either *p* is not defined or *p* is read-only.
 3. It is a verify error if *p* is neither a variable property or a virtual property.
 4. Let *t* be the static type of *p*.
 5. If the attribute value starts with the **&#x7B;** character and ends with the **&#x7D;** character
-    1. Call *AssignExpressionAttribute*(*comp*, *p*, *t*, XML attribute)
+    1. Call *AssignJXMLExpressionAttribute*(*comp*, *p*, *t*, XML attribute)
 6. Otherwise
-    1. Call *AssignConstantAttribute*(*comp*, *p*, *t*, XML attribute)
+    1. Call *AssignJXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute)
     2. Otherwise:
-        1. Call *AssignColorAttribute*(*comp*, *p*, *t*, XML attribute)
-        3. Otherwise call *AssignVectorAttribute*(*comp*, *p*, *t*, XML attribute)
+        1. Call *AssignJXMLColorAttribute*(*comp*, *p*, *t*, XML attribute)
+        3. Otherwise call *AssignJXMLVectorAttribute*(*comp*, *p*, *t*, XML attribute)
 
-### AssignExpressionAttribute()
+### AssignJXMLExpressionAttribute()
 
-The internal *AssignExpressionAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
+The internal *AssignJXMLExpressionAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
 1. Let *src* be a substring of the attribute value from the second character until the last character (**&#x7D;**).
 2. Let *v* be the verification of *src* as an *AssignmentExpression* with the context type *t* and with the initial scope as the JXML instantiation scope.
@@ -119,9 +115,9 @@ The internal *AssignExpressionAttribute*(*comp*, *p*, *t*, XML attribute) functi
 4. It is a verify error if *v* is an incompatible conversion.
 5. Assign *p* the evaluation of *v*
 
-### AssignConstantAttribute()
+### AssignJXMLConstantAttribute()
 
-The internal *AssignConstantAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
+The internal *AssignJXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
 1. If *t* is `N` or `Optional.<N>` where `N` is a number type
     1. Assign *AttributeValueToNumber*(*v*, `N`) to *p* where *v* is the attribute value.
@@ -145,17 +141,17 @@ The internal *AssignConstantAttribute*(*comp*, *p*, *t*, XML attribute) function
     3. Exit function
 7. Return assignment failure.
 
-### AssignColorAttribute()
+### AssignJXMLColorAttribute()
 
-The internal *AssignColorAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
+The internal *AssignJXMLColorAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
 1. Let *colorClass* be \[\[*JXMLColor*\]\] from either *comp* or a super class of *comp*.
 2. If *colorClass* exists and *t* is equals *colorClass*, assign `new colorClass(v)` to *p* where `v` is the attribute value as a `String`.
 3. Otherwise return assignment failure.
 
-### AssignVectorAttribute()
+### AssignJXMLVectorAttribute()
 
-The internal *AssignVectorAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
+The internal *AssignJXMLVectorAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
 1. Let *vectorClasses* be \[\[*JXMLVectors*\]\] from either *comp* or a super class of *comp*.
 2. Let *vectorComponents* be the result of spliting the attribute value by comma.

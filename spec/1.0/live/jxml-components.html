@@ -222,7 +222,7 @@ Future data binding support:
 <ul>
 <li>If the XML attribute name is not <strong>className</strong>
 <ul>
-<li>Call <em>AssignAttribute</em>(<em>comp</em>, XML attribute)</li>
+<li>Call <em>AssignJXMLAttribute</em>(<em>comp</em>, XML attribute)</li>
 </ul>
 </li>
 </ul>
@@ -246,10 +246,8 @@ Future data binding support:
 </ul>
 </li>
 </ul>
-<h3 id="attributes"><a class="header" href="#attributes">Attributes</a></h3>
-<p>XML attributes of the empty namespace, excluding the <strong>className</strong> attribute at the root element, applied to the instantiation are processed as follows:</p>
-<h3 id="assignattribute"><a class="header" href="#assignattribute">AssignAttribute()</a></h3>
-<p>The internal <em>AssignAttribute</em>(<em>comp</em>, XML attribute) function takes the following steps:</p>
+<h3 id="assignjxmlattribute"><a class="header" href="#assignjxmlattribute">AssignJXMLAttribute()</a></h3>
+<p>The internal <em>AssignJXMLAttribute</em>(<em>comp</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>Let <em>p</em> be a property of the result object whose name matches the attribute unqualified name.</li>
 <li>It is a verify error if either <em>p</em> is not defined or <em>p</em> is read-only.</li>
@@ -257,23 +255,23 @@ Future data binding support:
 <li>Let <em>t</em> be the static type of <em>p</em>.</li>
 <li>If the attribute value starts with the <strong>{</strong> character and ends with the <strong>}</strong> character
 <ol>
-<li>Call <em>AssignExpressionAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Call <em>AssignJXMLExpressionAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
 </ol>
 </li>
 <li>Otherwise
 <ol>
-<li>Call <em>AssignConstantAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Call <em>AssignJXMLConstantAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
 <li>Otherwise:
 <ol>
-<li>Call <em>AssignColorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
-<li>Otherwise call <em>AssignVectorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Call <em>AssignJXMLColorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
+<li>Otherwise call <em>AssignJXMLVectorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute)</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
-<h3 id="assignexpressionattribute"><a class="header" href="#assignexpressionattribute">AssignExpressionAttribute()</a></h3>
-<p>The internal <em>AssignExpressionAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
+<h3 id="assignjxmlexpressionattribute"><a class="header" href="#assignjxmlexpressionattribute">AssignJXMLExpressionAttribute()</a></h3>
+<p>The internal <em>AssignJXMLExpressionAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>Let <em>src</em> be a substring of the attribute value from the second character until the last character (<strong>}</strong>).</li>
 <li>Let <em>v</em> be the verification of <em>src</em> as an <em>AssignmentExpression</em> with the context type <em>t</em> and with the initial scope as the JXML instantiation scope.</li>
@@ -281,8 +279,8 @@ Future data binding support:
 <li>It is a verify error if <em>v</em> is an incompatible conversion.</li>
 <li>Assign <em>p</em> the evaluation of <em>v</em></li>
 </ol>
-<h3 id="assignconstantattribute"><a class="header" href="#assignconstantattribute">AssignConstantAttribute()</a></h3>
-<p>The internal <em>AssignConstantAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
+<h3 id="assignjxmlconstantattribute"><a class="header" href="#assignjxmlconstantattribute">AssignJXMLConstantAttribute()</a></h3>
+<p>The internal <em>AssignJXMLConstantAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>If <em>t</em> is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type
 <ol>
@@ -324,15 +322,15 @@ Future data binding support:
 </li>
 <li>Return assignment failure.</li>
 </ol>
-<h3 id="assigncolorattribute"><a class="header" href="#assigncolorattribute">AssignColorAttribute()</a></h3>
-<p>The internal <em>AssignColorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
+<h3 id="assignjxmlcolorattribute"><a class="header" href="#assignjxmlcolorattribute">AssignJXMLColorAttribute()</a></h3>
+<p>The internal <em>AssignJXMLColorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>Let <em>colorClass</em> be [[<em>JXMLColor</em>]] from either <em>comp</em> or a super class of <em>comp</em>.</li>
 <li>If <em>colorClass</em> exists and <em>t</em> is equals <em>colorClass</em>, assign <code>new colorClass(v)</code> to <em>p</em> where <code>v</code> is the attribute value as a <code>String</code>.</li>
 <li>Otherwise return assignment failure.</li>
 </ol>
-<h3 id="assignvectorattribute"><a class="header" href="#assignvectorattribute">AssignVectorAttribute()</a></h3>
-<p>The internal <em>AssignVectorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
+<h3 id="assignjxmlvectorattribute"><a class="header" href="#assignjxmlvectorattribute">AssignJXMLVectorAttribute()</a></h3>
+<p>The internal <em>AssignJXMLVectorAttribute</em>(<em>comp</em>, <em>p</em>, <em>t</em>, XML attribute) function takes the following steps:</p>
 <ol>
 <li>Let <em>vectorClasses</em> be [[<em>JXMLVectors</em>]] from either <em>comp</em> or a super class of <em>comp</em>.</li>
 <li>Let <em>vectorComponents</em> be the result of spliting the attribute value by comma.</li>

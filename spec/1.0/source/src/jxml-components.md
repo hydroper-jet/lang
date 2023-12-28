@@ -116,7 +116,7 @@ The internal *AssignJXMLAttribute*(*comp*, *scope*, XML attribute) function take
     1. Call *AssignJXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute)
     2. Otherwise:
         1. Call *AssignJXMLColorAttribute*(*comp*, *p*, *t*, XML attribute)
-        3. Otherwise call *AssignJXMLVectorAttribute*(*comp*, *p*, *t*, XML attribute)
+        2. Otherwise call *AssignJXMLVectorAttribute*(*comp*, *p*, *t*, XML attribute)
 
 ### AssignJXMLExpressionAttribute()
 

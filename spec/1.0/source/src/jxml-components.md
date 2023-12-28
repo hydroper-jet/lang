@@ -102,11 +102,7 @@ XML attributes of the empty namespace, excluding the **className** attribute at 
     2. Otherwise:
         1. Let *colorClass* be \[\[*JXMLColor*\]\] from either `comp` or a super class of `comp`.
         2. If *colorClass* exists and *t* is equals *colorClass*, assign `new colorClass(v)` to *p* where `v` is the attribute value as a `String`.
-        3. Otherwise:
-            1. Let *vectorClasses* be \[\[*JXMLVectors*\]\] from either `comp` or a super class of `comp`.
-            2. Let *vectorComponents* be the result of spliting the attribute value by comma.
-            3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *StringSequenceToNumberSequence*(*vectorComponents*, *N*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
-            4. Otherwise throw a verify error.
+        3. Otherwise call *AssignVectorAttribute*(`comp`, *p*, *t*)
 
 ### AttributeValueToNumber()
 
@@ -119,6 +115,15 @@ The internal *AttributeValueToNumber*(*s*, *N*) function takes a string *s* and 
 ### StringSequenceToNumberSequence()
 
 The internal *StringSequenceToNumberSequence*(*seq*, *N*) function takes a sequence of strings *seq* and returns a number sequence of a specific number type *N*. The function returns a processing of every element *s* in *seq* as the result of calling *AttributeValueToNumber*(*s*).
+
+### AssignVectorAttribute()
+
+The internal *AssignVectorAttribute*(`comp`, *p*, *t*) function takes the following steps:
+
+1. Let *vectorClasses* be \[\[*JXMLVectors*\]\] from either `comp` or a super class of `comp`.
+2. Let *vectorComponents* be the result of spliting the attribute value by comma.
+3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents* and *t* is equals *vectorClass*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *StringSequenceToNumberSequence*(*vectorComponents*, *N*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
+4. Otherwise throw a verify error.
 
 ## Instance variables
 

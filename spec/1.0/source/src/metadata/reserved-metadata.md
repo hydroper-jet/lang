@@ -2,15 +2,10 @@
 
 Reserved meta-data are meta-data that cannot be overriden by user decorators. This section enumerates all reserved meta-data.
 
-* [JXML](#jxml)
 * [Literal](#literal)
 * [Number](#number)
 * [Set](#set)
 * [Test](#test)
-
-## JXML
-
-The `JXML` meta-data is reserved at the `class` definition. It is used for indicating supported vector and color classes in a base class that implements `JXML`.
 
 ## Literal
 

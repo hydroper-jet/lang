@@ -19,8 +19,6 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*StaticProperties*\]\] | Static properties of the class. |
 | \[\[*Prototype*\]\] | Properties of the class prototype as a dictionary from string to symbol. |
 | \[\[*Proxies*\]\] | Proxies defined by the class as a dictionary from string to function symbol. |
-| \[\[*JXMLColor*\]\] | For a JXML base class, indicates the supported color class. |
-| \[\[*JXMLVectors*\]\] | For a JXML base class, indicates the supported vector classes. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |
 
 ## Super class
@@ -35,6 +33,13 @@ It is a verify error if:
 ## Parent definition
 
 When the parent definition of a class is a package, the class has a fully package qualified name.
+
+<!--
+
+| Internal property | Description |
+| ----------------- | ----------- |
+| \[\[*JXMLColor*\]\] | For a JXML base class, indicates the supported color class. |
+| \[\[*JXMLVectors*\]\] | For a JXML base class, indicates the supported vector classes. |
 
 ## JXML meta-data
 
@@ -58,6 +63,8 @@ package org.myEngine {
     }
 }
 ```
+
+-->
 
 ## Meta data
 

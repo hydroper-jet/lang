@@ -1471,7 +1471,7 @@ function set x(v: T): void {}
 function f.&lt;T&gt;(): void {}
 </code></pre>
 <h2 id="polymorphism"><a class="header" href="#polymorphism">Polymorphism</a></h2>
-<p>The language uses polymorphism for generic types and functions, except for the <code>Array</code> class applied with a <a href="types.html#primitive-types">primitive type</a>. With polymorphism, type parameters are substituted by the <code>*</code> type and additional compile-time type checking occurs when using the generic type or function.</p>
+<p>The language uses polymorphism for generic types and functions, but certain implementations are allowed to not use polymorphism for the <code>Array</code> class applied with a <a href="types.html#primitive-types">primitive type</a> such as a number type. With polymorphism, type parameters are substituted in runtime by the <code>*</code> type in most implementations and additional compile-time type checking occurs when using the generic type or function.</p>
 <h2 id="constraints"><a class="header" href="#constraints">Constraints</a></h2>
 <p>The language does not support constraints on type parameters in the present, such as those present in the Java language.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="meta-data-2"><a class="header" href="#meta-data-2">Meta-data</a></h1>

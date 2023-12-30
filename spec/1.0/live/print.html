@@ -309,8 +309,8 @@ jetpm build --define air::target=ios
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compilation-and-transpilation"><a class="header" href="#compilation-and-transpilation">Compilation and transpilation</a></h1>
-<p>JetWork compiles to the JetWork Virtual Machine Bytecode, which, in turn, can be compiled to other languages or be executed by a virtual machine.</p>
-<p>JetWork can be both compiled to native code and transpiled to another object-oriented high-level language.</p>
+<p>JetWork compiles to the JetWork Bytecode (JBC), which, in turn, can be compiled to other languages or be executed by a virtual machine.</p>
+<p>JetWork can be both compiled to native code or transpiled to another object-oriented high-level language.</p>
 <h2 id="number-overflow"><a class="header" href="#number-overflow">Number overflow</a></h2>
 <p>Operations whose result cannot be represented due to range limit cause a number overflow, such as <code>Int.MAX_VALUE + 1</code>. The result of a number overflow is implementation defined.</p>
 <h2 id="platform-specific-operations"><a class="header" href="#platform-specific-operations">Platform-specific operations</a></h2>

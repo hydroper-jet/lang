@@ -1,8 +1,8 @@
 # Compilation and transpilation
 
-JetWork compiles to the JetWork Virtual Machine Bytecode, which, in turn, can be compiled to other languages or be executed by a virtual machine.
+JetWork compiles to the JetWork Bytecode (JBC), which, in turn, can be compiled to other languages or be executed by a virtual machine.
 
-JetWork can be both compiled to native code and transpiled to another object-oriented high-level language.
+JetWork can be both compiled to native code or transpiled to another object-oriented high-level language.
 
 ## Number overflow
 

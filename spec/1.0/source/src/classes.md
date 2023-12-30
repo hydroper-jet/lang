@@ -36,7 +36,7 @@ It is a verify error if:
 
 When the parent definition of a class is a package, the class has a fully package qualified name.
 
-## JXML color and vector support
+## JXML meta-data
 
 A JXML base class may contain a `JXML` meta-data with two optional options `colorClass` and `vectorClass` that specify the fully package qualified name of a support class for the color and vector classes to use throughout XML attribute values in JXML files.
 

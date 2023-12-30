@@ -1558,7 +1558,7 @@ class C {}
 <p>The <code>File</code> value of a file entry may be in one of the forms:</p>
 <ul>
 <li><code>File(&quot;path/to/file&quot;)</code></li>
-<li><code>File(outputPath, &quot;path/to/file&quot;)</code> — Resolves file from the output directory of the JetPM build process.</li>
+<li><code>File(outputDirectory, &quot;path/to/file&quot;)</code> — Resolves file from the output directory of the JetPM build process.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="aliases"><a class="header" href="#aliases">Aliases</a></h1>
 <p>An alias is a symbol that translates to another symbol. Aliases are a result from <code>type</code> definitions and alias <code>import</code> directives.</p>
@@ -2484,8 +2484,8 @@ EXAMPLE=value
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="build-facilities"><a class="header" href="#build-facilities">Build facilities</a></h1>
 <p>This section lists facilities related to build process that are included in the language.</p>
-<h2 id="importmetaoutputpath"><a class="header" href="#importmetaoutputpath">import.meta.outputPath</a></h2>
-<p>The <code>import.meta.outputPath</code> expression evaluates to the JetPM output directory path. For reliability, the bytecode compiler must emit a special instruction for this expression instead of a string constant.</p>
+<h2 id="importmetaoutputdirectory"><a class="header" href="#importmetaoutputdirectory">import.meta.outputDirectory</a></h2>
+<p>The <code>import.meta.outputDirectory</code> expression evaluates to the JetPM output directory path. For reliability, the bytecode compiler must emit a special instruction for this expression instead of a string constant.</p>
 
                     </main>
 

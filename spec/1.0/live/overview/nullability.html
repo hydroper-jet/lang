@@ -191,7 +191,7 @@ trace(new ExampleClass(10).doubleIt().data);
 trace(new ExampleClass(undefined).data!);
 </code></pre>
 <ul>
-<li>For <code>Optional.&lt;T&gt;</code>, the optional chaining operator returns <code>undefined</code> if the operand is <code>undefined</code>.</li>
+<li>The optional chaining operator returns <code>undefined</code> if the base object is <code>undefined</code>.</li>
 </ul>
 <pre><code>public function process(a: Optional.&lt;Number&gt;): Optional.&lt;String&gt; (
     a?.toString(16)

@@ -27,7 +27,7 @@ trace(new ExampleClass(10).doubleIt().data);
 trace(new ExampleClass(undefined).data!);
 ```
 
-* For `Optional.<T>`, the optional chaining operator returns `undefined` if the operand is `undefined`.
+* The optional chaining operator returns `undefined` if the base object is `undefined`.
 
 ```
 public function process(a: Optional.<Number>): Optional.<String> (

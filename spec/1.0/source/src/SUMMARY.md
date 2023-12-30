@@ -11,7 +11,7 @@
   - [Destructuring](overview/destructuring.md)
   - [JetWork for XML](overview/j4x.md)
   - [JetDoc comments](overview/jetdoc-comments.md)
-  - [JetFlex](overview/jetflex.md)
+  - [JetWork Flex](overview/jetwork-flex.md)
 - [Notation](notation.md)
 - [Lexical structure](lexical-structure.md)
 - [Types](types.md)

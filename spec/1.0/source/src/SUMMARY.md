@@ -18,6 +18,7 @@
 - [Type conversions](type-conversions.md)
 - [Visibility](visibility.md)
 - [Packages](packages.md)
+- [Package sets](package-sets.md)
 - [Variables](variables.md)
 - [Virtual properties](virtual-properties.md)
 - [Functions](functions.md)

@@ -40,7 +40,13 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
         1. Let *r* be *ResolveProperty*(*p*, undefined, *key*)
         2. Return *r* if it is defined.
     5. Return undefined.
-8. Return undefined.
+8. If *base* is a package set
+    1. Return undefined if *key* is not a `String` value.
+    2. For each *p* in *base*\[\[*Packages*\]\]
+        1. Let *r* be *ResolveProperty*(*p*, undefined, *key*)
+        2. Return *r* if it is defined.
+    3. Return undefined.
+9. Return undefined.
 
 ## FindPropertyProxy()
 

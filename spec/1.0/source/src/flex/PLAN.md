@@ -14,6 +14,18 @@
 </mx:Panel>
 ```
 
+# Component set
+
+New component sets are designated by using a JXML file with a root `<library>` element.
+
+```xml
+<?xml version="1.0"?>
+<library uri="library://ns.ea.com/n4s">
+    <package>com.ea.n4s.ui</package>
+    <package>com.ea.n4s.ui.advanced</package>
+</library>
+```
+
 # Bindable meta-data
 
 The `[Bindable]` meta-data might be reserved.

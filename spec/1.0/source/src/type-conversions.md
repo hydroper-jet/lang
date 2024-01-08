@@ -26,6 +26,7 @@ An implicit conversion is followed by an attempt of an implicit constant convers
 | `N1` to `N2` | Results into a number constant with the same numeric value, where `N2` is a number type whose range is wider than that of `N1`. |
 | To covariant type | Results into a reference of a covariant type. |
 | From `T` to `Optional.<T>` | Results into a `Optional.<T>` value containing a `T` value. |
+| From `ìnterface` to `Object` | Results into an `Object` reference. |
 
 ## Explicit conversions
 

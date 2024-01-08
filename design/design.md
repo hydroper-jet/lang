@@ -20,10 +20,9 @@ const x = y; // Read-only variable
 
 # File extension
 
-The identifying file extensions for Jetwork programs are:
+The identifying file extensions for JetWork programs are:
 
-* `.jet`
-* `.jetwork`
+* `.jw`
 
 # Properties
 
@@ -39,19 +38,14 @@ The `in` operator does not consider the prototype inheritance model of ECMAScrip
 
 # Package (registry namespace)
 
-A package manifest specifies dependencies by a *registry namespace*. Packages that do not specify a registry namespace belong to the `*` registry namespace. The namespace "http://www.w3.org/web" is generally used for websites or web applications.
+A package manifest specifies dependencies by a *registry namespace*. The registry namespace "http://www.w3.org/web" is used for websites or web applications.
 
 ```json
 {
     "id": "org.q.f",
     "registryNamespace": "http://www.w3.org/web",
     "dependencies": {
-        "*": {
-            "xml": "1.0.0",
-        },
-        "http://www.w3.org/web": {
-            "goog.g": "1.0.0"
-        }
+        "goog.g": "1.0.0"
     }
 }
 ```

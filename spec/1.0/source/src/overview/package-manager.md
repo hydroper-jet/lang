@@ -119,7 +119,7 @@ Here is an example manifest demonstrating build scripts:
 {
     "buildScript": {
         "compilerOptions": {
-            "includeSources": ["build.jet"]
+            "includeSources": ["build.jw"]
         }
     }
 }

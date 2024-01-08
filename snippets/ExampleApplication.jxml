@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<mx:Application
+    xmlns:fx="http://ns.jetwork.com/flex"
+    xmlns:mx="library://ns.jetwork.com/flex/mx"
+    package="">
+    <fx:Script>
+        <![CDATA[
+            override protected function initialize(): void {
+                // Initialize
+            }
+        ]]>
+    </fx:Script>
+</mx:Application>

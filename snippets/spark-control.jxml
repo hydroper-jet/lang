@@ -1,9 +1,0 @@
-<s:Application xmlns:s="spark.controls" className="ExampleApplication">
-    <Script>
-        <![CDATA[
-            public function ExampleApplication() {
-                super();
-            }
-        ]]>
-    </Script>
-</s:Application>

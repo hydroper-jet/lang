@@ -52,7 +52,7 @@ Statements:
 
 Expressions:
 
-* [ ] QualifiedIdentifier
+* [x] QualifiedIdentifier
 * [ ] BooleanLiteral
 * [ ] NumericLiteral
   * [ ] Allowed to adapt any number type other than `Number`
@@ -76,9 +76,9 @@ Expressions:
   * [ ] Non-null (postfix `!`)
 * [ ] BinaryExpression
   * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.
-  * `v is T`
-  * `v is not T`
-  * `v as T`
+  * [ ] `k not in o`
+  * [ ] `v not instanceof T`
+  * [ ] `v is not T`
 * [ ] OptionalChaining
   * `?.qid`
   * `?.[k]`

@@ -41,3 +41,6 @@
 - [Type expressions](type-expressions.md)
 - [Environment variables](environment-variables.md)
 - [Build facilities](build-facilities.md)
+- [Expressions](expressions.md)
+  - [Identifiers](expressions/identifiers.md)
+  - [Primary expressions](expressions/primary-expressions.md)

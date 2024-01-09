@@ -53,16 +53,16 @@ Statements:
 Expressions:
 
 * [x] QualifiedIdentifier
-* [ ] BooleanLiteral
-* [ ] NumericLiteral
+* [x] BooleanLiteral
+* [x] NumericLiteral
   * [ ] Allowed to adapt any number type other than `Number`
-* [ ] StringLiteral
+* [x] StringLiteral
   * Inference
     * [ ] `Char`
     * [ ] `enum`
-* [ ] ThisLiteral
+* [x] ThisLiteral
 * [ ] SuperExpression
-* [ ] RegExpLiteral
+* [x] RegExpLiteral
 * [ ] ParenExpression
 * [ ] ArrayInitialiser
 * [ ] ObjectInitialiser

@@ -75,7 +75,9 @@
 
 <i>PrimaryExpression</i> : <i>StringLiteral</i>
 
-* If the context type is `Char` or `Optional.<Char>`, return a `Char` constant of the context type whose value is the first code point of the <i>StringLiteral</i> string value.
+* If the context type is `Char` or `Optional.<Char>`
+  * It is a verify error if the string value of <i>StringLiteral</i> does not consist of a single Unicode Scalar Value.
+  * Return a `Char` constant of the context type whose value is the first Unicode Scalar Value of the <i>StringLiteral</i> string value.
 * If the context type is `E` or `Optional.<E>` where `E` is an `enum`
   * Let *s* be the string value of <i>StringLiteral</i>.
   * It is a verify error if `E` contains no `enum` member with a string equals *s*.

@@ -7,6 +7,7 @@ Package sets consist of the following internal properties:
 | Internal property | Description |
 | ----------------- | ----------- |
 | \[\[*Name*\]\] | The unqualified name of the package set. |
+| \[\[*Visibility*\]\] | The [visibility](visibility.md) of the package set. |
 | \[\[*ParentDefinition*\]\] | Parent definition of the package set. |
 | \[\[*Packages*\]\] | The packages within the set. |
 

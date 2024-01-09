@@ -14,6 +14,12 @@
 </mx:Panel>
 ```
 
+# Children
+
+```xml
+<fx:Children/>
+```
+
 # Component set
 
 New component sets are designated by using a JXML file with a root `<library>` element.

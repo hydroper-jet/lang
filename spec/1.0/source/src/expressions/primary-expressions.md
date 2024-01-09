@@ -65,3 +65,19 @@
         <td>&nbsp;</td><td><b>this</b></td>
     </tr>
 </table>
+
+**Verification**
+
+<i>PrimaryExpression</i> : <i>NumericLiteral</i>
+
+* If the context type is `N` or `Optional.<N>` where `N` is a number type, return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the context type.
+* Return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the `Number` type.
+
+<i>PrimaryExpression</i> : <i>StringLiteral</i>
+
+* If the context type is `Char` or `Optional.<Char>`, return a `Char` constant of the context type whose value is the first code point of the <i>StringLiteral</i> string value.
+* If the context type is `E` or `Optional.<E>` where `E` is an `enum`
+  * Let *s* be the string value of <i>StringLiteral</i>.
+  * It is a verify error if `E` contains no `enum` member with a string equals *s*.
+  * Return an `enum` constant, of the context type, identifying the `enum` member of `E` with a string equals *s*.
+* Return a string constant of the `String` type consisting of the string value of <i>StringLiteral</i>.

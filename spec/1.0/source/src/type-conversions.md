@@ -14,6 +14,7 @@ The language performs implicit compile-time type conversions from a constant to 
 | `NaN` constant to `NI` or `Optional.<NI>` | Results into a zero (0) constant where `NI` is an integer type. |
 | `-Infinity` constant to `NI` or `Optional.<NI>` | Results into the minimum integer constant where `NI` is an integer type but not `BigInt`. |
 | `+Infinity` constant to `NI` or `Optional.<NI>` | Results into the maximum integer constant where `NI` is an integer type but not `BigInt`. |
+| From non `Optional` constant to `Optional.<T>` | Results into the same constant but wrapped in the `Optional` type. |
 
 ## Implicit conversions
 

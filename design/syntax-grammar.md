@@ -55,11 +55,7 @@ Expressions:
 * [x] QualifiedIdentifier
 * [x] BooleanLiteral
 * [x] NumericLiteral
-  * [ ] Allowed to adapt any number type other than `Number`
 * [x] StringLiteral
-  * Inference
-    * [ ] `Char`
-    * [ ] `enum`
 * [x] ThisLiteral
 * [ ] SuperExpression
 * [x] RegExpLiteral

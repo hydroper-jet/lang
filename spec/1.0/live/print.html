@@ -2295,10 +2295,8 @@ EXAMPLE=value
 <div style="break-before: page; page-break-before: always;"></div><h1 id="expressions"><a class="header" href="#expressions">Expressions</a></h1>
 <p>The syntactic grammar for expressions declares two parameters wherever applicable: <em>In</em> and <em>Yield</em>, which are true or false. The following special notations apply to these parameters:</p>
 <ul>
-<li>The [+Parameter] predicate or clause indicates that a rule only applies if the defining nonterminal has been argumented with truthy value for <em>Parameter</em>.</li>
-<li>The [!Parameter] predicate or clause indicates that a rule only applies if the defining nonterminal has been argumented with a falsy value for <em>Parameter</em>.</li>
-<li>The !Parameter symbol indicates the parameter is false.</li>
-<li>The +Parameter symbol indicates the parameter is true.</li>
+<li>The !Parameter symbol indicates that the parameter is false.</li>
+<li>The +Parameter symbol indicates that the parameter is true.</li>
 <li>The ?Parameter symbol propagates the parameter value from the defining nonterminal.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="identifiers"><a class="header" href="#identifiers">Identifiers</a></h1>
@@ -2466,7 +2464,7 @@ EXAMPLE=value
         <td colspan="2"><i>ParenExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>AssignmentExpression</i><sub>[+In, +Yield]</sub> <b>)</b></td>
+        <td>&nbsp;</td><td><b>(</b> <i>AssignmentExpression</i><sub>[In, Yield]</sub> <b>)</b></td>
     </tr>
 </table>
 <table>
@@ -2477,7 +2475,7 @@ EXAMPLE=value
         <td>&nbsp;</td><td><i>ParenExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>ListExpression</i><sub>[+In, +Yield]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[+In, +Yield]</sub> <b>)</b></td>
+        <td>&nbsp;</td><td><b>(</b> <i>ListExpression</i><sub>[In, Yield]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[In, Yield]</sub> <b>)</b></td>
     </tr>
 </table>
                     </main>

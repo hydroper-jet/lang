@@ -59,10 +59,10 @@ Expressions:
 * [x] ThisLiteral
 * [ ] SuperExpression
 * [x] RegExpLiteral
-* [ ] ParenExpression
+* [x] ParenExpression
 * [ ] ArrayInitialiser
 * [ ] ObjectInitialiser
-* [ ] FunctionExpression
+* [x] FunctionExpression
 * [ ] ArrowFunction
 * [ ] XMLMarkup
 * [ ] XMLInitializer

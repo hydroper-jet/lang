@@ -45,3 +45,4 @@
   - [Identifiers](expressions/identifiers.md)
   - [Primary expressions](expressions/primary-expressions.md)
   - [Parenthesized expressions](expressions/paren-expressions.md)
+  - [Function expression](expressions/function-expression.md)

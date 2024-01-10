@@ -293,9 +293,10 @@ undefined
 *StringLiteral* is similiar to *StringLiteral* from the ECMA-262 third edition, with additional features:
 
 * scalar *UnicodeEscapeSequence* using the `\u{...}` form;
-* triple string literals.
+* triple string literals;
+* raw string literals using the `@` prefix.
 
-Triple string literals use either `"""` or `'''` as delimiter and may span multiple lines. The contents of triple string literals are indentation-based, as can be observed in the following code:
+Triple string literals use either `"""` or `'''` as delimiter and may span multiple lines. The contents of triple string literals are indentation-based, as can be observed in the following program:
 
 ```
 const text = """
@@ -309,6 +310,14 @@ Triple string literals are processed as follows:
 
 * the first empty line is ignored;
 * the base indentation of a triple string literal is that of the last string line.
+
+Both regular and triple string literals accept the `@` prefix, designating raw string literals. Raw string literals contain no escape sequences.
+
+```
+const shaderProgram = @"""
+    function main(): void {}
+    """;
+```
 
 ## Comment
 

@@ -100,15 +100,15 @@ Expressions:
 
 Type expressions:
 
-* [ ] Any
-* [ ] Identifier
-* [ ] Member
+* [x] Any
+* [x] Identifier
+* [x] Member
   * Dot followed by IdentifierName
-* [ ] Void
-* [ ] Undefined
-* [ ] Function
-* [ ] Array
-* [ ] Optional (`T?`, `?T`)
-* [ ] Tuple
-* [ ] TypeExpressionWithTypeArguments (`G.<T1, ...Tn>`)
-* [ ] Parenthesized
+* [x] Void
+* [x] Undefined
+* [x] Function
+* [x] Array
+* [x] Optional (`T?`, `?T`)
+* [x] Tuple
+* [x] TypeExpressionWithTypeArguments (`G.<T1, ...Tn>`)
+* [x] Parenthesized

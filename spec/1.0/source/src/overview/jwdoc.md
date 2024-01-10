@@ -1,10 +1,10 @@
-# JWDoc comments
+# JWDoc documentation tool
 
 JWDoc is an API documentation tool that coworks with the JetWork language.
 
 ## JWPM registry
 
-JWPM packages published to the JWPM registry automatically host online web pages in the JWPM website after a cloud build action. This removes the need for manual JWDoc web page builds.
+Online published JWPM packages automatically host online web pages in the JWPM website.
 
 ## Comment format
 

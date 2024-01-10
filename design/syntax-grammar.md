@@ -8,6 +8,9 @@ Directives:
 * For annotatable directives, describe supported attributes and supported meta data.
 * Do not allow nested classes.
 * A class, enum or interface resolves to a `Class` object.
+* [ ] Configuration directive
+  * Uses the conditional configuration syntax
+  * `configuration { ... }`
 * [ ] Import directive
   * Similiar to `use`
 * [ ] Use definition

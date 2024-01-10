@@ -48,24 +48,18 @@ Note that registry namespaces are defined internally in the registry and may not
 
 ## Conditional configuration
 
-The package manager supports configuration constants that allow for conditional configuration within a manifest through the top-level `conditional` property. The matching options are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.
+The JWPM build system receives *constants* supplied by build commands, which may be used with [conditional configuration](conditional-configuration.md).
 
-The conditions in `conditional` support a minimal conditional language:
+The top-level `configuration` property of the package manifest specifies the manifest properties in a conditional way. The matching branches are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.
 
-* `constant` — If constant is present
-* `constant=value` — If constant is equals `"value"`
-* `constant!=value` — If constant is not equals `"value"`
-* `!expression` — If condition is false
-* `(expression)` — Parenthesized condition
-* `primaryExpression && primaryExpression` — If conditions are true
-* `primaryExpression || primaryExpression` — If one condition is true
-* The root condition is in one of the forms:
-  * `always`
-  * `if (condition)`
-  * `else if (condition)`
-  * `else`
+The key of each property in the `configuration` property is in one of the forms:
 
-Here is an example package manifest using the `conditional` setting:
+* `always`
+* `if (condition)`
+* `else if (condition)`
+* `else`
+
+Here is an example package manifest using the `configuration` setting:
 
 **package.json**
 
@@ -74,7 +68,7 @@ Here is an example package manifest using the `conditional` setting:
     "id": "com.x.y",
     "version": "0.1.0",
     "registryNamespace": "http://ns.airsdk.dev/2008",
-    "conditional": [
+    "configuration": [
         ["always", {
             "compilerOptions": {
                 "includeSources": ["src/base"]

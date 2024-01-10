@@ -1,6 +1,6 @@
 # Build facilities
 
-This section lists facilities related to build process that are included in the language.
+This section lists facilities related to the build system included in the language.
 
 ## import.meta.outputDirectory
 

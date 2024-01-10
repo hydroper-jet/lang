@@ -5,6 +5,7 @@
   - [JWPM package manager](overview/jwpm.md)
   - [JWDoc documentation tool](overview/jwdoc.md)
   - [Compilation and transpilation](overview/compilation.md)
+  - [Conditional configuration](overview/conditional-configuration.md)
   - [String encoding](overview/string-encoding.md)
   - [Exceptions](overview/exceptions.md)
   - [Nullability](overview/nullability.md)

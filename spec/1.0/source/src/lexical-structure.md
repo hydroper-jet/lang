@@ -243,6 +243,8 @@ override
 
 namespace
 undefined
+
+configuration
 ```
 
 ## Punctuators

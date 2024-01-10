@@ -4,7 +4,7 @@
 
 # Overview
 
-JetWork is a flexible, productive, robust, strongly typed, object-oriented, multi-purpose scripting language. JetWork is influenced by ActionScript.
+JetWork is a flexible scripting language influenced by ActionScript.
 
 This document specifies the language syntax, semantics and execution, but may lack some definitions from the ECMA-262 standard in which it is partially based.
 

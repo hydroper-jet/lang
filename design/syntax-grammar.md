@@ -72,7 +72,7 @@ Expressions:
   * [x] Non-null (postfix `!`)
 * [ ] BinaryExpression
   * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.
-  * [ ] `await`
+  * [x] `await`
   * [ ] `yield`
   * [ ] `x ?? y`
   * [ ] `k not in o`
@@ -88,7 +88,6 @@ Expressions:
   * Support tuples
 * [x] DescendantsExpression (`o..x`)
 * [x] FilterExpression (`o.(condition)`)
-  * [ ] Creates a filter scope that resolves names at runtime
 * [x] NewExpression
 * [ ] ListExpression
 * [ ] ConditionalExpression
@@ -97,8 +96,6 @@ Expressions:
 * [x] ExpressionWithTypeArguments (`e.<T1, ...Tn>`)
 * [x] EmbedExpression
 * [x] ImportMeta (`import.meta`)
-* [ ] AwaitExpression
-* [ ] YieldExpression
 
 Type expressions:
 

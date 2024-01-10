@@ -6,7 +6,7 @@
   <img src="./snippets/ExampleApplication.png" width="627">
 </p>
 
-The JetWork language is a flexible, robust, productive, object-oriented scripting language.
+The JetWork language is a flexible scripting language influenced by ActionScript.
 
 > **Note**: JetWork is in documentation process and its compiler is not available.
 

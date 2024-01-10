@@ -10,6 +10,8 @@ const person = <Person>
         <interest type="quantumPhysics" rate="1"/>
     </interests>
 </Person>
+
 trace(person.name.toString())
 trace(Number(person.interests.(type == "quantumPhysics")[0].rate) == 1)
+trace(person..interest.length())
 ```

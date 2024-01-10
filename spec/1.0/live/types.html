@@ -253,10 +253,14 @@ x == y
 </ul>
 <h2 id="optional-type"><a class="header" href="#optional-type">Optional type</a></h2>
 <p>The <code>Optional.&lt;T&gt;</code> type is an union of <code>undefined</code> and <code>T</code>. <code>Optional.&lt;T&gt;</code> may be expressed as <code>Optional.&lt;T&gt;</code>, <code>T?</code>, or <code>?T</code>.</p>
-<p>It is not allowed for <code>T</code> to be of the <code>Optional</code> type. When a type expression attempts to wrap an <code>Optional</code> type into another <code>Optional</code> type, it results in the same former <code>Optional</code> type.</p>
+<p>It is not allowed for <code>T</code> to contain <code>undefined</code>. When a type expression attempts to wrap a type that already contains <code>undefined</code> into another <code>Optional</code> type, it results in the same former type.</p>
 <pre><code>// Equivalent to
 // type O = Optional.&lt;T&gt;;
 type O = Optional.&lt;Optional.&lt;T&gt;&gt;;
+
+// Equivalent to
+// type O1 = *;
+type O1 = Optional.&lt;*&gt;;
 </code></pre>
 <ul>
 <li>The <code>Optional.&lt;T&gt;</code> type is a final class type.</li>

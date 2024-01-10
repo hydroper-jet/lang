@@ -83,6 +83,10 @@
 
 The verification for the object initializer requires a context type. The object initializer may be used to initialize the following context types:
 
+* `*`
+* `Object` or `Optional.<Object>`
 * `M` or `Optional.<M>` where `M` is the `Map` type
 * `E` or `Optional.<E>` where `E` is a Set `enum`
 * `C` or `Optional.<C>` where `C` is a `class` and `C`\[\[*AllowLiteral*\]\] is true
+
+Initializing a context type that is one of { `*`, `Object`, `Optional.<Object>` } results into a `Map.<*, *>` object.

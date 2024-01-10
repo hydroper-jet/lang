@@ -113,12 +113,16 @@ Tuple types are in the form `[T1, T2, ...TN]` and consist of a sequence of two o
 
 The `Optional.<T>` type is an union of `undefined` and `T`. `Optional.<T>` may be expressed as `Optional.<T>`, `T?`, or `?T`.
 
-It is not allowed for `T` to be of the `Optional` type. When a type expression attempts to wrap an `Optional` type into another `Optional` type, it results in the same former `Optional` type.
+It is not allowed for `T` to contain `undefined`. When a type expression attempts to wrap a type that already contains `undefined` into another `Optional` type, it results in the same former type.
 
 ```
 // Equivalent to
 // type O = Optional.<T>;
 type O = Optional.<Optional.<T>>;
+
+// Equivalent to
+// type O1 = *;
+type O1 = Optional.<*>;
 ```
 
 * The `Optional.<T>` type is a final class type.

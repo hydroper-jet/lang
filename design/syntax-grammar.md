@@ -93,11 +93,8 @@ Expressions:
 * [ ] AssignmentExpression
   * The left-hand side may be a destructuring pattern.
 * [ ] ExpressionWithTypeArguments (`e.<T1, ...Tn>`)
-* [ ] EmbedExpression
-  * [ ] `embed "path/to/file"` \[lookahead != "as"\]
-  * [ ] `embed "path/to/file" as T`
-  * [ ] `embed "path/to/file" from outputDirectory as T`
-* [ ] ImportMeta (`import.meta`)
+* [x] EmbedExpression
+* [x] ImportMeta (`import.meta`)
 * [ ] AwaitExpression
 * [ ] YieldExpression
 

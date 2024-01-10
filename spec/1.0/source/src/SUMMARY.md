@@ -49,3 +49,5 @@
   - [Object initializer](expressions/object-initializer.md)
   - [Array initializer](expressions/array-initializer.md)
   - [XML initializers](expressions/xml-initializers.md)
+  - [Embed expression](expressions/embed-expression.md)
+  - [Import meta expression](expressions/import-meta.md)

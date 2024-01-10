@@ -2,9 +2,9 @@
 
 The language coworks with JWPM, a package manager that supports a standard build system and workspaces, and requires packages to belong to a registry namespace.
 
-## Build process
+## Build system
 
-The package manifest represents a JetWork project, and locates its sources; therefore, the package manager is able to build a project through a simple command such as `jwpm build`, resulting into a bytecode artifact.
+The package manifest represents locates JetWork source files, enabling JWPM to build a project through a simple command such as `jwpm build`, resulting into a bytecode artifact.
 
 Here is an example package manifest:
 
@@ -12,8 +12,9 @@ Here is an example package manifest:
 
 ```json
 {
-    "id": "org.q.f",
+    "id": "com.x.y",
     "version": "0.1.0",
+    "registryNamespace": "http://ns.airsdk.dev/2008",
     "compilerOptions": {
         "includeSources": ["src"]
     }
@@ -32,7 +33,7 @@ Here is an example of a potential package manifest that uses `http://ns.airsdk.d
 
 ```json
 {
-    "id": "org.q.f",
+    "id": "com.x.y",
     "version": "0.1.0",
     "registryNamespace": "http://ns.airsdk.dev/2008",
     "dependencies": {
@@ -67,6 +68,9 @@ Here is an example package manifest using the `conditional` setting:
 
 ```json
 {
+    "id": "com.x.y",
+    "version": "0.1.0",
+    "registryNamespace": "http://ns.airsdk.dev/2008",
     "conditional": [
         ["always", {
             "compilerOptions": {
@@ -113,6 +117,9 @@ Here is an example manifest demonstrating build scripts:
 
 ```json
 {
+    "id": "com.x.y",
+    "version": "0.1.0",
+    "registryNamespace": "http://ns.airsdk.dev/2008",
     "buildScript": {
         "compilerOptions": {
             "includeSources": ["build.jw"]
@@ -142,6 +149,9 @@ A member package may depend in another member package by using a `file:` URL:
 
 ```json
 {
+    "id": "com.c.s.pp2",
+    "version": "0.1.0",
+    "registryNamespace": "http://ns.airsdk.dev/2008",
     "dependencies": {
         "com.c.s.p1": "file:../com.c.s.p1"
     }

@@ -194,13 +194,14 @@ trace(triangleArea(5, 6, 7));
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jwpm-package-manager"><a class="header" href="#jwpm-package-manager">JWPM package manager</a></h1>
 <p>The language coworks with JWPM, a package manager that supports a standard build system and workspaces, and requires packages to belong to a registry namespace.</p>
-<h2 id="build-process"><a class="header" href="#build-process">Build process</a></h2>
-<p>The package manifest represents a JetWork project, and locates its sources; therefore, the package manager is able to build a project through a simple command such as <code>jwpm build</code>, resulting into a bytecode artifact.</p>
+<h2 id="build-system"><a class="header" href="#build-system">Build system</a></h2>
+<p>The package manifest represents locates JetWork source files, enabling JWPM to build a project through a simple command such as <code>jwpm build</code>, resulting into a bytecode artifact.</p>
 <p>Here is an example package manifest:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
-    &quot;id&quot;: &quot;org.q.f&quot;,
+    &quot;id&quot;: &quot;com.x.y&quot;,
     &quot;version&quot;: &quot;0.1.0&quot;,
+    &quot;registryNamespace&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
     &quot;compilerOptions&quot;: {
         &quot;includeSources&quot;: [&quot;src&quot;]
     }
@@ -212,7 +213,7 @@ trace(triangleArea(5, 6, 7));
 <p>Here is an example of a potential package manifest that uses <code>http://ns.airsdk.dev/2008</code> as its registry namespace:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
-    &quot;id&quot;: &quot;org.q.f&quot;,
+    &quot;id&quot;: &quot;com.x.y&quot;,
     &quot;version&quot;: &quot;0.1.0&quot;,
     &quot;registryNamespace&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
     &quot;dependencies&quot;: {
@@ -243,6 +244,9 @@ trace(triangleArea(5, 6, 7));
 <p>Here is an example package manifest using the <code>conditional</code> setting:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
+    &quot;id&quot;: &quot;com.x.y&quot;,
+    &quot;version&quot;: &quot;0.1.0&quot;,
+    &quot;registryNamespace&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
     &quot;conditional&quot;: [
         [&quot;always&quot;, {
             &quot;compilerOptions&quot;: {
@@ -278,6 +282,9 @@ jwpm build --define air::target=ios
 <p>Here is an example manifest demonstrating build scripts:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
+    &quot;id&quot;: &quot;com.x.y&quot;,
+    &quot;version&quot;: &quot;0.1.0&quot;,
+    &quot;registryNamespace&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
     &quot;buildScript&quot;: {
         &quot;compilerOptions&quot;: {
             &quot;includeSources&quot;: [&quot;build.jw&quot;]
@@ -298,6 +305,9 @@ jwpm build --define air::target=ios
 <p>A member package may depend in another member package by using a <code>file:</code> URL:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
+    &quot;id&quot;: &quot;com.c.s.pp2&quot;,
+    &quot;version&quot;: &quot;0.1.0&quot;,
+    &quot;registryNamespace&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
     &quot;dependencies&quot;: {
         &quot;com.c.s.p1&quot;: &quot;file:../com.c.s.p1&quot;
     }

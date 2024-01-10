@@ -1,6 +1,8 @@
 # JWPM package manager
 
-The language coworks with JWPM, a package manager that supports a standard build system and workspaces, and requires packages to belong to a registry namespace.
+The language coworks with JWPM, a package manager that supports a standard build system, conditional configuration, and workspaces.
+
+JWPM requires a package to belong to a *registry namespace*.
 
 ## Build system
 
@@ -103,15 +105,15 @@ jwpm build --define someConstant
 jwpm build --define air::target=ios
 ```
 
-## Build script
+## Scripts
 
-The package manifest allows build scripts to be specified, as well as their dependencies.
+The package manifest allows mapping of executable scripts, as well as their dependencies.
 
-Build scripts are executed in the Node.js® platform; therefore they implicitly use the `http://ns.nodejs.org/2009` registry namespace.
+Scripts are executed in the Node.js® platform; therefore they implicitly use the `http://ns.nodejs.org/2009` registry namespace.
 
-Build scripts can be specified both inside the top-level and inside conditional configurations.
+Scripts can be specified both inside the top-level and inside conditional configurations.
 
-Here is an example manifest demonstrating build scripts:
+*Build script*: The `build` script is automatically executed before the JetWork project is built. Here is an example manifest demonstrating the special `build` script:
 
 **package.json**
 
@@ -120,9 +122,11 @@ Here is an example manifest demonstrating build scripts:
     "id": "com.x.y",
     "version": "0.1.0",
     "registryNamespace": "http://ns.airsdk.dev/2008",
-    "buildScript": {
-        "compilerOptions": {
-            "includeSources": ["build.jw"]
+    "scripts": {
+        "build": {
+            "compilerOptions": {
+                "includeSources": ["build.jw"]
+            }
         }
     }
 }

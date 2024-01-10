@@ -193,7 +193,8 @@ public function triangleArea(a: Number, b: Number, c: Number): Number {
 trace(triangleArea(5, 6, 7));
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jwpm-package-manager"><a class="header" href="#jwpm-package-manager">JWPM package manager</a></h1>
-<p>The language coworks with JWPM, a package manager that supports a standard build system and workspaces, and requires packages to belong to a registry namespace.</p>
+<p>The language coworks with JWPM, a package manager that supports a standard build system, conditional configuration, and workspaces.</p>
+<p>JWPM requires a package to belong to a <em>registry namespace</em>.</p>
 <h2 id="build-system"><a class="header" href="#build-system">Build system</a></h2>
 <p>The package manifest represents locates JetWork source files, enabling JWPM to build a project through a simple command such as <code>jwpm build</code>, resulting into a bytecode artifact.</p>
 <p>Here is an example package manifest:</p>
@@ -275,19 +276,21 @@ trace(triangleArea(5, 6, 7));
 <pre><code class="language-plain">jwpm build --define someConstant
 jwpm build --define air::target=ios
 </code></pre>
-<h2 id="build-script"><a class="header" href="#build-script">Build script</a></h2>
-<p>The package manifest allows build scripts to be specified, as well as their dependencies.</p>
-<p>Build scripts are executed in the Node.js® platform; therefore they implicitly use the <code>http://ns.nodejs.org/2009</code> registry namespace.</p>
-<p>Build scripts can be specified both inside the top-level and inside conditional configurations.</p>
-<p>Here is an example manifest demonstrating build scripts:</p>
+<h2 id="scripts"><a class="header" href="#scripts">Scripts</a></h2>
+<p>The package manifest allows mapping of executable scripts, as well as their dependencies.</p>
+<p>Scripts are executed in the Node.js® platform; therefore they implicitly use the <code>http://ns.nodejs.org/2009</code> registry namespace.</p>
+<p>Scripts can be specified both inside the top-level and inside conditional configurations.</p>
+<p><em>Build script</em>: The <code>build</code> script is automatically executed before the JetWork project is built. Here is an example manifest demonstrating the special <code>build</code> script:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;com.x.y&quot;,
     &quot;version&quot;: &quot;0.1.0&quot;,
     &quot;registryNamespace&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
-    &quot;buildScript&quot;: {
-        &quot;compilerOptions&quot;: {
-            &quot;includeSources&quot;: [&quot;build.jw&quot;]
+    &quot;scripts&quot;: {
+        &quot;build&quot;: {
+            &quot;compilerOptions&quot;: {
+                &quot;includeSources&quot;: [&quot;build.jw&quot;]
+            }
         }
     }
 }
@@ -340,7 +343,7 @@ jwpm build --define air::target=ios
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compilation-and-transpilation"><a class="header" href="#compilation-and-transpilation">Compilation and transpilation</a></h1>
-<p>JetWork compiles to the JetWork Bytecode (JBC), which, in turn, can be compiled to other languages or be executed by a virtual machine.</p>
+<p>JetWork compiles to the JetWork Bytecode (JWBC), which, in turn, can be compiled to other languages or be executed by a virtual machine.</p>
 <p>JetWork can be both compiled to native code or transpiled to another object-oriented high-level language.</p>
 <h2 id="number-overflow"><a class="header" href="#number-overflow">Number overflow</a></h2>
 <p>Operations whose result cannot be represented due to range limit cause a number overflow, such as <code>Int.MAX_VALUE + 1</code>. The result of a number overflow is implementation defined.</p>

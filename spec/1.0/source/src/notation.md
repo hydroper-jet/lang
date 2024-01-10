@@ -31,6 +31,8 @@ A bracketed clause or predicate may appear between the rules of a production, su
     </tr>
 </table>
 
+The «empty» clause is matched by the grammar where other rules do not match otherwise.
+
 Braces subscripts are used to quantify a rule:
 
 * <i>Rule</i><sub>{4}</sub> — Four of <i>Rule</i>

@@ -110,7 +110,7 @@
         <td colspan="2"><i>FunctionTypeParameters</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[empty]</td>
+        <td>&nbsp;</td><td>«empty»</td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>FunctionTypeParameter</i></td>

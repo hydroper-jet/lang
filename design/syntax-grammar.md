@@ -64,9 +64,9 @@ Expressions:
 * [x] ObjectInitialiser
 * [x] FunctionExpression
 * [ ] ArrowFunction
-* [ ] XMLMarkup
-* [ ] XMLInitializer
-* [ ] XMLListInitializer
+* [x] XMLMarkup
+* [x] XMLInitializer
+* [x] XMLListInitializer
 * [ ] CallExpression
 * [ ] UnaryExpression
   * [ ] Non-null (postfix `!`)

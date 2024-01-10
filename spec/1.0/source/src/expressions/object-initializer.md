@@ -14,7 +14,7 @@
         <td colspan="2"><i>FieldList</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[empty]</td>
+        <td>&nbsp;</td><td>«empty»</td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>NonEmptyFieldList</i></td>

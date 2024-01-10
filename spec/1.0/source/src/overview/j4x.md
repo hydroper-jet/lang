@@ -10,5 +10,5 @@ const person = <Person>
 </Person>
 
 trace(person.name.toString())
-trace(Number(person..interest.(type == "quantumPhysics")[0].rate) == 1)
+trace(Number(person..interest.(@type == "quantumPhysics")[0].@rate) == 1)
 ```

@@ -8,7 +8,7 @@
 }
 
 html {
-    font-family: "Noto Sans", sans-serif;
+    font-family: Cambria, Palatino Linotype, Palatino, Liberation Serif, serif;
     color: var(--fg);
     background: var(--bg);
     text-size-adjust: none;
@@ -37,6 +37,7 @@ main {
 }
 
 h1, h2, h3 {
+    font-family: "Noto Sans", sans-serif;
     font-weight: lighter;
 }
 

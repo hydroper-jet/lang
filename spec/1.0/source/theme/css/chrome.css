@@ -425,6 +425,7 @@ ul#searchresults span.teaser em {
 }
 
 .chapter {
+    font-family: "Noto Sans", sans-serif;
     list-style: none outside none;
     padding-left: 0;
     line-height: 2.2em;

@@ -2,7 +2,7 @@
 
 - [Overview](overview.md)
   - [Example programs](overview/example-programs.md)
-  - [Package manager](overview/package-manager.md)
+  - [JWPM package manager](overview/jwpm.md)
   - [Compilation and transpilation](overview/compilation.md)
   - [String encoding](overview/string-encoding.md)
   - [Exceptions](overview/exceptions.md)
@@ -10,7 +10,7 @@
   - [Proxy](overview/proxy.md)
   - [Destructuring](overview/destructuring.md)
   - [JetWork for XML](overview/j4x.md)
-  - [JetDoc comments](overview/jetdoc-comments.md)
+  - [JWDoc comments](overview/jwdoc-comments.md)
   - [JetWork Flex](overview/jetwork-flex.md)
 - [Notation](notation.md)
 - [Lexical structure](lexical-structure.md)

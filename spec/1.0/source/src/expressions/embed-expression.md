@@ -7,7 +7,7 @@ const text = embed "path/to/data.txt" as String;
 const byteArray = embed "path/to/data.bin" as ByteArray;
 ```
 
-The embed expression allows resolving files from the JetPM output directory by using the `from` clause:
+The embed expression allows resolving files from the JWPM output directory by using the `from` clause:
 
 ```
 const byteArray = embed "path/to/data.bin" from outputDirectory as ByteArray;

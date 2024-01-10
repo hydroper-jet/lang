@@ -14,10 +14,10 @@ The JetWork language is a flexible, robust, productive, object-oriented scriptin
 
 | URI | Description |
 | --- | ----------- |
-| `http://www.airsdk.dev/2008` | Build applications and games in the mature AIR platform maintained by Samsung HARMAN ([website](https://airsdk.dev)). |
-| `http://www.nodejs.org/2009` | Build processes and command-line applications using Node.js®. |
-| `http://www.unrealengine.com/5` | Build games and simulations using Unreal Engine. |
-| `http://www.w3.org/web` | Build web applications. |
+| `http://ns.airsdk.dev/2008` | Build applications and games in the mature AIR platform maintained by Samsung HARMAN ([website](https://airsdk.dev)). |
+| `http://ns.nodejs.org/2009` | Build processes and command-line applications using Node.js®. |
+| `http://ns.unrealengine.com/5` | Build games and simulations using Unreal Engine. |
+| `http://ns.w3.org/web` | Build web applications. |
 
 ## Language specifications
 

@@ -38,12 +38,12 @@ The `in` operator does not consider the prototype inheritance model of ECMAScrip
 
 # Package (registry namespace)
 
-A package manifest specifies dependencies by a *registry namespace*. The registry namespace "http://www.w3.org/web" is used for websites or web applications.
+A package manifest specifies dependencies by a *registry namespace*. The registry namespace "http://ns.w3.org/web" is used for websites or web applications.
 
 ```json
 {
     "id": "org.q.f",
-    "registryNamespace": "http://www.w3.org/web",
+    "registryNamespace": "http://ns.w3.org/web",
     "dependencies": {
         "goog.g": "1.0.0"
     }

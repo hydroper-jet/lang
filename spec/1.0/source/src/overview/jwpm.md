@@ -1,14 +1,10 @@
-# Package manager
+# JWPM package manager
 
-The language is integrated with JetPM, a package manager with support for vital features:
-
-* workspaces;
-* specifying a dependency through a directory path;
-* registry namespaces.
+The language coworks with JWPM, a package manager that supports a standard build system and workspaces, and requires packages to belong to a registry namespace.
 
 ## Build process
 
-The package manifest represents a JetWork project, and locates its sources; therefore, the package manager is able to build a project through a simple command such as `jetpm build`, resulting into a bytecode artifact.
+The package manifest represents a JetWork project, and locates its sources; therefore, the package manager is able to build a project through a simple command such as `jwpm build`, resulting into a bytecode artifact.
 
 Here is an example package manifest:
 
@@ -26,11 +22,11 @@ Here is an example package manifest:
 
 ## Registry namespaces
 
-Registry namespaces are required to distinguish platforms on which the JetWork program executes. Platforms may have incompatible implementations, such as regular expressions, or lacking implementations of certain functions, therefore sharing packages between platforms is not allowed in JetPM.
+Registry namespaces are required to distinguish platforms on which the JetWork program executes. Platforms may have incompatible implementations, such as regular expressions, or lacking implementations of certain functions, therefore sharing packages between platforms is not allowed in JWPM.
 
 The package manifest's top-level `registryNamespace` option is required and indicates the registry namespace to which the package belongs as well as the namespace on which dependencies are found in the package registry.
 
-Here is an example of a potential package manifest that uses `http://www.airsdk.dev/2008` as its registry namespace:
+Here is an example of a potential package manifest that uses `http://ns.airsdk.dev/2008` as its registry namespace:
 
 **package.json**
 
@@ -38,7 +34,7 @@ Here is an example of a potential package manifest that uses `http://www.airsdk.
 {
     "id": "org.q.f",
     "version": "0.1.0",
-    "registryNamespace": "http://www.airsdk.dev/2008",
+    "registryNamespace": "http://ns.airsdk.dev/2008",
     "dependencies": {
         "goog.firebase": "1.0.0"
     }
@@ -96,18 +92,18 @@ Here is an example package manifest using the `conditional` setting:
 }
 ```
 
-Here are example JetPM commands passing configuration constants:
+Here are example JWPM commands passing configuration constants:
 
 ```plain
-jetpm build --define someConstant
-jetpm build --define air::target=ios
+jwpm build --define someConstant
+jwpm build --define air::target=ios
 ```
 
 ## Build script
 
 The package manifest allows build scripts to be specified, as well as their dependencies.
 
-Build scripts are executed in the Node.js® platform; therefore they implicitly use the `http://www.nodejs.org/2009` registry namespace.
+Build scripts are executed in the Node.js® platform; therefore they implicitly use the `http://ns.nodejs.org/2009` registry namespace.
 
 Build scripts can be specified both inside the top-level and inside conditional configurations.
 

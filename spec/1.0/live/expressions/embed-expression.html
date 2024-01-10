@@ -167,11 +167,11 @@
                     <main>
                         <h1 id="embed-expression"><a class="header" href="#embed-expression">Embed expression</a></h1>
 <p>The embed expression is used to embed static files in the program at compile time. It may be used to embed a file either as a <code>ByteArray</code> object or as an UTF-8 encoded <code>String</code> text.</p>
-<pre><code>const text = embed &quot;path/to/data.txt&quot; as String;
-const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray;
+<pre><code>const text = embed &quot;path/to/data.txt&quot; as String
+const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray
 </code></pre>
 <p>The embed expression allows resolving files from the JWPM output directory by using the <code>from</code> clause:</p>
-<pre><code>const byteArray = embed &quot;path/to/data.bin&quot; from outputDirectory as ByteArray;
+<pre><code>const byteArray = embed &quot;path/to/data.bin&quot; from outputDirectory as ByteArray
 </code></pre>
 <table>
     <tr>
@@ -186,7 +186,7 @@ const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray;
         <td colspan="2"><i>EmbedPostfixes</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[lookahead ∉ {<b>as</b>}]</td>
+        <td>&nbsp;</td><td>[lookahead ∉ {<b>as</b>, <b>from</b>}]</td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>EmbedFromPostfix</i><sub>opt</sub> <i>EmbedAsPostfix</i><sub>opt</sub></td>

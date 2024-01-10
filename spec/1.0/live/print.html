@@ -460,15 +460,12 @@ var [x1, y1] = f1()
 <p>JetWork for XML (J4X) adds XML capabilities to the JetWork language. It is based on the legacy ECMAScript for XML standard (ECMA-357 second edition).</p>
 <pre><code>const person = &lt;Person&gt;
     &lt;name&gt;Razen&lt;/name&gt;
-    &lt;interests&gt;
-        &lt;interest type=&quot;farming&quot; rate=&quot;0.5&quot;/&gt;
-        &lt;interest type=&quot;quantumPhysics&quot; rate=&quot;1&quot;/&gt;
-    &lt;/interests&gt;
+    &lt;interest type=&quot;farming&quot; rate=&quot;0.5&quot;/&gt;
+    &lt;interest type=&quot;quantumPhysics&quot; rate=&quot;1&quot;/&gt;
 &lt;/Person&gt;
 
 trace(person.name.toString())
-trace(Number(person.interests.(type == &quot;quantumPhysics&quot;)[0].rate) == 1)
-trace(person..interest.length())
+trace(Number(person..interest.(type == &quot;quantumPhysics&quot;)[0].rate) == 1)
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="flex"><a class="header" href="#flex">Flex</a></h1>
 <p>Based on Apache Flex, JetWork Flex is a future reserved JetWork technology that allows developing interactive applications using the Adobe AIR platform.</p>
@@ -2751,11 +2748,11 @@ EXAMPLE=value
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="embed-expression"><a class="header" href="#embed-expression">Embed expression</a></h1>
 <p>The embed expression is used to embed static files in the program at compile time. It may be used to embed a file either as a <code>ByteArray</code> object or as an UTF-8 encoded <code>String</code> text.</p>
-<pre><code>const text = embed &quot;path/to/data.txt&quot; as String;
-const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray;
+<pre><code>const text = embed &quot;path/to/data.txt&quot; as String
+const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray
 </code></pre>
 <p>The embed expression allows resolving files from the JWPM output directory by using the <code>from</code> clause:</p>
-<pre><code>const byteArray = embed &quot;path/to/data.bin&quot; from outputDirectory as ByteArray;
+<pre><code>const byteArray = embed &quot;path/to/data.bin&quot; from outputDirectory as ByteArray
 </code></pre>
 <table>
     <tr>
@@ -2770,7 +2767,7 @@ const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray;
         <td colspan="2"><i>EmbedPostfixes</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[lookahead ∉ {<b>as</b>}]</td>
+        <td>&nbsp;</td><td>[lookahead ∉ {<b>as</b>, <b>from</b>}]</td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>EmbedFromPostfix</i><sub>opt</sub> <i>EmbedAsPostfix</i><sub>opt</sub></td>

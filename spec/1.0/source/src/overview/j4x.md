@@ -5,13 +5,10 @@ JetWork for XML (J4X) adds XML capabilities to the JetWork language. It is based
 ```
 const person = <Person>
     <name>Razen</name>
-    <interests>
-        <interest type="farming" rate="0.5"/>
-        <interest type="quantumPhysics" rate="1"/>
-    </interests>
+    <interest type="farming" rate="0.5"/>
+    <interest type="quantumPhysics" rate="1"/>
 </Person>
 
 trace(person.name.toString())
-trace(Number(person.interests.(type == "quantumPhysics")[0].rate) == 1)
-trace(person..interest.length())
+trace(Number(person..interest.(type == "quantumPhysics")[0].rate) == 1)
 ```

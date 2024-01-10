@@ -169,15 +169,12 @@
 <p>JetWork for XML (J4X) adds XML capabilities to the JetWork language. It is based on the legacy ECMAScript for XML standard (ECMA-357 second edition).</p>
 <pre><code>const person = &lt;Person&gt;
     &lt;name&gt;Razen&lt;/name&gt;
-    &lt;interests&gt;
-        &lt;interest type=&quot;farming&quot; rate=&quot;0.5&quot;/&gt;
-        &lt;interest type=&quot;quantumPhysics&quot; rate=&quot;1&quot;/&gt;
-    &lt;/interests&gt;
+    &lt;interest type=&quot;farming&quot; rate=&quot;0.5&quot;/&gt;
+    &lt;interest type=&quot;quantumPhysics&quot; rate=&quot;1&quot;/&gt;
 &lt;/Person&gt;
 
 trace(person.name.toString())
-trace(Number(person.interests.(type == &quot;quantumPhysics&quot;)[0].rate) == 1)
-trace(person..interest.length())
+trace(Number(person..interest.(type == &quot;quantumPhysics&quot;)[0].rate) == 1)
 </code></pre>
 
                     </main>

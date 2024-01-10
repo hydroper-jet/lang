@@ -70,10 +70,10 @@ Expressions:
 * [x] CallExpression
 * [x] UnaryExpression
   * [x] Non-null (postfix `!`)
-* [ ] BinaryExpression
-  * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.
   * [x] `await`
   * [ ] `yield`
+* [ ] BinaryExpression
+  * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.
   * [ ] `x ?? y`
   * [ ] `k not in o`
   * [ ] `v not instanceof T`

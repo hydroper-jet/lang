@@ -40,9 +40,6 @@
     <tr>
         <td>&nbsp;</td><td><i>EmbedExpression</i></td>
     </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ImportMeta</i></td>
-    </tr>
 </table>
 
 <table>

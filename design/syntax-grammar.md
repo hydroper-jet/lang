@@ -57,7 +57,7 @@ Expressions:
 * [x] NumericLiteral
 * [x] StringLiteral
 * [x] ThisLiteral
-* [ ] SuperExpression
+* [x] SuperExpression
 * [x] RegExpLiteral
 * [x] ParenExpression
 * [x] ArrayInitialiser
@@ -67,32 +67,34 @@ Expressions:
 * [x] XMLMarkup
 * [x] XMLInitializer
 * [x] XMLListInitializer
-* [ ] CallExpression
+* [x] CallExpression
 * [ ] UnaryExpression
-  * [ ] Non-null (postfix `!`)
+  * [x] Non-null (postfix `!`)
 * [ ] BinaryExpression
   * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.
+  * [ ] `await`
+  * [ ] `yield`
   * [ ] `x ?? y`
   * [ ] `k not in o`
   * [ ] `v not instanceof T`
   * [ ] `v is not T`
-* [ ] OptionalChaining
+* [x] OptionalChaining
   * `?.qid`
   * `?.[k]`
   * `?.(...)`
-* [ ] MemberExpression (`o.x`)
+* [x] MemberExpression (`o.x`)
   * `x` is a qualified identifier
-* [ ] ComputedMemberExpression (`o[k]`)
+* [x] ComputedMemberExpression (`o[k]`)
   * Support tuples
-* [ ] DescendantsExpression (`o..x`)
-* [ ] FilterExpression (`o.(condition)`)
+* [x] DescendantsExpression (`o..x`)
+* [x] FilterExpression (`o.(condition)`)
   * [ ] Creates a filter scope that resolves names at runtime
-* [ ] NewExpression
+* [x] NewExpression
 * [ ] ListExpression
 * [ ] ConditionalExpression
 * [ ] AssignmentExpression
   * The left-hand side may be a destructuring pattern.
-* [ ] ExpressionWithTypeArguments (`e.<T1, ...Tn>`)
+* [x] ExpressionWithTypeArguments (`e.<T1, ...Tn>`)
 * [x] EmbedExpression
 * [x] ImportMeta (`import.meta`)
 * [ ] AwaitExpression

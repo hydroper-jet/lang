@@ -141,8 +141,8 @@ A workspace project contains a `workspace.json` file, which follows the format:
 ```json
 {
     "members": [
-        "packages/com.c.s.p1",
-        "packages/com.c.s.p2"
+        "packages/com.x.y",
+        "packages/com.x.z"
     ]
 }
 ```
@@ -153,11 +153,11 @@ A member package may depend in another member package by using a `file:` URL:
 
 ```json
 {
-    "id": "com.c.s.pp2",
+    "id": "com.x.z",
     "version": "0.1.0",
     "registryNamespace": "http://ns.airsdk.dev/2008",
     "dependencies": {
-        "com.c.s.p1": "file:../com.c.s.p1"
+        "com.x.y": "file:../com.x.y"
     }
 }
 ```

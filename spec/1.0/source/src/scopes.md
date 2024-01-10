@@ -8,6 +8,7 @@ A scope consists of the following internal properties:
 | \[\[*Properties*\]\] | Properties of the scope as a dictionary of string to symbol. |
 | \[\[*Imports*\]\] | Set of package imported properties. |
 | \[\[*OpenPackages*\]\] | Set of open packages. |
+| \[\[*LocalVariableScopeCount*\]\] | Number of local variable scopes. Used for variable shadowing. |
 
 The \[\[*Imports*\]\] property of a scope holds *non aliased* properties imported from a package.
 

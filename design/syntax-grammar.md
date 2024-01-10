@@ -60,7 +60,7 @@ Expressions:
 * [ ] SuperExpression
 * [x] RegExpLiteral
 * [x] ParenExpression
-* [ ] ArrayInitialiser
+* [x] ArrayInitialiser
 * [x] ObjectInitialiser
 * [x] FunctionExpression
 * [ ] ArrowFunction

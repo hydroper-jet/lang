@@ -48,3 +48,4 @@
   - [Function expression](expressions/function-expression.md)
   - [Object initializer](expressions/object-initializer.md)
   - [Array initializer](expressions/array-initializer.md)
+  - [XML initializers](expressions/xml-initializers.md)

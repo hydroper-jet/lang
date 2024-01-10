@@ -11,7 +11,7 @@ public final class AdditiveExample {
         this.value = value;
     }
     proxy function add(right: AdditiveExample): AdditiveExample (
-        new AdditiveExample(this.value + right.value);
+        new AdditiveExample(this.value + right.value)
     );
 }
 ```

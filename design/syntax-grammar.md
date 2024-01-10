@@ -68,7 +68,7 @@ Expressions:
 * [x] XMLInitializer
 * [x] XMLListInitializer
 * [x] CallExpression
-* [ ] UnaryExpression
+* [x] UnaryExpression
   * [x] Non-null (postfix `!`)
 * [ ] BinaryExpression
   * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.

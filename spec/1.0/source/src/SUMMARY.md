@@ -46,3 +46,5 @@
   - [Primary expressions](expressions/primary-expressions.md)
   - [Parenthesized expressions](expressions/paren-expressions.md)
   - [Function expression](expressions/function-expression.md)
+  - [Object initializer](expressions/object-initializer.md)
+  - [Array initializer](expressions/array-initializer.md)

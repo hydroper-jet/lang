@@ -54,6 +54,7 @@ The conditions in `conditional` support a minimal conditional language:
 
 * `constant` — If constant is present
 * `constant=value` — If constant is equals `"value"`
+* `constant!=value` — If constant is not equals `"value"`
 * `!expression` — If condition is false
 * `(expression)` — Parenthesized condition
 * `primaryExpression && primaryExpression` — If conditions are true

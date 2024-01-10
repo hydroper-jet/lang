@@ -75,9 +75,6 @@ Expressions:
 * [ ] BinaryExpression
   * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.
   * [ ] `x ?? y`
-  * [ ] `k not in o`
-  * [ ] `v not instanceof T`
-  * [ ] `v is not T`
 * [x] OptionalChaining
   * `?.qid`
   * `?.[k]`

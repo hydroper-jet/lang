@@ -61,3 +61,6 @@
   - [Binary expressions](expressions/binary-expressions.md)
     - [Exponentiation expressions](expressions/binary-expressions/exponentiation-expressions.md)
     - [Multiplicative expressions](expressions/binary-expressions/multiplicative-expressions.md)
+    - [Additive expressions](expressions/binary-expressions/additive-expressions.md)
+    - [Shift expressions](expressions/binary-expressions/shift-expressions.md)
+    - [Relational expressions](expressions/binary-expressions/relational-expressions.md)

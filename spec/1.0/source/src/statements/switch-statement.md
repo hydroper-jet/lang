@@ -1,6 +1,6 @@
 # Switch statement
 
-The switch statement is similiar to that of Java, but does not include fallthroughs, nor does it require the `break` statement.
+The switch statement is similiar to that of Java. Unlike in Java, the switch statement does not include fallthroughs.
 
 A switch statement applied to a discriminant whose context type is an `enum` must be exhaustive and it must contain case elements matching all of the `enum` members.
 

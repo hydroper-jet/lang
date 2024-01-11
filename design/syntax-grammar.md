@@ -37,23 +37,23 @@ Statements:
   * [x] Unlike JavaScript, `switch` supports no fallthroughs. Additionally, a `switch` over an enum must match all of the enum members.
   * [x] `switch type`
     * [x] `default {}`
-* [ ] Do statement
-* [ ] While statement
-* [ ] For statement
-* [ ] For in statement
-  * [ ] `for (k in o)`
-  * [ ] `for each (v in o)`
-* [ ] Continue statement
-* [ ] Break statement
-* [ ] Return statement
-* [ ] Throw statement
-* [ ] With statement
-* [ ] Try statement
+* [x] Do statement
+* [x] While statement
+* [x] For statement
+* [x] For in statement
+  * [x] `for (k in o)`
+  * [x] `for each (v in o)`
+* [x] Continue statement
+* [x] Break statement
+* [x] Return statement
+* [x] Throw statement
+* [x] With statement
+* [x] Try statement
 * [x] Expression statement
   * `lookahead != ["{", "function"]`
 * [x] Labeled statement
 * [x] Empty statement
-* [ ] Default XML namespace statement
+* [x] Default XML namespace statement
 
 Expressions:
 

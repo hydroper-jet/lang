@@ -23,6 +23,8 @@ A proxy is a function containing the `proxy` attribute, enclosed by a `class` or
 * [setProperty](#setproperty)
 * [deleteProperty](#deleteproperty)
 * [has](#has)
+* [keys](#keys)
+* [values](#values)
 
 ## positive
 
@@ -195,5 +197,21 @@ class C {
 ```
 class C {
     proxy function has(v: T): Boolean {}
+}
+```
+
+## keys
+
+```
+class C {
+    proxy function keys(): Iterator.<K> {}
+}
+```
+
+## values
+
+```
+class C {
+    proxy function values(): Iterator.<V> {}
 }
 ```

@@ -12,7 +12,9 @@ Directives:
   * Uses the conditional configuration syntax
   * `configuration { ... }`
 * [ ] Import directive
-  * Similiar to `use`
+  * [ ] Alias
+  * [ ] Package alias
+    * Demonstrate it in an example
 * [ ] Use definition
   * Dots are followed by IdentifierName and an final optional `.*` in an identifier path
   * `use` must be explicitly `public` and must be used solely in package blocks.

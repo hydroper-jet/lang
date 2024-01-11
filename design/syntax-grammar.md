@@ -30,13 +30,13 @@ Directives:
 
 Statements:
 
-* [ ] Super statement
-* [ ] Block
-* [ ] If statement
-* [ ] Switch statement
-  * [ ] Unlike JavaScript, `switch` supports no fallthroughs and empty cases are part of the next case. Additionally, a `switch` over an enum must match all of the enum members.
-  * [ ] `switch type`
-    * `default {}`
+* [x] Super statement
+* [x] Block
+* [x] If statement
+* [x] Switch statement
+  * [x] Unlike JavaScript, `switch` supports no fallthroughs. Additionally, a `switch` over an enum must match all of the enum members.
+  * [x] `switch type`
+    * [x] `default {}`
 * [ ] Do statement
 * [ ] While statement
 * [ ] For statement
@@ -49,10 +49,10 @@ Statements:
 * [ ] Throw statement
 * [ ] With statement
 * [ ] Try statement
-* [ ] Expression statement
+* [x] Expression statement
   * `lookahead != ["{", "function"]`
-* [ ] Labeled statement
-* [ ] Empty statement
+* [x] Labeled statement
+* [x] Empty statement
 * [ ] Default XML namespace statement
 
 Expressions:

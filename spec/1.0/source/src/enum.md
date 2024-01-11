@@ -65,13 +65,12 @@ const M4 // = 4
 
 ## Representation type
 
-Enumerations consist of a representation number type. The representation number type may be specified by the `Number` meta-data, given an identifier identifying the number type.
+Enumerations consist of a representation number type. The representation number type may be specified by the `as` clause.
 
 By default, an enumeration uses `Number` as the representation number type.
 
 ```
-[Number(UnsignedInt)]
-enum ExampleEnum {
+enum ExampleEnum as UnsignedInt {
     const EXAMPLE_MEMBER;
 }
 ```

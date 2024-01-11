@@ -61,3 +61,78 @@ The `ω` superscript used throughout the document translates to one of the follo
         <td>&nbsp;</td><td><i>DefaultXMLNamespaceStatement</i></td>
     </tr>
 </table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>Substatement</i><sup>ω</sup></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>EmptyStatement</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Statement</i><sup>ω</sup></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>SimpleVariableDefinition</i> <i>Semicolon</i><sup>ω</sup></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>Substatements</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>«empty»</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>SubstatementsPrefix</i> <i>Substatement</i><sup>abbrev</sup></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>SubstatementsPrefix</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>«empty»</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>SubstatementsPrefix</i> <i>Substatement</i><sup>full</sup></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>Semicolon</i><sup>abbrev</sup></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>;</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>VirtualSemicolon</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>«empty»</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>Semicolon</i><sup>noShortIf</sup></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Semicolon</i><sup>abbrev</sup></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>Semicolon</i><sup>full</sup></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>;</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>VirtualSemicolon</i></td>
+    </tr>
+</table>

@@ -1,5 +1,7 @@
 # Logical expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>LogicalAndExpression</i><sub>[In]</sub></td>

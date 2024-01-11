@@ -1,5 +1,7 @@
 # XML initializers
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>XMLInitializer</i></td>

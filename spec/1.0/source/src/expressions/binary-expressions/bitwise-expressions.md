@@ -1,5 +1,7 @@
 # Bitwise expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>BitwiseAndExpression</i><sub>[In]</sub></td>

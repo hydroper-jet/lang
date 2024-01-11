@@ -1,5 +1,7 @@
 # Postfix expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>PostfixExpression</i></td>

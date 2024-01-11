@@ -1,5 +1,7 @@
 # Super expression
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>SuperExpression</i></td>

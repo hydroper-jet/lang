@@ -1,5 +1,7 @@
 # New expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>FullNewExpression</i></td>

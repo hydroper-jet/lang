@@ -1,5 +1,7 @@
 # Equality expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>EqualityExpression</i><sub>[In]</sub></td>

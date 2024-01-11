@@ -1,5 +1,7 @@
 # List expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>ListExpression</i><sub>[In]</sub></td>

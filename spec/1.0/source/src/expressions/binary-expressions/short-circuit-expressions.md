@@ -1,5 +1,7 @@
 # Short circuit expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>ShortCircuitExpression</i><sub>[In]</sub></td>

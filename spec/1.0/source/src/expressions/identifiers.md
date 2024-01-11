@@ -1,5 +1,7 @@
 # Identifiers
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>PropertyIdentifier</i></td>

@@ -1,5 +1,7 @@
 # Call expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>Arguments</i></td>

@@ -7,6 +7,8 @@ const f: F = () => {}
 const f: F2 = a => a + 1
 ```
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>ArrowFunction</i><sub>[In]</sub></td>

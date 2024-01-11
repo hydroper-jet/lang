@@ -13,6 +13,8 @@ The embed expression allows resolving files from the JetPM output directory by u
 const byteArray = embed "path/to/data.bin" from outputDirectory as ByteArray
 ```
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>EmbedExpression</i></td>

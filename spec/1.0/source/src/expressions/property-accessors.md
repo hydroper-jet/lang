@@ -1,5 +1,7 @@
 # Property accessors
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>PropertyOperator</i></td>

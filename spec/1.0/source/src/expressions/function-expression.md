@@ -1,5 +1,7 @@
 # Function expression
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>FunctionExpression</i></td>

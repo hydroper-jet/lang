@@ -1,5 +1,7 @@
 # Parenthesized expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>ParenExpression</i></td>

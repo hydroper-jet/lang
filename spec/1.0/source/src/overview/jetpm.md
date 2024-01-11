@@ -6,7 +6,7 @@ JetPM requires a package to belong to a *registry namespace*.
 
 ## Build system
 
-The package manifest represents locates Jet source files, enabling JetPM to build a project through a simple command such as `jetpm build`, resulting into a bytecode artifact.
+The package manifest locates Jet source files, enabling JetPM to build a project through a concise command such as `jetpm build`, resulting into a bytecode artifact.
 
 Here is an example package manifest:
 

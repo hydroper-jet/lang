@@ -1,5 +1,7 @@
 # Relational expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>RelationalExpression</i><sub>[In]</sub></td>

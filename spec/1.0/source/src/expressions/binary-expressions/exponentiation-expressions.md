@@ -1,5 +1,7 @@
 # Exponentiation expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>ExponentiationExpression</i></td>

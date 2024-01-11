@@ -1,5 +1,7 @@
 # Multiplicative expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>MultiplicativeExpression</i></td>

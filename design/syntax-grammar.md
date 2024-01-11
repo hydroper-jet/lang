@@ -35,6 +35,8 @@ Statements:
 * [ ] If statement
 * [ ] Switch statement
   * [ ] Unlike JavaScript, `switch` supports no fallthroughs and empty cases are part of the next case. Additionally, a `switch` over an enum must match all of the enum members.
+  * [ ] `switch type`
+    * `default {}`
 * [ ] Do statement
 * [ ] While statement
 * [ ] For statement

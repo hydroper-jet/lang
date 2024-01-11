@@ -1,5 +1,7 @@
 # Coalesce expression
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>CoalesceExpression</i><sub>[In]</sub></td>

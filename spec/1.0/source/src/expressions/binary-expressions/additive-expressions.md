@@ -1,5 +1,7 @@
 # Additive expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>AdditiveExpression</i></td>

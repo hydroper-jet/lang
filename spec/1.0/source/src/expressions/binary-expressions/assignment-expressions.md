@@ -1,5 +1,7 @@
 # Assignment expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>AssignmentExpression</i><sub>[In]</sub></td>

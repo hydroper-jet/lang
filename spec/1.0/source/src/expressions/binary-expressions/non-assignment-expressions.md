@@ -1,5 +1,7 @@
 # Non assignment expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>NonAssignmentExpression</i><sub>[In]</sub></td>

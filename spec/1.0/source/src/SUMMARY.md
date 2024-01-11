@@ -75,3 +75,4 @@
     - [Assignment expressions](expressions/binary-expressions/assignment-expressions.md)
     - [List expressions](expressions/binary-expressions/list-expressions.md)
   - [Arrow functions](expressions/arrow-functions.md)
+- [Statements](statements.md)

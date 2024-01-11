@@ -1,5 +1,7 @@
 # Shift expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>ShiftExpression</i></td>

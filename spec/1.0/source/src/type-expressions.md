@@ -1,5 +1,7 @@
 # Type expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>TypeExpression</i></td>

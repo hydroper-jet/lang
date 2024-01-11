@@ -1,5 +1,7 @@
 # Unary expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>UnaryExpression</i></td>

@@ -1,5 +1,7 @@
 # Primary expressions
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>PrimaryExpression</i></td>

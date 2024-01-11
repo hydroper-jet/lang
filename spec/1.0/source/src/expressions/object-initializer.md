@@ -1,5 +1,7 @@
 # Object initializer
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>ObjectInitializer</i></td>

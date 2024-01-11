@@ -1,5 +1,7 @@
 # Query operators
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>QueryOperator</i></td>

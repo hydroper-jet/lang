@@ -1,5 +1,7 @@
 # Array initializer
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>ArrayInitializer</i></td>

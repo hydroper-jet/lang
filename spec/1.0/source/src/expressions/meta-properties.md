@@ -1,5 +1,7 @@
 # Meta properties
 
+**Syntax**
+
 <table>
     <tr>
         <td colspan="2"><i>MetaProperty</i></td>

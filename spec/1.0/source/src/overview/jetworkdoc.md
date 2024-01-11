@@ -1,14 +1,14 @@
-# JWDoc documentation tool
+# JetWorkDoc documentation tool
 
-JWDoc is an API documentation tool that coworks with the JetWork language.
+JetWorkDoc is an API documentation tool that coworks with the JetWork language.
 
-## JWPM registry
+## JetWorkPM registry
 
-Online published JWPM packages automatically host online web pages in the JWPM website.
+Online published JetWorkPM packages automatically host online web pages in the JetWorkPM website.
 
 ## Comment format
 
-JWDoc allows Markdown text to appear within API documentation comments and supports special `@` tags for extended use.
+JetWorkDoc allows Markdown text to appear within API documentation comments and supports special `@` tags for extended use.
 
 ```
 package org.ourdelivery.api {

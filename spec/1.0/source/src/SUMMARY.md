@@ -2,8 +2,8 @@
 
 - [Overview](overview.md)
   - [Example programs](overview/example-programs.md)
-  - [JWPM package manager](overview/jwpm.md)
-  - [JWDoc documentation tool](overview/jwdoc.md)
+  - [JetWorkPM package manager](overview/jetworkpm.md)
+  - [JetWorkDoc documentation tool](overview/jetworkdoc.md)
   - [Compilation and transpilation](overview/compilation.md)
   - [Conditional configuration](overview/conditional-configuration.md)
   - [String encoding](overview/string-encoding.md)

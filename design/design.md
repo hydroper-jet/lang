@@ -22,7 +22,7 @@ const x = y; // Read-only variable
 
 The identifying file extensions for JetWork programs are:
 
-* `.jw`
+* `.jetwork`
 
 # Properties
 

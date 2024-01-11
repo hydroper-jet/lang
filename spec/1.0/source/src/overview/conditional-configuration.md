@@ -4,9 +4,9 @@ A simplified conditional language with the same lexical grammar as that of the J
 
 It supports the following expression forms:
 
-* `constant` — If a JWPM constant is present
-* `constant=value` — If a JWPM constant is equals `"value"`
-* `constant!=value` — If a JWPM constant is not equals `"value"`
+* `constant` — If a JetWorkPM constant is present
+* `constant=value` — If a JetWorkPM constant is equals `"value"`
+* `constant!=value` — If a JetWorkPM constant is not equals `"value"`
 * `!expression` — If condition is false
 * `(expression)` — Parenthesized condition
 * `expression && expression` — If conditions are true
@@ -30,4 +30,4 @@ package com.x.y {
 }
 ```
 
-The JWPM package manifest allows specifying sources with conditional configuration by using the top-level `configuration` option.
+The JetWorkPM package manifest allows specifying sources with conditional configuration by using the top-level `configuration` option.

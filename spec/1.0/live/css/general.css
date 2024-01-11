@@ -208,11 +208,11 @@ kbd {
 
 .chapter li a,
 .chapter li strong {
-    font-weight: normal;
+    font-weight: lighter;
 }
 
 .chapter li strong {
-    font-size: 1.3rem;
+    font-size: 2.5rem;
 }
 
 .result-no-output {

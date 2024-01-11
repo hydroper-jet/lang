@@ -10,14 +10,21 @@ The Jet language is a flexible scripting language influenced by ActionScript.
 
 > **Note**: Jet is in documentation process and its compiler is not available.
 
-## Interest technologies
+## Applicable technologies
+
+Primary plans:
 
 | URI | Description |
 | --- | ----------- |
 | `http://ns.airsdk.dev/2008` | Build applications and games in the mature AIR platform maintained by Samsung HARMAN ([website](https://airsdk.dev)). |
 | `http://ns.nodejs.org/2009` | Build processes and command-line applications using Node.js®. |
+
+Future plans:
+
+| URI | Description |
+| --- | ----------- |
 | `http://ns.unrealengine.com/5` | Build games and simulations using Unreal Engine. |
-| `http://ns.w3.org/web` | Build web applications. |
+| `http://ns.w3.org/web` | Build websites. |
 
 ## Language specifications
 

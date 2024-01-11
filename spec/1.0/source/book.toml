@@ -3,7 +3,7 @@ authors = ["hydroper"]
 language = "en"
 multilingual = false
 src = "src"
-title = "JetWork Language Specification"
+title = "Jet Language Specification"
 
 [output.html]
 copy-fonts = false

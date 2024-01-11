@@ -1,6 +1,6 @@
 # Exceptions
 
-JetWork supports throwing errors as in Java, in the form of unchecked exceptions that may occur during program execution.
+Jet supports throwing errors as in Java, in the form of unchecked exceptions that may occur during program execution.
 
 ```
 function task(): void {

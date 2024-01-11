@@ -90,7 +90,7 @@ enum Toggles {
 
 ## Enumeration inference
 
-Throughout JetWork code, the user is allowed to use a string literal to identify an enumeration member by its *string* value wherever the enumeration is expected at compile-time.
+Throughout Jet code, the user is allowed to use a string literal to identify an enumeration member by its *string* value wherever the enumeration is expected at compile-time.
 
 ```
 function peopleEat(foodType: FoodType): Boolean (

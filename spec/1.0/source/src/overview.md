@@ -1,10 +1,10 @@
 <p align="center">
-  <img alt="JetWork Icon" src="assets/icon.png" width="100">
+  <img alt="Jet Icon" src="assets/icon.png" width="100">
 </p>
 
 # Overview
 
-JetWork is a flexible scripting language influenced by ActionScript.
+Jet is a flexible scripting language influenced by ActionScript.
 
 This document specifies the language syntax, semantics and execution, but may lack some definitions from the ECMA-262 standard in which it is partially based.
 
@@ -14,4 +14,4 @@ The language allows libraries known as *native extensions* to be developed throu
 
 Plain meta-data allow embedding arbitrary files with binary content, such as dynamic-link libraries, as well as textual files such as application descriptors.
 
-Conditional configuration is used solely at the package manifest of a JetWork project and allows including program sources and dependencies in a conditional way.
+Conditional configuration is used solely at the package manifest of a Jet project and allows including program sources and dependencies in a conditional way.

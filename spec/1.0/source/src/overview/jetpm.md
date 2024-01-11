@@ -1,12 +1,12 @@
-# JetWorkPM package manager
+# JetPM package manager
 
-The language coworks with JetWorkPM, a package manager that supports a standard build system, conditional configuration, and workspaces.
+The language coworks with JetPM, a package manager that supports a standard build system, conditional configuration, and workspaces.
 
-JetWorkPM requires a package to belong to a *registry namespace*.
+JetPM requires a package to belong to a *registry namespace*.
 
 ## Build system
 
-The package manifest represents locates JetWork source files, enabling JetWorkPM to build a project through a simple command such as `jwpm build`, resulting into a bytecode artifact.
+The package manifest represents locates Jet source files, enabling JetPM to build a project through a simple command such as `jetpm build`, resulting into a bytecode artifact.
 
 Here is an example package manifest:
 
@@ -25,7 +25,7 @@ Here is an example package manifest:
 
 ## Registry namespaces
 
-Registry namespaces are required to distinguish platforms on which the JetWork program executes. Platforms may have incompatible implementations, such as regular expressions, or lacking implementations of certain functions, therefore sharing packages between platforms is not allowed in JetWorkPM.
+Registry namespaces are required to distinguish platforms on which the Jet program executes. Platforms may have incompatible implementations, such as regular expressions, or lacking implementations of certain functions, therefore sharing packages between platforms is not allowed in JetPM.
 
 The package manifest's top-level `registryNamespace` option is required and indicates the registry namespace to which the package belongs as well as the namespace on which dependencies are found in the package registry.
 
@@ -48,7 +48,7 @@ Note that registry namespaces are defined internally in the registry and may not
 
 ## Conditional configuration
 
-The JetWorkPM build system receives *constants* supplied by build commands, which may be used with [conditional configuration](conditional-configuration.md).
+The JetPM build system receives *constants* supplied by build commands, which may be used with [conditional configuration](conditional-configuration.md).
 
 The top-level `configuration` property of the package manifest specifies the manifest properties in a conditional way. The matching branches are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.
 
@@ -93,11 +93,11 @@ Here is an example package manifest using the `configuration` setting:
 }
 ```
 
-Here are example JetWorkPM commands passing configuration constants:
+Here are example JetPM commands passing configuration constants:
 
 ```plain
-jwpm build --define someConstant
-jwpm build --define air::target=ios
+jetpm build --define someConstant
+jetpm build --define air::target=ios
 ```
 
 ## Scripts
@@ -108,7 +108,7 @@ Scripts are executed in the Node.js® platform; therefore they implicitly use th
 
 Scripts can be specified both inside the top-level and inside conditional configurations.
 
-*Build script*: The `build` script is automatically executed before the JetWork project is built. Here is an example manifest demonstrating the special `build` script:
+*Build script*: The `build` script is automatically executed before the Jet project is built. Here is an example manifest demonstrating the special `build` script:
 
 **package.json**
 
@@ -120,7 +120,7 @@ Scripts can be specified both inside the top-level and inside conditional config
     "scripts": {
         "build": {
             "compilerOptions": {
-                "includeSources": ["build.jetwork"]
+                "includeSources": ["build.jet"]
             }
         }
     }

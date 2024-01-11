@@ -1,6 +1,6 @@
 # Package sets
 
-Package sets allow to resolve a property from a set of packages and are used in JetWork Flex.
+Package sets allow to resolve a property from a set of packages and are used in Jet Flex.
 
 Package sets consist of the following internal properties:
 

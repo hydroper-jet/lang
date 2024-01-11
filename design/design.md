@@ -1,6 +1,6 @@
-# JetWork Language Design
+# Jet Language Design
 
-JetWork is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the JetWork Virtual Machine Bytecode and includes miscellaneous standard objects.
+Jet is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the Jet Virtual Machine Bytecode and includes miscellaneous standard objects.
 
 ```
 package sparkFusion {
@@ -20,9 +20,9 @@ const x = y; // Read-only variable
 
 # File extension
 
-The identifying file extensions for JetWork programs are:
+The identifying file extensions for Jet programs are:
 
-* `.jetwork`
+* `.jet`
 
 # Properties
 
@@ -154,7 +154,7 @@ class C {
 
 # Memory management
 
-JetWork uses garbage collection for all types.
+Jet uses garbage collection for all types.
 
 * `[object Object].clone()` — Throws a `TypeError` by default.
 * `[object Object].equals()` — By default, compares object equality by reference.
@@ -184,7 +184,7 @@ A rest parameter allows specifying an optional trailing sequence of arguments at
 
 # Enums
 
-JetWork supports flexible *simple* enums and *set* enums. A single enum member consists of a (*number*, *string*) group, which is defined in an `enum` definition either by specifying only one of (*number*, *string*), or by specifying both, or by omitting both and letting the compiler dedide the values.
+Jet supports flexible *simple* enums and *set* enums. A single enum member consists of a (*number*, *string*) group, which is defined in an `enum` definition either by specifying only one of (*number*, *string*), or by specifying both, or by omitting both and letting the compiler dedide the values.
 
 The following program demonstrates simple enums:
 
@@ -323,7 +323,7 @@ listener.remove();
 
 # J4X
 
-J4X stands for JetWork for XML and provides XML support. It supports much of the legacy ECMAScript for XML standard, but in a different way. It supports property and query operators.
+J4X stands for Jet for XML and provides XML support. It supports much of the legacy ECMAScript for XML standard, but in a different way. It supports property and query operators.
 
 J4X introduces the following syntax:
 
@@ -338,7 +338,7 @@ J4X introduces the following syntax:
 
 # Proxy
 
-JetWork supports proxies with the `proxy` attribute to indicate custom behavior. Miscellaneous proxies are supported, including `add()`, and other proxies. Here is one example:
+Jet supports proxies with the `proxy` attribute to indicate custom behavior. Miscellaneous proxies are supported, including `add()`, and other proxies. Here is one example:
 
 ```
 public class ProxyExample {

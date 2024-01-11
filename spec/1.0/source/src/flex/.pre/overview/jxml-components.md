@@ -1,6 +1,6 @@
 # JXML components
 
-JetWork supports classes in XML form called *JXML* components. A JXML component is a file with the extension `.jxml`.
+Jet supports classes in XML form called *JXML* components. A JXML component is a file with the extension `.jxml`.
 
 Here is an example JXML:
 

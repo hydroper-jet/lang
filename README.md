@@ -6,9 +6,9 @@
   <img src="./snippets/ExampleApplication.png" width="627">
 </p>
 
-The JetWork language is a flexible scripting language influenced by ActionScript.
+The Jet language is a flexible scripting language influenced by ActionScript.
 
-> **Note**: JetWork is in documentation process and its compiler is not available.
+> **Note**: Jet is in documentation process and its compiler is not available.
 
 ## Interest technologies
 
@@ -23,7 +23,7 @@ The JetWork language is a flexible scripting language influenced by ActionScript
 
 | Version | Document |
 | ------- | -------- |
-| 1.0     | [Web](https://jetwork-lang.github.io/lang/spec/1.0/live) |
+| 1.0     | [Web](https://jet-lang.github.io/lang/spec/1.0/live) |
 
 ## Other documents
 

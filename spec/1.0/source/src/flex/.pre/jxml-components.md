@@ -45,7 +45,7 @@ The following semantics apply to JXML components:
 
 The `Script` element is allowed at the root element and may appear at most once. If an `Script` element appears, it must only contain a CDATA section.
 
-The CDATA section contains a JetWork source as the contents of a `class` block. Such contents are contributed to *descClass*.
+The CDATA section contains a Jet source as the contents of a `class` block. Such contents are contributed to *descClass*.
 
 The `Script` element must be interpreted before the XML attributes of the root element are processed. This behavior allows code in attribute values to rely on `import` directives, as in the following JXML component:
 

@@ -1,8 +1,8 @@
 # Compilation and transpilation
 
-JetWork compiles to the JetWork Bytecode (JWBC), which, in turn, can be compiled to other languages or be executed by a virtual machine.
+Jet compiles to the Jet Bytecode (JBC), which, in turn, can be compiled to other languages or be executed by a virtual machine.
 
-JetWork can be both compiled to native code or transpiled to another object-oriented high-level language.
+Jet can be both compiled to native code or transpiled to another object-oriented high-level language.
 
 ## Number overflow
 
@@ -12,4 +12,4 @@ Operations whose result cannot be represented due to range limit cause a number 
 
 It is allowed for platforms that compile the bytecode form into another form to define specific external operations as `native` functions.
 
-For example, for interoperability between the JetWork and Lua languages during a transpilation process, it may be required to support specific operations to compute table indices and access the Lua environment.
+For example, for interoperability between the Jet and Lua languages during a transpilation process, it may be required to support specific operations to compute table indices and access the Lua environment.

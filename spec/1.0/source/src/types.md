@@ -2,7 +2,7 @@
 
 ## Primitive types
 
-JetWork considers the following to be primitive types:
+Jet considers the following to be primitive types:
 
 * `undefined` type, or the equivalent `void`
 * Number types

@@ -6,8 +6,8 @@
 ```xml
 <?xml version="1.0"?>
 <mx:Panel
-    xmlns:fx="http://ns.jetwork.com/flex"
-    xmlns:mx="library://ns.jetwork.com/flex/mx"
+    xmlns:fx="http://ns.jet.com/flex"
+    xmlns:mx="library://ns.jet.com/flex/mx"
     xmlns:n4s="package://com.ea.n4s.ui"
     package="com.ea.n4s.ui">
     <n4s:HUD/>

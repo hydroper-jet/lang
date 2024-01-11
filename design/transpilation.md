@@ -9,7 +9,7 @@
 
 ## Lua
 
-> Since Lua supported platforms are scarce in features, JetWork is not considering Lua a priority.
+> Since Lua supported platforms are scarce in features, Jet is not considering Lua a priority.
 
 * Thrown errors are translated to `error()` calls with a message containing the error message followed by `string.char(0) .. "jeterror"` followed by a random ID.
   * A weak-key table maps from such random ID to the error object.

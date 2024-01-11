@@ -23,7 +23,7 @@ The Jet language is a flexible scripting language influenced by ActionScript.
 
 | Version | Document |
 | ------- | -------- |
-| 1.0     | [Web](https://jet-lang.github.io/lang/spec/1.0/live) |
+| 1.0     | [Web](https://hydroper-jet.github.io/lang/spec/1.0/live) |
 
 ## Other documents
 

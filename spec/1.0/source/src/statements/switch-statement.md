@@ -22,7 +22,7 @@ switch type (v) {
         // d: Date
     }
     default {
-        // d: T
+        // No matched case
     }
 }
 ```

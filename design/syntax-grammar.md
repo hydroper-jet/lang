@@ -66,7 +66,7 @@ Expressions:
 * [x] ArrayInitialiser
 * [x] ObjectInitialiser
 * [x] FunctionExpression
-* [ ] ArrowFunction
+* [x] ArrowFunction
 * [x] XMLMarkup
 * [x] XMLInitializer
 * [x] XMLListInitializer
@@ -74,10 +74,8 @@ Expressions:
 * [x] UnaryExpression
   * [x] Non-null (postfix `!`)
   * [x] `await`
-  * [ ] `yield`
-* [ ] BinaryExpression
-  * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.
-  * [x] `x ?? y`
+  * [x] `yield`
+* [x] BinaryExpression
 * [x] OptionalChaining
   * `?.qid`
   * `?.[k]`
@@ -89,10 +87,9 @@ Expressions:
 * [x] DescendantsExpression (`o..x`)
 * [x] FilterExpression (`o.(condition)`)
 * [x] NewExpression
-* [ ] ListExpression
-* [ ] ConditionalExpression
-* [ ] AssignmentExpression
-  * The left-hand side may be a destructuring pattern.
+* [x] ListExpression
+* [x] ConditionalExpression
+* [x] AssignmentExpression
 * [x] ExpressionWithTypeArguments (`e.<T1, ...Tn>`)
 * [x] EmbedExpression
 * [x] ImportMeta (`import.meta`)
@@ -102,7 +99,6 @@ Type expressions:
 * [x] Any
 * [x] Identifier
 * [x] Member
-  * Dot followed by IdentifierName
 * [x] Void
 * [x] Undefined
 * [x] Function

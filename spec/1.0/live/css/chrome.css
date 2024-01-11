@@ -445,7 +445,7 @@ ul#searchresults span.teaser em {
     text-decoration: none;
     color: var(--sidebar-fg);
     border-bottom: 1px solid rgba(0, 0, 0, 0);
-    font-size: 1.3rem;
+    font-size: 1.7rem;
 }
 
 .chapter li a:hover {

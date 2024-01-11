@@ -70,3 +70,8 @@
     - [Logical expressions](expressions/binary-expressions/logical-expressions.md)
     - [Coalesce expression](expressions/binary-expressions/coalesce-expression.md)
     - [Short circuit expressions](expressions/binary-expressions/short-circuit-expressions.md)
+    - [Conditional expressions](expressions/binary-expressions/conditional-expressions.md)
+    - [Non assignment expressions](expressions/binary-expressions/non-assignment-expressions.md)
+    - [Assignment expressions](expressions/binary-expressions/assignment-expressions.md)
+    - [List expressions](expressions/binary-expressions/list-expressions.md)
+  - [Arrow functions](expressions/arrow-functions.md)

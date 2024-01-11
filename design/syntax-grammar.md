@@ -77,7 +77,7 @@ Expressions:
   * [ ] `yield`
 * [ ] BinaryExpression
   * The right-hand side is always any expression and not a type expression. Actual type expressions can be used through type aliases.
-  * [ ] `x ?? y`
+  * [x] `x ?? y`
 * [x] OptionalChaining
   * `?.qid`
   * `?.[k]`

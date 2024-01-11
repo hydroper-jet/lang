@@ -65,3 +65,8 @@
     - [Additive expressions](expressions/binary-expressions/additive-expressions.md)
     - [Shift expressions](expressions/binary-expressions/shift-expressions.md)
     - [Relational expressions](expressions/binary-expressions/relational-expressions.md)
+    - [Equality expressions](expressions/binary-expressions/equality-expressions.md)
+    - [Bitwise expressions](expressions/binary-expressions/bitwise-expressions.md)
+    - [Logical expressions](expressions/binary-expressions/logical-expressions.md)
+    - [Coalesce expression](expressions/binary-expressions/coalesce-expression.md)
+    - [Short circuit expressions](expressions/binary-expressions/short-circuit-expressions.md)

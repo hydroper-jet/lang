@@ -20,6 +20,9 @@
         <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>&gt;=</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
+        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>as</b> <i>ShiftExpression</i></td>
+    </tr>
+    <tr>
         <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>instanceof</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>

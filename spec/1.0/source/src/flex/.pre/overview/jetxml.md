@@ -1,8 +1,8 @@
-# JXML components
+# JetXML components
 
-Jet supports classes in XML form called *JXML* components. A JXML component is a file with the extension `.jxml`.
+Jet supports classes in XML form called *JetXML* components. A JetXML component is a file with the extension `.jetxml`.
 
-Here is an example JXML:
+Here is an example JetXML:
 
 ```xml
 <k:Container xmlns:k="org.k" className="org.example.Example">
@@ -21,17 +21,17 @@ For the above example, `k:Container` inherits from the following abstract `Node`
 
 ```
 package org.k {
-    public abstract class Node implements JXML.<Node> { /* ... */ }
+    public abstract class Node implements JetXML.<Node> { /* ... */ }
 }
 ```
 
 ## Data binding
 
-JXML may support data binding in the future. Data binding allows transferring the value from an source property to a destination property through an event.
+JetXML may support data binding in the future. Data binding allows transferring the value from an source property to a destination property through an event.
 
 ## \<Children/\>
 
-The empty `<Children/>` tag may appear anywhere in a JXML file to indicate where to add the tag's children:
+The empty `<Children/>` tag may appear anywhere in a JetXML file to indicate where to add the tag's children:
 
 ```xml
 <k:Container xmlns:k="org.k" className="org.example.Example">
@@ -45,4 +45,4 @@ The empty `<Children/>` tag may appear anywhere in a JXML file to indicate where
 
 ## \<Script\>
 
-The `<Script>` tag may appear once in the root of a JXML file to attach code to the class block.
+The `<Script>` tag may appear once in the root of a JetXML file to attach code to the class block.

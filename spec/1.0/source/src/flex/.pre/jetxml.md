@@ -1,15 +1,15 @@
-# JXML components
+# JetXML components
 
 <!--
 
 Future data binding support:
 
 * Consider using a particular XML namespace for data binding attributes (prefix usually being "bind").
-* A p={o.p} attribute would be a data binding if o is a binding from within the JXML component
+* A p={o.p} attribute would be a data binding if o is a binding from within the JetXML component
 
 -->
 
-A JXML component is a XML file with the extension `.jxml` describing a class that inherits from a `JXML` implementor.
+A JetXML component is a XML file with the extension `.jetxml` describing a class that inherits from a `JetXML` implementor.
 
 The class described in the XML file is referred throughout this section as *descClass*.
 
@@ -17,7 +17,7 @@ The class described in the XML file is referred throughout this section as *desc
 
 The following semantics apply to the root element:
 
-* The root element of the XML file is a JXML instantiation. The component of the JXML instantiation is the class from which *descClass* inherits.
+* The root element of the XML file is a JetXML instantiation. The component of the JetXML instantiation is the class from which *descClass* inherits.
 * The root element must assign the attribute `className` a fully package qualified name whose trailing name identifies the class name of *descClass*, as in:
 
 ```xml
@@ -32,14 +32,14 @@ Such XML file results into defining *descClass* as a `Main` class that belongs t
 
 The constructor of *descClass* is implicitly defined if not already defined by the `<Script>` element.
 
-The following restrictions apply to JXML components:
+The following restrictions apply to JetXML components:
 
 * The constructor of *descClass* is only allowed to receive optional parameters.
 * The constructor of *descClass* must not include the rest parameter.
 
-The following semantics apply to JXML components:
+The following semantics apply to JetXML components:
 
-* A `children?: [T]` parameter is automatically contributed to the end of the formal parameter list of the *descClass* constructor, where `T` is the type argument to the implemented `JXML` interface in *descClass*.
+* A `children?: [T]` parameter is automatically contributed to the end of the formal parameter list of the *descClass* constructor, where `T` is the type argument to the implemented `JetXML` interface in *descClass*.
 
 ## \<Script\>
 
@@ -47,7 +47,7 @@ The `Script` element is allowed at the root element and may appear at most once.
 
 The CDATA section contains a Jet source as the contents of a `class` block. Such contents are contributed to *descClass*.
 
-The `Script` element must be interpreted before the XML attributes of the root element are processed. This behavior allows code in attribute values to rely on `import` directives, as in the following JXML component:
+The `Script` element must be interpreted before the XML attributes of the root element are processed. This behavior allows code in attribute values to rely on `import` directives, as in the following JetXML component:
 
 ```xml
 <e:Application xmlns:e="org.example"
@@ -63,7 +63,7 @@ The `Script` element must be interpreted before the XML attributes of the root e
 
 The empty `Children` element is allowed anywhere within the root element and may appear at most once.
 
-The `Children` tag is replaced by zero or more JXML instantiations that appear as children of the JXML component.
+The `Children` tag is replaced by zero or more JetXML instantiations that appear as children of the JetXML component.
 
 ```xml
 <e:C1 xmlns:e="org.example" className="org.example.C2">
@@ -71,14 +71,14 @@ The `Children` tag is replaced by zero or more JXML instantiations that appear a
 </e:C1>
 ```
 
-## JXML instantiation
+## JetXML instantiation
 
-All XML elements that are not of the empty namespace are JXML instantiations. Given that *comp* is the component being instantiated:
+All XML elements that are not of the empty namespace are JetXML instantiations. Given that *comp* is the component being instantiated:
 
-* *comp* is valid if and only if the tag name identifies a fully package qualified class that implements the `JXML` interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
-* A JXML instantiation returns `result = new comp(..., children)` passing a children array as the last argument and the default value for any other parameters.
+* *comp* is valid if and only if the tag name identifies a fully package qualified class that implements the `JetXML` interface, where the tag namespace identifies the package and the tag unqualified name identifies the class name.
+* A JetXML instantiation returns `result = new comp(..., children)` passing a children array as the last argument and the default value for any other parameters.
   * It is a verify error if any of the parameter other than `children` have no default value.
-* JXML instantiation requires contributing code to *descClass* constructor.
+* JetXML instantiation requires contributing code to *descClass* constructor.
 
 Code is contributed to the *descClass* constructor as follows:
 
@@ -93,7 +93,7 @@ Attributes are processed as follows:
 
 * For each XML attribute of the instantiation tag
   * If the XML attribute name is not **className**
-    * Call *AssignJXMLAttribute*(*comp*, constructor scope, XML attribute)
+    * Call *AssignJetXMLAttribute*(*comp*, constructor scope, XML attribute)
 
 Children are processed as follows:
 
@@ -101,25 +101,25 @@ Children are processed as follows:
 * If *comp* contains a `<Children/>` tag
   * Assign *parent* = the parent containing the `<Children/>` tag.
 * For each *child* in the constructor `children` parameter
-  * Call `parent.jxmlAppend(child)`.
+  * Call `parent.jetxmlAppend(child)`.
 
-### AssignJXMLAttribute()
+### AssignJetXMLAttribute()
 
-The internal *AssignJXMLAttribute*(*comp*, *scope*, XML attribute) function takes the following steps:
+The internal *AssignJetXMLAttribute*(*comp*, *scope*, XML attribute) function takes the following steps:
 
 1. Let *p* be a property of the result object whose name matches the attribute unqualified name.
 2. It is a verify error if either *p* is not defined or *p* is read-only.
 3. It is a verify error if *p* is neither a variable property or a virtual property.
 4. Let *t* be the static type of *p*.
 5. If the attribute value starts with the **&#x7B;** character and ends with the **&#x7D;** character
-    1. Call *AssignJXMLExpressionAttribute*(*comp*, *scope*, *p*, *t*, XML attribute)
-6. Otherwise call *AssignJXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute)
-7. Otherwise call *AssignJXMLColorAttribute*(*comp*, *p*, *t*, XML attribute)
-8. Otherwise call *AssignJXMLVectorAttribute*(*comp*, *p*, *t*, XML attribute)
+    1. Call *AssignJetXMLExpressionAttribute*(*comp*, *scope*, *p*, *t*, XML attribute)
+6. Otherwise call *AssignJetXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute)
+7. Otherwise call *AssignJetXMLColorAttribute*(*comp*, *p*, *t*, XML attribute)
+8. Otherwise call *AssignJetXMLVectorAttribute*(*comp*, *p*, *t*, XML attribute)
 
-### AssignJXMLExpressionAttribute()
+### AssignJetXMLExpressionAttribute()
 
-The internal *AssignJXMLExpressionAttribute*(*comp*, *scope*, *p*, *t*, XML attribute) function takes the following steps:
+The internal *AssignJetXMLExpressionAttribute*(*comp*, *scope*, *p*, *t*, XML attribute) function takes the following steps:
 
 1. Let *src* be a substring of the attribute value from the second character until the last character (**&#x7D;**).
 2. Let *v* be the verification of *src* as an *AssignmentExpression* with the context type *t* and with the initial scope as *scope*.
@@ -127,9 +127,9 @@ The internal *AssignJXMLExpressionAttribute*(*comp*, *scope*, *p*, *t*, XML attr
 4. It is a verify error if *v* is an incompatible conversion.
 5. Assign *p* the evaluation of *v*
 
-### AssignJXMLConstantAttribute()
+### AssignJetXMLConstantAttribute()
 
-The internal *AssignJXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
+The internal *AssignJetXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
 1. If *t* is `N` or `Optional.<N>` where `N` is a number type
     1. Assign *AttributeValueToNumber*(*v*, `N`) to *p* where *v* is the attribute value.
@@ -153,19 +153,19 @@ The internal *AssignJXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute) func
     3. Exit function
 7. Return assignment failure.
 
-### AssignJXMLColorAttribute()
+### AssignJetXMLColorAttribute()
 
-The internal *AssignJXMLColorAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
+The internal *AssignJetXMLColorAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
-1. Let *colorClass* be \[\[*JXMLColor*\]\] from either *comp* or a super class of *comp*.
+1. Let *colorClass* be \[\[*JetXMLColor*\]\] from either *comp* or a super class of *comp*.
 2. If *colorClass* exists and *t* is equals *colorClass*, assign `new colorClass(v)` to *p* where `v` is the attribute value as a `String`.
 3. Otherwise return assignment failure.
 
-### AssignJXMLVectorAttribute()
+### AssignJetXMLVectorAttribute()
 
-The internal *AssignJXMLVectorAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
+The internal *AssignJetXMLVectorAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
-1. Let *vectorClasses* be \[\[*JXMLVectors*\]\] from either *comp* or a super class of *comp*.
+1. Let *vectorClasses* be \[\[*JetXMLVectors*\]\] from either *comp* or a super class of *comp*.
 2. Let *vectorComponents* be the result of spliting the attribute value by comma.
 3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents* and *t* is equals *vectorClass*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *StringsToNumbers*(*vectorComponents*, *N*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
 4. Otherwise return assignment failure.

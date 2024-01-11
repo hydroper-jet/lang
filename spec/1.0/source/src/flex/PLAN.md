@@ -1,5 +1,5 @@
 * Package namespaces are identified by `package://` as in `package://com.ea.n4s`.
-* `className` is replaced by `package` and the class name is inferred from the JXML file.
+* `className` is replaced by `package` and the class name is inferred from the JetXML file.
 
 # Example
 
@@ -22,7 +22,7 @@
 
 # Component set
 
-New component sets are designated by using a JXML file with a root `<library>` element.
+New component sets are designated by using a JetXML file with a root `<library>` element.
 
 ```xml
 <?xml version="1.0"?>

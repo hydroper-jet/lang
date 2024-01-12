@@ -96,3 +96,4 @@
   - [Default XML namespace statement](statements/default-xml-namespace-statement.md)
 - [Directives](directives.md)
   - [Attributes](directives/attributes.md)
+  - [Configuration directive](directives/configuration-directive.md)

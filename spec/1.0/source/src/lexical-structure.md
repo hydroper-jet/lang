@@ -992,10 +992,10 @@ Escape sequences are described by the following table:
         <td>&nbsp;</td><td><b>&#x5C;</b> <i>LineTerminator</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>&#x5C;</b> <i>HexEscapeSequence</i></td>
+        <td>&nbsp;</td><td><i>HexEscapeSequence</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>&#x5C;</b> <i>UnicodeEscapeSequence</i></td>
+        <td>&nbsp;</td><td><i>UnicodeEscapeSequence</i></td>
     </tr>
 </table>
 
@@ -1076,7 +1076,7 @@ Escape sequences are described by the following table:
         <td colspan="2"><i>HexEscapeSequence</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>x</b> <i>HexDigit</i> <i>HexDigit</i></td>
+        <td>&nbsp;</td><td><b>&#x5C;x</b> <i>HexDigit</i> <i>HexDigit</i></td>
     </tr>
 </table>
 

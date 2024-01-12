@@ -22,10 +22,10 @@ A bracketed clause or predicate may appear between the rules of a production, su
         <td colspan="2"><i>NonterminalName</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[lookahead ∈ {<b>0</b>}] <i>Rule1</i></td>
+        <td>&nbsp;</td><td>[lookahead ∈ { <b>0</b> }] <i>Rule1</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[lookahead ∉ {<b>default</b>}] <i>Rule2</i></td>
+        <td>&nbsp;</td><td>[lookahead ∉ { <b>default</b> }] <i>Rule2</i></td>
     </tr>
         <td>&nbsp;</td><td><i>SourceCharacters</i> [but no embedded <b>&lt;!&#x5b;CDATA&#x5b;</b>] <i>Rule3</i></td>
     </tr>

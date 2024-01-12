@@ -29,7 +29,7 @@ const byteArray = embed "path/to/data.bin" from outputDirectory as ByteArray
         <td colspan="2"><i>EmbedPostfixes</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[lookahead ∉ {<b>as</b>, <b>from</b>}]</td>
+        <td>&nbsp;</td><td>[lookahead ∉ { <b>as</b>, <b>from</b> }]</td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>EmbedFromPostfix</i><sub>opt</sub> <i>EmbedAsPostfix</i><sub>opt</sub></td>

@@ -16,7 +16,7 @@
         <td>&nbsp;</td><td><i>ArrowFunction</i><sub>[?In]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>DestructuringOrPostfixExpression</i><sub>[?In]</sub> <b>=</b> <i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>DestructuringOrPostfixExpression</i> <b>=</b> <i>AssignmentExpression</i><sub>[?In]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>PostfixExpression</i><sub>[?In]</sub> <i>CompoundAssignmentPunctuator</i> <i>AssignmentExpression</i><sub>[?In]</sub></td>

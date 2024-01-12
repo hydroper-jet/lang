@@ -804,9 +804,9 @@ configuration
 
 *StringLiteral* is similiar to *StringLiteral* from the ECMA-262 third edition, with additional features:
 
-* scalar *UnicodeEscapeSequence* using the `\u{...}` form;
-* triple string literals;
-* raw string literals using the `@` prefix.
+* Scalar *UnicodeEscapeSequence* using the `\u{...}` form
+* Triple string literals
+* Raw string literals using the `@` prefix
 
 Triple string literals use either `"""` or `'''` as delimiter and may span multiple lines. The contents of triple string literals are indentation-based, as can be observed in the following program:
 
@@ -814,22 +814,271 @@ Triple string literals use either `"""` or `'''` as delimiter and may span multi
 const text = """
     Have a
     nice day!
-    """;
-assert(text == "Have a\nnice day!");
+    """
+assert(text == "Have a\nnice day!")
 ```
 
 Triple string literals are processed as follows:
 
-* the first empty line is ignored;
-* the base indentation of a triple string literal is that of the last string line.
+* The first empty line is ignored.
+* The base indentation of a triple string literal is that of the last string line.
 
 Both regular and triple string literals accept the `@` prefix, designating raw string literals. Raw string literals contain no escape sequences.
 
 ```
 const shaderProgram = @"""
     function main(): void {}
-    """;
+    """
 ```
+
+Escape sequences are described by the following table:
+
+| Escape sequence | Description    |
+| --------------- | -------------- |
+| `\'` | U+27 single-quote |
+| `\"` | U+22 double-quote |
+| `\\` | U+5C backslash character |
+| `\b` | U+08 backspace character |
+| `\f` | U+0C form feed character |
+| `\n` | U+0A line feed character |
+| `\r` | U+0D carriage return character |
+| `\t` | U+09 tab character |
+| `\v` | U+0B vertical tab character |
+| `\0` | U+00 character |
+| `\xHH` | Contributes an Unicode code point value |
+| `\uHHHH` | Contributes an Unicode code point value |
+| `\u{...}` | Contributes an Unicode code point value |
+| `\` followed by *LineTerminator* | Contributes nothing |
+
+**Syntax**
+
+<table>
+    <tr>
+        <td colspan="2"><i>StringLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[lookahead ≠ <b>"""</b>] <b>"</b> <i>DoubleStringCharacter</i><sub>{0,}</sub> <b>"</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[lookahead ≠ <b>'''</b>] <b>'</b> <i>SingleStringCharacter</i><sub>{0,}</sub> <b>'</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>@</b> [lookahead ≠ <b>"""</b>] <b>"</b> <i>DoubleStringRawCharacter</i><sub>{0,}</sub> <b>"</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>@</b> [lookahead ≠ <b>'''</b>] <b>'</b> <i>SingleStringRawCharacter</i><sub>{0,}</sub> <b>'</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>"""</b> <i>TripleDoubleStringCharacter</i><sub>{0,}</sub> <b>"""</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>'''</b> <i>TripleSingleStringCharacter</i><sub>{0,}</sub> <b>'''</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>@"""</b> <i>TripleDoubleStringRawCharacter</i><sub>{0,}</sub> <b>"""</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>@'''</b> <i>TripleSingleStringRawCharacter</i><sub>{0,}</sub> <b>'''</b></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>DoubleStringCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>SourceCharacter</i> [but not double-quote <b>"</b> or backslash <b>&#x5C;</b> or <i>LineTerminator</i>]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>EscapeSequence</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>SingleStringCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>SourceCharacter</i> [but not single-quote <b>'</b> or backslash <b>&#x5C;</b> or <i>LineTerminator</i>]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>EscapeSequence</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>DoubleStringRawCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>SourceCharacter</i> [but not double-quote <b>"</b> or <i>LineTerminator</i>]</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>SingleStringRawCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>SourceCharacter</i> [but not single-quote <b>'</b> or <i>LineTerminator</i>]</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>TripleDoubleStringCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[lookahead ≠ <b>"""</b>] <i>SourceCharacter</i> [but not backslash <b>&#x5C;</b> or <i>LineTerminator</i>]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>EscapeSequence</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>LineTerminator</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>TripleSingleStringCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[lookahead ≠ <b>'''</b>] <i>SourceCharacter</i> [but not backslash <b>&#x5C;</b> or <i>LineTerminator</i>]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>EscapeSequence</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>LineTerminator</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>TripleDoubleStringRawCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[lookahead ≠ <b>"""</b>] <i>SourceCharacter</i> [but not <i>LineTerminator</i>]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>LineTerminator</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>TripleSingleStringRawCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[lookahead ≠ <b>'''</b>] <i>SourceCharacter</i> [but not <i>LineTerminator</i>]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>LineTerminator</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>EscapeSequence</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>&#x5C;</b> <i>CharacterEscapeSequence</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>&#x5C;0</b> [lookahead ∉ <i>DecimalDigit</i>]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>&#x5C;</b> <i>LineTerminator</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>&#x5C;</b> <i>HexEscapeSequence</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>&#x5C;</b> <i>UnicodeEscapeSequence</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>CharacterEscapeSequence</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>SingleEscapeCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>NonEscapeCharacter</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>SingleEscapeCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>'</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>"</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>&#x5C;</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>b</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>f</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>n</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>r</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>t</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>v</b></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>NonEscapeCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>SourceCharacter</i> [but not <i>EscapeCharacter</i> or <i>LineTerminator</i>]</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>EscapeCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>SingleEscapeCharacter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>DecimalDigit</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>x</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>u</b></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>HexEscapeSequence</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>x</b> <i>HexDigit</i> <i>HexDigit</i></td>
+    </tr>
+</table>
 
 ## Jet for XML
 

@@ -97,3 +97,5 @@
 - [Directives](directives.md)
   - [Attributes](directives/attributes.md)
   - [Configuration directive](directives/configuration-directive.md)
+  - [Import directive](directives/import-directive.md)
+  - [Use directive](directives/use-directive.md)

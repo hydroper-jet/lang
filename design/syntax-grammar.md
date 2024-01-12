@@ -10,15 +10,11 @@ Directives:
 * A class, enum or interface resolves to a `Class` object.
 * [x] Configuration directive
 * [x] Import directive
-* [ ] Use definition
-  * Give **semantics** of what `use` does:
-    * Requires the directive to be directly enclosed by a `package` scope
-    * `public use q.N;` defines `N` as an alias to `q.N`.
-    * `public use q.*;` contributes a redirect package to the enclosing package.
-  * Dots are followed by IdentifierName and an final optional `.*` in an identifier path
-  * `use` must be explicitly `public` and must be used solely in package blocks.
+* [x] Use definition
 * [ ] Class definition
+  * `final` attribute
   * `static` attribute
+  * `abstract` attribute
 * [ ] Enum definition
 * [ ] Interface definition
 * [ ] Type definition

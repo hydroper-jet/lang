@@ -43,10 +43,10 @@
         <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>DestructuringRest</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>Destructuring</i><sub>[allowIn=true]</sub></td>
+        <td>&nbsp;</td><td><i>DestructuringElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <i>Destructuring</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>DestructuringRest</i></td>
+        <td>&nbsp;</td><td><i>DestructuringElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <i>DestructuringRest</i></td>
     </tr>
 </table>
 

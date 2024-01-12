@@ -16,7 +16,7 @@
         <td>&nbsp;</td><td><i>ArrowFunction</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>DestructuringOrPostfixExpression</i> <b>=</b> <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
+        <td>&nbsp;</td><td><i>AssignmentLeftHandSide</i> <b>=</b> <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>PostfixExpression</i><sub>[allowIn]</sub> <i>CompoundAssignmentPunctuator</i> <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
@@ -25,7 +25,7 @@
 
 <table>
     <tr>
-        <td colspan="2"><i>DestructuringOrPostfixExpression</i></td>
+        <td colspan="2"><i>AssignmentLeftHandSide</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>Destructuring</i></td>

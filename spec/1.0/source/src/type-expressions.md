@@ -55,6 +55,18 @@
 
 <table>
     <tr>
+        <td colspan="2"><i>TypeExpressionList</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypeExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypeExpressionList</i> <b>,</b> <i>TypeExpression</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
         <td colspan="2"><i>TypeArguments</i></td>
     </tr>
     <tr>
@@ -73,7 +85,7 @@
         <td>&nbsp;</td><td><i>TypeExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>TypeExpressionList</i> <b>,</b> <i>TypeExpression</i></td>
+        <td>&nbsp;</td><td><i>TypeArgumentsList</i> <b>,</b> <i>TypeExpression</i></td>
     </tr>
 </table>
 

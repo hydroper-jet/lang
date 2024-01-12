@@ -1,30 +1,19 @@
 Misc.:
 
-* [ ] Package definition
+* [x] Package definition
 * [ ] Program
 
 Directives:
 
-* For annotatable directives, describe supported attributes and supported meta data.
-* Do not allow nested classes.
-* A class, enum or interface resolves to a `Class` object.
 * [x] Configuration directive
 * [x] Import directive
 * [x] Use definition
-* [ ] Class definition
-  * `final` attribute
-  * `static` attribute
-  * `abstract` attribute
-* [ ] Enum definition
-* [ ] Interface definition
-* [ ] Type definition
-  * Generics **not allowed** at the present
-* [ ] Variable definition
-* [ ] Function definition
-  * [ ] May be a constructor function
-  * [ ] May be a proxy definition
-  * [ ] Getter
-  * [ ] Setter
+* [x] Class definition
+* [x] Enum definition
+* [x] Interface definition
+* [x] Type definition
+* [x] Variable definition
+* [x] Function definition
 
 Statements:
 

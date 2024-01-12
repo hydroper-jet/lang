@@ -49,7 +49,7 @@
         <td>&nbsp;</td><td><i>InterfaceDefinition</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>TypeDefinition</i></td>
+        <td>&nbsp;</td><td><i>TypeDefinition</i> <i>Semicolon</i><sup>ω</sup></td>
     </tr>
 </table>
 

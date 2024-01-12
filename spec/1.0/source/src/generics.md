@@ -1,11 +1,34 @@
 # Generics
 
-The language supports generic types and functions that consist of a sequence of type parameters. 
+The language supports generic types and functions attached with a sequence of type parameters. 
 
 ```
 class C.<T> {}
 function f.<T>(): void {}
 ```
+
+**Syntax**
+
+<table>
+    <tr>
+        <td colspan="2"><i>TypeParameters</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>. &lt;</b> <i>TypeParameterList</i> <b>&gt;</b></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>TypeParameterList</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypeParameter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypeParameterList</i> <b>,</b> <i>TypeParameter</i></td>
+    </tr>
+</table>
 
 ## Polymorphism
 

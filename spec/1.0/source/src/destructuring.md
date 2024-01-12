@@ -34,6 +34,18 @@
 
 <table>
     <tr>
+        <td colspan="2"><i>TypedDestructuring</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Destructuring</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Destructuring</i> <b>:</b> <i>TypeExpression</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
         <td colspan="2"><i>DestructuringElementList</i></td>
     </tr>
     <tr>

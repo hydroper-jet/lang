@@ -14,7 +14,7 @@ const f: F2 = a => a + 1
         <td colspan="2"><i>ArrowFunction</i><sup>β</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ArrowParameters</i> <b>=&gt;</b> <i>ConciseBody</i><sup>β</sup></td>
+        <td>&nbsp;</td><td><i>ArrowSignature</i> <b>=&gt;</b> <i>ConciseBody</i><sup>β</sup></td>
     </tr>
 </table>
 
@@ -30,4 +30,14 @@ const f: F2 = a => a + 1
     </tr>
 </table>
 
-> **Missing**: <i>ArrowParameters</i> nonterminal
+<table>
+    <tr>
+        <td colspan="2"><i>ArrowSignature</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>FunctionSignature</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypedDestructuring</i></td>
+    </tr>
+</table>

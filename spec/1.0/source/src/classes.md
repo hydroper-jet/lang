@@ -1,6 +1,6 @@
 # Classes
 
-A class as denoted by the `class` keyword represents an object type.
+A class as denoted by the `class` keyword represents an object type. A class is reflected as a <i>Class</i> object.
 
 Classes consist of several internal properties, as described in the following table:
 

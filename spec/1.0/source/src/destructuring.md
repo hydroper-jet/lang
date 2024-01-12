@@ -7,6 +7,12 @@
         <td colspan="2"><i>Destructuring</i></td>
     </tr>
     <tr>
+        <td>&nbsp;</td><td><i>Identifier</i> [if keywords are enabled]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>IdentifierName</i> [if keywords are disabled]</td>
+    </tr>
+    <tr>
         <td>&nbsp;</td><td><b>[</b> <i>Elision</i><sub>opt</sub> <b>]</b></td>
     </tr>
     <tr>
@@ -28,31 +34,16 @@
 
 <table>
     <tr>
-        <td colspan="2"><i>IdentifierOrDestructuring</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Identifier</i> [if keywords are enabled] <i>NonNull</i><sub>opt</sub></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>IdentifierName</i> [if keywords are disabled] <i>NonNull</i><sub>opt</sub></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Destructuring</i></td>
-    </tr>
-</table>
-
-<table>
-    <tr>
         <td colspan="2"><i>DestructuringElementList</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>IdentifierOrDestructuring</i><sub>[allowIn=true]</sub></td>
+        <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>Destructuring</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>DestructuringRest</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>IdentifierOrDestructuring</i><sub>[allowIn=true]</sub></td>
+        <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>Destructuring</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>DestructuringRest</i></td>
@@ -64,7 +55,7 @@
         <td colspan="2"><i>DestructuringRest</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>...</b> <i>IdentifierOrDestructuring</i></td>
+        <td>&nbsp;</td><td><b>...</b> <i>Destructuring</i></td>
     </tr>
 </table>
 
@@ -85,7 +76,7 @@
         <td colspan="2"><i>DestructuringField</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>FieldName</i> <b>:</b> <i>IdentifierOrDestructuring</i><sub>[allowIn=true]</sub></td>
+        <td>&nbsp;</td><td><i>FieldName</i> <b>:</b> <i>Destructuring</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>IdentifierName</i></td>

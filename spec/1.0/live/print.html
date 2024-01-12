@@ -177,20 +177,20 @@
 <p>Plain meta-data allow embedding arbitrary files with binary content, such as dynamic-link libraries, as well as textual files such as application descriptors.</p>
 <p>Conditional compilation is used solely at the package manifest of a Jet project and allows including program sources and dependencies in a conditional way.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="example-programs"><a class="header" href="#example-programs">Example programs</a></h1>
-<h2 id="simple-functions"><a class="header" href="#simple-functions">Simple functions</a></h2>
-<pre><code>public function isEven(argument: BigInt): Boolean (
+<h2 id="basic-syntax"><a class="header" href="#basic-syntax">Basic syntax</a></h2>
+<pre><code>function isEven(argument: BigInt): Boolean (
     argument % 2 == 0
-);
+)
 
-trace(isEven(11));
+trace(isEven(11))
 
 // https://en.wikipedia.org/wiki/Heron%27s_formula
-public function triangleArea(a: Number, b: Number, c: Number): Number {
-    const s = (a + b + c) / 2;
-    return (s * (s - a) * (s - b) * (s - c)) ** 0.5;
+function heron(a: Number, b: Number, c: Number): Number {
+    const s = (a + b + c) / 2
+    return (s * (s - a) * (s - b) * (s - c)) ** 0.5
 }
 
-trace(triangleArea(5, 6, 7));
+trace(heron(5, 6, 7))
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jetpm-package-manager"><a class="header" href="#jetpm-package-manager">JetPM package manager</a></h1>
 <p>The language coworks with JetPM, a package manager that supports a standard build system, conditional compilation, and workspaces.</p>

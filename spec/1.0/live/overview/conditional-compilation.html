@@ -166,8 +166,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="conditional-compilation"><a class="header" href="#conditional-compilation">Conditional compilation</a></h1>
-<p>A simplified conditional language with the same lexical grammar as that of the Jet language is supported by Jet, used within conditional compilation.</p>
-<p>The Jet language supports the <code>configuration</code> directive to allow expanding directives using the conditional language.</p>
+<p>The Jet language supports the <code>configuration</code> directive to allow expanding directives using a conditional language.</p>
 <pre><code>package com.x.y {
     configuration {
         if (air::target=ios) {
@@ -194,6 +193,7 @@
 <li><code>expression &amp;&amp; expression</code> — If conditions are true</li>
 <li><code>expression || expression</code> — If one condition is true</li>
 </ul>
+<p>The conditional language shares the same lexical grammar of the Jet language.</p>
 
                     </main>
 

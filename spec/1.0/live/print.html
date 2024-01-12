@@ -342,8 +342,7 @@ jetpm build --define air::target=ios
 <p>It is allowed for platforms that compile the bytecode form into another form to define specific external operations as <code>native</code> functions.</p>
 <p>For example, for interoperability between the Jet and Lua languages during a transpilation process, it may be required to support specific operations to compute table indices and access the Lua environment.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="conditional-compilation-1"><a class="header" href="#conditional-compilation-1">Conditional compilation</a></h1>
-<p>A simplified conditional language with the same lexical grammar as that of the Jet language is supported by Jet, used within conditional compilation.</p>
-<p>The Jet language supports the <code>configuration</code> directive to allow expanding directives using the conditional language.</p>
+<p>The Jet language supports the <code>configuration</code> directive to allow expanding directives using a conditional language.</p>
 <pre><code>package com.x.y {
     configuration {
         if (air::target=ios) {
@@ -370,6 +369,7 @@ jetpm build --define air::target=ios
 <li><code>expression &amp;&amp; expression</code> — If conditions are true</li>
 <li><code>expression || expression</code> — If one condition is true</li>
 </ul>
+<p>The conditional language shares the same lexical grammar of the Jet language.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="string-encoding"><a class="header" href="#string-encoding">String encoding</a></h1>
 <p>The String data type uses an implementation-defined encoding and is supported by a <code>CharIndex</code> data type representing an index into a <code>String</code>.</p>
 <h2 id="slicing"><a class="header" href="#slicing">Slicing</a></h2>

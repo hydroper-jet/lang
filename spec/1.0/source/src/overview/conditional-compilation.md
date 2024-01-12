@@ -1,8 +1,6 @@
 # Conditional compilation
 
-A simplified conditional language with the same lexical grammar as that of the Jet language is supported by Jet, used within conditional compilation.
-
-The Jet language supports the `configuration` directive to allow expanding directives using the conditional language.
+The Jet language supports the `configuration` directive to allow expanding directives using a conditional language.
 
 ```
 package com.x.y {
@@ -33,3 +31,5 @@ The conditional language used with JetPM `configuration` property and the `confi
 * `(expression)` — Parenthesized condition
 * `expression && expression` — If conditions are true
 * `expression || expression` — If one condition is true
+
+The conditional language shares the same lexical grammar of the Jet language.

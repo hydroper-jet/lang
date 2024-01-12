@@ -18,6 +18,9 @@ The `configuration` directive expands blocks to the enclosing block or context i
         <td colspan="2"><i>ConfigurationSubdirective</i></td>
     </tr>
     <tr>
+        <td>&nbsp;</td><td><i>Block</i></td>
+    </tr>
+    <tr>
         <td>&nbsp;</td><td><b>if (</b> <i>ConfigurationExpression</i> <b>)</b> <i>Block</i></td>
     </tr>
     <tr>

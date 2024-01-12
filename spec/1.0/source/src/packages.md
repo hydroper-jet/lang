@@ -53,12 +53,12 @@ Packages consist of the following internal properties:
 | \[\[*Name*\]\] | The unqualified name of the package. |
 | \[\[*ParentDefinition*\]\] | Optional parent package. |
 | \[\[*Properties*\]\] | Properties of the package as a dictionary from string to symbol. |
-| \[\[*WildcardUses*\]\] | The wildcard uses of the package. |
+| \[\[*RedirectPackages*\]\] | The redirect packages of the package. |
 | \[\[*Subpackages*\]\] | The subpackages of the package. |
 
-## Wildcard uses
+## Redirect packages
 
-Directives of the form `public use q.*;` contribute a wildcard use to a package. Wildcard uses are used in name resolution to resolve to names from another package.
+Directives of the form `public use q.*;` contribute a redirect package to a package. Redirect packages are used in name resolution to resolve to names from another package.
 
 ```
 package org.alias.core {

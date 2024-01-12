@@ -1,3 +1,3 @@
 # Expressions
 
-The syntactic grammar for expressions declares the following parameter wherever applicable: *allowIn*, which is assigned true (`parameter=true`) or false (`parameter=false`).
+The syntactic grammar for expressions declares the β parameter, which is assigned either `allowIn` or `noIn`.

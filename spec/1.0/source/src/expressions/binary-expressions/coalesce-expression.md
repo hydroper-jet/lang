@@ -4,21 +4,21 @@
 
 <table>
     <tr>
-        <td colspan="2"><i>CoalesceExpression</i><sub>[allowIn]</sub></td>
+        <td colspan="2"><i>CoalesceExpression</i><sup>β</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>CoalesceExpressionHead</i><sub>[allowIn]</sub> <b>??</b> <i>BitwiseOrExpression</i><sub>[allowIn]</sub></td>
+        <td>&nbsp;</td><td><i>CoalesceExpressionHead</i><sup>β</sup> <b>??</b> <i>BitwiseOrExpression</i><sup>β</sup></td>
     </tr>
 </table>
 
 <table>
     <tr>
-        <td colspan="2"><i>CoalesceExpressionHead</i><sub>[allowIn=true]</sub></td>
+        <td colspan="2"><i>CoalesceExpressionHead</i><sup>allowIn</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>CoalesceExpression</i><sub>[allowIn]</sub></td>
+        <td>&nbsp;</td><td><i>CoalesceExpression</i><sup>β</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>BitwiseOrExpression</i><sub>[allowIn]</sub></td>
+        <td>&nbsp;</td><td><i>BitwiseOrExpression</i><sup>β</sup></td>
     </tr>
 </table>

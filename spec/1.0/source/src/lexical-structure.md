@@ -480,7 +480,6 @@ type
 embed
 final
 proxy
-where
 
 native
 static

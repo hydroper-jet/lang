@@ -36,7 +36,7 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
     1. Return undefined if *key* is not a `String` value.
     2. Let *r* be a symbol in *base*\[\[*Properties*\]\] whose key is equals *key*.
     3. Return *WrapPropertyReference*(*ResolveAlias*(*r*)) if *r* is defined.
-    4. For each *p* in *base*\[\[*WildcardUses*\]\]
+    4. For each *p* in *base*\[\[*RedirectPackages*\]\]
         1. Let *r* be *ResolveProperty*(*p*, undefined, *key*)
         2. Return *r* if it is defined.
     5. Return undefined.

@@ -11,19 +11,19 @@ const f: F2 = a => a + 1
 
 <table>
     <tr>
-        <td colspan="2"><i>ArrowFunction</i><sub>[allowIn]</sub></td>
+        <td colspan="2"><i>ArrowFunction</i><sup>β</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ArrowParameters</i> <b>=&gt;</b> <i>ConciseBody</i><sub>[allowIn]</sub></td>
+        <td>&nbsp;</td><td><i>ArrowParameters</i> <b>=&gt;</b> <i>ConciseBody</i><sup>β</sup></td>
     </tr>
 </table>
 
 <table>
     <tr>
-        <td colspan="2"><i>ConciseBody</i><sub>[allowIn]</sub></td>
+        <td colspan="2"><i>ConciseBody</i><sup>β</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[lookahead ≠ <b>&#x7B;</b>] <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
+        <td>&nbsp;</td><td>[lookahead ≠ <b>&#x7B;</b>] <i>AssignmentExpression</i><sup>β</sup></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>Block</i></td>

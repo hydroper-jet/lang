@@ -37,13 +37,13 @@
         <td colspan="2"><i>DestructuringElementList</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>Destructuring</i><sub>[allowIn=true]</sub></td>
+        <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>Destructuring</i><sup>allowIn</sup></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>DestructuringRest</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>DestructuringElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <i>Destructuring</i><sub>[allowIn=true]</sub></td>
+        <td>&nbsp;</td><td><i>DestructuringElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <i>Destructuring</i><sup>allowIn</sup></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>DestructuringElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <i>DestructuringRest</i></td>
@@ -76,7 +76,7 @@
         <td colspan="2"><i>DestructuringField</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>FieldName</i> <b>:</b> <i>Destructuring</i><sub>[allowIn=true]</sub></td>
+        <td>&nbsp;</td><td><i>FieldName</i> <b>:</b> <i>Destructuring</i><sup>allowIn</sup></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>IdentifierName</i></td>

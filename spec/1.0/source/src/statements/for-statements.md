@@ -25,13 +25,13 @@ for each (const value in array) {
         <td colspan="2"><i>ForStatement</i><sup>ω</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>for &#x28;</b> <i>ForInitializer</i> <b>;</b> <i>ListExpression</i><sub>[allowIn=true] opt</sub> <b>;</b> <i>ListExpression</i><sub>[allowIn=true] opt</sub> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
+        <td>&nbsp;</td><td><b>for &#x28;</b> <i>ForInitializer</i> <b>;</b> <i>ListExpression</i><sup>allowIn</sup><sub>opt</sub> <b>;</b> <i>ListExpression</i><sup>allowIn</sup><sub>opt</sub> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>for &#x28;</b> <i>ForInBinding</i> <b>in</b> <i>ListExpression</i><sub>[allowIn=true] opt</sub> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
+        <td>&nbsp;</td><td><b>for &#x28;</b> <i>ForInBinding</i> <b>in</b> <i>ListExpression</i><sup>allowIn</sup> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>for</b> [no line break] <b>each &#x28;</b> <i>ForInBinding</i> <b>in</b> <i>ListExpression</i><sub>[allowIn=true] opt</sub> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
+        <td>&nbsp;</td><td><b>for</b> [no line break] <b>each &#x28;</b> <i>ForInBinding</i> <b>in</b> <i>ListExpression</i><sup>allowIn</sup> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
     </tr>
 </table>
 
@@ -43,10 +43,10 @@ for each (const value in array) {
         <td>&nbsp;</td><td>«empty»</td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ListExpression</i><sub>[allowIn=false]</sub></td>
+        <td>&nbsp;</td><td><i>ListExpression</i><sup>noIn</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>VariableDefinition</i><sub>[allowIn=false]</sub></td>
+        <td>&nbsp;</td><td><i>VariableDefinition</i><sup>noIn</sup></td>
     </tr>
 </table>
 
@@ -58,6 +58,6 @@ for each (const value in array) {
         <td>&nbsp;</td><td><i>PostfixExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>VariableDefinitionKind</i> <i>VariableBinding</i><sub>[allowIn=false]</sub></td>
+        <td>&nbsp;</td><td><i>VariableDefinitionKind</i> <i>VariableBinding</i><sup>noIn</sup></td>
     </tr>
 </table>

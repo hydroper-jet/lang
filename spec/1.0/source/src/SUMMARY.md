@@ -41,6 +41,7 @@
 - [Scopes](scopes.md)
 - [Environment variables](environment-variables.md)
 - [Output directory](output-directory.md)
+- [Phases of execution](phases-of-execution.md)
 - [Type expressions](type-expressions.md)
 - [Expressions](expressions.md)
   - [Identifiers](expressions/identifiers.md)
@@ -94,3 +95,4 @@
   - [Throw statement](statements/throw-statement.md)
   - [Default XML namespace statement](statements/default-xml-namespace-statement.md)
 - [Directives](directives.md)
+  - [Attributes](directives/attributes.md)

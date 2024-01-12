@@ -4,12 +4,12 @@
 
 <table>
     <tr>
-        <td colspan="2"><i>NonAssignmentExpression</i><sub>[allowIn]</sub></td>
+        <td colspan="2"><i>NonAssignmentExpression</i><sup>β</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sub>[allowIn]</sub></td>
+        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sup>β</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sub>[allowIn]</sub> <b>?</b> <i>NonAssignmentExpression</i><sub>[allowIn]</sub> <b>:</b> <i>NonAssignmentExpression</i><sub>[allowIn]</sub></td>
+        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sup>β</sup> <b>?</b> <i>NonAssignmentExpression</i><sup>β</sup> <b>:</b> <i>NonAssignmentExpression</i><sup>β</sup></td>
     </tr>
 </table>

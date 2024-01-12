@@ -7,7 +7,7 @@
         <td colspan="2"><i>ParenExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub> <b>)</b></td>
+        <td>&nbsp;</td><td><b>(</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>)</b></td>
     </tr>
 </table>
 
@@ -19,6 +19,6 @@
         <td>&nbsp;</td><td><i>ParenExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>ListExpression</i><sub>[allowIn=true]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub> <b>)</b></td>
+        <td>&nbsp;</td><td><b>(</b> <i>ListExpression</i><sup>allowIn</sup> <b>,</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>)</b></td>
     </tr>
 </table>

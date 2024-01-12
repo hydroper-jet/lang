@@ -49,7 +49,7 @@
         <td colspan="2"><i>InitializerRest</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>...</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub></td>
+        <td>&nbsp;</td><td><b>...</b> <i>AssignmentExpression</i><sup>allowIn</sup></td>
     </tr>
 </table>
 
@@ -58,7 +58,7 @@
         <td colspan="2"><i>InitializerField</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>FieldName</i> <b>:</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub></td>
+        <td>&nbsp;</td><td><i>FieldName</i> <b>:</b> <i>AssignmentExpression</i><sup>allowIn</sup></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>IdentifierName</i></td>

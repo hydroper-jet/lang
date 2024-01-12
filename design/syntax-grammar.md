@@ -16,6 +16,10 @@ Directives:
   * [ ] Package alias
     * Demonstrate it in an example
 * [ ] Use definition
+  * Give **semantics** of what `use` does:
+    * Requires the directive to be directly enclosed by a `package` scope
+    * `public use q.N;` defines `N` as an alias to `q.N`.
+    * `public use q.*;` contributes a redirect package to the enclosing package.
   * Dots are followed by IdentifierName and an final optional `.*` in an identifier path
   * `use` must be explicitly `public` and must be used solely in package blocks.
 * [ ] Class definition

@@ -18,6 +18,7 @@ Directives:
 * [ ] Enum definition
 * [ ] Interface definition
 * [ ] Type definition
+  * Generics **not allowed** at the present
 * [ ] Variable definition
 * [ ] Function definition
   * [ ] May be a constructor function

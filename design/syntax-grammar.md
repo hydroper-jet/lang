@@ -9,7 +9,7 @@ Directives:
 * Do not allow nested classes.
 * A class, enum or interface resolves to a `Class` object.
 * [ ] Configuration directive
-  * Uses the conditional configuration syntax
+  * Uses the conditional compilation syntax
   * `configuration { ... }`
 * [ ] Import directive
   * [ ] Alias

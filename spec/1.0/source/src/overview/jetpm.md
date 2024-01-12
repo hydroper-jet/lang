@@ -1,6 +1,6 @@
 # JetPM package manager
 
-The language coworks with JetPM, a package manager that supports a standard build system, conditional configuration, and workspaces.
+The language coworks with JetPM, a package manager that supports a standard build system, conditional compilation, and workspaces.
 
 JetPM requires a package to belong to a *registry namespace*.
 
@@ -46,9 +46,9 @@ Here is an example of a potential package manifest that uses `http://ns.airsdk.d
 
 Note that registry namespaces are defined internally in the registry and may not be arbitrary. Registry namespaces are available as platforms are supported.
 
-## Conditional configuration
+## Conditional compilation
 
-The JetPM build system receives *constants* supplied by build commands, which may be used with [conditional configuration](conditional-configuration.md).
+The JetPM build system receives *constants* supplied by build commands, which may be used with [conditional compilation](conditional-compilation.md).
 
 The top-level `configuration` property of the package manifest specifies the manifest properties in a conditional way. The matching branches are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.
 
@@ -106,7 +106,7 @@ The package manifest allows mapping of executable scripts, as well as their depe
 
 Scripts are executed in the Node.js® platform; therefore they implicitly use the `http://ns.nodejs.org/2009` registry namespace.
 
-Scripts can be specified both inside the top-level and inside conditional configurations.
+Scripts can be specified both inside the top-level and inside conditional compilations.
 
 *Build script*: The `build` script is automatically executed before the Jet project is built. Here is an example manifest demonstrating the special `build` script:
 

@@ -5,7 +5,7 @@
   - [JetPM package manager](overview/jetpm.md)
   - [JetDoc documentation tool](overview/jetdoc.md)
   - [Compilation and transpilation](overview/compilation.md)
-  - [Conditional configuration](overview/conditional-configuration.md)
+  - [Conditional compilation](overview/conditional-compilation.md)
   - [String encoding](overview/string-encoding.md)
   - [Exceptions](overview/exceptions.md)
   - [Nullability](overview/nullability.md)

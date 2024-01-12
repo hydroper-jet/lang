@@ -9,10 +9,7 @@ Directives:
 * Do not allow nested classes.
 * A class, enum or interface resolves to a `Class` object.
 * [x] Configuration directive
-* [ ] Import directive
-  * [ ] Alias
-  * [ ] Package alias
-    * Demonstrate it in an example
+* [x] Import directive
 * [ ] Use definition
   * Give **semantics** of what `use` does:
     * Requires the directive to be directly enclosed by a `package` scope

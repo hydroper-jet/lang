@@ -34,7 +34,7 @@
         <td>&nbsp;</td><td><i>SuperExpression</i> <i>PropertyOperator</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>FullPostfixExpression</i> <b>!</b></td>
+        <td>&nbsp;</td><td><i>FullPostfixExpression</i> <i>NonNull</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>FullPostfixExpression</i> <i>Arguments</i></td>
@@ -58,6 +58,15 @@
 
 <table>
     <tr>
+        <td colspan="2"><i>NonNull</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>!</b></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
         <td colspan="2"><i>OptionalChaining</i></td>
     </tr>
     <tr>
@@ -73,7 +82,7 @@
         <td>&nbsp;</td><td><i>OptionalChaining</i> <i>PropertyOperator</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>OptionalChaining</i> <b>!</b></td>
+        <td>&nbsp;</td><td><i>OptionalChaining</i> <i>NonNull</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>OptionalChaining</i> <i>Arguments</i></td>

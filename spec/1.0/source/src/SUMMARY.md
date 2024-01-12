@@ -92,3 +92,4 @@
   - [Return statement](statements/return-statement.md)
   - [Throw statement](statements/throw-statement.md)
   - [Default XML namespace statement](statements/default-xml-namespace-statement.md)
+- [Destructuring](destructuring.md)

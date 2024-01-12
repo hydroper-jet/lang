@@ -23,4 +23,14 @@
     </tr>
 </table>
 
-> **Missing**: <i>DestructuringOrPostfixExpression</i> nonterminal. Such nonterminal means *either a destructuring pattern or a postfix expression*.
+<table>
+    <tr>
+        <td colspan="2"><i>DestructuringOrPostfixExpression</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Destructuring</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>PostfixExpression</i></td>
+    </tr>
+</table>

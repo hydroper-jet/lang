@@ -4,12 +4,12 @@
 
 <table>
     <tr>
-        <td colspan="2"><i>ShortCircuitExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>ShortCircuitExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>LogicalOrExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>LogicalOrExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>CoalesceExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>CoalesceExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table>

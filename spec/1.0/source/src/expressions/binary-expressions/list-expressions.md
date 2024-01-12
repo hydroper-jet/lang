@@ -4,12 +4,12 @@
 
 <table>
     <tr>
-        <td colspan="2"><i>ListExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>ListExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ListExpression</i><sub>[?In]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>ListExpression</i><sub>[allowIn]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table>

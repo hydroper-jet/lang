@@ -10,6 +10,6 @@
         <td>&nbsp;</td><td><b>..</b> <i>QualifiedIdentifier</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>.</b> <b>(</b> <i>ListExpression</i><sub>[In]</sub> <b>)</b></td>
+        <td>&nbsp;</td><td><b>.</b> <b>(</b> <i>ListExpression</i><sub>[allowIn=true]</sub> <b>)</b></td>
     </tr>
 </table>

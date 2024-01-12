@@ -3225,12 +3225,7 @@ EXAMPLE=value
 <h2 id="importmetaoutputdirectory"><a class="header" href="#importmetaoutputdirectory">import.meta.outputDirectory</a></h2>
 <p>The <code>import.meta.outputDirectory</code> expression evaluates to the JetPM output directory path. For reliability, the bytecode compiler must emit a special instruction for this expression instead of a string constant.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="expressions"><a class="header" href="#expressions">Expressions</a></h1>
-<p>The syntactic grammar for expressions declares the following parameter wherever applicable: <em>In</em>, which is true or false. The following special notations apply to this parameter:</p>
-<ul>
-<li>The <code>!Parameter</code> symbol indicates that the parameter is false.</li>
-<li>The <code>+Parameter</code> symbol indicates that the parameter is true.</li>
-<li>The <code>?Parameter</code> symbol propagates the parameter value from the defining nonterminal.</li>
-</ul>
+<p>The syntactic grammar for expressions declares the following parameter wherever applicable: <em>allowIn</em>, which is assigned true (<code>parameter=true</code>) or false (<code>parameter=false</code>).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="identifiers"><a class="header" href="#identifiers">Identifiers</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
@@ -3396,7 +3391,7 @@ EXAMPLE=value
         <td colspan="2"><i>ParenExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>AssignmentExpression</i><sub>[In]</sub> <b>)</b></td>
+        <td>&nbsp;</td><td><b>(</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub> <b>)</b></td>
     </tr>
 </table>
 <table>
@@ -3407,7 +3402,7 @@ EXAMPLE=value
         <td>&nbsp;</td><td><i>ParenExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>ListExpression</i><sub>[In]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[In]</sub> <b>)</b></td>
+        <td>&nbsp;</td><td><b>(</b> <i>ListExpression</i><sub>[allowIn=true]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub> <b>)</b></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="function-expression"><a class="header" href="#function-expression">Function expression</a></h1>
 <p><strong>Syntax</strong></p>
@@ -3467,7 +3462,7 @@ EXAMPLE=value
         <td colspan="2"><i>InitializerRest</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>...</b> <i>AssignmentExpression</i><sub>[In]</sub></td>
+        <td>&nbsp;</td><td><b>...</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
 </table>
 <table>
@@ -3475,7 +3470,7 @@ EXAMPLE=value
         <td colspan="2"><i>InitializerField</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>FieldName</i> <b>:</b> <i>AssignmentExpression</i><sub>[In]</sub></td>
+        <td>&nbsp;</td><td><i>FieldName</i> <b>:</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>IdentifierName</i></td>
@@ -3539,13 +3534,13 @@ EXAMPLE=value
         <td colspan="2"><i>ElementList</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>AssignmentExpression</i><sub>[In]</sub></td>
+        <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>AssignmentExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>InitializerRest</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>AssignmentExpression</i><sub>[In]</sub></td>
+        <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>InitializerRest</i></td>
@@ -3600,7 +3595,7 @@ EXAMPLE=value
         <td colspan="2"><i>XMLTagName</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>{</b> <i>AssignmentExpression</i><sub>[In]</sub> <b>}</b></td>
+        <td>&nbsp;</td><td><b>{</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub> <b>}</b></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>XMLName</i></td>
@@ -3611,7 +3606,7 @@ EXAMPLE=value
         <td colspan="2"><i>XMLAttributes</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>XMLWhitespace</i> <b>{</b> <i>AssignmentExpression</i><sub>[In]</sub> <b>}</b></td>
+        <td>&nbsp;</td><td><i>XMLWhitespace</i> <b>{</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub> <b>}</b></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>XMLAttribute</i> <i>XMLAttributes</i></td>
@@ -3625,7 +3620,7 @@ EXAMPLE=value
         <td colspan="2"><i>XMLAttribute</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>XMLWhitespace</i> <i>XMLName</i> <i>XMLWhitespace</i><sub>opt</sub> <b>=</b> <i>XMLWhitespace</i><sub>opt</sub> <b>{</b> <i>AssignmentExpression</i><sub>[In]</sub> <b>}</b></td>
+        <td>&nbsp;</td><td><i>XMLWhitespace</i> <i>XMLName</i> <i>XMLWhitespace</i><sub>opt</sub> <b>=</b> <i>XMLWhitespace</i><sub>opt</sub> <b>{</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub> <b>}</b></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>XMLWhitespace</i> <i>XMLName</i> <i>XMLWhitespace</i><sub>opt</sub> <b>=</b> <i>XMLWhitespace</i><sub>opt</sub> <i>XMLAttributeValue</i></td>
@@ -3636,7 +3631,7 @@ EXAMPLE=value
         <td colspan="2"><i>XMLElementContent</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>{</b> <i>AssignmentExpression</i><sub>[In]</sub> <b>}</b> <i>XMLElementContent</i></td>
+        <td>&nbsp;</td><td><b>{</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub> <b>}</b> <i>XMLElementContent</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>XMLMarkup</i> <i>XMLElementContent</i></td>
@@ -3829,7 +3824,7 @@ const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray
         <td>&nbsp;</td><td><b>..</b> <i>QualifiedIdentifier</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>.</b> <b>(</b> <i>ListExpression</i><sub>[In]</sub> <b>)</b></td>
+        <td>&nbsp;</td><td><b>.</b> <b>(</b> <i>ListExpression</i><sub>[allowIn=true]</sub> <b>)</b></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="call-expressions"><a class="header" href="#call-expressions">Call expressions</a></h1>
 <p><strong>Syntax</strong></p>
@@ -3841,18 +3836,18 @@ const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray
         <td>&nbsp;</td><td><b>(</b> <b>)</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>ListExpression</i><sub>[In]</sub> <b>)</b></td>
+        <td>&nbsp;</td><td><b>(</b> <i>ListExpression</i><sub>[allowIn=true]</sub> <b>)</b></td>
     </tr>
 </table>
 <table>
     <tr>
-        <td colspan="2"><i>ArgumentList</i><sub>[In]</sub></td>
+        <td colspan="2"><i>ArgumentList</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ArgumentList</i><sub>[?In]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>ArgumentList</i><sub>[allowIn]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="new-expressions"><a class="header" href="#new-expressions">New expressions</a></h1>
 <p><strong>Syntax</strong></p>
@@ -4008,227 +4003,209 @@ const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
-        <td colspan="2"><i>RelationalExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>RelationalExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>&gt;</b> <i>ShiftExpression</i></td>
+        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[allowIn]</sub> <b>&gt;</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>&lt;</b> <i>ShiftExpression</i></td>
+        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[allowIn]</sub> <b>&lt;</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>&lt;=</b> <i>ShiftExpression</i></td>
+        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[allowIn]</sub> <b>&lt;=</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>&gt;=</b> <i>ShiftExpression</i></td>
+        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[allowIn]</sub> <b>&gt;=</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>as</b> <i>ShiftExpression</i></td>
+        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[allowIn]</sub> <b>as</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>instanceof</b> <i>ShiftExpression</i></td>
+        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[allowIn]</sub> <b>instanceof</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>not instanceof</b> <i>ShiftExpression</i></td>
+        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[allowIn]</sub> <b>not instanceof</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>is</b> <i>ShiftExpression</i></td>
+        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[allowIn]</sub> <b>is</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>is not</b> <i>ShiftExpression</i></td>
+        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[allowIn]</sub> <b>is not</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[+In] <i>RelationalExpression</i><sub>[?In]</sub> <b>in</b> <i>ShiftExpression</i></td>
+        <td>&nbsp;</td><td>[allowIn = true] <i>RelationalExpression</i><sub>[allowIn]</sub> <b>in</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[+In] <i>RelationalExpression</i><sub>[?In]</sub> <b>not in</b> <i>ShiftExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>x</b> <i>ShiftExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>x</b> <i>ShiftExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>x</b> <i>ShiftExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>x</b> <i>ShiftExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>x</b> <i>ShiftExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub> <b>x</b> <i>ShiftExpression</i></td>
+        <td>&nbsp;</td><td>[allowIn = true] <i>RelationalExpression</i><sub>[allowIn]</sub> <b>not in</b> <i>ShiftExpression</i></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="equality-expressions"><a class="header" href="#equality-expressions">Equality expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
-        <td colspan="2"><i>EqualityExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>EqualityExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>RelationalExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>EqualityExpression</i><sub>[?In]</sub> <b>==</b> <i>RelationalExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>EqualityExpression</i><sub>[allowIn]</sub> <b>==</b> <i>RelationalExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>EqualityExpression</i><sub>[?In]</sub> <b>!=</b> <i>RelationalExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>EqualityExpression</i><sub>[allowIn]</sub> <b>!=</b> <i>RelationalExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>EqualityExpression</i><sub>[?In]</sub> <b>===</b> <i>RelationalExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>EqualityExpression</i><sub>[allowIn]</sub> <b>===</b> <i>RelationalExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>EqualityExpression</i><sub>[?In]</sub> <b>!==</b> <i>RelationalExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>EqualityExpression</i><sub>[allowIn]</sub> <b>!==</b> <i>RelationalExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="bitwise-expressions"><a class="header" href="#bitwise-expressions">Bitwise expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
-        <td colspan="2"><i>BitwiseAndExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>BitwiseAndExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>EqualityExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>EqualityExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>BitwiseAndExpression</i><sub>[?In]</sub> <b>&amp;</b> <i>EqualityExpression</i><sub>[?In]</sub></td>
-    </tr>
-</table>
-<table>
-    <tr>
-        <td colspan="2"><i>BitwiseXorExpression</i><sub>[In]</sub></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>BitwiseAndExpression</i><sub>[?In]</sub></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>BitwiseXorExpression</i><sub>[?In]</sub> <b>^</b> <i>BitwiseAndExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>BitwiseAndExpression</i><sub>[allowIn]</sub> <b>&amp;</b> <i>EqualityExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table>
 <table>
     <tr>
-        <td colspan="2"><i>BitwiseOrExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>BitwiseXorExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>BitwiseXorExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>BitwiseAndExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>BitwiseOrExpression</i><sub>[?In]</sub> <b>|</b> <i>BitwiseXorExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>BitwiseXorExpression</i><sub>[allowIn]</sub> <b>^</b> <i>BitwiseAndExpression</i><sub>[allowIn]</sub></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>BitwiseOrExpression</i><sub>[allowIn=true]</sub></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>BitwiseXorExpression</i><sub>[allowIn]</sub></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>BitwiseOrExpression</i><sub>[allowIn]</sub> <b>|</b> <i>BitwiseXorExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="logical-expressions"><a class="header" href="#logical-expressions">Logical expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
-        <td colspan="2"><i>LogicalAndExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>LogicalAndExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>BitwiseOrExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>BitwiseOrExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>LogicalAndExpression</i><sub>[?In]</sub> <b>&amp;&amp;</b> <i>BitwiseOrExpression</i><sub>[?In]</sub></td>
-    </tr>
-</table>
-<table>
-    <tr>
-        <td colspan="2"><i>LogicalXorExpression</i><sub>[In]</sub></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>LogicalAndExpression</i><sub>[?In]</sub></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>LogicalXorExpression</i><sub>[?In]</sub> <b>^^</b> <i>LogicalAndExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>LogicalAndExpression</i><sub>[allowIn]</sub> <b>&amp;&amp;</b> <i>BitwiseOrExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table>
 <table>
     <tr>
-        <td colspan="2"><i>LogicalOrExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>LogicalXorExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>LogicalXorExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>LogicalAndExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>LogicalOrExpression</i><sub>[?In]</sub> <b>||</b> <i>LogicalXorExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>LogicalXorExpression</i><sub>[allowIn]</sub> <b>^^</b> <i>LogicalAndExpression</i><sub>[allowIn]</sub></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>LogicalOrExpression</i><sub>[allowIn=true]</sub></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>LogicalXorExpression</i><sub>[allowIn]</sub></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>LogicalOrExpression</i><sub>[allowIn]</sub> <b>||</b> <i>LogicalXorExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="coalesce-expression"><a class="header" href="#coalesce-expression">Coalesce expression</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
-        <td colspan="2"><i>CoalesceExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>CoalesceExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>CoalesceExpressionHead</i><sub>[?In]</sub> <b>??</b> <i>BitwiseOrExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>CoalesceExpressionHead</i><sub>[allowIn]</sub> <b>??</b> <i>BitwiseOrExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table>
 <table>
     <tr>
-        <td colspan="2"><i>CoalesceExpressionHead</i><sub>[In]</sub></td>
+        <td colspan="2"><i>CoalesceExpressionHead</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>CoalesceExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>CoalesceExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>BitwiseOrExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>BitwiseOrExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="short-circuit-expressions"><a class="header" href="#short-circuit-expressions">Short circuit expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
-        <td colspan="2"><i>ShortCircuitExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>ShortCircuitExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>LogicalOrExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>LogicalOrExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>CoalesceExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>CoalesceExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="conditional-expressions"><a class="header" href="#conditional-expressions">Conditional expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
-        <td colspan="2"><i>ConditionalExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>ConditionalExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sub>[?In]</sub> <b>?</b> <i>AssignmentExpression</i><sub>[?In]</sub> <b>:</b> <i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sub>[allowIn]</sub> <b>?</b> <i>AssignmentExpression</i><sub>[allowIn]</sub> <b>:</b> <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="non-assignment-expressions"><a class="header" href="#non-assignment-expressions">Non assignment expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
-        <td colspan="2"><i>NonAssignmentExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>NonAssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sub>[?In]</sub> <b>?</b> <i>NonAssignmentExpression</i><sub>[?In]</sub> <b>:</b> <i>NonAssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>ShortCircuitExpression</i><sub>[allowIn]</sub> <b>?</b> <i>NonAssignmentExpression</i><sub>[allowIn]</sub> <b>:</b> <i>NonAssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="assignment-expressions"><a class="header" href="#assignment-expressions">Assignment expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
-        <td colspan="2"><i>AssignmentExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ConditionalExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>ConditionalExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>yield</b> [no line break] <i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><b>yield</b> [no line break] <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ArrowFunction</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>ArrowFunction</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>DestructuringOrPostfixExpression</i> <b>=</b> <i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>DestructuringOrPostfixExpression</i> <b>=</b> <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>PostfixExpression</i><sub>[?In]</sub> <i>CompoundAssignmentPunctuator</i> <i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>PostfixExpression</i><sub>[allowIn]</sub> <i>CompoundAssignmentPunctuator</i> <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table>
 <blockquote>
@@ -4238,13 +4215,13 @@ const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
-        <td colspan="2"><i>ListExpression</i><sub>[In]</sub></td>
+        <td colspan="2"><i>ListExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ListExpression</i><sub>[?In]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>ListExpression</i><sub>[allowIn]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="arrow-functions"><a class="header" href="#arrow-functions">Arrow functions</a></h1>
 <p>Arrow functions may specify a typed signature. The arrow signature may be specified either as a parenthesized list of parameter bindings or as a single parameter binding.</p>
@@ -4254,18 +4231,18 @@ const f: F2 = a =&gt; a + 1
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
-        <td colspan="2"><i>ArrowFunction</i><sub>[In]</sub></td>
+        <td colspan="2"><i>ArrowFunction</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ArrowParameters</i> <b>=&gt;</b> <i>ConciseBody</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>ArrowParameters</i> <b>=&gt;</b> <i>ConciseBody</i><sub>[allowIn]</sub></td>
     </tr>
 </table>
 <table>
     <tr>
-        <td colspan="2"><i>ConciseBody</i><sub>[In]</sub></td>
+        <td colspan="2"><i>ConciseBody</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[lookahead ≠ <b>&#x7B;</b>] <i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td>[lookahead ≠ <b>&#x7B;</b>] <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>Block</i></td>
@@ -4419,7 +4396,7 @@ const f: F2 = a =&gt; a + 1
         <td colspan="2"><i>ExpressionStatement</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[lookahead ∉ { <b>function</b>, <b>&#x7B;</b> }] <i>ListExpression</i><sub>[In]</sub></td>
+        <td>&nbsp;</td><td>[lookahead ∉ { <b>function</b>, <b>&#x7B;</b> }] <i>ListExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="super-statement"><a class="header" href="#super-statement">Super statement</a></h1>
 <p><strong>Syntax</strong></p>
@@ -4539,7 +4516,7 @@ const f: F2 = a =&gt; a + 1
         <td colspan="2"><i>CaseLabel</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>case</b> <i>ListExpression</i><sub>[In]</sub> <b>:</b></td>
+        <td>&nbsp;</td><td><b>case</b> <i>ListExpression</i><sub>[allowIn=true]</sub> <b>:</b></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><b>default :</b></td>
@@ -4617,13 +4594,13 @@ for (const key in map) {
         <td colspan="2"><i>ForStatement</i><sup>ω</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>for &#x28;</b> <i>ForInitializer</i> <b>;</b> <i>ListExpression</i><sub>[In] opt</sub> <b>;</b> <i>ListExpression</i><sub>[In] opt</sub> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
+        <td>&nbsp;</td><td><b>for &#x28;</b> <i>ForInitializer</i> <b>;</b> <i>ListExpression</i><sub>[allowIn=true] opt</sub> <b>;</b> <i>ListExpression</i><sub>[allowIn=true] opt</sub> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>for &#x28;</b> <i>ForInBinding</i> <b>in</b> <i>ListExpression</i><sub>[In] opt</sub> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
+        <td>&nbsp;</td><td><b>for &#x28;</b> <i>ForInBinding</i> <b>in</b> <i>ListExpression</i><sub>[allowIn=true] opt</sub> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>for</b> [no line break] <b>each &#x28;</b> <i>ForInBinding</i> <b>in</b> <i>ListExpression</i><sub>[In] opt</sub> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
+        <td>&nbsp;</td><td><b>for</b> [no line break] <b>each &#x28;</b> <i>ForInBinding</i> <b>in</b> <i>ListExpression</i><sub>[allowIn=true] opt</sub> <b>&#x29;</b> <i>Substatement</i><sup>ω</sup></td>
     </tr>
 </table>
 <table>
@@ -4634,10 +4611,10 @@ for (const key in map) {
         <td>&nbsp;</td><td>«empty»</td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ListExpression</i><sub>[!In]</sub></td>
+        <td>&nbsp;</td><td><i>ListExpression</i><sub>[allowIn=false]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>VariableDefinition</i><sub>[!In]</sub></td>
+        <td>&nbsp;</td><td><i>VariableDefinition</i><sub>[allowIn=false]</sub></td>
     </tr>
 </table>
 <table>
@@ -4648,7 +4625,7 @@ for (const key in map) {
         <td>&nbsp;</td><td><i>PostfixExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>VariableDefinitionKind</i> <i>VariableBinding</i><sub>[!In]</sub></td>
+        <td>&nbsp;</td><td><i>VariableDefinitionKind</i> <i>VariableBinding</i><sub>[allowIn=false]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="continue-statement"><a class="header" href="#continue-statement">Continue statement</a></h1>
 <p><strong>Syntax</strong></p>
@@ -4693,7 +4670,7 @@ for (const key in map) {
         <td>&nbsp;</td><td><b>return</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>return</b> [no line break] <i>ListExpression</i><sub>[In]</sub></td>
+        <td>&nbsp;</td><td><b>return</b> [no line break] <i>ListExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="throw-statement"><a class="header" href="#throw-statement">Throw statement</a></h1>
 <p><strong>Syntax</strong></p>
@@ -4702,7 +4679,7 @@ for (const key in map) {
         <td colspan="2"><i>ThrowStatement</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>throw</b> [no line break] <i>ListExpression</i><sub>[In]</sub></td>
+        <td>&nbsp;</td><td><b>throw</b> [no line break] <i>ListExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="default-xml-namespace-statement"><a class="header" href="#default-xml-namespace-statement">Default XML namespace statement</a></h1>
 <p><strong>Syntax</strong></p>
@@ -4711,7 +4688,7 @@ for (const key in map) {
         <td colspan="2"><i>DefaultXMLNamespaceStatement</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>default</b> [no line break] <b>xml</b> [no line break] <b>namespace =</b> <i>NonAssignmentExpression</i><sub>[In]</sub></td>
+        <td>&nbsp;</td><td><b>default</b> [no line break] <b>xml</b> [no line break] <b>namespace =</b> <i>NonAssignmentExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
 </table>
                     </main>

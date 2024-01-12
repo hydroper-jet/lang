@@ -10,18 +10,18 @@
         <td>&nbsp;</td><td><b>(</b> <b>)</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>ListExpression</i><sub>[In]</sub> <b>)</b></td>
+        <td>&nbsp;</td><td><b>(</b> <i>ListExpression</i><sub>[allowIn=true]</sub> <b>)</b></td>
     </tr>
 </table>
 
 <table>
     <tr>
-        <td colspan="2"><i>ArgumentList</i><sub>[In]</sub></td>
+        <td colspan="2"><i>ArgumentList</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ArgumentList</i><sub>[?In]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[?In]</sub></td>
+        <td>&nbsp;</td><td><i>ArgumentList</i><sub>[allowIn]</sub> <b>,</b> <i>AssignmentExpression</i><sub>[allowIn]</sub></td>
     </tr>
 </table>

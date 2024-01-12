@@ -70,7 +70,7 @@ switch type (v) {
         <td colspan="2"><i>CaseLabel</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>case</b> <i>ListExpression</i><sub>[In]</sub> <b>:</b></td>
+        <td>&nbsp;</td><td><b>case</b> <i>ListExpression</i><sub>[allowIn=true]</sub> <b>:</b></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><b>default :</b></td>

@@ -10,6 +10,6 @@
         <td>&nbsp;</td><td><b>return</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>return</b> [no line break] <i>ListExpression</i><sub>[In]</sub></td>
+        <td>&nbsp;</td><td><b>return</b> [no line break] <i>ListExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
 </table>

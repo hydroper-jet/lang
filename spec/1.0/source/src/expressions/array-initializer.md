@@ -34,13 +34,13 @@
         <td colspan="2"><i>ElementList</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>AssignmentExpression</i><sub>[In]</sub></td>
+        <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>AssignmentExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>Elision</i><sub>opt</sub> <i>InitializerRest</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>AssignmentExpression</i><sub>[In]</sub></td>
+        <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>AssignmentExpression</i><sub>[allowIn=true]</sub></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>InitializerRest</i></td>

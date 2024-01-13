@@ -106,7 +106,7 @@ The package manifest allows mapping of executable scripts, as well as their depe
 
 Scripts are executed in the Node.js® platform; therefore they implicitly use the `http://ns.nodejs.org/2009` registry namespace.
 
-Scripts can be specified both inside the top-level and inside conditional compilations.
+JetPM constants are propagated from the containing package to the script, allowing equivalent conditional compilation in the script sources.
 
 *Build script*: The `build` script is automatically executed before the Jet project is built. Here is an example manifest demonstrating the special `build` script:
 

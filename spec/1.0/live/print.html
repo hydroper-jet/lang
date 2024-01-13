@@ -270,7 +270,7 @@ jetpm build --define air::target=ios
 <h2 id="scripts"><a class="header" href="#scripts">Scripts</a></h2>
 <p>The package manifest allows mapping of executable scripts, as well as their dependencies.</p>
 <p>Scripts are executed in the Node.js® platform; therefore they implicitly use the <code>http://ns.nodejs.org/2009</code> registry namespace.</p>
-<p>Scripts can be specified both inside the top-level and inside conditional compilations.</p>
+<p>JetPM constants are propagated from the containing package to the script, allowing equivalent conditional compilation in the script sources.</p>
 <p><em>Build script</em>: The <code>build</code> script is automatically executed before the Jet project is built. Here is an example manifest demonstrating the special <code>build</code> script:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{

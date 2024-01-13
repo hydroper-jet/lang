@@ -198,6 +198,10 @@
 <p>Note that registry namespaces are defined internally in the registry and may not be arbitrary. Registry namespaces are available as platforms are supported.</p>
 <h2 id="conditional-compilation"><a class="header" href="#conditional-compilation">Conditional compilation</a></h2>
 <p>The JetPM build system receives <em>constants</em> supplied by build commands, which may be used with <a href="conditional-compilation.html">conditional compilation</a>.</p>
+<pre><code class="language-plain">jetpm build --define myConstant
+jetpm build --define myConstant=10
+jetpm build --define q::myConstant=10
+</code></pre>
 <p>The top-level <code>configuration</code> property of the package manifest specifies the manifest properties in a conditional way. The matching branches are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.</p>
 <p>The key of each property in the <code>configuration</code> property is in one of the forms:</p>
 <ul>

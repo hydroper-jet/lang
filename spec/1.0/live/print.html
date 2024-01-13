@@ -225,6 +225,10 @@ trace(heron(5, 6, 7))
 <p>Note that registry namespaces are defined internally in the registry and may not be arbitrary. Registry namespaces are available as platforms are supported.</p>
 <h2 id="conditional-compilation"><a class="header" href="#conditional-compilation">Conditional compilation</a></h2>
 <p>The JetPM build system receives <em>constants</em> supplied by build commands, which may be used with <a href="overview/conditional-compilation.html">conditional compilation</a>.</p>
+<pre><code class="language-plain">jetpm build --define myConstant
+jetpm build --define myConstant=10
+jetpm build --define q::myConstant=10
+</code></pre>
 <p>The top-level <code>configuration</code> property of the package manifest specifies the manifest properties in a conditional way. The matching branches are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.</p>
 <p>The key of each property in the <code>configuration</code> property is in one of the forms:</p>
 <ul>
@@ -5022,7 +5026,15 @@ for (const key in map) {
         <td>&nbsp;</td><td>[bracketed expression in the beginning of <i>Attributes</i>]</td>
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="configuration-directive"><a class="header" href="#configuration-directive">Configuration directive</a></h1>
-<p>The <code>configuration</code> directive expands blocks to the enclosing block or context if their condition matches.</p>
+<p>The <code>configuration</code> directive expands blocks to the enclosing block or context if their compile time condition matches.</p>
+<pre><code>configuration {
+    if (debug) {
+        trace(&quot;Running in debug mode.&quot;)
+    } else {
+        trace(&quot;Running in release mode.&quot;)
+    }
+}
+</code></pre>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>

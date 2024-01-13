@@ -50,6 +50,12 @@ Note that registry namespaces are defined internally in the registry and may not
 
 The JetPM build system receives *constants* supplied by build commands, which may be used with [conditional compilation](conditional-compilation.md).
 
+```plain
+jetpm build --define myConstant
+jetpm build --define myConstant=10
+jetpm build --define q::myConstant=10
+```
+
 The top-level `configuration` property of the package manifest specifies the manifest properties in a conditional way. The matching branches are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.
 
 The key of each property in the `configuration` property is in one of the forms:

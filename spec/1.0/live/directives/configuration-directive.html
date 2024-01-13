@@ -166,7 +166,15 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="configuration-directive"><a class="header" href="#configuration-directive">Configuration directive</a></h1>
-<p>The <code>configuration</code> directive expands blocks to the enclosing block or context if their condition matches.</p>
+<p>The <code>configuration</code> directive expands blocks to the enclosing block or context if their compile time condition matches.</p>
+<pre><code>configuration {
+    if (debug) {
+        trace(&quot;Running in debug mode.&quot;)
+    } else {
+        trace(&quot;Running in release mode.&quot;)
+    }
+}
+</code></pre>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>

@@ -1,6 +1,16 @@
 # Configuration directive
 
-The `configuration` directive expands blocks to the enclosing block or context if their condition matches.
+The `configuration` directive expands blocks to the enclosing block or context if their compile time condition matches.
+
+```
+configuration {
+    if (debug) {
+        trace("Running in debug mode.")
+    } else {
+        trace("Running in release mode.")
+    }
+}
+```
 
 **Syntax**
 

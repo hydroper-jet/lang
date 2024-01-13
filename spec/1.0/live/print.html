@@ -175,7 +175,7 @@
 <h2 id="native-extensions"><a class="header" href="#native-extensions">Native extensions</a></h2>
 <p>The language allows libraries known as <em>native extensions</em> to be developed through the combination of <a href="metadata/plain-metadata.html">plain meta-data</a> and <a href="overview/conditional-compilation.html">conditional compilation</a>.</p>
 <p>Plain meta-data allow embedding arbitrary files with binary content, such as dynamic-link libraries, as well as textual files such as application descriptors.</p>
-<p>Conditional compilation is used solely at the package manifest of a Jet project and allows including program sources and dependencies in a conditional way.</p>
+<p>Conditional compilation may be used at the package manifest of a Jet project and allows including program sources and dependencies in a conditional way.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="example-programs"><a class="header" href="#example-programs">Example programs</a></h1>
 <h2 id="basic-syntax"><a class="header" href="#basic-syntax">Basic syntax</a></h2>
 <pre><code>function isEven(argument: BigInt): Boolean (
@@ -2233,6 +2233,10 @@ function set x(v: T): void {}
 <li>A constructor is allowed to perform assignments to constant instance variables.</li>
 <li>A constructor is allowed to contain a single <code>super();</code> statement.</li>
 </ul>
+<pre><code>class C {
+    function C() {}
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proxies"><a class="header" href="#proxies">Proxies</a></h1>
 <p>A proxy is a function containing the <code>proxy</code> attribute, enclosed by a <code>class</code> or <code>enum</code> block. The name of a proxy must be one of the several proxy names listed in this section.</p>
 <ul>
@@ -2406,6 +2410,14 @@ function f.&lt;T&gt;(): void {}
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>TypeParameterList</i> <b>,</b> <i>TypeParameter</i></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td colspan="2"><i>TypeParameter</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Identifier</i></td>
     </tr>
 </table>
 <h2 id="polymorphism"><a class="header" href="#polymorphism">Polymorphism</a></h2>
@@ -4505,9 +4517,6 @@ const f: F2 = a =&gt; a + 1
     <tr>
         <td>&nbsp;</td><td><i>Statement</i><sup>ω</sup></td>
     </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>SimpleVariableDefinition</i> <i>Semicolon</i><sup>ω</sup></td>
-    </tr>
 </table>
 <table>
     <tr>
@@ -5045,10 +5054,10 @@ for (const key in map) {
         <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i> <b>&&</b> <i>ConfigurationPrimaryExpression</i></td>
+        <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i> <b>&&</b> <i>ConfigurationExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i> <b>||</b> <i>ConfigurationPrimaryExpression</i></td>
+        <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i> <b>||</b> <i>ConfigurationExpression</i></td>
     </tr>
 </table>
 <table>

@@ -8,3 +8,9 @@ A constructor is a function whose name matches the enclosing class's name.
 * It is a verify error if the constructor has no `super();` statement and the constructor of the parent class has a non-empty parameter list.
 * A constructor is allowed to perform assignments to constant instance variables.
 * A constructor is allowed to contain a single `super();` statement.
+
+```
+class C {
+    function C() {}
+}
+```

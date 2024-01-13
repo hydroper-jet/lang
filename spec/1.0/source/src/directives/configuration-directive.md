@@ -36,10 +36,10 @@ The `configuration` directive expands blocks to the enclosing block or context i
         <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i> <b>&&</b> <i>ConfigurationPrimaryExpression</i></td>
+        <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i> <b>&&</b> <i>ConfigurationExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i> <b>||</b> <i>ConfigurationPrimaryExpression</i></td>
+        <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i> <b>||</b> <i>ConfigurationExpression</i></td>
     </tr>
 </table>
 

@@ -72,9 +72,6 @@ The `ω` superscript used throughout the document translates to one of the follo
     <tr>
         <td>&nbsp;</td><td><i>Statement</i><sup>ω</sup></td>
     </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>SimpleVariableDefinition</i> <i>Semicolon</i><sup>ω</sup></td>
-    </tr>
 </table>
 
 <table>

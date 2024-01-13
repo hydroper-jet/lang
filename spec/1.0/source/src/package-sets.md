@@ -13,4 +13,4 @@ Package sets consist of the following internal properties:
 
 ## Parent definition
 
-When the parent definition of a variable is a package, the variable has a fully package qualified name.
+When the parent definition of a package set is a package, the package set has a fully package qualified name.

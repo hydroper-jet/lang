@@ -32,13 +32,6 @@ Future plans:
 | ------- | -------- |
 | 1.0     | [Web](https://hydroper-jet.github.io/lang/spec/1.0/live) |
 
-## Other documents
-
-| Title | Document |
-| ----- | -------- |
-| Language Design | [GitHub view](design/design.md) |
-| Transpilation | [GitHub view](design/transpilation.md) |
-
 ## Compiler
 
 The compiler is not available in the present.

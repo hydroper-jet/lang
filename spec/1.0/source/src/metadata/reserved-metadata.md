@@ -2,9 +2,9 @@
 
 Reserved meta-data are meta-data that cannot be overriden by user decorators. This section enumerates all reserved meta-data.
 
-* [Literal](#literal)
-* [Set](#set)
-* [Test](#test)
+* [`[Literal]`](#literal)
+* [`[Set]`](#set)
+* [`[Test]`](#test)
 
 ## Literal
 

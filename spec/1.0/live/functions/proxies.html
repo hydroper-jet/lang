@@ -168,29 +168,29 @@
                         <h1 id="proxies"><a class="header" href="#proxies">Proxies</a></h1>
 <p>A proxy is a function containing the <code>proxy</code> attribute, enclosed by a <code>class</code> or <code>enum</code> block. The name of a proxy must be one of the several proxy names listed in this section.</p>
 <ul>
-<li><a href="#positive">positive</a></li>
-<li><a href="#negate">negate</a></li>
-<li><a href="#bitwisenot">bitwiseNot</a></li>
-<li><a href="#add">add</a></li>
-<li><a href="#subtract">subtract</a></li>
-<li><a href="#multiply">multiply</a></li>
-<li><a href="#divide">divide</a></li>
-<li><a href="#remainder">remainder</a></li>
-<li><a href="#power">power</a></li>
-<li><a href="#bitwiseand">bitwiseAnd</a></li>
-<li><a href="#bitwisexor">bitwiseXor</a></li>
-<li><a href="#bitwiseor">bitwiseOr</a></li>
-<li><a href="#shiftleft">shiftLeft</a></li>
-<li><a href="#shiftright">shiftRight</a></li>
-<li><a href="#shiftrightunsigned">shiftRightUnsigned</a></li>
-<li><a href="#to">to</a></li>
-<li><a href="#tooptional">toOptional</a></li>
-<li><a href="#getproperty">getProperty</a></li>
-<li><a href="#setproperty">setProperty</a></li>
-<li><a href="#deleteproperty">deleteProperty</a></li>
-<li><a href="#has">has</a></li>
-<li><a href="#keys">keys</a></li>
-<li><a href="#values">values</a></li>
+<li><a href="#positive"><code>positive</code></a></li>
+<li><a href="#negate"><code>negate</code></a></li>
+<li><a href="#bitwisenot"><code>bitwiseNot</code></a></li>
+<li><a href="#add"><code>add</code></a></li>
+<li><a href="#subtract"><code>subtract</code></a></li>
+<li><a href="#multiply"><code>multiply</code></a></li>
+<li><a href="#divide"><code>divide</code></a></li>
+<li><a href="#remainder"><code>remainder</code></a></li>
+<li><a href="#power"><code>power</code></a></li>
+<li><a href="#bitwiseand"><code>bitwiseAnd</code></a></li>
+<li><a href="#bitwisexor"><code>bitwiseXor</code></a></li>
+<li><a href="#bitwiseor"><code>bitwiseOr</code></a></li>
+<li><a href="#shiftleft"><code>shiftLeft</code></a></li>
+<li><a href="#shiftright"><code>shiftRight</code></a></li>
+<li><a href="#shiftrightunsigned"><code>shiftRightUnsigned</code></a></li>
+<li><a href="#to"><code>to</code></a></li>
+<li><a href="#tooptional"><code>toOptional</code></a></li>
+<li><a href="#getproperty"><code>getProperty</code></a></li>
+<li><a href="#setproperty"><code>setProperty</code></a></li>
+<li><a href="#deleteproperty"><code>deleteProperty</code></a></li>
+<li><a href="#has"><code>has</code></a></li>
+<li><a href="#keys"><code>keys</code></a></li>
+<li><a href="#values"><code>values</code></a></li>
 </ul>
 <h2 id="positive"><a class="header" href="#positive">positive</a></h2>
 <pre><code>class C {
@@ -301,16 +301,19 @@
 }
 </code></pre>
 <h2 id="has"><a class="header" href="#has">has</a></h2>
+<p>The <code>has</code> proxy is used for the <code>in</code> operator.</p>
 <pre><code>class C {
     proxy function has(v: T): Boolean {}
 }
 </code></pre>
 <h2 id="keys"><a class="header" href="#keys">keys</a></h2>
+<p>The <code>keys</code> proxy is used for the <code>for..in</code> statement.</p>
 <pre><code>class C {
     proxy function keys(): Iterator.&lt;K&gt; {}
 }
 </code></pre>
 <h2 id="values"><a class="header" href="#values">values</a></h2>
+<p>The <code>values</code> proxy is used for the <code>for each</code> statement.</p>
 <pre><code>class C {
     proxy function values(): Iterator.&lt;V&gt; {}
 }

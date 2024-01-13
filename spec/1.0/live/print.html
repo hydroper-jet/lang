@@ -2245,29 +2245,29 @@ function set x(v: T): void {}
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proxies"><a class="header" href="#proxies">Proxies</a></h1>
 <p>A proxy is a function containing the <code>proxy</code> attribute, enclosed by a <code>class</code> or <code>enum</code> block. The name of a proxy must be one of the several proxy names listed in this section.</p>
 <ul>
-<li><a href="functions/proxies.html#positive">positive</a></li>
-<li><a href="functions/proxies.html#negate">negate</a></li>
-<li><a href="functions/proxies.html#bitwisenot">bitwiseNot</a></li>
-<li><a href="functions/proxies.html#add">add</a></li>
-<li><a href="functions/proxies.html#subtract">subtract</a></li>
-<li><a href="functions/proxies.html#multiply">multiply</a></li>
-<li><a href="functions/proxies.html#divide">divide</a></li>
-<li><a href="functions/proxies.html#remainder">remainder</a></li>
-<li><a href="functions/proxies.html#power">power</a></li>
-<li><a href="functions/proxies.html#bitwiseand">bitwiseAnd</a></li>
-<li><a href="functions/proxies.html#bitwisexor">bitwiseXor</a></li>
-<li><a href="functions/proxies.html#bitwiseor">bitwiseOr</a></li>
-<li><a href="functions/proxies.html#shiftleft">shiftLeft</a></li>
-<li><a href="functions/proxies.html#shiftright">shiftRight</a></li>
-<li><a href="functions/proxies.html#shiftrightunsigned">shiftRightUnsigned</a></li>
-<li><a href="functions/proxies.html#to">to</a></li>
-<li><a href="functions/proxies.html#tooptional">toOptional</a></li>
-<li><a href="functions/proxies.html#getproperty">getProperty</a></li>
-<li><a href="functions/proxies.html#setproperty">setProperty</a></li>
-<li><a href="functions/proxies.html#deleteproperty">deleteProperty</a></li>
-<li><a href="functions/proxies.html#has">has</a></li>
-<li><a href="functions/proxies.html#keys">keys</a></li>
-<li><a href="functions/proxies.html#values">values</a></li>
+<li><a href="functions/proxies.html#positive"><code>positive</code></a></li>
+<li><a href="functions/proxies.html#negate"><code>negate</code></a></li>
+<li><a href="functions/proxies.html#bitwisenot"><code>bitwiseNot</code></a></li>
+<li><a href="functions/proxies.html#add"><code>add</code></a></li>
+<li><a href="functions/proxies.html#subtract"><code>subtract</code></a></li>
+<li><a href="functions/proxies.html#multiply"><code>multiply</code></a></li>
+<li><a href="functions/proxies.html#divide"><code>divide</code></a></li>
+<li><a href="functions/proxies.html#remainder"><code>remainder</code></a></li>
+<li><a href="functions/proxies.html#power"><code>power</code></a></li>
+<li><a href="functions/proxies.html#bitwiseand"><code>bitwiseAnd</code></a></li>
+<li><a href="functions/proxies.html#bitwisexor"><code>bitwiseXor</code></a></li>
+<li><a href="functions/proxies.html#bitwiseor"><code>bitwiseOr</code></a></li>
+<li><a href="functions/proxies.html#shiftleft"><code>shiftLeft</code></a></li>
+<li><a href="functions/proxies.html#shiftright"><code>shiftRight</code></a></li>
+<li><a href="functions/proxies.html#shiftrightunsigned"><code>shiftRightUnsigned</code></a></li>
+<li><a href="functions/proxies.html#to"><code>to</code></a></li>
+<li><a href="functions/proxies.html#tooptional"><code>toOptional</code></a></li>
+<li><a href="functions/proxies.html#getproperty"><code>getProperty</code></a></li>
+<li><a href="functions/proxies.html#setproperty"><code>setProperty</code></a></li>
+<li><a href="functions/proxies.html#deleteproperty"><code>deleteProperty</code></a></li>
+<li><a href="functions/proxies.html#has"><code>has</code></a></li>
+<li><a href="functions/proxies.html#keys"><code>keys</code></a></li>
+<li><a href="functions/proxies.html#values"><code>values</code></a></li>
 </ul>
 <h2 id="positive"><a class="header" href="#positive">positive</a></h2>
 <pre><code>class C {
@@ -2378,16 +2378,19 @@ function set x(v: T): void {}
 }
 </code></pre>
 <h2 id="has"><a class="header" href="#has">has</a></h2>
+<p>The <code>has</code> proxy is used for the <code>in</code> operator.</p>
 <pre><code>class C {
     proxy function has(v: T): Boolean {}
 }
 </code></pre>
 <h2 id="keys"><a class="header" href="#keys">keys</a></h2>
+<p>The <code>keys</code> proxy is used for the <code>for..in</code> statement.</p>
 <pre><code>class C {
     proxy function keys(): Iterator.&lt;K&gt; {}
 }
 </code></pre>
 <h2 id="values"><a class="header" href="#values">values</a></h2>
+<p>The <code>values</code> proxy is used for the <code>for each</code> statement.</p>
 <pre><code>class C {
     proxy function values(): Iterator.&lt;V&gt; {}
 }
@@ -2434,9 +2437,9 @@ function f.&lt;T&gt;(): void {}
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reserved-meta-data"><a class="header" href="#reserved-meta-data">Reserved meta-data</a></h1>
 <p>Reserved meta-data are meta-data that cannot be overriden by user decorators. This section enumerates all reserved meta-data.</p>
 <ul>
-<li><a href="metadata/reserved-metadata.html#literal">Literal</a></li>
-<li><a href="metadata/reserved-metadata.html#set">Set</a></li>
-<li><a href="metadata/reserved-metadata.html#test">Test</a></li>
+<li><a href="metadata/reserved-metadata.html#literal"><code>[Literal]</code></a></li>
+<li><a href="metadata/reserved-metadata.html#set"><code>[Set]</code></a></li>
+<li><a href="metadata/reserved-metadata.html#test"><code>[Test]</code></a></li>
 </ul>
 <h2 id="literal"><a class="header" href="#literal">Literal</a></h2>
 <p>The <code>Literal</code> meta-data is reserved at the <code>class</code> definition. It is used for indicating that the class can be initialized through an object initializer.</p>
@@ -2638,6 +2641,7 @@ public function filter(other: E): E (
     E(this.valueOf() &amp; other.valueOf())
 );
 
+// memberSet in set
 proxy function has(value: E): Boolean (
     this.valueOf() &amp; value.valueOf() != 0
 );

@@ -271,6 +271,7 @@ public function filter(other: E): E (
     E(this.valueOf() &amp; other.valueOf())
 );
 
+// memberSet in set
 proxy function has(value: E): Boolean (
     this.valueOf() &amp; value.valueOf() != 0
 );

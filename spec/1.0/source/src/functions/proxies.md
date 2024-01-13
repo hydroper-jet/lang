@@ -2,29 +2,29 @@
 
 A proxy is a function containing the `proxy` attribute, enclosed by a `class` or `enum` block. The name of a proxy must be one of the several proxy names listed in this section.
 
-* [positive](#positive)
-* [negate](#negate)
-* [bitwiseNot](#bitwisenot)
-* [add](#add)
-* [subtract](#subtract)
-* [multiply](#multiply)
-* [divide](#divide)
-* [remainder](#remainder)
-* [power](#power)
-* [bitwiseAnd](#bitwiseand)
-* [bitwiseXor](#bitwisexor)
-* [bitwiseOr](#bitwiseor)
-* [shiftLeft](#shiftleft)
-* [shiftRight](#shiftright)
-* [shiftRightUnsigned](#shiftrightunsigned)
-* [to](#to)
-* [toOptional](#tooptional)
-* [getProperty](#getproperty)
-* [setProperty](#setproperty)
-* [deleteProperty](#deleteproperty)
-* [has](#has)
-* [keys](#keys)
-* [values](#values)
+* [`positive`](#positive)
+* [`negate`](#negate)
+* [`bitwiseNot`](#bitwisenot)
+* [`add`](#add)
+* [`subtract`](#subtract)
+* [`multiply`](#multiply)
+* [`divide`](#divide)
+* [`remainder`](#remainder)
+* [`power`](#power)
+* [`bitwiseAnd`](#bitwiseand)
+* [`bitwiseXor`](#bitwisexor)
+* [`bitwiseOr`](#bitwiseor)
+* [`shiftLeft`](#shiftleft)
+* [`shiftRight`](#shiftright)
+* [`shiftRightUnsigned`](#shiftrightunsigned)
+* [`to`](#to)
+* [`toOptional`](#tooptional)
+* [`getProperty`](#getproperty)
+* [`setProperty`](#setproperty)
+* [`deleteProperty`](#deleteproperty)
+* [`has`](#has)
+* [`keys`](#keys)
+* [`values`](#values)
 
 ## positive
 
@@ -194,6 +194,8 @@ class C {
 
 ## has
 
+The `has` proxy is used for the `in` operator.
+
 ```
 class C {
     proxy function has(v: T): Boolean {}
@@ -202,6 +204,8 @@ class C {
 
 ## keys
 
+The `keys` proxy is used for the `for..in` statement.
+
 ```
 class C {
     proxy function keys(): Iterator.<K> {}
@@ -209,6 +213,8 @@ class C {
 ```
 
 ## values
+
+The `values` proxy is used for the `for each` statement.
 
 ```
 class C {

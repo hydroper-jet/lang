@@ -515,6 +515,8 @@ configuration
 &&  ^^  ||  ??
 ```
 
+The `@` punctuator must not be followed by a single quote <b>'</b> or a double quote character <b>"</b>.
+
 *Punctuator* includes *CompoundAssignmentPunctuator*. *CompoundAssignmentPunctuator* is one of the following:
 
 ```plain

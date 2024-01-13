@@ -19,6 +19,9 @@
         <td>&nbsp;</td><td><b>await</b> <i>UnaryExpression</i></td>
     </tr>
     <tr>
+        <td>&nbsp;</td><td><b>typeof</b> <i>UnaryExpression</i></td>
+    </tr>
+    <tr>
         <td>&nbsp;</td><td><b>++</b> <i>PostfixExpression</i></td>
     </tr>
     <tr>

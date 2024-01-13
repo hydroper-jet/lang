@@ -28,7 +28,10 @@
         <td colspan="2"><i>AssignmentLeftHandSide</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>Destructuring</i></td>
+        <td>&nbsp;</td><td><i>ArrayDestructuring</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>ObjectDestructuring</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>PostfixExpression</i></td>

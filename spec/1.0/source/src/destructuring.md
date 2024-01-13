@@ -13,6 +13,21 @@
         <td>&nbsp;</td><td><i>IdentifierName</i> [if keywords are disabled]</td>
     </tr>
     <tr>
+        <td>&nbsp;</td><td><i>ArrayDestructuring</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>ObjectDestructuring</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Destructuring</i> <i>NonNull</i> [lookahead ∉ <i>NonNull</i>]</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>ArrayDestructuring</i></td>
+    </tr>
+    <tr>
         <td>&nbsp;</td><td><b>[</b> <i>Elision</i><sub>opt</sub> <b>]</b></td>
     </tr>
     <tr>
@@ -21,14 +36,17 @@
     <tr>
         <td>&nbsp;</td><td><b>[</b> <i>DestructuringElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <b>]</b></td>
     </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>ObjectDestructuring</i></td>
+    </tr>
     <tr>
         <td>&nbsp;</td><td><b>{</b> <i>DestructuringFields</i><sub>opt</sub> <b>}</b></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><b>{</b> <i>DestructuringFields</i> <b>, }</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Destructuring</i> <i>NonNull</i> [lookahead ∉ <i>NonNull</i>]</td>
     </tr>
 </table>
 

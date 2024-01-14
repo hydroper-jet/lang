@@ -93,6 +93,7 @@
   - [With statement](statements/with-statement.md)
   - [Return statement](statements/return-statement.md)
   - [Throw statement](statements/throw-statement.md)
+  - [Try statement](statements/try-statement.md)
   - [Default XML namespace statement](statements/default-xml-namespace-statement.md)
 - [Directives](directives.md)
   - [Attributes](directives/attributes.md)

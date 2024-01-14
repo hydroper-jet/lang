@@ -1,5 +1,7 @@
 # Output directory
 
+This section describes facilities included in the language for working with the JetPM output directory.
+
 ## import.meta.outputDirectory
 
 The `import.meta.outputDirectory` expression evaluates to the JetPM output directory path. For reliability, the bytecode compiler must emit a special instruction for this expression instead of a string constant.
@@ -16,4 +18,12 @@ package com.khronos.opengl {
         public native function createContext(): void;
     }
 }
+```
+
+## Embedding files
+
+The `embed` expression supports embedding files from the JetPM output directory.
+
+```
+const data = embed "path/to/data.bin" from outputDirectory as ByteArray
 ```

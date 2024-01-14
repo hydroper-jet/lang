@@ -166,6 +166,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="output-directory"><a class="header" href="#output-directory">Output directory</a></h1>
+<p>This section describes facilities included in the language for working with the JetPM output directory.</p>
 <h2 id="importmetaoutputdirectory"><a class="header" href="#importmetaoutputdirectory">import.meta.outputDirectory</a></h2>
 <p>The <code>import.meta.outputDirectory</code> expression evaluates to the JetPM output directory path. For reliability, the bytecode compiler must emit a special instruction for this expression instead of a string constant.</p>
 <h2 id="meta-data-entries"><a class="header" href="#meta-data-entries">Meta data entries</a></h2>
@@ -177,6 +178,10 @@
         public native function createContext(): void;
     }
 }
+</code></pre>
+<h2 id="embedding-files"><a class="header" href="#embedding-files">Embedding files</a></h2>
+<p>The <code>embed</code> expression supports embedding files from the JetPM output directory.</p>
+<pre><code>const data = embed &quot;path/to/data.bin&quot; from outputDirectory as ByteArray
 </code></pre>
 
                     </main>

@@ -40,12 +40,24 @@ A function is a generator if it contains the `yield` operator.
 * Non asynchronous generators return `Generator.<T>`.
 * Asynchronous generators return `Generator.<Promise.<T>>`.
 
+```
+function f(): Number {
+    for (var i = 0; i < 10; ++i) yield i
+}
+```
+
 ## Asynchronous functions
 
 A function is asynchronous if it contains the `await` operator.
 
 * Non generator asynchronous functions return `Promise.<T>`.
 * Asynchronous generators return `Generator.<Promise.<T>>`.
+
+```
+async function f(): void {
+    await f1()
+}
+```
 
 ## Native functions
 

@@ -197,12 +197,20 @@
 <li>Non asynchronous generators return <code>Generator.&lt;T&gt;</code>.</li>
 <li>Asynchronous generators return <code>Generator.&lt;Promise.&lt;T&gt;&gt;</code>.</li>
 </ul>
+<pre><code>function f(): Number {
+    for (var i = 0; i &lt; 10; ++i) yield i
+}
+</code></pre>
 <h2 id="asynchronous-functions"><a class="header" href="#asynchronous-functions">Asynchronous functions</a></h2>
 <p>A function is asynchronous if it contains the <code>await</code> operator.</p>
 <ul>
 <li>Non generator asynchronous functions return <code>Promise.&lt;T&gt;</code>.</li>
 <li>Asynchronous generators return <code>Generator.&lt;Promise.&lt;T&gt;&gt;</code>.</li>
 </ul>
+<pre><code>async function f(): void {
+    await f1()
+}
+</code></pre>
 <h2 id="native-functions"><a class="header" href="#native-functions">Native functions</a></h2>
 <p>A function is native if it contains the <code>native</code> attribute.</p>
 <pre><code>native function f(): void;

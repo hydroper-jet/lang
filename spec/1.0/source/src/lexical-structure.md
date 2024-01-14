@@ -474,6 +474,7 @@ xml
 
 each
 enum
+from
 meta
 type
 

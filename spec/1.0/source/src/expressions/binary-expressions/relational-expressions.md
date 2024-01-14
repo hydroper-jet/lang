@@ -25,12 +25,6 @@
         <td>&nbsp;</td><td><i>RelationalExpression</i><sup>β</sup> <b>as</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sup>β</sup> <b>instanceof</b> <i>ShiftExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>RelationalExpression</i><sup>β</sup> <b>not instanceof</b> <i>ShiftExpression</i></td>
-    </tr>
-    <tr>
         <td>&nbsp;</td><td><i>RelationalExpression</i><sup>β</sup> <b>is</b> <i>ShiftExpression</i></td>
     </tr>
     <tr>

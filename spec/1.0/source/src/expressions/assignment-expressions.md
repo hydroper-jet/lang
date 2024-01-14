@@ -34,6 +34,6 @@
         <td>&nbsp;</td><td><i>ObjectDestructuring</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>PostfixExpression</i></td>
+        <td>&nbsp;</td><td><i>PostfixExpression</i> [but not <i>ArrayDestructuring</i> or <i>ObjectDestructuring</i>]</td>
     </tr>
 </table>

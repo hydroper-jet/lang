@@ -3,14 +3,23 @@
 The embed expression is used to embed static files in the program at compile time. It may be used to embed a file either as a `ByteArray` object or as an UTF-8 encoded `String` text.
 
 ```
-const text = embed "path/to/data.txt" as String
-const byteArray = embed "path/to/data.bin" as ByteArray
+const text = embed {
+    source: "path/to/data.txt",
+    type: String,
+}
+const byteArray = embed {
+    source: "path/to/data.bin",
+    type: ByteArray,
+}
 ```
 
-The embed expression allows resolving files from the JetPM output directory by using the `from` clause:
+The embed expression allows resolving files from the JetPM output directory:
 
 ```
-const byteArray = embed "path/to/data.bin" from outputDirectory as ByteArray
+const byteArray = embed {
+    source: File(output, "path/to/data.bin"),
+    type: ByteArray,
+}
 ```
 
 **Syntax**
@@ -20,36 +29,19 @@ const byteArray = embed "path/to/data.bin" from outputDirectory as ByteArray
         <td colspan="2"><i>EmbedExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>embed</b> <i>StringLiteral</i> <i>EmbedPostfixes</i></td>
+        <td>&nbsp;</td><td><b>embed</b> <i>ObjectInitializer</i></td>
     </tr>
+</table>
 </table>
 
-<table>
-    <tr>
-        <td colspan="2"><i>EmbedPostfixes</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td>[lookahead ∉ { <b>as</b>, <b>from</b> }]</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>EmbedFromPostfix</i><sub>opt</sub> <i>EmbedAsPostfix</i><sub>opt</sub></td>
-    </tr>
-</table>
+**Semantics**
 
-<table>
-    <tr>
-        <td colspan="2"><i>EmbedFromPostfix</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>from</b> <i>IdentifierName</i></td>
-    </tr>
-</table>
+The *ObjectInitializer* is read as a compile-time description pointing to a file as the `source` property and its result type as the `type` property. The result type must be either `String` or `ByteArray`.
 
-<table>
-    <tr>
-        <td colspan="2"><i>EmbedAsPostfix</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>as</b> <i>TypeExpression</i></td>
-    </tr>
-</table>
+* A result type of `String` indicates that the file is read as an UTF-8 encoded text.
+* A result type of `ByteArray` indicates that the file is read as binary data.
+
+The `source` property of *ObjectInitializer* may be specified in one of the following forms:
+
+* A *StringLiteral* resolving to a file relative to the file path of the program
+* A `File(output, "path/to/file")` form resolving to a file relative to the JetPM output directory

@@ -167,11 +167,20 @@
                     <main>
                         <h1 id="embed-expression"><a class="header" href="#embed-expression">Embed expression</a></h1>
 <p>The embed expression is used to embed static files in the program at compile time. It may be used to embed a file either as a <code>ByteArray</code> object or as an UTF-8 encoded <code>String</code> text.</p>
-<pre><code>const text = embed &quot;path/to/data.txt&quot; as String
-const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray
+<pre><code>const text = embed {
+    source: &quot;path/to/data.txt&quot;,
+    type: String,
+}
+const byteArray = embed {
+    source: &quot;path/to/data.bin&quot;,
+    type: ByteArray,
+}
 </code></pre>
-<p>The embed expression allows resolving files from the JetPM output directory by using the <code>from</code> clause:</p>
-<pre><code>const byteArray = embed &quot;path/to/data.bin&quot; from outputDirectory as ByteArray
+<p>The embed expression allows resolving files from the JetPM output directory:</p>
+<pre><code>const byteArray = embed {
+    source: File(output, &quot;path/to/data.bin&quot;),
+    type: ByteArray,
+}
 </code></pre>
 <p><strong>Syntax</strong></p>
 <table>
@@ -179,36 +188,22 @@ const byteArray = embed &quot;path/to/data.bin&quot; as ByteArray
         <td colspan="2"><i>EmbedExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>embed</b> <i>StringLiteral</i> <i>EmbedPostfixes</i></td>
+        <td>&nbsp;</td><td><b>embed</b> <i>ObjectInitializer</i></td>
     </tr>
 </table>
-<table>
-    <tr>
-        <td colspan="2"><i>EmbedPostfixes</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td>[lookahead ∉ { <b>as</b>, <b>from</b> }]</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>EmbedFromPostfix</i><sub>opt</sub> <i>EmbedAsPostfix</i><sub>opt</sub></td>
-    </tr>
 </table>
-<table>
-    <tr>
-        <td colspan="2"><i>EmbedFromPostfix</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>from</b> <i>IdentifierName</i></td>
-    </tr>
-</table>
-<table>
-    <tr>
-        <td colspan="2"><i>EmbedAsPostfix</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>as</b> <i>TypeExpression</i></td>
-    </tr>
-</table>
+<p><strong>Semantics</strong></p>
+<p>The <em>ObjectInitializer</em> is read as a compile-time description pointing to a file as the <code>source</code> property and its result type as the <code>type</code> property. The result type must be either <code>String</code> or <code>ByteArray</code>.</p>
+<ul>
+<li>A result type of <code>String</code> indicates that the file is read as an UTF-8 encoded text.</li>
+<li>A result type of <code>ByteArray</code> indicates that the file is read as binary data.</li>
+</ul>
+<p>The <code>source</code> property of <em>ObjectInitializer</em> may be specified in one of the following forms:</p>
+<ul>
+<li>A <em>StringLiteral</em> resolving to a file relative to the file path of the program</li>
+<li>A <code>File(output, &quot;path/to/file&quot;)</code> form resolving to a file relative to the JetPM output directory</li>
+</ul>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

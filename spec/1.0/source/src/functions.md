@@ -54,7 +54,7 @@ A function is asynchronous if it contains the `await` operator.
 * Asynchronous generators return `Generator.<Promise.<T>>`.
 
 ```
-async function f(): void {
+function f(): void {
     await f1()
 }
 ```

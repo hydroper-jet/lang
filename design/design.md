@@ -229,10 +229,6 @@ f.toggle("f0").filter("f0")
 "f0" in f
 ```
 
-# Embed
-
-`embed` is a context keyword as in `embed "./f.txt"`.
-
 # Inheritance
 
 The language supports single-class inheritance as in ActionScript, featuring:

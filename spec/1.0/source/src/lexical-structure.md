@@ -419,8 +419,8 @@ is
 for
 new
 not
-use
 try
+use
 var
 
 case
@@ -460,6 +460,7 @@ internal
 
 interface
 protected
+undefined
 
 implements
 ```
@@ -487,7 +488,6 @@ abstract
 override
 
 namespace
-undefined
 
 configuration
 ```

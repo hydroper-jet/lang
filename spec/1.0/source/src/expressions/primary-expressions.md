@@ -7,6 +7,9 @@
         <td colspan="2"><i>PrimaryExpression</i></td>
     </tr>
     <tr>
+        <td>&nbsp;</td><td><i>UndefinedLiteral</i></td>
+    </tr>
+    <tr>
         <td>&nbsp;</td><td><i>BooleanLiteral</i></td>
     </tr>
     <tr>
@@ -41,6 +44,15 @@
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>EmbedExpression</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>UndefinedLiteral</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>undefined</b></td>
     </tr>
 </table>
 

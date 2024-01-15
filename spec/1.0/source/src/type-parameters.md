@@ -1,6 +1,6 @@
 # Type parameters
 
-The language supports type parameterized types and functions attached 
+The language supports type parameterized types and functions. 
 
 ```
 class C.<T> {}

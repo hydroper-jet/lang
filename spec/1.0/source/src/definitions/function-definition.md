@@ -7,7 +7,7 @@
         <td colspan="2"><i>FunctionDefinition</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>function</b> <i>FunctionName</i> <i>FunctionCommon</i></td>
+        <td>&nbsp;</td><td><b>function</b> <i>FunctionName</i> <i>TypeParameters</i><sub>opt</sub> <i>FunctionCommon</i></td>
     </tr>
 </table>
 
@@ -28,6 +28,8 @@ A *FunctionDefinition* may be modified by the following attributes:
 | `protected`     | Uses the `protected` visibility |
 | `internal`      | Uses the `internal` visibility (default) |
 | `[Test]`        | Designates a test function. |
+
+A getter or setter function must not contain *TypeParameters*.
 
 **Syntax**
 

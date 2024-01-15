@@ -28,7 +28,7 @@
   - [Getters and setters](functions/getters-and-setters.md)
   - [Constructors](functions/constructors.md)
   - [Proxies](functions/proxies.md)
-- [Generics](generics.md)
+- [Type parameters](type-parameters.md)
 - [Meta-data](metadata.md)
   - [Reserved meta-data](metadata/reserved-metadata.md)
   - [Decorator meta-data](metadata/decorator-metadata.md)

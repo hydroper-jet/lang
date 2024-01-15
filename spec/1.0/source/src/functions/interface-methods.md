@@ -2,9 +2,15 @@
 
 An interface method is an instance method belonging to an interface.
 
+```
+interface I {
+    function f(): void
+}
+```
+
 ## Optional interface method
 
-A function that is an interface method may be optional.
+A function that is an interface method may be optional by specifying its body.
 
 ```
 interface I {

@@ -10,7 +10,7 @@ Functions consist of the following internal properties:
 | \[\[*Signature*\]\] | A static function type describing the function signature. |
 | \[\[*Visibility*\]\] | The [visibility](visibility.md) of the function. |
 | \[\[*ParentDefinition*\]\] | The parent definition of the function. |
-| \[\[*TypeParameters*\]\] | The type parameter sequence of the function if it is generic. |
+| \[\[*TypeParameters*\]\] | The type parameter sequence of the function if it is type parameterized. |
 | \[\[*IsGenerator*\]\] | Indicates whether the function is a generator. |
 | \[\[*IsAsync*\]\] | Indicates whether the function is asynchronous. |
 | \[\[*IsNative*\]\] | Indicates whether the function is native. |
@@ -25,9 +25,9 @@ Functions consist of the following internal properties:
 
 When the parent definition of a function is a package, the function has a fully package qualified name.
 
-## Generics
+## Type parameters
 
-A function may be [generic](generics.md):
+A function may be [type parameterized](type-parameters.md):
 
 ```
 function f.<T>(): void {}

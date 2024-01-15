@@ -1,6 +1,6 @@
-# Generics
+# Type parameters
 
-The language supports generic types and functions attached with a sequence of type parameters. 
+The language supports type parameterized types and functions attached 
 
 ```
 class C.<T> {}
@@ -41,7 +41,7 @@ function f.<T>(): void {}
 
 ## Polymorphism
 
-The language uses polymorphism for generic types and functions, but certain implementations are allowed to not use polymorphism for the `Array` class applied with a [primitive type](types.md#primitive-types) such as a number type. With polymorphism, type parameters are substituted in runtime by the `*` type in most implementations and additional compile-time type checking occurs when using the generic type or function.
+The language uses polymorphism for type parameterized types and functions, but certain implementations are allowed to not use polymorphism for the `Array` class applied with a [primitive type](types.md#primitive-types) such as a number type. With polymorphism, type parameters are substituted in runtime by the `*` type in most implementations and additional compile-time type checking occurs when using the type parameterized type or function.
 
 ## Constraints
 

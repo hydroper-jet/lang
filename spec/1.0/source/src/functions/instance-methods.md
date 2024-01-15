@@ -2,6 +2,12 @@
 
 An instance method is a non static function directly enclosed by a `class`, `enum` or `interface` block.
 
+```
+class C {
+    function f(): void {}
+}
+```
+
 ## Abstract methods
 
 An abstract method contains the `abstract` attribute.

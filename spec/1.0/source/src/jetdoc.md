@@ -136,6 +136,8 @@ The `@see` tag references a definition, with optional display text.
  */
 ```
 
+A `#name` sequence in the end of a reference indicates an instance property or method.
+
 The reference inherits the surrounding scope.
 
 ## @throws

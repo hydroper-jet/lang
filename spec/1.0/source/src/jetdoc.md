@@ -61,6 +61,12 @@ The `@eventConstant` tag supplements the `@event` tag by specifying a constant t
 
 The constant reference inherits the surrounding scope.
 
+## @eventType
+
+The `@eventType` tag supplements the `@event` tag by specifying the object type of the event.
+
+The type reference inherits the surrounding scope.
+
 ## @example
 
 ```

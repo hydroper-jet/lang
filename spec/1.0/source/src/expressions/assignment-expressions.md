@@ -21,6 +21,9 @@
     <tr>
         <td>&nbsp;</td><td><i>PostfixExpression</i> <i>CompoundAssignmentPunctuator</i> <i>AssignmentExpression</i><sup>β</sup></td>
     </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>PostfixExpression</i> <n>/=</b> <i>AssignmentExpression</i><sup>β</sup></td>
+    </tr>
 </table>
 
 <table>

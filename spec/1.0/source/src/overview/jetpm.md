@@ -1,4 +1,4 @@
-# JetPM package manager
+# Package management
 
 The language coworks with JetPM, a package manager that supports a standard build system, conditional compilation, and workspaces.
 

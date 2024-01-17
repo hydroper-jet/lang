@@ -2,8 +2,8 @@
 
 - [Overview](overview.md)
   - [Example programs](overview/example-programs.md)
-  - [JetPM package manager](overview/jetpm.md)
-  - [JetDoc documentation tool](overview/jetdoc.md)
+  - [Package management](overview/jetpm.md)
+  - [Documentation tool](overview/jetdoc.md)
   - [Compilation and transpilation](overview/compilation.md)
   - [Conditional compilation](overview/conditional-compilation.md)
   - [String encoding](overview/string-encoding.md)

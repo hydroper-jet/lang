@@ -1,4 +1,4 @@
-# JetDoc documentation tool
+# Documentation tool
 
 JetDoc is an API documentation tool that coworks with the Jet language.
 

@@ -13,13 +13,13 @@
 /* Themes */
 
 .ayu, .coal, .light, .navy, .rust {
-    --bg: #c5d5ff;
-    --fg: #222;
+    --bg: #454545;
+    --fg: #fff;
 
     --sidebar-bg: var(--bg);
     --sidebar-fg: var(--fg);
     --sidebar-non-existant: #505274;
-    --sidebar-active: #0d7485;
+    --sidebar-active: var(--links);
     --sidebar-spacer: #2d334f;
 
     --scrollbar: var(--sidebar-fg);
@@ -27,21 +27,21 @@
     --icons: var(--fg);
     --icons-hover: var(--fg);
 
-    --links: #154f78;
+    --links: #99f;
 
-    --inline-code-color: #222;
+    --inline-code-color: #fff;
 
     --theme-popup-bg: #9a9cd9;
     --theme-popup-border: #7072c5;
     --theme-hover: #aaa;
 
-    --quote-bg: #c2cda1;
+    --quote-bg: #773;
     --quote-border: #c2cda1;
 
-    --table-border-color: #717995;
-    --table-header-bg: #7b82a9;
-    --table-odd-bg: #9096b5;
-    --table-even-bg: #8389a7;
+    --table-border-color: #777;
+    --table-header-bg: #555;
+    --table-odd-bg: #555;
+    --table-even-bg: #444;
 
     --searchbar-border-color: #000;
     --searchbar-bg: #fff;

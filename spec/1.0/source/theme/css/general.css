@@ -10,7 +10,7 @@
 html {
     font-family: Cambria, Palatino Linotype, Palatino, Liberation Serif, serif;
     color: var(--fg);
-    background: var(--bg);
+    background: linear-gradient(-180deg,#6e6e95 0,#454545 35%) fixed;
     text-size-adjust: none;
     -webkit-text-size-adjust: none;
 }

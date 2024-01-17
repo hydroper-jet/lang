@@ -1,7 +1,3 @@
-<p align="center">
-  <img alt="Jet Icon" src="assets/icon.png" width="100">
-</p>
-
 # Overview
 
 Jet is a flexible scripting language influenced by ActionScript.

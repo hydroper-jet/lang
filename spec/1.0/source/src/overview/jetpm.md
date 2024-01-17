@@ -1,6 +1,6 @@
 # Package management
 
-The language coworks with JetPM, a package manager that supports a standard build system, conditional compilation, and workspaces.
+The language coworks with JetPM, a package manager that supports a Jet build system, conditional compilation, and workspaces.
 
 JetPM requires a package to belong to a *registry namespace*.
 

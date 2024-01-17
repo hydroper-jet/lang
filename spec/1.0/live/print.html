@@ -193,7 +193,7 @@ function heron(a: Number, b: Number, c: Number): Number {
 trace(heron(5, 6, 7))
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="package-management"><a class="header" href="#package-management">Package management</a></h1>
-<p>The language coworks with JetPM, a package manager that supports a standard build system, conditional compilation, and workspaces.</p>
+<p>The language coworks with JetPM, a package manager that supports a Jet build system, conditional compilation, and workspaces.</p>
 <p>JetPM requires a package to belong to a <em>registry namespace</em>.</p>
 <h2 id="build-system"><a class="header" href="#build-system">Build system</a></h2>
 <p>The package manifest locates Jet source files, enabling JetPM to build a project through a concise command such as <code>jetpm build</code>, resulting into a bytecode artifact.</p>
@@ -338,7 +338,7 @@ jetpm build --define air::target=ios
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compilation-and-transpilation"><a class="header" href="#compilation-and-transpilation">Compilation and transpilation</a></h1>
-<p>Jet compiles to the Jet Bytecode (JBC), which, in turn, can be compiled to other languages or be executed by a virtual machine.</p>
+<p>Jet compiles to the Jet Bytecode. Jet Bytecode can be compiled to other languages or be executed by a virtual machine.</p>
 <p>Jet can be both compiled to native code or transpiled to another object-oriented high-level language.</p>
 <h2 id="number-overflow"><a class="header" href="#number-overflow">Number overflow</a></h2>
 <p>Operations whose result cannot be represented due to range limit cause a number overflow, such as <code>Int.MAX_VALUE + 1</code>. The result of a number overflow is implementation defined.</p>

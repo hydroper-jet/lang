@@ -1,6 +1,6 @@
 # Compilation and transpilation
 
-Jet compiles to the Jet Bytecode (JBC), which, in turn, can be compiled to other languages or be executed by a virtual machine.
+Jet compiles to the Jet Bytecode. Jet Bytecode can be compiled to other languages or be executed by a virtual machine.
 
 Jet can be both compiled to native code or transpiled to another object-oriented high-level language.
 

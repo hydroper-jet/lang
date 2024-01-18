@@ -3,7 +3,7 @@
 ## Interning
 
 * Certain kinds of instances have to be interned manually. For ActionScript, primitives need not be interned manually.
-  * `Optional.<P>` where `P` is a primitive type
+  * `P?` where `P` is a primitive type
   * `Char`
   * `CharIndex`
 

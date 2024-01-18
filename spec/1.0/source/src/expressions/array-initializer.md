@@ -50,9 +50,9 @@
 The verification for the array initializer requires a context type. The array initializer may be used to initialize the following context types:
 
 * `*`
-* `Object` or `Optional.<Object>`
+* `Object` or `Object?`
 * `T` or `T?` where `T` is a tuple type
 * `C` or `C?` where `C` is the `Array` type
 * `E` or `E?` where `E` is a Set `enum`
 
-Initializing a context type that is one of { `*`, `Object`, `Optional.<Object>` } results into an `Array.<*>` object.
+Initializing a context type that is one of { `*`, `Object`, `Object?` } results into an `Array.<*>` object.

@@ -238,18 +238,18 @@
 <p><strong>Verification</strong></p>
 <p><i>PrimaryExpression</i> : <i>NumericLiteral</i></p>
 <ul>
-<li>If the context type is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type, return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the context type.</li>
+<li>If the context type is <code>N</code> or <code>N?</code> where <code>N</code> is a number type, return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the context type.</li>
 <li>Return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the <code>Number</code> type.</li>
 </ul>
 <p><i>PrimaryExpression</i> : <i>StringLiteral</i></p>
 <ul>
-<li>If the context type is <code>Char</code> or <code>Optional.&lt;Char&gt;</code>
+<li>If the context type is <code>Char</code> or <code>Char?</code>
 <ul>
 <li>It is a verify error if the string value of <i>StringLiteral</i> does not consist of a single Unicode Scalar Value.</li>
 <li>Return a <code>Char</code> constant of the context type whose value is the first Unicode Scalar Value of the <i>StringLiteral</i> string value.</li>
 </ul>
 </li>
-<li>If the context type is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is an <code>enum</code>
+<li>If the context type is <code>E</code> or <code>E?</code> where <code>E</code> is an <code>enum</code>
 <ul>
 <li>Let <em>s</em> be the string value of <i>StringLiteral</i>.</li>
 <li>It is a verify error if <code>E</code> contains no <code>enum</code> member with a string equals <em>s</em>.</li>

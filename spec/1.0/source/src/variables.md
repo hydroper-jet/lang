@@ -64,7 +64,7 @@ Optional variables do not need to be specified when using an object initializer:
 ```
 [Literal]
 public class C {
-    public const x: Optional.<Number>;
+    public const x: Number?;
 }
 const o: C = {};
 ```

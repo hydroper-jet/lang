@@ -2069,7 +2069,7 @@ const x: T;
 <p>Optional variables do not need to be specified when using an object initializer:</p>
 <pre><code>[Literal]
 public class C {
-    public const x: Optional.&lt;Number&gt;;
+    public const x: Number?;
 }
 const o: C = {};
 </code></pre>
@@ -3461,18 +3461,18 @@ EXAMPLE=value
 <p><strong>Verification</strong></p>
 <p><i>PrimaryExpression</i> : <i>NumericLiteral</i></p>
 <ul>
-<li>If the context type is <code>N</code> or <code>Optional.&lt;N&gt;</code> where <code>N</code> is a number type, return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the context type.</li>
+<li>If the context type is <code>N</code> or <code>N?</code> where <code>N</code> is a number type, return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the context type.</li>
 <li>Return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the <code>Number</code> type.</li>
 </ul>
 <p><i>PrimaryExpression</i> : <i>StringLiteral</i></p>
 <ul>
-<li>If the context type is <code>Char</code> or <code>Optional.&lt;Char&gt;</code>
+<li>If the context type is <code>Char</code> or <code>Char?</code>
 <ul>
 <li>It is a verify error if the string value of <i>StringLiteral</i> does not consist of a single Unicode Scalar Value.</li>
 <li>Return a <code>Char</code> constant of the context type whose value is the first Unicode Scalar Value of the <i>StringLiteral</i> string value.</li>
 </ul>
 </li>
-<li>If the context type is <code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is an <code>enum</code>
+<li>If the context type is <code>E</code> or <code>E?</code> where <code>E</code> is an <code>enum</code>
 <ul>
 <li>Let <em>s</em> be the string value of <i>StringLiteral</i>.</li>
 <li>It is a verify error if <code>E</code> contains no <code>enum</code> member with a string equals <em>s</em>.</li>
@@ -3581,12 +3581,12 @@ EXAMPLE=value
 <p>The verification for the object initializer requires a context type. The object initializer may be used to initialize the following context types:</p>
 <ul>
 <li><code>*</code></li>
-<li><code>Object</code> or <code>Optional.&lt;Object&gt;</code></li>
-<li><code>M</code> or <code>Optional.&lt;M&gt;</code> where <code>M</code> is the <code>Map</code> type</li>
-<li><code>E</code> or <code>Optional.&lt;E&gt;</code> where <code>E</code> is a Set <code>enum</code></li>
-<li><code>C</code> or <code>Optional.&lt;C&gt;</code> where <code>C</code> is a <code>class</code> and <code>C</code>[[<em>AllowLiteral</em>]] is true</li>
+<li><code>Object</code> or <code>Object?</code></li>
+<li><code>M</code> or <code>M?</code> where <code>M</code> is the <code>Map</code> type</li>
+<li><code>E</code> or <code>E?</code> where <code>E</code> is a Set <code>enum</code></li>
+<li><code>C</code> or <code>C?</code> where <code>C</code> is a <code>class</code> and <code>C</code>[[<em>AllowLiteral</em>]] is true</li>
 </ul>
-<p>Initializing a context type that is one of { <code>*</code>, <code>Object</code>, <code>Optional.&lt;Object&gt;</code> } results into a <code>Map.&lt;*, *&gt;</code> object.</p>
+<p>Initializing a context type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into a <code>Map.&lt;*, *&gt;</code> object.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="array-initializer"><a class="header" href="#array-initializer">Array initializer</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
@@ -3634,12 +3634,12 @@ EXAMPLE=value
 <p>The verification for the array initializer requires a context type. The array initializer may be used to initialize the following context types:</p>
 <ul>
 <li><code>*</code></li>
-<li><code>Object</code> or <code>Optional.&lt;Object&gt;</code></li>
+<li><code>Object</code> or <code>Object?</code></li>
 <li><code>T</code> or <code>T?</code> where <code>T</code> is a tuple type</li>
 <li><code>C</code> or <code>C?</code> where <code>C</code> is the <code>Array</code> type</li>
 <li><code>E</code> or <code>E?</code> where <code>E</code> is a Set <code>enum</code></li>
 </ul>
-<p>Initializing a context type that is one of { <code>*</code>, <code>Object</code>, <code>Optional.&lt;Object&gt;</code> } results into an <code>Array.&lt;*&gt;</code> object.</p>
+<p>Initializing a context type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into an <code>Array.&lt;*&gt;</code> object.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="xml-initializers"><a class="header" href="#xml-initializers">XML initializers</a></h1>
 <p><strong>Syntax</strong></p>
 <table>

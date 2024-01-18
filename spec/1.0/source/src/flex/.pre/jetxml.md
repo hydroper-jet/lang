@@ -131,23 +131,23 @@ The internal *AssignJetXMLExpressionAttribute*(*comp*, *scope*, *p*, *t*, XML at
 
 The internal *AssignJetXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
-1. If *t* is `N` or `Optional.<N>` where `N` is a number type
+1. If *t* is `N` or `N?` where `N` is a number type
     1. Assign *AttributeValueToNumber*(*v*, `N`) to *p* where *v* is the attribute value.
     2. Exit function
-2. If *t* is `Boolean` or `Optional.<Boolean>` and the attribute value is `false` or `true`, 
+2. If *t* is `Boolean` or `Boolean?` and the attribute value is `false` or `true`, 
     1. Assign the equivalent boolean constant of that attribute value to *p*.
     2. Exit function
-3. If *t* is `Char` or `Optional.<Char>`
+3. If *t* is `Char` or `Char?`
     1. Assert that the attribute value consists of one character.
     2. Assign the first Unicode Code Point of the attribute value to *p*.
     3. Exit function
-4. If *t* is `String` or `Optional.<String>`
+4. If *t* is `String` or `String?`
     1. Assign the attribute value to *p*.
     2. Exit function
-5. If *t* is `E` or `Optional.<E>` where `E` is a non Set `enum`
+5. If *t* is `E` or `E?` where `E` is a non Set `enum`
     1. Assert that the attribute value identifies a member of the `enum` by its string component and assign such member to *p*.
     2. Exit function
-6. If *t* is `E` or `Optional.<E>` where `E` is a Set `enum`.
+6. If *t* is `E` or `E?` where `E` is a Set `enum`.
     1. Assert that the attribute value is a comma-separated list identifying one or more members of the `enum` by their string components.
     2. Assign such members to *p*.
     3. Exit function

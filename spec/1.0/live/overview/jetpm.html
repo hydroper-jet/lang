@@ -167,7 +167,7 @@
                     <main>
                         <h1 id="package-management"><a class="header" href="#package-management">Package management</a></h1>
 <p>The language coworks with JetPM, a package manager that supports a Jet build system, conditional compilation, and workspaces.</p>
-<p>JetPM requires a package to belong to a <em>registry namespace</em>.</p>
+<p>A JetPM package belongs to a <em>platform</em>.</p>
 <h2 id="build-system"><a class="header" href="#build-system">Build system</a></h2>
 <p>The package manifest locates Jet source files, enabling JetPM to build a project through a concise command such as <code>jetpm build</code>, resulting into a bytecode artifact.</p>
 <p>Here is an example package manifest:</p>
@@ -175,27 +175,28 @@
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;com.x.y&quot;,
     &quot;version&quot;: &quot;0.1.0&quot;,
-    &quot;registryNamespace&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
+    &quot;platform&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
     &quot;compilerOptions&quot;: {
         &quot;includeSources&quot;: [&quot;src&quot;]
     }
 }
 </code></pre>
-<h2 id="registry-namespaces"><a class="header" href="#registry-namespaces">Registry namespaces</a></h2>
-<p>Registry namespaces are required to distinguish platforms on which the Jet program executes. Platforms may have incompatible implementations, such as regular expressions, or lacking implementations of certain functions, therefore sharing packages between platforms is not allowed in JetPM.</p>
-<p>The package manifest's top-level <code>registryNamespace</code> option is required and indicates the registry namespace to which the package belongs as well as the namespace on which dependencies are found in the package registry.</p>
-<p>Here is an example of a potential package manifest that uses <code>http://ns.airsdk.dev/2008</code> as its registry namespace:</p>
+<h2 id="platforms"><a class="header" href="#platforms">Platforms</a></h2>
+<p>Platforms may have incompatible runtime implementations, such as regular expressions, or lacking implementations of certain functions and semantics, therefore sharing packages with different platforms is not possible in JetPM.</p>
+<p>The package manifest's top-level <code>platform</code> option is required and indicates the platform to which the package belongs as well as the namespace on which dependencies are found in the package registry.</p>
+<p>Here is an example of a potential package manifest that uses <code>http://ns.airsdk.dev/2008</code> as its platform:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;com.x.y&quot;,
     &quot;version&quot;: &quot;0.1.0&quot;,
-    &quot;registryNamespace&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
+    &quot;platform&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
     &quot;dependencies&quot;: {
         &quot;goog.firebase&quot;: &quot;1.0.0&quot;
     }
 }
 </code></pre>
-<p>Note that registry namespaces are defined internally in the registry and may not be arbitrary. Registry namespaces are available as platforms are supported.</p>
+<p>Supported platforms may be installed through <code>jetpm platform install &quot;uri&quot;</code>. If the URI uses a <code>file:</code> scheme it locates an user platform in the development device.</p>
+<p>Platforms either use the regular Jet Compiler or a subset of the Jet Compiler that is able to compile source files other than the <code>.jet</code> extension.</p>
 <h2 id="conditional-compilation"><a class="header" href="#conditional-compilation">Conditional compilation</a></h2>
 <p>The JetPM build system receives <em>constants</em> supplied by build commands, which may be used with <a href="conditional-compilation.html">conditional compilation</a>.</p>
 <pre><code class="language-plain">jetpm build --define myConstant
@@ -215,7 +216,7 @@ jetpm build --define q::myConstant=10
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;com.x.y&quot;,
     &quot;version&quot;: &quot;0.1.0&quot;,
-    &quot;registryNamespace&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
+    &quot;platform&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
     &quot;configuration&quot;: [
         [&quot;always&quot;, {
             &quot;compilerOptions&quot;: {
@@ -246,14 +247,14 @@ jetpm build --define air::target=ios
 </code></pre>
 <h2 id="scripts"><a class="header" href="#scripts">Scripts</a></h2>
 <p>The package manifest allows mapping of executable scripts, as well as their dependencies.</p>
-<p>Scripts are executed in the Node.js® platform; therefore they implicitly use the <code>http://ns.nodejs.org/2009</code> registry namespace.</p>
+<p>Scripts are executed in the Node.js® platform; therefore they implicitly use the <code>http://ns.nodejs.org/2009</code> platform.</p>
 <p>JetPM constants are propagated from the containing package to the script, allowing equivalent conditional compilation in the script sources.</p>
 <p><em>Build script</em>: The <code>build</code> script is automatically executed before the Jet project is built. Here is an example manifest demonstrating the special <code>build</code> script:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;com.x.y&quot;,
     &quot;version&quot;: &quot;0.1.0&quot;,
-    &quot;registryNamespace&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
+    &quot;platform&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
     &quot;scripts&quot;: {
         &quot;build&quot;: {
             &quot;compilerOptions&quot;: {
@@ -278,7 +279,7 @@ jetpm build --define air::target=ios
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;com.x.z&quot;,
     &quot;version&quot;: &quot;0.1.0&quot;,
-    &quot;registryNamespace&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
+    &quot;platform&quot;: &quot;http://ns.airsdk.dev/2008&quot;,
     &quot;dependencies&quot;: {
         &quot;com.x.y&quot;: &quot;file:../com.x.y&quot;
     }

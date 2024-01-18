@@ -37,14 +37,14 @@ Unlike ECMAScript, the `in` operator is not property-tied: it always uses the `h
 
 The `in` operator does not consider the prototype inheritance model of ECMAScript.
 
-# Package (registry namespace)
+# Package (platform)
 
-A package manifest specifies dependencies by a *registry namespace*. The registry namespace "http://ns.w3.org/web" is used for websites or web applications.
+A package manifest specifies dependencies from a single *platform*.
 
 ```json
 {
     "id": "org.q.f",
-    "registryNamespace": "http://ns.w3.org/web",
+    "platform": "http://ns.w3.org/web",
     "dependencies": {
         "goog.g": "1.0.0"
     }

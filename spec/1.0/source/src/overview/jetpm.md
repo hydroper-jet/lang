@@ -2,7 +2,7 @@
 
 The language coworks with JetPM, a package manager that supports a Jet build system, conditional compilation, and workspaces.
 
-JetPM requires a package to belong to a *registry namespace*.
+A JetPM package belongs to a *platform*.
 
 ## Build system
 
@@ -16,20 +16,20 @@ Here is an example package manifest:
 {
     "id": "com.x.y",
     "version": "0.1.0",
-    "registryNamespace": "http://ns.airsdk.dev/2008",
+    "platform": "http://ns.airsdk.dev/2008",
     "compilerOptions": {
         "includeSources": ["src"]
     }
 }
 ```
 
-## Registry namespaces
+## Platforms
 
-Registry namespaces are required to distinguish platforms on which the Jet program executes. Platforms may have incompatible implementations, such as regular expressions, or lacking implementations of certain functions, therefore sharing packages between platforms is not allowed in JetPM.
+Platforms may have incompatible runtime implementations, such as regular expressions, or lacking implementations of certain functions and semantics, therefore sharing packages with different platforms is not possible in JetPM.
 
-The package manifest's top-level `registryNamespace` option is required and indicates the registry namespace to which the package belongs as well as the namespace on which dependencies are found in the package registry.
+The package manifest's top-level `platform` option is required and indicates the platform to which the package belongs as well as the namespace on which dependencies are found in the package registry.
 
-Here is an example of a potential package manifest that uses `http://ns.airsdk.dev/2008` as its registry namespace:
+Here is an example of a potential package manifest that uses `http://ns.airsdk.dev/2008` as its platform:
 
 **package.json**
 
@@ -37,14 +37,16 @@ Here is an example of a potential package manifest that uses `http://ns.airsdk.d
 {
     "id": "com.x.y",
     "version": "0.1.0",
-    "registryNamespace": "http://ns.airsdk.dev/2008",
+    "platform": "http://ns.airsdk.dev/2008",
     "dependencies": {
         "goog.firebase": "1.0.0"
     }
 }
 ```
 
-Note that registry namespaces are defined internally in the registry and may not be arbitrary. Registry namespaces are available as platforms are supported.
+Supported platforms may be installed through `jetpm platform install "uri"`. If the URI uses a `file:` scheme it locates an user platform in the development device.
+
+Platforms either use the regular Jet Compiler or a subset of the Jet Compiler that is able to compile source files other than the `.jet` extension.
 
 ## Conditional compilation
 
@@ -73,7 +75,7 @@ Here is an example package manifest using the `configuration` setting:
 {
     "id": "com.x.y",
     "version": "0.1.0",
-    "registryNamespace": "http://ns.airsdk.dev/2008",
+    "platform": "http://ns.airsdk.dev/2008",
     "configuration": [
         ["always", {
             "compilerOptions": {
@@ -110,7 +112,7 @@ jetpm build --define air::target=ios
 
 The package manifest allows mapping of executable scripts, as well as their dependencies.
 
-Scripts are executed in the Node.js® platform; therefore they implicitly use the `http://ns.nodejs.org/2009` registry namespace.
+Scripts are executed in the Node.js® platform; therefore they implicitly use the `http://ns.nodejs.org/2009` platform.
 
 JetPM constants are propagated from the containing package to the script, allowing equivalent conditional compilation in the script sources.
 
@@ -122,7 +124,7 @@ JetPM constants are propagated from the containing package to the script, allowi
 {
     "id": "com.x.y",
     "version": "0.1.0",
-    "registryNamespace": "http://ns.airsdk.dev/2008",
+    "platform": "http://ns.airsdk.dev/2008",
     "scripts": {
         "build": {
             "compilerOptions": {
@@ -156,7 +158,7 @@ A member package may depend in another member package by using a `file:` URL:
 {
     "id": "com.x.z",
     "version": "0.1.0",
-    "registryNamespace": "http://ns.airsdk.dev/2008",
+    "platform": "http://ns.airsdk.dev/2008",
     "dependencies": {
         "com.x.y": "file:../com.x.y"
     }

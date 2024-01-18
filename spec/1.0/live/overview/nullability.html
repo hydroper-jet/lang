@@ -168,7 +168,7 @@
                         <h1 id="nullability"><a class="header" href="#nullability">Nullability</a></h1>
 <p>The <code>T?</code> type is the primary way of working with nullable data.</p>
 <ul>
-<li>The nullish coalescing operator returns the right operand if the left operand is <code>undefined</code>.</li>
+<li>The nullish coalescing operator returns the right operand if the left operand is <code>null</code>.</li>
 </ul>
 <pre><code>public class ExampleClass {
     public const data: Number?;
@@ -180,18 +180,18 @@
     );
 }
 // 0
-trace(new ExampleClass(undefined).doubleIt().data);
+trace(new ExampleClass(null).doubleIt().data);
 // 20
 trace(new ExampleClass(10).doubleIt().data);
 </code></pre>
 <ul>
-<li>The non-null operator ensures the operand is not <code>undefined</code>.</li>
+<li>The non-null operator ensures the operand is not <code>null</code>.</li>
 </ul>
 <pre><code>// TypeError
-trace(new ExampleClass(undefined).data!);
+trace(new ExampleClass(null).data!);
 </code></pre>
 <ul>
-<li>The optional chaining operator returns <code>undefined</code> if the base object is <code>undefined</code>.</li>
+<li>The optional chaining operator returns <code>null</code> if the base object is <code>null</code>.</li>
 </ul>
 <pre><code>public function process(a: Number?): String? (
     a?.toString(16)

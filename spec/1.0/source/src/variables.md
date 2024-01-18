@@ -25,7 +25,7 @@ A variable may be read-only by using the `const` keyword instead of the `var` ke
 
 ## Initializer
 
-Variables are lazily initialized with the exception of variables whose static type has a *default* value, such as a [primitive type](types.md#primitive-types) or the `Optional` type.
+Variables are lazily initialized with the exception of variables whose static type has a *default* value, such as a [primitive type](types.md#primitive-types) or a nullable type.
 
 * It is a `ReferenceError` if the value of a variable is accessed before initialized and the static type of that variable includes no default value.
 
@@ -69,7 +69,7 @@ public class C {
 const o: C = {};
 ```
 
-A variable is *optional* when the variable's static type is the `Optional` type.
+A variable is *optional* when the variable's static type is a nullable type or when the variable's static type contains `undefined`.
 
 ## Parent definition
 

@@ -169,7 +169,7 @@
 <h2 id="primitive-types"><a class="header" href="#primitive-types">Primitive types</a></h2>
 <p>Jet considers the following to be primitive types:</p>
 <ul>
-<li><code>undefined</code> type, or the equivalent <code>void</code></li>
+<li><code>void</code> type</li>
 <li>Number types</li>
 <li><code>Boolean</code> type</li>
 <li><code>String</code> type</li>
@@ -179,8 +179,9 @@
 <h2 id="default-value"><a class="header" href="#default-value">Default value</a></h2>
 <p>The default value of a type is determined as follows:</p>
 <ul>
-<li>If the type is <code>undefined</code>, return <code>undefined</code>.</li>
-<li>If the type is <code>Optional</code>, return <code>undefined</code>.</li>
+<li>If the type is <code>void</code>, return <code>undefined</code>.</li>
+<li>If the type is <code>null</code>, return <code>null</code>.</li>
+<li>If the type is <code>T?</code>, return <code>null</code>.</li>
 <li>If the type is a number type, return zero.</li>
 <li>If the type is <code>Boolean</code>, return false.</li>
 <li>If the type is <code>String</code>, return the empty string.</li>
@@ -201,7 +202,9 @@ x == y
 <h2 id="any-type"><a class="header" href="#any-type">Any type</a></h2>
 <p>The <code>*</code> type contains values from all other types.</p>
 <h2 id="void-type"><a class="header" href="#void-type">Void type</a></h2>
-<p>The <code>void</code> type consists of the <code>undefined</code> constant. The <code>void</code> type may alternatively be expressed as <code>undefined</code>.</p>
+<p>The <code>void</code> type consists of the <code>undefined</code> constant.</p>
+<h2 id="null-type"><a class="header" href="#null-type">Null type</a></h2>
+<p>The <code>null</code> type consists of the <code>null</code> value.</p>
 <h2 id="number-types"><a class="header" href="#number-types">Number types</a></h2>
 <p><em>IEEE 754 floating point</em>:</p>
 <ul>
@@ -255,8 +258,8 @@ function(...a: [T]): E
 <li>Tuple types inherit from the <code>Object</code> class.</li>
 <li>Tuple types are final classes.</li>
 </ul>
-<h2 id="optional-type"><a class="header" href="#optional-type">Optional type</a></h2>
-<p>The <code>T?</code> type is an union of <code>undefined</code> and <code>T</code>.</p>
+<h2 id="nullable-type"><a class="header" href="#nullable-type">Nullable type</a></h2>
+<p>The <code>T?</code> type is an union of <code>null</code> and <code>T</code>.</p>
 <h2 id="array-type"><a class="header" href="#array-type">Array type</a></h2>
 <p>The <code>Array.&lt;T&gt;</code> type is a growable collection of <code>T</code> values. <code>Array</code> may be expressed as <code>Array.&lt;T&gt;</code> or <code>[T]</code>.</p>
 <h2 id="object-type"><a class="header" href="#object-type">Object type</a></h2>

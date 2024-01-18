@@ -416,7 +416,7 @@ try {
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nullability"><a class="header" href="#nullability">Nullability</a></h1>
 <p>The <code>T?</code> type is the primary way of working with nullable data.</p>
 <ul>
-<li>The nullish coalescing operator returns the right operand if the left operand is <code>undefined</code>.</li>
+<li>The nullish coalescing operator returns the right operand if the left operand is <code>null</code>.</li>
 </ul>
 <pre><code>public class ExampleClass {
     public const data: Number?;
@@ -428,18 +428,18 @@ try {
     );
 }
 // 0
-trace(new ExampleClass(undefined).doubleIt().data);
+trace(new ExampleClass(null).doubleIt().data);
 // 20
 trace(new ExampleClass(10).doubleIt().data);
 </code></pre>
 <ul>
-<li>The non-null operator ensures the operand is not <code>undefined</code>.</li>
+<li>The non-null operator ensures the operand is not <code>null</code>.</li>
 </ul>
 <pre><code>// TypeError
-trace(new ExampleClass(undefined).data!);
+trace(new ExampleClass(null).data!);
 </code></pre>
 <ul>
-<li>The optional chaining operator returns <code>undefined</code> if the base object is <code>undefined</code>.</li>
+<li>The optional chaining operator returns <code>null</code> if the base object is <code>null</code>.</li>
 </ul>
 <pre><code>public function process(a: Number?): String? (
     a?.toString(16)
@@ -906,6 +906,7 @@ var
 
 case
 else
+null
 this
 true
 void
@@ -941,7 +942,6 @@ internal
 
 interface
 protected
-undefined
 
 implements
 </code></pre>
@@ -1689,7 +1689,7 @@ assert(text == &quot;Have a\nnice day!&quot;)
 <h2 id="primitive-types"><a class="header" href="#primitive-types">Primitive types</a></h2>
 <p>Jet considers the following to be primitive types:</p>
 <ul>
-<li><code>undefined</code> type, or the equivalent <code>void</code></li>
+<li><code>void</code> type</li>
 <li>Number types</li>
 <li><code>Boolean</code> type</li>
 <li><code>String</code> type</li>
@@ -1699,8 +1699,9 @@ assert(text == &quot;Have a\nnice day!&quot;)
 <h2 id="default-value"><a class="header" href="#default-value">Default value</a></h2>
 <p>The default value of a type is determined as follows:</p>
 <ul>
-<li>If the type is <code>undefined</code>, return <code>undefined</code>.</li>
-<li>If the type is <code>Optional</code>, return <code>undefined</code>.</li>
+<li>If the type is <code>void</code>, return <code>undefined</code>.</li>
+<li>If the type is <code>null</code>, return <code>null</code>.</li>
+<li>If the type is <code>T?</code>, return <code>null</code>.</li>
 <li>If the type is a number type, return zero.</li>
 <li>If the type is <code>Boolean</code>, return false.</li>
 <li>If the type is <code>String</code>, return the empty string.</li>
@@ -1721,7 +1722,9 @@ x == y
 <h2 id="any-type"><a class="header" href="#any-type">Any type</a></h2>
 <p>The <code>*</code> type contains values from all other types.</p>
 <h2 id="void-type"><a class="header" href="#void-type">Void type</a></h2>
-<p>The <code>void</code> type consists of the <code>undefined</code> constant. The <code>void</code> type may alternatively be expressed as <code>undefined</code>.</p>
+<p>The <code>void</code> type consists of the <code>undefined</code> constant.</p>
+<h2 id="null-type"><a class="header" href="#null-type">Null type</a></h2>
+<p>The <code>null</code> type consists of the <code>null</code> value.</p>
 <h2 id="number-types"><a class="header" href="#number-types">Number types</a></h2>
 <p><em>IEEE 754 floating point</em>:</p>
 <ul>
@@ -1775,8 +1778,8 @@ function(...a: [T]): E
 <li>Tuple types inherit from the <code>Object</code> class.</li>
 <li>Tuple types are final classes.</li>
 </ul>
-<h2 id="optional-type"><a class="header" href="#optional-type">Optional type</a></h2>
-<p>The <code>T?</code> type is an union of <code>undefined</code> and <code>T</code>.</p>
+<h2 id="nullable-type"><a class="header" href="#nullable-type">Nullable type</a></h2>
+<p>The <code>T?</code> type is an union of <code>null</code> and <code>T</code>.</p>
 <h2 id="array-type"><a class="header" href="#array-type">Array type</a></h2>
 <p>The <code>Array.&lt;T&gt;</code> type is a growable collection of <code>T</code> values. <code>Array</code> may be expressed as <code>Array.&lt;T&gt;</code> or <code>[T]</code>.</p>
 <h2 id="object-type"><a class="header" href="#object-type">Object type</a></h2>
@@ -1785,7 +1788,8 @@ function(...a: [T]): E
 <h2 id="implicit-constant-conversions"><a class="header" href="#implicit-constant-conversions">Implicit constant conversions</a></h2>
 <p>The language performs implicit compile-time type conversions from a constant to a constant of another type. They are described by the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>undefined</code> to <code>*</code>, optional, or Set <code>enum</code></td><td>For Set <code>enum</code>, results into an empty set. For other types, results into <code>undefined</code>.</td></tr>
+<tr><td><code>undefined</code> to <code>*</code>, nullable type, or Set <code>enum</code></td><td>For nullable types, results into <code>null</code>. For Set <code>enum</code>, results into an empty set. For <code>*</code>, results into <code>undefined</code>.</td></tr>
+<tr><td><code>null</code> to <code>*</code> or nullable type</td><td>Results into <code>null</code>.</td></tr>
 <tr><td><code>N</code> constant to <code>*</code>, <code>Object</code></td><td>Results into a <code>N</code> number constant of a covariant type.</td></tr>
 <tr><td><code>NF1</code> constant to <code>NF2</code> or <code>NF2?</code></td><td>Results into a floating point constant with the same numeric value, where <code>NF2</code> is a floating point type whose range is wider than that of <code>NF1</code>.</td></tr>
 <tr><td><code>NI1</code> constant to <code>NI2</code> or <code>NI2?</code></td><td>Results into an integer constant with the same numeric value, where <code>NI2</code> is a integer type whose range is wider than that of <code>NI1</code>.</td></tr>
@@ -1793,13 +1797,13 @@ function(...a: [T]): E
 <tr><td><code>NaN</code> constant to <code>NI</code> or <code>NI?</code></td><td>Results into a zero (0) constant where <code>NI</code> is an integer type.</td></tr>
 <tr><td><code>-Infinity</code> constant to <code>NI</code> or <code>NI?</code></td><td>Results into the minimum integer constant where <code>NI</code> is an integer type but not <code>BigInt</code>.</td></tr>
 <tr><td><code>+Infinity</code> constant to <code>NI</code> or <code>NI?</code></td><td>Results into the maximum integer constant where <code>NI</code> is an integer type but not <code>BigInt</code>.</td></tr>
-<tr><td>From non optional <code>T</code> constant to <code>T?</code></td><td>Results into the same constant but wrapped in the <code>Optional</code> type.</td></tr>
+<tr><td>From non nullable <code>T</code> constant to <code>T?</code></td><td>Results into the same constant but wrapped in a nullable type.</td></tr>
 </tbody></table>
 </div>
 <h2 id="implicit-conversions"><a class="header" href="#implicit-conversions">Implicit conversions</a></h2>
 <p>An implicit conversion is followed by an attempt of an implicit constant conversion. Implicit conversions are described by the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
-<tr><td>From <code>*</code></td><td>Converts to type from the <code>*</code> type or a conversion failure if the conversion fails at runtime.</td></tr>
+<tr><td>From <code>*</code></td><td>Converts to type from the <code>*</code> type by using an explicit conversion or a conversion failure if the conversion fails at runtime.</td></tr>
 <tr><td>To <code>*</code></td><td>Converts to the <code>*</code> type.</td></tr>
 <tr><td><code>N1</code> to <code>N2</code></td><td>Results into a number constant with the same numeric value, where <code>N2</code> is a number type whose range is wider than that of <code>N1</code>.</td></tr>
 <tr><td>To covariant type</td><td>Results into a reference of a covariant type.</td></tr>
@@ -1818,6 +1822,7 @@ function(...a: [T]): E
 <tr><td>Between number types</td><td>Converts from a number type to another number type. The result is implementation-defined.</td></tr>
 <tr><td>From <code>String</code> to <code>enum</code></td><td>Converts to <code>enum</code> by identifying a member by its string component. It is a failure if the member is not found.</td></tr>
 <tr><td>From number to <code>enum</code></td><td>For a non Set <code>enum</code>, converts to the <code>enum</code> by identifying a member by its number component. It is a failure if the member is not found. For a Set <code>enum</code>, converts to the <code>enum</code> by filtering out unrecognized bits.</td></tr>
+<tr><td>From <code>undefined</code> value to nullable type</td><td>Results into <code>null</code>.</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="visibility"><a class="header" href="#visibility">Visibility</a></h1>
 <p>A visibility is either <code>public</code>, <code>private</code>, <code>protected</code> or <code>internal</code>:</p>
@@ -2039,7 +2044,7 @@ const y: Number;
 <h2 id="read-only-variables"><a class="header" href="#read-only-variables">Read-only variables</a></h2>
 <p>A variable may be read-only by using the <code>const</code> keyword instead of the <code>var</code> keyword when defining it.</p>
 <h2 id="initializer"><a class="header" href="#initializer">Initializer</a></h2>
-<p>Variables are lazily initialized with the exception of variables whose static type has a <em>default</em> value, such as a <a href="types.html#primitive-types">primitive type</a> or the <code>Optional</code> type.</p>
+<p>Variables are lazily initialized with the exception of variables whose static type has a <em>default</em> value, such as a <a href="types.html#primitive-types">primitive type</a> or a nullable type.</p>
 <ul>
 <li>It is a <code>ReferenceError</code> if the value of a variable is accessed before initialized and the static type of that variable includes no default value.</li>
 </ul>
@@ -2073,7 +2078,7 @@ public class C {
 }
 const o: C = {};
 </code></pre>
-<p>A variable is <em>optional</em> when the variable's static type is the <code>Optional</code> type.</p>
+<p>A variable is <em>optional</em> when the variable's static type is a nullable type or when the variable's static type contains <code>undefined</code>.</p>
 <h2 id="parent-definition-1"><a class="header" href="#parent-definition-1">Parent definition</a></h2>
 <p>When the parent definition of a variable is a package, the variable has a fully package qualified name.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="virtual-properties"><a class="header" href="#virtual-properties">Virtual properties</a></h1>
@@ -3041,9 +3046,6 @@ EXAMPLE=value
         <td>&nbsp;</td><td><b>void</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>undefined</b></td>
-    </tr>
-    <tr>
         <td>&nbsp;</td><td><b>&#x5B;</b> <i>TypeExpression</i> <b>&#x5D;</b></td>
     </tr>
     <tr>
@@ -3063,6 +3065,9 @@ EXAMPLE=value
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <b>?</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <b>!</b></td>
     </tr>
 </table>
 <table>
@@ -3182,8 +3187,8 @@ EXAMPLE=value
 </ul>
 <p><i>TypeExpression</i> : <b>?</b> <i>TypeExpression</i><sup>noPrefix</sup></p>
 <ul>
-<li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is the <code>Optional</code> type.</li>
-<li>Return an <code>Optional</code> type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
+<li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is a nullable type.</li>
+<li>Return a nullable type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
 </ul>
 <p><i>TypeExpression</i><sup>noPrefix</sup> : <b>*</b></p>
 <ul>
@@ -3198,10 +3203,6 @@ EXAMPLE=value
 <li>Return <em>p</em>.</li>
 </ul>
 <p><i>TypeExpression</i><sup>noPrefix</sup> : <b>void</b></p>
-<ul>
-<li>Return the void type.</li>
-</ul>
-<p><i>TypeExpression</i><sup>noPrefix</sup> : <b>undefined</b></p>
 <ul>
 <li>Return the void type.</li>
 </ul>
@@ -3247,17 +3248,16 @@ EXAMPLE=value
 <li>It is a verify error if <em>base</em> is not a type with [[<em>TypeParameters</em>]].</li>
 <li>It is a verify error if <em>base</em>[[<em>TypeParameters</em>]] is empty.</li>
 <li>Let <em>a</em> be the verification sequence of <i>TypeArguments</i>.</li>
-<li>If <em>base</em> is <code>Optional</code> and <em>a</em><sub>0</sub> is <code>Optional</code>
-<ul>
-<li>Return <em>a</em><sub>0</sub></li>
-</ul>
-</li>
 <li>Return a type substitution in <em>base</em> with <em>a</em> as type arguments.</li>
 </ul>
 <p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>?</b></p>
 <ul>
-<li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is the <code>Optional</code> type.</li>
-<li>Return an <code>Optional</code> type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
+<li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is a nullable type.</li>
+<li>Return a nullable type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
+</ul>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>!</b></p>
+<ul>
+<li>Return a non nullable type from the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
 </ul>
 <p><i>TupleTypeExpression</i> : <b>[</b> <i>TupleElementTypes</i> <b>]</b></p>
 <ul>
@@ -3395,7 +3395,7 @@ EXAMPLE=value
         <td colspan="2"><i>PrimaryExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>UndefinedLiteral</i></td>
+        <td>&nbsp;</td><td><i>NullLiteral</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>BooleanLiteral</i></td>
@@ -3433,10 +3433,10 @@ EXAMPLE=value
 </table>
 <table>
     <tr>
-        <td colspan="2"><i>UndefinedLiteral</i></td>
+        <td colspan="2"><i>NullLiteral</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>undefined</b></td>
+        <td>&nbsp;</td><td><b>null</b></td>
     </tr>
 </table>
 <table>

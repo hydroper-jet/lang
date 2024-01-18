@@ -425,6 +425,7 @@ var
 
 case
 else
+null
 this
 true
 void
@@ -460,7 +461,6 @@ internal
 
 interface
 protected
-undefined
 
 implements
 ```

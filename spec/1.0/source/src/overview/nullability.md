@@ -2,7 +2,7 @@
 
 The `T?` type is the primary way of working with nullable data.
 
-* The nullish coalescing operator returns the right operand if the left operand is `undefined`.
+* The nullish coalescing operator returns the right operand if the left operand is `null`.
 
 ```
 public class ExampleClass {
@@ -15,19 +15,19 @@ public class ExampleClass {
     );
 }
 // 0
-trace(new ExampleClass(undefined).doubleIt().data);
+trace(new ExampleClass(null).doubleIt().data);
 // 20
 trace(new ExampleClass(10).doubleIt().data);
 ```
 
-* The non-null operator ensures the operand is not `undefined`.
+* The non-null operator ensures the operand is not `null`.
 
 ```
 // TypeError
-trace(new ExampleClass(undefined).data!);
+trace(new ExampleClass(null).data!);
 ```
 
-* The optional chaining operator returns `undefined` if the base object is `undefined`.
+* The optional chaining operator returns `null` if the base object is `null`.
 
 ```
 public function process(a: Number?): String? (

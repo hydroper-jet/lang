@@ -184,7 +184,7 @@ const y: Number;
 <h2 id="read-only-variables"><a class="header" href="#read-only-variables">Read-only variables</a></h2>
 <p>A variable may be read-only by using the <code>const</code> keyword instead of the <code>var</code> keyword when defining it.</p>
 <h2 id="initializer"><a class="header" href="#initializer">Initializer</a></h2>
-<p>Variables are lazily initialized with the exception of variables whose static type has a <em>default</em> value, such as a <a href="types.html#primitive-types">primitive type</a> or the <code>Optional</code> type.</p>
+<p>Variables are lazily initialized with the exception of variables whose static type has a <em>default</em> value, such as a <a href="types.html#primitive-types">primitive type</a> or a nullable type.</p>
 <ul>
 <li>It is a <code>ReferenceError</code> if the value of a variable is accessed before initialized and the static type of that variable includes no default value.</li>
 </ul>
@@ -218,7 +218,7 @@ public class C {
 }
 const o: C = {};
 </code></pre>
-<p>A variable is <em>optional</em> when the variable's static type is the <code>Optional</code> type.</p>
+<p>A variable is <em>optional</em> when the variable's static type is a nullable type or when the variable's static type contains <code>undefined</code>.</p>
 <h2 id="parent-definition"><a class="header" href="#parent-definition">Parent definition</a></h2>
 <p>When the parent definition of a variable is a package, the variable has a fully package qualified name.</p>
 

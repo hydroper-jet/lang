@@ -192,9 +192,6 @@
         <td>&nbsp;</td><td><b>void</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>undefined</b></td>
-    </tr>
-    <tr>
         <td>&nbsp;</td><td><b>&#x5B;</b> <i>TypeExpression</i> <b>&#x5D;</b></td>
     </tr>
     <tr>
@@ -214,6 +211,9 @@
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <b>?</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <b>!</b></td>
     </tr>
 </table>
 <table>
@@ -333,8 +333,8 @@
 </ul>
 <p><i>TypeExpression</i> : <b>?</b> <i>TypeExpression</i><sup>noPrefix</sup></p>
 <ul>
-<li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is the <code>Optional</code> type.</li>
-<li>Return an <code>Optional</code> type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
+<li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is a nullable type.</li>
+<li>Return a nullable type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
 </ul>
 <p><i>TypeExpression</i><sup>noPrefix</sup> : <b>*</b></p>
 <ul>
@@ -349,10 +349,6 @@
 <li>Return <em>p</em>.</li>
 </ul>
 <p><i>TypeExpression</i><sup>noPrefix</sup> : <b>void</b></p>
-<ul>
-<li>Return the void type.</li>
-</ul>
-<p><i>TypeExpression</i><sup>noPrefix</sup> : <b>undefined</b></p>
 <ul>
 <li>Return the void type.</li>
 </ul>
@@ -398,17 +394,16 @@
 <li>It is a verify error if <em>base</em> is not a type with [[<em>TypeParameters</em>]].</li>
 <li>It is a verify error if <em>base</em>[[<em>TypeParameters</em>]] is empty.</li>
 <li>Let <em>a</em> be the verification sequence of <i>TypeArguments</i>.</li>
-<li>If <em>base</em> is <code>Optional</code> and <em>a</em><sub>0</sub> is <code>Optional</code>
-<ul>
-<li>Return <em>a</em><sub>0</sub></li>
-</ul>
-</li>
 <li>Return a type substitution in <em>base</em> with <em>a</em> as type arguments.</li>
 </ul>
 <p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>?</b></p>
 <ul>
-<li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is the <code>Optional</code> type.</li>
-<li>Return an <code>Optional</code> type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
+<li>Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is a nullable type.</li>
+<li>Return a nullable type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
+</ul>
+<p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>!</b></p>
+<ul>
+<li>Return a non nullable type from the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.</li>
 </ul>
 <p><i>TupleTypeExpression</i> : <b>[</b> <i>TupleElementTypes</i> <b>]</b></p>
 <ul>

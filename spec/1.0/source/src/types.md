@@ -4,7 +4,7 @@
 
 Jet considers the following to be primitive types:
 
-* `undefined` type, or the equivalent `void`
+* `void` type
 * Number types
 * `Boolean` type
 * `String` type
@@ -15,8 +15,9 @@ Jet considers the following to be primitive types:
 
 The default value of a type is determined as follows:
 
-* If the type is `undefined`, return `undefined`.
-* If the type is `Optional`, return `undefined`.
+* If the type is `void`, return `undefined`.
+* If the type is `null`, return `null`.
+* If the type is `T?`, return `null`.
 * If the type is a number type, return zero.
 * If the type is `Boolean`, return false.
 * If the type is `String`, return the empty string.
@@ -45,7 +46,11 @@ The `*` type contains values from all other types.
 
 ## Void type
 
-The `void` type consists of the `undefined` constant. The `void` type may alternatively be expressed as `undefined`.
+The `void` type consists of the `undefined` constant.
+
+## Null type
+
+The `null` type consists of the `null` value.
 
 ## Number types
 
@@ -113,9 +118,9 @@ Tuple types are in the form `[T1, T2, ...TN]` and consist of a sequence of two o
 * Tuple types inherit from the `Object` class.
 * Tuple types are final classes.
 
-## Optional type
+## Nullable type
 
-The `T?` type is an union of `undefined` and `T`.
+The `T?` type is an union of `null` and `T`.
 
 ## Array type
 

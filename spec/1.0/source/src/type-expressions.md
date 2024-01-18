@@ -28,9 +28,6 @@
         <td>&nbsp;</td><td><b>void</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>undefined</b></td>
-    </tr>
-    <tr>
         <td>&nbsp;</td><td><b>&#x5B;</b> <i>TypeExpression</i> <b>&#x5D;</b></td>
     </tr>
     <tr>
@@ -50,6 +47,9 @@
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <b>?</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <b>!</b></td>
     </tr>
 </table>
 
@@ -181,8 +181,8 @@
 
 <i>TypeExpression</i> : <b>?</b> <i>TypeExpression</i><sup>noPrefix</sup>
 
-* Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is the `Optional` type.
-* Return an `Optional` type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.
+* Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is a nullable type.
+* Return a nullable type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.
 
 <i>TypeExpression</i><sup>noPrefix</sup> : <b>*</b>
 
@@ -197,10 +197,6 @@
 * Return *p*.
 
 <i>TypeExpression</i><sup>noPrefix</sup> : <b>void</b>
-
-* Return the void type.
-
-<i>TypeExpression</i><sup>noPrefix</sup> : <b>undefined</b>
 
 * Return the void type.
 
@@ -240,14 +236,16 @@
 * It is a verify error if *base* is not a type with \[\[*TypeParameters*\]\].
 * It is a verify error if *base*\[\[*TypeParameters*\]\] is empty.
 * Let *a* be the verification sequence of <i>TypeArguments</i>.
-* If *base* is `Optional` and *a*<sub>0</sub> is `Optional`
-  * Return *a*<sub>0</sub>
 * Return a type substitution in *base* with *a* as type arguments.
 
 <i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>?</b>
 
-* Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is the `Optional` type.
-* Return an `Optional` type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.
+* Return the verification result of <i>TypeExpression</i><sup>noPrefix</sup> if it is a nullable type.
+* Return a nullable type consisting of the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.
+
+<i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>!</b>
+
+* Return a non nullable type from the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.
 
 <i>TupleTypeExpression</i> : <b>&#x5B;</b> <i>TupleElementTypes</i> <b>&#x5D;</b>
 

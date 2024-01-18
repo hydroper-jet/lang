@@ -13,7 +13,7 @@
         <td>&nbsp;</td><td><b>yield</b> [no line break] <i>AssignmentExpression</i><sup>β</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>ArrowFunction</i><sup>β</sup></td>
+        <td>&nbsp;</td><td><i>FunctionExpression</i><sup>β</sup></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>AssignmentLeftHandSide</i> <b>=</b> <i>AssignmentExpression</i><sup>β</sup></td>

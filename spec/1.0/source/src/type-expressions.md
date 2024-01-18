@@ -115,7 +115,7 @@
         <td colspan="2"><i>FunctionTypeExpression</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>FunctionTypeParameters</i> <b>)</b> <b>=></b> <i>TypeExpression</i></td>
+        <td>&nbsp;</td><td><b>function</b> <b>(</b> <i>FunctionTypeParameters</i> <b>)</b> <b>:</b> <i>TypeExpression</i></td>
     </tr>
 </table>
 
@@ -256,7 +256,7 @@
   * Append to *e* the verification result of *e*<sub>0</sub>
 * Return a tuple type consisting of the element types *e*.
 
-<i>FunctionTypeExpression</i> : <b>(</b> <i>FunctionTypeParameters</i> <b>)</b> <b>=></b> <i>TypeExpression</i>
+<i>FunctionTypeExpression</i> : <b>function</b> <b>(</b> <i>FunctionTypeParameters</i> <b>)</b> <b>:</b> <i>TypeExpression</i>
 
 * It is a verify error if <i>FunctionTypeParameters</i> is not a sequence of zero or more <i>TypedIdentifier</i> followed by zero or more <i>FunctionTypeOptionalParameter</i> followed by optional <b>...</b> <i>TypedIdentifier</i>.
 * Let *p*<sub>0</sub> be an empty list.
@@ -272,7 +272,7 @@
   * Let (*name*, *type*) be the verification of *typedId*.
   * It is a verify error if *type* is not the `Array` type.
   * Assign *p*<sub>2</sub> = (*name*, *type*)
-* Let *returnType* be the verification of <i>TypeExpression</i> preceded by <b>=></b>.
+* Let *returnType* be the verification of <i>TypeExpression</i> preceded by the <b>:</b> result type prefix.
 * Return a function type consisting of required parameters *p*<sub>0</sub>, optional parameters *p*<sub>1</sub>, rest parameter *p*<sub>2</sub> and return type *returnType*.
 
 <i>TypedIdentifier</i> : <i>IdentifierName</i><br>

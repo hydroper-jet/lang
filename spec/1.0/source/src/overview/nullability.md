@@ -1,13 +1,13 @@
 # Nullability
 
-The `Optional.<T>` class is the primary way of working with nullable data.
+The `T?` type is the primary way of working with nullable data.
 
 * The nullish coalescing operator returns the right operand if the left operand is `undefined`.
 
 ```
 public class ExampleClass {
-    public const data: Optional.<Number>;
-    public function ExampleClass(data: Optional.<Number>) {
+    public const data: Number?;
+    public function ExampleClass(data: Number?) {
         this.data = data;
     }
     public function doubleIt(): ExampleClass (
@@ -30,15 +30,14 @@ trace(new ExampleClass(undefined).data!);
 * The optional chaining operator returns `undefined` if the base object is `undefined`.
 
 ```
-public function process(a: Optional.<Number>): Optional.<String> (
+public function process(a: Number?): String? (
     a?.toString(16)
 );
 ```
 
-## Transparency
+## Implementation behavior
 
-The representation of the `Optional.<T>` type varies across implementations:
+The representation of a `T?` type varies across implementations.
 
-* The `Optional.<T>` type is equivalent to a nullable reference as in ActionScript.
-  * ActionScript transpilation may consider interning primitive values into a weak dictionary.
-* The `v is Optional.<T>` expression has implementation-defined behavior. Programmers should not rely on such expression.
+* A `T?` type is equivalent to a nullable reference as in ActionScript.
+  * Transpilers to ActionScript may consider interning primitive values into a weak dictionary.

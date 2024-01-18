@@ -7,7 +7,7 @@
         <td colspan="2"><i>FunctionDefinition</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>function</b> <i>FunctionName</i> <i>TypeParameters</i><sub>opt</sub> <i>FunctionCommon</i></td>
+        <td>&nbsp;</td><td><b>function</b> <i>FunctionName</i> <i>TypeParameters</i><sub>opt</sub> <i>FunctionCommon</i><sup>allowIn</sup></td>
     </tr>
 </table>
 
@@ -64,13 +64,13 @@ function set x(v: Number): void { impl.x = v }
 
 <table>
     <tr>
-        <td colspan="2"><i>FunctionCommon</i></td>
+        <td colspan="2"><i>FunctionCommon</i><sup>β</sup></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>FunctionSignature</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>FunctionSignature</i> <i>ParenListExpression</i><sup>allowIn</sup></td>
+        <td>&nbsp;</td><td><i>FunctionSignature</i> [lookahead ∉ { <b>&#x7B;</b> }] <i>AssignmentExpression</i><sup>β</sup></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>FunctionSignature</i> <i>Block</i></td>

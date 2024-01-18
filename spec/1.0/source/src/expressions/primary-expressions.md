@@ -40,9 +40,6 @@
         <td>&nbsp;</td><td><i>ObjectInitializer</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>FunctionExpression</i></td>
-    </tr>
-    <tr>
         <td>&nbsp;</td><td><i>EmbedExpression</i></td>
     </tr>
 </table>

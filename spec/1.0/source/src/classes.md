@@ -46,7 +46,7 @@ When the parent definition of a class is a package, the class has a fully packag
 A JXML base class may contain a `JXML` meta-data with two optional options `colorClass` and `vectorClass` that specify the fully package qualified name of a support class for the color and vector classes to use throughout XML attribute values in JXML files.
 
 * It is a verify error if the fully package qualified names specified within `JXML` do not resolve to a class.
-* It is a verify error if the class specified by `colorClass` does not contain a constructor with the signature `(...arguments: [*]) => void`.
+* It is a verify error if the class specified by `colorClass` does not contain a constructor with the signature `function(...arguments: [*]): void`.
 * It is a verify error if the class specified by `vectorClass` does not contain a constructor that takes parameters of a same number type.
 * Only one `colorClass` occurrence is allowed, contributing the class to the annotated class \[\[*JXMLColor*\]\] property.
 * Multiple `vectorClass` occurrences are allowed, contributing multiple classes to the annotated class \[\[*JXMLVectors*\]\] property.

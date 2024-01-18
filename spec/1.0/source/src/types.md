@@ -90,9 +90,13 @@ The `CharIndex` type is a group (*string*, *index*) where *string* is a `String`
 Function types consist of zero or more parameters and a return type annotation. Function types appear in the forms:
 
 ```
-(a: T) => E
-(a?: T) => E
-(...a: [T]) => E
+function(): E
+// Required parameter
+function(a: T): E
+// Optional parameter
+function(a?: T): E
+// Rest parameter
+function(...a: [T]): E
 ```
 
 * Function types inherit from the `Function` class.
@@ -111,22 +115,7 @@ Tuple types are in the form `[T1, T2, ...TN]` and consist of a sequence of two o
 
 ## Optional type
 
-The `Optional.<T>` type is an union of `undefined` and `T`. `Optional.<T>` may be expressed as `Optional.<T>`, `T?`, or `?T`.
-
-It is not allowed for `T` to contain `undefined`. When a type expression attempts to wrap a type that already contains `undefined` into another `Optional` type, it results in the same former type.
-
-```
-// Equivalent to
-// type O = Optional.<T>;
-type O = Optional.<Optional.<T>>;
-
-// Equivalent to
-// type O1 = *;
-type O1 = Optional.<*>;
-```
-
-* The `Optional.<T>` type is a final class type.
-* The `Optional.<T>` type inherits from `Object`.
+The `T?` type is an union of `undefined` and `T`.
 
 ## Array type
 

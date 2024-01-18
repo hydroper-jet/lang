@@ -6,7 +6,7 @@ Decorator meta-data may only be applied to instance variables, instance methods,
 
 ## Instance variables
 
-A decorator meta-data applied to an instance variable must contain a signature `(instance: C, name: String, type: Class) => void`, where `C` is the instance class.
+A decorator meta-data applied to an instance variable must contain a signature `function(instance: C, name: String, type: Class): void`, where `C` is the instance class.
 
 ```
 function ExampleDecorator(instance: ExampleClass, name: String, type: Class): void {
@@ -20,7 +20,7 @@ class ExampleClass {
 
 ## Instance methods
 
-A decorator meta-data applied to an instance method must contain a signature `(instance: C, name: String) => void`, where `C` is the instance class.
+A decorator meta-data applied to an instance method must contain a signature `function(instance: C, name: String): void`, where `C` is the instance class.
 
 ```
 function ExampleDecorator(instance: ExampleClass, name: String): void {
@@ -34,7 +34,7 @@ class ExampleClass {
 
 ## Types
 
-A decorator meta-data applied to a type definition must contain a signature `(type: Class) => void`.
+A decorator meta-data applied to a type definition must contain a signature `function(type: Class): void`.
 
 ```
 function ExampleDecorator(type: Class): void {

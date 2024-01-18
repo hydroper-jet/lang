@@ -3,10 +3,11 @@
 Jet is a flexible, multi-paradigm, strongly typed scripting language. It compiles to the Jet Virtual Machine Bytecode and includes miscellaneous standard objects.
 
 ```
-package sparkFusion {
+package spark.fusion {
     public use spark.core.*;
+    public use spark.misc.*;
 }
-import sparkFusion.*;
+import spark.fusion.*;
 
 public const xx = "xx";
 
@@ -68,7 +69,7 @@ General:
 
 - `void` or `undefined` are the same
 - `Boolean`
-- Function (`(a: T) => R`)
+- Function (`function(a: T): R`)
 - `*` is the dynamic type to which all types convert from and to
 
 Integer:
@@ -89,13 +90,13 @@ Unicode:
 Compound:
 
 - `[T1, T2, ...Tn]` (tuple)
-- `Optional.<T>` (unifies `T` and `undefined`)
+- `T?` (unifies `T` and `undefined`)
 - `Array.<T>` or `[T]`
   - A growable array.
 
-# `Optional.<T>`
+# `T?`
 
-The `Optional.<T>` type (or `T?`) allows assigning `undefined` or `T` to a variable and comparing it to `undefined` or `T` through `==`.
+A `T?` type allows assigning `undefined` or `T` to a variable and comparing it to `undefined` or `T` through `==`.
 
 ```
 var o: T? = undefined;
@@ -306,8 +307,8 @@ A function body is allowed to be a parenthesized expression in `function` defini
 The `EventEmitter` class is already part of the language.
 
 ```
-const listener = onFu.addEventListener(event => {
-    /* event: FuEvent */
+const listener = object.addEventListener(function(event: Event): void {
+    /* Handle event */
 });
 listener.remove();
 ```
@@ -317,9 +318,9 @@ listener.remove();
 * *CharIndex* holds (*string*, *index*).
 * The zero constant implicitly converts to *CharIndex*.
 
-# J4X
+# Jet for XML
 
-J4X stands for Jet for XML and provides XML support. It supports much of the legacy ECMAScript for XML standard, but in a different way. It supports property and query operators.
+Jet for XML (J4X) provides XML support. It supports much of the legacy ECMAScript for XML standard, but in a different way. It supports property and query operators.
 
 J4X introduces the following syntax:
 

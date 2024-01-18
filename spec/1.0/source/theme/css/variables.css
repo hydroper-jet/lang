@@ -39,9 +39,9 @@
     --quote-border: #c2cda1;
 
     --table-border-color: #777;
-    --table-header-bg: #555;
-    --table-odd-bg: #555;
-    --table-even-bg: #444;
+    --table-header-bg: rgba(255, 255, 255, 0.05);
+    --table-odd-bg: rgba(255, 255, 255, 0.05);
+    --table-even-bg: rgba(255, 255, 255, 0);
 
     --searchbar-border-color: #000;
     --searchbar-bg: #fff;

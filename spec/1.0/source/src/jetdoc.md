@@ -33,6 +33,18 @@ package {
 }
 ```
 
+## @deprecated
+
+```
+/**
+ * @deprecated
+ */
+
+/**
+ * @deprecated Message.
+ */
+```
+
 ## @event
 
 Event sections begin with an `@event` tag and may be supplemented by `@eventConstant` and `@eventType`.

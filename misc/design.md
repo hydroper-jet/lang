@@ -67,7 +67,7 @@ package org.n1 {}
 
 General:
 
-- `void` or `undefined` are the same
+- `void`
 - `Boolean`
 - Function (`function(a: T): R`)
 - `*` is the dynamic type to which all types convert from and to
@@ -90,18 +90,18 @@ Unicode:
 Compound:
 
 - `[T1, T2, ...Tn]` (tuple)
-- `T?` (unifies `T` and `undefined`)
+- `T?` (unifies `T` and `null`)
 - `Array.<T>` or `[T]`
   - A growable array.
 
 # `T?`
 
-A `T?` type allows assigning `undefined` or `T` to a variable and comparing it to `undefined` or `T` through `==`.
+A `T?` type allows assigning `null` or `T` to a variable and comparing it to `null` or `T` through `==`.
 
 ```
-var o: T? = undefined;
+var o: T? = null;
 
-// Asserts `o` is not `undefined` and calls `f`
+// Asserts `o` is not `null` and calls `f`
 o!.f();
 
 // Optional chaining

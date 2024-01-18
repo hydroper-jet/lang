@@ -24,7 +24,6 @@ Future plans:
 | URI | Description |
 | --- | ----------- |
 | `http://ns.unrealengine.com/5` | Build games and simulations using Unreal Engine. |
-| `http://ns.w3.org/web` | Build websites. |
 
 ## Language specifications
 

@@ -197,23 +197,23 @@ class C2 extends C1 {
 <li>The overriding signature is compatible with the super signature if either:
 <ul>
 <li>it is equals the super signature, or</li>
-<li>it introduces optional parameters and/or a rest parameter to the super signature.</li>
+<li>it introduces optional parameters and/or a rest parameter to the super signature and either the result type is equals to that of the super signature or the result type is a subtype of that of the super signature.</li>
 </ul>
 </li>
 </ul>
 <pre><code>class C1 {
-    function f(): void {}
+    function f(): * (undefined);
 }
 class C2 extends C1 {
-    override function f(a: Number = 10): void {}
+    override function f(a: Number = 10): Number (a ** 2);
 }
 </code></pre>
 <h3 id="overriding-symbol"><a class="header" href="#overriding-symbol">Overriding symbol</a></h3>
 <p>It is allowed for an overriding method to override:</p>
 <ul>
-<li>a regular method;</li>
-<li>a getter;</li>
-<li>a setter.</li>
+<li>A regular method</li>
+<li>A getter</li>
+<li>A setter</li>
 </ul>
 
                     </main>

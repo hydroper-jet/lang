@@ -39,14 +39,14 @@ class C2 extends C1 {
 It is a verify error if the overriding signature is not compatible with the super class's method signature.
   * The overriding signature is compatible with the super signature if either:
     * it is equals the super signature, or
-    * it introduces optional parameters and/or a rest parameter to the super signature.
+    * it introduces optional parameters and/or a rest parameter to the super signature and either the result type is equals to that of the super signature or the result type is a subtype of that of the super signature.
 
 ```
 class C1 {
-    function f(): void {}
+    function f(): * (undefined);
 }
 class C2 extends C1 {
-    override function f(a: Number = 10): void {}
+    override function f(a: Number = 10): Number (a ** 2);
 }
 ```
 
@@ -54,6 +54,6 @@ class C2 extends C1 {
 
 It is allowed for an overriding method to override:
 
-* a regular method;
-* a getter;
-* a setter.
+* A regular method
+* A getter
+* A setter

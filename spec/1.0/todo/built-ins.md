@@ -5,4 +5,8 @@
 * [ ] `undefined`
 * [ ] `Infinity`
 * [ ] `NaN`
+* [ ] `Object`
+  * [ ] `constructor`
+  * [ ] `toString()`
+  * [ ] `valueOf()`
 * [ ] `Class`

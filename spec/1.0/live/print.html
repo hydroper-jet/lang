@@ -1707,7 +1707,7 @@ assert(text == &quot;Have a\nnice day!&quot;)
 <li>If the type is <code>String</code>, return the empty string.</li>
 <li>If the type is <code>Char</code>, return U+0000.</li>
 <li>If the type is <code>CharIndex</code>, return (<em>empty string</em>, <em>zero</em>).</li>
-<li>If the type is a Set <code>enum</code>, return an empty set.</li>
+<li>If the type is a set enumeration, return an empty set.</li>
 <li>For any other type, return no default value.</li>
 </ul>
 <h2 id="auto-boxing"><a class="header" href="#auto-boxing">Auto boxing</a></h2>
@@ -1788,7 +1788,7 @@ function(...a: [T]): E
 <h2 id="implicit-constant-conversions"><a class="header" href="#implicit-constant-conversions">Implicit constant conversions</a></h2>
 <p>The language performs implicit compile-time type conversions from a constant to a constant of another type. They are described by the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>undefined</code> to <code>*</code>, nullable type, or Set <code>enum</code></td><td>For nullable types, results into <code>null</code>. For Set <code>enum</code>, results into an empty set. For <code>*</code>, results into <code>undefined</code>.</td></tr>
+<tr><td><code>undefined</code> to <code>*</code>, nullable type, or set enumeration</td><td>For nullable types, results into <code>null</code>. For set enumeration, results into an empty set. For <code>*</code>, results into <code>undefined</code>.</td></tr>
 <tr><td><code>null</code> to <code>*</code> or nullable type</td><td>Results into <code>null</code>.</td></tr>
 <tr><td><code>N</code> constant to <code>*</code>, <code>Object</code></td><td>Results into a <code>N</code> number constant of a covariant type.</td></tr>
 <tr><td><code>NF1</code> constant to <code>NF2</code> or <code>NF2?</code></td><td>Results into a floating point constant with the same numeric value, where <code>NF2</code> is a floating point type whose range is wider than that of <code>NF1</code>.</td></tr>
@@ -1821,7 +1821,7 @@ function(...a: [T]): E
 <tr><td><code>Array</code> to covariant <code>Array</code></td><td>Constructs a new array of a covariant type.</td></tr>
 <tr><td>Between number types</td><td>Converts from a number type to another number type. The result is implementation-defined.</td></tr>
 <tr><td>From <code>String</code> to <code>enum</code></td><td>Converts to <code>enum</code> by identifying a member by its string component. It is a failure if the member is not found.</td></tr>
-<tr><td>From number to <code>enum</code></td><td>For a non Set <code>enum</code>, converts to the <code>enum</code> by identifying a member by its number component. It is a failure if the member is not found. For a Set <code>enum</code>, converts to the <code>enum</code> by filtering out unrecognized bits.</td></tr>
+<tr><td>From number to <code>enum</code></td><td>For a non set enumeration, converts to the <code>enum</code> by identifying a member by its number component. It is a failure if the member is not found. For a set enumeration, converts to the <code>enum</code> by filtering out unrecognized bits.</td></tr>
 <tr><td>From <code>undefined</code> value to nullable type</td><td>Results into <code>null</code>.</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="visibility"><a class="header" href="#visibility">Visibility</a></h1>
@@ -3583,7 +3583,7 @@ EXAMPLE=value
 <li><code>*</code></li>
 <li><code>Object</code> or <code>Object?</code></li>
 <li><code>M</code> or <code>M?</code> where <code>M</code> is the <code>Map</code> type</li>
-<li><code>E</code> or <code>E?</code> where <code>E</code> is a Set <code>enum</code></li>
+<li><code>E</code> or <code>E?</code> where <code>E</code> is a set enumeration</li>
 <li><code>C</code> or <code>C?</code> where <code>C</code> is a <code>class</code> and <code>C</code>[[<em>AllowLiteral</em>]] is true</li>
 </ul>
 <p>Initializing a context type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into a <code>Map.&lt;*, *&gt;</code> object.</p>
@@ -3637,7 +3637,7 @@ EXAMPLE=value
 <li><code>Object</code> or <code>Object?</code></li>
 <li><code>T</code> or <code>T?</code> where <code>T</code> is a tuple type</li>
 <li><code>C</code> or <code>C?</code> where <code>C</code> is the <code>Array</code> type</li>
-<li><code>E</code> or <code>E?</code> where <code>E</code> is a Set <code>enum</code></li>
+<li><code>E</code> or <code>E?</code> where <code>E</code> is a set enumeration</li>
 </ul>
 <p>Initializing a context type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into an <code>Array.&lt;*&gt;</code> object.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="xml-initializers"><a class="header" href="#xml-initializers">XML initializers</a></h1>
@@ -5472,7 +5472,7 @@ function set x(v: Number): void { impl.x = v }
 <div class="table-wrapper"><table><thead><tr><th>Attribute</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>public</code></td><td>Uses the <code>public</code> visibility</td></tr>
 <tr><td><code>internal</code></td><td>Uses the <code>internal</code> visibility (default)</td></tr>
-<tr><td><code>[Set]</code></td><td>Designates a Set <code>enum</code>.</td></tr>
+<tr><td><code>[Set]</code></td><td>Designates a set enumeration.</td></tr>
 </tbody></table>
 </div>
 <p><em>Nesting</em>: nested enums are not allowed. Enums are only allowed in package blocks and top-level blocks.</p>

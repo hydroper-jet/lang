@@ -28,6 +28,6 @@ An enum definition may be modified by the following attributes:
 | --------------- | ----------- |
 | `public`        | Uses the `public` visibility |
 | `internal`      | Uses the `internal` visibility (default) |
-| `[Set]`         | Designates a Set `enum`. |
+| `[Set]`         | Designates a set enumeration. |
 
 *Nesting*: nested enums are not allowed. Enums are only allowed in package blocks and top-level blocks.

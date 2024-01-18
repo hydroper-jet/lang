@@ -6,7 +6,7 @@ The language performs implicit compile-time type conversions from a constant to 
 
 | Relationship | Description |
 | ------------ | ----------- |
-| `undefined` to `*`, nullable type, or Set `enum` | For nullable types, results into `null`. For Set `enum`, results into an empty set. For `*`, results into `undefined`. |
+| `undefined` to `*`, nullable type, or set enumeration | For nullable types, results into `null`. For set enumeration, results into an empty set. For `*`, results into `undefined`. |
 | `null` to `*` or nullable type | Results into `null`. |
 | `N` constant to `*`, `Object` | Results into a `N` number constant of a covariant type. |
 | `NF1` constant to `NF2` or `NF2?` | Results into a floating point constant with the same numeric value, where `NF2` is a floating point type whose range is wider than that of `NF1`. |
@@ -43,5 +43,5 @@ An explicit conversion is followed by an attempt of an implicit conversion. Expl
 | `Array` to covariant `Array` | Constructs a new array of a covariant type. |
 | Between number types | Converts from a number type to another number type. The result is implementation-defined. |
 | From `String` to `enum` | Converts to `enum` by identifying a member by its string component. It is a failure if the member is not found. |
-| From number to `enum` | For a non Set `enum`, converts to the `enum` by identifying a member by its number component. It is a failure if the member is not found. For a Set `enum`, converts to the `enum` by filtering out unrecognized bits. |
+| From number to `enum` | For a non set enumeration, converts to the `enum` by identifying a member by its number component. It is a failure if the member is not found. For a set enumeration, converts to the `enum` by filtering out unrecognized bits. |
 | From `undefined` value to nullable type | Results into `null`. |

@@ -144,10 +144,10 @@ The internal *AssignJetXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute) fu
 4. If *t* is `String` or `String?`
     1. Assign the attribute value to *p*.
     2. Exit function
-5. If *t* is `E` or `E?` where `E` is a non Set `enum`
+5. If *t* is `E` or `E?` where `E` is a non set enumeration
     1. Assert that the attribute value identifies a member of the `enum` by its string component and assign such member to *p*.
     2. Exit function
-6. If *t* is `E` or `E?` where `E` is a Set `enum`.
+6. If *t* is `E` or `E?` where `E` is a set enumeration.
     1. Assert that the attribute value is a comma-separated list identifying one or more members of the `enum` by their string components.
     2. Assign such members to *p*.
     3. Exit function

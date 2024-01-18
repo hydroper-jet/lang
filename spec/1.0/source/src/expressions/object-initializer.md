@@ -88,7 +88,7 @@ The verification for the object initializer requires a context type. The object 
 * `*`
 * `Object` or `Object?`
 * `M` or `M?` where `M` is the `Map` type
-* `E` or `E?` where `E` is a Set `enum`
+* `E` or `E?` where `E` is a set enumeration
 * `C` or `C?` where `C` is a `class` and `C`\[\[*AllowLiteral*\]\] is true
 
 Initializing a context type that is one of { `*`, `Object`, `Object?` } results into a `Map.<*, *>` object.

@@ -169,7 +169,7 @@
 <h2 id="implicit-constant-conversions"><a class="header" href="#implicit-constant-conversions">Implicit constant conversions</a></h2>
 <p>The language performs implicit compile-time type conversions from a constant to a constant of another type. They are described by the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>undefined</code> to <code>*</code>, nullable type, or Set <code>enum</code></td><td>For nullable types, results into <code>null</code>. For Set <code>enum</code>, results into an empty set. For <code>*</code>, results into <code>undefined</code>.</td></tr>
+<tr><td><code>undefined</code> to <code>*</code>, nullable type, or set enumeration</td><td>For nullable types, results into <code>null</code>. For set enumeration, results into an empty set. For <code>*</code>, results into <code>undefined</code>.</td></tr>
 <tr><td><code>null</code> to <code>*</code> or nullable type</td><td>Results into <code>null</code>.</td></tr>
 <tr><td><code>N</code> constant to <code>*</code>, <code>Object</code></td><td>Results into a <code>N</code> number constant of a covariant type.</td></tr>
 <tr><td><code>NF1</code> constant to <code>NF2</code> or <code>NF2?</code></td><td>Results into a floating point constant with the same numeric value, where <code>NF2</code> is a floating point type whose range is wider than that of <code>NF1</code>.</td></tr>
@@ -202,7 +202,7 @@
 <tr><td><code>Array</code> to covariant <code>Array</code></td><td>Constructs a new array of a covariant type.</td></tr>
 <tr><td>Between number types</td><td>Converts from a number type to another number type. The result is implementation-defined.</td></tr>
 <tr><td>From <code>String</code> to <code>enum</code></td><td>Converts to <code>enum</code> by identifying a member by its string component. It is a failure if the member is not found.</td></tr>
-<tr><td>From number to <code>enum</code></td><td>For a non Set <code>enum</code>, converts to the <code>enum</code> by identifying a member by its number component. It is a failure if the member is not found. For a Set <code>enum</code>, converts to the <code>enum</code> by filtering out unrecognized bits.</td></tr>
+<tr><td>From number to <code>enum</code></td><td>For a non set enumeration, converts to the <code>enum</code> by identifying a member by its number component. It is a failure if the member is not found. For a set enumeration, converts to the <code>enum</code> by filtering out unrecognized bits.</td></tr>
 <tr><td>From <code>undefined</code> value to nullable type</td><td>Results into <code>null</code>.</td></tr>
 </tbody></table>
 </div>

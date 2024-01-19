@@ -109,7 +109,7 @@ switch type (v) {
         <td colspan="2"><i>TypeCaseElement</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>case &#x28;</b> <i>Parameter</i> <b>&#x29;</b> <i>Block</i></td>
+        <td>&nbsp;</td><td><b>case &#x28;</b> <i>TypedDestructuring</i> <b>&#x29;</b> <i>Block</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><b>default</b> <i>Block</i></td>

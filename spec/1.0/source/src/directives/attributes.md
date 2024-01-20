@@ -9,10 +9,10 @@ Attributes are in the sequence of meta-data followed by modifier keywords.
         <td colspan="2"><i>Attributes</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>Attribute</i></td>
+        <td>&nbsp;</td><td><i>Attribute</i> <i>AttributeLineBreakRestriction</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>AttributeCombination</i></td>
+        <td>&nbsp;</td><td><i>AttributeCombination</i> <i>AttributeLineBreakRestriction</i></td>
     </tr>
 </table>
 
@@ -21,7 +21,16 @@ Attributes are in the sequence of meta-data followed by modifier keywords.
         <td colspan="2"><i>AttributeCombination</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>Attribute</i> <i>Attributes</i></td>
+        <td>&nbsp;</td><td><i>Attribute</i> <i>AttributeLineBreakRestriction</i> <i>Attributes</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>AttributeLineBreakRestriction</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>[no line break if the previous and offending tokens match an <i>IdentifierName</i>]</td>
     </tr>
 </table>
 
@@ -69,6 +78,9 @@ Attributes are in the sequence of meta-data followed by modifier keywords.
         <td colspan="2"><i>Metadata</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td>[bracketed expression in the beginning of <i>Attributes</i>]</td>
+        <td>&nbsp;</td><td><b>&#x5B;</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>&#x5D;</b> [before an <i>IdentifierName</i> in <i>Attributes</i>]</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>&#x5B;</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>,</b> [if the <i>Metadata</i> is the first occurrence in <i>Attributes</i>] <b>&#x5D;</b> [before an <i>IdentifierName</i> in <i>Attributes</i>]</td>
     </tr>
 </table>

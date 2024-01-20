@@ -37,7 +37,7 @@ switch type (v) {
         <td>&nbsp;</td><td><b>switch</b> <i>ParenListExpression</i> <b>&#x7B;</b> <i>CaseElements</i><sup>abbrev</sup> <b>&#x7D;</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>switch type</b> <i>ParenListExpression</i> <b>&#x7B;</b> <i>TypeCaseElements</i> <b>&#x7D;</b></td>
+        <td>&nbsp;</td><td><b>switch</b> [no line break] <b>type</b> <i>ParenListExpression</i> <b>&#x7B;</b> <i>TypeCaseElements</i> <b>&#x7D;</b></td>
     </tr>
 </table>
 

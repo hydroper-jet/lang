@@ -19,9 +19,6 @@
         <td>&nbsp;</td><td><i>ImportDirective</i> <i>Semicolon</i><sup>ω</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>UseDirective</i> <i>Semicolon</i><sup>ω</sup></td>
-    </tr>
-    <tr>
         <td>&nbsp;</td><td><i>ConfigurationDirective</i></td>
     </tr>
 </table>
@@ -29,6 +26,9 @@
 <table>
     <tr>
         <td colspan="2"><i>AnnotatableDirective</i><sup>ω</sup></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>UseDirective</i> <i>Semicolon</i><sup>ω</sup></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>VariableDefinition</i><sup>allowIn</sup> <i>Semicolon</i><sup>ω</sup></td>

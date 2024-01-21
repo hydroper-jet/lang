@@ -10,3 +10,8 @@
   * [ ] `toString()`
   * [ ] `valueOf()`
 * [ ] `Class`
+* [ ] `CharReader`
+  * [ ] Includes several methods suitable for tokenizers: `remaining()`, `lookahead()`, `lookaheadSequence()`, `skip()`, `skipNumber(n)`
+  * [ ] `index` property (read-only)
+  * [ ] `lookbehind()`
+  * [ ] `clone()`

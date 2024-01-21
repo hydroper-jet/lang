@@ -5636,7 +5636,7 @@ p.f()
 <li>Otherwise, the indentation level starts at the first character of the line.</li>
 </ul>
 <h2 id="supported-tags"><a class="header" href="#supported-tags">Supported tags</a></h2>
-<h2 id="default"><a class="header" href="#default">@default</a></h2>
+<h3 id="default"><a class="header" href="#default">@default</a></h3>
 <p>The <code>@default</code> tag specifies a default value for a property in character form.</p>
 <pre><code>package {
     /**
@@ -5645,7 +5645,7 @@ p.f()
     public var x: Number = 0x09;
 }
 </code></pre>
-<h2 id="deprecated"><a class="header" href="#deprecated">@deprecated</a></h2>
+<h3 id="deprecated"><a class="header" href="#deprecated">@deprecated</a></h3>
 <pre><code>/**
  * @deprecated
  */
@@ -5654,7 +5654,7 @@ p.f()
  * @deprecated Message.
  */
 </code></pre>
-<h2 id="event"><a class="header" href="#event">@event</a></h2>
+<h3 id="event"><a class="header" href="#event">@event</a></h3>
 <p>Event sections begin with an <code>@event</code> tag and may be supplemented by <code>@eventConstant</code> and <code>@eventType</code>.</p>
 <pre><code>package {
     import air.events.Event;
@@ -5672,13 +5672,13 @@ p.f()
     public class ExampleEventDispatcher extends EventDispatcher {}
 }
 </code></pre>
-<h2 id="eventconstant"><a class="header" href="#eventconstant">@eventConstant</a></h2>
+<h3 id="eventconstant"><a class="header" href="#eventconstant">@eventConstant</a></h3>
 <p>The <code>@eventConstant</code> tag supplements the <code>@event</code> tag by specifying a constant that identifies the event.</p>
 <p>The constant reference inherits the surrounding scope.</p>
-<h2 id="eventtype"><a class="header" href="#eventtype">@eventType</a></h2>
+<h3 id="eventtype"><a class="header" href="#eventtype">@eventType</a></h3>
 <p>The <code>@eventType</code> tag supplements the <code>@event</code> tag by specifying the object type of the event.</p>
 <p>The type reference inherits the surrounding scope.</p>
-<h2 id="example"><a class="header" href="#example">@example</a></h2>
+<h3 id="example"><a class="header" href="#example">@example</a></h3>
 <pre><code>package {
     /**
      * @example
@@ -5689,7 +5689,7 @@ p.f()
     public class C {}
 }
 </code></pre>
-<h2 id="internal"><a class="header" href="#internal">@internal</a></h2>
+<h3 id="internal"><a class="header" href="#internal">@internal</a></h3>
 <p>The <code>@internal</code> tag is used to add an internal comment.</p>
 <pre><code>package {
     /**
@@ -5698,12 +5698,12 @@ p.f()
     public class C {}
 }
 </code></pre>
-<h2 id="param"><a class="header" href="#param">@param</a></h2>
+<h3 id="param"><a class="header" href="#param">@param</a></h3>
 <pre><code>/**
  * @param paramName Description.
  */
 </code></pre>
-<h2 id="private"><a class="header" href="#private">@private</a></h2>
+<h3 id="private"><a class="header" href="#private">@private</a></h3>
 <p>The <code>@private</code> tag omits a definition from the JetDoc public documentation.</p>
 <pre><code>package expert.core {
     /**
@@ -5712,12 +5712,12 @@ p.f()
     public var x: Number = 10
 }
 </code></pre>
-<h2 id="return"><a class="header" href="#return">@return</a></h2>
+<h3 id="return"><a class="header" href="#return">@return</a></h3>
 <pre><code>/**
  * @return Description.
  */
 </code></pre>
-<h2 id="see"><a class="header" href="#see">@see</a></h2>
+<h3 id="see"><a class="header" href="#see">@see</a></h3>
 <p>The <code>@see</code> tag references a definition, with optional display text.</p>
 <pre><code>/**
  * @see id
@@ -5728,7 +5728,7 @@ p.f()
 </code></pre>
 <p>A <code>#name</code> sequence in the end of a reference indicates an instance property or method.</p>
 <p>The reference inherits the surrounding scope.</p>
-<h2 id="throws"><a class="header" href="#throws">@throws</a></h2>
+<h3 id="throws"><a class="header" href="#throws">@throws</a></h3>
 <p>The <code>@throws</code> tag indicates a thrown error by reference, with optional display text.</p>
 <pre><code>/**
  * @throws Error
@@ -5736,6 +5736,9 @@ p.f()
  */
 </code></pre>
 <p>The reference inherits the surrounding scope.</p>
+<h2 id="future-supported-tags"><a class="header" href="#future-supported-tags">Future supported tags</a></h2>
+<p>The <code>@copy</code> and <code>@inheritDoc</code> tags are planned for the future in JetDoc, which involve copying a JetDoc comment from another definition respectively. This requires the JetDoc compiler to update anchor links to point to the right location.</p>
+<p><code>@copy</code> is planned to allow using a <code>#x</code> fragment to refer to instance properties and methods.</p>
 
                     </main>
 

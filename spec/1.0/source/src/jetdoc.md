@@ -20,7 +20,7 @@ When preprocessing whitespace of a JetDoc comment, code blocks retain indentatio
 
 ## Supported tags
 
-## @default
+### @default
 
 The `@default` tag specifies a default value for a property in character form.
 
@@ -33,7 +33,7 @@ package {
 }
 ```
 
-## @deprecated
+### @deprecated
 
 ```
 /**
@@ -45,7 +45,7 @@ package {
  */
 ```
 
-## @event
+### @event
 
 Event sections begin with an `@event` tag and may be supplemented by `@eventConstant` and `@eventType`.
 
@@ -67,19 +67,19 @@ package {
 }
 ```
 
-## @eventConstant
+### @eventConstant
 
 The `@eventConstant` tag supplements the `@event` tag by specifying a constant that identifies the event.
 
 The constant reference inherits the surrounding scope.
 
-## @eventType
+### @eventType
 
 The `@eventType` tag supplements the `@event` tag by specifying the object type of the event.
 
 The type reference inherits the surrounding scope.
 
-## @example
+### @example
 
 ```
 package {
@@ -93,7 +93,7 @@ package {
 }
 ```
 
-## @internal
+### @internal
 
 The `@internal` tag is used to add an internal comment.
 
@@ -106,7 +106,7 @@ package {
 }
 ```
 
-## @param
+### @param
 
 ```
 /**
@@ -114,7 +114,7 @@ package {
  */
 ```
 
-## @private
+### @private
 
 The `@private` tag omits a definition from the JetDoc public documentation.
 
@@ -127,7 +127,7 @@ package expert.core {
 }
 ```
 
-## @return
+### @return
 
 ```
 /**
@@ -135,7 +135,7 @@ package expert.core {
  */
 ```
 
-## @see
+### @see
 
 The `@see` tag references a definition, with optional display text.
 
@@ -152,7 +152,7 @@ A `#name` sequence in the end of a reference indicates an instance property or m
 
 The reference inherits the surrounding scope.
 
-## @throws
+### @throws
 
 The `@throws` tag indicates a thrown error by reference, with optional display text.
 
@@ -164,3 +164,9 @@ The `@throws` tag indicates a thrown error by reference, with optional display t
 ```
 
 The reference inherits the surrounding scope.
+
+## Future supported tags
+
+The `@copy` and `@inheritDoc` tags are planned for the future in JetDoc, which involve copying a JetDoc comment from another definition respectively. This requires the JetDoc compiler to update anchor links to point to the right location.
+
+`@copy` is planned to allow using a `#x` fragment to refer to instance properties and methods.

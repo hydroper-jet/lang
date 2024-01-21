@@ -1,6 +1,6 @@
 # JetDoc
 
-The Jet Language supports JetDoc comments featuring a Markdown format and miscellaneous `@` tags.
+The Jet Language supports JetDoc comments featuring a Markdown format and miscellaneous `@` tags. In addition, JetPM packages may contain a JetDoc configuration file for attaching assets and additional sections.
 
 JetDoc comments begin with `/**` and are preprocessed by ignoring leading whitespace and asterisks in every line and follow the following format:
 
@@ -167,3 +167,49 @@ The reference inherits the surrounding scope.
 The `@copy` and `@inheritDoc` tags are planned for the future in JetDoc, which involve copying a JetDoc comment from another definition respectively. This requires the JetDoc compiler to update anchor links to point to the right location.
 
 `@copy` is planned to allow using a `#x` fragment to refer to instance properties and methods.
+
+## Configuration file
+
+The optional `jetdoc.json` file, located at the root directory of the JetPM package allows attaching assets and sections to the documentation.
+
+The following JSON demonstrates an example `jetdoc.json` file:
+
+```json
+{
+    "path": "docs",
+    "files": [
+        "**/*.png",
+        "**/*.svg",
+        "**/*.jpg",
+    ],
+    "home": {
+        "title": "My package",
+        "path": "home.md",
+    },
+    "sections": [
+        {
+            "title": "Foo",
+            "path": "foo.md",
+            "sections": []
+        }
+    ]
+}
+```
+
+### files property
+
+The top-level `files` property contains zero or more file paths using a match pattern. Files are resolved from the directory specified by the top-level `path` property.
+
+### home property
+
+The optional top-level `home` property specifies a home section.
+
+### sections property
+
+The top-level `sections` property specifies zero or more sections other than the optional home section.
+
+A section may specify the following properties:
+
+* `title` (required) — The section title as a string.
+* `path` (required) — The path to the Markdown document of the section, relative to the directory specified by the top-level `path` property.
+* `sections` (optional) — A list of subsections.

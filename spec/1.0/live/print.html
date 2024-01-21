@@ -5655,29 +5655,30 @@ p.f()
  */
 </code></pre>
 <h3 id="event"><a class="header" href="#event">@event</a></h3>
-<p>Event sections begin with an <code>@event</code> tag and may be supplemented by <code>@eventConstant</code> and <code>@eventType</code>.</p>
+<p>Event sections begin with an <code>@event</code> tag and may be supplemented by <code>@eventType</code>.</p>
 <pre><code>package {
     import air.events.Event;
     import air.events.EventDispatcher;
 
     /**
      * @event eventName1 Description.
-     * @eventConstant Event.EVENT
-     * @eventType Event
      *
      * @event eventName2 Description.
-     * @eventConstant Event.EVENT
+     * @eventType Event.EVENT
+     *
+     * @event eventName3 Description.
      * @eventType Event
      */
     public class ExampleEventDispatcher extends EventDispatcher {}
 }
 </code></pre>
-<h3 id="eventconstant"><a class="header" href="#eventconstant">@eventConstant</a></h3>
-<p>The <code>@eventConstant</code> tag supplements the <code>@event</code> tag by specifying a constant that identifies the event.</p>
-<p>The constant reference inherits the surrounding scope.</p>
 <h3 id="eventtype"><a class="header" href="#eventtype">@eventType</a></h3>
-<p>The <code>@eventType</code> tag supplements the <code>@event</code> tag by specifying the object type of the event.</p>
-<p>The type reference inherits the surrounding scope.</p>
+<p>The <code>@eventType</code> tag supplements the <code>@event</code> tag by specifying either:</p>
+<ul>
+<li>The class that represents the event.</li>
+<li>A constant that identifies the event.</li>
+</ul>
+<p>The class or constant reference inherits the surrounding scope.</p>
 <h3 id="example"><a class="header" href="#example">@example</a></h3>
 <pre><code>package {
     /**

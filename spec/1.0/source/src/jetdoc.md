@@ -47,7 +47,7 @@ package {
 
 ### @event
 
-Event sections begin with an `@event` tag and may be supplemented by `@eventConstant` and `@eventType`.
+Event sections begin with an `@event` tag and may be supplemented by `@eventType`.
 
 ```
 package {
@@ -56,28 +56,25 @@ package {
 
     /**
      * @event eventName1 Description.
-     * @eventConstant Event.EVENT
-     * @eventType Event
      *
      * @event eventName2 Description.
-     * @eventConstant Event.EVENT
+     * @eventType Event.EVENT
+     *
+     * @event eventName3 Description.
      * @eventType Event
      */
     public class ExampleEventDispatcher extends EventDispatcher {}
 }
 ```
 
-### @eventConstant
-
-The `@eventConstant` tag supplements the `@event` tag by specifying a constant that identifies the event.
-
-The constant reference inherits the surrounding scope.
-
 ### @eventType
 
-The `@eventType` tag supplements the `@event` tag by specifying the object type of the event.
+The `@eventType` tag supplements the `@event` tag by specifying either:
 
-The type reference inherits the surrounding scope.
+* The class that represents the event.
+* A constant that identifies the event.
+
+The class or constant reference inherits the surrounding scope.
 
 ### @example
 

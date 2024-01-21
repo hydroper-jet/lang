@@ -49,3 +49,9 @@
         <td>&nbsp;</td><td><i>ShortNewExpression</i></td>
     </tr>
 </table>
+
+**Semantics**
+
+The new expression is used to instantiate a class.
+
+The new expression may not be used to instantiate static classes.

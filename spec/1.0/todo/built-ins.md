@@ -15,3 +15,6 @@
   * [ ] `index` property (read-only)
   * [ ] `lookbehind()`
   * [ ] `clone()`
+  * [ ] Implements `Iterator`
+* [ ] `Iterator`
+  * [ ] `length()` optional method (consumes the iterator, returning the count)

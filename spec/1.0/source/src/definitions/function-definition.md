@@ -31,6 +31,8 @@ A *FunctionDefinition* may be modified by the following attributes:
 
 A getter or setter function must not contain *TypeParameters*.
 
+An interface method may contain meta-data, but must not contain any other attributes.
+
 **Syntax**
 
 <table>

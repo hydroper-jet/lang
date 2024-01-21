@@ -5336,6 +5336,7 @@ const v: Number = 0
 </tbody></table>
 </div>
 <p>A getter or setter function must not contain <em>TypeParameters</em>.</p>
+<p>An interface method may contain meta-data, but must not contain any other attributes.</p>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
@@ -5519,6 +5520,7 @@ function set x(v: Number): void { impl.x = v }
     </tr>
 </table>
 <p><strong>Semantics</strong></p>
+<p>The interface block must only contain function definitions.</p>
 <p><em>Nesting</em>: nested interfaces are not allowed. Interfaces are only allowed in package blocks and top-level blocks.</p>
 <h2 id="interface-attributes"><a class="header" href="#interface-attributes">Interface attributes</a></h2>
 <p>Interface definitions may be modified by the following attributes:</p>

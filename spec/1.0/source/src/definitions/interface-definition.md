@@ -13,6 +13,8 @@
 
 **Semantics**
 
+The interface block must only contain function definitions.
+
 *Nesting*: nested interfaces are not allowed. Interfaces are only allowed in package blocks and top-level blocks.
 
 ## Interface attributes

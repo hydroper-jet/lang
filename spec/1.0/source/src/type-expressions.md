@@ -218,10 +218,13 @@
 
 <i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>.</b> <i>IdentifierName</i>
 
-* If the production consists of a non qualified identifier followed by one or more property operators of non qualified identifier
+* If the production consists of a non qualified identifier followed by one or more property operators of non qualified identifier, any imported packages shadow scope properties as follows:
   * Let *S* be the left-to-right name sequence of the production
   * If *S* matches the full package name of a property *P1* from the current scope \[\[*Imports*\]\] internal property, return *WrapPropertyReference*(*P1*).
   * If *S* minus the trailing name matches the full package name of a package *P1* from the current scope \[\[*OpenPackages*\]\] internal property
+    * Let *r* be *ResolveProperty*(*P1*, undefined, trailing name of *S*)
+    * If *r* is not undefined, return *r*.
+  * If *S* minus the trailing name matches the name of a package alias *P1* from the current scope \[\[*PackageAliases*\]\] internal property
     * Let *r* be *ResolveProperty*(*P1*, undefined, trailing name of *S*)
     * If *r* is not undefined, return *r*.
 * Let *base* be the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.

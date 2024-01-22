@@ -8,11 +8,14 @@ A scope consists of the following internal properties:
 | \[\[*Properties*\]\] | Properties of the scope as a dictionary of string to symbol. |
 | \[\[*Imports*\]\] | Set of package imported properties. |
 | \[\[*OpenPackages*\]\] | Set of open packages. |
+| \[\[*PackageAliases*\]\] | Set of package aliases. |
 | \[\[*LocalVariableScopeCount*\]\] | Number of local variable scopes. Used for variable shadowing. |
 
 The \[\[*Imports*\]\] property of a scope holds *non aliased* properties imported from a package.
 
 The \[\[*OpenPackages*\]\] property of a scope holds *non aliased* opened packages.
+
+The \[\[*PackageAliases*\]\] property of a scope contains package aliases resulting from the `import` directive.
 
 An `import` directive that aliases a property or package contributes an alias to \[\[*Properties*\]\].
 

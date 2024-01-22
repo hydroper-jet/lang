@@ -172,11 +172,13 @@
 <tr><td>[[<em>Properties</em>]]</td><td>Properties of the scope as a dictionary of string to symbol.</td></tr>
 <tr><td>[[<em>Imports</em>]]</td><td>Set of package imported properties.</td></tr>
 <tr><td>[[<em>OpenPackages</em>]]</td><td>Set of open packages.</td></tr>
+<tr><td>[[<em>PackageAliases</em>]]</td><td>Set of package aliases.</td></tr>
 <tr><td>[[<em>LocalVariableScopeCount</em>]]</td><td>Number of local variable scopes. Used for variable shadowing.</td></tr>
 </tbody></table>
 </div>
 <p>The [[<em>Imports</em>]] property of a scope holds <em>non aliased</em> properties imported from a package.</p>
 <p>The [[<em>OpenPackages</em>]] property of a scope holds <em>non aliased</em> opened packages.</p>
+<p>The [[<em>PackageAliases</em>]] property of a scope contains package aliases resulting from the <code>import</code> directive.</p>
 <p>An <code>import</code> directive that aliases a property or package contributes an alias to [[<em>Properties</em>]].</p>
 <h2 id="with-scope"><a class="header" href="#with-scope">With scope</a></h2>
 <p>A <code>with</code> scope in addition consists of the following internal properties:</p>

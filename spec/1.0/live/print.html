@@ -1820,6 +1820,8 @@ T(v)
 <tr><td>From <code>String</code> to <code>enum</code></td><td>Converts to <code>enum</code> by identifying a member by its string component. It is a failure if the member is not found.</td></tr>
 <tr><td>From number to <code>enum</code></td><td>For a non set enumeration, converts to the <code>enum</code> by identifying a member by its number component. It is a failure if the member is not found. For a set enumeration, converts to the <code>enum</code> by filtering out unrecognized bits.</td></tr>
 <tr><td>From <code>undefined</code> value to nullable type</td><td>Results into <code>null</code>.</td></tr>
+<tr><td>From <code>Char</code> to <code>UnsignedInt</code></td><td>Results into an integer representing the Unicode value of a character.</td></tr>
+<tr><td>From <code>UnsignedInt</code> to <code>Char</code></td><td>It is failure if the integer identifies an invalid Unicode Scalar Value, otherwise results into a character by its Unicode value.</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="visibility"><a class="header" href="#visibility">Visibility</a></h1>
 <p>A visibility is either <code>public</code>, <code>private</code>, <code>protected</code> or <code>internal</code>:</p>
@@ -2943,11 +2945,13 @@ interface I {}
 <tr><td>[[<em>Properties</em>]]</td><td>Properties of the scope as a dictionary of string to symbol.</td></tr>
 <tr><td>[[<em>Imports</em>]]</td><td>Set of package imported properties.</td></tr>
 <tr><td>[[<em>OpenPackages</em>]]</td><td>Set of open packages.</td></tr>
+<tr><td>[[<em>PackageAliases</em>]]</td><td>Set of package aliases.</td></tr>
 <tr><td>[[<em>LocalVariableScopeCount</em>]]</td><td>Number of local variable scopes. Used for variable shadowing.</td></tr>
 </tbody></table>
 </div>
 <p>The [[<em>Imports</em>]] property of a scope holds <em>non aliased</em> properties imported from a package.</p>
 <p>The [[<em>OpenPackages</em>]] property of a scope holds <em>non aliased</em> opened packages.</p>
+<p>The [[<em>PackageAliases</em>]] property of a scope contains package aliases resulting from the <code>import</code> directive.</p>
 <p>An <code>import</code> directive that aliases a property or package contributes an alias to [[<em>Properties</em>]].</p>
 <h2 id="with-scope"><a class="header" href="#with-scope">With scope</a></h2>
 <p>A <code>with</code> scope in addition consists of the following internal properties:</p>
@@ -3227,11 +3231,17 @@ EXAMPLE=value
 </ul>
 <p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>.</b> <i>IdentifierName</i></p>
 <ul>
-<li>If the production consists of a non qualified identifier followed by one or more property operators of non qualified identifier
+<li>If the production consists of a non qualified identifier followed by one or more property operators of non qualified identifier, any imported packages shadow scope properties as follows:
 <ul>
 <li>Let <em>S</em> be the left-to-right name sequence of the production</li>
 <li>If <em>S</em> matches the full package name of a property <em>P1</em> from the current scope [[<em>Imports</em>]] internal property, return <em>WrapPropertyReference</em>(<em>P1</em>).</li>
 <li>If <em>S</em> minus the trailing name matches the full package name of a package <em>P1</em> from the current scope [[<em>OpenPackages</em>]] internal property
+<ul>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>P1</em>, undefined, trailing name of <em>S</em>)</li>
+<li>If <em>r</em> is not undefined, return <em>r</em>.</li>
+</ul>
+</li>
+<li>If <em>S</em> minus the trailing name matches the name of a package alias <em>P1</em> from the current scope [[<em>PackageAliases</em>]] internal property
 <ul>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(<em>P1</em>, undefined, trailing name of <em>S</em>)</li>
 <li>If <em>r</em> is not undefined, return <em>r</em>.</li>
@@ -3581,6 +3591,7 @@ EXAMPLE=value
         <td>&nbsp;</td><td><i>NumericLiteral</i></td>
     </tr>
 </table>
+<p><strong>Semantics</strong></p>
 <p>The verification for the object initializer requires a context type. The object initializer may be used to initialize the following context types:</p>
 <ul>
 <li><code>*</code></li>
@@ -3634,6 +3645,7 @@ EXAMPLE=value
         <td>&nbsp;</td><td><i>ElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <i>InitializerRest</i></td>
     </tr>
 </table>
+<p><strong>Semantics</strong></p>
 <p>The verification for the array initializer requires a context type. The array initializer may be used to initialize the following context types:</p>
 <ul>
 <li><code>*</code></li>
@@ -3802,6 +3814,17 @@ com.qux.bar.BarType.BETA
 </ul>
 <pre><code>import com.qux.bar.*
 com.qux.bar.BarType.BETA
+</code></pre>
+<ul>
+<li>If <em>S</em> minus the trailing name matches the name of a package alias <em>P1</em> from the current scope [[<em>PackageAliases</em>]] internal property
+<ul>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>P1</em>, undefined, trailing name of <em>S</em>)</li>
+<li>If <em>r</em> is not undefined, the expression <em>E</em> resolves to <em>r</em>.</li>
+</ul>
+</li>
+</ul>
+<pre><code>import b = com.qux.bar.*
+b.BarType.BETA
 </code></pre>
 <p><strong>Syntax</strong></p>
 <table>
@@ -5224,7 +5247,10 @@ trace(w.z)
     <tr>
         <td>&nbsp;</td><td><b>import</b> <i>Identifier</i> <b>=</b> <i>PackageName</i> <b>.</b> <i>IdentifierName</i></td>
     </tr>
-</table><div style="break-before: page; page-break-before: always;"></div><h1 id="use-directive"><a class="header" href="#use-directive">Use directive</a></h1>
+</table>
+<p><strong>Semantics</strong></p>
+<p>A package alias (<code>import p = p1.*</code>) contributes an alias to the [[<em>PackageAliases</em>]] property of the current scope instead of defining an alias into the scope properties.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="use-directive"><a class="header" href="#use-directive">Use directive</a></h1>
 <p>The <code>use</code> directive is used to export definitions from another package to the enclosing package.</p>
 <pre><code>package origin.core {}
 

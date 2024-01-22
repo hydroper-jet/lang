@@ -83,6 +83,8 @@
     </tr>
 </table>
 
+**Semantics**
+
 The verification for the object initializer requires a context type. The object initializer may be used to initialize the following context types:
 
 * `*`

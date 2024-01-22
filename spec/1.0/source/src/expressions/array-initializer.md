@@ -47,6 +47,8 @@
     </tr>
 </table>
 
+**Semantics**
+
 The verification for the array initializer requires a context type. The array initializer may be used to initialize the following context types:
 
 * `*`

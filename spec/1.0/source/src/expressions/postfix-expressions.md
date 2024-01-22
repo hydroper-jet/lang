@@ -20,6 +20,15 @@ import com.qux.bar.*
 com.qux.bar.BarType.BETA
 ```
 
+* If *S* minus the trailing name matches the name of a package alias *P1* from the current scope \[\[*PackageAliases*\]\] internal property
+  * Let *r* be *ResolveProperty*(*P1*, undefined, trailing name of *S*)
+  * If *r* is not undefined, the expression *E* resolves to *r*.
+
+```
+import b = com.qux.bar.*
+b.BarType.BETA
+```
+
 **Syntax**
 
 <table>

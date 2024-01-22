@@ -185,6 +185,17 @@ com.qux.bar.BarType.BETA
 <pre><code>import com.qux.bar.*
 com.qux.bar.BarType.BETA
 </code></pre>
+<ul>
+<li>If <em>S</em> minus the trailing name matches the name of a package alias <em>P1</em> from the current scope [[<em>PackageAliases</em>]] internal property
+<ul>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>P1</em>, undefined, trailing name of <em>S</em>)</li>
+<li>If <em>r</em> is not undefined, the expression <em>E</em> resolves to <em>r</em>.</li>
+</ul>
+</li>
+</ul>
+<pre><code>import b = com.qux.bar.*
+b.BarType.BETA
+</code></pre>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>

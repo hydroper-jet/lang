@@ -370,11 +370,17 @@
 </ul>
 <p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>.</b> <i>IdentifierName</i></p>
 <ul>
-<li>If the production consists of a non qualified identifier followed by one or more property operators of non qualified identifier
+<li>If the production consists of a non qualified identifier followed by one or more property operators of non qualified identifier, any imported packages shadow scope properties as follows:
 <ul>
 <li>Let <em>S</em> be the left-to-right name sequence of the production</li>
 <li>If <em>S</em> matches the full package name of a property <em>P1</em> from the current scope [[<em>Imports</em>]] internal property, return <em>WrapPropertyReference</em>(<em>P1</em>).</li>
 <li>If <em>S</em> minus the trailing name matches the full package name of a package <em>P1</em> from the current scope [[<em>OpenPackages</em>]] internal property
+<ul>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>P1</em>, undefined, trailing name of <em>S</em>)</li>
+<li>If <em>r</em> is not undefined, return <em>r</em>.</li>
+</ul>
+</li>
+<li>If <em>S</em> minus the trailing name matches the name of a package alias <em>P1</em> from the current scope [[<em>PackageAliases</em>]] internal property
 <ul>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(<em>P1</em>, undefined, trailing name of <em>S</em>)</li>
 <li>If <em>r</em> is not undefined, return <em>r</em>.</li>

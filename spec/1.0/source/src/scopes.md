@@ -57,6 +57,14 @@ A `enum` scope in addition consists of the following internal properties:
 | ----------------- | ----------- |
 | \[\[*Class*\]\] | The enclosing `enum`. |
 
+## Interface scope
+
+An `interface` scope in addition consists of the following internal properties:
+
+| Internal property | Description |
+| ----------------- | ----------- |
+| \[\[*Interface*\]\] | The enclosing `interface`. |
+
 ## Package scope
 
 A `package` scope in addition consists of the following internal properties:

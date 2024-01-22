@@ -366,10 +366,10 @@ jetpm build --define air::target=ios
 <div style="break-before: page; page-break-before: always;"></div><h1 id="string-encoding"><a class="header" href="#string-encoding">String encoding</a></h1>
 <p>The String data type uses an implementation-defined encoding and is supported by a <code>CharIndex</code> data type representing an index into a <code>String</code>.</p>
 <h2 id="slicing"><a class="header" href="#slicing">Slicing</a></h2>
-<div class="table-wrapper"><table><thead><tr><th>Method call</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Call</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>string.slice(string.firstIndex.next(1))</code></td><td>Slices string from second character</td></tr>
-<tr><td><code>string.slice(0, string.firstIndex.next(3))</code></td><td>Takes first three characters from a string</td></tr>
-<tr><td><code>string.slice(0, string.lastIndex.next(-4))</code></td><td>Slices string until last 4 characters</td></tr>
+<tr><td><code>string.slice(string.firstIndex, string.firstIndex.next(3))</code></td><td>Takes first three characters from a string</td></tr>
+<tr><td><code>string.slice(string.firstIndex, string.lastIndex.next(-4))</code></td><td>Slices string until last 4 characters</td></tr>
 </tbody></table>
 </div>
 <h2 id="characters"><a class="header" href="#characters">Characters</a></h2>

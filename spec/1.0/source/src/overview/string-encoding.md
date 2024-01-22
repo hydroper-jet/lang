@@ -4,11 +4,11 @@ The String data type uses an implementation-defined encoding and is supported by
 
 ## Slicing
 
-| Method call | Description |
+| Call        | Description |
 | ----------- | ----------- |
 | `string.slice(string.firstIndex.next(1))` | Slices string from second character |
-| `string.slice(0, string.firstIndex.next(3))` | Takes first three characters from a string |
-| `string.slice(0, string.lastIndex.next(-4))` | Slices string until last 4 characters |
+| `string.slice(string.firstIndex, string.firstIndex.next(3))` | Takes first three characters from a string |
+| `string.slice(string.firstIndex, string.lastIndex.next(-4))` | Slices string until last 4 characters |
 
 ## Characters
 

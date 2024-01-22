@@ -1,5 +1,16 @@
 # Type conversions
 
+Type conversions occur either implicitly or explicitly.
+
+An explicit type conversion occurs through one of the following expressions:
+
+```
+v as T
+T(v)
+```
+
+`v as T` is an optional explicit type conversion.
+
 ## Implicit constant conversions
 
 The language performs implicit compile-time type conversions from a constant to a constant of another type. They are described by the following table:

@@ -25,3 +25,11 @@
         <td>&nbsp;</td><td><i>ArgumentList</i><sup>β</sup> <b>,</b> <i>AssignmentExpression</i><sup>β</sup></td>
     </tr>
 </table>
+
+**Semantics**
+
+Call expression over a type base is equivalent to an explicit type conversion.
+
+```
+T(v)
+```

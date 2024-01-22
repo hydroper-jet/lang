@@ -1777,6 +1777,12 @@ function(...a: [T]): E
 <h2 id="object-type"><a class="header" href="#object-type">Object type</a></h2>
 <p>The <code>Object</code> type is the super type of all other classes and all enums.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="type-conversions"><a class="header" href="#type-conversions">Type conversions</a></h1>
+<p>Type conversions occur either implicitly or explicitly.</p>
+<p>An explicit type conversion occurs through one of the following expressions:</p>
+<pre><code>v as T
+T(v)
+</code></pre>
+<p><code>v as T</code> is an optional explicit type conversion.</p>
 <h2 id="implicit-constant-conversions"><a class="header" href="#implicit-constant-conversions">Implicit constant conversions</a></h2>
 <p>The language performs implicit compile-time type conversions from a constant to a constant of another type. They are described by the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
@@ -3945,7 +3951,12 @@ com.qux.bar.BarType.BETA
     <tr>
         <td>&nbsp;</td><td><i>ArgumentList</i><sup>β</sup> <b>,</b> <i>AssignmentExpression</i><sup>β</sup></td>
     </tr>
-</table><div style="break-before: page; page-break-before: always;"></div><h1 id="meta-properties"><a class="header" href="#meta-properties">Meta properties</a></h1>
+</table>
+<p><strong>Semantics</strong></p>
+<p>Call expression over a type base is equivalent to an explicit type conversion.</p>
+<pre><code>T(v)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="meta-properties"><a class="header" href="#meta-properties">Meta properties</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>

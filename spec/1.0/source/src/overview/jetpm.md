@@ -6,7 +6,7 @@ A JetPM package belongs to a *platform*.
 
 ## Build system
 
-The package manifest locates Jet source files, enabling JetPM to build a project through a concise command such as `jetpm build`, resulting into a bytecode artifact.
+The package manifest locates Jet source files, enabling JetPM to build a project through a concise command such as `jetpm build`, resulting into artifact code.
 
 Here is an example package manifest:
 

@@ -196,6 +196,10 @@ The following JSON demonstrates an example `jetdoc.json` file:
 }
 ```
 
+### path property
+
+The top-level `path` property specifies the base path for resolving paths referenced in the top-level `files` property and in each section.
+
 ### files property
 
 The top-level `files` property contains zero or more file paths using a match pattern. Files are resolved from the directory specified by the top-level `path` property.

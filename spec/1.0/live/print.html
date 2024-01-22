@@ -327,7 +327,7 @@ jetpm build --define air::target=ios
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compilation-and-transpilation"><a class="header" href="#compilation-and-transpilation">Compilation and transpilation</a></h1>
-<p>Jet can be compiled to other high-level languages or be executed by a virtual machine. For Jet support, a platform must provide its own compiler subset of the Jet Compiler.</p>
+<p>Jet can be compiled to other high-level languages or be executed by a virtual machine. For Jet support, a platform must provide its own compiler subset of the Jet Compiler that traverses the abstract syntax tree and compile-time symbols.</p>
 <h2 id="number-overflow"><a class="header" href="#number-overflow">Number overflow</a></h2>
 <p>Operations whose result cannot be represented due to range limit cause a number overflow, such as <code>Int.MAX_VALUE + 1</code>. The result of a number overflow is implementation defined.</p>
 <h2 id="platform-specific-operations"><a class="header" href="#platform-specific-operations">Platform-specific operations</a></h2>

@@ -23,10 +23,10 @@ A *FunctionDefinition* may be modified by the following attributes:
 | `abstract`      | Designates an abstract instance method. |
 | `native`        | Designates a native function with native stub. |
 | `proxy`         | Designates a proxy method. |
-| `public`        | Uses the `public` visibility |
+| `public`        | Uses the `public` visibility. Default if at `interface` block. |
 | `private`       | Uses the `private` visibility |
 | `protected`     | Uses the `protected` visibility |
-| `internal`      | Uses the `internal` visibility (default) |
+| `internal`      | Uses the `internal` visibility. Default if not at `interface` block. |
 | `[Test]`        | Designates a test function. |
 
 A getter or setter function must not contain *TypeParameters*.

@@ -1,8 +1,6 @@
 # Compilation and transpilation
 
-Jet compiles to the Jet Bytecode. Jet Bytecode can be compiled to other languages or be executed by a virtual machine.
-
-Jet can be both compiled to native code or transpiled to another object-oriented high-level language.
+Jet can be compiled to other high-level languages or be executed by a virtual machine. For Jet support, a platform must provide its own compiler subset of the Jet Compiler.
 
 ## Number overflow
 
@@ -10,6 +8,6 @@ Operations whose result cannot be represented due to range limit cause a number 
 
 ## Platform-specific operations
 
-It is allowed for platforms that compile the bytecode form into another form to define specific external operations as `native` functions.
+It is allowed for platforms to define specific external operations as `native` functions.
 
 For example, for interoperability between the Jet and Lua languages during a transpilation process, it may be required to support specific operations to compute table indices and access the Lua environment.

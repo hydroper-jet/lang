@@ -50,7 +50,7 @@ The `void` type consists of the `undefined` constant.
 
 ## Null type
 
-The `null` type consists of the `null` value.
+The null type consists of the `null` value. Although the null type exists in the specification, no operation in the language can result in the null type.
 
 ## Number types
 

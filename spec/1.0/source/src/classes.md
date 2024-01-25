@@ -19,6 +19,8 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*StaticProperties*\]\] | Static properties of the class. |
 | \[\[*Prototype*\]\] | Properties of the class prototype as a dictionary from string to symbol. |
 | \[\[*Proxies*\]\] | Proxies defined by the class as a dictionary from string to function symbol. |
+| \[\[*ListOfToProxies*\]\] | `to` proxies defined by the class as function symbols. |
+| \[\[*ListOfToOptionalProxies*\]\] | `toOptional` proxies defined by the class as function symbols. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |
 
 ## Super class

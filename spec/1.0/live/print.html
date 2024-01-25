@@ -211,7 +211,7 @@ trace(isEven(11))
 }
 </code></pre>
 <p>Supported platforms may be installed through <code>jetpm platform install &quot;uri&quot;</code>. If the URI uses a <code>file:</code> scheme it locates an user platform in the development device.</p>
-<p>Platforms either use the regular Jet Compiler or a subset of the Jet Compiler that is able to compile source files other than the <code>.jet</code> extension.</p>
+<p>Platforms use a customized compiler built with the Jet Compiler codebase that is able to compile source files other than the <code>.jet</code> extension.</p>
 <h2 id="conditional-compilation"><a class="header" href="#conditional-compilation">Conditional compilation</a></h2>
 <p>The JetPM build system receives <em>constants</em> supplied by build commands, which may be used with <a href="overview/conditional-compilation.html">conditional compilation</a>.</p>
 <pre><code class="language-plain">jetpm build --define myConstant

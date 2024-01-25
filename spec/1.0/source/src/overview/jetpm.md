@@ -46,7 +46,7 @@ Here is an example of a potential package manifest that uses `http://ns.airsdk.d
 
 Supported platforms may be installed through `jetpm platform install "uri"`. If the URI uses a `file:` scheme it locates an user platform in the development device.
 
-Platforms either use the regular Jet Compiler or a subset of the Jet Compiler that is able to compile source files other than the `.jet` extension.
+Platforms use a customized compiler built with the Jet Compiler codebase that is able to compile source files other than the `.jet` extension.
 
 ## Conditional compilation
 

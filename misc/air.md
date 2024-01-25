@@ -21,12 +21,12 @@ avm.intrinsics.deleteProperty(object, key)
 avm.intrinsics.callProperty(object, key, arguments)
 ```
 
-## \[\[avm::openPackages\]\]
+## \[\[avm::OpenPackages\]\]
 
-The `[[avm::openPackages]]` plain meta-data opens `public` namespaces of specified ActionScript packages for an entire definition and all of its subsequent sections.
+The `[[avm::OpenPackages]]` meta-data opens `public` namespaces of specified ActionScript packages for an entire definition and all of its subsequent sections.
 
 ```
-[[avm::openPackages("flash.events", "flash.utils")]]
+[[avm::OpenPackages("flash.events", "flash.utils")]]
 function f(): T {}
 ```
 

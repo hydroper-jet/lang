@@ -34,3 +34,7 @@ function f(): T {}
 
 * `for..in` and `for each` should be optimized for `Array`, `Map` and `avm.lang.Array`
   * `for..in`: For `Map`, given that it is implemented as a `flash.utils.Dictionary` where string keys have a dollar prefix, skip such prefix in string keys.
+
+## Type descriptions
+
+* Operations on dynamically typed bases require lookuping into a type description dictionary by the constructor (`base.constructor`). It is a `TypeError` if the base is undefined or null before the lookup.

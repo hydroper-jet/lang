@@ -1812,7 +1812,6 @@ T(v)
 <p>An explicit conversion is followed by an attempt of an implicit conversion. Explicit conversions are described by the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
 <tr><td>To <code>T</code> through <code>proxy::to</code></td><td>Converts to type <code>T</code> by invoking the <code>to</code> proxy if present.</td></tr>
-<tr><td>To <code>T</code> through <code>proxy::toOptional</code></td><td>Converts to type <code>T</code> by invoking the <code>toOptional</code> proxy if present. It is a conversion failure if <code>toOptional</code> returns undefined.</td></tr>
 <tr><td>To contravariant type</td><td>Results into a reference of a contravariant type or a conversion failure if destination is incompatible.</td></tr>
 <tr><td><code>Array</code> to contravariant <code>Array</code></td><td>Constructs a new array filtering out covariant elements.</td></tr>
 <tr><td><code>Array</code> to covariant <code>Array</code></td><td>Constructs a new array of a covariant type.</td></tr>
@@ -2271,7 +2270,6 @@ function set x(v: T): void {}
 <li><a href="functions/proxies.html#shiftright"><code>shiftRight</code></a></li>
 <li><a href="functions/proxies.html#shiftrightunsigned"><code>shiftRightUnsigned</code></a></li>
 <li><a href="functions/proxies.html#to"><code>to</code></a></li>
-<li><a href="functions/proxies.html#tooptional"><code>toOptional</code></a></li>
 <li><a href="functions/proxies.html#getproperty"><code>getProperty</code></a></li>
 <li><a href="functions/proxies.html#setproperty"><code>setProperty</code></a></li>
 <li><a href="functions/proxies.html#deleteproperty"><code>deleteProperty</code></a></li>
@@ -2358,18 +2356,10 @@ function set x(v: T): void {}
 <ul>
 <li>The <code>to</code> proxy adds explicit conversion from the enclosing class to the type it returns.</li>
 <li>The <code>to</code> proxy may be defined multiple times.</li>
+<li>The <code>to</code> proxy indicates conversion failure by throwing a <code>TypeError</code> error.</li>
 </ul>
 <pre><code>class C {
     proxy function to(): T {}
-}
-</code></pre>
-<h2 id="tooptional"><a class="header" href="#tooptional">toOptional</a></h2>
-<ul>
-<li>The <code>toOptional</code> proxy adds explicit conversion from the enclosing class to the type <code>T</code> it returns. Such proxy is used for an optional conversion using the <code>as</code> operator.</li>
-<li>The <code>toOptional</code> proxy may be defined multiple times.</li>
-</ul>
-<pre><code>class C {
-    proxy function toOptional(): T? {}
 }
 </code></pre>
 <h2 id="getproperty"><a class="header" href="#getproperty">getProperty</a></h2>
@@ -2697,7 +2687,6 @@ proxy function has(value: E): Boolean (
 <tr><td>[[<em>Prototype</em>]]</td><td>Properties of the class prototype as a dictionary from string to symbol.</td></tr>
 <tr><td>[[<em>Proxies</em>]]</td><td>Proxies defined by the class as a dictionary from string to function symbol.</td></tr>
 <tr><td>[[<em>ListOfToProxies</em>]]</td><td><code>to</code> proxies defined by the class as function symbols.</td></tr>
-<tr><td>[[<em>ListOfToOptionalProxies</em>]]</td><td><code>toOptional</code> proxies defined by the class as function symbols.</td></tr>
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the class.</td></tr>
 </tbody></table>
 </div>

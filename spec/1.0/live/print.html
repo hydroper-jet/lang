@@ -2546,11 +2546,33 @@ import p2 = p.*;
 <li>Return <em>type</em>.</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="enumerations"><a class="header" href="#enumerations">Enumerations</a></h1>
-<p>The language supports user enumerations based on (<em>string</em>, <em>number</em>) groups. Enumerations are defined using the <code>enum</code> keyword.</p>
+<p>The language supports user enumeration types based on (<em>string</em>, <em>number</em>) groups. Enumerations are defined using the <code>enum</code> keyword.</p>
 <p>An enumeration is a final class that inherits the <code>Object</code> type.</p>
 <pre><code>enum FoodType {
-    const LIQUID;
-    const SOLID;
+    const LIQUID
+    const SOLID
+}
+const type1: FoodType = &quot;liquid&quot;
+const type2: FoodType = &quot;solid&quot;
+</code></pre>
+<p>The language additionally features set enumerations.</p>
+<pre><code>[Set]
+enum Toggles {
+    const OBJECTS_LAYER
+    const FLOORS_LAYER
+}
+const toggles: Toggles = [&quot;objectsLayer&quot;, &quot;floorsLayer&quot;]
+trace(&quot;objectsLayer&quot; in toggles)
+</code></pre>
+<h2 id="enum-block"><a class="header" href="#enum-block">Enum block</a></h2>
+<p>The <code>enum</code> block supports defining properties other than enumeration members, including instance methods, static methods, static properties and proxies.</p>
+<p>The <code>enum</code> block does not support defining a constructor.</p>
+<pre><code>enum E {
+    const M1
+    const M2
+    function math(): Number (
+        valueOf() * 16
+    )
 }
 </code></pre>
 <h2 id="members"><a class="header" href="#members">Members</a></h2>
@@ -2657,7 +2679,7 @@ proxy function has(value: E): Boolean (
 );
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="classes"><a class="header" href="#classes">Classes</a></h1>
-<p>A class as denoted by the <code>class</code> keyword represents an object type. A class is reflected as a <i>Class</i> object.</p>
+<p>A class as denoted by the <code>class</code> keyword represents an object type. A class is reflected as a <code>Class</code> object.</p>
 <p>Classes consist of several internal properties, as described in the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
 <tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the class.</td></tr>
@@ -2725,7 +2747,7 @@ package org.myEngine {
 class C {}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="interfaces"><a class="header" href="#interfaces">Interfaces</a></h1>
-<p>An interface as denoted by the <code>interface</code> keyword represents an abstract object type. An interface is reflected as a <i>Class</i> object.</p>
+<p>An interface as denoted by the <code>interface</code> keyword represents an abstract object type. An interface is reflected as a <code>Class</code> object.</p>
 <p>Interfaces consist of a small number of internal properties, described in the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
 <tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the interface.</td></tr>

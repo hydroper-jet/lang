@@ -166,11 +166,33 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="enumerations"><a class="header" href="#enumerations">Enumerations</a></h1>
-<p>The language supports user enumerations based on (<em>string</em>, <em>number</em>) groups. Enumerations are defined using the <code>enum</code> keyword.</p>
+<p>The language supports user enumeration types based on (<em>string</em>, <em>number</em>) groups. Enumerations are defined using the <code>enum</code> keyword.</p>
 <p>An enumeration is a final class that inherits the <code>Object</code> type.</p>
 <pre><code>enum FoodType {
-    const LIQUID;
-    const SOLID;
+    const LIQUID
+    const SOLID
+}
+const type1: FoodType = &quot;liquid&quot;
+const type2: FoodType = &quot;solid&quot;
+</code></pre>
+<p>The language additionally features set enumerations.</p>
+<pre><code>[Set]
+enum Toggles {
+    const OBJECTS_LAYER
+    const FLOORS_LAYER
+}
+const toggles: Toggles = [&quot;objectsLayer&quot;, &quot;floorsLayer&quot;]
+trace(&quot;objectsLayer&quot; in toggles)
+</code></pre>
+<h2 id="enum-block"><a class="header" href="#enum-block">Enum block</a></h2>
+<p>The <code>enum</code> block supports defining properties other than enumeration members, including instance methods, static methods, static properties and proxies.</p>
+<p>The <code>enum</code> block does not support defining a constructor.</p>
+<pre><code>enum E {
+    const M1
+    const M2
+    function math(): Number (
+        valueOf() * 16
+    )
 }
 </code></pre>
 <h2 id="members"><a class="header" href="#members">Members</a></h2>

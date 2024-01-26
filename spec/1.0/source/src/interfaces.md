@@ -1,6 +1,6 @@
 # Interfaces
 
-An interface as denoted by the `interface` keyword represents an abstract object type. An interface is reflected as a <i>Class</i> object.
+An interface as denoted by the `interface` keyword represents an abstract object type. An interface is reflected as a `Class` object.
 
 Interfaces consist of a small number of internal properties, described in the following table:
 

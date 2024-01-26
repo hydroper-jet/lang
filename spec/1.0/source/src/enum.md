@@ -1,13 +1,43 @@
 # Enumerations
 
-The language supports user enumerations based on (*string*, *number*) groups. Enumerations are defined using the `enum` keyword.
+The language supports user enumeration types based on (*string*, *number*) groups. Enumerations are defined using the `enum` keyword.
 
 An enumeration is a final class that inherits the `Object` type.
 
 ```
 enum FoodType {
-    const LIQUID;
-    const SOLID;
+    const LIQUID
+    const SOLID
+}
+const type1: FoodType = "liquid"
+const type2: FoodType = "solid"
+```
+
+The language additionally features set enumerations.
+
+```
+[Set]
+enum Toggles {
+    const OBJECTS_LAYER
+    const FLOORS_LAYER
+}
+const toggles: Toggles = ["objectsLayer", "floorsLayer"]
+trace("objectsLayer" in toggles)
+```
+
+## Enum block
+
+The `enum` block supports defining properties other than enumeration members, including instance methods, static methods, static properties and proxies.
+
+The `enum` block does not support defining a constructor.
+
+```
+enum E {
+    const M1
+    const M2
+    function math(): Number (
+        valueOf() * 16
+    )
 }
 ```
 

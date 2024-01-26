@@ -2671,6 +2671,7 @@ proxy function has(value: E): Boolean (
 <tr><td>[[<em>AllowLiteral</em>]]</td><td>Indicates whether the class may be initialized through an object initializer or not; that is, if it has the <code>[Literal]</code> meta-data.</td></tr>
 <tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the class.</td></tr>
 <tr><td>[[<em>StaticProperties</em>]]</td><td>Static properties of the class.</td></tr>
+<tr><td>[[<em>Constructor</em>]]</td><td>The constructor function of the class.</td></tr>
 <tr><td>[[<em>Prototype</em>]]</td><td>Properties of the class prototype as a dictionary from string to symbol.</td></tr>
 <tr><td>[[<em>Proxies</em>]]</td><td>Proxies defined by the class as a dictionary from string to function symbol.</td></tr>
 <tr><td>[[<em>ListOfToProxies</em>]]</td><td><code>to</code> proxies defined by the class as function symbols.</td></tr>
@@ -4045,7 +4046,7 @@ b.BarType.BETA
 </table>
 <p><strong>Semantics</strong></p>
 <p>The new expression is used to instantiate a class.</p>
-<p>The new expression may not be used to instantiate static classes.</p>
+<p>The new expression may not be used to instantiate static classes and enumerations.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="unary-expressions"><a class="header" href="#unary-expressions">Unary expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>

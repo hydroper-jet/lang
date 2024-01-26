@@ -54,4 +54,4 @@
 
 The new expression is used to instantiate a class.
 
-The new expression may not be used to instantiate static classes.
+The new expression may not be used to instantiate static classes and enumerations.

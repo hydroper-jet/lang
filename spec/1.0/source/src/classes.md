@@ -17,6 +17,7 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*AllowLiteral*\]\] | Indicates whether the class may be initialized through an object initializer or not; that is, if it has the `[Literal]` meta-data. |
 | \[\[*TypeParameters*\]\] | The type parameter sequence of the class. |
 | \[\[*StaticProperties*\]\] | Static properties of the class. |
+| \[\[*Constructor*\]\] | The constructor function of the class. |
 | \[\[*Prototype*\]\] | Properties of the class prototype as a dictionary from string to symbol. |
 | \[\[*Proxies*\]\] | Proxies defined by the class as a dictionary from string to function symbol. |
 | \[\[*ListOfToProxies*\]\] | `to` proxies defined by the class as function symbols. |

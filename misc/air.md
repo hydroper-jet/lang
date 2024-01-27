@@ -23,7 +23,11 @@ avm.intrinsics.callProperty(object, key, arguments)
 
 ## \[\[avm::Class\]\]
 
-The `[[avm::Class]]` meta-data identifies an ActionScript class by its fully qualified name in the `public` namespace of a package.
+The `[[avm::Class("q.C")]]` meta-data identifies an ActionScript class by its fully qualified name in the `public` namespace of a package.
+
+## \[\[avm::Interface\]\]
+
+The `[[avm::Interface("q.I")]]` meta-data identifies an ActionScript interface by its fully qualified name in the `public` namespace of a package.
 
 ## \[\[avm::OpenPackages\]\]
 

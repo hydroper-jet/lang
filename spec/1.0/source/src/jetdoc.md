@@ -90,6 +90,16 @@ package {
 }
 ```
 
+### @image
+
+The `@image` tag loads an image relative to the directory of the source file and saves it to the same JetDoc output directory of the containing package with the same filename.
+
+```
+/**
+ * @image path/to/file
+ */
+```
+
 ### @internal
 
 The `@internal` tag is used to add an internal comment.

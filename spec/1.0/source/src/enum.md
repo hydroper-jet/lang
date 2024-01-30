@@ -107,7 +107,7 @@ enum ExampleEnum as UnsignedInt {
 
 ## Set enumerations
 
-Set enumerations are defined with the `Set` meta-data. Set enumerations are represented by zero or more members, using bitwise capabilities.
+Set enumerations are defined with the `Set` meta-data. Set enumerations are immutable data types represented by zero or more members, using bitwise capabilities.
 
 ```
 [Set]
@@ -166,6 +166,10 @@ public static const all: E;
 Set enumerations automatically define the following methods, where `E` is the enumeration:
 
 ```
+public function apply(other: E, value: Boolean): E (
+    value ? this.include(other) : this.exclude(other)
+);
+
 public function include(other: E): E (
     E(this.valueOf() | other.valueOf())
 );

@@ -2615,7 +2615,7 @@ const M4 // = 4
 }
 </code></pre>
 <h2 id="set-enumerations"><a class="header" href="#set-enumerations">Set enumerations</a></h2>
-<p>Set enumerations are defined with the <code>Set</code> meta-data. Set enumerations are represented by zero or more members, using bitwise capabilities.</p>
+<p>Set enumerations are defined with the <code>Set</code> meta-data. Set enumerations are immutable data types represented by zero or more members, using bitwise capabilities.</p>
 <pre><code>[Set]
 enum Toggles {
     const TOGGLE_1;
@@ -2653,7 +2653,11 @@ override public native function toString(): String;
 public static const all: E;
 </code></pre>
 <p>Set enumerations automatically define the following methods, where <code>E</code> is the enumeration:</p>
-<pre><code>public function include(other: E): E (
+<pre><code>public function apply(other: E, value: Boolean): E (
+    value ? this.include(other) : this.exclude(other)
+);
+
+public function include(other: E): E (
     E(this.valueOf() | other.valueOf())
 );
 

@@ -2525,10 +2525,16 @@ import p2 = p.*;
 <tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the alias.</td></tr>
 <tr><td>[[<em>AliasOf</em>]]</td><td>The symbol to which this alias translates.</td></tr>
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the alias.</td></tr>
+<tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the class.</td></tr>
 </tbody></table>
 </div>
 <h2 id="parent-definition-4"><a class="header" href="#parent-definition-4">Parent definition</a></h2>
 <p>When the parent definition of an alias is a package, the alias has a fully package qualified name.</p>
+<h2 id="meta-data-3"><a class="header" href="#meta-data-3">Meta data</a></h2>
+<p>An alias may contain zero or more plain meta-data:</p>
+<pre><code>[[N1(n2)]]
+type T2 = T1;
+</code></pre>
 <h2 id="resolvealias"><a class="header" href="#resolvealias">ResolveAlias()</a></h2>
 <p>The internal <em>ResolveAlias</em>(<em>type</em>) function takes the following steps:</p>
 <ol>
@@ -2730,7 +2736,7 @@ package org.myEngine {
 ```
 
 -->
-<h2 id="meta-data-3"><a class="header" href="#meta-data-3">Meta data</a></h2>
+<h2 id="meta-data-4"><a class="header" href="#meta-data-4">Meta data</a></h2>
 <p>A class may contain zero or more plain meta-data:</p>
 <pre><code>[[N1(n2)]]
 class C {}
@@ -2756,7 +2762,7 @@ class C {}
 </ul>
 <h2 id="parent-definition-6"><a class="header" href="#parent-definition-6">Parent definition</a></h2>
 <p>When the parent definition of an interface is a package, the interface has a fully package qualified name.</p>
-<h2 id="meta-data-4"><a class="header" href="#meta-data-4">Meta data</a></h2>
+<h2 id="meta-data-5"><a class="header" href="#meta-data-5">Meta data</a></h2>
 <p>An interface may contain zero or more plain meta-data:</p>
 <pre><code>[[N1(n2)]]
 interface I {}

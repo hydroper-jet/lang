@@ -1,6 +1,6 @@
 # Package sets
 
-Package sets allow to resolve a property from a set of packages and are used in Jet Flex.
+Package sets allow to resolve a property from a set of packages. Package sets are common in XML based frameworks built over the Jet Compiler codebase.
 
 Package sets consist of the following internal properties:
 

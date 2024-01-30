@@ -8,7 +8,7 @@
 
 The Jet language is a flexible scripting language influenced by ActionScript.
 
-> **Note**: Jet is in documentation process and its compiler is not available.
+> **Note**: Jet is partially documented and its compiler is being implemented.
 
 ## Applicable technologies
 

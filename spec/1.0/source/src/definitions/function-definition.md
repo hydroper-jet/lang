@@ -110,11 +110,37 @@ function set x(v: Number): void { impl.x = v }
 
 *Constructor restrictions*: A constructor must not specify *ResultType*.
 
-*Getter restrictions*: A getter signature must contain no parameters.
+```
+class C {
+    function C() {}
+}
+```
 
-*Setter restrictions*: A setter signature must contain exactly one parameter and return `void`.
+*Getter restrictions*: A getter signature must contain no parameters. If there is a corresponding setter, that setter must take a parameter of the exact same type as the result type of the getter.
+
+```
+function get x() 10
+```
+
+*Setter restrictions*: A setter signature must contain exactly one parameter and return `void`. If there is a corresponding getter, that getter must return the exact same type as the first parameter type of the setter.
+
+```
+function set x(v) {}
+```
 
 *Type inference*: The constructor and setter signatures always return `void`. The default result type of a signature is the any type (`*`).
+
+```
+class C {
+    function C() {
+        // Signature of this constructor is "function(): void"
+    }
+}
+
+function set x(v) {
+    // Signature of this setter is "function(v: *): void"
+}
+```
 
 ## Parameter list
 

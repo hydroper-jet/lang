@@ -211,6 +211,7 @@ T(v)
 <tr><td>From <code>undefined</code> value to nullable type</td><td>Results into <code>null</code>.</td></tr>
 <tr><td>From <code>Char</code> to <code>UnsignedInt</code></td><td>Results into an integer representing the Unicode value of a character.</td></tr>
 <tr><td>From <code>UnsignedInt</code> to <code>Char</code></td><td>It is failure if the integer identifies an invalid Unicode Scalar Value, otherwise results into a character by its Unicode value.</td></tr>
+<tr><td>From type parameter <code>T</code> to <code>W</code></td><td>Conversion equivalent to <code>W(T as *)</code> or <code>T as * as W</code>.</td></tr>
 </tbody></table>
 </div>
                     </main>

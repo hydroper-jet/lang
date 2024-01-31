@@ -57,3 +57,4 @@ An explicit conversion is followed by an attempt of an implicit conversion. Expl
 | From `undefined` value to nullable type | Results into `null`. |
 | From `Char` to `UnsignedInt` | Results into an integer representing the Unicode value of a character. |
 | From `UnsignedInt` to `Char` | It is failure if the integer identifies an invalid Unicode Scalar Value, otherwise results into a character by its Unicode value. |
+| From type parameter `T` to `W` | Conversion equivalent to `W(T as *)` or `T as * as W`. |

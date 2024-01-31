@@ -65,6 +65,19 @@ const v: String = ""
 const v: Number = 0
 ```
 
+*Type inference:* If a variable has no type annotation and has an initializer, its static type is that of the initializer. If a variable has no type annotation and no initializer, the variable is of the any type (`*`).
+
+```
+// x: *
+var x
+// x: Number
+var x = 10
+
+for (var k in ["x", "y"]) {
+    // k: *
+}
+```
+
 A *VariableDefinition* may be modified by the following attributes:
 
 | Attribute       | Description |

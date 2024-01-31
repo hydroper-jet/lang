@@ -221,6 +221,16 @@
 <pre><code>const v: String = &quot;&quot;
 const v: Number = 0
 </code></pre>
+<p><em>Type inference:</em> If a variable has no type annotation and has an initializer, its static type is that of the initializer. If a variable has no type annotation and no initializer, the variable is of the any type (<code>*</code>).</p>
+<pre><code>// x: *
+var x
+// x: Number
+var x = 10
+
+for (var k in [&quot;x&quot;, &quot;y&quot;]) {
+    // k: *
+}
+</code></pre>
 <p>A <em>VariableDefinition</em> may be modified by the following attributes:</p>
 <div class="table-wrapper"><table><thead><tr><th>Attribute</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>static</code></td><td>Adds property to the enclosing class's [[<em>StaticProperties</em>]] internal property.</td></tr>

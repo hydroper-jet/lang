@@ -168,8 +168,16 @@
                         <h1 id="instance-methods"><a class="header" href="#instance-methods">Instance methods</a></h1>
 <p>An instance method is a non static function directly enclosed by a <code>class</code>, <code>enum</code> or <code>interface</code> block.</p>
 <pre><code>class C {
-    function f(): void {}
+    function f() {}
 }
+</code></pre>
+<p>Instance methods are <em>bound</em> methods and produce the same <code>Function</code> object from an instance.</p>
+<pre><code>class C {
+    function f() {}
+}
+
+const o = new C
+trace(o.f == o.f)
 </code></pre>
 <h2 id="abstract-methods"><a class="header" href="#abstract-methods">Abstract methods</a></h2>
 <p>An abstract method contains the <code>abstract</code> attribute.</p>

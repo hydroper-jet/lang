@@ -4,8 +4,19 @@ An instance method is a non static function directly enclosed by a `class`, `enu
 
 ```
 class C {
-    function f(): void {}
+    function f() {}
 }
+```
+
+Instance methods are *bound* methods and produce the same `Function` object from an instance.
+
+```
+class C {
+    function f() {}
+}
+
+const o = new C
+trace(o.f == o.f)
 ```
 
 ## Abstract methods

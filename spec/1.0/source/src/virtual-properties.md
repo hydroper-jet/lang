@@ -21,6 +21,8 @@ Virtual properties consist of the following internal properties:
 | \[\[*ParentDefinition*\]\] | The parent definition of the virtual property. |
 | \[\[*ReadOnly*\]\] | Indicates whether the virtual property is read-only or not. |
 | \[\[*WriteOnly*\]\] | Indicates whether the virtual property is write-only or not. |
+| \[\[*Getter*\]\] | Indicates the getter function of the virtual property. |
+| \[\[*Setter*\]\] | Indicates the setter function of the virtual property. |
 
 ## Parent definition
 

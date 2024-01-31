@@ -1,13 +1,5 @@
 # Import directive
 
-```
-package x.y {
-    public const z: String = "x.y"
-}
-import w = x.y.*
-trace(w.z)
-```
-
 **Syntax**
 
 <table>

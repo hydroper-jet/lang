@@ -16,7 +16,7 @@ The `ω` superscript used throughout the document translates to one of the follo
         <td>&nbsp;</td><td><i>SuperStatement</i> <i>Semicolon</i><sup>ω</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>Block</i></td>
+        <td>&nbsp;</td><td><i>BlockAttributes</i><sub>opt</sub> <i>Block</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>IfStatement</i><sup>ω</sup></td>

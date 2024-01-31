@@ -21,28 +21,27 @@ avm.intrinsics.deleteProperty(object, key)
 avm.intrinsics.callProperty(object, key, arguments)
 ```
 
-## \[\[avm::Class\]\]
+## \[\[avm::Property\]\]
 
-The `[[avm::Class("q.C")]]` meta-data identifies an ActionScript class by its fully qualified name in the `public` namespace of a package.
+The `[[avm::Property("name")]]` meta-data identifies an ActionScript property by its name, causing a Jet definition to translate to such.
 
-## \[\[avm::Interface\]\]
+If it is applied to a package property, it identifies a property in the `public` namespace of a package by a fully qualified name (`q.C`).
 
-The `[[avm::Interface("q.I")]]` meta-data identifies an ActionScript interface by its fully qualified name in the `public` namespace of a package.
+## Open namespaces
 
-## \[\[avm::OpenPackages\]\]
-
-The `[[avm::OpenPackages]]` meta-data opens `public` namespaces of specified ActionScript packages for an entire definition and all of its subsequent sections.
+The `[[avm::Import]]` meta-data opens `public` namespaces of specified ActionScript packages for an entire definition and all of its subsequent sections.
 
 ```
-[[avm::OpenPackages("flash.events", "flash.utils")]]
+[[avm::Import("flash.events", "flash.utils")]]
 function f(): T {}
 ```
+
+The top-level package `public` namespace is always open.
 
 ## Optimizations
 
 * `for..in` and `for each` should be optimized for `Array`, `Map` and `avm.lang.Array`
   * `for..in`: For `Map`, given that it is implemented as a `flash.utils.Dictionary` where string keys have a dollar prefix, skip such prefix in string keys.
-* `push` et cetera on `Array`
 
 ## Type descriptions
 

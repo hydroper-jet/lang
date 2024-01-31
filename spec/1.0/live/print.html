@@ -4583,7 +4583,7 @@ b.BarType.BETA
         <td>&nbsp;</td><td><i>SuperStatement</i> <i>Semicolon</i><sup>ω</sup></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>Block</i></td>
+        <td>&nbsp;</td><td><i>BlockAttributes</i><sub>opt</sub> <i>Block</i></td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>IfStatement</i><sup>ω</sup></td>
@@ -4729,7 +4729,15 @@ b.BarType.BETA
     <tr>
         <td>&nbsp;</td><td><b>&#x7B;</b> <i>Directives</i> <b>&#x7D;</b></td>
     </tr>
-</table><div style="break-before: page; page-break-before: always;"></div><h1 id="labeled-statement"><a class="header" href="#labeled-statement">Labeled statement</a></h1>
+</table>
+<p><strong>Semantics</strong></p>
+<p>The block statement is allowed to contain only plain meta-data.</p>
+<pre><code>[[N1(n2 = 10)]]
+{
+    trace(&quot;Log&quot;)
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="labeled-statement"><a class="header" href="#labeled-statement">Labeled statement</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
@@ -5127,6 +5135,17 @@ for (const key in map) {
 </table>
 <table>
     <tr>
+        <td colspan="2"><i>BlockAttributes</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Metadata</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>BlockAttributes</i> <i>Metadata</i></td>
+    </tr>
+</table>
+<table>
+    <tr>
         <td colspan="2"><i>AttributeLineBreakRestriction</i></td>
     </tr>
     <tr>
@@ -5176,7 +5195,7 @@ for (const key in map) {
         <td colspan="2"><i>Metadata</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>MetadataPreRestriction</i> <b>&#x5B;</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>&#x5D;</b>]</td>
+        <td>&nbsp;</td><td><i>MetadataPreRestriction</i> <b>&#x5B;</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>&#x5D;</b>&#x5D;</td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>MetadataPreRestriction</i> <b>&#x5B;</b> <i>AssignmentExpression</i><sup>allowIn</sup> <i>MetadataTrailingComma</i> <b>&#x5D;</b></td>

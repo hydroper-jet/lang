@@ -27,6 +27,18 @@ Attributes are in the sequence of meta-data followed by modifier keywords.
 
 <table>
     <tr>
+        <td colspan="2"><i>BlockAttributes</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>Metadata</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><i>BlockAttributes</i> <i>Metadata</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
         <td colspan="2"><i>AttributeLineBreakRestriction</i></td>
     </tr>
     <tr>
@@ -78,7 +90,7 @@ Attributes are in the sequence of meta-data followed by modifier keywords.
         <td colspan="2"><i>Metadata</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><i>MetadataPreRestriction</i> <b>&#x5B;</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>&#x5D;</b>]</td>
+        <td>&nbsp;</td><td><i>MetadataPreRestriction</i> <b>&#x5B;</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>&#x5D;</b>&#x5D;</td>
     </tr>
     <tr>
         <td>&nbsp;</td><td><i>MetadataPreRestriction</i> <b>&#x5B;</b> <i>AssignmentExpression</i><sup>allowIn</sup> <i>MetadataTrailingComma</i> <b>&#x5D;</b></td>

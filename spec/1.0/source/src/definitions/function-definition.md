@@ -140,6 +140,10 @@ class C {
 function set x(v) {
     // Signature of this setter is "function(v: *): void"
 }
+
+function f() {
+    // Signature of this function is "function(): *"
+}
 ```
 
 ## Parameter list

@@ -5355,7 +5355,30 @@ trace(w.z)
     </tr>
 </table>
 <p><strong>Semantics</strong></p>
-<p>A package alias (<code>import p = p1.*</code>) contributes an alias to the [[<em>PackageAliases</em>]] property of the current scope instead of defining an alias into the scope properties.</p>
+<p>An <code>import p.*</code> directive contributes the <code>p</code> package to (current scope)[[<em>OpenPackages</em>]].</p>
+<pre><code>package p { public var x }
+import p.*
+p.x
+x
+</code></pre>
+<p>An <code>import p.x</code> directive contributes the <code>x</code> property of the <code>p</code> package to (current scope)[[<em>Imports</em>]].</p>
+<pre><code>package p { public var x }
+import p.x
+p.x
+x
+</code></pre>
+<p>An <code>import p = p1.*</code> directive contributes an alias <strong>p</strong> of the package <code>p1</code> to (current scope)[[<em>PackageAliases</em>]].</p>
+<pre><code>package p1 { public var x }
+import p2 = p1.*
+var x
+p2.x
+x
+</code></pre>
+<p>An <code>import y = p.x</code> directive assigns (current scope)[[<em>Properties</em>]][<strong>y</strong>] to the <code>x</code> property of the <code>p</code> package. It is a verify error if (current scope)[[<em>Properties</em>]][<strong>y</strong>] already exists before the assignment.</p>
+<pre><code>package p { public var x }
+import y = p.x
+y
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="use-directive"><a class="header" href="#use-directive">Use directive</a></h1>
 <p>The <code>use</code> directive is used to export definitions from another package to the enclosing package.</p>
 <pre><code>package origin.core {}

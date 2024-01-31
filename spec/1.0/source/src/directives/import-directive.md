@@ -30,4 +30,38 @@ trace(w.z)
 
 **Semantics**
 
-A package alias (`import p = p1.*`) contributes an alias to the \[\[*PackageAliases*\]\] property of the current scope instead of defining an alias into the scope properties.
+An `import p.*` directive contributes the `p` package to (current scope)\[\[*OpenPackages*\]\].
+
+```
+package p { public var x }
+import p.*
+p.x
+x
+```
+
+An `import p.x` directive contributes the `x` property of the `p` package to (current scope)\[\[*Imports*\]\].
+
+```
+package p { public var x }
+import p.x
+p.x
+x
+```
+
+An `import p = p1.*` directive contributes an alias **p** of the package `p1` to (current scope)\[\[*PackageAliases*\]\].
+
+```
+package p1 { public var x }
+import p2 = p1.*
+var x
+p2.x
+x
+```
+
+An `import y = p.x` directive assigns (current scope)\[\[*Properties*\]\]\[**y**\] to the `x` property of the `p` package. It is a verify error if (current scope)\[\[*Properties*\]\]\[**y**\] already exists before the assignment.
+
+```
+package p { public var x }
+import y = p.x
+y
+```

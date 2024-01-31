@@ -106,6 +106,16 @@ function set x(v: Number): void { impl.x = v }
     </tr>
 </table>
 
+**Semantics**
+
+*Constructor restrictions*: A constructor must not specify *ResultType*.
+
+*Getter restrictions*: A getter signature must contain no parameters.
+
+*Setter restrictions*: A setter signature must contain exactly one parameter and return `void`.
+
+*Type inference*: The constructor and setter signatures always return `void`.
+
 ## Parameter list
 
 **Syntax**

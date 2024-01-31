@@ -253,6 +253,11 @@ function set x(v: Number): void { impl.x = v }
         <td>&nbsp;</td><td><b>:</b> <i>TypeExpression</i></td>
     </tr>
 </table>
+<p><strong>Semantics</strong></p>
+<p><em>Constructor restrictions</em>: A constructor must not specify <em>ResultType</em>.</p>
+<p><em>Getter restrictions</em>: A getter signature must contain no parameters.</p>
+<p><em>Setter restrictions</em>: A setter signature must contain exactly one parameter and return <code>void</code>.</p>
+<p><em>Type inference</em>: The constructor and setter signatures always return <code>void</code>.</p>
 <h2 id="parameter-list"><a class="header" href="#parameter-list">Parameter list</a></h2>
 <p><strong>Syntax</strong></p>
 <table>

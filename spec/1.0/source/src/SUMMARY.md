@@ -38,6 +38,7 @@
 - [Classes](classes.md)
 - [Interfaces](interfaces.md)
 - [Property resolution](property-resolution.md)
+- [Fully qualified names](fully-qualified-names.md)
 - [Scopes](scopes.md)
 - [Environment variables](environment-variables.md)
 - [Output directory](output-directory.md)

@@ -31,7 +31,7 @@ p.x
 x
 ```
 
-An `import p.x` directive contributes the `x` property of the `p` package to (current scope)\[\[*Imports*\]\].
+An `import p.x` directive contributes the `x` property of the `p` package to (current scope)\[\[*Imports*\]\]. It is a verify error if [*PropertyIsVisible*](**p.x**, current scope) is false.
 
 ```
 package p { public var x }
@@ -50,10 +50,15 @@ p2.x
 x
 ```
 
-An `import y = p.x` directive assigns (current scope)\[\[*Properties*\]\]\[**y**\] to the `x` property of the `p` package. It is a verify error if (current scope)\[\[*Properties*\]\]\[**y**\] already exists before the assignment.
+An `import y = p.x` directive assigns (current scope)\[\[*Properties*\]\]\[**y**\] to the `x` property of the `p` package.
+
+* It is a verify error if (current scope)\[\[*Properties*\]\]\[**y**\] already exists before the assignment.
+* It is a verify error if [*PropertyIsVisible*](**p.x**, current scope) is false.
 
 ```
 package p { public var x }
 import y = p.x
 y
 ```
+
+[*PropertyIsVisible*]: ../visibility.md#propertyisvisible

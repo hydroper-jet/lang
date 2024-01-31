@@ -35,7 +35,7 @@ package p1 { public var x }
 package p2 { public use p1.* }
 ```
 
-A `public use p.x` directive assigns (enclosing packages)\[\[*Properties*\]\]\[**x**\] to an alias **x** of the `x` property of the `p` package.
+A `public use p.x` directive assigns (enclosing packages)\[\[*Properties*\]\]\[**x**\] an alias **x** of the `x` property of the `p` package.
 
 * It is a verify error if (enclosing packages)\[\[*Properties*\]\]\[**x**\] is already defined before the assignment.
 * It is a verify error if [*PropertyIsVisible*](**p.x**, current scope) is false.
@@ -45,7 +45,7 @@ package p1 { public var x }
 package p2 { public use p1.x }
 ```
 
-A `public use y = p.x` directive assigns (enclosing package)\[\[*Properties*\]\]\[**y**\] to an alias **y** of the `x` property of the `p` package.
+A `public use y = p.x` directive assigns (enclosing package)\[\[*Properties*\]\]\[**y**\] an alias **y** of the `x` property of the `p` package.
 
 * It is a verify error if (enclosing package)\[\[*Properties*\]\]\[**y**\] is already defined before the assignment.
 * It is a verify error if [*PropertyIsVisible*](**p.x**, current scope) is false.

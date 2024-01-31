@@ -5373,7 +5373,7 @@ var x
 p2.x
 x
 </code></pre>
-<p>An <code>import y = p.x</code> directive assigns (current scope)[[<em>Properties</em>]][<strong>y</strong>] to an alias <strong>y</strong> of the <code>x</code> property of the <code>p</code> package.</p>
+<p>An <code>import y = p.x</code> directive assigns (current scope)[[<em>Properties</em>]][<strong>y</strong>] an alias <strong>y</strong> of the <code>x</code> property of the <code>p</code> package.</p>
 <ul>
 <li>It is a verify error if (current scope)[[<em>Properties</em>]][<strong>y</strong>] already exists before the assignment.</li>
 <li>It is a verify error if <a href="directives/../visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<strong>p.x</strong>, current scope) is false.</li>
@@ -5408,7 +5408,7 @@ package p2 { public use p1.* }
 <pre><code>package p1 { public var x }
 package p2 { public use p1.* }
 </code></pre>
-<p>A <code>public use p.x</code> directive assigns (enclosing packages)[[<em>Properties</em>]][<strong>x</strong>] to an alias <strong>x</strong> of the <code>x</code> property of the <code>p</code> package.</p>
+<p>A <code>public use p.x</code> directive assigns (enclosing packages)[[<em>Properties</em>]][<strong>x</strong>] an alias <strong>x</strong> of the <code>x</code> property of the <code>p</code> package.</p>
 <ul>
 <li>It is a verify error if (enclosing packages)[[<em>Properties</em>]][<strong>x</strong>] is already defined before the assignment.</li>
 <li>It is a verify error if <a href="directives/../visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<strong>p.x</strong>, current scope) is false.</li>
@@ -5416,7 +5416,7 @@ package p2 { public use p1.* }
 <pre><code>package p1 { public var x }
 package p2 { public use p1.x }
 </code></pre>
-<p>A <code>public use y = p.x</code> directive assigns (enclosing package)[[<em>Properties</em>]][<strong>y</strong>] to an alias <strong>y</strong> of the <code>x</code> property of the <code>p</code> package.</p>
+<p>A <code>public use y = p.x</code> directive assigns (enclosing package)[[<em>Properties</em>]][<strong>y</strong>] an alias <strong>y</strong> of the <code>x</code> property of the <code>p</code> package.</p>
 <ul>
 <li>It is a verify error if (enclosing package)[[<em>Properties</em>]][<strong>y</strong>] is already defined before the assignment.</li>
 <li>It is a verify error if <a href="directives/../visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<strong>p.x</strong>, current scope) is false.</li>

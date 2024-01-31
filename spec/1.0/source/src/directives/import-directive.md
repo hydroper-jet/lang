@@ -50,7 +50,7 @@ p2.x
 x
 ```
 
-An `import y = p.x` directive assigns (current scope)\[\[*Properties*\]\]\[**y**\] to an alias **y** of the `x` property of the `p` package.
+An `import y = p.x` directive assigns (current scope)\[\[*Properties*\]\]\[**y**\] an alias **y** of the `x` property of the `p` package.
 
 * It is a verify error if (current scope)\[\[*Properties*\]\]\[**y**\] already exists before the assignment.
 * It is a verify error if [*PropertyIsVisible*](**p.x**, current scope) is false.

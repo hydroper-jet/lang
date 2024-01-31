@@ -34,6 +34,24 @@ class C2 extends C1 {
 }
 ```
 
+A method must not be overriden if it is type parameterized or if the overriding method is type parameterized.
+
+```
+class C1 {
+    function f.<T>(): void {}
+}
+class C2 extends C1 {
+    override function f(): void {} // VerifyError
+}
+
+class C2 {
+    function f(): void {}
+}
+class C3 extends C2 {
+    override function f.<T>(): void {} // VerifyError
+}
+```
+
 ### Overriding signature
 
 It is a verify error if the overriding signature is not compatible with the super class's method signature.

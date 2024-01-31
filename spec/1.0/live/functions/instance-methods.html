@@ -191,6 +191,21 @@ class C2 extends C1 {
     override function f(): void {}
 }
 </code></pre>
+<p>A method must not be overriden if it is type parameterized or if the overriding method is type parameterized.</p>
+<pre><code>class C1 {
+    function f.&lt;T&gt;(): void {}
+}
+class C2 extends C1 {
+    override function f(): void {} // VerifyError
+}
+
+class C2 {
+    function f(): void {}
+}
+class C3 extends C2 {
+    override function f.&lt;T&gt;(): void {} // VerifyError
+}
+</code></pre>
 <h3 id="overriding-signature"><a class="header" href="#overriding-signature">Overriding signature</a></h3>
 <p>It is a verify error if the overriding signature is not compatible with the super class's method signature.</p>
 <ul>

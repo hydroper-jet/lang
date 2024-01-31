@@ -259,6 +259,21 @@
 <li>Return undefined.</li>
 </ol>
 </li>
+<li>If <em>base</em> is the <code>import.meta</code> symbol
+<ol>
+<li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
+<li>If <em>key</em> equals <code>env</code>, return the <code>import.meta.env</code> symbol.</li>
+<li>If <em>key</em> equals <code>output</code>, return the <code>import.meta.output</code> special value.</li>
+<li>Return undefined.</li>
+</ol>
+</li>
+<li>If <em>base</em> is the <code>import.meta.env</code> symbol
+<ol>
+<li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
+<li>Let <em>evDict</em> be the result of loading environment variables.</li>
+<li>Return <em>evDict</em>[<em>key</em>]</li>
+</ol>
+</li>
 <li>Return undefined.</li>
 </ol>
 <h2 id="findpropertyproxy"><a class="header" href="#findpropertyproxy">FindPropertyProxy()</a></h2>

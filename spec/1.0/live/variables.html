@@ -183,42 +183,60 @@ const y: Number;
 </div>
 <h2 id="read-only-variables"><a class="header" href="#read-only-variables">Read-only variables</a></h2>
 <p>A variable may be read-only by using the <code>const</code> keyword instead of the <code>var</code> keyword when defining it.</p>
+<p>Read-only variables are referred to as <em>constants</em>.</p>
 <h2 id="initializer"><a class="header" href="#initializer">Initializer</a></h2>
 <p>Variables are lazily initialized with the exception of variables whose static type has a <em>default</em> value, such as a <a href="types.html#primitive-types">primitive type</a> or a nullable type.</p>
 <ul>
 <li>It is a <code>ReferenceError</code> if the value of a variable is accessed before initialized and the static type of that variable includes no default value.</li>
 </ul>
-<pre><code>public class C {
-    public const x: Number
-    public const y: RegExp
-    public function C() {
+<pre><code>class C {
+    const x: Number
+    const y: RegExp
+    function C() {
         x // 0
         y // ReferenceError
     }
 }
 </code></pre>
 <ul>
-<li>It is a <code>VerifyError</code> if a constant variable is assigned more than once.</li>
-<li>A constant variable that is not an instance variable must contain an initializer.</li>
-<li>A constant variable that is not an instance variable must not be assigned by an assignment expression.</li>
-<li>A constant variable that is an instance variable may be assigned in the constructor body.</li>
-<li>A constant variable that is an instance variable may not be assigned outside the constructor body.</li>
+<li>It is a <code>VerifyError</code> if a constant is assigned more than once.</li>
+<li>A non-instance constant must contain an initializer.</li>
+<li>A non-instance constant must not be assigned by an assignment expression.</li>
+<li>An instance constant may be assigned in the constructor body.</li>
+<li>An instance constant may not be assigned outside the constructor body.</li>
 </ul>
+<pre><code>const x // VerifyError
+
+const x = 10
+x++ // VerifyError
+
+class C {
+    const x
+    function C(x) {
+        this.x = x
+    }
+    function f() {
+        x = 10 // VerifyError
+    }
+}
+</code></pre>
 <p><em>Constant initializer</em>: A variable may consist of a constant initializer. A constant initializer consists of a constant expression.</p>
+<pre><code>var x = 0
+</code></pre>
 <h2 id="meta-data"><a class="header" href="#meta-data">Meta data</a></h2>
 <p>A variable may contain zero or more plain meta-data.</p>
 <pre><code>[[N1(n2)]]
 const x: T;
 </code></pre>
 <h2 id="optional-variables"><a class="header" href="#optional-variables">Optional variables</a></h2>
-<p>Optional variables do not need to be specified when using an object initializer:</p>
+<p>Optional variables do not need to be specified when using an object initializer.</p>
 <pre><code>[Literal]
 public class C {
     public const x: Number?;
 }
 const o: C = {};
 </code></pre>
-<p>A variable is <em>optional</em> when the variable's static type is a nullable type or when the variable's static type contains <code>undefined</code>.</p>
+<p>A variable is <em>optional</em> when the variable's static type contains <code>null</code> or when the variable's static type contains <code>undefined</code>.</p>
 <h2 id="parent-definition"><a class="header" href="#parent-definition">Parent definition</a></h2>
 <p>When the parent definition of a variable is a package, the variable has a fully package qualified name.</p>
 

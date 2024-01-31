@@ -2041,42 +2041,60 @@ const y: Number;
 </div>
 <h2 id="read-only-variables"><a class="header" href="#read-only-variables">Read-only variables</a></h2>
 <p>A variable may be read-only by using the <code>const</code> keyword instead of the <code>var</code> keyword when defining it.</p>
+<p>Read-only variables are referred to as <em>constants</em>.</p>
 <h2 id="initializer"><a class="header" href="#initializer">Initializer</a></h2>
 <p>Variables are lazily initialized with the exception of variables whose static type has a <em>default</em> value, such as a <a href="types.html#primitive-types">primitive type</a> or a nullable type.</p>
 <ul>
 <li>It is a <code>ReferenceError</code> if the value of a variable is accessed before initialized and the static type of that variable includes no default value.</li>
 </ul>
-<pre><code>public class C {
-    public const x: Number
-    public const y: RegExp
-    public function C() {
+<pre><code>class C {
+    const x: Number
+    const y: RegExp
+    function C() {
         x // 0
         y // ReferenceError
     }
 }
 </code></pre>
 <ul>
-<li>It is a <code>VerifyError</code> if a constant variable is assigned more than once.</li>
-<li>A constant variable that is not an instance variable must contain an initializer.</li>
-<li>A constant variable that is not an instance variable must not be assigned by an assignment expression.</li>
-<li>A constant variable that is an instance variable may be assigned in the constructor body.</li>
-<li>A constant variable that is an instance variable may not be assigned outside the constructor body.</li>
+<li>It is a <code>VerifyError</code> if a constant is assigned more than once.</li>
+<li>A non-instance constant must contain an initializer.</li>
+<li>A non-instance constant must not be assigned by an assignment expression.</li>
+<li>An instance constant may be assigned in the constructor body.</li>
+<li>An instance constant may not be assigned outside the constructor body.</li>
 </ul>
+<pre><code>const x // VerifyError
+
+const x = 10
+x++ // VerifyError
+
+class C {
+    const x
+    function C(x) {
+        this.x = x
+    }
+    function f() {
+        x = 10 // VerifyError
+    }
+}
+</code></pre>
 <p><em>Constant initializer</em>: A variable may consist of a constant initializer. A constant initializer consists of a constant expression.</p>
+<pre><code>var x = 0
+</code></pre>
 <h2 id="meta-data"><a class="header" href="#meta-data">Meta data</a></h2>
 <p>A variable may contain zero or more plain meta-data.</p>
 <pre><code>[[N1(n2)]]
 const x: T;
 </code></pre>
 <h2 id="optional-variables"><a class="header" href="#optional-variables">Optional variables</a></h2>
-<p>Optional variables do not need to be specified when using an object initializer:</p>
+<p>Optional variables do not need to be specified when using an object initializer.</p>
 <pre><code>[Literal]
 public class C {
     public const x: Number?;
 }
 const o: C = {};
 </code></pre>
-<p>A variable is <em>optional</em> when the variable's static type is a nullable type or when the variable's static type contains <code>undefined</code>.</p>
+<p>A variable is <em>optional</em> when the variable's static type contains <code>null</code> or when the variable's static type contains <code>undefined</code>.</p>
 <h2 id="parent-definition-1"><a class="header" href="#parent-definition-1">Parent definition</a></h2>
 <p>When the parent definition of a variable is a package, the variable has a fully package qualified name.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="virtual-properties"><a class="header" href="#virtual-properties">Virtual properties</a></h1>
@@ -2865,6 +2883,21 @@ interface I {}
 <li>Return undefined.</li>
 </ol>
 </li>
+<li>If <em>base</em> is the <code>import.meta</code> symbol
+<ol>
+<li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
+<li>If <em>key</em> equals <code>env</code>, return the <code>import.meta.env</code> symbol.</li>
+<li>If <em>key</em> equals <code>output</code>, return the <code>import.meta.output</code> special value.</li>
+<li>Return undefined.</li>
+</ol>
+</li>
+<li>If <em>base</em> is the <code>import.meta.env</code> symbol
+<ol>
+<li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
+<li>Let <em>evDict</em> be the result of loading environment variables.</li>
+<li>Return <em>evDict</em>[<em>key</em>]</li>
+</ol>
+</li>
 <li>Return undefined.</li>
 </ol>
 <h2 id="findpropertyproxy"><a class="header" href="#findpropertyproxy">FindPropertyProxy()</a></h2>
@@ -3020,7 +3053,7 @@ interface I {}
 <tr><td>[[<em>Package</em>]]</td><td>The enclosing <code>package</code>.</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="environment-variables"><a class="header" href="#environment-variables">Environment variables</a></h1>
-<p>The <code>import.meta.env</code> constant holds a special object that loads environment variables from an optional <code>.env</code> file from a project.</p>
+<p>The <code>import.meta.env</code> accessor returns a special symbol that loads environment variables from an optional <code>.env</code> file from a project.</p>
 <pre><code class="language-plain">import.meta.env.EXAMPLE
 </code></pre>
 <p><em>.env</em></p>
@@ -4019,7 +4052,10 @@ b.BarType.BETA
     <tr>
         <td>&nbsp;</td><td><b>import</b> <b>.</b> <b>meta</b></td>
     </tr>
-</table><div style="break-before: page; page-break-before: always;"></div><h1 id="new-expressions"><a class="header" href="#new-expressions">New expressions</a></h1>
+</table>
+<p><strong>Semantics</strong></p>
+<p>The <code>import.meta</code> expression returns the <code>import.meta</code> symbol.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="new-expressions"><a class="header" href="#new-expressions">New expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>

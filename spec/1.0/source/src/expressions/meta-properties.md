@@ -19,3 +19,7 @@
         <td>&nbsp;</td><td><b>import</b> <b>.</b> <b>meta</b></td>
     </tr>
 </table>
+
+**Semantics**
+
+The `import.meta` expression returns the `import.meta` symbol.

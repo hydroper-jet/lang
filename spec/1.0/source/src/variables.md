@@ -23,6 +23,8 @@ A variable consists of the following internal properties:
 
 A variable may be read-only by using the `const` keyword instead of the `var` keyword when defining it.
 
+Read-only variables are referred to as *constants*.
+
 ## Initializer
 
 Variables are lazily initialized with the exception of variables whose static type has a *default* value, such as a [primitive type](types.md#primitive-types) or a nullable type.
@@ -30,23 +32,44 @@ Variables are lazily initialized with the exception of variables whose static ty
 * It is a `ReferenceError` if the value of a variable is accessed before initialized and the static type of that variable includes no default value.
 
 ```
-public class C {
-    public const x: Number
-    public const y: RegExp
-    public function C() {
+class C {
+    const x: Number
+    const y: RegExp
+    function C() {
         x // 0
         y // ReferenceError
     }
 }
 ```
 
-* It is a `VerifyError` if a constant variable is assigned more than once.
-* A constant variable that is not an instance variable must contain an initializer.
-* A constant variable that is not an instance variable must not be assigned by an assignment expression.
-* A constant variable that is an instance variable may be assigned in the constructor body.
-* A constant variable that is an instance variable may not be assigned outside the constructor body.
+* It is a `VerifyError` if a constant is assigned more than once.
+* A non-instance constant must contain an initializer.
+* A non-instance constant must not be assigned by an assignment expression.
+* An instance constant may be assigned in the constructor body.
+* An instance constant may not be assigned outside the constructor body.
+
+```
+const x // VerifyError
+
+const x = 10
+x++ // VerifyError
+
+class C {
+    const x
+    function C(x) {
+        this.x = x
+    }
+    function f() {
+        x = 10 // VerifyError
+    }
+}
+```
 
 *Constant initializer*: A variable may consist of a constant initializer. A constant initializer consists of a constant expression.
+
+```
+var x = 0
+```
 
 ## Meta data
 
@@ -59,7 +82,7 @@ const x: T;
 
 ## Optional variables
 
-Optional variables do not need to be specified when using an object initializer:
+Optional variables do not need to be specified when using an object initializer.
 
 ```
 [Literal]
@@ -69,7 +92,7 @@ public class C {
 const o: C = {};
 ```
 
-A variable is *optional* when the variable's static type is a nullable type or when the variable's static type contains `undefined`.
+A variable is *optional* when the variable's static type contains `null` or when the variable's static type contains `undefined`.
 
 ## Parent definition
 

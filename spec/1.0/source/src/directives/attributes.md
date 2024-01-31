@@ -111,6 +111,6 @@ Attributes are in the sequence of meta-data followed by modifier keywords.
         <td colspan="2"><i>MetadataTrailingComma</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>,</b> [if the <i>Metadata</i> is the first occurrence in <i>Attributes</i>]</td>
+        <td>&nbsp;</td><td><b>,</b> [if the <i>Metadata</i> is the first occurrence in <i>Attributes</i> or <i>BlockAttributes</i>]</td>
     </tr>
 </table>

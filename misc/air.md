@@ -29,14 +29,16 @@ If it is applied to a package property, it identifies a property in the `public`
 
 ## Open namespaces
 
-The `[[avm::Import]]` meta-data opens `public` namespaces of specified ActionScript packages for an entire definition and all of its subsequent sections.
+The `[[avm::Import]]` meta-data opens `public` namespaces of specified ActionScript packages for an entire region.
 
 ```
 [[avm::Import("flash.events", "flash.utils")]]
-function f(): T {}
+{
+    // Action
+}
 ```
 
-The top-level package `public` namespace is always open.
+The top-level package `public` namespace is always open at all regions.
 
 ## Optimizations
 

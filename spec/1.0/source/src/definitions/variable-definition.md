@@ -76,6 +76,10 @@ var x = 10
 for (var k in ["x", "y"]) {
     // k: *
 }
+
+function f(a) {
+    // a: *
+}
 ```
 
 A *VariableDefinition* may be modified by the following attributes:

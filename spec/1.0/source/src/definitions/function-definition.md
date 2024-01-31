@@ -114,7 +114,7 @@ function set x(v: Number): void { impl.x = v }
 
 *Setter restrictions*: A setter signature must contain exactly one parameter and return `void`.
 
-*Type inference*: The constructor and setter signatures always return `void`.
+*Type inference*: The constructor and setter signatures always return `void`. The default result type of a signature is the any type (`*`).
 
 ## Parameter list
 

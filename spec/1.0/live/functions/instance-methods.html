@@ -199,10 +199,10 @@ class C2 extends C1 {
     override function f(): void {} // VerifyError
 }
 
-class C2 {
+class C3 {
     function f(): void {}
 }
-class C3 extends C2 {
+class C4 extends C3 {
     override function f.&lt;T&gt;(): void {} // VerifyError
 }
 </code></pre>

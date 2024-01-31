@@ -21,6 +21,8 @@ avm.intrinsics.deleteProperty(object, key)
 avm.intrinsics.callProperty(object, key, arguments)
 ```
 
+AVM2 domain memory operations such as `li8()` translate to the respective AVM2 instruction.
+
 ## \[\[avm::Property\]\]
 
 The `[[avm::Property("name")]]` meta-data identifies an ActionScript property by its name, causing a Jet definition to translate to such.

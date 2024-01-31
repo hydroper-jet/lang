@@ -18,6 +18,7 @@ Functions consist of the following internal properties:
 | \[\[*IsOverriding*\]\] | Indicates whether the function is overriding another function. |
 | \[\[*IsFinal*\]\] | Indicates whether a method is final. |
 | \[\[*IsAbstract*\]\] | Indicates whether a method is abstract. |
+| \[\[*IsConstructor*\]\] | Indicates whether a function is a constructor. |
 | \[\[*OfVirtualProperty*\]\] | Indicates the virtual property to which a getter or setter belongs. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the function. |
 

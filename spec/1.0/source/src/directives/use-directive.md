@@ -3,11 +3,8 @@
 The `use` directive is used to export definitions from another package to the enclosing package.
 
 ```
-package origin.core {}
-
-package alias.core {
-    public use origin.core.*
-}
+package p1 {}
+package p2 { public use p1.* }
 ```
 
 **Syntax**
@@ -31,6 +28,31 @@ package alias.core {
 
 An `use` directive must be directly enclosed by a `package` scope and must contain the `public` attribute.
 
-An `use` directive that ends with an identifier component defines an alias to a single property from a package.
+A `public use p.*` directive contributes the `p` package to (enclosing package)\[\[*RedirectPackages*\]\].
 
-An `use` directive that ends with an wildcard component contributes a redirect package to the enclosing package.
+```
+package p1 { public var x }
+package p2 { public use p1.* }
+```
+
+A `public use p.x` directive assigns (enclosing packages)\[\[*Properties*\]\]\[**x**\] to an alias **x** of the `x` property of the `p` package.
+
+* It is a verify error if (enclosing packages)\[\[*Properties*\]\]\[**x**\] is already defined before the assignment.
+* It is a verify error if [*PropertyIsVisible*](**p.x**, current scope) is false.
+
+```
+package p1 { public var x }
+package p2 { public use p1.x }
+```
+
+A `public use y = p.x` directive assigns (enclosing package)\[\[*Properties*\]\]\[**y**\] to an alias **y** of the `x` property of the `p` package.
+
+* It is a verify error if (enclosing package)\[\[*Properties*\]\]\[**y**\] is already defined before the assignment.
+* It is a verify error if [*PropertyIsVisible*](**p.x**, current scope) is false.
+
+```
+package p1 { public var x }
+package p2 { public use y = p1.x }
+```
+
+[*PropertyIsVisible*]: ../visibility.md#propertyisvisible

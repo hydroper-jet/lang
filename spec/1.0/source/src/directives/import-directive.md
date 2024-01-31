@@ -40,7 +40,7 @@ p.x
 x
 ```
 
-An `import p = p1.*` directive contributes an alias **p** of the package `p1` to (current scope)\[\[*PackageAliases*\]\].
+An `import p2 = p1.*` directive contributes an alias **p2** of the package `p1` to (current scope)\[\[*PackageAliases*\]\].
 
 ```
 package p1 { public var x }
@@ -50,7 +50,7 @@ p2.x
 x
 ```
 
-An `import y = p.x` directive assigns (current scope)\[\[*Properties*\]\]\[**y**\] to the `x` property of the `p` package.
+An `import y = p.x` directive assigns (current scope)\[\[*Properties*\]\]\[**y**\] to an alias **y** of the `x` property of the `p` package.
 
 * It is a verify error if (current scope)\[\[*Properties*\]\]\[**y**\] already exists before the assignment.
 * It is a verify error if [*PropertyIsVisible*](**p.x**, current scope) is false.

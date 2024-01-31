@@ -167,11 +167,8 @@
                     <main>
                         <h1 id="use-directive"><a class="header" href="#use-directive">Use directive</a></h1>
 <p>The <code>use</code> directive is used to export definitions from another package to the enclosing package.</p>
-<pre><code>package origin.core {}
-
-package alias.core {
-    public use origin.core.*
-}
+<pre><code>package p1 {}
+package p2 { public use p1.* }
 </code></pre>
 <p><strong>Syntax</strong></p>
 <table>
@@ -190,8 +187,26 @@ package alias.core {
 </table>
 <p><strong>Semantics</strong></p>
 <p>An <code>use</code> directive must be directly enclosed by a <code>package</code> scope and must contain the <code>public</code> attribute.</p>
-<p>An <code>use</code> directive that ends with an identifier component defines an alias to a single property from a package.</p>
-<p>An <code>use</code> directive that ends with an wildcard component contributes a redirect package to the enclosing package.</p>
+<p>A <code>public use p.*</code> directive contributes the <code>p</code> package to (enclosing package)[[<em>RedirectPackages</em>]].</p>
+<pre><code>package p1 { public var x }
+package p2 { public use p1.* }
+</code></pre>
+<p>A <code>public use p.x</code> directive assigns (enclosing packages)[[<em>Properties</em>]][<strong>x</strong>] to an alias <strong>x</strong> of the <code>x</code> property of the <code>p</code> package.</p>
+<ul>
+<li>It is a verify error if (enclosing packages)[[<em>Properties</em>]][<strong>x</strong>] is already defined before the assignment.</li>
+<li>It is a verify error if <a href="../visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<strong>p.x</strong>, current scope) is false.</li>
+</ul>
+<pre><code>package p1 { public var x }
+package p2 { public use p1.x }
+</code></pre>
+<p>A <code>public use y = p.x</code> directive assigns (enclosing package)[[<em>Properties</em>]][<strong>y</strong>] to an alias <strong>y</strong> of the <code>x</code> property of the <code>p</code> package.</p>
+<ul>
+<li>It is a verify error if (enclosing package)[[<em>Properties</em>]][<strong>y</strong>] is already defined before the assignment.</li>
+<li>It is a verify error if <a href="../visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<strong>p.x</strong>, current scope) is false.</li>
+</ul>
+<pre><code>package p1 { public var x }
+package p2 { public use y = p1.x }
+</code></pre>
 
                     </main>
 

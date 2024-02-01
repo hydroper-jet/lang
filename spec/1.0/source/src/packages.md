@@ -21,7 +21,7 @@ trace(x.y.w)
 The fully qualified name of an imported package's property shadows any variable name in scope as described in the [Fully qualified names](fully-qualified-names.md) section.
 
 ```
-package x.y { const w = 10 }
+package x.y { public const w = 10 }
 class X { const y = new XY }
 class XY { const w = Infinity }
 

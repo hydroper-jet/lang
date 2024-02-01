@@ -1964,7 +1964,7 @@ trace(w)
 trace(x.y.w)
 </code></pre>
 <p>The fully qualified name of an imported package's property shadows any variable name in scope as described in the <a href="fully-qualified-names.html">Fully qualified names</a> section.</p>
-<pre><code>package x.y { const w = 10 }
+<pre><code>package x.y { public const w = 10 }
 class X { const y = new XY }
 class XY { const w = Infinity }
 

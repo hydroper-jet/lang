@@ -5,7 +5,7 @@
 Properties have a fully qualified name which is a left-to-right combination of each *p*<sub><i>i</i></sub>\[\[*Name*\]\] where *p* is the list of ascending parent definitions and the descending definition and *i* goes from the ascending.
 
 ```
-package q.f { var x }
+package q.f { public var x }
 import q.f.x
 q.f.x
 ```

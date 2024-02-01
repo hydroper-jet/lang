@@ -76,9 +76,16 @@
 
 **Verification**
 
+<i>PrimaryExpression</i> : <i>NullLiteral</i>
+
+* If the context type is `*` or `T?`
+  * Return a `null` constant of the context type.
+* Throw a verify error.
+
 <i>PrimaryExpression</i> : <i>NumericLiteral</i>
 
-* If the context type is `N` or `N?` where `N` is a number type, return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the context type.
+* If the context type is `N` or `N?` where `N` is a number type
+  * Return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the context type.
 * Return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the `Number` type.
 
 <i>PrimaryExpression</i> : <i>StringLiteral</i>

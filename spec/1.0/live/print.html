@@ -3568,9 +3568,22 @@ EXAMPLE=value
     </tr>
 </table>
 <p><strong>Verification</strong></p>
+<p><i>PrimaryExpression</i> : <i>NullLiteral</i></p>
+<ul>
+<li>If the context type is <code>*</code> or <code>T?</code>
+<ul>
+<li>Return a <code>null</code> constant of the context type.</li>
+</ul>
+</li>
+<li>Throw a verify error.</li>
+</ul>
 <p><i>PrimaryExpression</i> : <i>NumericLiteral</i></p>
 <ul>
-<li>If the context type is <code>N</code> or <code>N?</code> where <code>N</code> is a number type, return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the context type.</li>
+<li>If the context type is <code>N</code> or <code>N?</code> where <code>N</code> is a number type
+<ul>
+<li>Return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the context type.</li>
+</ul>
+</li>
 <li>Return a number constant consisting of the <i>NumericLiteral</i> mathematical value of the <code>Number</code> type.</li>
 </ul>
 <p><i>PrimaryExpression</i> : <i>StringLiteral</i></p>

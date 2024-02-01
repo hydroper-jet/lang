@@ -16,7 +16,6 @@ Jet considers the following to be primitive types:
 The default value of a type is determined as follows:
 
 * If the type is `void`, return `undefined`.
-* If the type is `null`, return `null`.
 * If the type is `T?`, return `null`.
 * If the type is a number type, return zero.
 * If the type is `Boolean`, return false.

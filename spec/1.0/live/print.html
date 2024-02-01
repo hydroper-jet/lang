@@ -1948,45 +1948,35 @@ T(v)
 <li>Return false.</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="packages"><a class="header" href="#packages">Packages</a></h1>
-<p>Packages as denoted by the <code>package</code> keyword are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an <code>import</code> directive or an <code>use</code> definition.</p>
+<p>Packages as denoted by the <code>package</code> keyword are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an <code>import</code> directive.</p>
 <pre><code>// Top-level package
-package {
-    public const globalProperty: Number = Infinity;
-}
+package { public const globalProperty: Number = Infinity }
 
 // &quot;org.x.y&quot; package
-package org.x.y {
-    public const xyProperty: Number = 10;
-}
+package org.x.y { public const xyProperty: Number = 10 }
 
 // Infinity
-trace(globalProperty);
+trace(globalProperty)
 
 // 10
-import org.x.y.*;
-trace(xyProperty);
-trace(org.x.y.xyProperty);
+import org.x.y.*
+trace(xyProperty)
+trace(org.x.y.xyProperty)
 </code></pre>
-<p>The fully package qualified name of an imported package's property shadows any variable name in scope:</p>
-<pre><code>public class Org {
-    public const x: OrgX = new OrgX;
-}
-public class OrgX {
-    public const y: OrgY = new OrgY;
-}
-public class OrgY {
-    public const xyProperty: Number = Infinity;
-}
+<p>The fully qualified name of an imported package's property shadows any variable name in scope as described in the <a href="fully-qualified-names.html">Fully qualified names</a> section.</p>
+<pre><code>public class Org { public const x: OrgX = new OrgX }
+public class OrgX { public const y: OrgY = new OrgY }
+public class OrgY { public const xyProperty: Number = Infinity }
 
-import org.x.y.*;
+import org.x.y.*
 
-const org = new Org;
+const org = new Org
 
 // [object Org]
-trace(org);
+trace(org)
 
 // 10 (not Infinity)
-trace(org.x.y.xyProperty);
+trace(org.x.y.xyProperty)
 </code></pre>
 <p>Packages consist of the following internal properties:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
@@ -2021,10 +2011,7 @@ package q1.q2.qN {}
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>Parent definition of the package set.</td></tr>
 <tr><td>[[<em>Packages</em>]]</td><td>The packages within the set.</td></tr>
 </tbody></table>
-</div>
-<h2 id="parent-definition"><a class="header" href="#parent-definition">Parent definition</a></h2>
-<p>When the parent definition of a package set is a package, the package set has a fully package qualified name.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="variables"><a class="header" href="#variables">Variables</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="variables"><a class="header" href="#variables">Variables</a></h1>
 <p>A variable is a fixed slot storing a value.</p>
 <pre><code>var x: Number;
 const y: Number;
@@ -2096,8 +2083,6 @@ public class C {
 const o: C = {};
 </code></pre>
 <p>A variable is <em>optional</em> when the variable's static type contains <code>null</code> or when the variable's static type contains <code>undefined</code>.</p>
-<h2 id="parent-definition-1"><a class="header" href="#parent-definition-1">Parent definition</a></h2>
-<p>When the parent definition of a variable is a package, the variable has a fully package qualified name.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="virtual-properties"><a class="header" href="#virtual-properties">Virtual properties</a></h1>
 <p>A virtual property is an accessor that may be used as a variable.</p>
 <ul>
@@ -2119,10 +2104,7 @@ function set x(v: T): void {}
 <tr><td>[[<em>Getter</em>]]</td><td>Indicates the getter function of the virtual property.</td></tr>
 <tr><td>[[<em>Setter</em>]]</td><td>Indicates the setter function of the virtual property.</td></tr>
 </tbody></table>
-</div>
-<h2 id="parent-definition-2"><a class="header" href="#parent-definition-2">Parent definition</a></h2>
-<p>When the parent definition of a virtual property is a package, the virtual property has a fully package qualified name.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
 <p>A function represents an invokable symbol that takes parameters and returns a value.</p>
 <p>Functions consist of the following internal properties:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>
@@ -2143,8 +2125,6 @@ function set x(v: T): void {}
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the function.</td></tr>
 </tbody></table>
 </div>
-<h2 id="parent-definition-3"><a class="header" href="#parent-definition-3">Parent definition</a></h2>
-<p>When the parent definition of a function is a package, the function has a fully package qualified name.</p>
 <h2 id="type-parameters"><a class="header" href="#type-parameters">Type parameters</a></h2>
 <p>A function may be <a href="type-parameters.html">type parameterized</a>:</p>
 <pre><code>function f.&lt;T&gt;(): void {}
@@ -2573,8 +2553,6 @@ import p2 = p.*;
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the class.</td></tr>
 </tbody></table>
 </div>
-<h2 id="parent-definition-4"><a class="header" href="#parent-definition-4">Parent definition</a></h2>
-<p>When the parent definition of an alias is a package, the alias has a fully package qualified name.</p>
 <h2 id="meta-data-3"><a class="header" href="#meta-data-3">Meta data</a></h2>
 <p>An alias may contain zero or more plain meta-data:</p>
 <pre><code>[[N1(n2)]]
@@ -2752,8 +2730,6 @@ proxy function has(value: E): Boolean (
 <li>a class attempts to extend itself;</li>
 <li>a class attempts to extend a subclass of itself.</li>
 </ul>
-<h2 id="parent-definition-5"><a class="header" href="#parent-definition-5">Parent definition</a></h2>
-<p>When the parent definition of a class is a package, the class has a fully package qualified name.</p>
 <!--
 
 | Internal property | Description |
@@ -2763,9 +2739,9 @@ proxy function has(value: E): Boolean (
 
 ## JXML meta-data
 
-A JXML base class may contain a `JXML` meta-data with two optional options `colorClass` and `vectorClass` that specify the fully package qualified name of a support class for the color and vector classes to use throughout XML attribute values in JXML files.
+A JXML base class may contain a `JXML` meta-data with two optional options `colorClass` and `vectorClass` that specify the fully qualified name of a support class for the color and vector classes to use throughout XML attribute values in JXML files.
 
-* It is a verify error if the fully package qualified names specified within `JXML` do not resolve to a class.
+* It is a verify error if the fully qualified names specified within `JXML` do not resolve to a class.
 * It is a verify error if the class specified by `colorClass` does not contain a constructor with the signature `function(...arguments: [*]): void`.
 * It is a verify error if the class specified by `vectorClass` does not contain a constructor that takes parameters of a same number type.
 * Only one `colorClass` occurrence is allowed, contributing the class to the annotated class \[\[*JXMLColor*\]\] property.
@@ -2809,8 +2785,6 @@ class C {}
 <li>an interface attempts to extend itself;</li>
 <li>an interface attempts to extend a subtype of itself.</li>
 </ul>
-<h2 id="parent-definition-6"><a class="header" href="#parent-definition-6">Parent definition</a></h2>
-<p>When the parent definition of an interface is a package, the interface has a fully package qualified name.</p>
 <h2 id="meta-data-5"><a class="header" href="#meta-data-5">Meta data</a></h2>
 <p>An interface may contain zero or more plain meta-data:</p>
 <pre><code>[[N1(n2)]]
@@ -3023,17 +2997,23 @@ interface I {}
 <li>Return <em>ScopeReferenceValue</em>(<em>parent</em>, <em>prop</em>)</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="fully-qualified-names"><a class="header" href="#fully-qualified-names">Fully qualified names</a></h1>
+<h2 id="fully-qualified-name-of-a-property"><a class="header" href="#fully-qualified-name-of-a-property">Fully qualified name of a property</a></h2>
+<p>Properties have a fully qualified name which is a left-to-right combination of each <em>p</em><sub><i>i</i></sub>[[<em>Name</em>]] where <em>p</em> is the list of ascending parent definitions and the descending definition and <em>i</em> goes from the ascending.</p>
+<pre><code>package q.f { var x }
+import q.f.x
+q.f.x
+</code></pre>
 <h2 id="resolvefullyqualifiednamee"><a class="header" href="#resolvefullyqualifiednamee">ResolveFullyQualifiedName(e)</a></h2>
 <p>Given a syntax construct <em>e</em> consisting of an <em>Identifier</em> token followed by one or more <strong>.</strong> <em>IdentifierName</em> productions, the internal <em>ResolveFullyQualifiedName</em>(<em>e</em>) function takes the following steps:</p>
 <ul>
 <li>Let <em>S</em> be a string sequence consisting of each name in <em>E</em> from left-to-right.</li>
-<li>If <em>S</em> matches the full package name of a property <em>P1</em> from (current scope)[[<em>Imports</em>]], return <em>WrapPropertyReference</em>(<em>P1</em>).</li>
+<li>If <em>S</em> matches the fully qualified name of a property <em>P1</em> from (current scope)[[<em>Imports</em>]], return <em>WrapPropertyReference</em>(<em>P1</em>).</li>
 </ul>
 <pre><code>import com.qux.bar.BarType
 com.qux.bar.BarType.BETA
 </code></pre>
 <ul>
-<li>If <em>S</em> minus the trailing name matches the full package name of a package <em>P1</em> from (current scope)[[<em>OpenPackages</em>]]
+<li>If <em>S</em> minus the trailing name matches the fully qualified name of a package <em>P1</em> from (current scope)[[<em>OpenPackages</em>]]
 <ul>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(<em>P1</em>, undefined, trailing name of <em>S</em>)</li>
 <li>If <em>r</em> is not undefined and <a href="./visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<em>r</em>, <em>current scope</em>) is true

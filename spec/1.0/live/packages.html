@@ -166,45 +166,35 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="packages"><a class="header" href="#packages">Packages</a></h1>
-<p>Packages as denoted by the <code>package</code> keyword are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an <code>import</code> directive or an <code>use</code> definition.</p>
+<p>Packages as denoted by the <code>package</code> keyword are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an <code>import</code> directive.</p>
 <pre><code>// Top-level package
-package {
-    public const globalProperty: Number = Infinity;
-}
+package { public const globalProperty: Number = Infinity }
 
 // &quot;org.x.y&quot; package
-package org.x.y {
-    public const xyProperty: Number = 10;
-}
+package org.x.y { public const xyProperty: Number = 10 }
 
 // Infinity
-trace(globalProperty);
+trace(globalProperty)
 
 // 10
-import org.x.y.*;
-trace(xyProperty);
-trace(org.x.y.xyProperty);
+import org.x.y.*
+trace(xyProperty)
+trace(org.x.y.xyProperty)
 </code></pre>
-<p>The fully package qualified name of an imported package's property shadows any variable name in scope:</p>
-<pre><code>public class Org {
-    public const x: OrgX = new OrgX;
-}
-public class OrgX {
-    public const y: OrgY = new OrgY;
-}
-public class OrgY {
-    public const xyProperty: Number = Infinity;
-}
+<p>The fully qualified name of an imported package's property shadows any variable name in scope as described in the <a href="fully-qualified-names.html">Fully qualified names</a> section.</p>
+<pre><code>public class Org { public const x: OrgX = new OrgX }
+public class OrgX { public const y: OrgY = new OrgY }
+public class OrgY { public const xyProperty: Number = Infinity }
 
-import org.x.y.*;
+import org.x.y.*
 
-const org = new Org;
+const org = new Org
 
 // [object Org]
-trace(org);
+trace(org)
 
 // 10 (not Infinity)
-trace(org.x.y.xyProperty);
+trace(org.x.y.xyProperty)
 </code></pre>
 <p>Packages consist of the following internal properties:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>

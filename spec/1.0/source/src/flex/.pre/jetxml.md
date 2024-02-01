@@ -18,7 +18,7 @@ The class described in the XML file is referred throughout this section as *desc
 The following semantics apply to the root element:
 
 * The root element of the XML file is a JetXML instantiation. The component of the JetXML instantiation is the class from which *descClass* inherits.
-* The root element must assign the attribute `className` a fully package qualified name whose trailing name identifies the class name of *descClass*, as in:
+* The root element must assign the attribute `className` a fully qualified name whose trailing name identifies the class name of *descClass*, as in:
 
 ```xml
 <e:Application xmlns:e="org.example" className="org.example.Main">

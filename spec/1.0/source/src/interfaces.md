@@ -21,10 +21,6 @@ It is a verify error if:
 * an interface attempts to extend itself;
 * an interface attempts to extend a subtype of itself.
 
-## Parent definition
-
-When the parent definition of an interface is a package, the interface has a fully package qualified name.
-
 ## Meta data
 
 An interface may contain zero or more plain meta-data:

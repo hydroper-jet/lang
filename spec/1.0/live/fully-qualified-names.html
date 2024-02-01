@@ -166,17 +166,23 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="fully-qualified-names"><a class="header" href="#fully-qualified-names">Fully qualified names</a></h1>
+<h2 id="fully-qualified-name-of-a-property"><a class="header" href="#fully-qualified-name-of-a-property">Fully qualified name of a property</a></h2>
+<p>Properties have a fully qualified name which is a left-to-right combination of each <em>p</em><sub><i>i</i></sub>[[<em>Name</em>]] where <em>p</em> is the list of ascending parent definitions and the descending definition and <em>i</em> goes from the ascending.</p>
+<pre><code>package q.f { var x }
+import q.f.x
+q.f.x
+</code></pre>
 <h2 id="resolvefullyqualifiednamee"><a class="header" href="#resolvefullyqualifiednamee">ResolveFullyQualifiedName(e)</a></h2>
 <p>Given a syntax construct <em>e</em> consisting of an <em>Identifier</em> token followed by one or more <strong>.</strong> <em>IdentifierName</em> productions, the internal <em>ResolveFullyQualifiedName</em>(<em>e</em>) function takes the following steps:</p>
 <ul>
 <li>Let <em>S</em> be a string sequence consisting of each name in <em>E</em> from left-to-right.</li>
-<li>If <em>S</em> matches the full package name of a property <em>P1</em> from (current scope)[[<em>Imports</em>]], return <em>WrapPropertyReference</em>(<em>P1</em>).</li>
+<li>If <em>S</em> matches the fully qualified name of a property <em>P1</em> from (current scope)[[<em>Imports</em>]], return <em>WrapPropertyReference</em>(<em>P1</em>).</li>
 </ul>
 <pre><code>import com.qux.bar.BarType
 com.qux.bar.BarType.BETA
 </code></pre>
 <ul>
-<li>If <em>S</em> minus the trailing name matches the full package name of a package <em>P1</em> from (current scope)[[<em>OpenPackages</em>]]
+<li>If <em>S</em> minus the trailing name matches the fully qualified name of a package <em>P1</em> from (current scope)[[<em>OpenPackages</em>]]
 <ul>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(<em>P1</em>, undefined, trailing name of <em>S</em>)</li>
 <li>If <em>r</em> is not undefined and <a href="./visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<em>r</em>, <em>current scope</em>) is true

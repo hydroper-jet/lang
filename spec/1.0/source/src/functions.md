@@ -22,10 +22,6 @@ Functions consist of the following internal properties:
 | \[\[*OfVirtualProperty*\]\] | Indicates the virtual property to which a getter or setter belongs. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the function. |
 
-## Parent definition
-
-When the parent definition of a function is a package, the function has a fully package qualified name.
-
 ## Type parameters
 
 A function may be [type parameterized](type-parameters.md):

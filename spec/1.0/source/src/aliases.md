@@ -19,10 +19,6 @@ Aliases consist of the following internal properties:
 | \[\[*ParentDefinition*\]\] | The parent definition of the alias. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |
 
-## Parent definition
-
-When the parent definition of an alias is a package, the alias has a fully package qualified name.
-
 ## Meta data
 
 An alias may contain zero or more plain meta-data:

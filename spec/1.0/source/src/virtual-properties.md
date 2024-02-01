@@ -23,7 +23,3 @@ Virtual properties consist of the following internal properties:
 | \[\[*WriteOnly*\]\] | Indicates whether the virtual property is write-only or not. |
 | \[\[*Getter*\]\] | Indicates the getter function of the virtual property. |
 | \[\[*Setter*\]\] | Indicates the setter function of the virtual property. |
-
-## Parent definition
-
-When the parent definition of a virtual property is a package, the virtual property has a fully package qualified name.

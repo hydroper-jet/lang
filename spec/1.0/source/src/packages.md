@@ -1,49 +1,39 @@
 # Packages
 
-Packages as denoted by the `package` keyword are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an `import` directive or an `use` definition.
+Packages as denoted by the `package` keyword are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an `import` directive.
 
 ```
 // Top-level package
-package {
-    public const globalProperty: Number = Infinity;
-}
+package { public const globalProperty: Number = Infinity }
 
 // "org.x.y" package
-package org.x.y {
-    public const xyProperty: Number = 10;
-}
+package org.x.y { public const xyProperty: Number = 10 }
 
 // Infinity
-trace(globalProperty);
+trace(globalProperty)
 
 // 10
-import org.x.y.*;
-trace(xyProperty);
-trace(org.x.y.xyProperty);
+import org.x.y.*
+trace(xyProperty)
+trace(org.x.y.xyProperty)
 ```
 
-The fully package qualified name of an imported package's property shadows any variable name in scope:
+The fully qualified name of an imported package's property shadows any variable name in scope as described in the [Fully qualified names](fully-qualified-names.md) section.
 
 ```
-public class Org {
-    public const x: OrgX = new OrgX;
-}
-public class OrgX {
-    public const y: OrgY = new OrgY;
-}
-public class OrgY {
-    public const xyProperty: Number = Infinity;
-}
+public class Org { public const x: OrgX = new OrgX }
+public class OrgX { public const y: OrgY = new OrgY }
+public class OrgY { public const xyProperty: Number = Infinity }
 
-import org.x.y.*;
+import org.x.y.*
 
-const org = new Org;
+const org = new Org
 
 // [object Org]
-trace(org);
+trace(org)
 
 // 10 (not Infinity)
-trace(org.x.y.xyProperty);
+trace(org.x.y.xyProperty)
 ```
 
 Packages consist of the following internal properties:

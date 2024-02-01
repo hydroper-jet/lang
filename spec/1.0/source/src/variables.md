@@ -93,7 +93,3 @@ const o: C = {};
 ```
 
 A variable is *optional* when the variable's static type contains `null` or when the variable's static type contains `undefined`.
-
-## Parent definition
-
-When the parent definition of a variable is a package, the variable has a fully package qualified name.

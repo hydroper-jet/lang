@@ -32,10 +32,6 @@ It is a verify error if:
 * a class attempts to extend itself;
 * a class attempts to extend a subclass of itself.
 
-## Parent definition
-
-When the parent definition of a class is a package, the class has a fully package qualified name.
-
 <!--
 
 | Internal property | Description |
@@ -45,9 +41,9 @@ When the parent definition of a class is a package, the class has a fully packag
 
 ## JXML meta-data
 
-A JXML base class may contain a `JXML` meta-data with two optional options `colorClass` and `vectorClass` that specify the fully package qualified name of a support class for the color and vector classes to use throughout XML attribute values in JXML files.
+A JXML base class may contain a `JXML` meta-data with two optional options `colorClass` and `vectorClass` that specify the fully qualified name of a support class for the color and vector classes to use throughout XML attribute values in JXML files.
 
-* It is a verify error if the fully package qualified names specified within `JXML` do not resolve to a class.
+* It is a verify error if the fully qualified names specified within `JXML` do not resolve to a class.
 * It is a verify error if the class specified by `colorClass` does not contain a constructor with the signature `function(...arguments: [*]): void`.
 * It is a verify error if the class specified by `vectorClass` does not contain a constructor that takes parameters of a same number type.
 * Only one `colorClass` occurrence is allowed, contributing the class to the annotated class \[\[*JXMLColor*\]\] property.

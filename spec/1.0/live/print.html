@@ -3039,24 +3039,28 @@ interface I {}
 <ul>
 <li>It is not read-only.</li>
 <li>It is not write-only.</li>
+<li>Its static type is <code>*</code>.</li>
 </ul>
 <h2 id="dynamicreferencevaluebase-qual-key"><a class="header" href="#dynamicreferencevaluebase-qual-key">DynamicReferenceValue(base, qual, key)</a></h2>
 <p>The internal <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is not read-only.</li>
 <li>It is not write-only.</li>
+<li>Its static type is <code>*</code>.</li>
 </ul>
 <h2 id="staticreferencevaluebase-prop"><a class="header" href="#staticreferencevaluebase-prop">StaticReferenceValue(base, prop)</a></h2>
 <p>The internal <em>StaticReferenceValue</em>(<em>base</em>, <em>prop</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is read-only if <em>prop</em> is read-only.</li>
 <li>It is write-only if <em>prop</em> is write-only.</li>
+<li>Its static type is <a href="reference-values.html#propertystatictype"><em>PropertyStaticType</em></a>(<em>prop</em>).</li>
 </ul>
 <h2 id="instancereferencevaluebase-prop"><a class="header" href="#instancereferencevaluebase-prop">InstanceReferenceValue(base, prop)</a></h2>
 <p>The internal <em>InstanceReferenceValue</em>(<em>base</em>, <em>prop</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is read-only if <em>prop</em> is read-only.</li>
 <li>It is write-only if <em>prop</em> is write-only.</li>
+<li>Its static type is <a href="reference-values.html#propertystatictype"><em>PropertyStaticType</em></a>(<em>prop</em>).</li>
 </ul>
 <h2 id="proxyreferencevaluebase-proxy"><a class="header" href="#proxyreferencevaluebase-proxy">ProxyReferenceValue(base, proxy)</a></h2>
 <p>The internal <em>ProxyReferenceValue</em>(<em>base</em>, <em>proxy</em>) reference value has the following characteristics:</p>
@@ -3064,6 +3068,7 @@ interface I {}
 <li><em>proxy</em> is the <code>getProperty()</code> proxy.</li>
 <li>It is read-only if the type hierarchy of the <em>base</em> static type does not define the <code>setProperty()</code> proxy.</li>
 <li>It is not write-only.</li>
+<li>Its static type is the result type of signature of <em>proxy</em>.</li>
 </ul>
 <h2 id="tuplereferencevaluebase-index"><a class="header" href="#tuplereferencevaluebase-index">TupleReferenceValue(base, index)</a></h2>
 <p>The internal <em>TupleReferenceValue</em>(<em>base</em>, <em>index</em>) reference value has the following characteristics:</p>
@@ -3071,24 +3076,36 @@ interface I {}
 <li><em>index</em> is a zero-based index into the <em>base</em> tuple.</li>
 <li>It is read-only.</li>
 <li>It is not write-only.</li>
+<li>Its static type is the type of the <em>i</em>th element of the <em>base</em> tuple given where <em>i</em> is <em>index</em>.</li>
 </ul>
 <h2 id="scopereferencevaluebase-prop"><a class="header" href="#scopereferencevaluebase-prop">ScopeReferenceValue(base, prop)</a></h2>
 <p>The internal <em>ScopeReferenceValue</em>(<em>base</em>, <em>prop</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is read-only if <em>prop</em> is read-only.</li>
 <li>It is write-only if <em>prop</em> is write-only.</li>
+<li>Its static type is <a href="reference-values.html#propertystatictype"><em>PropertyStaticType</em></a>(<em>prop</em>).</li>
 </ul>
 <h2 id="dynamicscopereferencevaluebase-qual-key"><a class="header" href="#dynamicscopereferencevaluebase-qual-key">DynamicScopeReferenceValue(base, qual, key)</a></h2>
 <p>The internal <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is not read-only.</li>
 <li>It is not write-only.</li>
+<li>Its static type is <code>*</code>.</li>
 </ul>
 <h2 id="packagereferencevaluebase-prop"><a class="header" href="#packagereferencevaluebase-prop">PackageReferenceValue(base, prop)</a></h2>
 <p>The internal <em>PackageReferenceValue</em>(<em>base</em>, <em>prop</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is read-only if <em>prop</em> is read-only.</li>
 <li>It is write-only if <em>prop</em> is write-only.</li>
+<li>Its static type is <a href="reference-values.html#propertystatictype"><em>PropertyStaticType</em></a>(<em>prop</em>).</li>
+</ul>
+<h2 id="propertystatictype"><a class="header" href="#propertystatictype">PropertyStaticType()</a></h2>
+<p>The static type of a property is determined by the internal <em>PropertyStaticType</em>(<em>prop</em>) function as follows:</p>
+<ul>
+<li>If it is a variable or virtual property, return <em>prop</em>[[<em>Type</em>]].</li>
+<li>If it is a function, return <em>prop</em>[[<em>Signature</em>]].</li>
+<li>Assert that it is a type.</li>
+<li>Return <code>Class</code>.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="fully-qualified-names"><a class="header" href="#fully-qualified-names">Fully qualified names</a></h1>
 <h2 id="fully-qualified-name-of-a-property"><a class="header" href="#fully-qualified-name-of-a-property">Fully qualified name of a property</a></h2>

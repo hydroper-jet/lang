@@ -22,3 +22,6 @@
   * [ ] All indices use the `Int` type
   * [ ] Like Java, methods such as `indexOf()` return `-1` occasionally.
   * [ ] `getProperty()` returns `T` and throws a `RangeError` if out of bounds, instead of returning `T?`. This makes more sense for `setProperty` and `deleteProperty` as well together.
+* [ ] `String`
+  * [ ] `chars()` returns `CharReader`
+  * [ ] Methods such as `replace()` that accept a replacement callback function pass matches in a dedicated argument instead of passing ordinary arguments.

@@ -78,9 +78,9 @@
 
 <i>PrimaryExpression</i> : <i>NullLiteral</i>
 
-* If the context type is `*` or `T?`
+* If the context type is `T?`
   * Return a `null` constant of the context type.
-* Throw a verify error.
+* Return a `null` constant of the `*` type.
 
 <i>PrimaryExpression</i> : <i>NumericLiteral</i>
 

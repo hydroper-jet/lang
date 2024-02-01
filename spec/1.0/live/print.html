@@ -3681,12 +3681,12 @@ EXAMPLE=value
 <p><strong>Verification</strong></p>
 <p><i>PrimaryExpression</i> : <i>NullLiteral</i></p>
 <ul>
-<li>If the context type is <code>*</code> or <code>T?</code>
+<li>If the context type is <code>T?</code>
 <ul>
 <li>Return a <code>null</code> constant of the context type.</li>
 </ul>
 </li>
-<li>Throw a verify error.</li>
+<li>Return a <code>null</code> constant of the <code>*</code> type.</li>
 </ul>
 <p><i>PrimaryExpression</i> : <i>NumericLiteral</i></p>
 <ul>

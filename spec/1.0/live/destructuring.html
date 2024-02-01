@@ -270,6 +270,24 @@
         <td>&nbsp;</td><td><i>IdentifierName</i> <i>NonNull</i><sub>opt</sub></td>
     </tr>
 </table>
+<p><strong>Semantics</strong></p>
+<p>Array destructuring is allowed for the following context types:</p>
+<ul>
+<li>Any type (<code>*</code>) — Yields <code>*</code> typed elements.</li>
+<li><code>[T]</code> type — Yields <code>T</code> typed elements.</li>
+<li>Classes defining the <code>getProperty</code> proxy that returns a number type <code>T</code> that is a zero-based index
+<ul>
+<li>Yields <code>T</code> typed elements.</li>
+<li>Destructuring assignments require a corresponding <code>setProperty</code> proxy in the same class.</li>
+</ul>
+</li>
+</ul>
+<pre><code>const [x, y, , ,] = a
+</code></pre>
+<p>Object destructuring is allowed for any context type, except <code>void</code>.</p>
+<pre><code>const {x, y} = o
+</code></pre>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

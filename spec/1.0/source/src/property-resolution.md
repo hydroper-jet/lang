@@ -18,20 +18,20 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
     3. Return undefined.
 6. If *base* is a value
     1. Return undefined if the type of *base* is `void` or `null`.
-    3. If *key* is a `String` value
+    2. If *key* is a `String` value
         1. For each descending *type* in the type hierarchy of *base*
             1. For each *prop* in *type*\[\[*Prototype*\]\]
                 1. If *prop*\[\[*Name*\]\] is equals *key*, return *InstanceReferenceValue*(*base*, *prop*).
-    4. For each descending *type* in the type hierarchy of *base*
+    3. For each descending *type* in the type hierarchy of *base*
         1. Let *proxy* be *FindPropertyProxy*(*type*)
         2. If *proxy* is not undefined
             1. If the first parameter type of *proxy* is equals the type of *key* or if the type of *key* is a subtype of the first parameter type of *proxy*
                 1. Return *ProxyReferenceValue*(*base*, *proxy*)
-    5. If *key* is a `Number` value and *base* is of a tuple type
+    4. If *key* is a `Number` value and *base* is of a tuple type
         1. Let *key* be *ToUInt32*(*key*)
         2. Assuming *key* to be a zero-based index, if the *key* index is not out of bounds of the element sequence of the tuple type of *base*
             1. Return *TupleReferenceValue*(*base*, *key*).
-    6. Return undefined.
+    5. Return undefined.
 7. If *base* is a `package`
     1. Return undefined if *key* is not a `String` value.
     2. Let *r* be a symbol in *base*\[\[*Properties*\]\] whose key is equals *key*.

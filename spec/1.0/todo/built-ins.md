@@ -18,3 +18,7 @@
   * [ ] Implements `Iterator`
 * [ ] `Iterator`
   * [ ] `length()` optional method (consumes the iterator, returning the count)
+* [ ] Array
+  * [ ] All indices use the `Int` type
+  * [ ] Like Java, methods such as `indexOf()` return `-1` occasionally.
+  * [ ] `getProperty()` returns `T` and throws a `RangeError` if out of bounds, instead of returning `T?`. This makes more sense for `setProperty` and `deleteProperty` as well together.

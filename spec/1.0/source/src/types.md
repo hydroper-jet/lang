@@ -129,3 +129,14 @@ The `Array.<T>` type is a growable collection of `T` values. `Array` may be expr
 ## Object type
 
 The `Object` type is the super type of all other classes and all enums.
+
+## ExpectType()
+
+The internal *ExpectType*(*symbol*) function takes the following steps:
+
+* If *symbol* is a *PackageReferenceValue*(*base*, *prop*)
+  * Return *ExpectType*(*prop*)
+* If *symbol* is a *ScopeReferenceValue*(*base*, *prop*)
+  * Return *ExpectType*(*prop*)
+* Throw type error if *symbol* is not a type.
+* Return *symbol*.

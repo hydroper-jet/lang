@@ -16,9 +16,17 @@ A visibility is either `public`, `private`, `protected` or `internal`:
 
 The internal *PropertyIsVisible*(*prop*, *scope*) function takes the following steps:
 
-1. Let *v* be *prop*\[\[*Visibility*\]\]
-2. If *v* is `public`, return true.
-3. If *v* is `internal`
+1. If *prop* is a reference value
+    1. If *prop* is a *StaticReferenceValue*(*base*, *prop1*)
+        1. Assign *prop* = *prop1*
+    2. Else if *prop* is an *InstanceReferenceValue*(*base*, *prop1*)
+        1. Assign *prop* = *prop1* 
+    3. Else if *prop* is a *PackageReferenceValue*(*base*, *prop1*)
+        1. Assign *prop* = *prop1*
+    4. Else return true.
+2. Let *v* be *prop*\[\[*Visibility*\]\]
+3. If *v* is `public`, return true.
+4. If *v* is `internal`
     1. Let *p* be undefined.
     2. Let *p1* be *prop*\[\[*ParentDefinition*\]\]
     3. While *p1* is defined
@@ -33,7 +41,7 @@ The internal *PropertyIsVisible*(*prop*, *scope*) function takes the following s
             1. Return true.
         2. Assign *scope* = *scope*\[\[*ParentScope*\]\]
     6. Return false.
-4. If *v* is `private`
+5. If *v* is `private`
     1. Let *t* be undefined.
     2. Let *p* be *prop*\[\[*ParentDefinition*\]\]
     3. While *p* is defined
@@ -48,7 +56,7 @@ The internal *PropertyIsVisible*(*prop*, *scope*) function takes the following s
             1. Return true.
         2. Assign *scope* = *scope*\[\[*ParentScope*\]\]
     6. Return false.
-5. If *v* is `protected`
+6. If *v* is `protected`
     1. Let *t* be undefined.
     2. Let *p* be *prop*\[\[*ParentDefinition*\]\]
     3. While *p* is defined
@@ -65,4 +73,4 @@ The internal *PropertyIsVisible*(*prop*, *scope*) function takes the following s
                 1. Return true.
         2. Assign *scope* = *scope*\[\[*ParentScope*\]\]
     6. Return false.
-6. Return false.
+7. Return false.

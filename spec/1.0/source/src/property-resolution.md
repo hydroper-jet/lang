@@ -17,7 +17,7 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
         3. Assign *base* = *base*\[\[*SuperClass*\]\]
     3. Return undefined.
 6. If *base* is a value
-    1. Return undefined if the type of *base* is `void` or `null`.
+    1. Return undefined if the type of *base* is `void` or a nullable type.
     2. If *key* is a `String` value
         1. For each descending *type* in the type hierarchy of *base*
             1. For each (*propName*, *prop*) in *type*\[\[*Prototype*\]\]

@@ -168,33 +168,33 @@
                         <h1 id="packages"><a class="header" href="#packages">Packages</a></h1>
 <p>Packages as denoted by the <code>package</code> keyword are used to organize properties and classes. For an user to refer to a package's property it must be imported beforehand through an <code>import</code> directive.</p>
 <pre><code>// Top-level package
-package { public const globalProperty: Number = Infinity }
+package { public const j = Infinity }
 
-// &quot;org.x.y&quot; package
-package org.x.y { public const xyProperty: Number = 10 }
+// &quot;x.y&quot; package
+package x.y { public const w = 10 }
 
 // Infinity
-trace(globalProperty)
+trace(j)
 
 // 10
-import org.x.y.*
-trace(xyProperty)
-trace(org.x.y.xyProperty)
+import x.y.*
+trace(w)
+trace(x.y.w)
 </code></pre>
 <p>The fully qualified name of an imported package's property shadows any variable name in scope as described in the <a href="fully-qualified-names.html">Fully qualified names</a> section.</p>
-<pre><code>public class Org { public const x: OrgX = new OrgX }
-public class OrgX { public const y: OrgY = new OrgY }
-public class OrgY { public const xyProperty: Number = Infinity }
+<pre><code>package x.y { const w = 10 }
+class X { const y = new XY }
+class XY { const w = Infinity }
 
-import org.x.y.*
+import x.y.*
 
-const org = new Org
+const x = new X
 
-// [object Org]
-trace(org)
+// [object X]
+trace(x)
 
 // 10 (not Infinity)
-trace(org.x.y.xyProperty)
+trace(x.y.w)
 </code></pre>
 <p>Packages consist of the following internal properties:</p>
 <div class="table-wrapper"><table><thead><tr><th>Internal property</th><th>Description</th></tr></thead><tbody>

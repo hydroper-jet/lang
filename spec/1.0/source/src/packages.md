@@ -4,36 +4,36 @@ Packages as denoted by the `package` keyword are used to organize properties and
 
 ```
 // Top-level package
-package { public const globalProperty: Number = Infinity }
+package { public const j = Infinity }
 
-// "org.x.y" package
-package org.x.y { public const xyProperty: Number = 10 }
+// "x.y" package
+package x.y { public const w = 10 }
 
 // Infinity
-trace(globalProperty)
+trace(j)
 
 // 10
-import org.x.y.*
-trace(xyProperty)
-trace(org.x.y.xyProperty)
+import x.y.*
+trace(w)
+trace(x.y.w)
 ```
 
 The fully qualified name of an imported package's property shadows any variable name in scope as described in the [Fully qualified names](fully-qualified-names.md) section.
 
 ```
-public class Org { public const x: OrgX = new OrgX }
-public class OrgX { public const y: OrgY = new OrgY }
-public class OrgY { public const xyProperty: Number = Infinity }
+package x.y { const w = 10 }
+class X { const y = new XY }
+class XY { const w = Infinity }
 
-import org.x.y.*
+import x.y.*
 
-const org = new Org
+const x = new X
 
-// [object Org]
-trace(org)
+// [object X]
+trace(x)
 
 // 10 (not Infinity)
-trace(org.x.y.xyProperty)
+trace(x.y.w)
 ```
 
 Packages consist of the following internal properties:

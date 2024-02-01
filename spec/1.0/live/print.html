@@ -1688,17 +1688,17 @@ assert(text == &quot;Have a\nnice day!&quot;)
 <li><code>CharIndex</code> type</li>
 </ul>
 <h2 id="default-value"><a class="header" href="#default-value">Default value</a></h2>
-<p>The default value of a type is determined as follows:</p>
+<p>The default value of a type <em>t</em> is determined as follows:</p>
 <ul>
-<li>If the type is <code>void</code>, return <code>undefined</code>.</li>
-<li>If the type is <code>T?</code>, return <code>null</code>.</li>
-<li>If the type is a number type, return zero.</li>
-<li>If the type is <code>Boolean</code>, return false.</li>
-<li>If the type is <code>String</code>, return the empty string.</li>
-<li>If the type is <code>Char</code>, return U+0000.</li>
-<li>If the type is <code>CharIndex</code>, return (<em>empty string</em>, <em>zero</em>).</li>
-<li>If the type is a set enumeration, return an empty set.</li>
-<li>For any other type, return no default value.</li>
+<li>For <em>t</em> = <code>void</code>, return <code>undefined</code>.</li>
+<li>For <em>t</em> = <code>T?</code>, return <code>null</code>.</li>
+<li>For <em>t</em> = number type, return zero.</li>
+<li>For <em>t</em> = <code>Boolean</code>, return false.</li>
+<li>For <em>t</em> = <code>String</code>, return the empty string.</li>
+<li>For <em>t</em> = <code>Char</code>, return U+0000.</li>
+<li>For <em>t</em> = <code>CharIndex</code>, return (<em>empty string</em>, <em>zero</em>).</li>
+<li>For <em>t</em> = set enumeration, return an empty set.</li>
+<li>Return nothing.</li>
 </ul>
 <h2 id="auto-boxing"><a class="header" href="#auto-boxing">Auto boxing</a></h2>
 <p>The language performs auto boxing of primitive types. Primitive types are represented in a memory efficient way wherever available, including within an <code>Array</code>.</p>

@@ -13,17 +13,17 @@ Jet considers the following to be primitive types:
 
 ## Default value
 
-The default value of a type is determined as follows:
+The default value of a type *t* is determined as follows:
 
-* If the type is `void`, return `undefined`.
-* If the type is `T?`, return `null`.
-* If the type is a number type, return zero.
-* If the type is `Boolean`, return false.
-* If the type is `String`, return the empty string.
-* If the type is `Char`, return U+0000.
-* If the type is `CharIndex`, return (*empty string*, *zero*).
-* If the type is a set enumeration, return an empty set.
-* For any other type, return no default value.
+* For *t* = `void`, return `undefined`.
+* For *t* = `T?`, return `null`.
+* For *t* = number type, return zero.
+* For *t* = `Boolean`, return false.
+* For *t* = `String`, return the empty string.
+* For *t* = `Char`, return U+0000.
+* For *t* = `CharIndex`, return (*empty string*, *zero*).
+* For *t* = set enumeration, return an empty set.
+* Return nothing.
 
 ## Auto boxing
 

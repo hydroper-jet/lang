@@ -20,8 +20,8 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
     1. Return undefined if the type of *base* is `void` or `null`.
     2. If *key* is a `String` value
         1. For each descending *type* in the type hierarchy of *base*
-            1. For each *prop* in *type*\[\[*Prototype*\]\]
-                1. If *prop*\[\[*Name*\]\] is equals *key*, return *InstanceReferenceValue*(*base*, *prop*).
+            1. For each (*propName*, *prop*) in *type*\[\[*Prototype*\]\]
+                1. If *propName* is equals *key*, return *InstanceReferenceValue*(*base*, *prop*).
     3. For each descending *type* in the type hierarchy of *base*
         1. Let *proxy* be *FindPropertyProxy*(*type*)
         2. If *proxy* is not undefined

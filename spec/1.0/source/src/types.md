@@ -87,7 +87,7 @@ The `Char` type is a Unicode Scalar Value.
 
 ## CharIndex type
 
-The `CharIndex` type is a group (*string*, *index*) where *string* is a `String` and *index* is an `UnsignedInt` identifying a zero based index into *string*.
+The `CharIndex` type is a group (*string*, *index*) where *string* is a `String` and *index* is a `Number` identifying a zero based index into *string*.
 
 ## Function types
 

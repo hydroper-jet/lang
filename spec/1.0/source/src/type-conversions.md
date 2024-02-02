@@ -59,6 +59,8 @@ An explicit conversion is followed by an attempt of an implicit conversion. Expl
 | From `String` to `enum` | Converts to `enum` by identifying a member by its string component. It is a failure if the member is not found. |
 | From number to `enum` | For a non set enumeration, converts to the `enum` by identifying a member by its number component. It is a failure if the member is not found. For a set enumeration, converts to the `enum` by filtering out unrecognized bits. |
 | From `undefined` value to nullable type | Results into `null`. |
-| From `Char` to `UnsignedInt` | Results into an integer representing the Unicode value of a character. |
-| From `UnsignedInt` to `Char` | It is failure if the integer identifies an invalid Unicode Scalar Value, otherwise results into a character by its Unicode value. |
+| From `Char` to `Int` | Results into an integer representing the Unicode value of a character. |
+| From `Int` to `Char` | It is failure if the integer identifies an invalid Unicode Scalar Value, otherwise results into a character by its Unicode value. |
 | From type parameter `T` to `W` | Conversion equivalent to `W(T as *)` or `T as * as W`. |
+
+The contravariant and covariant `Array` conversions do not take nullable types.

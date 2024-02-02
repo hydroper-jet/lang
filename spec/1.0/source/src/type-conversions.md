@@ -19,7 +19,7 @@ The language performs implicit compile-time type conversions from a constant to 
 | ------------ | ----------- |
 | `undefined` to `*`, nullable type, or set enumeration | For nullable types, results into `null`. For set enumeration, results into an empty set. For `*`, results into `undefined`. |
 | `null` to `*` or nullable type | Results into `null`. |
-| `N` constant to `*`, `Object` | Results into a `N` number constant of a covariant type. |
+| `N` constant to `*`, `Object` or `Object?` | Results into a `N` number constant of a covariant type. |
 | `NF1` constant to `NF2` or `NF2?` | Results into a floating point constant with the same numeric value, where `NF2` is a floating point type whose range is wider than that of `NF1`. |
 | `NI1` constant to `NI2` or `NI2?` | Results into an integer constant with the same numeric value, where `NI2` is a integer type whose range is wider than that of `NI1`. |
 | `NI` constant to `Number` or `Number?` | Results into a number constant with the same numeric value, where `NI` is one of \{ `Byte`, `UnsignedByte`, `Short`, `UnsignedShort`, `Int`, `UnsignedInt` \}. |

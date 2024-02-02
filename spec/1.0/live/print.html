@@ -2963,9 +2963,8 @@ interface I {}
 <li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
 </ol>
 </li>
-<li>Throw a verify error if either <em>qual</em> is not undefined or if <em>key</em> is not a <code>String</code> constant.</li>
 <li>Let <em>r</em> be undefined.</li>
-<li>If <em>qual</em> is not defined
+<li>If <em>qual</em> is undefined and <em>key</em> is a <code>String</code> constant
 <ol>
 <li>Assign <em>r</em> = a symbol of <em>base</em>[[<em>Properties</em>]] whose key equals <em>key</em>.</li>
 </ol>
@@ -2995,7 +2994,7 @@ interface I {}
 <li>Assign <em>r</em> = <em>amb</em></li>
 </ol>
 </li>
-<li>If <em>qual</em> is not defined
+<li>If <em>qual</em> is undefined and <em>key</em> is a <code>String</code> constant
 <ol>
 <li>For each <em>p</em> in <em>base</em>[[<em>Imports</em>]]
 <ol>
@@ -3017,7 +3016,7 @@ interface I {}
 <li>Assign <em>r</em> = <em>amb</em></li>
 </ol>
 </li>
-<li>If <em>r</em> is not defined and <em>base</em>[[<em>ParentScope</em>]] is not undefined
+<li>If <em>r</em> is undefined and <em>base</em>[[<em>ParentScope</em>]] is not undefined
 <ol>
 <li>Return <em>ResolveScopeProperty</em>(<em>base</em>[[<em>ParentScope</em>]], <em>qual</em>, <em>key</em>)</li>
 </ol>

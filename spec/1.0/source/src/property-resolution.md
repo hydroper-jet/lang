@@ -77,36 +77,35 @@ The internal *ResolveScopeProperty*(*base*, *qual*, *key*) takes the following s
     3. Return *r* if it is not undefined.
 2. If *base* is a filter operator scope
     1. Return *DynamicScopeReferenceValue*(*base*, *qual*, *key*).
-3. Throw a verify error if either *qual* is not undefined or if *key* is not a `String` constant.
-4. Let *r* be undefined.
-5. If *qual* is not defined
+3. Let *r* be undefined.
+4. If *qual* is undefined and *key* is a `String` constant
     1. Assign *r* = a symbol of *base*\[\[*Properties*\]\] whose key equals *key*.
-6. If *r* is not undefined
+5. If *r* is not undefined
     1. Assign *r* = *WrapPropertyReference*(*ResolveAlias*(*r*))
     2. Return *r*
-7. If *base* is an activation scope and *base*\[\[*This*\]\] is not undefined
+6. If *base* is an activation scope and *base*\[\[*This*\]\] is not undefined
     1. Assign *r* = *ResolveProperty*(*base*\[\[*This*\]\], *qual*, *key*)
     2. Return *r* if it is not undefined.
-8. If *base* is a `class` or `enum` scope
+7. If *base* is a `class` or `enum` scope
     1. Assign *r* = *ResolveProperty*(*base*\[\[*Class*\]\], *qual*, *key*)
-9. Let *amb* be undefined.
-10. If *base* is a `package` scope
+8. Let *amb* be undefined.
+9. If *base* is a `package` scope
     1. Assign *amb* = *ResolveProperty*(*base*\[\[*Package*\]\], *qual*, *key*)
     2. It is an ambiguous reference error if *r* is not undefined
     3. Assign *r* = *amb*
-11. If *qual* is not defined
+10. If *qual* is undefined and *key* is a `String` constant
     1. For each *p* in *base*\[\[*Imports*\]\]
         1. If *p*\[\[*Name*\]\] equals *key*
             1. Assign *amb* = *WrapPropertyReference*(*ResolveAlias*(*p*))
             2. It is an ambiguous reference error if *r* is not undefined
             3. Assign *r* = *amb*
-12. For each *op* in *base*\[\[*OpenPackages*\]\]
+11. For each *op* in *base*\[\[*OpenPackages*\]\]
     1. Assign *amb* = *ResolveProperty*(*op*, *qual*, *key*)
     2. It is an ambiguous reference error if *r* is not undefined
     3. Assign *r* = *amb*
-13. If *r* is not defined and *base*\[\[*ParentScope*\]\] is not undefined
+12. If *r* is undefined and *base*\[\[*ParentScope*\]\] is not undefined
     1. Return *ResolveScopeProperty*(*base*\[\[*ParentScope*\]\], *qual*, *key*)
-14. Return *r*
+13. Return *r*
 
 ## WrapPropertyReference()
 

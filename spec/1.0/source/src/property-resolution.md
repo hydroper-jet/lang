@@ -86,7 +86,7 @@ The internal *ResolveScopeProperty*(*base*, *qual*, *key*) takes the following s
 6. If *base* is an activation scope and *base*\[\[*This*\]\] is not undefined
     1. Assign *r* = *ResolveProperty*(*base*\[\[*This*\]\], *qual*, *key*)
     2. Return *r* if it is not undefined.
-7. If *base* is a `class` or `enum` scope
+7. If *base* is a `class` scope or `enum` scope
     1. Assign *r* = *ResolveProperty*(*base*\[\[*Class*\]\], *qual*, *key*)
 8. Let *amb* be undefined.
 9. If *base* is a `package` scope

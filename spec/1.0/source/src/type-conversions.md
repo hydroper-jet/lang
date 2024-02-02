@@ -62,6 +62,6 @@ An explicit conversion is followed by an attempt of an implicit conversion. Expl
 | From `undefined` value to nullable type | Results into `null`. |
 | From `Char` to `Int` | Results into an integer representing the Unicode value of a character. |
 | From `Int` to `Char` | It is failure if the integer identifies an invalid Unicode Scalar Value, otherwise results into a character by its Unicode value. |
-| From type parameter `T` to `W` | Conversion equivalent to `W(T as *)` or `T as * as W`. |
+| From type parameter `T` to `W` | Conversion equivalent to `W(v as *)` or `v as * as W` where `v: T`. |
 
 The contravariant and covariant `Array` conversions do not take nullable types.

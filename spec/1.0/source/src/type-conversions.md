@@ -43,6 +43,7 @@ An implicit conversion is followed by an attempt of an implicit constant convers
 | From `T` to `T?` | Results into a `T?` value containing a `T` value. |
 | From `ìnterface` to `Object` | Results into an `Object` reference. |
 | From `ìnterface` to nullable `Object` | Results into a nullable `Object` reference. |
+| From nullable `ìnterface` to nullable `Object` | Results into a nullable `Object` reference. |
 
 ## Explicit conversions
 

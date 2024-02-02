@@ -9,7 +9,7 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*Name*\]\] | The unqualified name of the class. |
 | \[\[*Visibility*\]\] | The [visibility](visibility.md) of the class. |
 | \[\[*ParentDefinition*\]\] | The parent definition of the class. |
-| \[\[*SuperClass*\]\] | The super class of the class. It is undefined if the class is the `Object` class. |
+| \[\[*BaseClass*\]\] | The base class. It is undefined for the `Object` class. |
 | \[\[*Implements*\]\] | Set of interfaces the class implements. |
 | \[\[*IsFinal*\]\] | Indicates whether the class is final or not. |
 | \[\[*IsStatic*\]\] | Indicates whether the class is static or not. |
@@ -23,46 +23,38 @@ Classes consist of several internal properties, as described in the following ta
 | \[\[*ListOfToProxies*\]\] | `to` proxies defined by the class as function symbols. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |
 
-## Super class
+## Inheritance
 
-By default, all classes, excluding `Object`, have `Object` as their super class.
+Instance properties must not be duplicate in the class inheritance.
+
+```
+class C1 {
+    var x
+}
+class C2 extends C1 {
+    var x // VerifyError
+}
+```
+
+Overriding methods are allowed to be duplicate in the class inheritance.
+
+```
+class C1 {
+    function f() {}
+}
+class C2 extends C1 {
+    override function f() {} // OK
+}
+```
+
+## Base class
+
+By default, all classes, excluding `Object`, have `Object` as their base class.
 
 It is a verify error if:
 
 * a class attempts to extend itself;
 * a class attempts to extend a subclass of itself.
-
-<!--
-
-| Internal property | Description |
-| ----------------- | ----------- |
-| \[\[*JXMLColor*\]\] | For a JXML base class, indicates the supported color class. |
-| \[\[*JXMLVectors*\]\] | For a JXML base class, indicates the supported vector classes. |
-
-## JXML meta-data
-
-A JXML base class may contain a `JXML` meta-data with two optional options `colorClass` and `vectorClass` that specify the fully qualified name of a support class for the color and vector classes to use throughout XML attribute values in JXML files.
-
-* It is a verify error if the fully qualified names specified within `JXML` do not resolve to a class.
-* It is a verify error if the class specified by `colorClass` does not contain a constructor with the signature `function(...arguments: [*]): void`.
-* It is a verify error if the class specified by `vectorClass` does not contain a constructor that takes parameters of a same number type.
-* Only one `colorClass` occurrence is allowed, contributing the class to the annotated class \[\[*JXMLColor*\]\] property.
-* Multiple `vectorClass` occurrences are allowed, contributing multiple classes to the annotated class \[\[*JXMLVectors*\]\] property.
-
-```
-package org.myEngine {
-    [JXML(
-        colorClass = org.myEngine.Color,
-        vectorClass = org.myEngine.Vector,
-        vectorClass = org.myEngine.Vector3D
-    )]
-    public abstract class Node implements JXML {
-        /* JXML... */
-    }
-}
-```
-
--->
 
 ## Meta data
 

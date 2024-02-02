@@ -172,13 +172,22 @@
 <tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the interface.</td></tr>
 <tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the interface.</td></tr>
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the interface.</td></tr>
-<tr><td>[[<em>SuperInterfaces</em>]]</td><td>The super interfaces of the interface.</td></tr>
+<tr><td>[[<em>BaseInterfaces</em>]]</td><td>The super interfaces of the interface.</td></tr>
 <tr><td>[[<em>TypeParameters</em>]]</td><td>The type parameter sequence of the interface.</td></tr>
 <tr><td>[[<em>Prototype</em>]]</td><td>Properties of the interface prototype as a dictionary from string to symbol.</td></tr>
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the interface.</td></tr>
 </tbody></table>
 </div>
-<h2 id="super-interfaces"><a class="header" href="#super-interfaces">Super interfaces</a></h2>
+<h2 id="inheritance"><a class="header" href="#inheritance">Inheritance</a></h2>
+<p>Methods must not be a duplicate in the interface inheritance:</p>
+<pre><code>interface I1 {
+    function f() {}
+}
+interface I2 extends I1 {
+    function f() {} // VerifyError
+}
+</code></pre>
+<h2 id="base-interfaces"><a class="header" href="#base-interfaces">Base interfaces</a></h2>
 <p>It is a verify error if:</p>
 <ul>
 <li>an interface attempts to extend itself;</li>

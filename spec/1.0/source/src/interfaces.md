@@ -9,12 +9,25 @@ Interfaces consist of a small number of internal properties, described in the fo
 | \[\[*Name*\]\] | The unqualified name of the interface. |
 | \[\[*Visibility*\]\] | The [visibility](visibility.md) of the interface. |
 | \[\[*ParentDefinition*\]\] | The parent definition of the interface. |
-| \[\[*SuperInterfaces*\]\] | The super interfaces of the interface. |
+| \[\[*BaseInterfaces*\]\] | The super interfaces of the interface. |
 | \[\[*TypeParameters*\]\] | The type parameter sequence of the interface. |
 | \[\[*Prototype*\]\] | Properties of the interface prototype as a dictionary from string to symbol. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the interface. |
 
-## Super interfaces
+## Inheritance
+
+Methods must not be a duplicate in the interface inheritance:
+
+```
+interface I1 {
+    function f() {}
+}
+interface I2 extends I1 {
+    function f() {} // VerifyError
+}
+```
+
+## Base interfaces
 
 It is a verify error if:
 

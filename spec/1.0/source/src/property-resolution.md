@@ -14,7 +14,7 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
     2. While *base* is not undefined
         1. Let *r* be the symbol in *base*\[\[*StaticProperties*\]\] whose key is equals *key*.
         2. Return *StaticReferenceValue*(*base*, *r*) if *r* is not undefined.
-        3. Assign *base* = *base*\[\[*SuperClass*\]\]
+        3. Assign *base* = *base*\[\[*BaseClass*\]\]
     3. Return undefined.
 6. If *base* is a value
     1. Return undefined if the type of *base* is `void` or a nullable type.

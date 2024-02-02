@@ -172,7 +172,7 @@
 <tr><td>[[<em>Name</em>]]</td><td>The unqualified name of the class.</td></tr>
 <tr><td>[[<em>Visibility</em>]]</td><td>The <a href="visibility.html">visibility</a> of the class.</td></tr>
 <tr><td>[[<em>ParentDefinition</em>]]</td><td>The parent definition of the class.</td></tr>
-<tr><td>[[<em>SuperClass</em>]]</td><td>The super class of the class. It is undefined if the class is the <code>Object</code> class.</td></tr>
+<tr><td>[[<em>BaseClass</em>]]</td><td>The base class. It is undefined for the <code>Object</code> class.</td></tr>
 <tr><td>[[<em>Implements</em>]]</td><td>Set of interfaces the class implements.</td></tr>
 <tr><td>[[<em>IsFinal</em>]]</td><td>Indicates whether the class is final or not.</td></tr>
 <tr><td>[[<em>IsStatic</em>]]</td><td>Indicates whether the class is static or not.</td></tr>
@@ -187,44 +187,30 @@
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the class.</td></tr>
 </tbody></table>
 </div>
-<h2 id="super-class"><a class="header" href="#super-class">Super class</a></h2>
-<p>By default, all classes, excluding <code>Object</code>, have <code>Object</code> as their super class.</p>
+<h2 id="inheritance"><a class="header" href="#inheritance">Inheritance</a></h2>
+<p>Instance properties must not be duplicate in the class inheritance.</p>
+<pre><code>class C1 {
+    var x
+}
+class C2 extends C1 {
+    var x // VerifyError
+}
+</code></pre>
+<p>Overriding methods are allowed to be duplicate in the class inheritance.</p>
+<pre><code>class C1 {
+    function f() {}
+}
+class C2 extends C1 {
+    override function f() {} // OK
+}
+</code></pre>
+<h2 id="base-class"><a class="header" href="#base-class">Base class</a></h2>
+<p>By default, all classes, excluding <code>Object</code>, have <code>Object</code> as their base class.</p>
 <p>It is a verify error if:</p>
 <ul>
 <li>a class attempts to extend itself;</li>
 <li>a class attempts to extend a subclass of itself.</li>
 </ul>
-<!--
-
-| Internal property | Description |
-| ----------------- | ----------- |
-| \[\[*JXMLColor*\]\] | For a JXML base class, indicates the supported color class. |
-| \[\[*JXMLVectors*\]\] | For a JXML base class, indicates the supported vector classes. |
-
-## JXML meta-data
-
-A JXML base class may contain a `JXML` meta-data with two optional options `colorClass` and `vectorClass` that specify the fully qualified name of a support class for the color and vector classes to use throughout XML attribute values in JXML files.
-
-* It is a verify error if the fully qualified names specified within `JXML` do not resolve to a class.
-* It is a verify error if the class specified by `colorClass` does not contain a constructor with the signature `function(...arguments: [*]): void`.
-* It is a verify error if the class specified by `vectorClass` does not contain a constructor that takes parameters of a same number type.
-* Only one `colorClass` occurrence is allowed, contributing the class to the annotated class \[\[*JXMLColor*\]\] property.
-* Multiple `vectorClass` occurrences are allowed, contributing multiple classes to the annotated class \[\[*JXMLVectors*\]\] property.
-
-```
-package org.myEngine {
-    [JXML(
-        colorClass = org.myEngine.Color,
-        vectorClass = org.myEngine.Vector,
-        vectorClass = org.myEngine.Vector3D
-    )]
-    public abstract class Node implements JXML {
-        /* JXML... */
-    }
-}
-```
-
--->
 <h2 id="meta-data"><a class="header" href="#meta-data">Meta data</a></h2>
 <p>A class may contain zero or more plain meta-data:</p>
 <pre><code>[[N1(n2)]]

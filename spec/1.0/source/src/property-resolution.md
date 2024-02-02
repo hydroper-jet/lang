@@ -54,7 +54,9 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
 10. If *base* is the `import.meta.env` symbol
     1. Return undefined if *key* is not a `String` constant.
     2. Let *evDict* be the result of loading environment variables.
-    3. Return *evDict*\[*key*\]
+    3. Let *ev* be *evDict*\[*key*\]
+    4. If *ev* is not undefined, return a `String` constant consisting of the *ev* string.
+    5. Return undefined.
 11. Return undefined.
 
 ## FindPropertyProxy()

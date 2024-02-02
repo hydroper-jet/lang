@@ -271,7 +271,9 @@
 <ol>
 <li>Return undefined if <em>key</em> is not a <code>String</code> constant.</li>
 <li>Let <em>evDict</em> be the result of loading environment variables.</li>
-<li>Return <em>evDict</em>[<em>key</em>]</li>
+<li>Let <em>ev</em> be <em>evDict</em>[<em>key</em>]</li>
+<li>If <em>ev</em> is not undefined, return a <code>String</code> constant consisting of the <em>ev</em> string.</li>
+<li>Return undefined.</li>
 </ol>
 </li>
 <li>Return undefined.</li>

@@ -16,7 +16,7 @@ A visibility is either `public`, `private`, `protected` or `internal`:
 
 The internal *PropertyIsVisible*(*prop*, *scope*) function takes the following steps:
 
-1. If *prop* is a reference value
+1. If *prop* is a value
     1. If *prop* is a *StaticReferenceValue*(*base*, *prop1*)
         1. Assign *prop* = *prop1*
     2. Else if *prop* is an *InstanceReferenceValue*(*base*, *prop1*)

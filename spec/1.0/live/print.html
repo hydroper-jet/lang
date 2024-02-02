@@ -4124,7 +4124,7 @@ const byteArray = embed {
     </tr>
 </table>
 <p><strong>Semantics</strong></p>
-<p><em>Property operator</em>: Fully qualified names are preprocessed by calling <a href="expressions/../fully-qualified-names.html#resolvefullyqualifiednamee"><em>ResolveFullyQualifiedName</em>(postfix expression)</a>.</p>
+<p>Fully qualified names are preprocessed on postfix expressions by calling <a href="expressions/../fully-qualified-names.html#resolvefullyqualifiednamee"><em>ResolveFullyQualifiedName</em>(postfix expression)</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="property-accessors"><a class="header" href="#property-accessors">Property accessors</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
@@ -4182,7 +4182,7 @@ const byteArray = embed {
     </tr>
 </table>
 <p><strong>Semantics</strong></p>
-<p>Call expression over a type base is equivalent to an explicit type conversion.</p>
+<p>Call expression over a type base is equivalent to an explicit type conversion. In the following program, <code>v</code> is verified with the context type <code>T</code> and then explicitly converted to <code>T</code>.</p>
 <pre><code>T(v)
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="meta-properties"><a class="header" href="#meta-properties">Meta properties</a></h1>

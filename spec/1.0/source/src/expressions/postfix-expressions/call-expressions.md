@@ -28,7 +28,7 @@
 
 **Semantics**
 
-Call expression over a type base is equivalent to an explicit type conversion.
+Call expression over a type base is equivalent to an explicit type conversion. In the following program, `v` is verified with the context type `T` and then explicitly converted to `T`.
 
 ```
 T(v)

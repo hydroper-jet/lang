@@ -100,4 +100,4 @@
 
 **Semantics**
 
-*Property operator*: Fully qualified names are preprocessed by calling [*ResolveFullyQualifiedName*(postfix expression)](../fully-qualified-names.md#resolvefullyqualifiednamee).
+Fully qualified names are preprocessed on postfix expressions by calling [*ResolveFullyQualifiedName*(postfix expression)](../fully-qualified-names.md#resolvefullyqualifiednamee).

@@ -157,7 +157,7 @@ The internal *AssignJetXMLConstantAttribute*(*comp*, *p*, *t*, XML attribute) fu
 
 The internal *AssignJetXMLColorAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
-1. Let *colorClass* be \[\[*JetXMLColor*\]\] from either *comp* or a super class of *comp*.
+1. Let *colorClass* be \[\[*JetXMLColor*\]\] from either *comp* or a base class of *comp*.
 2. If *colorClass* exists and *t* is equals *colorClass*, assign `new colorClass(v)` to *p* where `v` is the attribute value as a `String`.
 3. Otherwise return assignment failure.
 
@@ -165,7 +165,7 @@ The internal *AssignJetXMLColorAttribute*(*comp*, *p*, *t*, XML attribute) funct
 
 The internal *AssignJetXMLVectorAttribute*(*comp*, *p*, *t*, XML attribute) function takes the following steps:
 
-1. Let *vectorClasses* be \[\[*JetXMLVectors*\]\] from either *comp* or a super class of *comp*.
+1. Let *vectorClasses* be \[\[*JetXMLVectors*\]\] from either *comp* or a base class of *comp*.
 2. Let *vectorComponents* be the result of spliting the attribute value by comma.
 3. If a class *vectorClass* from *vectorClasses* has a constructor whose number of formal parameters equals to the length of *vectorComponents* and *t* is equals *vectorClass*, assign *p* the expression `new vectorClass(...)` passing every value from the sequence returned by *StringsToNumbers*(*vectorComponents*, *N*) with *N* being the number type expected by the *vectorClass* constructor's formal parameters.
 4. Otherwise return assignment failure.

@@ -51,7 +51,8 @@ An explicit conversion is followed by an attempt of an implicit conversion. Expl
 | Relationship | Description |
 | ------------ | ----------- |
 | To `T` through `proxy::to` | Converts to type `T` by invoking a `to` proxy whose result type is `T` or a subtype of `T`. |
-| To contravariant type | Results into a reference of a contravariant type or a conversion failure if destination is incompatible. |
+| From non-nullable to contravariant type | Results into a reference of a contravariant type or a conversion failure if destination is incompatible. |
+| From nullable to non-nullable contravariant type | Results into a reference of a contravariant type or a conversion failure if destination is incompatible. |
 | `Array` to contravariant `Array` | Constructs a new array filtering out covariant elements. |
 | `Array` to covariant `Array` | Constructs a new array of a covariant type. |
 | Between number types | Converts from a number type to another number type. The result is implementation-defined. |

@@ -1830,7 +1830,8 @@ T(v)
 <p>An explicit conversion is followed by an attempt of an implicit conversion. Explicit conversions are described by the following table:</p>
 <div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
 <tr><td>To <code>T</code> through <code>proxy::to</code></td><td>Converts to type <code>T</code> by invoking a <code>to</code> proxy whose result type is <code>T</code> or a subtype of <code>T</code>.</td></tr>
-<tr><td>To contravariant type</td><td>Results into a reference of a contravariant type or a conversion failure if destination is incompatible.</td></tr>
+<tr><td>From non-nullable to contravariant type</td><td>Results into a reference of a contravariant type or a conversion failure if destination is incompatible.</td></tr>
+<tr><td>From nullable to non-nullable contravariant type</td><td>Results into a reference of a contravariant type or a conversion failure if destination is incompatible.</td></tr>
 <tr><td><code>Array</code> to contravariant <code>Array</code></td><td>Constructs a new array filtering out covariant elements.</td></tr>
 <tr><td><code>Array</code> to covariant <code>Array</code></td><td>Constructs a new array of a covariant type.</td></tr>
 <tr><td>Between number types</td><td>Converts from a number type to another number type. The result is implementation-defined.</td></tr>

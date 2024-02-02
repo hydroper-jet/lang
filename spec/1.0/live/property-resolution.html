@@ -171,7 +171,7 @@
 <ol>
 <li>If <em>base</em> is a value whose type is one of { <code>XML</code>, <code>XMLList</code> }, return <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
 <li>If <em>base</em> is a scope, return <em>ResolveScopeProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
-<li>If <em>base</em> is a value whose type is <code>*</code>
+<li>If <em>base</em> is a value whose type is <code>*</code> or if <em>key</em> is not a <code>String</code> or <code>Number</code> constant
 <ol>
 <li>Return <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>)</li>
 </ol>
@@ -179,7 +179,7 @@
 <li>Return undefined if <em>qual</em> is not undefined.</li>
 <li>If <em>base</em> is a <code>class</code> or <code>enum</code>
 <ol>
-<li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
+<li>Return undefined if <em>key</em> is not a <code>String</code> constant.</li>
 <li>While <em>base</em> is not undefined
 <ol>
 <li>Let <em>r</em> be the symbol in <em>base</em>[[<em>StaticProperties</em>]] whose key is equals <em>key</em>.</li>
@@ -193,7 +193,7 @@
 <li>If <em>base</em> is a value
 <ol>
 <li>Return undefined if the type of <em>base</em> is <code>void</code> or a nullable type.</li>
-<li>If <em>key</em> is a <code>String</code> value
+<li>If <em>key</em> is a <code>String</code> constant
 <ol>
 <li>For each descending <em>type</em> in the type hierarchy of <em>base</em>
 <ol>
@@ -220,7 +220,7 @@
 </li>
 </ol>
 </li>
-<li>If <em>key</em> is a <code>Number</code> value and <em>base</em> is of a tuple type
+<li>If <em>key</em> is a <code>Number</code> constant value and <em>base</em> is of a tuple type
 <ol>
 <li>Let <em>key</em> be <em>ToUInt32</em>(<em>key</em>)</li>
 <li>Assuming <em>key</em> to be a zero-based index, if the <em>key</em> index is not out of bounds of the element sequence of the tuple type of <em>base</em>
@@ -235,7 +235,7 @@
 </li>
 <li>If <em>base</em> is a <code>package</code>
 <ol>
-<li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
+<li>Return undefined if <em>key</em> is not a <code>String</code> constant.</li>
 <li>Let <em>r</em> be a symbol in <em>base</em>[[<em>Properties</em>]] whose key is equals <em>key</em>.</li>
 <li>Return <em>WrapPropertyReference</em>(<em>ResolveAlias</em>(<em>r</em>)) if <em>r</em> is not undefined.</li>
 <li>For each <em>p</em> in <em>base</em>[[<em>RedirectPackages</em>]]
@@ -249,7 +249,7 @@
 </li>
 <li>If <em>base</em> is a package set
 <ol>
-<li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
+<li>Return undefined if <em>key</em> is not a <code>String</code> constant.</li>
 <li>For each <em>p</em> in <em>base</em>[[<em>Packages</em>]]
 <ol>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(<em>p</em>, undefined, <em>key</em>)</li>
@@ -261,7 +261,7 @@
 </li>
 <li>If <em>base</em> is the <code>import.meta</code> symbol
 <ol>
-<li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
+<li>Return undefined if <em>key</em> is not a <code>String</code> constant.</li>
 <li>If <em>key</em> equals <code>env</code>, return the <code>import.meta.env</code> symbol.</li>
 <li>If <em>key</em> equals <code>output</code>, return the <code>import.meta.output</code> special value.</li>
 <li>Return undefined.</li>
@@ -269,7 +269,7 @@
 </li>
 <li>If <em>base</em> is the <code>import.meta.env</code> symbol
 <ol>
-<li>Return undefined if <em>key</em> is not a <code>String</code> value.</li>
+<li>Return undefined if <em>key</em> is not a <code>String</code> constant.</li>
 <li>Let <em>evDict</em> be the result of loading environment variables.</li>
 <li>Return <em>evDict</em>[<em>key</em>]</li>
 </ol>
@@ -301,7 +301,7 @@
 <li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
 </ol>
 </li>
-<li>Throw a verify error if either <em>qual</em> is not undefined or <em>key</em> is not a <code>String</code> value.</li>
+<li>Throw a verify error if either <em>qual</em> is not undefined or if <em>key</em> is not a <code>String</code> constant.</li>
 <li>Let <em>r</em> be undefined.</li>
 <li>If <em>qual</em> is not defined
 <ol>

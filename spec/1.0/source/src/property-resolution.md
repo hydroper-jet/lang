@@ -6,11 +6,11 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
 
 1. If *base* is a value whose type is one of \{ `XML`, `XMLList` \}, return *XMLReferenceValue*(*base*, *qual*, *key*).
 2. If *base* is a scope, return *ResolveScopeProperty*(*base*, *qual*, *key*).
-3. If *base* is a value whose type is `*`
+3. If *base* is a value whose type is `*` or if *key* is not a `String` or `Number` constant
     1. Return *DynamicReferenceValue*(*base*, *qual*, *key*)
 4. Return undefined if *qual* is not undefined.
 5. If *base* is a `class` or `enum`
-    1. Return undefined if *key* is not a `String` value.
+    1. Return undefined if *key* is not a `String` constant.
     2. While *base* is not undefined
         1. Let *r* be the symbol in *base*\[\[*StaticProperties*\]\] whose key is equals *key*.
         2. Return *StaticReferenceValue*(*base*, *r*) if *r* is not undefined.
@@ -18,7 +18,7 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
     3. Return undefined.
 6. If *base* is a value
     1. Return undefined if the type of *base* is `void` or a nullable type.
-    2. If *key* is a `String` value
+    2. If *key* is a `String` constant
         1. For each descending *type* in the type hierarchy of *base*
             1. For each (*propName*, *prop*) in *type*\[\[*Prototype*\]\]
                 1. If *propName* is equals *key*, return *InstanceReferenceValue*(*base*, *prop*).
@@ -27,13 +27,13 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
         2. If *proxy* is not undefined
             1. If the first parameter type of *proxy* is equals the type of *key* or if the type of *key* is a subtype of the first parameter type of *proxy*
                 1. Return *ProxyReferenceValue*(*base*, *proxy*)
-    4. If *key* is a `Number` value and *base* is of a tuple type
+    4. If *key* is a `Number` constant value and *base* is of a tuple type
         1. Let *key* be *ToUInt32*(*key*)
         2. Assuming *key* to be a zero-based index, if the *key* index is not out of bounds of the element sequence of the tuple type of *base*
             1. Return *TupleReferenceValue*(*base*, *key*).
     5. Return undefined.
 7. If *base* is a `package`
-    1. Return undefined if *key* is not a `String` value.
+    1. Return undefined if *key* is not a `String` constant.
     2. Let *r* be a symbol in *base*\[\[*Properties*\]\] whose key is equals *key*.
     3. Return *WrapPropertyReference*(*ResolveAlias*(*r*)) if *r* is not undefined.
     4. For each *p* in *base*\[\[*RedirectPackages*\]\]
@@ -41,18 +41,18 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
         2. Return *r* if it is not undefined.
     5. Return undefined.
 8. If *base* is a package set
-    1. Return undefined if *key* is not a `String` value.
+    1. Return undefined if *key* is not a `String` constant.
     2. For each *p* in *base*\[\[*Packages*\]\]
         1. Let *r* be *ResolveProperty*(*p*, undefined, *key*)
         2. Return *r* if it is not undefined.
     3. Return undefined.
 9. If *base* is the `import.meta` symbol
-    1. Return undefined if *key* is not a `String` value.
+    1. Return undefined if *key* is not a `String` constant.
     2. If *key* equals `env`, return the `import.meta.env` symbol.
     3. If *key* equals `output`, return the `import.meta.output` special value.
     4. Return undefined.
 10. If *base* is the `import.meta.env` symbol
-    1. Return undefined if *key* is not a `String` value.
+    1. Return undefined if *key* is not a `String` constant.
     2. Let *evDict* be the result of loading environment variables.
     3. Return *evDict*\[*key*\]
 11. Return undefined.
@@ -75,7 +75,7 @@ The internal *ResolveScopeProperty*(*base*, *qual*, *key*) takes the following s
     3. Return *r* if it is not undefined.
 2. If *base* is a filter operator scope
     1. Return *DynamicScopeReferenceValue*(*base*, *qual*, *key*).
-3. Throw a verify error if either *qual* is not undefined or *key* is not a `String` value.
+3. Throw a verify error if either *qual* is not undefined or if *key* is not a `String` constant.
 4. Let *r* be undefined.
 5. If *qual* is not defined
     1. Assign *r* = a symbol of *base*\[\[*Properties*\]\] whose key equals *key*.

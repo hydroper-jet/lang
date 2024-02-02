@@ -37,7 +37,7 @@ An implicit conversion is followed by an attempt of an implicit constant convers
 | From `*` | Converts to type from the `*` type by using an explicit conversion or a conversion failure if the conversion fails at runtime. |
 | To `*` | Converts to the `*` type. |
 | `N1` to `N2` | Results into a number constant with the same numeric value, where `N2` is a number type whose range is wider than that of `N1`. |
-| To covariant type | Results into a reference of a covariant type. |
+| From non-nullable type to covariant type | Results into a reference of a covariant type. |
 | From non-nullable type to nullable covariant type | Results into a reference of a nullable covariant type. |
 | From nullable type to nullable covariant type | Results into a reference of a nullable covariant type. |
 | From `T` to `T?` | Results into a `T?` value containing a `T` value. |

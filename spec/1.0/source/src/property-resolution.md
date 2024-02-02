@@ -71,7 +71,7 @@ The internal *FindPropertyProxy*(*type*) function takes the following steps:
 The internal *ResolveScopeProperty*(*base*, *qual*, *key*) takes the following steps:
 
 1. If *base* is a `with` scope
-    1. If *base*\[\[*Object*\]\] is of one of the types \{ `*`, `XML`, `XMLList` \}
+    1. If the static type of *base*\[\[*Object*\]\] is one of the types \{ `*`, `XML`, `XMLList` \}
         1. Return *DynamicScopeReferenceValue*(*base*, *qual*, *key*)
     2. Let *r* be *ResolveProperty*(*base*\[\[*Object*\]\], *qual*, *key*)
     3. Return *r* if it is not undefined.

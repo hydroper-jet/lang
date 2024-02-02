@@ -214,6 +214,8 @@ T(v)
 <tr><td>From <code>String</code> to <code>enum</code></td><td>Converts to <code>enum</code> by identifying a member by its string component. It is a failure if the member is not found.</td></tr>
 <tr><td>From number to <code>enum</code></td><td>For a non set enumeration, converts to the <code>enum</code> by identifying a member by its number component. It is a failure if the member is not found. For a set enumeration, converts to the <code>enum</code> by filtering out unrecognized bits.</td></tr>
 <tr><td>From <code>undefined</code> value to nullable type</td><td>Results into <code>null</code>.</td></tr>
+<tr><td>From <code>String</code> to <code>Char</code></td><td>Results into a <code>Char</code> containing the first Unicode Scalar Value of a <code>String</code> or U+00 if empty.</td></tr>
+<tr><td>From <code>Char</code> to <code>String</code></td><td>Results into a <code>String</code> containing a character.</td></tr>
 <tr><td>From <code>Char</code> to <code>Int</code></td><td>Results into an integer representing the Unicode value of a character.</td></tr>
 <tr><td>From <code>Int</code> to <code>Char</code></td><td>It is failure if the integer identifies an invalid Unicode Scalar Value, otherwise results into a character by its Unicode value.</td></tr>
 <tr><td>From type parameter <code>T</code> to <code>W</code></td><td>Conversion equivalent to <code>W(v as *)</code> or <code>v as * as W</code> where <code>v: T</code>.</td></tr>

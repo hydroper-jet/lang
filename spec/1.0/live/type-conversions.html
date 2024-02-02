@@ -192,7 +192,7 @@ T(v)
 <div class="table-wrapper"><table><thead><tr><th>Relationship</th><th>Description</th></tr></thead><tbody>
 <tr><td>From <code>*</code></td><td>Converts to type from the <code>*</code> type by using an explicit conversion or a conversion failure if the conversion fails at runtime.</td></tr>
 <tr><td>To <code>*</code></td><td>Converts to the <code>*</code> type.</td></tr>
-<tr><td><code>N1</code> to <code>N2</code></td><td>Results into a number value with the same numeric value, where <code>N2</code> is a number type whose range is wider than that of <code>N1</code>.</td></tr>
+<tr><td><code>N1</code> to <code>N2</code>, <code>N1?</code> to <code>N2?</code> or <code>N1</code> to <code>N2?</code></td><td>Results into a number value with the same numeric value, where <code>N2</code> is a number type whose range is wider than that of <code>N1</code>.</td></tr>
 <tr><td>From non-nullable to covariant type</td><td>Results into a reference of a covariant type.</td></tr>
 <tr><td>From non-nullable to nullable covariant type</td><td>Results into a reference of a nullable covariant type.</td></tr>
 <tr><td>From nullable to nullable covariant type</td><td>Results into a reference of a nullable covariant type.</td></tr>
@@ -209,7 +209,7 @@ T(v)
 <tr><td>From nullable to non-nullable contravariant type</td><td>Results into a reference of a contravariant type or a conversion failure if destination is incompatible.</td></tr>
 <tr><td><code>Array</code> to contravariant <code>Array</code></td><td>Constructs a new array filtering out covariant elements.</td></tr>
 <tr><td><code>Array</code> to covariant <code>Array</code></td><td>Constructs a new array of a covariant type.</td></tr>
-<tr><td>Between number types</td><td>Converts from a number type to another number type. The result is implementation-defined.</td></tr>
+<tr><td><code>N1</code> to <code>N2</code>, <code>N1?</code> to <code>N2?</code> or <code>N1</code> to <code>N2?</code></td><td>Converts from a number type to another number type. The result is implementation-defined.</td></tr>
 <tr><td>From <code>String</code> to <code>enum</code></td><td>Converts to <code>enum</code> by identifying a member by its string component. It is a failure if the member is not found.</td></tr>
 <tr><td>From number to <code>enum</code></td><td>For a non set enumeration, converts to the <code>enum</code> by identifying a member by its number component. It is a failure if the member is not found. For a set enumeration, converts to the <code>enum</code> by filtering out unrecognized bits.</td></tr>
 <tr><td>From <code>undefined</code> value to nullable type</td><td>Results into <code>null</code>.</td></tr>

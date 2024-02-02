@@ -36,7 +36,7 @@ An implicit conversion is followed by an attempt of an implicit constant convers
 | ------------ | ----------- |
 | From `*` | Converts to type from the `*` type by using an explicit conversion or a conversion failure if the conversion fails at runtime. |
 | To `*` | Converts to the `*` type. |
-| `N1` to `N2` | Results into a number value with the same numeric value, where `N2` is a number type whose range is wider than that of `N1`. |
+| `N1` to `N2`, `N1?` to `N2?` or `N1` to `N2?` | Results into a number value with the same numeric value, where `N2` is a number type whose range is wider than that of `N1`. |
 | From non-nullable to covariant type | Results into a reference of a covariant type. |
 | From non-nullable to nullable covariant type | Results into a reference of a nullable covariant type. |
 | From nullable to nullable covariant type | Results into a reference of a nullable covariant type. |
@@ -55,7 +55,7 @@ An explicit conversion is followed by an attempt of an implicit conversion. Expl
 | From nullable to non-nullable contravariant type | Results into a reference of a contravariant type or a conversion failure if destination is incompatible. |
 | `Array` to contravariant `Array` | Constructs a new array filtering out covariant elements. |
 | `Array` to covariant `Array` | Constructs a new array of a covariant type. |
-| Between number types | Converts from a number type to another number type. The result is implementation-defined. |
+| `N1` to `N2`, `N1?` to `N2?` or `N1` to `N2?` | Converts from a number type to another number type. The result is implementation-defined. |
 | From `String` to `enum` | Converts to `enum` by identifying a member by its string component. It is a failure if the member is not found. |
 | From number to `enum` | For a non set enumeration, converts to the `enum` by identifying a member by its number component. It is a failure if the member is not found. For a set enumeration, converts to the `enum` by filtering out unrecognized bits. |
 | From `undefined` value to nullable type | Results into `null`. |

@@ -18,6 +18,7 @@
   * [ ] Implements `Iterator`
 * [ ] `Iterator`
   * [ ] `length()` optional method (consumes the iterator, returning the count as `Number`)
+  * [ ] `toArray()`
 * [ ] Array
   * [ ] All indices use the `Number` data type (not `Int` or `UnsignedInt`)
   * [ ] `length` returns `Number`

@@ -7,13 +7,22 @@
         <td colspan="2"><i>ArrayInitializer</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>[</b> <i>Elision</i><sub>opt</sub> <b>]</b></td>
+        <td>&nbsp;</td><td><b>[</b> <i>Elision</i><sub>opt</sub> <b>]</b> <i>InitializerContextType</i><sub>opt</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>]</b></td>
+        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>]</b> <i>InitializerContextType</i><sub>opt</sub></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <b>]</b></td>
+        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <b>]</b> <i>InitializerContextType</i><sub>opt</sub></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="2"><i>InitializerContextType</i></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td><b>:</b> <i>TypeExpression</i></td>
     </tr>
 </table>
 

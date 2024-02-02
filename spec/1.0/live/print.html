@@ -2779,9 +2779,11 @@ class C2 extends C1 {
 <p>Overriding methods are allowed to be duplicate in the class inheritance.</p>
 <pre><code>class C1 {
     function f() {}
+    function get x() 10
 }
 class C2 extends C1 {
     override function f() {} // OK
+    function get x() 10 // VerifyError (must override)
 }
 </code></pre>
 <h2 id="base-class"><a class="header" href="#base-class">Base class</a></h2>

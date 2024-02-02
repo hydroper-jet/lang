@@ -41,9 +41,11 @@ Overriding methods are allowed to be duplicate in the class inheritance.
 ```
 class C1 {
     function f() {}
+    function get x() 10
 }
 class C2 extends C1 {
     override function f() {} // OK
+    function get x() 10 // VerifyError (must override)
 }
 ```
 

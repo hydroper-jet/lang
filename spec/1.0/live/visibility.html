@@ -175,9 +175,16 @@
 </tbody></table>
 </div>
 <ul>
-<li>When a property is not <code>public</code>, it is not allowed for such property to be found at runtime.</li>
-<li>When a property is not <code>public</code>, it is not contained in the runtime type information.</li>
+<li>When a property is not <code>public</code> and it is not an <code>internal</code> property belonging to a top-level class, it is not allowed for such property to be found at runtime or dynammic.</li>
+<li>When a property is not <code>public</code> and it is not an <code>internal</code> property belonging to a top-level class, it is not contained in the runtime type information.</li>
 </ul>
+<pre><code>class C {
+    var x
+}
+const o = new C
+const k = &quot;x&quot;
+o[k] = 10 // OK since C is a top-level class
+</code></pre>
 <h2 id="propertyisvisible"><a class="header" href="#propertyisvisible">PropertyIsVisible()</a></h2>
 <p>The internal <em>PropertyIsVisible</em>(<em>prop</em>, <em>scope</em>) function takes the following steps:</p>
 <ol>

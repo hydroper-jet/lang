@@ -9,8 +9,17 @@ A visibility is either `public`, `private`, `protected` or `internal`:
 | `protected` | The `protected` visibility indicates that a property is accessible from the block of a class and any subclasses. |
 | `internal` | The `internal` visibility indicates that a property is accessible from the enclosing package, excluding subpackages. |
 
-* When a property is not `public`, it is not allowed for such property to be found at runtime.
-* When a property is not `public`, it is not contained in the runtime type information.
+* When a property is not `public` and it is not an `internal` property belonging to a top-level class, it is not allowed for such property to be found at runtime or dynammic.
+* When a property is not `public` and it is not an `internal` property belonging to a top-level class, it is not contained in the runtime type information.
+
+```
+class C {
+    var x
+}
+const o = new C
+const k = "x"
+o[k] = 10 // OK since C is a top-level class
+```
 
 ## PropertyIsVisible()
 

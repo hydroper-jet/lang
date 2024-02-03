@@ -217,10 +217,10 @@ class C4 extends C3 {
 <h3 id="overriding-signature"><a class="header" href="#overriding-signature">Overriding signature</a></h3>
 <p>It is a verify error if the overriding signature is not compatible with the base class's method signature.</p>
 <ul>
-<li>The overriding signature is compatible with the super signature if either:
+<li>The overriding signature is compatible with the base type's signature if either:
 <ul>
-<li>it is equals the super signature, or</li>
-<li>it introduces optional parameters and/or a rest parameter to the super signature and either the result type is equals to that of the super signature or the result type is a subtype of that of the super signature.</li>
+<li>it is equals the base type's signature, or</li>
+<li>it introduces optional parameters and/or a rest parameter to the base type's signature and either the result type is equals to that of the base type's signature or the result type is a subtype of that of the base type's signature.</li>
 </ul>
 </li>
 </ul>

@@ -66,9 +66,9 @@ class C4 extends C3 {
 ### Overriding signature
 
 It is a verify error if the overriding signature is not compatible with the base class's method signature.
-  * The overriding signature is compatible with the super signature if either:
-    * it is equals the super signature, or
-    * it introduces optional parameters and/or a rest parameter to the super signature and either the result type is equals to that of the super signature or the result type is a subtype of that of the super signature.
+  * The overriding signature is compatible with the base type's signature if either:
+    * it is equals the base type's signature, or
+    * it introduces optional parameters and/or a rest parameter to the base type's signature and either the result type is equals to that of the base type's signature or the result type is a subtype of that of the base type's signature.
 
 ```
 class C1 {

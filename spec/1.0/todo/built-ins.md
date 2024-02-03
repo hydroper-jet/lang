@@ -27,6 +27,9 @@
 * [ ] `String`
   * [ ] `length` returns a `Number` (not an integer data type) indicating the number of encoding units of the string.
   * [ ] `chars()` returns `CharReader`
+  * [ ] `apply()` formats a base string with either `[*]` or `Map.<*, *>`
+    * `"$1 $$ $2".apply(["Foo", "bar"]) == "Foo $ bar"`
+    * `"$x $$ $y".apply({x: "Foo", y: "bar"}) == "Foo $ bar"`
   * [ ] Add example demonstrating `"string".chars().length()` versus `"string".length` (result varies across platforms).
   * [ ] Methods such as `replace()` that accept a replacement callback function pass matches in a dedicated argument instead of passing ordinary arguments.
 

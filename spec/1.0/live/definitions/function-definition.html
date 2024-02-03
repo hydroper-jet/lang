@@ -232,6 +232,22 @@ function set x(v: Number): void { impl.x = v }
         <td>&nbsp;</td><td><i>FunctionSignature</i> <i>Block</i></td>
     </tr>
 </table>
+<p><strong>Semantics</strong></p>
+<p>Interface methods may specify or omit the body.</p>
+<pre><code>interface I {
+    function f1();
+    function f2() {}
+}
+</code></pre>
+<p>Functions that are not interface methods and are marked <code>native</code> or <code>abstract</code> must omit the body.</p>
+<pre><code>native function f()
+class C {
+    abstract function f() {}
+}
+</code></pre>
+<p>Functions that are not interface methods and are not marked <code>native</code> or <code>abstract</code> must specify the body.</p>
+<pre><code>function f() {}
+</code></pre>
 <h2 id="function-signature"><a class="header" href="#function-signature">Function signature</a></h2>
 <p><strong>Syntax</strong></p>
 <table>

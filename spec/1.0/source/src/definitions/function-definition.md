@@ -81,6 +81,32 @@ function set x(v: Number): void { impl.x = v }
     </tr>
 </table>
 
+**Semantics**
+
+Interface methods may specify or omit the body.
+
+```
+interface I {
+    function f1();
+    function f2() {}
+}
+```
+
+Functions that are not interface methods and are marked `native` or `abstract` must omit the body.
+
+```
+native function f()
+class C {
+    abstract function f() {}
+}
+```
+
+Functions that are not interface methods and are not marked `native` or `abstract` must specify the body.
+
+```
+function f() {}
+```
+
 ## Function signature
 
 **Syntax**

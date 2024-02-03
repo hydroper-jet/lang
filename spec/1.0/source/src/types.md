@@ -41,7 +41,7 @@ x == y
 
 ## Any type
 
-The `*` type contains values from all other types.
+The `*` type contains values from all other types. The any type is the most ascending type of all other types.
 
 ## Void type
 

@@ -2289,7 +2289,7 @@ class C2 extends C1 {
 }
 </code></pre>
 <h2 id="implementation"><a class="header" href="#implementation">Implementation</a></h2>
-<p>Implementors of an interface must implement non optional interface methods.</p>
+<p>Implementors of an interface must implement non optional interface methods. The method visibility must match <code>public</code> if the implementor is at a <code>package</code>, otherwise the visibility must match <code>internal</code>.</p>
 <pre><code>interface I {
     function f() {}
 }

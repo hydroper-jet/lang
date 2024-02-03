@@ -10,7 +10,7 @@ interface I {
 
 ## Implementation
 
-Implementors of an interface must implement non optional interface methods.
+Implementors of an interface must implement non optional interface methods. The method visibility must match `public` if the implementor is at a `package`, otherwise the visibility must match `internal`.
 
 ```
 interface I {

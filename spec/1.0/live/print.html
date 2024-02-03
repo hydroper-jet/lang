@@ -2281,18 +2281,27 @@ class C2 extends C1 {
     function f(): void
 }
 </code></pre>
+<h2 id="implementation"><a class="header" href="#implementation">Implementation</a></h2>
+<p>Implementors of an interface must implement non optional interface methods.</p>
+<pre><code>interface I {
+    function f() {}
+}
+class C implements I {
+    function f() {}
+}
+</code></pre>
 <h2 id="optional-interface-method"><a class="header" href="#optional-interface-method">Optional interface method</a></h2>
 <p>A function that is an interface method may be optional by specifying its body.</p>
 <pre><code>interface I {
-    function f(): void {}
+    function f() {}
 }
 </code></pre>
 <h2 id="interface-method-forms"><a class="header" href="#interface-method-forms">Interface method forms</a></h2>
 <p>An interface method is allowed to be:</p>
 <ul>
-<li>a regular method;</li>
-<li>a getter;</li>
-<li>a setter.</li>
+<li>A regular method</li>
+<li>A getter</li>
+<li>A setter</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getters-and-setters"><a class="header" href="#getters-and-setters">Getters and setters</a></h1>
 <p>A function that belongs to a virtual property is either a getter or setter.</p>

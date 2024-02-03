@@ -5715,9 +5715,9 @@ function set x(v: Number): void { impl.x = v }
 }
 </code></pre>
 <p>Functions that are not interface methods and are marked <code>native</code> or <code>abstract</code> must omit the body.</p>
-<pre><code>native function f()
+<pre><code>native function f();
 class C {
-    abstract function f() {}
+    abstract function f();
 }
 </code></pre>
 <p>Functions that are not interface methods and are not marked <code>native</code> or <code>abstract</code> must specify the body.</p>

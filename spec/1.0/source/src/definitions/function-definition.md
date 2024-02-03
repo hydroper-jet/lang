@@ -95,9 +95,9 @@ interface I {
 Functions that are not interface methods and are marked `native` or `abstract` must omit the body.
 
 ```
-native function f()
+native function f();
 class C {
-    abstract function f() {}
+    abstract function f();
 }
 ```
 

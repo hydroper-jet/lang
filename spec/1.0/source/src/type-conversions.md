@@ -63,7 +63,9 @@ An explicit conversion is followed by an attempt of an implicit conversion. Expl
 | From `Char` to `Number` | Results into a number representing the Unicode value of a character. |
 | From `Number` to `Char` | It is failure if the number identifies an invalid Unicode Scalar Value, otherwise results into a character by its Unicode value. |
 | From type parameter `T` to `W` | Conversion equivalent to `W(v as *)` or `v as * as W` where `v: T`. |
-| From `T` to `C?` | Explicit conversion from `T` to `C` resulting into a nullable `C`. |
+| From `Map.<*, *>` to `C` where `C` is a class with `C`\[\[AllowLiteral\]\] = true | Constructs a `C` object. It is a conversion failure when a `C` instance variable is unrecognized or an explicit conversion to a variable's static type fails. |
+| From `C` to `Map.<*, *>` where `C` is a class with `C`\[\[AllowLiteral\]\] = true | Constructs a `Map.<*, *>` from a `C` object consisting of the instance variables as `Map` entries. |
 | From `null` to `T` | Where `T` includes `null`, results into `null`.  |
+| From `T` to `C?` | Explicit conversion from `T` to `C` resulting into a nullable `C`. |
 
 The contravariant and covariant `Array` conversions do not take nullable types.

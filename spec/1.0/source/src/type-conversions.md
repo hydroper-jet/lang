@@ -68,4 +68,4 @@ An explicit conversion is followed by an attempt of an implicit conversion. Expl
 | From `null` to `T` | Where `T` includes `null`, results into `null`.  |
 | From `T` to `C?` | Explicit conversion from `T` to `C` resulting into a nullable `C`. |
 
-The contravariant and covariant `Array` conversions do not take nullable types.
+The contravariant and covariant `Array` conversions do not take nullable types except for a conversion from `[*]` to `[W?]`.

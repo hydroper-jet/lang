@@ -194,12 +194,10 @@ T(v)
 <tr><td>To <code>*</code></td><td>Converts to the <code>*</code> type.</td></tr>
 <tr><td><code>N1</code> to <code>N2</code>, <code>N1?</code> to <code>N2?</code> or <code>N1</code> to <code>N2?</code></td><td>Results into a number value with the same numeric value, where <code>N2</code> is a number type whose range is wider than that of <code>N1</code>.</td></tr>
 <tr><td>From non-nullable to covariant type</td><td>Results into a reference of a covariant type.</td></tr>
-<tr><td>From non-nullable to nullable covariant type</td><td>Results into a reference of a nullable covariant type.</td></tr>
 <tr><td>From nullable to nullable covariant type</td><td>Results into a reference of a nullable covariant type.</td></tr>
-<tr><td>From <code>T</code> to <code>T?</code></td><td>Results into a <code>T?</code> value containing a <code>T</code> value.</td></tr>
 <tr><td>From <code>ìnterface</code> to <code>Object</code></td><td>Results into an <code>Object</code> reference.</td></tr>
-<tr><td>From <code>ìnterface</code> to nullable <code>Object</code></td><td>Results into a nullable <code>Object</code> reference.</td></tr>
 <tr><td>From nullable <code>ìnterface</code> to nullable <code>Object</code></td><td>Results into a nullable <code>Object</code> reference.</td></tr>
+<tr><td>From <code>T</code> to <code>C?</code></td><td>Implicit conversion from <code>T</code> to <code>C</code> resulting into a nullable <code>C</code>.</td></tr>
 </tbody></table>
 </div>
 <h2 id="explicit-conversions"><a class="header" href="#explicit-conversions">Explicit conversions</a></h2>
@@ -219,6 +217,8 @@ T(v)
 <tr><td>From <code>Char</code> to <code>Number</code></td><td>Results into a number representing the Unicode value of a character.</td></tr>
 <tr><td>From <code>Number</code> to <code>Char</code></td><td>It is failure if the number identifies an invalid Unicode Scalar Value, otherwise results into a character by its Unicode value.</td></tr>
 <tr><td>From type parameter <code>T</code> to <code>W</code></td><td>Conversion equivalent to <code>W(v as *)</code> or <code>v as * as W</code> where <code>v: T</code>.</td></tr>
+<tr><td>From <code>T</code> to <code>C?</code></td><td>Explicit conversion from <code>T</code> to <code>C</code> resulting into a nullable <code>C</code>.</td></tr>
+<tr><td>From <code>null</code> to <code>T</code></td><td>Where <code>T</code> includes <code>null</code>, results into <code>null</code>.</td></tr>
 </tbody></table>
 </div>
 <p>The contravariant and covariant <code>Array</code> conversions do not take nullable types.</p>

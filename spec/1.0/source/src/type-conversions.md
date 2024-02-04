@@ -38,12 +38,10 @@ An implicit conversion is followed by an attempt of an implicit constant convers
 | To `*` | Converts to the `*` type. |
 | `N1` to `N2`, `N1?` to `N2?` or `N1` to `N2?` | Results into a number value with the same numeric value, where `N2` is a number type whose range is wider than that of `N1`. |
 | From non-nullable to covariant type | Results into a reference of a covariant type. |
-| From non-nullable to nullable covariant type | Results into a reference of a nullable covariant type. |
 | From nullable to nullable covariant type | Results into a reference of a nullable covariant type. |
-| From `T` to `T?` | Results into a `T?` value containing a `T` value. |
 | From `ìnterface` to `Object` | Results into an `Object` reference. |
-| From `ìnterface` to nullable `Object` | Results into a nullable `Object` reference. |
 | From nullable `ìnterface` to nullable `Object` | Results into a nullable `Object` reference. |
+| From `T` to `C?` | Implicit conversion from `T` to `C` resulting into a nullable `C`. |
 
 ## Explicit conversions
 
@@ -65,5 +63,7 @@ An explicit conversion is followed by an attempt of an implicit conversion. Expl
 | From `Char` to `Number` | Results into a number representing the Unicode value of a character. |
 | From `Number` to `Char` | It is failure if the number identifies an invalid Unicode Scalar Value, otherwise results into a character by its Unicode value. |
 | From type parameter `T` to `W` | Conversion equivalent to `W(v as *)` or `v as * as W` where `v: T`. |
+| From `T` to `C?` | Explicit conversion from `T` to `C` resulting into a nullable `C`. |
+| From `null` to `T` | Where `T` includes `null`, results into `null`.  |
 
 The contravariant and covariant `Array` conversions do not take nullable types.

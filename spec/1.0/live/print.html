@@ -1842,8 +1842,8 @@ T(v)
 <tr><td>From <code>Char</code> to <code>Number</code></td><td>Results into a number representing the Unicode value of a character.</td></tr>
 <tr><td>From <code>Number</code> to <code>Char</code></td><td>It is failure if the number identifies an invalid Unicode Scalar Value, otherwise results into a character by its Unicode value.</td></tr>
 <tr><td>From type parameter <code>T</code> to <code>W</code></td><td>Conversion equivalent to <code>W(v as *)</code> or <code>v as * as W</code> where <code>v: T</code>.</td></tr>
-<tr><td>From <code>Map.&lt;*, *&gt;</code> to <code>C</code> where <code>C</code> is a class with <code>C</code>[[AllowLiteral]] = true</td><td>Constructs a <code>C</code> object. It is a conversion failure when a <code>C</code> instance variable is unrecognized or an explicit conversion to a variable's static type fails.</td></tr>
-<tr><td>From <code>C</code> to <code>Map.&lt;*, *&gt;</code> where <code>C</code> is a class with <code>C</code>[[AllowLiteral]] = true</td><td>Constructs a <code>Map.&lt;*, *&gt;</code> from a <code>C</code> object consisting of the instance variables as <code>Map</code> entries.</td></tr>
+<tr><td>From <code>Map.&lt;*, *&gt;</code> to <code>C</code> where <code>C</code> is a class with <code>C</code>[[<em>AllowLiteral</em>]] = true</td><td>Constructs a <code>C</code> object. It is a conversion failure when a <code>C</code> instance variable is unrecognized or an explicit conversion to a variable's static type fails.</td></tr>
+<tr><td>From <code>C</code> to <code>Map.&lt;*, *&gt;</code> where <code>C</code> is a class with <code>C</code>[[<em>AllowLiteral</em>]] = true</td><td>Constructs a <code>Map.&lt;*, *&gt;</code> from a <code>C</code> object consisting of the instance variables as <code>Map</code> entries.</td></tr>
 <tr><td>From <code>null</code> to <code>T</code></td><td>Where <code>T</code> includes <code>null</code>, results into <code>null</code>.</td></tr>
 <tr><td>From <code>T</code> to <code>C?</code></td><td>Explicit conversion from <code>T</code> to <code>C</code> resulting into a nullable <code>C</code>.</td></tr>
 </tbody></table>

@@ -2874,6 +2874,23 @@ interface I {}
 <li>Return undefined.</li>
 </ol>
 </li>
+<li>If <em>base</em> is the <code>import.meta</code> value
+<ol>
+<li>Return undefined if <em>key</em> is not a <code>String</code> constant.</li>
+<li>If <em>key</em> equals <code>env</code>, return the <code>import.meta.env</code> symbol.</li>
+<li>If <em>key</em> equals <code>output</code>, return the <code>import.meta.output</code> special value.</li>
+<li>Return undefined.</li>
+</ol>
+</li>
+<li>If <em>base</em> is the <code>import.meta.env</code> value
+<ol>
+<li>Return undefined if <em>key</em> is not a <code>String</code> constant.</li>
+<li>Let <em>evDict</em> be the result of loading environment variables.</li>
+<li>Let <em>ev</em> be <em>evDict</em>[<em>key</em>]</li>
+<li>If <em>ev</em> is not undefined, return a <code>String</code> constant consisting of the <em>ev</em> string.</li>
+<li>Return undefined.</li>
+</ol>
+</li>
 <li>If <em>base</em> is a value
 <ol>
 <li>Return undefined if the type of <em>base</em> is <code>void</code> or a nullable type.</li>
@@ -2940,23 +2957,6 @@ interface I {}
 <li>Return <em>r</em> if it is not undefined.</li>
 </ol>
 </li>
-<li>Return undefined.</li>
-</ol>
-</li>
-<li>If <em>base</em> is the <code>import.meta</code> symbol
-<ol>
-<li>Return undefined if <em>key</em> is not a <code>String</code> constant.</li>
-<li>If <em>key</em> equals <code>env</code>, return the <code>import.meta.env</code> symbol.</li>
-<li>If <em>key</em> equals <code>output</code>, return the <code>import.meta.output</code> special value.</li>
-<li>Return undefined.</li>
-</ol>
-</li>
-<li>If <em>base</em> is the <code>import.meta.env</code> symbol
-<ol>
-<li>Return undefined if <em>key</em> is not a <code>String</code> constant.</li>
-<li>Let <em>evDict</em> be the result of loading environment variables.</li>
-<li>Let <em>ev</em> be <em>evDict</em>[<em>key</em>]</li>
-<li>If <em>ev</em> is not undefined, return a <code>String</code> constant consisting of the <em>ev</em> string.</li>
 <li>Return undefined.</li>
 </ol>
 </li>
@@ -3239,23 +3239,28 @@ b.BarType.BETA
 <tr><td>[[<em>Package</em>]]</td><td>The enclosing <code>package</code>.</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="environment-variables"><a class="header" href="#environment-variables">Environment variables</a></h1>
-<p>The <code>import.meta.env</code> accessor returns a special symbol that loads environment variables from an optional <code>.env</code> file from a project.</p>
+<p>The <code>import.meta.env</code> expression returns the special <code>import.meta.env</code> value that loads environment variables from an optional <code>.env</code> file from a project.</p>
 <pre><code class="language-plain">import.meta.env.EXAMPLE
 </code></pre>
 <p><em>.env</em></p>
 <pre><code class="language-plain"># Example variable
 EXAMPLE=value
 </code></pre>
+<p>The <code>import.meta.env</code> value has the any type (<code>*</code>) and returns <code>undefined</code> wherever used.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="output-directory"><a class="header" href="#output-directory">Output directory</a></h1>
 <p>This section describes facilities included in the language for working with the JetPM output directory.</p>
 <h2 id="importmetaoutput"><a class="header" href="#importmetaoutput">import.meta.output</a></h2>
-<p>The <code>import.meta.output</code> expression evaluates to the JetPM output directory path. For reliability, the bytecode compiler must emit a special instruction for this expression instead of a string constant.</p>
+<p>The <code>import.meta.output</code> expression evaluates to the JetPM output directory path.</p>
+<pre><code>import node.filesystem.*
+new File(import.meta.output)
+    .resolvePath(&quot;my/data.txt&quot;).write(&quot;Text&quot;)
+</code></pre>
 <h2 id="meta-data-entries"><a class="header" href="#meta-data-entries">Meta data entries</a></h2>
 <p><a href="metadata/plain-metadata.html">Plain meta data</a> support file entries resolving files from the JetPM output directory path through the <code>File(output, &quot;path/to/file&quot;)</code> form.</p>
 <pre><code>package com.khronos.opengl {
     [[DLL(library = File(output, &quot;opengl.dll&quot;))]]
     internal class DLL {
-        [[DLL(name = &quot;gl_createcontext&quot;)]]
+        [[DLL(name = &quot;glcreatecontext&quot;)]]
         public native function createContext(): void;
     }
 }
@@ -4222,7 +4227,7 @@ const byteArray = embed {
     </tr>
 </table>
 <p><strong>Semantics</strong></p>
-<p>The <code>import.meta</code> expression returns the <code>import.meta</code> symbol.</p>
+<p>The <code>import.meta</code> expression returns the <code>import.meta</code> value. The <code>import.meta</code> value has the any type (<code>*</code>) and returns <code>undefined</code> wherever used.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="new-expressions"><a class="header" href="#new-expressions">New expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>

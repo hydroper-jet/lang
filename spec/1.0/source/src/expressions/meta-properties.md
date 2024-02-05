@@ -22,4 +22,4 @@
 
 **Semantics**
 
-The `import.meta` expression returns the `import.meta` symbol.
+The `import.meta` expression returns the `import.meta` value. The `import.meta` value has the any type (`*`) and returns `undefined` wherever used.

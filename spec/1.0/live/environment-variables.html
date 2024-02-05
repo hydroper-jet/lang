@@ -166,13 +166,14 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="environment-variables"><a class="header" href="#environment-variables">Environment variables</a></h1>
-<p>The <code>import.meta.env</code> accessor returns a special symbol that loads environment variables from an optional <code>.env</code> file from a project.</p>
+<p>The <code>import.meta.env</code> expression returns the special <code>import.meta.env</code> value that loads environment variables from an optional <code>.env</code> file from a project.</p>
 <pre><code class="language-plain">import.meta.env.EXAMPLE
 </code></pre>
 <p><em>.env</em></p>
 <pre><code class="language-plain"># Example variable
 EXAMPLE=value
 </code></pre>
+<p>The <code>import.meta.env</code> value has the any type (<code>*</code>) and returns <code>undefined</code> wherever used.</p>
 
                     </main>
 

@@ -16,7 +16,18 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
         2. Return *StaticReferenceValue*(*base*, *r*) if *r* is not undefined.
         3. Assign *base* = *base*\[\[*BaseClass*\]\]
     3. Return undefined.
-6. If *base* is a value
+6. If *base* is the `import.meta` value
+    1. Return undefined if *key* is not a `String` constant.
+    2. If *key* equals `env`, return the `import.meta.env` symbol.
+    3. If *key* equals `output`, return the `import.meta.output` special value.
+    4. Return undefined.
+7. If *base* is the `import.meta.env` value
+    1. Return undefined if *key* is not a `String` constant.
+    2. Let *evDict* be the result of loading environment variables.
+    3. Let *ev* be *evDict*\[*key*\]
+    4. If *ev* is not undefined, return a `String` constant consisting of the *ev* string.
+    5. Return undefined.
+8. If *base* is a value
     1. Return undefined if the type of *base* is `void` or a nullable type.
     2. If *key* is a `String` constant
         1. For each descending *type* in the type hierarchy of *base*
@@ -32,7 +43,7 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
         2. Assuming *key* to be a zero-based index, if the *key* index is not out of bounds of the element sequence of the tuple type of *base*
             1. Return *TupleReferenceValue*(*base*, *key*).
     5. Return undefined.
-7. If *base* is a `package`
+9. If *base* is a `package`
     1. Return undefined if *key* is not a `String` constant.
     2. Let *r* be a symbol in *base*\[\[*Properties*\]\] whose key is equals *key*.
     3. Return *WrapPropertyReference*(*ResolveAlias*(*r*)) if *r* is not undefined.
@@ -40,23 +51,12 @@ The internal *ResolveProperty*(*base*, *qual*, *key*) function takes a *base* ob
         1. Let *r* be *ResolveProperty*(*p*, undefined, *key*)
         2. Return *r* if it is not undefined.
     5. Return undefined.
-8. If *base* is a package set
+10. If *base* is a package set
     1. Return undefined if *key* is not a `String` constant.
     2. For each *p* in *base*\[\[*Packages*\]\]
         1. Let *r* be *ResolveProperty*(*p*, undefined, *key*)
         2. Return *r* if it is not undefined.
     3. Return undefined.
-9. If *base* is the `import.meta` symbol
-    1. Return undefined if *key* is not a `String` constant.
-    2. If *key* equals `env`, return the `import.meta.env` symbol.
-    3. If *key* equals `output`, return the `import.meta.output` special value.
-    4. Return undefined.
-10. If *base* is the `import.meta.env` symbol
-    1. Return undefined if *key* is not a `String` constant.
-    2. Let *evDict* be the result of loading environment variables.
-    3. Let *ev* be *evDict*\[*key*\]
-    4. If *ev* is not undefined, return a `String` constant consisting of the *ev* string.
-    5. Return undefined.
 11. Return undefined.
 
 ## FindPropertyProxy()

@@ -178,7 +178,7 @@ const byteArray = embed {
 </code></pre>
 <p>The embed expression allows resolving files from the JetPM output directory:</p>
 <pre><code>const byteArray = embed {
-    source: File(output, &quot;path/to/data.bin&quot;),
+    source: output + &quot;path/to/data.bin&quot;,
     type: ByteArray,
 }
 </code></pre>
@@ -200,8 +200,8 @@ const byteArray = embed {
 </ul>
 <p>The <code>source</code> property of <em>ObjectInitializer</em> may be specified in one of the following forms:</p>
 <ul>
-<li>A <em>StringLiteral</em> resolving to a file relative to the file path of the program</li>
-<li>A <code>File(output, &quot;path/to/file&quot;)</code> form resolving to a file relative to the JetPM output directory</li>
+<li>A <em>StringLiteral</em> production resolving to a file path (value of the <em>StringLiteral</em>) relative to the file path of the program.</li>
+<li>An <strong>output</strong> <strong>+</strong> <em>StringLiteral</em> production resolving to a file path (value of the <em>StringLiteral</em>) relative to the JetPM output directory.</li>
 </ul>
 
                     </main>

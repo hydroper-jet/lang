@@ -17,7 +17,7 @@ The embed expression allows resolving files from the JetPM output directory:
 
 ```
 const byteArray = embed {
-    source: File(output, "path/to/data.bin"),
+    source: output + "path/to/data.bin",
     type: ByteArray,
 }
 ```
@@ -43,5 +43,5 @@ The *ObjectInitializer* is read as a compile-time description pointing to a file
 
 The `source` property of *ObjectInitializer* may be specified in one of the following forms:
 
-* A *StringLiteral* resolving to a file relative to the file path of the program
-* A `File(output, "path/to/file")` form resolving to a file relative to the JetPM output directory
+* A *StringLiteral* production resolving to a file path (value of the *StringLiteral*) relative to the file path of the program.
+* An **output** **\+** *StringLiteral* production resolving to a file path (value of the *StringLiteral*) relative to the JetPM output directory.

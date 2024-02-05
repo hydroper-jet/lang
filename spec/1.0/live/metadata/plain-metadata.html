@@ -173,13 +173,13 @@
 <li><code>key = boolean</code> — Boolean entry</li>
 <li><code>key = number</code> — Number entry</li>
 <li><code>key = File(&quot;path/to/file&quot;)</code> — File entry</li>
-<li><code>key = (...)</code> — Entry consisting of a collection of other key-value entries</li>
+<li><code>key = List(...)</code> — Entry consisting of a list of subsequent key-value entries</li>
 <li><code>value</code> — Keyless string entry, equivalent to <code>&quot;value&quot;</code></li>
 <li><code>&quot;value&quot;</code> — Keyless string entry, equivalent to <code>value</code></li>
 <li><code>boolean</code> — Keyless boolean entry</li>
 <li><code>number</code> — Keyless number entry</li>
 <li><code>File(&quot;path/to/file&quot;)</code> — Keyless file entry</li>
-<li><code>(...)</code> — Keyless entry consisting of a collection of other key-value entries</li>
+<li><code>List(...)</code> — Keyless entry consisting of a list of subsequent key-value entries</li>
 </ul>
 <p>Additional syntax and characteristics:</p>
 <ul>
@@ -189,15 +189,15 @@
 </ul>
 <pre><code>[[N1(x = &quot;y&quot;, z, &quot;w&quot;, File(&quot;myExtension.dll&quot;))]]
 [[N2]]
-[[N3(x = (x = &quot;v&quot;, y = &quot;v&quot;), y = &quot;v&quot;)]]
+[[N3(x = List(x = &quot;v&quot;, y = &quot;v&quot;), y = &quot;v&quot;)]]
 class C {}
 </code></pre>
 <p>The entry keys are not unique and may appear more than once.</p>
 <h2 id="file"><a class="header" href="#file">File</a></h2>
-<p>The <code>File</code> value of a file entry may be in one of the forms:</p>
+<p>The <code>File</code> value of a file entry may be in one of the following production forms:</p>
 <ul>
-<li><code>File(&quot;path/to/file&quot;)</code></li>
-<li><code>File(output, &quot;path/to/file&quot;)</code> — Resolves file from the output directory of the JetPM build process.</li>
+<li><strong>File</strong> <strong>(</strong> <em>StringLiteral</em> <strong>)</strong> production resolves to a file path (value of the <em>StringLiteral</em>) relative to the file path of the program.</li>
+<li><strong>File</strong> <strong>(</strong> <strong>output</strong> <strong>+</strong> <em>StringLiteral</em> <strong>)</strong> production resolves to a file path (value of the <em>StringLiteral</em>) relative to the JetPM output directory.</li>
 </ul>
 
                     </main>

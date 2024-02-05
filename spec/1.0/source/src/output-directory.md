@@ -14,11 +14,11 @@ new File(import.meta.output)
 
 ## Meta data entries
 
-[Plain meta data](metadata/plain-metadata.md) support file entries resolving files from the JetPM output directory path through the `File(output, "path/to/file")` form.
+[Plain meta data](metadata/plain-metadata.md) support file entries resolving files from the JetPM output directory path through the `output + "path/to/file"` form.
 
 ```
 package com.khronos.opengl {
-    [[DLL(library = File(output, "opengl.dll"))]]
+    [[DLL(library = File(output + "opengl.dll"))]]
     internal class DLL {
         [[DLL(name = "glcreatecontext")]]
         public native function createContext(): void;
@@ -32,7 +32,7 @@ The `embed` expression supports embedding files from the JetPM output directory.
 
 ```
 const byteArray = embed {
-    source: File(output, "path/to/data.bin"),
+    source: output + "path/to/data.bin",
     type: ByteArray,
 }
 ```

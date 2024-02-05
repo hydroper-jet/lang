@@ -123,7 +123,7 @@ package {
 
 ### @private
 
-The `@private` tag omits a definition from the JetDoc public documentation.
+The `@private` tag omits a definition from the JetDoc public documentation and omits it from autocomplete lists in the language server protocol.
 
 ```
 package expert.core {

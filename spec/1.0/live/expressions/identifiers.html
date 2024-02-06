@@ -239,6 +239,15 @@
         <td>&nbsp;</td><td><i>NonAttributeQualifiedIdentifier</i></td>
     </tr>
 </table>
+<p><strong>Verification</strong></p>
+<p>The <em>Identifier</em> and <em>IdentifierName</em> productions of <em>PropertyIdentifier</em> result into a string consisting of the respective identifier characters. The <b><em></b> production of <em>PropertyIdentifier</em> results into the <b></em></b> string.</p>
+<p>The qualifier <em>PropertyIdentifier</em> preceding the <b>::</b> punctuator translates to a <em>PrimaryExpression</em> <strong>:</strong> <em>QualifiedIdentifier</em> and is verified as such production limited to the <code>Namespace</code> type.</p>
+<p>The qualifier <em>ParenExpression</em> preceding the <b>::</b> punctuator must be of the <code>Namespace</code> type.</p>
+<p><em>Brackets</em> must be of the <code>String</code> type.</p>
+<p>Verifying <em>QualifiedIdentifier</em> results into a (<em>qual</em>, <em>key</em>) group consisting of an optional <code>Namespace</code> object and a <code>String</code> value respectively.</p>
+<p><strong>Evaluation</strong></p>
+<p>The qualifier <em>PropertyIdentifier</em> preceding the <b>::</b> punctuator translates to a <em>PrimaryExpression</em> <strong>:</strong> <em>QualifiedIdentifier</em> and is evaluated as such production.</p>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

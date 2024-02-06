@@ -232,6 +232,14 @@
 <li>It is write-only if <em>prop</em> is write-only.</li>
 <li>Its static type is <a href="#propertystatictype"><em>PropertyStaticType</em></a>(<em>prop</em>).</li>
 </ul>
+<h2 id="typeasreferencevaluetype"><a class="header" href="#typeasreferencevaluetype">TypeAsReferenceValue(type)</a></h2>
+<p>The internal <em>TypeAsReferenceValue</em>(<em>type</em>) reference value has the following characteristics:</p>
+<ul>
+<li>It is used for types such as <code>*</code>, <code>void</code>, tuple types and function types.</li>
+<li>It is read-only.</li>
+<li>It is not write-only.</li>
+<li>Its static type is <code>Class</code>.</li>
+</ul>
 <h2 id="propertystatictype"><a class="header" href="#propertystatictype">PropertyStaticType()</a></h2>
 <p>The static type of a property is determined by the internal <em>PropertyStaticType</em>(<em>prop</em>) function as follows:</p>
 <ul>

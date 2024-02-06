@@ -137,5 +137,7 @@ The internal *ExpectType*(*symbol*) function takes the following steps:
   * Return *ExpectType*(*prop*)
 * If *symbol* is a *ScopeReferenceValue*(*base*, *prop*)
   * Return *ExpectType*(*prop*)
+* If *symbol* is a *TypeAsReferenceValue*(*type*)
+  * Return *type*
 * Throw type error if *symbol* is not a type.
 * Return *symbol*.

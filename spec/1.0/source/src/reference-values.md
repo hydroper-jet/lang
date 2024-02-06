@@ -76,6 +76,15 @@ The internal *PackageReferenceValue*(*base*, *prop*) reference value has the fol
 * It is write-only if *prop* is write-only.
 * Its static type is [*PropertyStaticType*](#propertystatictype)(*prop*).
 
+## TypeAsReferenceValue(type)
+
+The internal *TypeAsReferenceValue*(*type*) reference value has the following characteristics:
+
+* It is used for types such as `*`, `void`, tuple types and function types.
+* It is read-only.
+* It is not write-only.
+* Its static type is `Class`.
+
 ## PropertyStaticType()
 
 The static type of a property is determined by the internal *PropertyStaticType*(*prop*) function as follows:

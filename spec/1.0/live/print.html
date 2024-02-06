@@ -1787,6 +1787,11 @@ function(...a: [T]): E
 <li>Return <em>ExpectType</em>(<em>prop</em>)</li>
 </ul>
 </li>
+<li>If <em>symbol</em> is a <em>TypeAsReferenceValue</em>(<em>type</em>)
+<ul>
+<li>Return <em>type</em></li>
+</ul>
+</li>
 <li>Throw type error if <em>symbol</em> is not a type.</li>
 <li>Return <em>symbol</em>.</li>
 </ul>
@@ -3050,6 +3055,11 @@ interface I {}
 <h2 id="wrappropertyreference"><a class="header" href="#wrappropertyreference">WrapPropertyReference()</a></h2>
 <p>The internal <em>WrapPropertyReference</em>(<em>prop</em>) function takes the following steps:</p>
 <ol>
+<li>If <em>prop</em> is a type and <em>prop</em> is either the void type (<code>void</code>), the any type (<code>*</code>), a function type, a tuple type or a nullable type
+<ol>
+<li>Return <em>TypeAsReferenceValue</em>(<em>prop</em>)</li>
+</ol>
+</li>
 <li>Let <em>parent</em> be <em>prop</em>[[<em>ParentDefinition</em>]]</li>
 <li>If <em>parent</em> is a <code>class</code> or <code>enum</code>, return <em>StaticReferenceValue</em>(<em>parent</em>, <em>prop</em>)</li>
 <li>If <em>parent</em> is a <code>package</code>, return <em>PackageReferenceValue</em>(<em>parent</em>, <em>prop</em>)</li>
@@ -3122,6 +3132,14 @@ interface I {}
 <li>It is read-only if <em>prop</em> is read-only.</li>
 <li>It is write-only if <em>prop</em> is write-only.</li>
 <li>Its static type is <a href="reference-values.html#propertystatictype"><em>PropertyStaticType</em></a>(<em>prop</em>).</li>
+</ul>
+<h2 id="typeasreferencevaluetype"><a class="header" href="#typeasreferencevaluetype">TypeAsReferenceValue(type)</a></h2>
+<p>The internal <em>TypeAsReferenceValue</em>(<em>type</em>) reference value has the following characteristics:</p>
+<ul>
+<li>It is used for types such as <code>*</code>, <code>void</code>, tuple types and function types.</li>
+<li>It is read-only.</li>
+<li>It is not write-only.</li>
+<li>Its static type is <code>Class</code>.</li>
 </ul>
 <h2 id="propertystatictype"><a class="header" href="#propertystatictype">PropertyStaticType()</a></h2>
 <p>The static type of a property is determined by the internal <em>PropertyStaticType</em>(<em>prop</em>) function as follows:</p>

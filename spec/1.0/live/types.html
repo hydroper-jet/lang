@@ -276,6 +276,11 @@ function(...a: [T]): E
 <li>Return <em>ExpectType</em>(<em>prop</em>)</li>
 </ul>
 </li>
+<li>If <em>symbol</em> is a <em>TypeAsReferenceValue</em>(<em>type</em>)
+<ul>
+<li>Return <em>type</em></li>
+</ul>
+</li>
 <li>Throw type error if <em>symbol</em> is not a type.</li>
 <li>Return <em>symbol</em>.</li>
 </ul>

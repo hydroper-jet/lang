@@ -111,10 +111,12 @@ The internal *ResolveScopeProperty*(*base*, *qual*, *key*) takes the following s
 
 The internal *WrapPropertyReference*(*prop*) function takes the following steps:
 
-1. Let *parent* be *prop*\[\[*ParentDefinition*\]\]
-2. If *parent* is a `class` or `enum`, return *StaticReferenceValue*(*parent*, *prop*)
-3. If *parent* is a `package`, return *PackageReferenceValue*(*parent*, *prop*)
-4. Assert that *parent* is a scope.
-5. Return *ScopeReferenceValue*(*parent*, *prop*)
+1. If *prop* is a type and *prop* is either the void type (`void`), the any type (`*`), a function type, a tuple type or a nullable type
+    1. Return *TypeAsReferenceValue*(*prop*)
+2. Let *parent* be *prop*\[\[*ParentDefinition*\]\]
+3. If *parent* is a `class` or `enum`, return *StaticReferenceValue*(*parent*, *prop*)
+4. If *parent* is a `package`, return *PackageReferenceValue*(*parent*, *prop*)
+5. Assert that *parent* is a scope.
+6. Return *ScopeReferenceValue*(*parent*, *prop*)
 
 [*ResolveAlias*]: aliases.md#resolvealias

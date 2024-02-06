@@ -366,6 +366,11 @@
 <h2 id="wrappropertyreference"><a class="header" href="#wrappropertyreference">WrapPropertyReference()</a></h2>
 <p>The internal <em>WrapPropertyReference</em>(<em>prop</em>) function takes the following steps:</p>
 <ol>
+<li>If <em>prop</em> is a type and <em>prop</em> is either the void type (<code>void</code>), the any type (<code>*</code>), a function type, a tuple type or a nullable type
+<ol>
+<li>Return <em>TypeAsReferenceValue</em>(<em>prop</em>)</li>
+</ol>
+</li>
 <li>Let <em>parent</em> be <em>prop</em>[[<em>ParentDefinition</em>]]</li>
 <li>If <em>parent</em> is a <code>class</code> or <code>enum</code>, return <em>StaticReferenceValue</em>(<em>parent</em>, <em>prop</em>)</li>
 <li>If <em>parent</em> is a <code>package</code>, return <em>PackageReferenceValue</em>(<em>parent</em>, <em>prop</em>)</li>

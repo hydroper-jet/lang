@@ -85,7 +85,7 @@
 
 **Semantics**
 
-The verification for the object initializer requires a context type. The object initializer may be used to initialize the following context types:
+The object initializer may be used to initialize the following context types:
 
 * `*`
 * `Object` or `Object?`
@@ -94,3 +94,5 @@ The verification for the object initializer requires a context type. The object 
 * `C` or `C?` where `C` is a `class` and `C`\[\[*AllowLiteral*\]\] is true
 
 Initializing a context type that is one of { `*`, `Object`, `Object?` } results into a `Map.<*, *>` object.
+
+The default context type is the `Map.<*, *>` type.

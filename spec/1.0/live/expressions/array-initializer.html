@@ -218,7 +218,7 @@
     </tr>
 </table>
 <p><strong>Semantics</strong></p>
-<p>The verification for the array initializer requires a context type. The array initializer may be used to initialize the following context types:</p>
+<p>The array initializer may be used to initialize the following context types:</p>
 <ul>
 <li><code>*</code></li>
 <li><code>Object</code> or <code>Object?</code></li>
@@ -227,6 +227,7 @@
 <li><code>E</code> or <code>E?</code> where <code>E</code> is a set enumeration</li>
 </ul>
 <p>Initializing a context type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into an <code>Array.&lt;*&gt;</code> object.</p>
+<p>The default context type is the <code>[*]</code> type (<code>Array.&lt;*&gt;</code>).</p>
 
                     </main>
 

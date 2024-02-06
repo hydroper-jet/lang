@@ -58,7 +58,7 @@
 
 **Semantics**
 
-The verification for the array initializer requires a context type. The array initializer may be used to initialize the following context types:
+The array initializer may be used to initialize the following context types:
 
 * `*`
 * `Object` or `Object?`
@@ -67,3 +67,5 @@ The verification for the array initializer requires a context type. The array in
 * `E` or `E?` where `E` is a set enumeration
 
 Initializing a context type that is one of { `*`, `Object`, `Object?` } results into an `Array.<*>` object.
+
+The default context type is the `[*]` type (`Array.<*>`).

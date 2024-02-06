@@ -243,7 +243,7 @@
     </tr>
 </table>
 <p><strong>Semantics</strong></p>
-<p>The verification for the object initializer requires a context type. The object initializer may be used to initialize the following context types:</p>
+<p>The object initializer may be used to initialize the following context types:</p>
 <ul>
 <li><code>*</code></li>
 <li><code>Object</code> or <code>Object?</code></li>
@@ -252,6 +252,7 @@
 <li><code>C</code> or <code>C?</code> where <code>C</code> is a <code>class</code> and <code>C</code>[[<em>AllowLiteral</em>]] is true</li>
 </ul>
 <p>Initializing a context type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into a <code>Map.&lt;*, *&gt;</code> object.</p>
+<p>The default context type is the <code>Map.&lt;*, *&gt;</code> type.</p>
 
                     </main>
 

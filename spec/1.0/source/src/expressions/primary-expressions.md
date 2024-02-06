@@ -109,3 +109,5 @@
 * If *r* is a reference value to a constant *c* that sets the \[\[*ConstantInitializer*\]\] property
   * Return *c*\[\[*ConstantInitializer*\]\]
 * Return *r*.
+
+[*PropertyIsVisible*]: ../visibility.md#propertyisvisible

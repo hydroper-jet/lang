@@ -194,6 +194,7 @@
 * It is a verify error if *p* is undefined.
 * It is a verify error if [*PropertyIsVisible*](*p*, *current scope*) is false.
 * It is a verify error if *p* is not a type and the rule is not followed by a postfix operator.
+* It is a verify error if *p* is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.
 * Return *p*.
 
 <i>TypeExpression</i><sup>noPrefix</sup> : <b>void</b>
@@ -225,6 +226,7 @@
 * Let *p* be *ResolveProperty*(*base*, undefined, string of <i>IdentifierName</i>)
 * It is a verify error if *p* is undefined.
 * It is a verify error if [*PropertyIsVisible*](*p*, *current scope*) is false.
+* It is a verify error if *p* is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.
 * Return *p*.
 
 <i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <i>TypeArguments</i>

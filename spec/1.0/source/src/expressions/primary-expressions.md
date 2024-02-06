@@ -98,3 +98,14 @@
   * It is a verify error if `E` contains no `enum` member with a string equals *s*.
   * Return an `enum` constant, of the context type, identifying the `enum` member of `E` with a string equals *s*.
 * Return a string constant of the `String` type consisting of the string value of <i>StringLiteral</i>.
+
+<i>PrimaryExpression</i> : <i>QualifiedIdentifier</i>
+
+* Let (*qual*, *key*) be the result of verifying the nonterminal symbol on right-hand side of the production.
+* Let *r* be *ResolveProperty*(*current scope*, *qual*, *key*).
+* It is a verify error if [*PropertyIsVisible*](*r*, *current scope*) is false.
+* It is a verify error if *r* is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.
+* It is a verify error if *r* is a reference value that references a type parameterized function and the expression is not followed by <i>TypeArguments</i>.
+* If *r* is a reference value to a constant *c* that sets the \[\[*ConstantInitializer*\]\] property
+  * Return *c*\[\[*ConstantInitializer*\]\]
+* Return *r*.

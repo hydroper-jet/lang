@@ -3484,6 +3484,7 @@ new File(import.meta.output)
 <li>It is a verify error if <em>p</em> is undefined.</li>
 <li>It is a verify error if <a href="visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<em>p</em>, <em>current scope</em>) is false.</li>
 <li>It is a verify error if <em>p</em> is not a type and the rule is not followed by a postfix operator.</li>
+<li>It is a verify error if <em>p</em> is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.</li>
 <li>Return <em>p</em>.</li>
 </ul>
 <p><i>TypeExpression</i><sup>noPrefix</sup> : <b>void</b></p>
@@ -3518,6 +3519,7 @@ new File(import.meta.output)
 <li>Let <em>p</em> be <em>ResolveProperty</em>(<em>base</em>, undefined, string of <i>IdentifierName</i>)</li>
 <li>It is a verify error if <em>p</em> is undefined.</li>
 <li>It is a verify error if <a href="visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<em>p</em>, <em>current scope</em>) is false.</li>
+<li>It is a verify error if <em>p</em> is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.</li>
 <li>Return <em>p</em>.</li>
 </ul>
 <p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <i>TypeArguments</i></p>
@@ -3780,6 +3782,20 @@ new File(import.meta.output)
 </ul>
 </li>
 <li>Return a string constant of the <code>String</code> type consisting of the string value of <i>StringLiteral</i>.</li>
+</ul>
+<p><i>PrimaryExpression</i> : <i>QualifiedIdentifier</i></p>
+<ul>
+<li>Let (<em>qual</em>, <em>key</em>) be the result of verifying the nonterminal symbol on right-hand side of the production.</li>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>current scope</em>, <em>qual</em>, <em>key</em>).</li>
+<li>It is a verify error if [<em>PropertyIsVisible</em>](<em>r</em>, <em>current scope</em>) is false.</li>
+<li>It is a verify error if <em>r</em> is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.</li>
+<li>It is a verify error if <em>r</em> is a reference value that references a type parameterized function and the expression is not followed by <i>TypeArguments</i>.</li>
+<li>If <em>r</em> is a reference value to a constant <em>c</em> that sets the [[<em>ConstantInitializer</em>]] property
+<ul>
+<li>Return <em>c</em>[[<em>ConstantInitializer</em>]]</li>
+</ul>
+</li>
+<li>Return <em>r</em>.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="parenthesized-expressions"><a class="header" href="#parenthesized-expressions">Parenthesized expressions</a></h1>
 <p><strong>Syntax</strong></p>

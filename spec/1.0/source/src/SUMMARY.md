@@ -41,6 +41,7 @@
 - [Reference values](reference-values.md)
 - [Fully qualified names](fully-qualified-names.md)
 - [Scopes](scopes.md)
+- [Root scope](root-scope.md)
 - [Environment variables](environment-variables.md)
 - [Output directory](output-directory.md)
 - [Phases of execution](phases-of-execution.md)
@@ -111,3 +112,4 @@
   - [Package definition](definitions/package-definition.md)
   - [Program definition](definitions/program-definition.md)
 - [JetDoc](jetdoc.md)
+- [Language library](language-library.md)

@@ -46,6 +46,15 @@ Packages consist of the following internal properties:
 | \[\[*RedirectPackages*\]\] | The redirect packages of the package. |
 | \[\[*Subpackages*\]\] | The subpackages of the package. |
 
+## Top-level package
+
+The top-level package is an unnamed package from which subsequent packages are defined.
+
+```
+// Top-level package definition
+package {}
+```
+
 ## Redirect packages
 
 Directives of the form `public use q.*;` contribute a redirect package to a package. Redirect packages are used in name resolution to resolve to names from another package.

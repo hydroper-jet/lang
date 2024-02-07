@@ -301,6 +301,15 @@ The *Comment* token is filtered out by the lexical scanner, however it propagate
     </tr>
 </table>
 
+## Virtual semicolons
+
+The *VirtualSemicolon* nonterminal matches an automatically inserted semicolon, known as a *virtual* semicolon.
+
+Virtual semicolons are inserted in the following occasions:
+
+* After a right-curly character **&#x7D;**
+* Before a *LineTerminator*
+
 ## Identifier
 
 **Syntax**

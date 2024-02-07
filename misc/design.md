@@ -253,9 +253,9 @@ The accessibility of a property is either `public`, `private`, `internal`, or `p
 
 # Meta data
 
-Meta data can be attached to items. There are three categories of meta data: reserved meta data, decorator meta data and plain meta data.
+Meta data can be attached to items. There are two categories of meta data: reserved meta data and plain meta data.
 
-* Plain meta data is uninterpreted meta data placed inside a `[[...]]` notation.
+* Plain meta data is uninterpreted meta data placed inside a `[...]` notation.
 
 ## Plain meta data
 
@@ -266,7 +266,7 @@ Meta data can be attached to items. There are three categories of meta data: res
 * Map values consisting of further key-value entries are allowed using the `Map(...)` group
 
 ```
-[[N1(x = "y", z, "w", File("myExtension.dll"))]]
+[N1(x = "y", z, "w", File("myExtension.dll"))]
 ```
 
 # Assertion

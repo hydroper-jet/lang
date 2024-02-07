@@ -16,7 +16,7 @@
 The block statement is allowed to contain only plain meta-data.
 
 ```
-[[N1(n2 = 10)]]
+[N1(n2 = 10)]
 {
     trace("Log")
 }

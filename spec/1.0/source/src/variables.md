@@ -76,7 +76,7 @@ var x = 0
 A variable may contain zero or more plain meta-data.
 
 ```
-[[N1(n2)]]
+[N1(n2)]
 const x: T;
 ```
 

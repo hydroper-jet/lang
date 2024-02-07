@@ -1,6 +1,6 @@
 # Plain meta-data
 
-Plain meta-data are uninterpreted meta-data attached to a definition, using double bracketed notation (`[[]]`).
+Plain meta-data are uninterpreted meta-data attached to a definition.
 
 Plain meta-data consists of a `Name()` or `Name` form that consists of zero or more entries. The following are the possible entry forms:
 
@@ -23,9 +23,9 @@ Additional syntax and characteristics:
 * `number` is a *NumericLiteral* and corresponds to a double-precision floating point.
 
 ```
-[[N1(x = "y", z, "w", File("myExtension.dll"))]]
-[[N2]]
-[[N3(x = List(x = "v", y = "v"), y = "v")]]
+[N1(x = "y", z, "w", File("myExtension.dll"))]
+[N2]
+[N3(x = List(x = "v", y = "v"), y = "v")]
 class C {}
 ```
 

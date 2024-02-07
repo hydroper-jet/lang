@@ -1,6 +1,6 @@
 # Reserved meta-data
 
-Reserved meta-data are meta-data that cannot be overriden by user decorators. This section enumerates all reserved meta-data.
+Reserved meta-data are meta-data that cannot be overriden by plain meta-data. This section enumerates all reserved meta-data.
 
 * [`[Literal]`](#literal)
 * [`[Set]`](#set)

@@ -24,7 +24,7 @@ Aliases consist of the following internal properties:
 An alias may contain zero or more plain meta-data:
 
 ```
-[[N1(n2)]]
+[N1(n2)]
 type T2 = T1;
 ```
 

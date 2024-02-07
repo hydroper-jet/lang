@@ -18,9 +18,9 @@ new File(import.meta.output)
 
 ```
 package com.khronos.opengl {
-    [[DLL(library = File(output + "opengl.dll"))]]
+    [DLL(library = File(output + "opengl.dll"))]
     internal class DLL {
-        [[DLL(name = "glcreatecontext")]]
+        [DLL(name = "glcreatecontext")]
         public native function createContext(): void;
     }
 }

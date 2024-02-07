@@ -23,18 +23,18 @@ avm.intrinsics.callProperty(object, key, arguments)
 
 AVM2 domain memory operations such as `li8()` translate to the respective AVM2 instruction.
 
-## \[\[avm::Property\]\]
+## \[avm::Property\]
 
-The `[[avm::Property("name")]]` meta-data identifies an ActionScript property by its name, causing a Jet definition to translate to such.
+The `[avm::Property("name")]` meta-data identifies an ActionScript property by its name, causing a Jet definition to translate to such.
 
 If it is applied to a package property, it identifies a property in the `public` namespace of a package by a fully qualified name (`q.C`).
 
 ## Open namespaces
 
-The `[[avm::Import]]` meta-data opens `public` namespaces of specified ActionScript packages for an entire region.
+The `[avm::Import]` meta-data opens `public` namespaces of specified ActionScript packages for an entire region.
 
 ```
-[[avm::Import("flash.events", "flash.utils")]]
+[avm::Import("flash.events", "flash.utils")]
 {
     // Action
 }

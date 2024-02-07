@@ -69,6 +69,6 @@ native function f(): void;
 A function may contain zero or more plain meta-data.
 
 ```
-[[N1(n2)]]
+[N1(n2)]
 function f1(): void {}
 ```

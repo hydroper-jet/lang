@@ -31,7 +31,6 @@
 - [Type parameters](type-parameters.md)
 - [Meta-data](metadata.md)
   - [Reserved meta-data](metadata/reserved-metadata.md)
-  - [Decorator meta-data](metadata/decorator-metadata.md)
   - [Plain meta-data](metadata/plain-metadata.md)
 - [Aliases](aliases.md)
 - [Enumerations](enum.md)

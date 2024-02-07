@@ -63,6 +63,6 @@ It is a verify error if:
 A class may contain zero or more plain meta-data:
 
 ```
-[[N1(n2)]]
+[N1(n2)]
 class C {}
 ```

@@ -39,6 +39,6 @@ It is a verify error if:
 An interface may contain zero or more plain meta-data:
 
 ```
-[[N1(n2)]]
+[N1(n2)]
 interface I {}
 ```

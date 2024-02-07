@@ -9,6 +9,33 @@ The tokenizer scans one of the following input goal symbols depending on the syn
 * *InputElementXMLTag*
 * *InputElementXMLContent*
 
+The following program illustrates how the tokenizer decides which is the input goal symbol to scan:
+
+```
+/(?:)/;
+a / b;
+<a>Text</a>;
+```
+
+The following table indicates which is the input goal symbol that is scanned for each of the tokens comprising the previous program:
+
+| Token | Input goal |
+| ----- | ---------- |
+| `/(?:)/` | *InputElementRegExp* |
+| `;` | *InputElementRegExp* |
+| `a` | *InputElementRegExp* |
+| `/` | *InputElementDiv* |
+| `b` | *InputElementRegExp* |
+| `;` | *InputElementRegExp* |
+| `<` | *InputElementRegExp* |
+| `a` | *InputElementXMLTag* |
+| `>` | *InputElementXMLTag* |
+| `Text` | *InputElementXMLContent* |
+| `</` | *InputElementXMLContent* |
+| `a` | *InputElementXMLTag* |
+| `>` | *InputElementXMLTag* |
+| `;` | *InputElementRegExp* |
+
 **Syntax**
 
 <table>

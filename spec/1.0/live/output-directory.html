@@ -173,8 +173,8 @@
 new File(import.meta.output)
     .resolvePath(&quot;my/data.txt&quot;).write(&quot;Text&quot;)
 </code></pre>
-<h2 id="meta-data-entries"><a class="header" href="#meta-data-entries">Meta data entries</a></h2>
-<p><a href="metadata/plain-metadata.html">Plain meta data</a> support file entries resolving files from the JetPM output directory path through the <code>output + &quot;path/to/file&quot;</code> form.</p>
+<h2 id="meta-data-entries"><a class="header" href="#meta-data-entries">Meta-data entries</a></h2>
+<p><a href="metadata/plain-metadata.html">Plain meta-data</a> support file entries resolving files from the JetPM output directory path through the <code>output + &quot;path/to/file&quot;</code> form.</p>
 <pre><code>package com.khronos.opengl {
     [DLL(library = File(output + &quot;opengl.dll&quot;))]
     internal class DLL {
@@ -186,7 +186,7 @@ new File(import.meta.output)
 <h2 id="embedding-files"><a class="header" href="#embedding-files">Embedding files</a></h2>
 <p>The <code>embed</code> expression supports embedding files from the JetPM output directory.</p>
 <pre><code>const byteArray = embed {
-    source: output + &quot;path/to/data.bin&quot;,
+    source: output + &quot;auto/generated.bin&quot;,
     type: ByteArray,
 }
 </code></pre>

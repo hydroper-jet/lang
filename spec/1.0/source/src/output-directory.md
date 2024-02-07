@@ -12,9 +12,9 @@ new File(import.meta.output)
     .resolvePath("my/data.txt").write("Text")
 ```
 
-## Meta data entries
+## Meta-data entries
 
-[Plain meta data](metadata/plain-metadata.md) support file entries resolving files from the JetPM output directory path through the `output + "path/to/file"` form.
+[Plain meta-data](metadata/plain-metadata.md) support file entries resolving files from the JetPM output directory path through the `output + "path/to/file"` form.
 
 ```
 package com.khronos.opengl {
@@ -32,7 +32,7 @@ The `embed` expression supports embedding files from the JetPM output directory.
 
 ```
 const byteArray = embed {
-    source: output + "path/to/data.bin",
+    source: output + "auto/generated.bin",
     type: ByteArray,
 }
 ```

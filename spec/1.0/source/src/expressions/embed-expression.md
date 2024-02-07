@@ -17,7 +17,7 @@ The embed expression allows resolving files from the JetPM output directory:
 
 ```
 const byteArray = embed {
-    source: output + "path/to/data.bin",
+    source: output + "auto/generated.bin",
     type: ByteArray,
 }
 ```

@@ -22,11 +22,11 @@ The following table indicates which is the input goal symbol that is scanned for
 | Token | Input goal |
 | ----- | ---------- |
 | `/(?:)/` | *InputElementRegExp* |
-| `;` | *InputElementRegExp* |
+| `;` | *InputElementDiv* |
 | `a` | *InputElementRegExp* |
 | `/` | *InputElementDiv* |
 | `b` | *InputElementRegExp* |
-| `;` | *InputElementRegExp* |
+| `;` | *InputElementDiv* |
 | `<` | *InputElementRegExp* |
 | `a` | *InputElementXMLTag* |
 | `>` | *InputElementXMLTag* |
@@ -34,7 +34,7 @@ The following table indicates which is the input goal symbol that is scanned for
 | `</` | *InputElementXMLContent* |
 | `a` | *InputElementXMLTag* |
 | `>` | *InputElementXMLTag* |
-| `;` | *InputElementRegExp* |
+| `;` | *InputElementDiv* |
 
 **Syntax**
 

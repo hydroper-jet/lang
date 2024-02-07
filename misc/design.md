@@ -273,17 +273,6 @@ Meta data can be attached to items. There are two categories of meta data: reser
 
 The language comes with built-in assertion facilities, which throw `AssertionError` errors when an assertion fails.
 
-# Test
-
-Test functions can be defined with the `[Test]` meta data. Such functions are invoked by the unit testing tool. A test fails when an error is thrown.
-
-```
-[Test]
-function testSomething(): void {
-    // Test it
-}
-```
-
 # Abstract classes and methods
 
 Abstract classes and abstract methods are supported. Abstract methods allow for exhaustive implementation of an operation across all subclasses of a class.

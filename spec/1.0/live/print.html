@@ -2536,14 +2536,11 @@ function f.&lt;T&gt;(): void {}
 <ul>
 <li><a href="metadata/reserved-metadata.html#literal"><code>[Literal]</code></a></li>
 <li><a href="metadata/reserved-metadata.html#set"><code>[Set]</code></a></li>
-<li><a href="metadata/reserved-metadata.html#test"><code>[Test]</code></a></li>
 </ul>
 <h2 id="literal"><a class="header" href="#literal">Literal</a></h2>
 <p>The <code>Literal</code> meta-data is reserved at the <code>class</code> definition. It is used for indicating that the class can be initialized through an object initializer.</p>
 <h2 id="set"><a class="header" href="#set">Set</a></h2>
 <p>The <code>Set</code> meta-data is reserved at the <code>enum</code> definition. It is used for indicating that the <code>enum</code> is a set enumeration.</p>
-<h2 id="test"><a class="header" href="#test">Test</a></h2>
-<p>The <code>Test</code> meta-data is reserved at the <code>function</code> definition. It is used for indicating that a function is a test unit.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="plain-meta-data"><a class="header" href="#plain-meta-data">Plain meta-data</a></h1>
 <p>Plain meta-data are uninterpreted meta-data attached to a definition.</p>
 <p>Plain meta-data consists of a <code>Name()</code> or <code>Name</code> form that consists of zero or more entries. The following are the possible entry forms:</p>
@@ -5711,7 +5708,6 @@ function f(a) {
 <tr><td><code>private</code></td><td>Uses the <code>private</code> visibility</td></tr>
 <tr><td><code>protected</code></td><td>Uses the <code>protected</code> visibility</td></tr>
 <tr><td><code>internal</code></td><td>Uses the <code>internal</code> visibility. Default if not at <code>interface</code> block.</td></tr>
-<tr><td><code>[Test]</code></td><td>Designates a test function.</td></tr>
 </tbody></table>
 </div>
 <p>A getter or setter function must not contain <em>TypeParameters</em>.</p>

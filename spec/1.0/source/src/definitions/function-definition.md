@@ -27,7 +27,6 @@ A *FunctionDefinition* may be modified by the following attributes:
 | `private`       | Uses the `private` visibility |
 | `protected`     | Uses the `protected` visibility |
 | `internal`      | Uses the `internal` visibility. Default if not at `interface` block. |
-| `[Test]`        | Designates a test function. |
 
 A getter or setter function must not contain *TypeParameters*.
 

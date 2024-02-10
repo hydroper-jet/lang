@@ -1,16 +1,6 @@
 # String encoding
 
-The String data type uses an implementation-defined encoding and is supported by a `CharIndex` data type representing an index into a `String`.
-
-## Slicing
-
-```
-string.slice(string.firstIndex.next(1))
-
-string.slice(string.firstIndex, string.firstIndex.next(3))
-
-string.slice(string.firstIndex, string.lastIndex.next(-4))
-```
+The String data type uses an implementation-defined encoding. String indices identify a character in the encoding unit.
 
 ## Characters
 

@@ -83,8 +83,7 @@ IEEE 754 floating point:
 
 Unicode:
 
-- `String`: Sequence of Scalar Values using an implementation-specific encoding.
-- `CharIndex`: Represents a Scalar Value index into a string.
+- `String`: Sequence of Scalar Values using an implementation-specific encoding
 - `Char`: Unicode Scalar Value.
 
 Compound:
@@ -301,11 +300,6 @@ const listener = object.addEventListener(function(event: Event): void {
 });
 listener.remove();
 ```
-
-# Character indices
-
-* *CharIndex* holds (*string*, *index*).
-* The zero constant implicitly converts to *CharIndex*.
 
 # Jet for XML
 

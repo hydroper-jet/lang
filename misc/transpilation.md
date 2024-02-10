@@ -5,7 +5,6 @@
 * Certain kinds of instances have to be interned manually. For ActionScript, primitives need not be interned manually.
   * `P?` where `P` is a primitive type
   * `Char`
-  * `CharIndex`
 
 ## Lua
 

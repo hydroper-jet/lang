@@ -166,14 +166,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="string-encoding"><a class="header" href="#string-encoding">String encoding</a></h1>
-<p>The String data type uses an implementation-defined encoding and is supported by a <code>CharIndex</code> data type representing an index into a <code>String</code>.</p>
-<h2 id="slicing"><a class="header" href="#slicing">Slicing</a></h2>
-<pre><code>string.slice(string.firstIndex.next(1))
-
-string.slice(string.firstIndex, string.firstIndex.next(3))
-
-string.slice(string.firstIndex, string.lastIndex.next(-4))
-</code></pre>
+<p>The String data type uses an implementation-defined encoding. String indices identify a character in the encoding unit.</p>
 <h2 id="characters"><a class="header" href="#characters">Characters</a></h2>
 <pre><code>// Number of Unicode Scalar Values
 string.chars().length()

@@ -9,7 +9,6 @@ Jet considers the following to be primitive types:
 * `Boolean` type
 * `String` type
 * `Char` type
-* `CharIndex` type
 
 ## Default value
 
@@ -21,7 +20,6 @@ The default value of a type *t* is determined as follows:
 * For *t* = `Boolean`, return false.
 * For *t* = `String`, return the empty string.
 * For *t* = `Char`, return U+0000.
-* For *t* = `CharIndex`, return (*empty string*, *zero*).
 * For *t* = set enumeration, return an empty set.
 * Return nothing.
 
@@ -84,10 +82,6 @@ The `String` type consists of a sequence of Unicode Scalar Values whose encoding
 ## Char type
 
 The `Char` type is a Unicode Scalar Value.
-
-## CharIndex type
-
-The `CharIndex` type is a group (*string*, *index*) where *string* is a `String` and *index* is a `Number` identifying a zero based index into *string*.
 
 ## Function types
 

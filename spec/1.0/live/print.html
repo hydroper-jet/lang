@@ -1769,12 +1769,15 @@ x == y
 <h2 id="char-type"><a class="header" href="#char-type">Char type</a></h2>
 <p>The <code>Char</code> type is a Unicode Scalar Value.</p>
 <h2 id="function-types"><a class="header" href="#function-types">Function types</a></h2>
-<p>Function types consist of zero or more parameters and a return type annotation. Function types appear in the forms:</p>
+<p>Function types consist of zero or more parameters and a return type annotation.</p>
 <pre><code>function(): E
+
 // Required parameter
 function(a: T): E
+
 // Optional parameter
 function(a?: T): E
+
 // Rest parameter
 function(...a: [T]): E
 </code></pre>

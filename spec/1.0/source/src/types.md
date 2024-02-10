@@ -75,14 +75,17 @@ The `Char` type is a Unicode Scalar Value.
 
 ## Function types
 
-Function types consist of zero or more parameters and a return type annotation. Function types appear in the forms:
+Function types consist of zero or more parameters and a return type annotation.
 
 ```
 function(): E
+
 // Required parameter
 function(a: T): E
+
 // Optional parameter
 function(a?: T): E
+
 // Rest parameter
 function(...a: [T]): E
 ```

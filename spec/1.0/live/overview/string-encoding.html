@@ -168,25 +168,33 @@
                         <h1 id="string-encoding"><a class="header" href="#string-encoding">String encoding</a></h1>
 <p>The String data type uses an implementation-defined encoding and is supported by a <code>CharIndex</code> data type representing an index into a <code>String</code>.</p>
 <h2 id="slicing"><a class="header" href="#slicing">Slicing</a></h2>
-<div class="table-wrapper"><table><thead><tr><th>Call</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>string.slice(string.firstIndex.next(1))</code></td><td>Slices string from second character</td></tr>
-<tr><td><code>string.slice(string.firstIndex, string.firstIndex.next(3))</code></td><td>Takes first three characters from a string</td></tr>
-<tr><td><code>string.slice(string.firstIndex, string.lastIndex.next(-4))</code></td><td>Slices string until last 4 characters</td></tr>
-</tbody></table>
-</div>
+<pre><code>// Slices string from second character
+string.slice(string.firstIndex.next(1))
+
+// Takes first three characters from a string
+string.slice(string.firstIndex, string.firstIndex.next(3))
+
+// Slices string until last 4 characters
+string.slice(string.firstIndex, string.lastIndex.next(-4))
+</code></pre>
 <h2 id="characters"><a class="header" href="#characters">Characters</a></h2>
-<div class="table-wrapper"><table><thead><tr><th>Method call</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>string.chars().length()</code></td><td>The character count</td></tr>
-<tr><td><code>string.length</code></td><td>The string length in the encoding units. For UTF-8, it is the number of bytes.</td></tr>
-<tr><td><code>string.isEmpty</code>, <code>string == &quot;&quot;</code></td><td>Whether the string is empty or not</td></tr>
-</tbody></table>
-</div>
+<pre><code>// The character count as Unicode Scalar Values
+string.chars().length()
+
+// The string length as the number of encoding units.
+string.length
+
+string.isEmpty
+string == &quot;&quot;
+</code></pre>
 <h2 id="miscellaneous"><a class="header" href="#miscellaneous">Miscellaneous</a></h2>
-<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>string.charAt(i)</code></td><td>Character at <em>i</em></td></tr>
-<tr><td><code>for each (const ch in string) {}</code></td><td>Iterates every character</td></tr>
-</tbody></table>
-</div>
+<pre><code>string.charAt(i)
+
+for each (const character: Char in string) {
+    /* Action */
+}
+</code></pre>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

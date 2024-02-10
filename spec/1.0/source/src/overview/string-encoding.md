@@ -4,23 +4,36 @@ The String data type uses an implementation-defined encoding and is supported by
 
 ## Slicing
 
-| Call        | Description |
-| ----------- | ----------- |
-| `string.slice(string.firstIndex.next(1))` | Slices string from second character |
-| `string.slice(string.firstIndex, string.firstIndex.next(3))` | Takes first three characters from a string |
-| `string.slice(string.firstIndex, string.lastIndex.next(-4))` | Slices string until last 4 characters |
+```
+// Slices string from second character
+string.slice(string.firstIndex.next(1))
+
+// Takes first three characters from a string
+string.slice(string.firstIndex, string.firstIndex.next(3))
+
+// Slices string until last 4 characters
+string.slice(string.firstIndex, string.lastIndex.next(-4))
+```
 
 ## Characters
 
-| Method call | Description |
-| ----------- | ----------- |
-| `string.chars().length()` | The character count |
-| `string.length` | The string length in the encoding units. For UTF-8, it is the number of bytes. |
-| `string.isEmpty`, `string == ""` | Whether the string is empty or not |
+```
+// The character count as Unicode Scalar Values
+string.chars().length()
+
+// The string length as the number of encoding units.
+string.length
+
+string.isEmpty
+string == ""
+```
 
 ## Miscellaneous
 
-| Code | Description |
-| ---- | ----------- |
-| `string.charAt(i)` | Character at *i* |
-| `for each (const ch in string) {}` | Iterates every character |
+```
+string.charAt(i)
+
+for each (const character: Char in string) {
+    /* Action */
+}
+```

@@ -167,11 +167,26 @@
                     <main>
                         <h1 id="example-programs"><a class="header" href="#example-programs">Example programs</a></h1>
 <h2 id="basic-syntax"><a class="header" href="#basic-syntax">Basic syntax</a></h2>
-<pre><code>function isEven(argument: BigInt): Boolean (
-    argument % 2 == 0
-)
+<pre><code>trace(&quot;Hello, world&quot;)
+
+function isEven(argument: Number): Boolean (argument % 2 == 0)
+
 trace(isEven(11))
 </code></pre>
+<h2 id="package-aliasing"><a class="header" href="#package-aliasing">Package aliasing</a></h2>
+<p>Packages are used to organize properties into a namespace. In addition, the language allows to redirect accesses to other packages within a package through the <code>use</code> directive, allowing the user to use an abbreviation prefix to resolve to a property from a series of packages.</p>
+<pre><code>package com.mycompany.myproject.rhino {
+    public use rhino.core.*
+    public use rhino.feed.*
+    public use rhino.server.*
+    public use rhino.util.*
+}
+import rh = com.mycompany.myproject.rhino.*
+new rh.Server
+
+const rh: Number = 10
+</code></pre>
+<p>In the above program, the <code>rh</code> constant may be shadowed by the <code>rh</code> package alias in certain occasions: when a property defined in the <code>rh</code> package alias matches with the identifier name of a property accessed from the dot operator in the <code>rh</code> base.</p>
 
                     </main>
 

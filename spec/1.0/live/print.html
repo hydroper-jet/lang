@@ -342,12 +342,7 @@ jetpm build --define air::target=ios
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compilation-and-transpilation"><a class="header" href="#compilation-and-transpilation">Compilation and transpilation</a></h1>
-<p>Jet can be compiled to other high-level languages or be executed by a virtual machine. For Jet support, a platform must provide its own compiler subset of the Jet Compiler that traverses the abstract syntax tree and compile-time symbols.</p>
-<h2 id="number-overflow"><a class="header" href="#number-overflow">Number overflow</a></h2>
-<p>Operations whose result cannot be represented due to range limit cause a number overflow, such as <code>Long.MAX_VALUE + 1</code>. The result of a number overflow is implementation defined.</p>
-<h2 id="platform-specific-operations"><a class="header" href="#platform-specific-operations">Platform-specific operations</a></h2>
-<p>It is allowed for platforms to define specific external operations as <code>native</code> functions.</p>
-<p>For example, for interoperability between the Jet and Lua languages during a transpilation process, it may be required to support specific operations to compute table indices and access the Lua environment.</p>
+<p>Jet can be compiled to other high-level languages or be executed by a virtual machine. For Jet support, a platform must provide its own compiler subset of the Jet Compiler that traverses the abstract syntax tree and compile-time symbols, producing evaluable code.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="conditional-compilation-1"><a class="header" href="#conditional-compilation-1">Conditional compilation</a></h1>
 <p>The Jet language supports the <code>configuration</code> directive to allow expanding directives using a conditional language.</p>
 <pre><code>package com.x.y {

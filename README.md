@@ -25,7 +25,7 @@ Future plans:
 
 | Version | Document |
 | ------- | -------- |
-| 1.0     | [Web](https://hydroper-jet.github.io/lang/spec/1.0/live) |
+| 1.0     | [Online view](https://hydroper-jet.github.io/lang/spec/1.0/live) |
 
 ## Compiler
 

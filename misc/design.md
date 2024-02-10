@@ -69,17 +69,18 @@ General:
 
 - `void`
 - `Boolean`
-- Function (`function(a: T): R`)
+- Function types (`function(a: T): R`)
 - `*` is the dynamic type to which all types convert from and to
 
 Integer:
 
-- `Byte`, `Short`, `Int`, `Long`, `BigInt`, `NativeInt`
-- Unsigned: `UnsignedT` where `T` is an integer data type
+- `Long`
+- `BigInt`
 
 IEEE 754 floating point:
 
-- `Single`, `Number` (double-precision)
+- `Single`
+- `Number` (double-precision)
 
 Unicode:
 

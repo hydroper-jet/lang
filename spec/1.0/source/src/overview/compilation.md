@@ -4,7 +4,7 @@ Jet can be compiled to other high-level languages or be executed by a virtual ma
 
 ## Number overflow
 
-Operations whose result cannot be represented due to range limit cause a number overflow, such as `Int.MAX_VALUE + 1`. The result of a number overflow is implementation defined.
+Operations whose result cannot be represented due to range limit cause a number overflow, such as `Long.MAX_VALUE + 1`. The result of a number overflow is implementation defined.
 
 ## Platform-specific operations
 

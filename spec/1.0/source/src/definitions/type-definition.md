@@ -3,7 +3,7 @@
 A type definition is used to alias an existing type.
 
 ```
-type D = Map.<UnsignedInt, String>
+type D = Map.<Long, String>
 ```
 
 **Syntax**

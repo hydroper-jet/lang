@@ -60,16 +60,6 @@ The null type consists of the `null` value. Although the null type exists in the
 
 * `BigInt` — Arbitrary range integer
 * `Long` — Ranges from -2<sup>64 - 1</sup> to 2<sup>64 - 1</sup> - 1 (64-bit)
-* `Int` — Ranges from -2<sup>32 - 1</sup> to 2<sup>32 - 1</sup> - 1 (32-bit)
-* `Short` — Ranges from -2<sup>16 - 1</sup> to 2<sup>16 - 1</sup> - 1 (16-bit)
-* `Byte` — Ranges from -2<sup>8 - 1</sup> to 2<sup>8 - 1</sup> - 1 (8-bit)
-
-*Unsigned integer*:
-
-* `UnsignedLong` — Ranges from 0 to 2<sup>64</sup> - 1 (64-bit)
-* `UnsignedInt` — Ranges from 0 to 2<sup>32</sup> - 1 (32-bit)
-* `UnsignedShort` — Ranges from 0 to 2<sup>16</sup> - 1 (16-bit)
-* `UnsignedByte` — Ranges from 0 to 2<sup>8</sup> - 1 (8-bit)
 
 ## Boolean type
 

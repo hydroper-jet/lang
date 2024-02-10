@@ -24,7 +24,7 @@
 * [ ] `IteratorItem.<T>`
   * [ ] Literal class defining the properties `done: Boolean` and `value: T?`.
 * [ ] Array
-  * [ ] All indices use the `Number` data type (not `Int` or `UnsignedInt`)
+  * [ ] All indices use the `Number` data type
   * [ ] `length` returns `Number`
   * [ ] Like Java, methods such as `indexOf()` return `-1` occasionally.
   * [ ] `getProperty()` returns `T` and throws a `RangeError` if out of bounds, instead of returning `T?`. This makes more sense for `setProperty` and `deleteProperty` as well together.

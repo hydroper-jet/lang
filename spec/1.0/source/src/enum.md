@@ -100,7 +100,7 @@ Enumerations consist of a representation number type. The representation number 
 By default, an enumeration uses `Number` as the representation number type.
 
 ```
-enum ExampleEnum as UnsignedInt {
+enum ExampleEnum as Long {
     const EXAMPLE_MEMBER;
 }
 ```

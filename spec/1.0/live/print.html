@@ -344,7 +344,7 @@ jetpm build --define air::target=ios
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compilation-and-transpilation"><a class="header" href="#compilation-and-transpilation">Compilation and transpilation</a></h1>
 <p>Jet can be compiled to other high-level languages or be executed by a virtual machine. For Jet support, a platform must provide its own compiler subset of the Jet Compiler that traverses the abstract syntax tree and compile-time symbols.</p>
 <h2 id="number-overflow"><a class="header" href="#number-overflow">Number overflow</a></h2>
-<p>Operations whose result cannot be represented due to range limit cause a number overflow, such as <code>Int.MAX_VALUE + 1</code>. The result of a number overflow is implementation defined.</p>
+<p>Operations whose result cannot be represented due to range limit cause a number overflow, such as <code>Long.MAX_VALUE + 1</code>. The result of a number overflow is implementation defined.</p>
 <h2 id="platform-specific-operations"><a class="header" href="#platform-specific-operations">Platform-specific operations</a></h2>
 <p>It is allowed for platforms to define specific external operations as <code>native</code> functions.</p>
 <p>For example, for interoperability between the Jet and Lua languages during a transpilation process, it may be required to support specific operations to compute table indices and access the Lua environment.</p>
@@ -1766,16 +1766,6 @@ x == y
 <ul>
 <li><code>BigInt</code> — Arbitrary range integer</li>
 <li><code>Long</code> — Ranges from -2<sup>64 - 1</sup> to 2<sup>64 - 1</sup> - 1 (64-bit)</li>
-<li><code>Int</code> — Ranges from -2<sup>32 - 1</sup> to 2<sup>32 - 1</sup> - 1 (32-bit)</li>
-<li><code>Short</code> — Ranges from -2<sup>16 - 1</sup> to 2<sup>16 - 1</sup> - 1 (16-bit)</li>
-<li><code>Byte</code> — Ranges from -2<sup>8 - 1</sup> to 2<sup>8 - 1</sup> - 1 (8-bit)</li>
-</ul>
-<p><em>Unsigned integer</em>:</p>
-<ul>
-<li><code>UnsignedLong</code> — Ranges from 0 to 2<sup>64</sup> - 1 (64-bit)</li>
-<li><code>UnsignedInt</code> — Ranges from 0 to 2<sup>32</sup> - 1 (32-bit)</li>
-<li><code>UnsignedShort</code> — Ranges from 0 to 2<sup>16</sup> - 1 (16-bit)</li>
-<li><code>UnsignedByte</code> — Ranges from 0 to 2<sup>8</sup> - 1 (8-bit)</li>
 </ul>
 <h2 id="boolean-type"><a class="header" href="#boolean-type">Boolean type</a></h2>
 <p>The <code>Boolean</code> type consists of the values <code>false</code> and <code>true</code>.</p>
@@ -1849,7 +1839,6 @@ T(v)
 <tr><td><code>N</code> constant to <code>*</code>, <code>Object</code> or <code>Object?</code></td><td>Results into a <code>N</code> number constant of a covariant type.</td></tr>
 <tr><td><code>NF1</code> constant to <code>NF2</code> or <code>NF2?</code></td><td>Results into a floating point constant with the same numeric value, where <code>NF2</code> is a floating point type whose range is wider than that of <code>NF1</code>.</td></tr>
 <tr><td><code>NI1</code> constant to <code>NI2</code> or <code>NI2?</code></td><td>Results into an integer constant with the same numeric value, where <code>NI2</code> is a integer type whose range is wider than that of <code>NI1</code>.</td></tr>
-<tr><td><code>NI</code> constant to <code>Number</code> or <code>Number?</code></td><td>Results into a number constant with the same numeric value, where <code>NI</code> is one of { <code>Byte</code>, <code>UnsignedByte</code>, <code>Short</code>, <code>UnsignedShort</code>, <code>Int</code>, <code>UnsignedInt</code> }.</td></tr>
 <tr><td><code>NaN</code> constant to <code>NI</code> or <code>NI?</code></td><td>Results into a zero (0) constant where <code>NI</code> is an integer type.</td></tr>
 <tr><td><code>-Infinity</code> constant to <code>NI</code> or <code>NI?</code></td><td>Results into the minimum integer constant where <code>NI</code> is an integer type but not <code>BigInt</code>.</td></tr>
 <tr><td><code>+Infinity</code> constant to <code>NI</code> or <code>NI?</code></td><td>Results into the maximum integer constant where <code>NI</code> is an integer type but not <code>BigInt</code>.</td></tr>
@@ -2710,7 +2699,7 @@ const M4 // = 4
 <h2 id="representation-type"><a class="header" href="#representation-type">Representation type</a></h2>
 <p>Enumerations consist of a representation number type. The representation number type may be specified by the <code>as</code> clause.</p>
 <p>By default, an enumeration uses <code>Number</code> as the representation number type.</p>
-<pre><code>enum ExampleEnum as UnsignedInt {
+<pre><code>enum ExampleEnum as Long {
     const EXAMPLE_MEMBER;
 }
 </code></pre>
@@ -6001,7 +5990,7 @@ function f() {
     </tr>
 </table><div style="break-before: page; page-break-before: always;"></div><h1 id="type-definition"><a class="header" href="#type-definition">Type definition</a></h1>
 <p>A type definition is used to alias an existing type.</p>
-<pre><code>type D = Map.&lt;UnsignedInt, String&gt;
+<pre><code>type D = Map.&lt;Long, String&gt;
 </code></pre>
 <p><strong>Syntax</strong></p>
 <table>

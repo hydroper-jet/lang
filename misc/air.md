@@ -4,6 +4,10 @@
 
 `jet.lang.Array.<T>` is equivalent to `Vector.<T>` of the AIR API, while `avm.lang.Array` is equivalent to `Array` of the AIR API.
 
+## Numeric types
+
+Jet does not support the ActionScript `uint` and `int` types natively; therefore, `avm.lang` defines `avm.lang.UnsignedInt` and `avm.lang.Int` as the equivalent of both, providing interoperability with `Number`, as well as optimizations where possible when building in release mode.
+
 ## avm.lang
 
 ### avm.lang.Array

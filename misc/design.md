@@ -290,17 +290,6 @@ A function body is allowed to be a parenthesized expression in `function` defini
 (function(): Number (0));
 ```
 
-# Events
-
-The `EventEmitter` class is already part of the language.
-
-```
-const listener = object.addEventListener(function(event: Event): void {
-    /* Handle event */
-});
-listener.remove();
-```
-
 # Jet for XML
 
 Jet for XML (J4X) provides XML support. It supports much of the legacy ECMAScript for XML standard, but in a different way. It supports property and query operators.

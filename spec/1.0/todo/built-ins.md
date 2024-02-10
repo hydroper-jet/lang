@@ -10,15 +10,19 @@
   * [ ] `toString()`
   * [ ] `valueOf()`
 * [ ] `Class`
-* [ ] `CharReader`
+* [ ] `CharIterator`
+  * [ ] Implements `Iterator.<Char>`
   * [ ] Includes several methods suitable for tokenizers: `remaining()`, `lookahead()`, `lookaheadSequence()`, `skip()`, `skipNumber(n)`
   * [ ] `index` property (read-only)
   * [ ] `lookbehind()`
   * [ ] `clone()`
   * [ ] Implements `Iterator`
-* [ ] `Iterator`
+* [ ] `Iterator.<T>` interface
+  * [ ] `next(): IteratorItem.<T>`
   * [ ] `length()` optional method (consumes the iterator, returning the count as `Number`)
   * [ ] `toArray()`
+* [ ] `IteratorItem.<T>`
+  * [ ] Literal class defining the properties `done: Boolean` and `value: T?`.
 * [ ] Array
   * [ ] All indices use the `Number` data type (not `Int` or `UnsignedInt`)
   * [ ] `length` returns `Number`
@@ -26,7 +30,7 @@
   * [ ] `getProperty()` returns `T` and throws a `RangeError` if out of bounds, instead of returning `T?`. This makes more sense for `setProperty` and `deleteProperty` as well together.
 * [ ] `String`
   * [ ] `length` returns a `Number` (not an integer data type) indicating the number of encoding units of the string.
-  * [ ] `chars()` returns `CharReader`
+  * [ ] `chars()` returns `CharIterator`
   * [ ] `apply()` formats a base string with either `[*]` or `Map.<*, *>`
     * `"$1 $$ $2".apply(["Foo", "bar"]) == "Foo $ bar"`
     * `"$x $$ $y".apply({x: "Foo", y: "bar"}) == "Foo $ bar"`

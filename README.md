@@ -1,9 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.png" width="500">
-</p>
-
-<p align="center">
-  <img src="./snippets/Example.png" width="690">
+  <img src="./snippets/ExampleFlex.png" width="665">
 </p>
 
 The Jet language is a flexible scripting language influenced by ActionScript.

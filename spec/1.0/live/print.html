@@ -3795,6 +3795,29 @@ new File(import.meta.output)
 </li>
 <li>Return <em>r</em>.</li>
 </ul>
+<p><i>PrimaryExpression</i> : <i>ThisLiteral</i></p>
+<ul>
+<li>Let <em>act</em> be the enclosing activation.</li>
+<li>It is a verify error if <em>act</em> is undefined or if <em>act</em>[[<em>This</em>]] is undefined.</li>
+<li>Return <em>act</em>[[<em>This</em>]].</li>
+</ul>
+<p><i>PrimaryExpression</i> : <i>RegularExpressionLiteral</i></p>
+<ul>
+<li>Return a value of type <code>RegExp</code>.</li>
+</ul>
+<p><i>PrimaryExpression</i> : <i>BooleanLiteral</i></p>
+<ul>
+<li>If <i>BooleanLiteral</i> is <b>true</b>, return a boolean constant of value <code>true</code> of the <code>Boolean</code> type.</li>
+<li>Return a boolean constant of value <code>false</code> of the <code>Boolean</code> type.</li>
+</ul>
+<p><i>PrimaryExpression</i> : <i>ParenListExpression</i></p>
+<ul>
+<li>Return the result of verifying nonterminal symbol on right-hand side of the production.</li>
+</ul>
+<p><i>PrimaryExpression</i> : <i>EmbedExpression</i></p>
+<ul>
+<li>Return the result of verifying nonterminal symbol on right-hand side of the production.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="parenthesized-expressions"><a class="header" href="#parenthesized-expressions">Parenthesized expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
@@ -4082,9 +4105,8 @@ const byteArray = embed {
         <td>&nbsp;</td><td><b>embed</b> <i>ObjectInitializer</i></td>
     </tr>
 </table>
-</table>
 <p><strong>Semantics</strong></p>
-<p>The <em>ObjectInitializer</em> is read as a compile-time description pointing to a file as the <code>source</code> property and its result type as the <code>type</code> property. The result type must be either <code>String</code> or <code>ByteArray</code>.</p>
+<p>The <em>ObjectInitializer</em> symbol as part of the <code>embed</code> expression is read as a compile-time description pointing to a file as the <code>source</code> property and its result type as the <code>type</code> property. The result type must be either <code>String</code> or <code>ByteArray</code>.</p>
 <ul>
 <li>A result type of <code>String</code> indicates that the file is read as an UTF-8 encoded text.</li>
 <li>A result type of <code>ByteArray</code> indicates that the file is read as binary data.</li>
@@ -4093,6 +4115,30 @@ const byteArray = embed {
 <ul>
 <li>A <em>StringLiteral</em> production resolving to a file path (value of the <em>StringLiteral</em>) relative to the file path of the program.</li>
 <li>An <strong>output</strong> <strong>+</strong> <em>StringLiteral</em> production resolving to a file path (value of the <em>StringLiteral</em>) relative to the JetPM output directory.</li>
+</ul>
+<p>If the result type is unspecified, it is set to the context type.</p>
+<p><strong>Verification</strong></p>
+<ul>
+<li>It is a verify error if fields other than <code>source</code> and <code>type</code> are present.</li>
+<li>It is a verify error if the <code>source</code> field is unspecified.</li>
+<li>Let <em>filePath</em> be a string</li>
+<li>If the <code>source</code> field consists of a <em>StringLiteral</em> production
+<ul>
+<li>Assign <em>filePath</em> = resolution from the file path of the source file to the file path specified by the <em>StringLiteral</em> string value.</li>
+</ul>
+</li>
+<li>Else if the <code>source</code> field consists of a <strong>output</strong> <strong>+</strong> <em>StringLiteral</em> production
+<ul>
+<li>Assign <em>filePath</em> = resolution from the JetPM output directory to the file path specified by the <em>StringLiteral</em> string value.</li>
+</ul>
+</li>
+<li>Else it is a verify error.</li>
+<li>Let <em>resultType</em> be undefined.</li>
+<li>The value of the <code>type</code> field of <em>ObjectInitializer</em> is refined into a <em>TypeExpression</em> and is verified resolving to a type assigned to <em>resultType</em>.</li>
+<li>If <em>resultType</em> is undefined, assign <em>resultType</em> = context type.</li>
+<li><em>resultType</em> is converted to a non-nullable type if it is explicitly nullable.</li>
+<li>It is a verify error if <em>resultType</em> is undefined or <em>resultType</em> is not one of { <code>ByteArray</code>, <code>String</code> }.</li>
+<li>Verifying <em>EmbedExpression</em> results into a <code>embed</code> value of type <em>resultType</em>. The resulting <code>embed</code> value contains content as either a byte array, if <em>resultType</em> is <code>ByteArray</code>, or UTF-8 encoded text, if <em>resultType</em> is <code>String</code>. The content is read from the file path <em>filePath</em> or it is a verify error otherwise.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="super-expression"><a class="header" href="#super-expression">Super expression</a></h1>
 <p><strong>Syntax</strong></p>

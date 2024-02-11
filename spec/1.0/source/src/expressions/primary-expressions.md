@@ -110,4 +110,27 @@
   * Return *c*\[\[*ConstantInitializer*\]\]
 * Return *r*.
 
+<i>PrimaryExpression</i> : <i>ThisLiteral</i>
+
+* Let *act* be the enclosing activation.
+* It is a verify error if *act* is undefined or if *act*\[\[*This*\]\] is undefined.
+* Return *act*\[\[*This*\]\].
+
+<i>PrimaryExpression</i> : <i>RegularExpressionLiteral</i>
+
+* Return a value of type `RegExp`.
+
+<i>PrimaryExpression</i> : <i>BooleanLiteral</i>
+
+* If <i>BooleanLiteral</i> is <b>true</b>, return a boolean constant of value `true` of the `Boolean` type.
+* Return a boolean constant of value `false` of the `Boolean` type.
+
+<i>PrimaryExpression</i> : <i>ParenListExpression</i>
+
+* Return the result of verifying nonterminal symbol on right-hand side of the production.
+
+<i>PrimaryExpression</i> : <i>EmbedExpression</i>
+
+* Return the result of verifying nonterminal symbol on right-hand side of the production.
+
 [*PropertyIsVisible*]: ../visibility.md#propertyisvisible

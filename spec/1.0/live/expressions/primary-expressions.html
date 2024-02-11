@@ -285,6 +285,29 @@
 </li>
 <li>Return <em>r</em>.</li>
 </ul>
+<p><i>PrimaryExpression</i> : <i>ThisLiteral</i></p>
+<ul>
+<li>Let <em>act</em> be the enclosing activation.</li>
+<li>It is a verify error if <em>act</em> is undefined or if <em>act</em>[[<em>This</em>]] is undefined.</li>
+<li>Return <em>act</em>[[<em>This</em>]].</li>
+</ul>
+<p><i>PrimaryExpression</i> : <i>RegularExpressionLiteral</i></p>
+<ul>
+<li>Return a value of type <code>RegExp</code>.</li>
+</ul>
+<p><i>PrimaryExpression</i> : <i>BooleanLiteral</i></p>
+<ul>
+<li>If <i>BooleanLiteral</i> is <b>true</b>, return a boolean constant of value <code>true</code> of the <code>Boolean</code> type.</li>
+<li>Return a boolean constant of value <code>false</code> of the <code>Boolean</code> type.</li>
+</ul>
+<p><i>PrimaryExpression</i> : <i>ParenListExpression</i></p>
+<ul>
+<li>Return the result of verifying nonterminal symbol on right-hand side of the production.</li>
+</ul>
+<p><i>PrimaryExpression</i> : <i>EmbedExpression</i></p>
+<ul>
+<li>Return the result of verifying nonterminal symbol on right-hand side of the production.</li>
+</ul>
 
                     </main>
 

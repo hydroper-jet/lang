@@ -8,6 +8,14 @@
 
 Jet does not support the ActionScript `uint` and `int` types natively; therefore, `avm.lang` defines `avm.lang.UnsignedInt` and `avm.lang.Int` as the equivalent of both, providing interoperability with `Number`, as well as optimizations where possible when building in release mode.
 
+Additionally, it may be necessary for ActionScript functions to use the `[AVMOptParameters]` meta-data to map default values for optional parameters that are of ActionScript `uint` or `int` type.
+
+```
+[AVMProperty("f")]
+[AVMOptParameters(a = -1)]
+public native function f(a: Int);
+```
+
 ## avm.lang
 
 ### avm.lang.Array
@@ -27,19 +35,18 @@ avm.intrinsics.callProperty(object, key, arguments)
 
 AVM2 domain memory operations such as `li8()` translate to the respective AVM2 instruction.
 
-## \[avm::Property\]
+## \[AVMProperty\]
 
-The `[avm::Property("name")]` meta-data identifies an ActionScript property by its name, causing a Jet definition to translate to such.
+The `[AVMProperty("name")]` meta-data identifies an ActionScript property by its name, causing a Jet definition to translate to such.
 
-If it is applied to a package property, it identifies a property in the `public` namespace of a package by a fully qualified name (`q.C`).
+If it contains at least a dot, it identifies a property in the `public` namespace of a package by a fully qualified name (`q.C`).
 
 ## Open namespaces
 
-The `[avm::Import]` meta-data opens `public` namespaces of specified ActionScript packages for an entire region.
+The `[AVMImport]` meta-data opens `public` namespaces of specified ActionScript packages for an entire region.
 
 ```
-[avm::Import("flash.events", "flash.utils")]
-{
+[AVMImport("flash.events", "flash.utils")] {
     // Action
 }
 ```

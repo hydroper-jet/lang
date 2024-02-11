@@ -16,6 +16,10 @@ Additionally, it may be necessary for ActionScript functions to use the `[AVMOpt
 public native function f(a: Int);
 ```
 
+## Rest parameter
+
+The rest parameter must be of type `jet.lang.Array.<*>` (that is, `AS3.__vec__.Vector.<*>`) and the compiler will automatically convert array types as necessary.
+
 ## avm.lang
 
 ### avm.lang.Array

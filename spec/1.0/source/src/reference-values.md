@@ -48,7 +48,7 @@ The internal *ProxyReferenceValue*(*base*, *proxy*) reference value has the foll
 The internal *TupleReferenceValue*(*base*, *index*) reference value has the following characteristics:
 
 * *index* is a zero-based index into the *base* tuple.
-* It is read-only.
+* It is not read-only.
 * It is not write-only.
 * Its static type is the type of the *i*th element of the *base* tuple given where *i* is *index*.
 

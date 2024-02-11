@@ -104,6 +104,15 @@ Tuple types are in the form `[T1, T2, ...TN]` and consist of a sequence of two o
 * Tuple types inherit from the `Object` class.
 * Tuple types are final classes.
 
+Tuple types contain mutable elements and are compared by reference.
+
+```
+type T = [Number, Number]
+const v: T = [10, 10]
+v[0] += 1
+v == [10, 10] // false
+```
+
 ## Nullable type
 
 The `T?` type is an union of `null` and `T`.

@@ -246,6 +246,12 @@ function(...a: [T]): E
 <li>Tuple types inherit from the <code>Object</code> class.</li>
 <li>Tuple types are final classes.</li>
 </ul>
+<p>Tuple types contain mutable elements and are compared by reference.</p>
+<pre><code>type T = [Number, Number]
+const v: T = [10, 10]
+v[0] += 1
+v == [10, 10] // false
+</code></pre>
 <h2 id="nullable-type"><a class="header" href="#nullable-type">Nullable type</a></h2>
 <p>The <code>T?</code> type is an union of <code>null</code> and <code>T</code>.</p>
 <h2 id="array-type"><a class="header" href="#array-type">Array type</a></h2>

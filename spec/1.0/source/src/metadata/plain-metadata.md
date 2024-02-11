@@ -20,7 +20,7 @@ Additional syntax and characteristics:
 
 * The identifiers used in the meta-data form and the entries are allowed to use a `::` separator, as in `q::N`.
 * `boolean` is a *BooleanLiteral*.
-* `number` is a *NumericLiteral* and corresponds to a double-precision floating point.
+* `number` is a *NumericLiteral* optionally preceded by a minus token **-** and corresponds to a double-precision floating point.
 
 ```
 [N1(x = "y", z, "w", File("myExtension.dll"))]

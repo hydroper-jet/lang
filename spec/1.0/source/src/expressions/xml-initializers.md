@@ -98,7 +98,7 @@
     </tr>
 </table>
 
-**Semantics*
+**Semantics**
 
 Interpolation expressions such as in `<>{x}</>` result in string concatenation.
 

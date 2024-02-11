@@ -45,6 +45,8 @@ The `[AVMProperty("name")]` meta-data identifies an ActionScript property by its
 
 If it contains at least a dot, it identifies a property in the `public` namespace of a package by a fully qualified name (`q.C`).
 
+If the name starts with `(toplevel).`, it identifies a property in the `public` namespace of the top-level package.
+
 ## Open namespaces
 
 The `[AVMImport]` meta-data opens `public` namespaces of specified ActionScript packages for an entire region.

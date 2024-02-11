@@ -110,7 +110,7 @@ Tuple types contain mutable elements and are compared by reference.
 type T = [Number, Number]
 const v: T = [10, 10]
 v[0] += 1
-v == [10, 10] // false
+v == [11, 10] // false
 ```
 
 ## Nullable type

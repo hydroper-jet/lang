@@ -256,6 +256,32 @@
         <td>&nbsp;</td><td>«empty»</td>
     </tr>
 </table>
+<p>*<em>Semantics</em></p>
+<p>Interpolation expressions such as in <code>&lt;&gt;{x}&lt;/&gt;</code> result in string concatenation.</p>
+<p><strong>Verification</strong></p>
+<p><i>XMLInitializer</i> : <i>XMLMarkup</i></p>
+<ul>
+<li>Return a value of the <code>XML</code> type.</li>
+</ul>
+<p><i>XMLInitializer</i> : <i>XMLElement</i></p>
+<ul>
+<li>Verify the nonterminal symbol on right-hand side of the production.</li>
+<li>Return a value of the <code>XML</code> type.</li>
+</ul>
+<p><i>XMLInitializer</i> : <b>&lt;</b> <b>&gt;</b> <i>XMLElementContent</i> <b>&lt;/</b> <b>&gt;</b></p>
+<ul>
+<li>Verify the <i>XMLElementContent</i> nonterminal.</li>
+<li>Return a value of the <code>XMLList</code> type.</li>
+</ul>
+<p><i>XMLElement</i></p>
+<ul>
+<li>Verify every root <i>AssignmentExpression</i><sup>allowIn</sup>.</li>
+</ul>
+<p><i>XMLElementContent</i></p>
+<ul>
+<li>Verify every root <i>AssignmentExpression</i><sup>allowIn</sup>.</li>
+</ul>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

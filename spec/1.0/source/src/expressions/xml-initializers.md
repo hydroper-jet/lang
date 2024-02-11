@@ -97,3 +97,31 @@
         <td>&nbsp;</td><td>«empty»</td>
     </tr>
 </table>
+
+**Semantics*
+
+Interpolation expressions such as in `<>{x}</>` result in string concatenation.
+
+**Verification**
+
+<i>XMLInitializer</i> : <i>XMLMarkup</i>
+
+* Return a value of the `XML` type.
+
+<i>XMLInitializer</i> : <i>XMLElement</i>
+
+* Verify the nonterminal symbol on right-hand side of the production.
+* Return a value of the `XML` type.
+
+<i>XMLInitializer</i> : <b>&lt;</b> <b>&gt;</b> <i>XMLElementContent</i> <b>&lt;/</b> <b>&gt;</b>
+
+* Verify the <i>XMLElementContent</i> nonterminal.
+* Return a value of the `XMLList` type.
+
+<i>XMLElement</i>
+
+* Verify every root <i>AssignmentExpression</i><sup>allowIn</sup>.
+
+<i>XMLElementContent</i>
+
+* Verify every root <i>AssignmentExpression</i><sup>allowIn</sup>.

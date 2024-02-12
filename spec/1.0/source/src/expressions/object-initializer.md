@@ -85,7 +85,7 @@
 
 **Semantics**
 
-The object initializer may be used to initialize the following context types:
+The object initializer may be used to initialize the following types:
 
 * `*`
 * `Object` or `Object?`
@@ -93,6 +93,6 @@ The object initializer may be used to initialize the following context types:
 * `E` or `E?` where `E` is a set enumeration
 * `T` or `T?` where `T` is a `class` and `T`\[\[*AllowLiteral*\]\] is true
 
-Initializing a context type that is one of { `*`, `Object`, `Object?` } results into a `Map.<*, *>` object.
+Initializing a type that is one of { `*`, `Object`, `Object?` } results into a `Map.<*, *>` object.
 
 The default context type is the `Map.<*, *>` type.

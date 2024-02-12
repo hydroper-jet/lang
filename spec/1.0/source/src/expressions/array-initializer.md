@@ -71,9 +71,14 @@ array[0] === undefined
 
 **Verification**
 
-First steps:
+*ArrayInitializer*
 
-* If the initially given context type is undefined, the context type is assigned the `[*]` type.
+* Let *ctxType* be the initially given context type or the `[*]` type otherwise.
+* Match the nonterminal symbol with *AnyOrObject*(*ctxType*).
+* Otherwise match the nonterminal symbol with *Tuple*(*ctxType*).
+* Otherwise match the nonterminal symbol with *Array*(*ctxType*).
+* Otherwise match the nonterminal symbol with *SetEnum*(*ctxType*).
+* Otherwise throw a verify error.
 
 *VerifyRest*(*r*, `T`) internal function
 
@@ -82,17 +87,19 @@ First steps:
 
 An element item corresponds to either an <i>Elision</i>, <i>AssignmentExpression</i><sup>allowIn</sup> or <i>InitializerRest</i>, from left-to-right.
 
-When verifying *ArrayInitializer*, if the context type is one of { `*`, `Object`, `Object?` }:
+*AnyOrObject*(*ctxType*) internal matcher
 
+* If *ctxType* is not one of { `*`, `Object`, `Object?` }, return match failure.
 * For each element item *elem*
   * If *elem* is <i>InitializerRest</i>
     * *VerifyRest*(*elem*, `*`)
   * Else if *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
     * Verify *elem*
-* Return a value of the context type.
+* Return a value of the *ctxType* type.
 
-When verifying *ArrayInitializer*, if the context type is `T` or `T?`, where `T` is a tuple type:
+*Tuple*(*ctxType*) internal matcher
 
+* If *ctxType* type is not `T` or `T?` where `T` is a tuple type, return match failure.
 * For each element index *i* element item *elem*
   * If *elem* is <i>,</i>
     * Throw a verify error
@@ -101,10 +108,13 @@ When verifying *ArrayInitializer*, if the context type is `T` or `T?`, where `T`
   * Else if *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
     * It is a verify error if *i* is equals or greater than the element length of `T`.
     * Limit *elem* to the *i*th element type of `T`.
-* Return a value of the context type.
+* Return a value of the *ctxType* type.
 
 When verifying *ArrayInitializer*, if the context type is `[T]` or `[T]?`:
 
+*Array*(*ctxType*) internal matcher
+
+* If *ctxType* type is not `[T]` or `[T]?`, return match failure.
 * For each element item *elem*
   * If *elem* is <i>,</i>
     * Throw a verify error
@@ -112,13 +122,14 @@ When verifying *ArrayInitializer*, if the context type is `[T]` or `[T]?`:
     * *VerifyRest*(*elem*, `T`)
   * Else if *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
     * Limit *elem* to `T` type.
-* Return a value of the context type.
+* Return a value of the *ctxType* type.
 
-When verifying *ArrayInitializer*, if the context type equals `E` or `E?` where `E` is a set enumeration:
+*SetEnum*(*ctxType*) internal matcher
 
+* If *ctxType* type is not `E` or `E?` where `E` is a set enumeration, return match failure.
 * Let *c* be zero.
 * Let *isConst* be true.
-* For each element item *elem*
+* For each element item *elem**
   * If *elem* is <i>,</i>
     * Throw a verify error
   * Else if *elem* is <i>InitializerRest</i>
@@ -131,8 +142,4 @@ When verifying *ArrayInitializer*, if the context type equals `E` or `E?` where 
       * Assign *isConst* = false
 * If *isConst* is true
   * Return an `enum` constant with number *c* and static type as the context type.
-* Return a value of the context type.
-
-When verifying *ArrayInitializer*, if the context type is not one of the previously matched types:
-
-* Throw a verify error.
+* Return a value of the *ctxType* type.

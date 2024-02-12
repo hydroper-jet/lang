@@ -253,6 +253,13 @@
 </ul>
 <p>Initializing a type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into a <code>Map.&lt;*, *&gt;</code> object.</p>
 <p>The default context type is the <code>Map.&lt;*, *&gt;</code> type.</p>
+<p><strong>Verification</strong></p>
+<p>A field item is either an <em>InitializerRest</em> or an <i>InitializerField</i>, from left-to-right.</p>
+<p><em>ObjectInitializer</em></p>
+<ul>
+<li>Let <em>ctxType</em> be the initially given context type or <code>Map.&lt;*, *&gt;</code> otherwise.</li>
+<li>Match the nonterminal symbol with <em>AnyOrObject</em>(<em>ctxType</em>).</li>
+</ul>
 
                     </main>
 

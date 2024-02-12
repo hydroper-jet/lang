@@ -96,3 +96,12 @@ The object initializer may be used to initialize the following types:
 Initializing a type that is one of { `*`, `Object`, `Object?` } results into a `Map.<*, *>` object.
 
 The default context type is the `Map.<*, *>` type.
+
+**Verification**
+
+A field item is either an *InitializerRest* or an <i>InitializerField</i>, from left-to-right.
+
+*ObjectInitializer*
+
+* Let *ctxType* be the initially given context type or `Map.<*, *>` otherwise.
+* Match the nonterminal symbol with *AnyOrObject*(*ctxType*).

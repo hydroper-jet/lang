@@ -3938,6 +3938,13 @@ new File(import.meta.output)
 </ul>
 <p>Initializing a type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into a <code>Map.&lt;*, *&gt;</code> object.</p>
 <p>The default context type is the <code>Map.&lt;*, *&gt;</code> type.</p>
+<p><strong>Verification</strong></p>
+<p>A field item is either an <em>InitializerRest</em> or an <i>InitializerField</i>, from left-to-right.</p>
+<p><em>ObjectInitializer</em></p>
+<ul>
+<li>Let <em>ctxType</em> be the initially given context type or <code>Map.&lt;*, *&gt;</code> otherwise.</li>
+<li>Match the nonterminal symbol with <em>AnyOrObject</em>(<em>ctxType</em>).</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="array-initializer"><a class="header" href="#array-initializer">Array initializer</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
@@ -3999,9 +4006,14 @@ array.length == 3
 array[0] === undefined
 </code></pre>
 <p><strong>Verification</strong></p>
-<p>First steps:</p>
+<p><em>ArrayInitializer</em></p>
 <ul>
-<li>If the initially given context type is undefined, the context type is assigned the <code>[*]</code> type.</li>
+<li>Let <em>ctxType</em> be the initially given context type or the <code>[*]</code> type otherwise.</li>
+<li>Match the nonterminal symbol with <em>AnyOrObject</em>(<em>ctxType</em>).</li>
+<li>Otherwise match the nonterminal symbol with <em>Tuple</em>(<em>ctxType</em>).</li>
+<li>Otherwise match the nonterminal symbol with <em>Array</em>(<em>ctxType</em>).</li>
+<li>Otherwise match the nonterminal symbol with <em>SetEnum</em>(<em>ctxType</em>).</li>
+<li>Otherwise throw a verify error.</li>
 </ul>
 <p><em>VerifyRest</em>(<em>r</em>, <code>T</code>) internal function</p>
 <ul>
@@ -4009,8 +4021,9 @@ array[0] === undefined
 <li>If <em>proxy</em> is not undefined, its signature must return <code>Iterator.&lt;T&gt;</code> or a subtype of <code>Iterator.&lt;T&gt;</code>.</li>
 </ul>
 <p>An element item corresponds to either an <i>Elision</i>, <i>AssignmentExpression</i><sup>allowIn</sup> or <i>InitializerRest</i>, from left-to-right.</p>
-<p>When verifying <em>ArrayInitializer</em>, if the context type is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> }:</p>
+<p><em>AnyOrObject</em>(<em>ctxType</em>) internal matcher</p>
 <ul>
+<li>If <em>ctxType</em> is not one of { <code>*</code>, <code>Object</code>, <code>Object?</code> }, return match failure.</li>
 <li>For each element item <em>elem</em>
 <ul>
 <li>If <em>elem</em> is <i>InitializerRest</i>
@@ -4025,10 +4038,11 @@ array[0] === undefined
 </li>
 </ul>
 </li>
-<li>Return a value of the context type.</li>
+<li>Return a value of the <em>ctxType</em> type.</li>
 </ul>
-<p>When verifying <em>ArrayInitializer</em>, if the context type is <code>T</code> or <code>T?</code>, where <code>T</code> is a tuple type:</p>
+<p><em>Tuple</em>(<em>ctxType</em>) internal matcher</p>
 <ul>
+<li>If <em>ctxType</em> type is not <code>T</code> or <code>T?</code> where <code>T</code> is a tuple type, return match failure.</li>
 <li>For each element index <em>i</em> element item <em>elem</em>
 <ul>
 <li>If <em>elem</em> is <i>,</i>
@@ -4049,10 +4063,12 @@ array[0] === undefined
 </li>
 </ul>
 </li>
-<li>Return a value of the context type.</li>
+<li>Return a value of the <em>ctxType</em> type.</li>
 </ul>
 <p>When verifying <em>ArrayInitializer</em>, if the context type is <code>[T]</code> or <code>[T]?</code>:</p>
+<p><em>Array</em>(<em>ctxType</em>) internal matcher</p>
 <ul>
+<li>If <em>ctxType</em> type is not <code>[T]</code> or <code>[T]?</code>, return match failure.</li>
 <li>For each element item <em>elem</em>
 <ul>
 <li>If <em>elem</em> is <i>,</i>
@@ -4072,13 +4088,14 @@ array[0] === undefined
 </li>
 </ul>
 </li>
-<li>Return a value of the context type.</li>
+<li>Return a value of the <em>ctxType</em> type.</li>
 </ul>
-<p>When verifying <em>ArrayInitializer</em>, if the context type equals <code>E</code> or <code>E?</code> where <code>E</code> is a set enumeration:</p>
+<p><em>SetEnum</em>(<em>ctxType</em>) internal matcher</p>
 <ul>
+<li>If <em>ctxType</em> type is not <code>E</code> or <code>E?</code> where <code>E</code> is a set enumeration, return match failure.</li>
 <li>Let <em>c</em> be zero.</li>
 <li>Let <em>isConst</em> be true.</li>
-<li>For each element item <em>elem</em>
+<li>For each element item <em>elem</em>*
 <ul>
 <li>If <em>elem</em> is <i>,</i>
 <ul>
@@ -4112,11 +4129,7 @@ array[0] === undefined
 <li>Return an <code>enum</code> constant with number <em>c</em> and static type as the context type.</li>
 </ul>
 </li>
-<li>Return a value of the context type.</li>
-</ul>
-<p>When verifying <em>ArrayInitializer</em>, if the context type is not one of the previously matched types:</p>
-<ul>
-<li>Throw a verify error.</li>
+<li>Return a value of the <em>ctxType</em> type.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="xml-initializers"><a class="header" href="#xml-initializers">XML initializers</a></h1>
 <p><strong>Syntax</strong></p>

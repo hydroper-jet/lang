@@ -213,6 +213,19 @@ class C2 extends C1 {
 <li>a class attempts to extend itself;</li>
 <li>a class attempts to extend a subclass of itself.</li>
 </ul>
+<h2 id="literal-classes"><a class="header" href="#literal-classes">Literal classes</a></h2>
+<p>Classes containing the <code>[Literal]</code> meta-data have the following restrictions:</p>
+<ul>
+<li>They are implicitly marked final.</li>
+<li>They must extend the <code>Object</code> class.</li>
+</ul>
+<pre><code>[Literal]
+final class C {
+    var x
+}
+
+const o: C = { x: 10 }
+</code></pre>
 <h2 id="meta-data"><a class="header" href="#meta-data">Meta data</a></h2>
 <p>A class may contain zero or more plain meta-data:</p>
 <pre><code>[N1(n2)]

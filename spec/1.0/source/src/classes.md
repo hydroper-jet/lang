@@ -58,6 +58,22 @@ It is a verify error if:
 * a class attempts to extend itself;
 * a class attempts to extend a subclass of itself.
 
+## Literal classes
+
+Classes containing the `[Literal]` meta-data have the following restrictions:
+
+* They are implicitly marked final.
+* They must extend the `Object` class.
+
+```
+[Literal]
+final class C {
+    var x
+}
+
+const o: C = { x: 10 }
+```
+
 ## Meta data
 
 A class may contain zero or more plain meta-data:

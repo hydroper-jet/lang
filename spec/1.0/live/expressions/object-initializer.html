@@ -273,6 +273,12 @@
 <li>It is a verify error if <em>r</em> is a reference value that references a type parameterized function.</li>
 <li>Return <em>r</em></li>
 </ul>
+<p><em>ResolveInstanceVariable</em>(<code>C</code>, <em>name</em>) internal function</p>
+<ul>
+<li>Let <em>variable</em> be a non-inherited instance variable of <code>C</code> whose [[<em>Name</em>]] equals the <em>name</em> string.</li>
+<li>Throw a verify error if <em>variable</em> is undefined.</li>
+<li>Return <em>variable</em>.</li>
+</ul>
 <p><em>AnyOrObject</em>(<em>ctxType</em>) internal matcher</p>
 <ul>
 <li>If <em>ctxType</em> is not one of { <code>*</code>, <code>Object</code>, <code>Object?</code> }, return match failure.</li>
@@ -304,7 +310,7 @@
 </ul>
 <p><em>Map</em>(<em>ctxType</em>) internal matcher</p>
 <ul>
-<li>If <em>ctxType</em> is not <code>M</code> or <code>M</code>?, where <code>M</code> is <code>Map.&lt;K, V&gt;</code>, return match failure.</li>
+<li>If <em>ctxType</em> is not <code>M</code> or <code>M?</code>, where <code>M</code> is <code>Map.&lt;K, V&gt;</code>, return match failure.</li>
 <li>For each field item <em>field</em>
 <ul>
 <li>If <em>field</em> is <em>InitializerRest</em>
@@ -346,6 +352,133 @@
 </li>
 </ul>
 </li>
+<li>Return a value of the <em>ctxType</em> type.</li>
+</ul>
+<p><em>SetEnum</em>(<em>ctxType</em>) internal matcher</p>
+<ul>
+<li>If <em>ctxType</em> is not <code>E</code> or <code>E?</code>, where <code>E</code> is a set enumeration, return match failure.</li>
+<li>Let <em>c</em> be zero.</li>
+<li>Let <em>isConst</em> be true.</li>
+<li>For each field item <em>field</em>
+<ul>
+<li>If <em>field</em> is <em>InitializerRest</em>
+<ul>
+<li>Let <em>c1</em> be the result of limiting the type of the expression of <em>field</em> to <code>E</code>.</li>
+<li>If <em>c1</em> is an <code>enum</code> constant and <em>isConst</em> is true
+<ul>
+<li>Assign <em>c</em> = bitwise OR(<em>c</em>, number of <em>c1</em>)</li>
+</ul>
+</li>
+<li>Else assign <em>isConst</em> = false</li>
+</ul>
+</li>
+<li>Else if the <em>field</em> is a shorthand field <em>IdentifierName</em>
+<ul>
+<li>Let <em>shortRef</em> be <em>ResolveShorthand</em>(<em>IdentifierName</em>).</li>
+<li>Limit the static type of <em>shortRef</em> to <code>Boolean</code>.</li>
+<li>Let <em>member</em> be an enumeration member of <code>E</code> whose string equals the <em>IdentifierName</em> string</li>
+<li>Throw a verify error if <em>member</em> is undefined.</li>
+<li>If <em>shortRef</em> is a boolean constant and <em>isConst</em> is true
+<ul>
+<li>If <em>shortRef</em> boolean is true
+<ul>
+<li>Assign <em>c</em> = bitwise OR(<em>c</em>, number of <em>member</em>)</li>
+</ul>
+</li>
+<li>Else assign <em>c</em> = erase bits of (number of <em>member</em>) from <em>c</em></li>
+</ul>
+</li>
+<li>Else assign <em>isConst</em> = false</li>
+</ul>
+</li>
+<li>Else
+<ul>
+<li>Let <em>c1</em> be the result of limiting the type of the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the <em>InitializerField</em> to <code>E</code>.</li>
+<li>If the <i>FieldName</i> of <em>field</em> is a <em>Brackets</em> symbol
+<ul>
+<li>Limit the type of the <em>Brackets</em> expression to <code>String</code>.</li>
+<li>Assign <em>isConst</em> = false</li>
+</ul>
+</li>
+<li>Else if the <i>FieldName</i> of <em>field</em> is an <em>IdentifierName</em> symbol or a <em>StringLiteral</em> symbol
+<ul>
+<li>Let <em>member</em> be an enumeration member of <code>E</code> whose string equals the string of the <em>IdentifierName</em> symbol or <em>StringLiteral</em> symbol.</li>
+<li>Throw a verify error if <em>member</em> is undefined.</li>
+<li>If <em>c1</em> is a boolean constant and <em>isConst</em> is true
+<ul>
+<li>If <em>c1</em> boolean is true
+<ul>
+<li>Assign <em>c</em> = bitwise OR(<em>c</em>, number of <em>member</em>)</li>
+</ul>
+</li>
+<li>Else assign <em>c</em> = erase bits of (number of <em>member</em>) from <em>c</em></li>
+</ul>
+</li>
+<li>Else assign <em>isConst</em> = false</li>
+</ul>
+</li>
+<li>Else if the <i>FieldName</i> of <em>field</em> is a <em>NumericLiteral</em> symbol
+<ul>
+<li>Throw a verify error.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If <em>isConst</em> is true
+<ul>
+<li>Return an <code>enum</code> constant with number <em>c</em> and static type as <em>ctxType</em>.</li>
+</ul>
+</li>
+<li>Return a value of the <em>ctxType</em> type.</li>
+</ul>
+<p><em>LiteralClass</em>(<em>ctxType</em>) internal matcher</p>
+<ul>
+<li>If <em>ctxType</em> is not <code>C</code> or <code>C?</code>, where <code>C</code> is a <code>class</code> and <code>C</code>[[<em>AllowLiteral</em>]] is true, return match failure.</li>
+<li>Let <em>missing</em> be a set containing all non optional non-inherited instance variables of <code>C</code>.</li>
+<li>For each field item <em>field</em>
+<ul>
+<li>If <em>field</em> is <em>InitializerRest</em>
+<ul>
+<li>Limit the type of the expression of <em>field</em> to <code>C</code>.</li>
+<li>Assign <em>missing</em> = empty set</li>
+</ul>
+</li>
+<li>Else if the <em>field</em> is a shorthand field <em>IdentifierName</em>
+<ul>
+<li>Let <em>variable</em> be <em>ResolveInstanceVariable</em>(<code>C</code>, <em>IdentifierName</em> string).</li>
+<li>Remove <em>variable</em> from the <em>missing</em> set.</li>
+<li>Let <em>shortRef</em> be <em>ResolveShorthand</em>(<em>IdentifierName</em>).</li>
+<li>Limit the static type of <em>shortRef</em> to <em>variable</em>[[<em>Type</em>]].</li>
+</ul>
+</li>
+<li>Else
+<ul>
+<li>If the <i>FieldName</i> of <em>field</em> is a <em>Brackets</em> symbol
+<ul>
+<li>Limit the type of the <em>Brackets</em> expression to <code>String</code>.</li>
+<li>Verify the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the <em>InitializerField</em>.</li>
+</ul>
+</li>
+<li>Else if the <i>FieldName</i> of <em>field</em> is an <em>IdentifierName</em> symbol or a <em>StringLiteral</em> symbol
+<ul>
+<li>Let <em>variable</em> be <em>ResolveInstanceVariable</em>(<code>C</code>, <em>IdentifierName</em> string or <em>StringLiteral</em> string).</li>
+<li>Remove <em>variable</em> from the <em>missing</em> set.</li>
+<li>Limit the type of the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the <em>InitializerField</em> to <em>variable</em>[[<em>Type</em>]].</li>
+</ul>
+</li>
+<li>Else if the <i>FieldName</i> of <em>field</em> is a <em>NumericLiteral</em> symbol
+<ul>
+<li>Verify the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the <em>InitializerField</em>.</li>
+<li>Throw a verify error.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Throw a verify error if <em>missing</em> is a non empty set.</li>
 <li>Return a value of the <em>ctxType</em> type.</li>
 </ul>
 

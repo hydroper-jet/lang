@@ -67,7 +67,8 @@ First steps:
 
 *VerifyRest*(*r*, `T`) internal function
 
-* Verifying the expression of the <i>InitializerRest</i> nonterminal symbol *r* must return a value where either whose static type includes the `values` proxy that returns `Iterator.<T>` or where whose static type is a subtype of `Iterator.<T>`.
+* Verifying the expression of the <i>InitializerRest</i> nonterminal symbol *r* must return a value where either whose static type includes the `values` proxy *proxy* or where whose static type is a subtype of `Iterator.<T>`.
+* If *proxy* is not undefined, its signature must return `Iterator.<T>`.
 
 An element item corresponds to either an <i>Elision</i>, <i>AssignmentExpression</i><sup>allowIn</sup> or <i>InitializerRest</i>, from left-to-right.
 

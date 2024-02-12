@@ -267,16 +267,17 @@
 <p><em>ResolveShorthand</em>(<em>IdentifierName</em>) internal function</p>
 <ul>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(current scope, undefined, <em>IdentifierName</em> string).</li>
-<li>It is a verify error if <em>r</em> is undefined.</li>
-<li>It is a verify error if <em>PropertyIsVisible</em>(<em>ref</em>, current scope) is false.</li>
-<li>It is a verify error if <em>r</em> is a reference value that references a type parameterized type.</li>
-<li>It is a verify error if <em>r</em> is a reference value that references a type parameterized function.</li>
+<li>Throw a verify error if <em>r</em> is undefined.</li>
+<li>Throw a verify error if <em>PropertyIsVisible</em>(<em>ref</em>, current scope) is false.</li>
+<li>Throw a verify error if <em>r</em> is a reference value that references a type parameterized type.</li>
+<li>Throw a verify error if <em>r</em> is a reference value that references a type parameterized function.</li>
 <li>Return <em>r</em></li>
 </ul>
 <p><em>ResolveInstanceVariable</em>(<code>C</code>, <em>name</em>) internal function</p>
 <ul>
 <li>Let <em>variable</em> be a non-inherited instance variable of <code>C</code> whose [[<em>Name</em>]] equals the <em>name</em> string.</li>
 <li>Throw a verify error if <em>variable</em> is undefined.</li>
+<li>Throw a verify error if <em>PropertyIsVisible</em>(<em>variable</em>, current scope) is false.</li>
 <li>Return <em>variable</em>.</li>
 </ul>
 <p><em>AnyOrObject</em>(<em>ctxType</em>) internal matcher</p>

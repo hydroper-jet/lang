@@ -113,16 +113,17 @@ A field item is either an *InitializerRest* or an <i>InitializerField</i>, from 
 *ResolveShorthand*(*IdentifierName*) internal function
 
 * Let *r* be *ResolveProperty*(current scope, undefined, *IdentifierName* string).
-* It is a verify error if *r* is undefined.
-* It is a verify error if *PropertyIsVisible*(*ref*, current scope) is false.
-* It is a verify error if *r* is a reference value that references a type parameterized type.
-* It is a verify error if *r* is a reference value that references a type parameterized function.
+* Throw a verify error if *r* is undefined.
+* Throw a verify error if *PropertyIsVisible*(*ref*, current scope) is false.
+* Throw a verify error if *r* is a reference value that references a type parameterized type.
+* Throw a verify error if *r* is a reference value that references a type parameterized function.
 * Return *r*
 
 *ResolveInstanceVariable*(`C`, *name*) internal function
 
 * Let *variable* be a non-inherited instance variable of `C` whose \[\[*Name*\]\] equals the *name* string.
 * Throw a verify error if *variable* is undefined.
+* Throw a verify error if *PropertyIsVisible*(*variable*, current scope) is false.
 * Return *variable*.
 
 *AnyOrObject*(*ctxType*) internal matcher

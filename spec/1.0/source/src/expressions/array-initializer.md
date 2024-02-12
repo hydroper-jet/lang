@@ -57,6 +57,8 @@ The array initializer may be used to initialize the following types:
 * `[T]`
 * Set enumerations
 
+Initializing `*` or `Object` results in constructing a `[*]` object.
+
 By default, the array initializer results in an object of the `[*]` type.
 
 **Verification**
@@ -79,7 +81,7 @@ When verifying *ArrayInitializer*, if the context type is one of { `*`, `Object`
     * *VerifyRest*(*elem*, `*`)
   * Else if *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
     * Verify *elem*
-* Return a value of type `[*]`.
+* Return a value of the context type.
 
 When verifying *ArrayInitializer*, if the context type is `T` or `T?`, where `T` is a tuple type:
 

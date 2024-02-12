@@ -218,6 +218,7 @@
 <li><code>[T]</code></li>
 <li>Set enumerations</li>
 </ul>
+<p>Initializing <code>*</code> or <code>Object</code> results in constructing a <code>[*]</code> object.</p>
 <p>By default, the array initializer results in an object of the <code>[*]</code> type.</p>
 <p><strong>Verification</strong></p>
 <p>First steps:</p>
@@ -246,7 +247,7 @@
 </li>
 </ul>
 </li>
-<li>Return a value of type <code>[*]</code>.</li>
+<li>Return a value of the context type.</li>
 </ul>
 <p>When verifying <em>ArrayInitializer</em>, if the context type is <code>T</code> or <code>T?</code>, where <code>T</code> is a tuple type:</p>
 <ul>

@@ -227,7 +227,7 @@
 <p><em>VerifyRest</em>(<em>r</em>, <code>T</code>) internal function</p>
 <ul>
 <li>Verifying the expression of the <i>InitializerRest</i> nonterminal symbol <em>r</em> must return a value where either whose static type includes the <code>values</code> proxy <em>proxy</em> or where whose static type is a subtype of <code>Iterator.&lt;T&gt;</code>.</li>
-<li>If <em>proxy</em> is not undefined, its signature must return <code>Iterator.&lt;T&gt;</code>.</li>
+<li>If <em>proxy</em> is not undefined, its signature must return a subtype of <code>Iterator.&lt;T&gt;</code>.</li>
 </ul>
 <p>An element item corresponds to either an <i>Elision</i>, <i>AssignmentExpression</i><sup>allowIn</sup> or <i>InitializerRest</i>, from left-to-right.</p>
 <p>When verifying <em>ArrayInitializer</em>, if the context type is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> }:</p>

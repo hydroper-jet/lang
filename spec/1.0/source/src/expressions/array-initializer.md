@@ -85,7 +85,7 @@ When verifying *ArrayInitializer*, if the context type is one of { `*`, `Object`
 * For each element item *elem*
   * If *elem* is <i>InitializerRest</i>
     * *VerifyRest*(*elem*, `*`)
-  * Else If *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
+  * Else if *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
     * Verify *elem*
 * Return a value of type `[*]`.
 
@@ -94,9 +94,9 @@ When verifying *ArrayInitializer*, if the context type is `T` or `T?`, where `T`
 * For each element index *i* element item *elem*
   * If *elem* is <i>,</i>
     * Throw a verify error
-  * Else If *elem* is <i>InitializerRest</i>
+  * Else if *elem* is <i>InitializerRest</i>
     * Throw a verify error
-  * Else If *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
+  * Else if *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
     * It is a verify error if *i* is equals or greater than the element length of `T`.
     * Limit *elem* to the *i*th element type of `T`.
 * Return a value of the context type.
@@ -106,9 +106,9 @@ When verifying *ArrayInitializer*, if the context type is `[T]` or `[T]?`:
 * For each element item *elem*
   * If *elem* is <i>,</i>
     * Throw a verify error
-  * Else If *elem* is <i>InitializerRest</i>
+  * Else if *elem* is <i>InitializerRest</i>
     * *VerifyRest*(*elem*, `T`)
-  * Else If *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
+  * Else if *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
     * Limit *elem* to `T` type.
 * Return a value of the context type.
 
@@ -119,9 +119,9 @@ When verifying *ArrayInitializer*, if the context type equals `E` or `E?` where 
 * For each element item *elem*
   * If *elem* is <i>,</i>
     * Throw a verify error
-  * Else If *elem* is <i>InitializerRest</i>
+  * Else if *elem* is <i>InitializerRest</i>
     * Throw a verify error
-  * Else If *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
+  * Else if *elem* is <i>AssignmentExpression</i><sup>allowIn</sup>
     * Let *c1* be the result of limiting *elem* to the `E` type.
     * If *c1* is an `enum` constant and *isConst* is true
       * Assign *c* = bitwise OR(*c*, number of *c1*)

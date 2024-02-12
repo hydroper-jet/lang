@@ -3853,7 +3853,7 @@ new File(import.meta.output)
         <td colspan="2"><i>ObjectInitializer</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>{</b> <i>FieldList</i> <b>}</b> <i>InitializerContextType</i><sub>opt</sub></td>
+        <td>&nbsp;</td><td><b>{</b> <i>FieldList</i> <b>}</b></td>
     </tr>
 </table>
 <table>
@@ -3941,21 +3941,13 @@ new File(import.meta.output)
         <td colspan="2"><i>ArrayInitializer</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>[</b> <i>Elision</i><sub>opt</sub> <b>]</b> <i>InitializerContextType</i><sub>opt</sub></td>
+        <td>&nbsp;</td><td><b>[</b> <i>Elision</i><sub>opt</sub> <b>]</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>]</b> <i>InitializerContextType</i><sub>opt</sub></td>
+        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>]</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <b>]</b> <i>InitializerContextType</i><sub>opt</sub></td>
-    </tr>
-</table>
-<table>
-    <tr>
-        <td colspan="2"><i>InitializerContextType</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>:</b> <i>TypeExpression</i></td>
+        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <b>]</b></td>
     </tr>
 </table>
 <table>
@@ -3997,7 +3989,10 @@ new File(import.meta.output)
 </ul>
 <p>By default, the array initializer results in an object of the <code>[*]</code> type.</p>
 <p><strong>Verification</strong></p>
-<p>The context type is either the verification of the type expression in <i>InitializerContextType</i> or the initially given context type. If the context type is post undefined, it is assigned the <code>[*]</code> type.</p>
+<p>First steps:</p>
+<ul>
+<li>If the initially given context type is undefined, the context type is assigned the <code>[*]</code> type.</li>
+</ul>
 <p><em>VerifyRest</em>(<em>r</em>, <code>T</code>) internal function</p>
 <ul>
 <li>Verifying the expression of the <i>InitializerRest</i> nonterminal symbol <em>r</em> must return a value where either whose static type includes the <code>values</code> proxy that returns <code>Iterator.&lt;T&gt;</code> or where whose static type is a subtype of <code>Iterator.&lt;T&gt;</code>.</li>

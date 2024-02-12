@@ -7,7 +7,7 @@
         <td colspan="2"><i>ObjectInitializer</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>{</b> <i>FieldList</i> <b>}</b> <i>InitializerContextType</i><sub>opt</sub></td>
+        <td>&nbsp;</td><td><b>{</b> <i>FieldList</i> <b>}</b></td>
     </tr>
 </table>
 

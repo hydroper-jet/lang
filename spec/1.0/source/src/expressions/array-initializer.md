@@ -7,22 +7,13 @@
         <td colspan="2"><i>ArrayInitializer</i></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>[</b> <i>Elision</i><sub>opt</sub> <b>]</b> <i>InitializerContextType</i><sub>opt</sub></td>
+        <td>&nbsp;</td><td><b>[</b> <i>Elision</i><sub>opt</sub> <b>]</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>]</b> <i>InitializerContextType</i><sub>opt</sub></td>
+        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>]</b></td>
     </tr>
     <tr>
-        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <b>]</b> <i>InitializerContextType</i><sub>opt</sub></td>
-    </tr>
-</table>
-
-<table>
-    <tr>
-        <td colspan="2"><i>InitializerContextType</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>:</b> <i>TypeExpression</i></td>
+        <td>&nbsp;</td><td><b>[</b> <i>ElementList</i> <b>,</b> <i>Elision</i><sub>opt</sub> <b>]</b></td>
     </tr>
 </table>
 
@@ -70,7 +61,9 @@ By default, the array initializer results in an object of the `[*]` type.
 
 **Verification**
 
-The context type is either the verification of the type expression in <i>InitializerContextType</i> or the initially given context type. If the context type is post undefined, it is assigned the `[*]` type.
+First steps:
+
+* If the initially given context type is undefined, the context type is assigned the `[*]` type.
 
 *VerifyRest*(*r*, `T`) internal function
 

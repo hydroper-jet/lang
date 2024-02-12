@@ -223,11 +223,123 @@
 <li><code>*</code></li>
 <li><code>Object</code> or <code>Object?</code></li>
 <li><code>T</code> or <code>T?</code> where <code>T</code> is a tuple type</li>
-<li><code>C</code> or <code>C?</code> where <code>C</code> is the <code>Array</code> type</li>
+<li><code>[T]</code> or <code>[T]?</code></li>
 <li><code>E</code> or <code>E?</code> where <code>E</code> is a set enumeration</li>
 </ul>
 <p>Initializing a context type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into an <code>Array.&lt;*&gt;</code> object.</p>
 <p>The default context type is the <code>[*]</code> type (<code>Array.&lt;*&gt;</code>).</p>
+<p><strong>Verification</strong></p>
+<p>The context type is either the verification of the type expression in <i>InitializerContextType</i> or the initially given context type.</p>
+<p><em>VerifyRest</em>(<em>r</em>, <code>T</code>) internal function</p>
+<ul>
+<li>Verifying the expression of the <i>InitializerRest</i> nonterminal symbol <em>r</em> must return a value where either whose static type includes the <code>values</code> proxy that returns <code>Iterator.&lt;T&gt;</code> or where whose static type is a subtype of <code>Iterator.&lt;T&gt;</code>.</li>
+</ul>
+<p>An element item corresponds to either an <i>Elision</i>, <i>AssignmentExpression</i><sup>allowIn</sup> or <i>InitializerRest</i>, from left-to-right.</p>
+<p>When verifying <em>ArrayInitializer</em>, if the context type is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> }:</p>
+<ul>
+<li>For each element item <em>elem</em>
+<ul>
+<li>If <em>elem</em> is <i>InitializerRest</i>
+<ul>
+<li><em>VerifyRest</em>(<em>elem</em>, <code>*</code>)</li>
+</ul>
+</li>
+<li>Else If <em>elem</em> is <i>AssignmentExpression</i><sup>allowIn</sup>
+<ul>
+<li>Verify <em>elem</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return a value of type <code>[*]</code>.</li>
+</ul>
+<p>When verifying <em>ArrayInitializer</em>, if the context type is <code>T</code> or <code>T?</code>, where <code>T</code> is a tuple type:</p>
+<ul>
+<li>For each element index <em>i</em> element item <em>elem</em>
+<ul>
+<li>If <em>elem</em> is <i>,</i>
+<ul>
+<li>Throw a verify error</li>
+</ul>
+</li>
+<li>Else If <em>elem</em> is <i>InitializerRest</i>
+<ul>
+<li>Throw a verify error</li>
+</ul>
+</li>
+<li>Else If <em>elem</em> is <i>AssignmentExpression</i><sup>allowIn</sup>
+<ul>
+<li>It is a verify error if <em>i</em> is equals or greater than the element length of <code>T</code>.</li>
+<li>Limit <em>elem</em> to the <em>i</em>th element type of <code>T</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return a value of the context type.</li>
+</ul>
+<p>When verifying <em>ArrayInitializer</em>, if the context type is <code>[T]</code> or <code>[T]?</code>:</p>
+<ul>
+<li>For each element item <em>elem</em>
+<ul>
+<li>If <em>elem</em> is <i>,</i>
+<ul>
+<li>Throw a verify error</li>
+</ul>
+</li>
+<li>Else If <em>elem</em> is <i>InitializerRest</i>
+<ul>
+<li><em>VerifyRest</em>(<em>elem</em>, <code>T</code>)</li>
+</ul>
+</li>
+<li>Else If <em>elem</em> is <i>AssignmentExpression</i><sup>allowIn</sup>
+<ul>
+<li>Limit <em>elem</em> to <code>T</code> type.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return a value of the context type.</li>
+</ul>
+<p>When verifying <em>ArrayInitializer</em>, if the context type equals <code>E</code> or <code>E?</code> where <code>E</code> is a set enumeration:</p>
+<ul>
+<li>Let <em>c</em> be zero.</li>
+<li>Let <em>isConst</em> be true.</li>
+<li>For each element item <em>elem</em>
+<ul>
+<li>If <em>elem</em> is <i>,</i>
+<ul>
+<li>Throw a verify error</li>
+</ul>
+</li>
+<li>Else If <em>elem</em> is <i>InitializerRest</i>
+<ul>
+<li>Throw a verify error</li>
+</ul>
+</li>
+<li>Else If <em>elem</em> is <i>AssignmentExpression</i><sup>allowIn</sup>
+<ul>
+<li>Let <em>c1</em> be the result of limiting <em>elem</em> to the <code>E</code> type.</li>
+<li>If <em>c1</em> is an <code>enum</code> constant and <em>isConst</em> is true
+<ul>
+<li>Assign <em>c</em> = bitwise OR(<em>c</em>, number of <em>c1</em>)</li>
+</ul>
+</li>
+<li>Else
+<ul>
+<li>Assign <em>isConst</em> = false</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If <em>isConst</em> is true
+<ul>
+<li>Return an <code>enum</code> constant with number <em>c</em> and static type as the context type.</li>
+</ul>
+</li>
+<li>Return a value of the context type.</li>
+</ul>
 
                     </main>
 

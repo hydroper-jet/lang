@@ -89,9 +89,9 @@ The object initializer may be used to initialize the following context types:
 
 * `*`
 * `Object` or `Object?`
-* `M` or `M?` where `M` is the `Map` type
+* `Map.<K, V>` or `Map.<K, V>?`
 * `E` or `E?` where `E` is a set enumeration
-* `C` or `C?` where `C` is a `class` and `C`\[\[*AllowLiteral*\]\] is true
+* `T` or `T?` where `T` is a `class` and `T`\[\[*AllowLiteral*\]\] is true
 
 Initializing a context type that is one of { `*`, `Object`, `Object?` } results into a `Map.<*, *>` object.
 

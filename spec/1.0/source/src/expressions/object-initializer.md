@@ -219,6 +219,7 @@ A field item is either an *InitializerRest* or an <i>InitializerField</i>, from 
     * If the <i>FieldName</i> of *field* is a *Brackets* symbol
       * Limit the type of the *Brackets* expression to `String`.
       * Verify the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the *InitializerField*.
+      * Assign *missing* = empty set
     * Else if the <i>FieldName</i> of *field* is an *IdentifierName* symbol or a *StringLiteral* symbol
       * Let *variable* be *ResolveInstanceVariable*(`C`, *IdentifierName* string or *StringLiteral* string).
       * Remove *variable* from the *missing* set.

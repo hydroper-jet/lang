@@ -128,3 +128,7 @@ When verifying *ArrayInitializer*, if the context type equals `E` or `E?` where 
 * If *isConst* is true
   * Return an `enum` constant with number *c* and static type as the context type.
 * Return a value of the context type.
+
+When verifying *ArrayInitializer*, if the context type is not one of the previously matched types:
+
+* Throw a verify error.

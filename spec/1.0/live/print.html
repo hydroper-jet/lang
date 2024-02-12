@@ -3924,7 +3924,7 @@ new File(import.meta.output)
     </tr>
 </table>
 <p><strong>Semantics</strong></p>
-<p>The object initializer may be used to initialize the following context types:</p>
+<p>The object initializer may be used to initialize the following types:</p>
 <ul>
 <li><code>*</code></li>
 <li><code>Object</code> or <code>Object?</code></li>
@@ -3932,7 +3932,7 @@ new File(import.meta.output)
 <li><code>E</code> or <code>E?</code> where <code>E</code> is a set enumeration</li>
 <li><code>T</code> or <code>T?</code> where <code>T</code> is a <code>class</code> and <code>T</code>[[<em>AllowLiteral</em>]] is true</li>
 </ul>
-<p>Initializing a context type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into a <code>Map.&lt;*, *&gt;</code> object.</p>
+<p>Initializing a type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into a <code>Map.&lt;*, *&gt;</code> object.</p>
 <p>The default context type is the <code>Map.&lt;*, *&gt;</code> type.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="array-initializer"><a class="header" href="#array-initializer">Array initializer</a></h1>
 <p><strong>Syntax</strong></p>
@@ -4107,6 +4107,10 @@ new File(import.meta.output)
 </ul>
 </li>
 <li>Return a value of the context type.</li>
+</ul>
+<p>When verifying <em>ArrayInitializer</em>, if the context type is not one of the previously matched types:</p>
+<ul>
+<li>Throw a verify error.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="xml-initializers"><a class="header" href="#xml-initializers">XML initializers</a></h1>
 <p><strong>Syntax</strong></p>

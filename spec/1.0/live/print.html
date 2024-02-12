@@ -3507,7 +3507,7 @@ new File(import.meta.output)
 </ul>
 <p><i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>.</b> <i>IdentifierName</i></p>
 <ul>
-<li>Let <em>p</em> be <a href="./fully-qualified-names.html#resolvefullyqualifiednamee"><em>ResolveFullyQualifiedName</em>(type expression)</a>.</li>
+<li>Let <em>p</em> be <a href="./fully-qualified-names.html#resolvefullyqualifiednamee"><em>ResolveFullyQualifiedName</em></a>(type expression).</li>
 <li>If <em>p</em> is not undefined
 <ul>
 <li>Return <em>p</em>.</li>
@@ -3768,23 +3768,24 @@ new File(import.meta.output)
 <ul>
 <li>If the context type is <code>Char</code> or <code>Char?</code>
 <ul>
-<li>It is a verify error if the string value of <i>StringLiteral</i> does not consist of a single Unicode Scalar Value.</li>
-<li>Return a <code>Char</code> constant of the context type whose value is the first Unicode Scalar Value of the <i>StringLiteral</i> string value.</li>
+<li>It is a verify error if the string of <i>StringLiteral</i> does not consist of a single Unicode Scalar Value.</li>
+<li>Return a <code>Char</code> constant of the context type whose value is the first Unicode Scalar Value of the <i>StringLiteral</i> string.</li>
 </ul>
 </li>
 <li>If the context type is <code>E</code> or <code>E?</code> where <code>E</code> is an <code>enum</code>
 <ul>
-<li>Let <em>s</em> be the string value of <i>StringLiteral</i>.</li>
+<li>Let <em>s</em> be the string of <i>StringLiteral</i>.</li>
 <li>It is a verify error if <code>E</code> contains no <code>enum</code> member with a string equals <em>s</em>.</li>
 <li>Return an <code>enum</code> constant, of the context type, identifying the <code>enum</code> member of <code>E</code> with a string equals <em>s</em>.</li>
 </ul>
 </li>
-<li>Return a string constant of the <code>String</code> type consisting of the string value of <i>StringLiteral</i>.</li>
+<li>Return a string constant of the <code>String</code> type consisting of the string of <i>StringLiteral</i>.</li>
 </ul>
 <p><i>PrimaryExpression</i> : <i>QualifiedIdentifier</i></p>
 <ul>
 <li>Let (<em>qual</em>, <em>key</em>) be the result of verifying the nonterminal symbol on right-hand side of the production.</li>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(<em>current scope</em>, <em>qual</em>, <em>key</em>).</li>
+<li>It is a verify error if <em>r</em> is undefined.</li>
 <li>It is a verify error if <a href="expressions/../visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<em>r</em>, <em>current scope</em>) is false.</li>
 <li>It is a verify error if <em>r</em> is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.</li>
 <li>It is a verify error if <em>r</em> is a reference value that references a type parameterized function and the expression is not followed by <i>TypeArguments</i>.</li>
@@ -3949,9 +3950,89 @@ new File(import.meta.output)
 <li>Otherwise match the nonterminal symbol with <em>LiteralClass</em>(<em>ctxType</em>).</li>
 <li>Otherwise throw a verify error.</li>
 </ul>
+<p><em>ResolveShorthand</em>(<em>IdentifierName</em>) internal function</p>
+<ul>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(current scope, undefined, <em>IdentifierName</em> string).</li>
+<li>It is a verify error if <em>r</em> is undefined.</li>
+<li>It is a verify error if <em>PropertyIsVisible</em>(<em>ref</em>, current scope) is false.</li>
+<li>It is a verify error if <em>r</em> is a reference value that references a type parameterized type.</li>
+<li>It is a verify error if <em>r</em> is a reference value that references a type parameterized function.</li>
+<li>Return <em>r</em></li>
+</ul>
 <p><em>AnyOrObject</em>(<em>ctxType</em>) internal matcher</p>
 <ul>
-<li>...</li>
+<li>If <em>ctxType</em> is not one of { <code>*</code>, <code>Object</code>, <code>Object?</code> }, return match failure.</li>
+<li>For each field item <em>field</em>
+<ul>
+<li>If <em>field</em> is <em>InitializerRest</em>
+<ul>
+<li>Limit the type of the expression of <em>field</em> to <code>Map.&lt;*, *&gt;</code>.</li>
+</ul>
+</li>
+<li>Else if the <em>field</em> is a shorthand field <em>IdentifierName</em>
+<ul>
+<li>Call <em>ResolveShorthand</em>(<em>IdentifierName</em>).</li>
+</ul>
+</li>
+<li>Else
+<ul>
+<li>If the <i>FieldName</i> of <em>field</em> is a <em>Brackets</em> symbol
+<ul>
+<li>Verify the <em>Brackets</em> symbol.</li>
+</ul>
+</li>
+<li>Verify the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the <em>InitializerField</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return a value of the <em>ctxType</em> type.</li>
+</ul>
+<p><em>Map</em>(<em>ctxType</em>) internal matcher</p>
+<ul>
+<li>If <em>ctxType</em> is not <code>M</code> or <code>M</code>?, where <code>M</code> is <code>Map.&lt;K, V&gt;</code>, return match failure.</li>
+<li>For each field item <em>field</em>
+<ul>
+<li>If <em>field</em> is <em>InitializerRest</em>
+<ul>
+<li>Limit the type of the expression of <em>field</em> to <code>Map.&lt;K, V&gt;</code>.</li>
+</ul>
+</li>
+<li>Else if the <em>field</em> is a shorthand field <em>IdentifierName</em>
+<ul>
+<li>Let <em>shortRef</em> be <em>ResolveShorthand</em>(<em>IdentifierName</em>).</li>
+<li>Limit the static type of <em>shortRef</em> to <code>V</code>.</li>
+<li>Throw a verify error if <code>K</code> is not one of { <code>*</code>, <code>Object</code>, <code>String</code> }.</li>
+</ul>
+</li>
+<li>Else
+<ul>
+<li>If the <i>FieldName</i> of <em>field</em> is a <em>Brackets</em> symbol
+<ul>
+<li>Limit the type of the <em>Brackets</em> expression to <code>K</code>.</li>
+</ul>
+</li>
+<li>Else if the <i>FieldName</i> of <em>field</em> is an <em>IdentifierName</em> symbol
+<ul>
+<li>Throw a verify error if <code>K</code> is not one of { <code>*</code>, <code>Object</code>, <code>String</code> }.</li>
+</ul>
+</li>
+<li>Else if the <i>FieldName</i> of <em>field</em> is a <em>StringLiteral</em> symbol
+<ul>
+<li>Throw a verify error if <code>K</code> is not one of { <code>*</code>, <code>Object</code>, <code>String</code> }.</li>
+</ul>
+</li>
+<li>Else if the <i>FieldName</i> of <em>field</em> is a <em>NumericLiteral</em> symbol
+<ul>
+<li>Throw a verify error if <code>K</code> is not one of { <code>*</code>, <code>Object</code>, <code>Number</code> }.</li>
+</ul>
+</li>
+<li>Limit the type of the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the <em>InitializerField</em> to <code>V</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return a value of the <em>ctxType</em> type.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="array-initializer"><a class="header" href="#array-initializer">Array initializer</a></h1>
 <p><strong>Syntax</strong></p>
@@ -4134,7 +4215,7 @@ array[0] === undefined
 </li>
 <li>If <em>isConst</em> is true
 <ul>
-<li>Return an <code>enum</code> constant with number <em>c</em> and static type as the context type.</li>
+<li>Return an <code>enum</code> constant with number <em>c</em> and static type as <em>ctxType</em>.</li>
 </ul>
 </li>
 <li>Return a value of the <em>ctxType</em> type.</li>
@@ -4300,12 +4381,12 @@ const byteArray = embed {
 <li>Let <em>filePath</em> be a string</li>
 <li>If the <code>source</code> field consists of a <em>StringLiteral</em> production
 <ul>
-<li>Assign <em>filePath</em> = resolution from the file path of the source file to the file path specified by the <em>StringLiteral</em> string value.</li>
+<li>Assign <em>filePath</em> = resolution from the file path of the source file to the file path specified by the <em>StringLiteral</em> string.</li>
 </ul>
 </li>
 <li>Else if the <code>source</code> field consists of a <strong>output</strong> <strong>+</strong> <em>StringLiteral</em> production
 <ul>
-<li>Assign <em>filePath</em> = resolution from the JetPM output directory to the file path specified by the <em>StringLiteral</em> string value.</li>
+<li>Assign <em>filePath</em> = resolution from the JetPM output directory to the file path specified by the <em>StringLiteral</em> string.</li>
 </ul>
 </li>
 <li>Else it is a verify error.</li>

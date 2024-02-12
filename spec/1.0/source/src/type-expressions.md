@@ -219,7 +219,7 @@
 
 <i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>.</b> <i>IdentifierName</i>
 
-* Let *p* be [*ResolveFullyQualifiedName*(type expression)](./fully-qualified-names.md#resolvefullyqualifiednamee).
+* Let *p* be [*ResolveFullyQualifiedName*](./fully-qualified-names.md#resolvefullyqualifiednamee)(type expression).
 * If *p* is not undefined
   * Return *p*.
 * Let *base* be the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.

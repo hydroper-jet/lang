@@ -141,5 +141,5 @@ When verifying *ArrayInitializer*, if the context type is `[T]` or `[T]?`:
     * Else
       * Assign *isConst* = false
 * If *isConst* is true
-  * Return an `enum` constant with number *c* and static type as the context type.
+  * Return an `enum` constant with number *c* and static type as *ctxType*.
 * Return a value of the *ctxType* type.

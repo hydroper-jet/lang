@@ -110,6 +110,47 @@ A field item is either an *InitializerRest* or an <i>InitializerField</i>, from 
 * Otherwise match the nonterminal symbol with *LiteralClass*(*ctxType*).
 * Otherwise throw a verify error.
 
+*ResolveShorthand*(*IdentifierName*) internal function
+
+* Let *r* be *ResolveProperty*(current scope, undefined, *IdentifierName* string).
+* It is a verify error if *r* is undefined.
+* It is a verify error if *PropertyIsVisible*(*ref*, current scope) is false.
+* It is a verify error if *r* is a reference value that references a type parameterized type.
+* It is a verify error if *r* is a reference value that references a type parameterized function.
+* Return *r*
+
 *AnyOrObject*(*ctxType*) internal matcher
 
-* ...
+* If *ctxType* is not one of { `*`, `Object`, `Object?` }, return match failure.
+* For each field item *field*
+  * If *field* is *InitializerRest*
+    * Limit the type of the expression of *field* to `Map.<*, *>`.
+  * Else if the *field* is a shorthand field *IdentifierName*
+    * Call *ResolveShorthand*(*IdentifierName*).
+  * Else
+    * If the <i>FieldName</i> of *field* is a *Brackets* symbol
+      * Verify the *Brackets* symbol.
+    * Verify the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the *InitializerField*.
+* Return a value of the *ctxType* type.
+
+*Map*(*ctxType*) internal matcher
+
+* If *ctxType* is not `M` or `M`?, where `M` is `Map.<K, V>`, return match failure.
+* For each field item *field*
+  * If *field* is *InitializerRest*
+    * Limit the type of the expression of *field* to `Map.<K, V>`.
+  * Else if the *field* is a shorthand field *IdentifierName*
+    * Let *shortRef* be *ResolveShorthand*(*IdentifierName*).
+    * Limit the static type of *shortRef* to `V`.
+    * Throw a verify error if `K` is not one of { `*`, `Object`, `String` }.
+  * Else
+    * If the <i>FieldName</i> of *field* is a *Brackets* symbol
+      * Limit the type of the *Brackets* expression to `K`.
+    * Else if the <i>FieldName</i> of *field* is an *IdentifierName* symbol
+      * Throw a verify error if `K` is not one of { `*`, `Object`, `String` }.
+    * Else if the <i>FieldName</i> of *field* is a *StringLiteral* symbol
+      * Throw a verify error if `K` is not one of { `*`, `Object`, `String` }.
+    * Else if the <i>FieldName</i> of *field* is a *NumericLiteral* symbol
+      * Throw a verify error if `K` is not one of { `*`, `Object`, `Number` }.
+    * Limit the type of the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the *InitializerField* to `V`.
+* Return a value of the *ctxType* type.

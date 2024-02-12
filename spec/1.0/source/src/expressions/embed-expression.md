@@ -53,9 +53,9 @@ If the result type is unspecified, it is set to the context type.
 * It is a verify error if the `source` field is unspecified.
 * Let *filePath* be a string
 * If the `source` field consists of a *StringLiteral* production
-  * Assign *filePath* = resolution from the file path of the source file to the file path specified by the *StringLiteral* string value.
+  * Assign *filePath* = resolution from the file path of the source file to the file path specified by the *StringLiteral* string.
 * Else if the `source` field consists of a **output** **\+** *StringLiteral* production
-  * Assign *filePath* = resolution from the JetPM output directory to the file path specified by the *StringLiteral* string value.
+  * Assign *filePath* = resolution from the JetPM output directory to the file path specified by the *StringLiteral* string.
 * Else it is a verify error.
 * Let *resultType* be undefined.
 * The value of the `type` field of *ObjectInitializer* is refined into a *TypeExpression* and is verified resolving to a type assigned to *resultType*.

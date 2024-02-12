@@ -91,18 +91,19 @@
 <i>PrimaryExpression</i> : <i>StringLiteral</i>
 
 * If the context type is `Char` or `Char?`
-  * It is a verify error if the string value of <i>StringLiteral</i> does not consist of a single Unicode Scalar Value.
-  * Return a `Char` constant of the context type whose value is the first Unicode Scalar Value of the <i>StringLiteral</i> string value.
+  * It is a verify error if the string of <i>StringLiteral</i> does not consist of a single Unicode Scalar Value.
+  * Return a `Char` constant of the context type whose value is the first Unicode Scalar Value of the <i>StringLiteral</i> string.
 * If the context type is `E` or `E?` where `E` is an `enum`
-  * Let *s* be the string value of <i>StringLiteral</i>.
+  * Let *s* be the string of <i>StringLiteral</i>.
   * It is a verify error if `E` contains no `enum` member with a string equals *s*.
   * Return an `enum` constant, of the context type, identifying the `enum` member of `E` with a string equals *s*.
-* Return a string constant of the `String` type consisting of the string value of <i>StringLiteral</i>.
+* Return a string constant of the `String` type consisting of the string of <i>StringLiteral</i>.
 
 <i>PrimaryExpression</i> : <i>QualifiedIdentifier</i>
 
 * Let (*qual*, *key*) be the result of verifying the nonterminal symbol on right-hand side of the production.
 * Let *r* be *ResolveProperty*(*current scope*, *qual*, *key*).
+* It is a verify error if *r* is undefined.
 * It is a verify error if [*PropertyIsVisible*](*r*, *current scope*) is false.
 * It is a verify error if *r* is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.
 * It is a verify error if *r* is a reference value that references a type parameterized function and the expression is not followed by <i>TypeArguments</i>.

@@ -8,8 +8,11 @@
 * [ ] `Object`
   * [ ] `constructor`
   * [ ] `toString()`
+  * [ ] `toJSON(): *`
   * [ ] `valueOf()`
 * [ ] `Class`
+* [ ] JSON conventions
+  * Use `Map.<*, *>` as the object data type
 * [ ] `CharIterator`
   * [ ] Implements `Iterator.<Char>`
   * [ ] Includes several methods suitable for tokenizers: `remaining()`, `lookahead()`, `lookaheadSequence()`, `skip()`, `skipNumber(n)`
@@ -39,6 +42,10 @@
   * [ ] Methods such as `replace()` that accept a replacement callback function pass matches in a dedicated argument instead of passing ordinary arguments.
 * [ ] Map
   * [ ] `Map` is marked final
+* [ ] XML
+  * [ ] `XML` is marked final
+* [ ] XMLList
+  * [ ] `XMLList` is marked final
 
 ## Indices in general
 

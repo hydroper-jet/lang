@@ -264,9 +264,89 @@
 <li>Otherwise match the nonterminal symbol with <em>LiteralClass</em>(<em>ctxType</em>).</li>
 <li>Otherwise throw a verify error.</li>
 </ul>
+<p><em>ResolveShorthand</em>(<em>IdentifierName</em>) internal function</p>
+<ul>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(current scope, undefined, <em>IdentifierName</em> string).</li>
+<li>It is a verify error if <em>r</em> is undefined.</li>
+<li>It is a verify error if <em>PropertyIsVisible</em>(<em>ref</em>, current scope) is false.</li>
+<li>It is a verify error if <em>r</em> is a reference value that references a type parameterized type.</li>
+<li>It is a verify error if <em>r</em> is a reference value that references a type parameterized function.</li>
+<li>Return <em>r</em></li>
+</ul>
 <p><em>AnyOrObject</em>(<em>ctxType</em>) internal matcher</p>
 <ul>
-<li>...</li>
+<li>If <em>ctxType</em> is not one of { <code>*</code>, <code>Object</code>, <code>Object?</code> }, return match failure.</li>
+<li>For each field item <em>field</em>
+<ul>
+<li>If <em>field</em> is <em>InitializerRest</em>
+<ul>
+<li>Limit the type of the expression of <em>field</em> to <code>Map.&lt;*, *&gt;</code>.</li>
+</ul>
+</li>
+<li>Else if the <em>field</em> is a shorthand field <em>IdentifierName</em>
+<ul>
+<li>Call <em>ResolveShorthand</em>(<em>IdentifierName</em>).</li>
+</ul>
+</li>
+<li>Else
+<ul>
+<li>If the <i>FieldName</i> of <em>field</em> is a <em>Brackets</em> symbol
+<ul>
+<li>Verify the <em>Brackets</em> symbol.</li>
+</ul>
+</li>
+<li>Verify the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the <em>InitializerField</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return a value of the <em>ctxType</em> type.</li>
+</ul>
+<p><em>Map</em>(<em>ctxType</em>) internal matcher</p>
+<ul>
+<li>If <em>ctxType</em> is not <code>M</code> or <code>M</code>?, where <code>M</code> is <code>Map.&lt;K, V&gt;</code>, return match failure.</li>
+<li>For each field item <em>field</em>
+<ul>
+<li>If <em>field</em> is <em>InitializerRest</em>
+<ul>
+<li>Limit the type of the expression of <em>field</em> to <code>Map.&lt;K, V&gt;</code>.</li>
+</ul>
+</li>
+<li>Else if the <em>field</em> is a shorthand field <em>IdentifierName</em>
+<ul>
+<li>Let <em>shortRef</em> be <em>ResolveShorthand</em>(<em>IdentifierName</em>).</li>
+<li>Limit the static type of <em>shortRef</em> to <code>V</code>.</li>
+<li>Throw a verify error if <code>K</code> is not one of { <code>*</code>, <code>Object</code>, <code>String</code> }.</li>
+</ul>
+</li>
+<li>Else
+<ul>
+<li>If the <i>FieldName</i> of <em>field</em> is a <em>Brackets</em> symbol
+<ul>
+<li>Limit the type of the <em>Brackets</em> expression to <code>K</code>.</li>
+</ul>
+</li>
+<li>Else if the <i>FieldName</i> of <em>field</em> is an <em>IdentifierName</em> symbol
+<ul>
+<li>Throw a verify error if <code>K</code> is not one of { <code>*</code>, <code>Object</code>, <code>String</code> }.</li>
+</ul>
+</li>
+<li>Else if the <i>FieldName</i> of <em>field</em> is a <em>StringLiteral</em> symbol
+<ul>
+<li>Throw a verify error if <code>K</code> is not one of { <code>*</code>, <code>Object</code>, <code>String</code> }.</li>
+</ul>
+</li>
+<li>Else if the <i>FieldName</i> of <em>field</em> is a <em>NumericLiteral</em> symbol
+<ul>
+<li>Throw a verify error if <code>K</code> is not one of { <code>*</code>, <code>Object</code>, <code>Number</code> }.</li>
+</ul>
+</li>
+<li>Limit the type of the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the <em>InitializerField</em> to <code>V</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return a value of the <em>ctxType</em> type.</li>
 </ul>
 
                     </main>

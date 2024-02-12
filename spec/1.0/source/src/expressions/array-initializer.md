@@ -89,7 +89,7 @@ An element item corresponds to either an <i>Elision</i>, <i>AssignmentExpression
 
 *AnyOrObject*(*ctxType*) internal matcher
 
-* If *ctxType* is not one of { `*`, `Object`, `Object?` }, return match failure.
+* If *ctxType* is not one of { `*`, `Object`, `Object?`, `[*]`, `[*]?` }, return match failure.
 * For each element item *elem*
   * If *elem* is <i>InitializerRest</i>
     * *VerifyRest*(*elem*, `*`)

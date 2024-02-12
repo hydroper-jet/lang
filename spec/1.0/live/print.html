@@ -3982,7 +3982,7 @@ new File(import.meta.output)
 </ul>
 <p><em>AnyOrObject</em>(<em>ctxType</em>) internal matcher</p>
 <ul>
-<li>If <em>ctxType</em> is not one of { <code>*</code>, <code>Object</code>, <code>Object?</code> }, return match failure.</li>
+<li>If <em>ctxType</em> is not one of { <code>*</code>, <code>Object</code>, <code>Object?</code>, <code>Map.&lt;*, *&gt;</code>, <code>Map.&lt;*, *&gt;?</code> }, return match failure.</li>
 <li>For each field item <em>field</em>
 <ul>
 <li>If <em>field</em> is <em>InitializerRest</em>
@@ -4260,7 +4260,7 @@ array[0] === undefined
 <p>An element item corresponds to either an <i>Elision</i>, <i>AssignmentExpression</i><sup>allowIn</sup> or <i>InitializerRest</i>, from left-to-right.</p>
 <p><em>AnyOrObject</em>(<em>ctxType</em>) internal matcher</p>
 <ul>
-<li>If <em>ctxType</em> is not one of { <code>*</code>, <code>Object</code>, <code>Object?</code> }, return match failure.</li>
+<li>If <em>ctxType</em> is not one of { <code>*</code>, <code>Object</code>, <code>Object?</code>, <code>[*]</code>, <code>[*]?</code> }, return match failure.</li>
 <li>For each element item <em>elem</em>
 <ul>
 <li>If <em>elem</em> is <i>InitializerRest</i>

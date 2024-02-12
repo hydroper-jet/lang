@@ -128,7 +128,7 @@ A field item is either an *InitializerRest* or an <i>InitializerField</i>, from 
 
 *AnyOrObject*(*ctxType*) internal matcher
 
-* If *ctxType* is not one of { `*`, `Object`, `Object?` }, return match failure.
+* If *ctxType* is not one of { `*`, `Object`, `Object?`, `Map.<*, *>`, `Map.<*, *>?` }, return match failure.
 * For each field item *field*
   * If *field* is *InitializerRest*
     * Limit the type of the expression of *field* to `Map.<*, *>`.

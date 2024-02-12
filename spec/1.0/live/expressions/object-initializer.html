@@ -246,10 +246,10 @@
 <p>The object initializer may be used to initialize the following types:</p>
 <ul>
 <li><code>*</code></li>
-<li><code>Object</code> or <code>Object?</code></li>
-<li><code>Map.&lt;K, V&gt;</code> or <code>Map.&lt;K, V&gt;?</code></li>
-<li><code>E</code> or <code>E?</code> where <code>E</code> is a set enumeration</li>
-<li><code>T</code> or <code>T?</code> where <code>T</code> is a <code>class</code> and <code>T</code>[[<em>AllowLiteral</em>]] is true</li>
+<li><code>Object</code></li>
+<li><code>Map.&lt;K, V&gt;</code></li>
+<li>Set enumerations</li>
+<li>Classes containing the <code>[Literal]</code> meta-data</li>
 </ul>
 <p>Initializing a type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into a <code>Map.&lt;*, *&gt;</code> object.</p>
 <p>The default context type is the <code>Map.&lt;*, *&gt;</code> type.</p>
@@ -259,6 +259,14 @@
 <ul>
 <li>Let <em>ctxType</em> be the initially given context type or <code>Map.&lt;*, *&gt;</code> otherwise.</li>
 <li>Match the nonterminal symbol with <em>AnyOrObject</em>(<em>ctxType</em>).</li>
+<li>Otherwise match the nonterminal symbol with <em>Map</em>(<em>ctxType</em>).</li>
+<li>Otherwise match the nonterminal symbol with <em>SetEnum</em>(<em>ctxType</em>).</li>
+<li>Otherwise match the nonterminal symbol with <em>LiteralClass</em>(<em>ctxType</em>).</li>
+<li>Otherwise throw a verify error.</li>
+</ul>
+<p><em>AnyOrObject</em>(<em>ctxType</em>) internal matcher</p>
+<ul>
+<li>...</li>
 </ul>
 
                     </main>

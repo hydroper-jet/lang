@@ -88,10 +88,10 @@
 The object initializer may be used to initialize the following types:
 
 * `*`
-* `Object` or `Object?`
-* `Map.<K, V>` or `Map.<K, V>?`
-* `E` or `E?` where `E` is a set enumeration
-* `T` or `T?` where `T` is a `class` and `T`\[\[*AllowLiteral*\]\] is true
+* `Object`
+* `Map.<K, V>`
+* Set enumerations
+* Classes containing the `[Literal]` meta-data
 
 Initializing a type that is one of { `*`, `Object`, `Object?` } results into a `Map.<*, *>` object.
 
@@ -105,3 +105,11 @@ A field item is either an *InitializerRest* or an <i>InitializerField</i>, from 
 
 * Let *ctxType* be the initially given context type or `Map.<*, *>` otherwise.
 * Match the nonterminal symbol with *AnyOrObject*(*ctxType*).
+* Otherwise match the nonterminal symbol with *Map*(*ctxType*).
+* Otherwise match the nonterminal symbol with *SetEnum*(*ctxType*).
+* Otherwise match the nonterminal symbol with *LiteralClass*(*ctxType*).
+* Otherwise throw a verify error.
+
+*AnyOrObject*(*ctxType*) internal matcher
+
+* ...

@@ -44,7 +44,9 @@
   * [ ] `Map` is marked final
   * [ ] `proxy::keys(): Iterator.<K>`
   * [ ] `proxy::values(): Iterator.<[K, V]>`
+  * [ ] `clear()`
 * [ ] `Set.<T>`
+  * [ ] `clear()`
 * [ ] XML
   * [ ] `XML` is marked final
 * [ ] XMLList

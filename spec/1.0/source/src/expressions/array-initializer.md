@@ -58,21 +58,19 @@
 
 **Semantics**
 
-The array initializer may be used to initialize the following context types:
+The array initializer may be used to initialize the following types:
 
 * `*`
-* `Object` or `Object?`
-* `T` or `T?` where `T` is a tuple type
-* `[T]` or `[T]?`
-* `E` or `E?` where `E` is a set enumeration
+* `Object`
+* Tuple types
+* `[T]`
+* Set enumerations
 
-Initializing a context type that is one of { `*`, `Object`, `Object?` } results into an `Array.<*>` object.
-
-The default context type is the `[*]` type (`Array.<*>`).
+By default, the array initializer results in an object of the `[*]` type.
 
 **Verification**
 
-The context type is either the verification of the type expression in <i>InitializerContextType</i> or the initially given context type.
+The context type is either the verification of the type expression in <i>InitializerContextType</i> or the initially given context type. If the context type is post undefined, it is assigned the `[*]` type.
 
 *VerifyRest*(*r*, `T`) internal function
 

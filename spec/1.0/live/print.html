@@ -3987,18 +3987,17 @@ new File(import.meta.output)
     </tr>
 </table>
 <p><strong>Semantics</strong></p>
-<p>The array initializer may be used to initialize the following context types:</p>
+<p>The array initializer may be used to initialize the following types:</p>
 <ul>
 <li><code>*</code></li>
-<li><code>Object</code> or <code>Object?</code></li>
-<li><code>T</code> or <code>T?</code> where <code>T</code> is a tuple type</li>
-<li><code>[T]</code> or <code>[T]?</code></li>
-<li><code>E</code> or <code>E?</code> where <code>E</code> is a set enumeration</li>
+<li><code>Object</code></li>
+<li>Tuple types</li>
+<li><code>[T]</code></li>
+<li>Set enumerations</li>
 </ul>
-<p>Initializing a context type that is one of { <code>*</code>, <code>Object</code>, <code>Object?</code> } results into an <code>Array.&lt;*&gt;</code> object.</p>
-<p>The default context type is the <code>[*]</code> type (<code>Array.&lt;*&gt;</code>).</p>
+<p>By default, the array initializer results in an object of the <code>[*]</code> type.</p>
 <p><strong>Verification</strong></p>
-<p>The context type is either the verification of the type expression in <i>InitializerContextType</i> or the initially given context type.</p>
+<p>The context type is either the verification of the type expression in <i>InitializerContextType</i> or the initially given context type. If the context type is post undefined, it is assigned the <code>[*]</code> type.</p>
 <p><em>VerifyRest</em>(<em>r</em>, <code>T</code>) internal function</p>
 <ul>
 <li>Verifying the expression of the <i>InitializerRest</i> nonterminal symbol <em>r</em> must return a value where either whose static type includes the <code>values</code> proxy that returns <code>Iterator.&lt;T&gt;</code> or where whose static type is a subtype of <code>Iterator.&lt;T&gt;</code>.</li>

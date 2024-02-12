@@ -61,6 +61,14 @@ Initializing `*` or `Object` results in constructing a `[*]` object.
 
 By default, the array initializer results in an object of the `[*]` type.
 
+Elision commas result into `undefined` elements.
+
+```
+const array = [,,,]
+array.length == 3
+array[0] === undefined
+```
+
 **Verification**
 
 First steps:

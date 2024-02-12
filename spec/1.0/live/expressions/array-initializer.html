@@ -220,6 +220,11 @@
 </ul>
 <p>Initializing <code>*</code> or <code>Object</code> results in constructing a <code>[*]</code> object.</p>
 <p>By default, the array initializer results in an object of the <code>[*]</code> type.</p>
+<p>Elision commas result into <code>undefined</code> elements.</p>
+<pre><code>const array = [,,,]
+array.length == 3
+array[0] === undefined
+</code></pre>
 <p><strong>Verification</strong></p>
 <p>First steps:</p>
 <ul>

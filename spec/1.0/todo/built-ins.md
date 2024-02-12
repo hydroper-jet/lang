@@ -42,6 +42,8 @@
   * [ ] Methods such as `replace()` that accept a replacement callback function pass matches in a dedicated argument instead of passing ordinary arguments.
 * [ ] Map
   * [ ] `Map` is marked final
+  * [ ] `proxy::keys(): Iterator.<K>`
+  * [ ] `proxy::values(): Iterator.<[K, V]>`
 * [ ] XML
   * [ ] `XML` is marked final
 * [ ] XMLList

@@ -24,6 +24,7 @@
 * [ ] `IteratorItem.<T>`
   * [ ] Literal class defining the properties `done: Boolean` and `value: T?`.
 * [ ] Array
+  * [ ] `Array` is marked final
   * [ ] All indices use the `Number` data type
   * [ ] `length` returns `Number`
   * [ ] Like Java, methods such as `indexOf()` return `-1` occasionally.
@@ -36,6 +37,8 @@
     * `"$x $$ $y".apply({x: "Foo", y: "bar"}) == "Foo $ bar"`
   * [ ] Add example demonstrating `"string".chars().length()` versus `"string".length` (result varies across platforms).
   * [ ] Methods such as `replace()` that accept a replacement callback function pass matches in a dedicated argument instead of passing ordinary arguments.
+* [ ] Map
+  * [ ] `Map` is marked final
 
 ## Indices in general
 

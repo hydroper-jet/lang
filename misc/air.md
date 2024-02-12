@@ -1,5 +1,10 @@
 # AIR
 
+## Miscellaneous
+
+* Check whether this project had any relevant tip
+  * https://github.com/hydroper-6jB4v9P1FIX/draft/tree/main/1
+
 ## jet.lang.Array versus avm.lang.Array
 
 `jet.lang.Array.<T>` is equivalent to `Vector.<T>` of the AIR API, while `avm.lang.Array` is equivalent to `Array` of the AIR API.

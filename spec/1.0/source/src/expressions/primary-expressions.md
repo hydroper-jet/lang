@@ -137,5 +137,9 @@
 
 * Return the result of verifying nonterminal symbol on right-hand side of the production.
 
+<i>PrimaryExpression</i> : <i>ArrayInitializer</i>
+
+* Return the result of verifying nonterminal symbol on right-hand side of the production.
+
 
 [*PropertyIsVisible*]: ../visibility.md#propertyisvisible

@@ -180,7 +180,7 @@ A field item is either an *InitializerRest* or an <i>InitializerField</i>, from 
     * If *shortRef* is a boolean constant and *isConst* is true
       * If *shortRef* boolean is true
         * Assign *c* = bitwise OR(*c*, number of *member*)
-      * Else assign *c* = erase bits of (number of *member*) from *c*
+      * Else assign *c* = erase bits of (number of *member*) from *c* if all bits are included
     * Else assign *isConst* = false
   * Else
     * Let *c1* be the result of limiting the type of the <i>AssignmentExpression</i><sup>allowIn</sup> symbol of the *InitializerField* to `E`.
@@ -193,7 +193,7 @@ A field item is either an *InitializerRest* or an <i>InitializerField</i>, from 
       * If *c1* is a boolean constant and *isConst* is true
         * If *c1* boolean is true
           * Assign *c* = bitwise OR(*c*, number of *member*)
-        * Else assign *c* = erase bits of (number of *member*) from *c*
+        * Else assign *c* = erase bits of (number of *member*) from *c* if all bits are included
       * Else assign *isConst* = false
     * Else if the <i>FieldName</i> of *field* is a *NumericLiteral* symbol
       * Throw a verify error.

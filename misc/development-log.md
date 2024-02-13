@@ -67,6 +67,7 @@ When comparing Jet to VioletScript and ShockScript, there were a number of featu
 * Type inference is limited to solely variable bindings
 * Arrow functions eliminated, still retaining function of expression bodies
 * Qualifiers (compared to ShockScript) are only used by the Jet for XML feature based on ECMAScript for XML
+* Decorators eliminated as meta-data are retained
 
 So far, I've used the following project names:
 
@@ -80,4 +81,4 @@ So far, I've used the following project names:
 
 ## Logo and banners
 
-* Published in February 10 of 2024, 3:49 PM (15:49): https://github.com/hydroper-jet/lang/commit/3ecb228c8ff0b475ac0afb9f8c60d40077cb9cca
+* Published in February 10 of 2024, 3:49 PM (15:49) GMT-3: https://github.com/hydroper-jet/lang/commit/3ecb228c8ff0b475ac0afb9f8c60d40077cb9cca

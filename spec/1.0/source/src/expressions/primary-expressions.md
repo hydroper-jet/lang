@@ -128,22 +128,22 @@
 
 <i>PrimaryExpression</i> : <i>ParenListExpression</i>
 
-* Return the result of verifying nonterminal symbol on right-hand side of the production.
+* Return the result of verifying the nonterminal symbol on right-hand side of the production.
 
 <i>PrimaryExpression</i> : <i>EmbedExpression</i>
 
-* Return the result of verifying nonterminal symbol on right-hand side of the production.
+* Return the result of verifying the nonterminal symbol on right-hand side of the production.
 
 <i>PrimaryExpression</i> : <i>XMLInitializer</i>
 
-* Return the result of verifying nonterminal symbol on right-hand side of the production.
+* Return the result of verifying the nonterminal symbol on right-hand side of the production.
 
 <i>PrimaryExpression</i> : <i>ArrayInitializer</i>
 
-* Return the result of verifying nonterminal symbol on right-hand side of the production.
+* Return the result of verifying the nonterminal symbol on right-hand side of the production.
 
 <i>PrimaryExpression</i> : <i>ObjectInitializer</i>
 
-* Return the result of verifying nonterminal symbol on right-hand side of the production.
+* Return the result of verifying the nonterminal symbol on right-hand side of the production.
 
 [*PropertyIsVisible*]: ../visibility.md#propertyisvisible

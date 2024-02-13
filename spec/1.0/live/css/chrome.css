@@ -5,6 +5,22 @@
 html {
     scrollbar-color: var(--scrollbar) var(--bg);
 }
+html::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+html::-webkit-scrollbar,
+html::-webkit-scrollbar-track,
+html::-webkit-scrollbar-button {
+    background: var(--sidebar-fg);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--scrollbar);
+    border-radius: 5px;
+    opacity: 0.4;
+}
 #searchresults a,
 .content a:link,
 a:visited,
@@ -409,12 +425,14 @@ ul#searchresults span.teaser em {
 .sidebar-hidden .sidebar {
     transform: translateX(calc(0px - var(--sidebar-width)));
 }
+/*
 .sidebar::-webkit-scrollbar {
     background: var(--sidebar-bg);
 }
 .sidebar::-webkit-scrollbar-thumb {
     background: var(--scrollbar);
 }
+*/
 
 .sidebar-visible .page-wrapper {
     transform: translateX(var(--sidebar-width));

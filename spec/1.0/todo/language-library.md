@@ -23,7 +23,7 @@
 * [ ] `Iterator.<T>` interface
   * [ ] `next(): IteratorItem.<T>`
   * [ ] `length()` optional method (consumes the iterator, returning the count as `Number`)
-  * [ ] `toArray()`
+  * [ ] `toArray(): [T]` (consumes the iterator, returning an `Array`)
 * [ ] `IteratorItem.<T>`
   * [ ] Literal class defining the properties `done: Boolean` and `value: T?`.
 * [ ] Array
@@ -32,6 +32,7 @@
   * [ ] `length` returns `Number`
   * [ ] Like Java, methods such as `indexOf()` return `-1` occasionally.
   * [ ] `getProperty()` returns `T` and throws a `RangeError` if out of bounds, instead of returning `T?`. This makes more sense for `setProperty` and `deleteProperty` as well together.
+  * [ ] Methods such as `map.<T>` take a callback of two parameters (*v*, *index*).
 * [ ] `String`
   * [ ] `length` returns a `Number` (not an integer data type) indicating the number of encoding units of the string.
   * [ ] `chars()` returns `CharIterator`

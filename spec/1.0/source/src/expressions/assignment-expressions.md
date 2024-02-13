@@ -40,3 +40,13 @@
         <td>&nbsp;</td><td><i>PostfixExpression</i> [but not <i>ArrayDestructuring</i> or <i>ObjectDestructuring</i>]</td>
     </tr>
 </table>
+
+**Verification**
+
+<i>AssignmentExpression</i><sup>β</sup> : <i>ConditionalExpression</i><sup>β</sup>
+
+* Return the result of verifying the nonterminal symbol on right-hand side of the production.
+
+<i>AssignmentExpression</i><sup>β</sup> : <i>FunctionExpression</i><sup>β</sup>
+
+* Return the result of verifying the nonterminal symbol on right-hand side of the production.

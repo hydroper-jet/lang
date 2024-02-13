@@ -3827,23 +3827,23 @@ new File(import.meta.output)
 </ul>
 <p><i>PrimaryExpression</i> : <i>ParenListExpression</i></p>
 <ul>
-<li>Return the result of verifying nonterminal symbol on right-hand side of the production.</li>
+<li>Return the result of verifying the nonterminal symbol on right-hand side of the production.</li>
 </ul>
 <p><i>PrimaryExpression</i> : <i>EmbedExpression</i></p>
 <ul>
-<li>Return the result of verifying nonterminal symbol on right-hand side of the production.</li>
+<li>Return the result of verifying the nonterminal symbol on right-hand side of the production.</li>
 </ul>
 <p><i>PrimaryExpression</i> : <i>XMLInitializer</i></p>
 <ul>
-<li>Return the result of verifying nonterminal symbol on right-hand side of the production.</li>
+<li>Return the result of verifying the nonterminal symbol on right-hand side of the production.</li>
 </ul>
 <p><i>PrimaryExpression</i> : <i>ArrayInitializer</i></p>
 <ul>
-<li>Return the result of verifying nonterminal symbol on right-hand side of the production.</li>
+<li>Return the result of verifying the nonterminal symbol on right-hand side of the production.</li>
 </ul>
 <p><i>PrimaryExpression</i> : <i>ObjectInitializer</i></p>
 <ul>
-<li>Return the result of verifying nonterminal symbol on right-hand side of the production.</li>
+<li>Return the result of verifying the nonterminal symbol on right-hand side of the production.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="parenthesized-expressions"><a class="header" href="#parenthesized-expressions">Parenthesized expressions</a></h1>
 <p><strong>Syntax</strong></p>
@@ -5116,7 +5116,17 @@ const byteArray = embed {
     <tr>
         <td>&nbsp;</td><td><i>PostfixExpression</i> [but not <i>ArrayDestructuring</i> or <i>ObjectDestructuring</i>]</td>
     </tr>
-</table><div style="break-before: page; page-break-before: always;"></div><h1 id="function-expression"><a class="header" href="#function-expression">Function expression</a></h1>
+</table>
+<p><strong>Verification</strong></p>
+<p><i>AssignmentExpression</i><sup>β</sup> : <i>ConditionalExpression</i><sup>β</sup></p>
+<ul>
+<li>Return the result of verifying the nonterminal symbol on right-hand side of the production.</li>
+</ul>
+<p><i>AssignmentExpression</i><sup>β</sup> : <i>FunctionExpression</i><sup>β</sup></p>
+<ul>
+<li>Return the result of verifying the nonterminal symbol on right-hand side of the production.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="function-expression"><a class="header" href="#function-expression">Function expression</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>
@@ -5128,7 +5138,15 @@ const byteArray = embed {
     <tr>
         <td>&nbsp;</td><td><b>function</b> <i>IdentifierName</i> <i>FunctionCommon</i><sup>β</sup></td>
     </tr>
-</table><div style="break-before: page; page-break-before: always;"></div><h1 id="list-expressions"><a class="header" href="#list-expressions">List expressions</a></h1>
+</table>
+<p><strong>Semantics</strong></p>
+<p>The <code>function</code> expression results in an object of a function type compliant to the function signature. The language does not perform type inference on function signatures.</p>
+<pre><code>// 30
+trace([10, 20].reduce.&lt;Number&gt;(function(acc: Number, v: Number): Number (acc + v)), 0);
+</code></pre>
+<p>A call to a function resulting from a <code>function</code> expression has implementation-defined behavior: the number of formal parameters may or may not be restricted to the number of call arguments.</p>
+<p><strong>Verification</strong></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="list-expressions"><a class="header" href="#list-expressions">List expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>

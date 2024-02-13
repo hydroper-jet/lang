@@ -206,7 +206,8 @@ trace([10, 20].reduce(function(acc: Number, v: Number): Number (acc + v), 0));
 <ul>
 <li>It is a verify error if <em>act</em>[[<em>Properties</em>]][<em>f</em>[[<em>Name</em>]]] is already defined.</li>
 <li>Let <em>thisFunc</em> be a read-only variable of the <em>signature</em> type.</li>
-<li>Assign <em>act</em>[[<em>Properties</em>]][<em>f</em>[[<em>Name</em>]]] = <em>thisFunc</em></li>
+<li>Assign <em>thisFunc</em>[[<em>ParentDefinition</em>]] = <em>act</em>.</li>
+<li>Assign <em>act</em>[[<em>Properties</em>]][<em>f</em>[[<em>Name</em>]]] = <em>thisFunc</em>.</li>
 </ul>
 </li>
 <li>Call <a href="../definitions/function-definition.html#verifyfunctionbody"><em>VerifyFunctionBody</em></a>(the <em>FunctionCommon</em> symbol, <em>act</em>, <em>f</em>, <em>signature</em>)</li>

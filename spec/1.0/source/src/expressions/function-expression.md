@@ -44,7 +44,8 @@ A call to a function resulting from a `function` expression has implementation-d
 * If *f*\[\[*Name*\]\] is a non empty string
   * It is a verify error if *act*\[\[*Properties*\]\]\[*f*\[\[*Name*\]\]\] is already defined.
   * Let *thisFunc* be a read-only variable of the *signature* type.
-  * Assign *act*\[\[*Properties*\]\]\[*f*\[\[*Name*\]\]\] = *thisFunc*
+  * Assign *thisFunc*\[\[*ParentDefinition*\]\] = *act*.
+  * Assign *act*\[\[*Properties*\]\]\[*f*\[\[*Name*\]\]\] = *thisFunc*.
 * Call [*VerifyFunctionBody*](the *FunctionCommon* symbol, *act*, *f*, *signature*)
 * Return a `function` value of the *signature* type and *act* activation.
 

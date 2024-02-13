@@ -5142,7 +5142,7 @@ const byteArray = embed {
 <p><strong>Semantics</strong></p>
 <p>The <code>function</code> expression results in an object of a function type compliant to the function signature. The language does not perform type inference on function signatures.</p>
 <pre><code>// 30
-trace([10, 20].reduce.&lt;Number&gt;(function(acc: Number, v: Number): Number (acc + v)), 0);
+trace([10, 20].reduce(function(acc: Number, v: Number): Number (acc + v)), 0);
 </code></pre>
 <p>A call to a function resulting from a <code>function</code> expression has implementation-defined behavior: the number of formal parameters may or may not be restricted to the number of call arguments.</p>
 <p><strong>Verification</strong></p>

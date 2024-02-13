@@ -227,12 +227,19 @@ function f() {
 
 The *VerifyFunctionBody*(*body*, *act*, *f*, *signature*) internal function takes the following steps:
 
-* Enter the *act* scope.
 * If *body* contains an <i>AssignmentExpression</i><sup>β</sup> symbol *exp*
-  * Limit *exp* to *signature*\[\[*ResultType*\]\]
-* Else
-  * Verify the <i>Block</i> symbol of *body*.
+  * Enter the *act* scope.
+  * Let `T` be *signature*\[\[*ResultType*\]\].
+  * If *f* is a generator
+    * Assign `T` = `void`
+  * Else if *f* is an asynchronous function
+    * Assign `T` = first type argument of `T`
+  * Limit *exp* to `T`.
+  * Exit scope.
+* Else if *Body* contains a *Block* symbol
+  * Enter the *act* scope.
+  * Verify the <i>Block</i> symbol.
   * Let *cf* be the analysis of the control flow of the <i>Block</i> symbol of *body*.
   * If *signature*\[\[*ResultType*\]\] is not one of { any type (`*`), `void` } and *f* is not a generator and *f* is not an asynchronous function where *signature*\[\[*ResultType*\]\] ∈ { `Promise.<*>`, `Promise.<void>` } and not all paths of *cf* end in either a `return` or `throw` statement
     * Throw a verify error
-* Exit scope.
+  * Exit scope.

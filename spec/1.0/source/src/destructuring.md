@@ -132,3 +132,5 @@ Object destructuring is allowed for any context type, except `void`.
 ```
 const {x, y} = o
 ```
+
+**Verification**

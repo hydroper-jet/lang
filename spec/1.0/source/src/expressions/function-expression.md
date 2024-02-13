@@ -30,14 +30,14 @@ A call to a function resulting from a `function` expression has implementation-d
 <i>FunctionExpression</i><sup>β</sup> : <b>function</b> <i>FunctionCommon</i><sup>β</sup><br>
 <i>FunctionExpression</i><sup>β</sup> : <b>function</b> <i>IdentifierName</i> <i>FunctionCommon</i><sup>β</sup>
 
-* Let *signature* be the result of verifying the <i>FunctionSignature</i> symbol within <i>FunctionCommon</i>.
+* Let *act* be an activation scope.
+* Let *signature* be the result of verifying the <i>FunctionSignature</i> symbol within <i>FunctionCommon</i> by passing *act* as the activation scope *act*, therefore contributing properties to *act*.
 * Let *f* be a function.
 * If the <i>IdentifierName</i> symbol appears
   * Assign *f*\[\[*Name*\]\] = <i>IdentifierName</i> string
 * Assign *f*\[\[*IsGenerator*\]\] = true if the `yield` operator appears within the function body or false otherwise
 * Assign *f*\[\[*IsAsync*\]\] = true if the `await` operator appears within the function body or false otherwise
 * Assign *f*\[\[*Signature*\]\] = *signature*
-* Let *act* be an activation scope.
 * Assign *act*\[\[*This*\]\] = (enclosing activation)\[\[*This*\]\] or undefined.
 * Assign *act*\[\[*Function*\]\] = *f*
 * Assign *f*\[\[*Activation*\]\] = *act*

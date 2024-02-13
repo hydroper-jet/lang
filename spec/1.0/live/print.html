@@ -5150,7 +5150,8 @@ trace([10, 20].reduce(function(acc: Number, v: Number): Number (acc + v), 0));
 <p><i>FunctionExpression</i><sup>β</sup> : <b>function</b> <i>FunctionCommon</i><sup>β</sup><br>
 <i>FunctionExpression</i><sup>β</sup> : <b>function</b> <i>IdentifierName</i> <i>FunctionCommon</i><sup>β</sup></p>
 <ul>
-<li>Let <em>signature</em> be the result of verifying the <i>FunctionSignature</i> symbol within <i>FunctionCommon</i>.</li>
+<li>Let <em>act</em> be an activation scope.</li>
+<li>Let <em>signature</em> be the result of verifying the <i>FunctionSignature</i> symbol within <i>FunctionCommon</i> by passing <em>act</em> as the activation scope <em>act</em>, therefore contributing properties to <em>act</em>.</li>
 <li>Let <em>f</em> be a function.</li>
 <li>If the <i>IdentifierName</i> symbol appears
 <ul>
@@ -5160,7 +5161,6 @@ trace([10, 20].reduce(function(acc: Number, v: Number): Number (acc + v), 0));
 <li>Assign <em>f</em>[[<em>IsGenerator</em>]] = true if the <code>yield</code> operator appears within the function body or false otherwise</li>
 <li>Assign <em>f</em>[[<em>IsAsync</em>]] = true if the <code>await</code> operator appears within the function body or false otherwise</li>
 <li>Assign <em>f</em>[[<em>Signature</em>]] = <em>signature</em></li>
-<li>Let <em>act</em> be an activation scope.</li>
 <li>Assign <em>act</em>[[<em>This</em>]] = (enclosing activation)[[<em>This</em>]] or undefined.</li>
 <li>Assign <em>act</em>[[<em>Function</em>]] = <em>f</em></li>
 <li>Assign <em>f</em>[[<em>Activation</em>]] = <em>act</em></li>

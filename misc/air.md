@@ -75,6 +75,7 @@ The top-level package `public` namespace is always open at all regions.
 
 * `for..in` and `for each` should be optimized for `Array`, `Map` and `avm.lang.Array`
   * `for..in`: For `Map`, given that it is implemented as a `flash.utils.Dictionary` where string keys have a dollar prefix, skip such prefix in string keys.
+  * `for each`: For `Map`, given that it is implemented as a `flash.utils.Dictionary` where string keys have a dollar prefix, skip such prefix in string keys in the `[k, v]` tuple.
 
 ## Type descriptions
 

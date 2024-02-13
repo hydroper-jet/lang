@@ -118,10 +118,9 @@
 Array destructuring is allowed for the following context types:
 
 * Any type (`*`) — Yields `*` typed elements.
-* `[T]` type — Yields `T` typed elements.
-* `[T1, T2, ...]` type — Yields respective tuple element types.
-* Classes defining a `getProperty` proxy that returns a number type `T` that is a zero-based index
-  * Yields `T` typed elements.
+* `[T1, T2, ...]` type — Yields tuple reference values.
+* Classes defining a `getProperty` proxy that takes the `Number` type
+  * Yields proxy reference values.
   * Destructuring assignments require a corresponding `setProperty` proxy in the same class.
 
 ```

@@ -20,6 +20,8 @@ In terms of the host environment, I once was able to write a parser for either a
 
 During 2018, I had discovered the Rust language and I was beginning to learn developing verifiers (or type checkers). I was still learning Rust and vastly unexperienced with C++ as well. Throughout these moments, I've reinvented the language idea to feel like Rust; however, the language returned to the ActionScript 3 feeling.
 
+> **Note**: I was not using Rust in anyway for developing parsers or verifiers at that time. Only from 2023 I built my first ActionScript 3 parser in Rust.
+
 The language projects used to have the following names:
 
 * Vega

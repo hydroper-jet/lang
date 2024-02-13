@@ -20,6 +20,7 @@ Functions consist of the following internal properties:
 | \[\[*IsAbstract*\]\] | Indicates whether a method is abstract. |
 | \[\[*IsConstructor*\]\] | Indicates whether a function is a constructor. |
 | \[\[*OfVirtualProperty*\]\] | Indicates the virtual property to which a getter or setter belongs. |
+| \[\[*Activation*\]\] | The activation scope of the function. |
 | \[\[*PlainMetadata*\]\] | Plain meta-data attached to the function. |
 
 ## Type parameters

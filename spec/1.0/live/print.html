@@ -2218,6 +2218,7 @@ function set x(v: T): void {}
 <tr><td>[[<em>IsAbstract</em>]]</td><td>Indicates whether a method is abstract.</td></tr>
 <tr><td>[[<em>IsConstructor</em>]]</td><td>Indicates whether a function is a constructor.</td></tr>
 <tr><td>[[<em>OfVirtualProperty</em>]]</td><td>Indicates the virtual property to which a getter or setter belongs.</td></tr>
+<tr><td>[[<em>Activation</em>]]</td><td>The activation scope of the function.</td></tr>
 <tr><td>[[<em>PlainMetadata</em>]]</td><td>Plain meta-data attached to the function.</td></tr>
 </tbody></table>
 </div>
@@ -5142,10 +5143,35 @@ const byteArray = embed {
 <p><strong>Semantics</strong></p>
 <p>The <code>function</code> expression results in an object of a function type compliant to the function signature. The language does not perform type inference on function signatures.</p>
 <pre><code>// 30
-trace([10, 20].reduce(function(acc: Number, v: Number): Number (acc + v)), 0);
+trace([10, 20].reduce(function(acc: Number, v: Number): Number (acc + v), 0));
 </code></pre>
 <p>A call to a function resulting from a <code>function</code> expression has implementation-defined behavior: the number of formal parameters may or may not be restricted to the number of call arguments.</p>
 <p><strong>Verification</strong></p>
+<p><i>FunctionExpression</i><sup>β</sup> : <b>function</b> <i>FunctionCommon</i><sup>β</sup><br>
+<i>FunctionExpression</i><sup>β</sup> : <b>function</b> <i>IdentifierName</i> <i>FunctionCommon</i><sup>β</sup></p>
+<ul>
+<li>Let <em>signature</em> be the result of verifying the <i>FunctionSignature</i> symbol within <i>FunctionCommon</i>.</li>
+<li>Let <em>f</em> be a function.</li>
+<li>If the <i>IdentifierName</i> symbol appears
+<ul>
+<li>Assign <em>f</em>[[<em>Name</em>]] = <i>IdentifierName</i> string</li>
+</ul>
+</li>
+<li>Assign <em>f</em>[[<em>IsGenerator</em>]] = true if the <code>yield</code> operator appears within the function body or false otherwise</li>
+<li>Assign <em>f</em>[[<em>IsAsync</em>]] = true if the <code>await</code> operator appears within the function body or false otherwise</li>
+<li>Assign <em>f</em>[[<em>Signature</em>]] = <em>signature</em></li>
+<li>Let <em>act</em> be an activation scope.</li>
+<li>Assign <em>act</em>[[<em>This</em>]] = (enclosing activation)[[<em>This</em>]] or undefined.</li>
+<li>Assign <em>act</em>[[<em>Function</em>]] = <em>f</em></li>
+<li>Assign <em>f</em>[[<em>Activation</em>]] = <em>act</em></li>
+<li>If the <i>IdentifierName</i> symbol appears
+<ul>
+<li>...</li>
+</ul>
+</li>
+<li>Call <a href="expressions/../definitions/function-definition.html#verifyfunctionbody"><em>VerifyFunctionBody</em></a>(<em>body</em>, <em>act</em>, <em>f</em>, <em>signature</em>)</li>
+<li>...</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="list-expressions"><a class="header" href="#list-expressions">List expressions</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
@@ -6362,7 +6388,30 @@ function f() {
     <tr>
         <td>&nbsp;</td><td><b>...</b> <i>TypedDestructuring</i></td>
     </tr>
-</table><div style="break-before: page; page-break-before: always;"></div><h1 id="class-definition"><a class="header" href="#class-definition">Class definition</a></h1>
+</table>
+<h2 id="verifyfunctionbody"><a class="header" href="#verifyfunctionbody">VerifyFunctionBody()</a></h2>
+<p>The <em>VerifyFunctionBody</em>(<em>body</em>, <em>act</em>, <em>f</em>, <em>signature</em>) internal function takes the following steps:</p>
+<ul>
+<li>Enter the <em>act</em> scope.</li>
+<li>If <em>body</em> contains an <i>AssignmentExpression</i><sup>β</sup> symbol <em>exp</em>
+<ul>
+<li>Limit <em>exp</em> to <em>signature</em>[[<em>ResultType</em>]]</li>
+</ul>
+</li>
+<li>Else
+<ul>
+<li>Verify the <i>Block</i> symbol of <em>body</em>.</li>
+<li>Let <em>cf</em> be the analysis of the control flow of the <i>Block</i> symbol of <em>body</em>.</li>
+<li>If <em>signature</em>[[<em>ResultType</em>]] is not one of { any type (<code>*</code>), <code>void</code> } and <em>f</em> is not a generator and <em>f</em> is not an asynchronous function where <em>signature</em>[[<em>ResultType</em>]] ∈ { <code>Promise.&lt;*&gt;</code>, <code>Promise.&lt;void&gt;</code> } and not all paths <em>cf</em> end in either a <code>return</code> or <code>throw</code> statement
+<ul>
+<li>Throw a verify error</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Exit scope.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="class-definition"><a class="header" href="#class-definition">Class definition</a></h1>
 <p><strong>Syntax</strong></p>
 <table>
     <tr>

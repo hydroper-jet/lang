@@ -341,6 +341,29 @@ function f() {
         <td>&nbsp;</td><td><b>...</b> <i>TypedDestructuring</i></td>
     </tr>
 </table>
+<h2 id="verifyfunctionbody"><a class="header" href="#verifyfunctionbody">VerifyFunctionBody()</a></h2>
+<p>The <em>VerifyFunctionBody</em>(<em>body</em>, <em>act</em>, <em>f</em>, <em>signature</em>) internal function takes the following steps:</p>
+<ul>
+<li>Enter the <em>act</em> scope.</li>
+<li>If <em>body</em> contains an <i>AssignmentExpression</i><sup>β</sup> symbol <em>exp</em>
+<ul>
+<li>Limit <em>exp</em> to <em>signature</em>[[<em>ResultType</em>]]</li>
+</ul>
+</li>
+<li>Else
+<ul>
+<li>Verify the <i>Block</i> symbol of <em>body</em>.</li>
+<li>Let <em>cf</em> be the analysis of the control flow of the <i>Block</i> symbol of <em>body</em>.</li>
+<li>If <em>signature</em>[[<em>ResultType</em>]] is not one of { any type (<code>*</code>), <code>void</code> } and <em>f</em> is not a generator and <em>f</em> is not an asynchronous function where <em>signature</em>[[<em>ResultType</em>]] ∈ { <code>Promise.&lt;*&gt;</code>, <code>Promise.&lt;void&gt;</code> } and not all paths <em>cf</em> end in either a <code>return</code> or <code>throw</code> statement
+<ul>
+<li>Throw a verify error</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Exit scope.</li>
+</ul>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

@@ -119,7 +119,7 @@ Array destructuring is allowed for the following context types:
 
 * Any type (`*`) — Yields `*` typed elements.
 * `[T1, T2, ...]` type — Yields tuple reference values.
-* Classes defining a `getProperty` proxy that takes the `Number` type
+* Classes defining a `proxy::getProperty` method that takes the `Number` type
   * Yields proxy reference values.
   * Destructuring assignments require a corresponding `setProperty` proxy in the same class.
 

@@ -5299,7 +5299,7 @@ trace([10, 20].reduce(function(acc: Number, v: Number): Number (acc + v), 0));
 <ul>
 <li>Any type (<code>*</code>) — Yields <code>*</code> typed elements.</li>
 <li><code>[T1, T2, ...]</code> type — Yields tuple reference values.</li>
-<li>Classes defining a <code>getProperty</code> proxy that takes the <code>Number</code> type
+<li>Classes defining a <code>proxy::getProperty</code> method that takes the <code>Number</code> type
 <ul>
 <li>Yields proxy reference values.</li>
 <li>Destructuring assignments require a corresponding <code>setProperty</code> proxy in the same class.</li>

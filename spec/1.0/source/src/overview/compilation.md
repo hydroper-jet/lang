@@ -6,6 +6,6 @@ Creating Jet compiler subsets allow supporting special file extensions supported
 
 ## Jet bytecode
 
-The Jet bytecode is undocumented as the Jet compiler is a work in progress and will be similiar to the ActionScript Virtual Machine 2 bytecode format.
+The Jet bytecode is undocumented as the Jet compiler is a work in progress and will be similiar to the ActionScript Virtual Machine 2 bytecode format by Adobe.
 
 The Jet bytecode will feature meta-data attached with source locations among definitions and specific code regions of a function as result of annotatated standalone block statements, allowing platforms to report errors ahead of time on unrecognized meta-data.

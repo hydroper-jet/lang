@@ -233,7 +233,7 @@ The *VerifyFunctionBody*(*body*, *act*, *f*, *signature*) internal function take
   * If *f* is a generator
     * Assign `T` = `void`
   * Else if *f* is an asynchronous function
-    * Assign `T` = first type argument of `T`
+    * Assign `T` = first type argument or type parameter of `T`
   * Limit *exp* to `T`.
   * Exit scope.
 * Else if *body* contains a *Block* symbol

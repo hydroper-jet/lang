@@ -9,8 +9,8 @@ A visibility is either `public`, `private`, `protected` or `internal`:
 | `protected` | The `protected` visibility indicates that a property is accessible from the block of a class and any subclasses. |
 | `internal` | The `internal` visibility indicates that a property is accessible from the enclosing package, excluding subpackages. |
 
-* When a property is not `public` and it is not an `internal` property belonging to a top-level class, it is not allowed for such property to be found at runtime or dynammic.
-* When a property is not `public` and it is not an `internal` property belonging to a top-level class, it is not contained in the runtime type information.
+* When a class static or instance property is not `public` and it is not an `internal` property belonging to a top-level class, it is not allowed for such property to be found at runtime.
+* When a class static or instance property is not `public` and it is not an `internal` property belonging to a top-level class, it is not contained in the runtime type description.
 
 ```
 class C {

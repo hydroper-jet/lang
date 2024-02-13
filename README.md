@@ -21,11 +21,15 @@ Future plans:
 | --- | ----------- |
 | `http://ns.unrealengine.com/5` | Build games and simulations using Unreal Engine. |
 
-## Language specifications
+## Documents
 
-| Version | Document |
-| ------- | -------- |
-| 1.0     | [Online view](https://hydroper-jet.github.io/lang/spec/1.0/live) |
+*Language specification*
+
+* [View](https://hydroper-jet.github.io/lang/spec/1.0/live)
+
+*Development log*
+
+* [View](./misc/development-log.md)
 
 ## Compiler
 

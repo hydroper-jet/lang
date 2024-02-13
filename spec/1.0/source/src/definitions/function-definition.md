@@ -236,7 +236,7 @@ The *VerifyFunctionBody*(*body*, *act*, *f*, *signature*) internal function take
     * Assign `T` = first type argument of `T`
   * Limit *exp* to `T`.
   * Exit scope.
-* Else if *Body* contains a *Block* symbol
+* Else if *body* contains a *Block* symbol
   * Enter the *act* scope.
   * Verify the <i>Block</i> symbol.
   * Let *cf* be the analysis of the control flow of the <i>Block</i> symbol of *body*.

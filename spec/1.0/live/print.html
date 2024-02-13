@@ -5164,13 +5164,15 @@ trace([10, 20].reduce(function(acc: Number, v: Number): Number (acc + v), 0));
 <li>Assign <em>act</em>[[<em>This</em>]] = (enclosing activation)[[<em>This</em>]] or undefined.</li>
 <li>Assign <em>act</em>[[<em>Function</em>]] = <em>f</em></li>
 <li>Assign <em>f</em>[[<em>Activation</em>]] = <em>act</em></li>
-<li>If the <i>IdentifierName</i> symbol appears
+<li>If <em>f</em>[[<em>Name</em>]] is a non empty string
 <ul>
-<li>...</li>
+<li>It is a verify error if <em>act</em>[[<em>Properties</em>]][<em>f</em>[[<em>Name</em>]]] is already defined.</li>
+<li>Let <em>thisFunc</em> be a value of the <em>signature</em> type.</li>
+<li>Assign <em>act</em>[[<em>Properties</em>]][<em>f</em>[[<em>Name</em>]]] = <em>thisFunc</em></li>
 </ul>
 </li>
 <li>Call <a href="expressions/../definitions/function-definition.html#verifyfunctionbody"><em>VerifyFunctionBody</em></a>(<em>body</em>, <em>act</em>, <em>f</em>, <em>signature</em>)</li>
-<li>...</li>
+<li>Return a <code>function</code> value of the <em>signature</em> type and <em>act</em> activation.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="list-expressions"><a class="header" href="#list-expressions">List expressions</a></h1>
 <p><strong>Syntax</strong></p>
@@ -6402,7 +6404,7 @@ function f() {
 <ul>
 <li>Verify the <i>Block</i> symbol of <em>body</em>.</li>
 <li>Let <em>cf</em> be the analysis of the control flow of the <i>Block</i> symbol of <em>body</em>.</li>
-<li>If <em>signature</em>[[<em>ResultType</em>]] is not one of { any type (<code>*</code>), <code>void</code> } and <em>f</em> is not a generator and <em>f</em> is not an asynchronous function where <em>signature</em>[[<em>ResultType</em>]] ∈ { <code>Promise.&lt;*&gt;</code>, <code>Promise.&lt;void&gt;</code> } and not all paths <em>cf</em> end in either a <code>return</code> or <code>throw</code> statement
+<li>If <em>signature</em>[[<em>ResultType</em>]] is not one of { any type (<code>*</code>), <code>void</code> } and <em>f</em> is not a generator and <em>f</em> is not an asynchronous function where <em>signature</em>[[<em>ResultType</em>]] ∈ { <code>Promise.&lt;*&gt;</code>, <code>Promise.&lt;void&gt;</code> } and not all paths of <em>cf</em> end in either a <code>return</code> or <code>throw</code> statement
 <ul>
 <li>Throw a verify error</li>
 </ul>

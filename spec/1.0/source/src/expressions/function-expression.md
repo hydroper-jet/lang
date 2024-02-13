@@ -41,9 +41,11 @@ A call to a function resulting from a `function` expression has implementation-d
 * Assign *act*\[\[*This*\]\] = (enclosing activation)\[\[*This*\]\] or undefined.
 * Assign *act*\[\[*Function*\]\] = *f*
 * Assign *f*\[\[*Activation*\]\] = *act*
-* If the <i>IdentifierName</i> symbol appears
-  * ...
+* If *f*\[\[*Name*\]\] is a non empty string
+  * It is a verify error if *act*\[\[*Properties*\]\]\[*f*\[\[*Name*\]\]\] is already defined.
+  * Let *thisFunc* be a value of the *signature* type.
+  * Assign *act*\[\[*Properties*\]\]\[*f*\[\[*Name*\]\]\] = *thisFunc*
 * Call [*VerifyFunctionBody*](*body*, *act*, *f*, *signature*)
-* ...
+* Return a `function` value of the *signature* type and *act* activation.
 
 [*VerifyFunctionBody*]: ../definitions/function-definition.md#verifyfunctionbody

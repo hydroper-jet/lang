@@ -354,7 +354,7 @@ function f() {
 <ul>
 <li>Verify the <i>Block</i> symbol of <em>body</em>.</li>
 <li>Let <em>cf</em> be the analysis of the control flow of the <i>Block</i> symbol of <em>body</em>.</li>
-<li>If <em>signature</em>[[<em>ResultType</em>]] is not one of { any type (<code>*</code>), <code>void</code> } and <em>f</em> is not a generator and <em>f</em> is not an asynchronous function where <em>signature</em>[[<em>ResultType</em>]] ∈ { <code>Promise.&lt;*&gt;</code>, <code>Promise.&lt;void&gt;</code> } and not all paths <em>cf</em> end in either a <code>return</code> or <code>throw</code> statement
+<li>If <em>signature</em>[[<em>ResultType</em>]] is not one of { any type (<code>*</code>), <code>void</code> } and <em>f</em> is not a generator and <em>f</em> is not an asynchronous function where <em>signature</em>[[<em>ResultType</em>]] ∈ { <code>Promise.&lt;*&gt;</code>, <code>Promise.&lt;void&gt;</code> } and not all paths of <em>cf</em> end in either a <code>return</code> or <code>throw</code> statement
 <ul>
 <li>Throw a verify error</li>
 </ul>

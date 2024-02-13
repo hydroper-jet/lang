@@ -202,13 +202,15 @@ trace([10, 20].reduce(function(acc: Number, v: Number): Number (acc + v), 0));
 <li>Assign <em>act</em>[[<em>This</em>]] = (enclosing activation)[[<em>This</em>]] or undefined.</li>
 <li>Assign <em>act</em>[[<em>Function</em>]] = <em>f</em></li>
 <li>Assign <em>f</em>[[<em>Activation</em>]] = <em>act</em></li>
-<li>If the <i>IdentifierName</i> symbol appears
+<li>If <em>f</em>[[<em>Name</em>]] is a non empty string
 <ul>
-<li>...</li>
+<li>It is a verify error if <em>act</em>[[<em>Properties</em>]][<em>f</em>[[<em>Name</em>]]] is already defined.</li>
+<li>Let <em>thisFunc</em> be a value of the <em>signature</em> type.</li>
+<li>Assign <em>act</em>[[<em>Properties</em>]][<em>f</em>[[<em>Name</em>]]] = <em>thisFunc</em></li>
 </ul>
 </li>
 <li>Call <a href="../definitions/function-definition.html#verifyfunctionbody"><em>VerifyFunctionBody</em></a>(<em>body</em>, <em>act</em>, <em>f</em>, <em>signature</em>)</li>
-<li>...</li>
+<li>Return a <code>function</code> value of the <em>signature</em> type and <em>act</em> activation.</li>
 </ul>
 
                     </main>

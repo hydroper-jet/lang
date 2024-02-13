@@ -13,6 +13,9 @@
 
 Jet does not support the ActionScript `uint` and `int` types natively; therefore, `avm.lang` defines `avm.lang.UnsignedInt` and `avm.lang.Int` as the equivalent of both, providing interoperability with `Number`, as well as optimizations where possible when building in release mode.
 
+* `[T]` where `T` is one of { `Int`, `UnsignedInt` } is exactly `__AS3__.vec.Vector.<T>`.
+* `T.from(10)` is exactly `10` where `T` is one of { `Int`, `UnsignedInt` }
+
 Additionally, it may be necessary for ActionScript functions to use the `[AVMOptParameters]` meta-data to map default values for optional parameters that are of ActionScript `uint` or `int` type.
 
 ```
@@ -20,6 +23,10 @@ Additionally, it may be necessary for ActionScript functions to use the `[AVMOpt
 [AVMOptParameters(a = -1)]
 public native function f(a: Int);
 ```
+
+## Class constructors
+
+Non `native` class constructors belonging to AVM2 `[AVMProperty]` classes have to be mapped specially for use in dynamic typing, such as in `new` expression, specially due to native classes.
 
 ## Rest parameter
 

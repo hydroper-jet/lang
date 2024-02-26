@@ -7,9 +7,9 @@ This section describes facilities included in the language for working with the 
 The `import.meta.output` expression evaluates to the JetPM output directory path.
 
 ```
-import node.filesystem.*
+import com.nodejs.filesystem.*;
 new File(import.meta.output)
-    .resolvePath("my/data.txt").write("Text")
+    .resolvePath("my/data.txt").write("Text");
 ```
 
 ## Meta-data entries

@@ -13,4 +13,4 @@ The Jet bytecode is undocumented as the Jet compiler is a work in progress and w
 The Jet bytecode shall support:
 
 * Meta-data with source location attached to definitions
-* Meta-data with source location attached to specific code regions of a function as result of annotatated block statements,
+* Meta-data with source location attached to specific code regions of a function as result of annotatated block statements

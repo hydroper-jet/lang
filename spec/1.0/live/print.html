@@ -356,7 +356,7 @@ jetpm build --define air::target=ios
 <p>The Jet bytecode shall support:</p>
 <ul>
 <li>Meta-data with source location attached to definitions</li>
-<li>Meta-data with source location attached to specific code regions of a function as result of annotatated block statements,</li>
+<li>Meta-data with source location attached to specific code regions of a function as result of annotatated block statements</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="conditional-compilation-1"><a class="header" href="#conditional-compilation-1">Conditional compilation</a></h1>
 <p>The Jet language supports the <code>configuration</code> directive to allow expanding directives using a conditional language.</p>
@@ -3307,9 +3307,9 @@ EXAMPLE=value
 <p>This section describes facilities included in the language for working with the JetPM output directory.</p>
 <h2 id="importmetaoutput"><a class="header" href="#importmetaoutput">import.meta.output</a></h2>
 <p>The <code>import.meta.output</code> expression evaluates to the JetPM output directory path.</p>
-<pre><code>import node.filesystem.*
+<pre><code>import com.nodejs.filesystem.*;
 new File(import.meta.output)
-    .resolvePath("my/data.txt").write("Text")
+    .resolvePath("my/data.txt").write("Text");
 </code></pre>
 <h2 id="meta-data-entries"><a class="header" href="#meta-data-entries">Meta-data entries</a></h2>
 <p><a href="metadata/plain-metadata.html">Plain meta-data</a> support file entries resolving files from the JetPM output directory path through the <code>output + "path/to/file"</code> form.</p>

@@ -20,7 +20,7 @@ string == ""
 ```
 string.charAt(i)
 
-for each (const character: Char in string) {
+for each (const ch in string) {
     /* Action */
 }
 ```

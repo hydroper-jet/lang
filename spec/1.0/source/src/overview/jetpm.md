@@ -1,6 +1,6 @@
 # Package management
 
-The language coworks with JetPM, a package manager that supports a Jet build system, conditional compilation, and workspaces.
+The language is integrated with JetPM, a package manager that supports a Jet build system, conditional compilation, and workspaces.
 
 A JetPM package belongs to a *platform*.
 
@@ -25,7 +25,7 @@ Here is an example package manifest:
 
 ## Platforms
 
-Platforms may have incompatible runtime implementations, such as regular expressions, or lacking implementations of certain functions and semantics, therefore sharing packages with different platforms is not possible in JetPM.
+Sharing packages between platforms is not possible in JetPM. Samsung HARMAN AIR and Node.js are two example platforms.
 
 The package manifest's top-level `platform` option is required and indicates the platform to which the package belongs as well as the namespace on which dependencies are found in the package registry.
 
@@ -46,7 +46,7 @@ Here is an example of a potential package manifest that uses `http://ns.airsdk.d
 
 Supported platforms may be installed through `jetpm platform install "uri"`. If the URI uses a `file:` scheme it locates an user platform in the development device.
 
-Platforms use a customized compiler built with the Jet Compiler codebase that is able to compile source files other than the `.jet` extension.
+Platforms use a customized compiler built with the Jet Compiler codebase that is able to compile source files other than the `.jet` file extension.
 
 ## Conditional compilation
 

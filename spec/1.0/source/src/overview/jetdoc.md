@@ -1,10 +1,10 @@
-# Documentation tool
+# Documentation
 
-JetDoc is an API documentation tool that coworks with the Jet language.
+JetDoc is the API documentation form integrated in the Jet language.
 
-## JetPM registry
+## Auto publishing
 
-Online published JetPM packages automatically host online web pages in the JetPM website.
+Published JetPM packages automatically publish online JetDoc documentation.
 
 ## Comment format
 

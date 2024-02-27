@@ -39,6 +39,10 @@ Used language project names:
 * ShockScript
 * VegaScript
 
+In 2019 I built an in-depth ActionScript 3 highlighter for Sublime Text, however I found some bugs while developing it:
+
+* https://github.com/alien-as/as-enhanced
+
 At some point in 2020, I have experienced a bug in the ActionScript compiler (the Flex compiler) at the control flow when developing a new verifier after having developed a parser in the ActionScript language, which leaved me a bit frustrated at the time.
 
 * https://forum.starling-framework.org/d/22289-property-access-through-undefined-bug

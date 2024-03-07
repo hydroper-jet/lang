@@ -48,7 +48,11 @@
   * [ ] `Map` is marked final
   * [ ] `proxy::keys(): Iterator.<K>`
   * [ ] `proxy::values(): Iterator.<[K, V]>`
+  * [ ] `proxy::getProperty(key: K): V?`
+  * [ ] `proxy::setProperty(key: K, value: V): void`
+  * [ ] `proxy::deleteProperty(key: K): Boolean`
   * [ ] `clear()`
+  * [ ] `length`
 * [ ] `Set.<T>`
   * [ ] `clear()`
 * [ ] XML

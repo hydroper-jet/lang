@@ -12,6 +12,7 @@
   - [Proxy](overview/proxy.md)
   - [Destructuring](overview/destructuring.md)
   - [Jet for XML](overview/j4x.md)
+  - [Fixed versus dynamic](overview/fixed-versus-dynamic.md)
   - [Flex](overview/flex.md)
 - [Notation](notation.md)
 - [Lexical structure](lexical-structure.md)

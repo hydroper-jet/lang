@@ -227,11 +227,25 @@ const byteArray = embed {
 </li>
 <li>Else it is a verify error.</li>
 <li>Let <em>resultType</em> be undefined.</li>
-<li>The value of the <code>type</code> field of <em>ObjectInitializer</em> is refined into a <em>TypeExpression</em> and is verified resolving to a type assigned to <em>resultType</em>.</li>
+<li>Let <em>typeExp</em> be the refining of the value of the <code>type</code> field of <em>ObjectInitializer</em> into a <em>TypeExpression</em>.</li>
+<li>Assign <em>resultType</em> = <em>ExpectType</em>(verification of <em>typeExp</em>)</li>
 <li>If <em>resultType</em> is undefined, assign <em>resultType</em> = context type.</li>
 <li><em>resultType</em> is converted to a non-nullable type if it is explicitly nullable.</li>
 <li>It is a verify error if <em>resultType</em> is undefined or <em>resultType</em> is not one of { <code>ByteArray</code>, <code>String</code> }.</li>
-<li>Verifying <em>EmbedExpression</em> results into a <code>embed</code> value of type <em>resultType</em>. The resulting <code>embed</code> value contains content as either a byte array, if <em>resultType</em> is <code>ByteArray</code>, or UTF-8 encoded text, if <em>resultType</em> is <code>String</code>. The content is read from the file path <em>filePath</em> or it is a verify error otherwise.</li>
+<li>Let <em>v</em> be an <code>embed</code> value of type <em>resultType</em>.</li>
+<li>If <em>resultType</em> is <code>ByteArray</code>
+<ul>
+<li>Let <em>content</em> be the bytes from the file path <em>filePath</em>.</li>
+<li>Contribute <em>content</em> to <em>v</em>.</li>
+</ul>
+</li>
+<li>Else if <em>resultType</em> is <code>String</code>
+<ul>
+<li>Let <em>content</em> be an UTF-8 encoded text from the file path <em>filePath</em>.</li>
+<li>Contribute <em>content</em> to <em>v</em>.</li>
+</ul>
+</li>
+<li>Return <em>v</em>.</li>
 </ul>
 
                     </main>

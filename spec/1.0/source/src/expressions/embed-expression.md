@@ -58,8 +58,16 @@ If the result type is unspecified, it is set to the context type.
   * Assign *filePath* = resolution from the JetPM output directory to the file path specified by the *StringLiteral* string.
 * Else it is a verify error.
 * Let *resultType* be undefined.
-* The value of the `type` field of *ObjectInitializer* is refined into a *TypeExpression* and is verified resolving to a type assigned to *resultType*.
+* Let *typeExp* be the refining of the value of the `type` field of *ObjectInitializer* into a *TypeExpression*.
+* Assign *resultType* = *ExpectType*(verification of *typeExp*)
 * If *resultType* is undefined, assign *resultType* = context type.
 * *resultType* is converted to a non-nullable type if it is explicitly nullable.
 * It is a verify error if *resultType* is undefined or *resultType* is not one of { `ByteArray`, `String` }.
-* Verifying *EmbedExpression* results into a `embed` value of type *resultType*. The resulting `embed` value contains content as either a byte array, if *resultType* is `ByteArray`, or UTF-8 encoded text, if *resultType* is `String`. The content is read from the file path *filePath* or it is a verify error otherwise.
+* Let *v* be an `embed` value of type *resultType*.
+* If *resultType* is `ByteArray`
+  * Let *content* be the bytes from the file path *filePath*.
+  * Contribute *content* to *v*.
+* Else if *resultType* is `String`
+  * Let *content* be an UTF-8 encoded text from the file path *filePath*.
+  * Contribute *content* to *v*.
+* Return *v*.

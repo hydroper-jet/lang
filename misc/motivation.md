@@ -47,6 +47,8 @@ I don't feel like using Haxe as I find it complex.
 
 </blockquote>
 
+(Not mentioned: .NET languages)
+
 Simply, there's no language that satisfies me. Jet aims to improve on ActionScript 3 and not implement everything of TypeScript, Haxe or ECMAScript 4 (although I find ECMAScript 4 less complex than TypeScript or Haxe, although it did have different features such as three dimensional properties and units).
 
 It might be a waste of time as I could be implementing a game or something else, but I'm not really happy to develop something with these existing technologies.
@@ -54,4 +56,3 @@ It might be a waste of time as I could be implementing a game or something else,
 So I invite you to visit several parts of the progress specification to see if it suits your needs:
 
 * https://hydroper-jet.github.io/lang/spec/1.0/live/overview.html
-

@@ -4,10 +4,10 @@
 
 The internal *ResolveProperty*(*base*, *qual*, *key*, *disambiguation* = **default**) function takes a *base* object, a *qual* qualifier value and a *key* value, and resolves to a reference value. *ResolveProperty* takes the following steps:
 
-1. If *base* is a value whose type is one of \{ `XML`, `XMLList` \}, return *XMLReferenceValue*(*base*, *qual*, *key*).
+1. If *base* is a value whose type is one of \{ `XML`, `XMLList` \}, return *XMLReferenceValue*(*base*, *qual*, *key*, *disambiguation*).
 2. If *base* is a scope, return *ResolveScopeProperty*(*base*, *qual*, *key*).
 3. If *base* is a value whose type is `*` or if *key* is not a `String` or `Number` constant
-    1. Return *DynamicReferenceValue*(*base*, *qual*, *key*)
+    1. Return *DynamicReferenceValue*(*base*, *qual*, *key*, *disambiguation*)
 4. Return undefined if *qual* is not undefined.
 5. If *base* is a `class` or `enum`
     1. Return undefined if *key* is not a `String` constant.
@@ -73,11 +73,11 @@ The internal *ResolveScopeProperty*(*base*, *qual*, *key*, *disambiguation*) fun
 
 1. If *base* is a `with` scope
     1. If the static type of *base*\[\[*Object*\]\] is one of the types \{ `*`, `XML`, `XMLList` \}
-        1. Return *DynamicScopeReferenceValue*(*base*, *qual*, *key*)
+        1. Return *DynamicScopeReferenceValue*(*base*, *qual*, *key*, *disambiguation*)
     2. Let *r* be *ResolveProperty*(*base*\[\[*Object*\]\], *qual*, *key*, *disambiguation*)
     3. Return *r* if it is not undefined.
 2. If *base* is a filter operator scope
-    1. Return *DynamicScopeReferenceValue*(*base*, *qual*, *key*).
+    1. Return *DynamicScopeReferenceValue*(*base*, *qual*, *key*, *disambiguation*).
 3. Let *r* be undefined.
 4. If *qual* is undefined and *key* is a `String` constant
     1. Assign *r* = a symbol of *base*\[\[*Properties*\]\] whose key equals *key*.

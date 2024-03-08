@@ -174,15 +174,16 @@
                     <main>
                         <h1 id="reference-values"><a class="header" href="#reference-values">Reference values</a></h1>
 <p>The internal reference values described in this section are used at compile-time to represent references that may be read or overwritten.</p>
-<h2 id="xmlreferencevaluebase-qual-key"><a class="header" href="#xmlreferencevaluebase-qual-key">XMLReferenceValue(base, qual, key)</a></h2>
-<p>The internal <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>) reference value has the following characteristics:</p>
+<p>In the subsections, <em>disambiguation</em> is one of { <strong>default</strong>, <strong>fixed</strong>, <strong>dynamic</strong> }.</p>
+<h2 id="xmlreferencevaluebase-qual-key-disambiguation"><a class="header" href="#xmlreferencevaluebase-qual-key-disambiguation">XMLReferenceValue(base, qual, key, disambiguation)</a></h2>
+<p>The internal <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is not read-only.</li>
 <li>It is not write-only.</li>
 <li>Its static type is <code>*</code>.</li>
 </ul>
-<h2 id="dynamicreferencevaluebase-qual-key"><a class="header" href="#dynamicreferencevaluebase-qual-key">DynamicReferenceValue(base, qual, key)</a></h2>
-<p>The internal <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>) reference value has the following characteristics:</p>
+<h2 id="dynamicreferencevaluebase-qual-key-disambiguation"><a class="header" href="#dynamicreferencevaluebase-qual-key-disambiguation">DynamicReferenceValue(base, qual, key, disambiguation)</a></h2>
+<p>The internal <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is not read-only.</li>
 <li>It is not write-only.</li>
@@ -225,8 +226,8 @@
 <li>It is write-only if <em>prop</em> is write-only.</li>
 <li>Its static type is <a href="#propertystatictype"><em>PropertyStaticType</em></a>(<em>prop</em>).</li>
 </ul>
-<h2 id="dynamicscopereferencevaluebase-qual-key"><a class="header" href="#dynamicscopereferencevaluebase-qual-key">DynamicScopeReferenceValue(base, qual, key)</a></h2>
-<p>The internal <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>) reference value has the following characteristics:</p>
+<h2 id="dynamicscopereferencevaluebase-qual-key-disambiguation"><a class="header" href="#dynamicscopereferencevaluebase-qual-key-disambiguation">DynamicScopeReferenceValue(base, qual, key, disambiguation)</a></h2>
+<p>The internal <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is not read-only.</li>
 <li>It is not write-only.</li>

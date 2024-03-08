@@ -2,17 +2,19 @@
 
 The internal reference values described in this section are used at compile-time to represent references that may be read or overwritten.
 
-## XMLReferenceValue(base, qual, key)
+In the subsections, *disambiguation* is one of { **default**, **fixed**, **dynamic** }.
 
-The internal *XMLReferenceValue*(*base*, *qual*, *key*) reference value has the following characteristics:
+## XMLReferenceValue(base, qual, key, disambiguation)
+
+The internal *XMLReferenceValue*(*base*, *qual*, *key*, *disambiguation*) reference value has the following characteristics:
 
 * It is not read-only.
 * It is not write-only.
 * Its static type is `*`.
 
-## DynamicReferenceValue(base, qual, key)
+## DynamicReferenceValue(base, qual, key, disambiguation)
 
-The internal *DynamicReferenceValue*(*base*, *qual*, *key*) reference value has the following characteristics:
+The internal *DynamicReferenceValue*(*base*, *qual*, *key*, *disambiguation*) reference value has the following characteristics:
 
 * It is not read-only.
 * It is not write-only.
@@ -60,9 +62,9 @@ The internal *ScopeReferenceValue*(*base*, *prop*) reference value has the follo
 * It is write-only if *prop* is write-only.
 * Its static type is [*PropertyStaticType*](#propertystatictype)(*prop*).
 
-## DynamicScopeReferenceValue(base, qual, key)
+## DynamicScopeReferenceValue(base, qual, key, disambiguation)
 
-The internal *DynamicScopeReferenceValue*(*base*, *qual*, *key*) reference value has the following characteristics:
+The internal *DynamicScopeReferenceValue*(*base*, *qual*, *key*, *disambiguation*) reference value has the following characteristics:
 
 * It is not read-only.
 * It is not write-only.

@@ -2902,11 +2902,11 @@ interface I {}
 <h2 id="resolveproperty"><a class="header" href="#resolveproperty">ResolveProperty()</a></h2>
 <p>The internal <em>ResolveProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em> = <strong>default</strong>) function takes a <em>base</em> object, a <em>qual</em> qualifier value and a <em>key</em> value, and resolves to a reference value. <em>ResolveProperty</em> takes the following steps:</p>
 <ol>
-<li>If <em>base</em> is a value whose type is one of { <code>XML</code>, <code>XMLList</code> }, return <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+<li>If <em>base</em> is a value whose type is one of { <code>XML</code>, <code>XMLList</code> }, return <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>).</li>
 <li>If <em>base</em> is a scope, return <em>ResolveScopeProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
 <li>If <em>base</em> is a value whose type is <code>*</code> or if <em>key</em> is not a <code>String</code> or <code>Number</code> constant
 <ol>
-<li>Return <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>)</li>
+<li>Return <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>)</li>
 </ol>
 </li>
 <li>Return undefined if <em>qual</em> is not undefined.</li>
@@ -3028,7 +3028,7 @@ interface I {}
 <ol>
 <li>If the static type of <em>base</em>[[<em>Object</em>]] is one of the types { <code>*</code>, <code>XML</code>, <code>XMLList</code> }
 <ol>
-<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>)</li>
+<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>)</li>
 </ol>
 </li>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(<em>base</em>[[<em>Object</em>]], <em>qual</em>, <em>key</em>, <em>disambiguation</em>)</li>
@@ -3037,7 +3037,7 @@ interface I {}
 </li>
 <li>If <em>base</em> is a filter operator scope
 <ol>
-<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>).</li>
 </ol>
 </li>
 <li>Let <em>r</em> be undefined.</li>
@@ -3116,15 +3116,16 @@ interface I {}
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reference-values"><a class="header" href="#reference-values">Reference values</a></h1>
 <p>The internal reference values described in this section are used at compile-time to represent references that may be read or overwritten.</p>
-<h2 id="xmlreferencevaluebase-qual-key"><a class="header" href="#xmlreferencevaluebase-qual-key">XMLReferenceValue(base, qual, key)</a></h2>
-<p>The internal <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>) reference value has the following characteristics:</p>
+<p>In the subsections, <em>disambiguation</em> is one of { <strong>default</strong>, <strong>fixed</strong>, <strong>dynamic</strong> }.</p>
+<h2 id="xmlreferencevaluebase-qual-key-disambiguation"><a class="header" href="#xmlreferencevaluebase-qual-key-disambiguation">XMLReferenceValue(base, qual, key, disambiguation)</a></h2>
+<p>The internal <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is not read-only.</li>
 <li>It is not write-only.</li>
 <li>Its static type is <code>*</code>.</li>
 </ul>
-<h2 id="dynamicreferencevaluebase-qual-key"><a class="header" href="#dynamicreferencevaluebase-qual-key">DynamicReferenceValue(base, qual, key)</a></h2>
-<p>The internal <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>) reference value has the following characteristics:</p>
+<h2 id="dynamicreferencevaluebase-qual-key-disambiguation"><a class="header" href="#dynamicreferencevaluebase-qual-key-disambiguation">DynamicReferenceValue(base, qual, key, disambiguation)</a></h2>
+<p>The internal <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is not read-only.</li>
 <li>It is not write-only.</li>
@@ -3167,8 +3168,8 @@ interface I {}
 <li>It is write-only if <em>prop</em> is write-only.</li>
 <li>Its static type is <a href="reference-values.html#propertystatictype"><em>PropertyStaticType</em></a>(<em>prop</em>).</li>
 </ul>
-<h2 id="dynamicscopereferencevaluebase-qual-key"><a class="header" href="#dynamicscopereferencevaluebase-qual-key">DynamicScopeReferenceValue(base, qual, key)</a></h2>
-<p>The internal <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>) reference value has the following characteristics:</p>
+<h2 id="dynamicscopereferencevaluebase-qual-key-disambiguation"><a class="header" href="#dynamicscopereferencevaluebase-qual-key-disambiguation">DynamicScopeReferenceValue(base, qual, key, disambiguation)</a></h2>
+<p>The internal <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>) reference value has the following characteristics:</p>
 <ul>
 <li>It is not read-only.</li>
 <li>It is not write-only.</li>

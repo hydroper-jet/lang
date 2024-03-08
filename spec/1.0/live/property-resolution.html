@@ -176,11 +176,11 @@
 <h2 id="resolveproperty"><a class="header" href="#resolveproperty">ResolveProperty()</a></h2>
 <p>The internal <em>ResolveProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em> = <strong>default</strong>) function takes a <em>base</em> object, a <em>qual</em> qualifier value and a <em>key</em> value, and resolves to a reference value. <em>ResolveProperty</em> takes the following steps:</p>
 <ol>
-<li>If <em>base</em> is a value whose type is one of { <code>XML</code>, <code>XMLList</code> }, return <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+<li>If <em>base</em> is a value whose type is one of { <code>XML</code>, <code>XMLList</code> }, return <em>XMLReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>).</li>
 <li>If <em>base</em> is a scope, return <em>ResolveScopeProperty</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
 <li>If <em>base</em> is a value whose type is <code>*</code> or if <em>key</em> is not a <code>String</code> or <code>Number</code> constant
 <ol>
-<li>Return <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>)</li>
+<li>Return <em>DynamicReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>)</li>
 </ol>
 </li>
 <li>Return undefined if <em>qual</em> is not undefined.</li>
@@ -302,7 +302,7 @@
 <ol>
 <li>If the static type of <em>base</em>[[<em>Object</em>]] is one of the types { <code>*</code>, <code>XML</code>, <code>XMLList</code> }
 <ol>
-<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>)</li>
+<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>)</li>
 </ol>
 </li>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(<em>base</em>[[<em>Object</em>]], <em>qual</em>, <em>key</em>, <em>disambiguation</em>)</li>
@@ -311,7 +311,7 @@
 </li>
 <li>If <em>base</em> is a filter operator scope
 <ol>
-<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>).</li>
+<li>Return <em>DynamicScopeReferenceValue</em>(<em>base</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>).</li>
 </ol>
 </li>
 <li>Let <em>r</em> be undefined.</li>

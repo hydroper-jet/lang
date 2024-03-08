@@ -1,7 +1,6 @@
 # Summary
 
 - [Overview](overview.md)
-  - [Example programs](overview/example-programs.md)
   - [Package management](overview/jetpm.md)
   - [Documentation](overview/jetdoc.md)
   - [Compilation](overview/compilation.md)

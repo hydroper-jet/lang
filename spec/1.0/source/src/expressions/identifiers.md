@@ -95,7 +95,12 @@ The qualifier *PropertyIdentifier* preceding the <b>::</b> punctuator is treated
   * Verify *qid* as such production limited to the `Namespace` type.
   * Let the qualifier be the value of *qid*.
 
-The qualifier *ParenExpression* preceding the <b>::</b> punctuator must be of the `Namespace` type.
+The qualifier *ParenExpression* preceding the <b>::</b> punctuator is treated as follows:
+
+* If it consists of the **fixed** or **dynamic** expression *e*
+  * Assign *disambiguation* = string of the *e*
+* Else
+  * Limit the *ParenExpression* symbol to the `Namespace` type.
 
 *Brackets* must be of the `String` type.
 

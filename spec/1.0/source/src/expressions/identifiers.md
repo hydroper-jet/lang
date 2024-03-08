@@ -2,6 +2,28 @@
 
 **Syntax**
 
+```
+x
+*
+q::x
+q::[k]     ;
+(q)::x     ;
+(q)::[k]   ;
+@x
+@[k]
+@q::x
+@q::[k]
+@(q)::x
+@(q)::[k]
+```
+
+*Fixed versus dynamic*: the qualifiers `fixed` and `dynamic` are reserved, parenthesized or not.
+
+```
+o.fixed::x
+o.dynamic::x
+```
+
 <table>
     <tr>
         <td colspan="2"><i>PropertyIdentifier</i></td>

@@ -13,7 +13,7 @@ About platforms:
 * **UE**: I have interest in supporting Unreal Engine if I could figure out a way to magically translate Jet bytecode into hidden C++ and do a lot of internal tricks, but I'm not really that experienced with C++ nor do I've any experience with Unreal Engine.
 * **Browser**: Another interesting platform is the browser, as websites could be developed, usually through XML components similiar to Apache Royale or Apache Flex.
 
-Although I'm strenghtening myself to implement the base language compiler, it's being too boring to do it alone. I'm pretty motivated, though! Just a little slow, though. Paused at verification. I'd not like to be the only head of the project...
+Although I'm strenghtening myself to implement the base language compiler, it's being too stressful. I'd like to continue doing it open-source and free, despite the efforts...
 
 The language is not fully featured as TypeScript as it does not include a throughout type system and type inference; rather it relies more on explicitness in certain contexts where required to take advantage of ahead-of-time verification (including `T(v)` for either conversion or indicating a context type), but it does support basic type inference anyway, including for the object initializer, the array initializer, string literal for enumerations, among others.
 
@@ -51,7 +51,7 @@ I don't feel like using Haxe as I find it complex.
 
 Simply, there's no language that satisfies me. Jet aims to improve on ActionScript 3 and not implement everything of TypeScript, Haxe or ECMAScript 4 (although I find ECMAScript 4 less complex than TypeScript or Haxe, although it did have different features such as three dimensional properties and units).
 
-It might be a waste of time as I could be implementing a game or something else, but I'm not really happy to develop something with these existing technologies.
+It might be a waste of time as I could be implementing a game or something else, but I'm not really happy to develop something with these existing technologies and I'm sure many of you like the language design and art.
 
 So I invite you to visit several parts of the progress specification to see if it suits your needs:
 

@@ -46,15 +46,31 @@
   * [ ] Methods such as `replace()` that accept a replacement callback function pass matches in a dedicated argument instead of passing ordinary arguments.
 * [ ] Map
   * [ ] `Map` is marked final
+  * [ ] `new Map(iterable: * = undefined)`
   * [ ] `proxy::keys(): Iterator.<K>`
   * [ ] `proxy::values(): Iterator.<[K, V]>`
   * [ ] `proxy::getProperty(key: K): V?`
   * [ ] `proxy::setProperty(key: K, value: V): void`
   * [ ] `proxy::deleteProperty(key: K): Boolean`
+  * [ ] `entries(): Iterator.<[K, V]>`
+  * [ ] `keys(): Iterator.<K>`
+  * [ ] `values(): Iterator.<V>`
   * [ ] `clear()`
   * [ ] `length`
 * [ ] `Set.<T>`
+  * Description: setting a property to `false` is equivalent to property deletion.
+  * [ ] `Set` is marked final
+  * [ ] `new Set(iterable: * = undefined)`
+  * [ ] `proxy::keys(): Iterator.<T>`
+  * [ ] `proxy::values(): Iterator.<T>`
+  * [ ] `proxy::getProperty(key: T): Boolean?`
+  * [ ] `proxy::setProperty(key: T, value: Boolean): void`
+  * [ ] `proxy::deleteProperty(key: T): Boolean`
+  * [ ] `entries(): Iterator.<[T, Boolean]>`
+  * [ ] `keys(): Iterator.<T>`
+  * [ ] `values(): Iterator.<T>`
   * [ ] `clear()`
+  * [ ] `length`
 * [ ] XML
   * [ ] `XML` is marked final
 * [ ] XMLList

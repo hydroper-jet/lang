@@ -84,13 +84,22 @@
 
 The *Identifier* and *IdentifierName* productions of *PropertyIdentifier* result into a string consisting of the respective identifier characters. The <b>*</b> production of *PropertyIdentifier* results into the <b>*</b> string.
 
-The qualifier *PropertyIdentifier* preceding the <b>::</b> punctuator translates to a *PrimaryExpression* **:** *QualifiedIdentifier* and is verified as such production limited to the `Namespace` type.
+* Let *disambiguation* be **default**.
+
+The qualifier *PropertyIdentifier* preceding the <b>::</b> punctuator is treated as follows:
+
+* If it is equals **fixed** or **dynamic**
+  * Assign *disambiguation* = string of *PropertyIdentifier*
+* Else
+  * Let *qid* be the translation of it into a *PrimaryExpression* **:** *QualifiedIdentifier*.
+  * Verify *qid* as such production limited to the `Namespace` type.
+  * Let the qualifier be the value of *qid*.
 
 The qualifier *ParenExpression* preceding the <b>::</b> punctuator must be of the `Namespace` type.
 
 *Brackets* must be of the `String` type.
 
-Verifying *QualifiedIdentifier* results into a (*qual*, *key*) group consisting of an optional `Namespace` object and a `String` value respectively.
+Verifying *QualifiedIdentifier* results into a (*qual*, *key*, *disambiguation*) group consisting of an optional qualifier `Namespace` object, a key `String` value and *disambiguation* respectively.
 
 **Evaluation**
 

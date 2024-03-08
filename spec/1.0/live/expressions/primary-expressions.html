@@ -280,8 +280,8 @@
 </ul>
 <p><i>PrimaryExpression</i> : <i>QualifiedIdentifier</i></p>
 <ul>
-<li>Let (<em>qual</em>, <em>key</em>) be the result of verifying the nonterminal symbol on right-hand side of the production.</li>
-<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>current scope</em>, <em>qual</em>, <em>key</em>).</li>
+<li>Let (<em>qual</em>, <em>key</em>, <em>disambiguation</em>) be the result of verifying the nonterminal symbol on right-hand side of the production.</li>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>current scope</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>).</li>
 <li>It is a verify error if <em>r</em> is undefined.</li>
 <li>It is a verify error if <a href="../visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<em>r</em>, <em>current scope</em>) is false.</li>
 <li>It is a verify error if <em>r</em> is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.</li>

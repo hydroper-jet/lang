@@ -101,8 +101,8 @@
 
 <i>PrimaryExpression</i> : <i>QualifiedIdentifier</i>
 
-* Let (*qual*, *key*) be the result of verifying the nonterminal symbol on right-hand side of the production.
-* Let *r* be *ResolveProperty*(*current scope*, *qual*, *key*).
+* Let (*qual*, *key*, *disambiguation*) be the result of verifying the nonterminal symbol on right-hand side of the production.
+* Let *r* be *ResolveProperty*(*current scope*, *qual*, *key*, *disambiguation*).
 * It is a verify error if *r* is undefined.
 * It is a verify error if [*PropertyIsVisible*](*r*, *current scope*) is false.
 * It is a verify error if *r* is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.

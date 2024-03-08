@@ -3714,10 +3714,27 @@ new File(import.meta.output)
 </table>
 <p><strong>Verification</strong></p>
 <p>The <em>Identifier</em> and <em>IdentifierName</em> productions of <em>PropertyIdentifier</em> result into a string consisting of the respective identifier characters. The <b><em></b> production of <em>PropertyIdentifier</em> results into the <b></em></b> string.</p>
-<p>The qualifier <em>PropertyIdentifier</em> preceding the <b>::</b> punctuator translates to a <em>PrimaryExpression</em> <strong>:</strong> <em>QualifiedIdentifier</em> and is verified as such production limited to the <code>Namespace</code> type.</p>
+<ul>
+<li>Let <em>disambiguation</em> be <strong>default</strong>.</li>
+</ul>
+<p>The qualifier <em>PropertyIdentifier</em> preceding the <b>::</b> punctuator is treated as follows:</p>
+<ul>
+<li>If it is equals <strong>fixed</strong> or <strong>dynamic</strong>
+<ul>
+<li>Assign <em>disambiguation</em> = string of <em>PropertyIdentifier</em></li>
+</ul>
+</li>
+<li>Else
+<ul>
+<li>Let <em>qid</em> be the translation of it into a <em>PrimaryExpression</em> <strong>:</strong> <em>QualifiedIdentifier</em>.</li>
+<li>Verify <em>qid</em> as such production limited to the <code>Namespace</code> type.</li>
+<li>Let the qualifier be the value of <em>qid</em>.</li>
+</ul>
+</li>
+</ul>
 <p>The qualifier <em>ParenExpression</em> preceding the <b>::</b> punctuator must be of the <code>Namespace</code> type.</p>
 <p><em>Brackets</em> must be of the <code>String</code> type.</p>
-<p>Verifying <em>QualifiedIdentifier</em> results into a (<em>qual</em>, <em>key</em>) group consisting of an optional <code>Namespace</code> object and a <code>String</code> value respectively.</p>
+<p>Verifying <em>QualifiedIdentifier</em> results into a (<em>qual</em>, <em>key</em>, <em>disambiguation</em>) group consisting of an optional qualifier <code>Namespace</code> object, a key <code>String</code> value and <em>disambiguation</em> respectively.</p>
 <p><strong>Evaluation</strong></p>
 <p>The qualifier <em>PropertyIdentifier</em> preceding the <b>::</b> punctuator translates to a <em>PrimaryExpression</em> <strong>:</strong> <em>QualifiedIdentifier</em> and is evaluated as such production.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="primary-expressions"><a class="header" href="#primary-expressions">Primary expressions</a></h1>
@@ -3828,8 +3845,8 @@ new File(import.meta.output)
 </ul>
 <p><i>PrimaryExpression</i> : <i>QualifiedIdentifier</i></p>
 <ul>
-<li>Let (<em>qual</em>, <em>key</em>) be the result of verifying the nonterminal symbol on right-hand side of the production.</li>
-<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>current scope</em>, <em>qual</em>, <em>key</em>).</li>
+<li>Let (<em>qual</em>, <em>key</em>, <em>disambiguation</em>) be the result of verifying the nonterminal symbol on right-hand side of the production.</li>
+<li>Let <em>r</em> be <em>ResolveProperty</em>(<em>current scope</em>, <em>qual</em>, <em>key</em>, <em>disambiguation</em>).</li>
 <li>It is a verify error if <em>r</em> is undefined.</li>
 <li>It is a verify error if <a href="expressions/../visibility.html#propertyisvisible"><em>PropertyIsVisible</em></a>(<em>r</em>, <em>current scope</em>) is false.</li>
 <li>It is a verify error if <em>r</em> is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.</li>

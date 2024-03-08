@@ -17,7 +17,7 @@ q::[k]     ;
 @(q)::[k]
 ```
 
-*Fixed versus dynamic*: the qualifiers `fixed` and `dynamic` are reserved.
+*Fixed versus dynamic*: the qualifier identifiers `fixed` and `dynamic` are reserved words used for indicating a property disambiguation.
 
 ```
 o.fixed::x

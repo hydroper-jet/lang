@@ -21,11 +21,11 @@ myDataText.write("Text");
 [Plain meta-data](metadata/plain-metadata.md) support file entries resolving files from the JetPM output directory path through the `output + "path/to/file"` form.
 
 ```
-package com.khronos.opengl {
-    [DLL(library = File(output + "opengl.dll"))]
+package q {
+    [DLL(library = File(output + "q.dll"))]
     internal class DLL {
-        [DLL(name = "glcreatecontext")]
-        public native function createContext(): void;
+        [DLL(name = "f")]
+        public native function f(): void;
     }
 }
 ```

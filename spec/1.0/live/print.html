@@ -3337,11 +3337,11 @@ myDataText.write("Text");
 </code></pre>
 <h2 id="meta-data-entries"><a class="header" href="#meta-data-entries">Meta-data entries</a></h2>
 <p><a href="metadata/plain-metadata.html">Plain meta-data</a> support file entries resolving files from the JetPM output directory path through the <code>output + "path/to/file"</code> form.</p>
-<pre><code>package com.khronos.opengl {
-    [DLL(library = File(output + "opengl.dll"))]
+<pre><code>package q {
+    [DLL(library = File(output + "q.dll"))]
     internal class DLL {
-        [DLL(name = "glcreatecontext")]
-        public native function createContext(): void;
+        [DLL(name = "f")]
+        public native function f(): void;
     }
 }
 </code></pre>

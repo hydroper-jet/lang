@@ -2,11 +2,11 @@
 
 The language is integrated with JetPM, a package manager that supports a Jet build system, conditional compilation, and workspaces.
 
-A JetPM package belongs to a *platform*.
+Different from packages in other package managers, a JetPM package belongs to a *platform*, and platforms do not coincide.
 
 ## Build system
 
-The package manifest locates Jet source files, enabling JetPM to build a project through a concise command such as `jetpm build`, resulting into artifact code.
+The package manifest locates Jet source files, enabling JetPM to build a project through a concise command such as `jet build`, resulting into artifact code.
 
 Here is an example package manifest:
 
@@ -44,18 +44,20 @@ Here is an example of a potential package manifest that uses `http://ns.airsdk.d
 }
 ```
 
-Supported platforms may be installed through `jetpm platform install "uri"`. If the URI uses a `file:` scheme it locates an user platform in the development device.
+*Platform installation*: Supported platforms may be installed through `jet platform install "uri"`. If the URI uses a `file:` scheme it locates an user platform in the development device.
 
-Platforms use a customized compiler built with the Jet Compiler codebase that is able to compile source files other than the `.jet` file extension.
+*Compiler*: Platforms use a customized compiler built with the Jet Compiler codebase that is able to compile source files other than the `.jet` file extension.
+
+*Debugging*: The effect of the `jet run` command is up to the platform.
 
 ## Conditional compilation
 
 The JetPM build system receives *constants* supplied by build commands, which may be used with [conditional compilation](conditional-compilation.md).
 
 ```plain
-jetpm build --define myConstant
-jetpm build --define myConstant=10
-jetpm build --define q::myConstant=10
+jet build --define myConstant
+jet build --define myConstant=10
+jet build --define q::myConstant=10
 ```
 
 The top-level `configuration` property of the package manifest specifies the manifest properties in a conditional way. The matching branches are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.
@@ -104,8 +106,8 @@ Here is an example package manifest using the `configuration` setting:
 Here are example JetPM commands passing configuration constants:
 
 ```plain
-jetpm build --define someConstant
-jetpm build --define air::target=ios
+jet build --define someConstant
+jet build --define air::target=ios
 ```
 
 ## Scripts

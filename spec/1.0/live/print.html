@@ -203,9 +203,9 @@ const y1: Number = 10
 <p>In the above program, the <code>y1</code> constant may be shadowed by the <code>y1</code> package alias in certain occasions: when a property defined in the <code>y1</code> package alias matches with the identifier name of a property accessed from the dot operator in the <code>y1</code> base.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="package-management"><a class="header" href="#package-management">Package management</a></h1>
 <p>The language is integrated with JetPM, a package manager that supports a Jet build system, conditional compilation, and workspaces.</p>
-<p>A JetPM package belongs to a <em>platform</em>.</p>
+<p>Different from packages in other package managers, a JetPM package belongs to a <em>platform</em>, and platforms do not coincide.</p>
 <h2 id="build-system"><a class="header" href="#build-system">Build system</a></h2>
-<p>The package manifest locates Jet source files, enabling JetPM to build a project through a concise command such as <code>jetpm build</code>, resulting into artifact code.</p>
+<p>The package manifest locates Jet source files, enabling JetPM to build a project through a concise command such as <code>jet build</code>, resulting into artifact code.</p>
 <p>Here is an example package manifest:</p>
 <p><strong>package.json</strong></p>
 <pre><code class="language-json">{
@@ -231,13 +231,14 @@ const y1: Number = 10
     }
 }
 </code></pre>
-<p>Supported platforms may be installed through <code>jetpm platform install "uri"</code>. If the URI uses a <code>file:</code> scheme it locates an user platform in the development device.</p>
-<p>Platforms use a customized compiler built with the Jet Compiler codebase that is able to compile source files other than the <code>.jet</code> file extension.</p>
+<p><em>Platform installation</em>: Supported platforms may be installed through <code>jet platform install "uri"</code>. If the URI uses a <code>file:</code> scheme it locates an user platform in the development device.</p>
+<p><em>Compiler</em>: Platforms use a customized compiler built with the Jet Compiler codebase that is able to compile source files other than the <code>.jet</code> file extension.</p>
+<p><em>Debugging</em>: The effect of the <code>jet run</code> command is up to the platform.</p>
 <h2 id="conditional-compilation"><a class="header" href="#conditional-compilation">Conditional compilation</a></h2>
 <p>The JetPM build system receives <em>constants</em> supplied by build commands, which may be used with <a href="overview/conditional-compilation.html">conditional compilation</a>.</p>
-<pre><code class="language-plain">jetpm build --define myConstant
-jetpm build --define myConstant=10
-jetpm build --define q::myConstant=10
+<pre><code class="language-plain">jet build --define myConstant
+jet build --define myConstant=10
+jet build --define q::myConstant=10
 </code></pre>
 <p>The top-level <code>configuration</code> property of the package manifest specifies the manifest properties in a conditional way. The matching branches are combined and overriden properly in top-down sequence, including the program sources and the package dependencies.</p>
 <p>The key of each property in the <code>configuration</code> property is in one of the forms:</p>
@@ -278,8 +279,8 @@ jetpm build --define q::myConstant=10
 }
 </code></pre>
 <p>Here are example JetPM commands passing configuration constants:</p>
-<pre><code class="language-plain">jetpm build --define someConstant
-jetpm build --define air::target=ios
+<pre><code class="language-plain">jet build --define someConstant
+jet build --define air::target=ios
 </code></pre>
 <h2 id="scripts"><a class="header" href="#scripts">Scripts</a></h2>
 <p>The package manifest allows mapping of executable scripts, as well as their dependencies.</p>

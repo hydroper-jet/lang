@@ -176,9 +176,13 @@
 <p>This section describes facilities included in the language for working with the JetPM output directory.</p>
 <h2 id="importmetaoutput"><a class="header" href="#importmetaoutput">import.meta.output</a></h2>
 <p>The <code>import.meta.output</code> expression evaluates to the JetPM output directory path.</p>
-<pre><code>import com.nodejs.filesystem.*;
-new File(import.meta.output)
-    .resolvePath("my/data.txt").write("Text");
+<pre><code>import node.filesystem.*;
+
+// Locate {output}/my/data.txt
+const myDataTxt = new File(import.meta.output).resolvePath("my/data.txt");
+
+// Write to {output}/my/data.txt
+myDataTxt.write("Text");
 </code></pre>
 <h2 id="meta-data-entries"><a class="header" href="#meta-data-entries">Meta-data entries</a></h2>
 <p><a href="metadata/plain-metadata.html">Plain meta-data</a> support file entries resolving files from the JetPM output directory path through the <code>output + "path/to/file"</code> form.</p>

@@ -17,7 +17,7 @@ q::[k]     ;
 @(q)::[k]
 ```
 
-*Fixed versus dynamic*: the qualifiers `fixed` and `dynamic` are reserved, parenthesized or not.
+*Fixed versus dynamic*: the qualifiers `fixed` and `dynamic` are reserved.
 
 ```
 o.fixed::x
@@ -119,10 +119,7 @@ The qualifier *PropertyIdentifier* preceding the <b>::</b> punctuator is treated
 
 The qualifier *ParenExpression* preceding the <b>::</b> punctuator is treated as follows:
 
-* If it consists of the **fixed** or **dynamic** expression *e*
-  * Assign *disambiguation* = string of the *e*
-* Else
-  * Limit the *ParenExpression* symbol to the `Namespace` type.
+* Limit the *ParenExpression* symbol to the `Namespace` type.
 
 *Brackets* must be of the `String` type.
 

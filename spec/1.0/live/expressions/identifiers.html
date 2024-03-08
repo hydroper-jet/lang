@@ -187,7 +187,7 @@ q::[k]     ;
 @(q)::x
 @(q)::[k]
 </code></pre>
-<p><em>Fixed versus dynamic</em>: the qualifiers <code>fixed</code> and <code>dynamic</code> are reserved, parenthesized or not.</p>
+<p><em>Fixed versus dynamic</em>: the qualifiers <code>fixed</code> and <code>dynamic</code> are reserved.</p>
 <pre><code>o.fixed::x
 o.dynamic::x
 </code></pre>
@@ -285,16 +285,7 @@ o.dynamic::x
 </ul>
 <p>The qualifier <em>ParenExpression</em> preceding the <b>::</b> punctuator is treated as follows:</p>
 <ul>
-<li>If it consists of the <strong>fixed</strong> or <strong>dynamic</strong> expression <em>e</em>
-<ul>
-<li>Assign <em>disambiguation</em> = string of the <em>e</em></li>
-</ul>
-</li>
-<li>Else
-<ul>
 <li>Limit the <em>ParenExpression</em> symbol to the <code>Namespace</code> type.</li>
-</ul>
-</li>
 </ul>
 <p><em>Brackets</em> must be of the <code>String</code> type.</p>
 <p>Verifying <em>QualifiedIdentifier</em> results into a (<em>qual</em>, <em>key</em>, <em>disambiguation</em>) group consisting of an optional qualifier <code>Namespace</code> object, a key <code>String</code> value and <em>disambiguation</em> respectively.</p>

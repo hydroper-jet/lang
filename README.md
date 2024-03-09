@@ -35,6 +35,10 @@ Future plans:
 
 The compiler is not available in the present.
 
+## Patreon
+
+[Here is the Patreon post](https://www.patreon.com/posts/100015866) for this project.
+
 ## License
 
 Apache License 2.0

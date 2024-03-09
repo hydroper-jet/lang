@@ -196,7 +196,7 @@ myDataText.write("Text");
 </code></pre>
 <h2 id="embedding-files"><a class="header" href="#embedding-files">Embedding files</a></h2>
 <p>The <code>embed</code> expression supports embedding files from the JetPM output directory.</p>
-<pre><code>const byteArray = embed {
+<pre><code>const bytes = embed {
     source: output + "auto/generated.bin",
     type: ByteArray,
 }

@@ -7,7 +7,7 @@ const text = embed {
     source: "path/to/data.txt",
     type: String,
 }
-const byteArray = embed {
+const bytes = embed {
     source: "path/to/data.bin",
     type: ByteArray,
 }
@@ -16,7 +16,7 @@ const byteArray = embed {
 The embed expression allows resolving files from the JetPM output directory:
 
 ```
-const byteArray = embed {
+const bytes = embed {
     source: output + "auto/generated.bin",
     type: ByteArray,
 }

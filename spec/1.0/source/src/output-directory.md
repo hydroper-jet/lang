@@ -35,7 +35,7 @@ package q {
 The `embed` expression supports embedding files from the JetPM output directory.
 
 ```
-const byteArray = embed {
+const bytes = embed {
     source: output + "auto/generated.bin",
     type: ByteArray,
 }

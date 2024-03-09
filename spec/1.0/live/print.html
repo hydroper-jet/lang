@@ -3327,7 +3327,7 @@ myDataText.write("Text");
 </code></pre>
 <h2 id="embedding-files"><a class="header" href="#embedding-files">Embedding files</a></h2>
 <p>The <code>embed</code> expression supports embedding files from the JetPM output directory.</p>
-<pre><code>const byteArray = embed {
+<pre><code>const bytes = embed {
     source: output + "auto/generated.bin",
     type: ByteArray,
 }
@@ -4547,13 +4547,13 @@ array[0] === undefined
     source: "path/to/data.txt",
     type: String,
 }
-const byteArray = embed {
+const bytes = embed {
     source: "path/to/data.bin",
     type: ByteArray,
 }
 </code></pre>
 <p>The embed expression allows resolving files from the JetPM output directory:</p>
-<pre><code>const byteArray = embed {
+<pre><code>const bytes = embed {
     source: output + "auto/generated.bin",
     type: ByteArray,
 }

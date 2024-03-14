@@ -2,9 +2,13 @@
   <img src="./snippets/ExampleFlex.png" width="665">
 </p>
 
-The Jet language is a flexible scripting language influenced by ActionScript.
+Hydroper© Jet language is a flexible scripting language influenced by ActionScript.
 
-> **Note**: Jet is partially documented and its compiler is being implemented.
+> **Note**: Jet is partially documented and its compiler is not fully implemented.
+
+## Last update on Jet
+
+* [Slide](https://docs.google.com/presentation/d/1n-eNVfNv_ppI3fTyaPv6ov14tjcDbjeIz53sDRCtj5k)
 
 ## Applicable technologies
 
@@ -34,10 +38,6 @@ Future plans:
 ## Compiler
 
 The compiler is not available in the present.
-
-## Patreon
-
-[Here is the Patreon post](https://www.patreon.com/posts/100015866) for this project.
 
 ## License
 

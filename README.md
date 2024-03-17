@@ -6,10 +6,6 @@ Hydroper© Jet language is a flexible scripting language influenced by ActionScr
 
 > **Note**: Jet is partially documented and its compiler is not fully implemented.
 
-## Last update on Jet
-
-* [Slide](https://docs.google.com/presentation/d/1n-eNVfNv_ppI3fTyaPv6ov14tjcDbjeIz53sDRCtj5k)
-
 ## Applicable technologies
 
 Primary plans:

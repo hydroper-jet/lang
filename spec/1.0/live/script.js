@@ -5,6 +5,11 @@
         document.querySelector("html").setAttribute("data-dark", localStorage.getItem("dark") == "true");
     }
 
+    if (window.innerWidth < 961) {
+        const htmlElement = document.querySelector("html");
+        htmlElement.setAttribute("data-sidebar", "false");
+    }
+
     // Toggle sidebar
 
     const toggleSidebarButton = document.querySelector("#menubar #toggleSidebar");

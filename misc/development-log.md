@@ -83,6 +83,8 @@ So far, I've used the following project names:
 * JetWork (2024)
 * Jet (2024)
 
+As of 21 of March, 2024, I've substantially updated the language specification such that it uses a specific structure. The layout is close to ECMA-357 second edition.
+
 ## Logo and banners
 
 * Published in February 10 of 2024, 3:49 PM (15:49) GMT-3: https://github.com/hydroper-jet/lang/commit/3ecb228c8ff0b475ac0afb9f8c60d40077cb9cca

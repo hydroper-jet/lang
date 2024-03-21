@@ -1,3 +1,3 @@
 # Expressions
 
-The syntactic grammar for expressions declares the β parameter, which is assigned either `allowIn` or `noIn`.
+The syntactic grammar for expressions declares the **β** superscript, which denotes a pair of definitions: **allowIn** and **noIn**.

@@ -1,103 +1,57 @@
-# Postfix expressions
+# Postfix Expressions
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>PostfixExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullPostfixExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ShortNewExpression</i></td>
-    </tr>
-</table>
+<ul>
+    <i>PostfixExpression</i> :
+    <ul>
+        <i>FullPostfixExpression</i><br>
+        <i>ShortNewExpression</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>FullPostfixExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>PrimaryExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>MetaProperty</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullNewExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullPostfixExpression</i> <i>PropertyOperator</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>SuperExpression</i> <i>PropertyOperator</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullPostfixExpression</i> <i>NonNull</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullPostfixExpression</i> <i>Arguments</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullPostfixExpression</i> <i>TypeArguments</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullPostfixExpression</i> <i>QueryOperator</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullPostfixExpression</i> [no line break] <b>++</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullPostfixExpression</i> [no line break] <b>--</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullPostfixExpression</i> <i>OptionalChaining</i></td>
-    </tr>
-</table>
+<ul>
+    <i>FullPostfixExpression</i> :
+    <ul>
+        <i>PrimaryExpression</i><br>
+        <i>MetaProperty</i><br>
+        <i>FullNewExpression</i><br>
+        <i>FullPostfixExpression</i> <i>PropertyOperator</i><br>
+        <i>SuperExpression</i> <i>PropertyOperator</i><br>
+        <i>FullPostfixExpression</i> <i>NonNull</i><br>
+        <i>FullPostfixExpression</i> <i>Arguments</i><br>
+        <i>FullPostfixExpression</i> <i>TypeArguments</i><br>
+        <i>FullPostfixExpression</i> <i>QueryOperator</i><br>
+        <i>FullPostfixExpression</i> [no line break] <b>++</b><br>
+        <i>FullPostfixExpression</i> [no line break] <b>--</b><br>
+        <i>FullPostfixExpression</i> <i>OptionalChaining</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>NonNull</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>!</b></td>
-    </tr>
-</table>
+<ul>
+    <i>NonNull</i> :
+    <ul>
+        <b>!</b>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>OptionalChaining</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>?.</b> <i>QualifiedIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>?.</b> <i>Brackets</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>?.</b> <i>Arguments</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>OptionalChaining</i> <i>PropertyOperator</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>OptionalChaining</i> <i>NonNull</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>OptionalChaining</i> <i>Arguments</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>OptionalChaining</i> <i>TypeArguments</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>OptionalChaining</i> <i>QueryOperator</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>OptionalChaining</i> <i>OptionalChaining</i></td>
-    </tr>
-</table>
+<ul>
+    <i>OptionalChaining</i> :
+    <ul>
+        <b>?.</b> <i>QualifiedIdentifier</i><br>
+        <b>?.</b> <i>Brackets</i><br>
+        <b>?.</b> <i>Arguments</i><br>
+        <i>OptionalChaining</i> <i>PropertyOperator</i><br>
+        <i>OptionalChaining</i> <i>NonNull</i><br>
+        <i>OptionalChaining</i> <i>Arguments</i><br>
+        <i>OptionalChaining</i> <i>TypeArguments</i><br>
+        <i>OptionalChaining</i> <i>QueryOperator</i><br>
+        <i>OptionalChaining</i> <i>OptionalChaining</i>
+    </ul>
+</ul>
 
 **Semantics**
 
-Fully qualified names are preprocessed on postfix expressions by calling [*ResolveFullyQualifiedName*(postfix expression)](../fully-qualified-names.md#resolvefullyqualifiednamee).
+Fully qualified names are preprocessed on postfix expressions by calling [*ResolveFullyQualifiedName*](postfix expression).
+
+[*ResolveFullyQualifiedName*]: #sec-resolvefullyqualifiedname

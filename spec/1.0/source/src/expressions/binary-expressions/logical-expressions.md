@@ -1,39 +1,27 @@
-# Logical expressions
+# Logical Expressions
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>LogicalAndExpression</i><sup>β</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>BitwiseOrExpression</i><sup>β</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>LogicalAndExpression</i><sup>β</sup> <b>&amp;&amp;</b> <i>BitwiseOrExpression</i><sup>β</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>LogicalAndExpression</i><sup>β</sup> :
+    <ul>
+        <i>BitwiseOrExpression</i><sup>β</sup><br>
+        <i>LogicalAndExpression</i><sup>β</sup> <b>&amp;&amp;</b> <i>BitwiseOrExpression</i><sup>β</sup>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>LogicalXorExpression</i><sup>allowIn</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>LogicalAndExpression</i><sup>β</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>LogicalXorExpression</i><sup>β</sup> <b>^^</b> <i>LogicalAndExpression</i><sup>β</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>LogicalXorExpression</i><sup>allowIn</sup> :
+    <ul>
+        <i>LogicalAndExpression</i><sup>β</sup><br>
+        <i>LogicalXorExpression</i><sup>β</sup> <b>^^</b> <i>LogicalAndExpression</i><sup>β</sup>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>LogicalOrExpression</i><sup>allowIn</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>LogicalXorExpression</i><sup>β</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>LogicalOrExpression</i><sup>β</sup> <b>||</b> <i>LogicalXorExpression</i><sup>β</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>LogicalOrExpression</i><sup>allowIn</sup> :
+    <ul>
+        <i>LogicalXorExpression</i><sup>β</sup><br>
+        <i>LogicalOrExpression</i><sup>β</sup> <b>||</b> <i>LogicalXorExpression</i><sup>β</sup>
+    </ul>
+</ul>

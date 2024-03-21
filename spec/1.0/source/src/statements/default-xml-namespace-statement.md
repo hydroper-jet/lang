@@ -1,12 +1,10 @@
-# Default XML namespace statement
+# Default XML Namespace Statement
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>DefaultXMLNamespaceStatement</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>default</b> [no line break] <b>xml</b> [no line break] <b>namespace =</b> <i>NonAssignmentExpression</i><sup>allowIn</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>DefaultXMLNamespaceStatement</i> :
+    <ul>
+        <b>default</b> [no line break] <b>xml</b> [no line break] <b>namespace =</b> <i>NonAssignmentExpression</i><sup>allowIn</sup>
+    </ul>
+</ul>

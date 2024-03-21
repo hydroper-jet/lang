@@ -1,25 +1,22 @@
-<p align="center">
-  <img src="./snippets/ExampleFlex.png" width="665">
-</p>
+# Jet Language
 
-Hydroper© Jet language is a flexible scripting language influenced by ActionScript.
+Hydroper© Jet is a flexible scripting language to be integrated into existing software.
 
-> **Note**: Jet is partially documented and its compiler is not fully implemented.
+*Note: Jet includes partial specification and its compiler is not fully implemented.*
 
-## Applicable technologies
+## Technologies
 
 Primary plans:
 
-| URI | Description |
-| --- | ----------- |
-| `http://ns.airsdk.dev/2008` | Build applications and games in the mature AIR platform maintained by Samsung HARMAN ([website](https://airsdk.dev)). |
-| `http://ns.nodejs.org/2009` | Build processes and command-line applications using Node.js®. |
+| Name | Description |
+| ---- | ----------- |
+| Node.js® | Build processes and command-line applications using Node.js®. |
 
 Future plans:
 
-| URI | Description |
-| --- | ----------- |
-| `http://ns.unrealengine.com/5` | Build games and simulations using Unreal Engine. |
+| Name | Description |
+| ---- | ----------- |
+| Unreal Engine | Build games and simulations using Unreal Engine. |
 
 ## Documents
 

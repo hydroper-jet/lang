@@ -1,6 +1,6 @@
 # Asynchronous and generators
 
-Specify the behavior of the `return` statement, the `yield` operator and `await` operator carefully, since the enclosing asynchronous function may also be a generator function.
+Specify the behavior of the `return` statement, the `yield` operator and `await` operator carefully, since the enclosing asynchronous method may also be a generator method.
 
 Possible combinations:
 

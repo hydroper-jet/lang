@@ -1,177 +1,118 @@
-# Type expressions
+# Type Expressions
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>TypeExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>?</b> <i>TypeExpression</i><sup>noPrefix</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>TypeExpression</i> :
+    <ul>
+        <i>TypeExpression</i><sup>noPrefix</sup><br>
+        <b>?</b> <i>TypeExpression</i><sup>noPrefix</sup>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>TypeExpression</i><sup>noPrefix</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>*</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Identifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>void</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>&#x5B;</b> <i>TypeExpression</i> <b>&#x5D;</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>&#x28;</b> <i>TypeExpression</i> <b>&#x29;</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TupleTypeExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FunctionTypeExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <b>.</b> <i>IdentifierName</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <i>TypeArguments</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <b>?</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TypeExpression</i><sup>noPrefix</sup> <b>!</b></td>
-    </tr>
-</table>
+<ul>
+    <i>TypeExpression</i><sup>noPrefix</sup> :
+    <ul>
+        <b>*</b><br>
+        <i>Identifier</i><br>
+        <b>void</b><br>
+        <b>&#x5B;</b> <i>TypeExpression</i> <b>&#x5D;</b><br>
+        <b>&#x28;</b> <i>TypeExpression</i> <b>&#x29;</b><br>
+        <i>TupleTypeExpression</i><br>
+        <i>FunctionTypeExpression</i><br>
+        <i>TypeExpression</i><sup>noPrefix</sup> <b>.</b> <i>IdentifierName</i><br>
+        <i>TypeExpression</i><sup>noPrefix</sup> <i>TypeArguments</i><br>
+        <i>TypeExpression</i><sup>noPrefix</sup> <b>?</b><br>
+        <i>TypeExpression</i><sup>noPrefix</sup> <b>!</b>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>TypeExpressionList</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TypeExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TypeExpressionList</i> <b>,</b> <i>TypeExpression</i></td>
-    </tr>
-</table>
+<ul>
+    <i>TypeExpressionList</i> :
+    <ul>
+        <i>TypeExpression</i><br>
+        <i>TypeExpressionList</i> <b>,</b> <i>TypeExpression</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>TypeArguments</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> <b>&gt;</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> [initial <b>&gt;</b> from the offending token]</td>
-    </tr>
-</table>
+<ul>
+    <i>TypeArguments</i> :
+    <ul>
+        <b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> <i>ParameterGreaterThan</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>TypeArgumentsList</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TypeExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TypeArgumentsList</i> <b>,</b> <i>TypeExpression</i></td>
-    </tr>
-</table>
+<ul>
+    <i>ParameterGreaterThan</i> :
+    <ul>
+        <b>&gt;</b><br>
+        first greater-than <b>&gt;</b> from the offending token
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>TupleTypeExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>&#x5B;</b> <i>TupleElementTypes</i> <b>&#x5D;</b></td>
-    </tr>
-</table>
+<ul>
+    <i>TypeArgumentsList</i> :
+    <ul>
+        <i>TypeExpression</i><br>
+        <i>TypeArgumentsList</i> <b>,</b> <i>TypeExpression</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>TupleElementTypes</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i><i>TypeExpression</i> <b>,</b> <i>TypeExpression</i></i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i><i>TupleElementTypes</i> <b>,</b> <i>TypeExpression</i></i></td>
-    </tr>
-</table>
+<ul>
+    <i>TupleTypeExpression</i> :
+    <ul>
+        <b>&#x5B;</b> <i>TupleElementTypes</i> <b>&#x5D;</b>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>FunctionTypeExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>function</b> <b>(</b> <i>FunctionTypeParameters</i> <b>)</b> <b>:</b> <i>TypeExpression</i></td>
-    </tr>
-</table>
+<ul>
+    <i>TupleElementTypes</i> :
+    <ul>
+        <i><i>TypeExpression</i> <b>,</b> <i>TypeExpression</i></i><br>
+        <i><i>TupleElementTypes</i> <b>,</b> <i>TypeExpression</i></i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>FunctionTypeParameters</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td>«empty»</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FunctionTypeParameter</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FunctionTypeParameters</i> <b>,</b> <i>FunctionTypeParameter</i></td>
-    </tr>
-</table>
+<ul>
+    <i>FunctionTypeExpression</i> :
+    <ul>
+        <b>function</b> <b>(</b> <i>FunctionTypeParameters</i> <b>)</b> <b>:</b> <i>TypeExpression</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>FunctionTypeParameter</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TypedIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FunctionTypeOptionalParameter</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>...</b> <i>TypedIdentifier</i></td>
-    </tr>
-</table>
+<ul>
+    <i>FunctionTypeParameters</i> :
+    <ul>
+        «empty»<br>
+        <i>FunctionTypeParameter</i><br>
+        <i>FunctionTypeParameters</i> <b>,</b> <i>FunctionTypeParameter</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>TypedIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>IdentifierName</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>IdentifierName</i> <b>:</b> <i>TypeExpression</i></td>
-    </tr>
-</table>
+<ul>
+    <i>FunctionTypeParameter</i> :
+    <ul>
+        <i>TypedIdentifier</i><br>
+        <i>FunctionTypeOptionalParameter</i><br>
+        <b>...</b> <i>TypedIdentifier</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>FunctionTypeOptionalParameter</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>IdentifierName</i> <b>?</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>IdentifierName</i> <b>?</b> <b>:</b> <i>TypeExpression</i></td>
-    </tr>
-</table>
+<ul>
+    <i>TypedIdentifier</i> :
+    <ul>
+        <i>IdentifierName</i><br>
+        <i>IdentifierName</i> <b>:</b> <i>TypeExpression</i>
+    </ul>
+</ul>
+
+<ul>
+    <i>FunctionTypeOptionalParameter</i> :
+    <ul>
+        <i>IdentifierName</i> <b>?</b><br>
+        <i>IdentifierName</i> <b>?</b> <b>:</b> <i>TypeExpression</i>
+    </ul>
+</ul>
 
 **Verification**
 
@@ -190,11 +131,11 @@
 
 <i>TypeExpression</i><sup>noPrefix</sup> : <i>Identifier</i>
 
-* Let *p* be *ResolveProperty*(*current scope*, undefined, string of <i>Identifier</i>)
+* Let *p* be *ResolveProperty*(*enclosing scope*, undefined, string of <i>Identifier</i>)
 * It is a verify error if *p* is undefined.
-* It is a verify error if [*PropertyIsVisible*](*p*, *current scope*) is false.
+* It is a verify error if [*PropertyIsVisible*](*p*, *enclosing scope*) is false.
 * It is a verify error if *p* is not a type and the rule is not followed by a postfix operator.
-* It is a verify error if *p* is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.
+* It is a verify error if *p* is a reference value that references a parameterized type and the expression is not followed by <i>TypeArguments</i>.
 * Return *p*.
 
 <i>TypeExpression</i><sup>noPrefix</sup> : <b>void</b>
@@ -219,14 +160,14 @@
 
 <i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <b>.</b> <i>IdentifierName</i>
 
-* Let *p* be [*ResolveFullyQualifiedName*](./fully-qualified-names.md#resolvefullyqualifiednamee)(type expression).
+* Let *p* be [*ResolveFullyQualifiedName*](#sec-resolvefullyqualifiedname)(type expression).
 * If *p* is not undefined
   * Return *p*.
 * Let *base* be the verification result of <i>TypeExpression</i><sup>noPrefix</sup>.
 * Let *p* be *ResolveProperty*(*base*, undefined, string of <i>IdentifierName</i>)
 * It is a verify error if *p* is undefined.
-* It is a verify error if [*PropertyIsVisible*](*p*, *current scope*) is false.
-* It is a verify error if *p* is a reference value that references a type parameterized type and the expression is not followed by <i>TypeArguments</i>.
+* It is a verify error if [*PropertyIsVisible*](*p*, *enclosing scope*) is false.
+* It is a verify error if *p* is a reference value that references a parameterized type and the expression is not followed by <i>TypeArguments</i>.
 * Return *p*.
 
 <i>TypeExpression</i><sup>noPrefix</sup> : <i>TypeExpression</i><sup>noPrefix</sup> <i>TypeArguments</i>
@@ -283,9 +224,8 @@
 
 * Return (string of <i>IdentifierName</i>, verification of <i>TypeExpression</i>)
 
-<i>TypeArguments</i> : <b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> <b>&gt;</b><br>
-<i>TypeArguments</i> : <b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> \[initial <b>&gt;</b> from the offending token\]
+<i>TypeArguments</i> : <b>.</b> <b>&lt;</b> <i>TypeArgumentsList</i> <i>ParameterGreaterThan</i>
 
 * Return the verification of each <i>TypeExpression</i> in <i>TypeArgumentsList</i> in a sequence.
 
-[*PropertyIsVisible*]: visibility.md#propertyisvisible
+[*PropertyIsVisible*]: #sec-propertyisvisible

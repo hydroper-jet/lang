@@ -1,23 +1,20 @@
-# Block statement
+# Block Statement
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>Block</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>&#x7B;</b> <i>Directives</i> <b>&#x7D;</b></td>
-    </tr>
-</table>
+<ul>
+    <i>Block</i> :
+    <ul>
+        <b>&#x7B;</b> <i>Directives</i> <b>&#x7D;</b>
+    </ul>
+</ul>
 
 **Semantics**
 
-The block statement is allowed to contain only plain meta-data.
+The block statement may contain meta-data.
 
 ```
-[N1(n2 = 10)]
-{
+[N1(n2 = 10)] {
     trace("Log")
 }
 ```

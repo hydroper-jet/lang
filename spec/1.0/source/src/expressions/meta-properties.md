@@ -1,25 +1,21 @@
-# Meta properties
+# Meta Properties
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>MetaProperty</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ImportMeta</i></td>
-    </tr>
-</table>
+<ul>
+    <i>MetaProperty</i> :
+    <ul>
+        <i>ImportMeta</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>ImportMeta</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>import</b> <b>.</b> <b>meta</b></td>
-    </tr>
-</table>
+<ul>
+    <i>ImportMeta</i> :
+    <ul>
+        <b>import</b> <b>.</b> <b>meta</b>
+    </ul>
+</ul>
 
 **Semantics**
 
-The `import.meta` expression returns the `import.meta` value. The `import.meta` value has the any type (`*`) and returns `undefined` wherever used.
+The **import.meta** expression returns the **import.meta** symbol. The **import.meta** symbol is a value is of the any type (**\***) and returns **undefined** wherever used unless a property accessor follows the expression.

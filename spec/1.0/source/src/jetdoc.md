@@ -1,8 +1,10 @@
 # JetDoc
 
-The Jet Language supports JetDoc comments featuring a Markdown format and miscellaneous `@` tags. In addition, JetPM packages may contain a JetDoc configuration file for attaching assets and additional sections.
+## Comments
 
-JetDoc comments begin with `/**` and are preprocessed by ignoring leading whitespace and asterisks in every line and follow the following format:
+JetDoc comments support a Markdown format and miscellaneous **@** tags.
+
+JetDoc comments begin with **/\*\*** and are preprocessed by ignoring leading whitespace and asterisks in every line and follow the following format:
 
 ```
 /**
@@ -14,15 +16,15 @@ The main body of a JetDoc comment, if non-empty, contains a first sentence which
 
 When preprocessing whitespace of a JetDoc comment, code blocks retain indentation based on the prefixing line characters:
 
-* If the line starts with zero or more whitespace characters followed by asterisk (`*`) followed by a single whitespace character, the indentantion level starts from after that last single whitespace character.
-* If the line starts with zero or more whitespace characters followed by asterisk (`*`), the indentantion level starts from after the asterisk character.
+* If the line starts with zero or more whitespace characters followed by asterisk (**\***) followed by a single whitespace character, the indentantion level starts from after that last single whitespace character.
+* If the line starts with zero or more whitespace characters followed by asterisk (**\***), the indentantion level starts from after the asterisk character.
 * Otherwise, the indentation level starts at the first character of the line.
 
 ## Supported tags
 
 ### @default
 
-The `@default` tag specifies a default value for a property in character form.
+The **@default** tag specifies a default value for a property in character form.
 
 ```
 package {
@@ -47,7 +49,7 @@ package {
 
 ### @event
 
-Event sections begin with an `@event` tag and may be supplemented by `@eventType`.
+Event sections begin with an **@event** tag and may be supplemented by **@eventType**.
 
 ```
 package {
@@ -69,10 +71,10 @@ package {
 
 ### @eventType
 
-The `@eventType` tag supplements the `@event` tag by specifying either:
+The **@eventType** tag supplements the **@event** tag by specifying either:
 
-* The class that represents the event.
-* A constant that identifies the event.
+* The class that represents the event object.
+* A constant that identifies the event, where the base class represents the event object.
 
 The class or constant reference inherits the surrounding scope.
 
@@ -92,7 +94,7 @@ package {
 
 ### @image
 
-The `@image` tag loads an image relative to the directory of the source file and saves it to the same JetDoc output directory of the containing package with the same filename.
+The **@image** tag loads an image relative to the directory of the source file and saves it to the same JetDoc output directory of the containing package with the same filename.
 
 ```
 /**
@@ -102,7 +104,7 @@ The `@image` tag loads an image relative to the directory of the source file and
 
 ### @internal
 
-The `@internal` tag is used to add an internal comment.
+The **@internal** tag is used to add an internal comment.
 
 ```
 package {
@@ -123,7 +125,7 @@ package {
 
 ### @private
 
-The `@private` tag omits a definition from the JetDoc public documentation and omits it from autocomplete lists in the language server protocol.
+The **@private** tag omits a definition from the JetDoc public documentation and omits it from autocomplete lists in the language server protocol.
 
 ```
 package expert.core {
@@ -144,7 +146,7 @@ package expert.core {
 
 ### @see
 
-The `@see` tag references a definition, with optional display text.
+The **@see** tag references a definition, with optional display text.
 
 ```
 /**
@@ -155,13 +157,13 @@ The `@see` tag references a definition, with optional display text.
  */
 ```
 
-A `#name` sequence in the end of a reference indicates an instance property or method.
+A **\#name** sequence in the end of a reference indicates an instance property or method.
 
 The reference inherits the surrounding scope.
 
 ### @throws
 
-The `@throws` tag indicates a thrown error by reference, with optional display text.
+The **@throws** tag indicates a thrown error by reference, with optional display text.
 
 ```
 /**
@@ -174,15 +176,15 @@ The reference inherits the surrounding scope.
 
 ## Future supported tags
 
-The `@copy` and `@inheritDoc` tags are planned for the future in JetDoc, which involve copying a JetDoc comment from another definition respectively. This requires the JetDoc compiler to update anchor links to point to the right location.
+The **@copy** and **@inheritDoc** tags are planned for a future version of JetDoc, which involve copying a JetDoc comment from another definition respectively. This requires the JetDoc compiler to update anchor links to point to the right location.
 
-`@copy` is planned to allow using a `#x` fragment to refer to instance properties and methods.
+**@copy** is planned to allow using a **\#x** fragment to refer to instance properties and methods.
 
 ## Configuration file
 
-The optional `jetdoc.json` file, located at the root directory of the JetPM package allows attaching assets and sections to the documentation.
+The optional **jetdoc.json** file, located at the directory of a JetDependencies package allows attaching assets and sections to the documentation. The **jetdoc.json** file contains descriptions encoded as a JSON object.
 
-The following JSON demonstrates an example `jetdoc.json` file:
+The following is an example of a **jetdoc.json** file:
 
 ```json
 {
@@ -206,24 +208,36 @@ The following JSON demonstrates an example `jetdoc.json` file:
 }
 ```
 
-### path property
+### Schema
 
-The top-level `path` property specifies the base path for resolving paths referenced in the top-level `files` property and in each section.
+#### path
 
-### files property
+**path** is a required property must be a string that specifies the base path for resolving paths referenced in the top-level **files** property and in each section.
 
-The top-level `files` property contains zero or more file paths using a match pattern. Files are resolved from the directory specified by the top-level `path` property.
+#### files
 
-### home property
+The optional **files** property must be an array containing zero or more strings as file paths that use a match pattern. Files are relative to the directory specified by the **path** property.
 
-The optional top-level `home` property specifies a home section.
+#### home
 
-### sections property
+The optional **home** property specifies a home section.
 
-The top-level `sections` property specifies zero or more sections other than the optional home section.
+#### sections
 
-A section may specify the following properties:
+The optional **sections** property specifies zero or more sections other than the optional home section.
 
-* `title` (required) — The section title as a string.
-* `path` (required) — The path to the Markdown document of the section, relative to the directory specified by the top-level `path` property.
-* `sections` (optional) — A list of subsections.
+#### Section
+
+A section must be an object.
+
+##### title
+
+The **title** property of a section is required and must be a string defining the section title.
+
+##### path
+
+The **path** property of a section is required and must be a string describing the path to the Markdown document relative to the directory specified by the **path** property of the **jetdoc.json** file.
+
+##### sections
+
+The **sections** property of a section is optional and must be an array containing zero or more subsections.

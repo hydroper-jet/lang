@@ -1,12 +1,12 @@
-# Package sets
+# Package Sets
 
-Package sets allow to resolve a property from a set of packages. Package sets are common in XML based frameworks built over the Jet Compiler codebase.
+Package sets allow to resolve a property from a set of packages.
 
-Package sets consist of the following internal properties:
+## Internal Properties
 
-| Internal property | Description |
-| ----------------- | ----------- |
-| \[\[*Name*\]\] | The unqualified name of the package set. |
-| \[\[*Visibility*\]\] | The [visibility](visibility.md) of the package set. |
-| \[\[*ParentDefinition*\]\] | Parent definition of the package set. |
+| Property | Description |
+| -------- | ----------- |
+| \[\[*Name*\]\] | The non qualified name of the package set. |
+| \[\[*Visibility*\]\] | The [visibility](#sec-visibility) of the package set. |
+| \[\[*Parent*\]\] | Parent definition of the package set. |
 | \[\[*Packages*\]\] | The packages within the set. |

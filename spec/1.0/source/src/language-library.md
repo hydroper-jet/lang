@@ -1,5 +1,5 @@
-# Language library
+# Language Library
 
-The `jet.lang.*` package defines all of the language's standard definitions such as `Number`, `String` and `undefined`.
+The **jet.lang** package defines all of the standard definitions of the Jet language, such as **Number**, **Boolean**, and **String**.
 
-> **Note**: This section is incomplete in the present.
+*Note: this section is incomplete in the present.*

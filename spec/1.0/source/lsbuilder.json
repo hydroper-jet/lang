@@ -1,0 +1,354 @@
+{
+    "title": "Jet Specification",
+    "output": "../live",
+    "assetFiles": [
+        "assets/compilation-cycle.png"
+    ],
+    "homeFile": "src/home.md",
+    "sectionFiles": [
+        {
+            "path": "src/scope.md",
+            "subsections": []
+        },
+        {
+            "path": "src/conformance.md",
+            "subsections": []
+        },
+        {
+            "path": "src/references.md",
+            "subsections": []
+        },
+        {
+            "path": "src/overview.md",
+            "subsections": []
+        },
+        {
+            "path": "src/notational-conventions.md",
+            "subsections": []
+        },
+        {
+            "path": "src/lexical-conventions.md",
+            "subsections": []
+        },
+        {
+            "path": "src/types.md",
+            "subsections": [
+                {
+                    "path": "src/types/type-conversions.md"
+                }
+            ]
+        },
+        {
+            "path": "src/visibility.md"
+        },
+        {
+            "path": "src/packages.md"
+        },
+        {
+            "path": "src/package-sets.md"
+        },
+        {
+            "path": "src/variables.md"
+        },
+        {
+            "path": "src/virtual-properties.md"
+        },
+        {
+            "path": "src/methods.md",
+            "subsections": [
+                {
+                    "path": "src/methods/instance-methods.md"
+                },
+                {
+                    "path": "src/methods/interface-methods.md"
+                },
+                {
+                    "path": "src/methods/getters.md"
+                },
+                {
+                    "path": "src/methods/setters.md"
+                },
+                {
+                    "path": "src/methods/constructors.md"
+                },
+                {
+                    "path": "src/methods/proxies.md"
+                }
+            ]
+        },
+        {
+            "path": "src/aliases.md"
+        },
+        {
+            "path": "src/enumerations.md"
+        },
+        {
+            "path": "src/classes.md"
+        },
+        {
+            "path": "src/interfaces.md"
+        },
+        {
+            "path": "src/property-resolution.md"
+        },
+        {
+            "path": "src/reference-values.md"
+        },
+        {
+            "path": "src/fully-qualified-names.md"
+        },
+        {
+            "path": "src/scopes.md"
+        },
+        {
+            "path": "src/phases-of-execution.md"
+        },
+        {
+            "path": "src/metadata.md"
+        },
+        {
+            "path": "src/type-parameters.md"
+        },
+        {
+            "path": "src/type-expressions.md"
+        },
+        {
+            "path": "src/expressions.md",
+            "subsections": [
+                {
+                    "path": "src/expressions/identifiers.md"
+                },
+                {
+                    "path": "src/expressions/primary-expressions.md",
+                    "subsections": [
+                        {
+                            "path": "src/expressions/paren-expressions.md"
+                        },
+                        {
+                            "path": "src/expressions/object-initializer.md"
+                        },
+                        {
+                            "path": "src/expressions/array-literal.md"
+                        },
+                        {
+                            "path": "src/expressions/xml-initializers.md"
+                        },
+                        {
+                            "path": "src/expressions/embed-expression.md"
+                        }
+                    ]
+                },
+                {
+                    "path": "src/expressions/super-expression.md"
+                },
+                {
+                    "path": "src/expressions/postfix-expressions.md",
+                    "subsections": [
+                        {
+                            "path": "src/expressions/postfix-expressions/property-accessors.md"
+                        },
+                        {
+                            "path": "src/expressions/postfix-expressions/query-operators.md"
+                        },
+                        {
+                            "path": "src/expressions/postfix-expressions/call-expressions.md"
+                        }
+                    ]
+                },
+                {
+                    "path": "src/expressions/meta-properties.md"
+                },
+                {
+                    "path": "src/expressions/new-expressions.md"
+                },
+                {
+                    "path": "src/expressions/unary-expressions.md"
+                },
+                {
+                    "path": "src/expressions/binary-expressions.md",
+                    "subsections": [
+                        {
+                            "path": "src/expressions/binary-expressions/exponentiation-expressions.md"
+                        },
+                        {
+                            "path": "src/expressions/binary-expressions/multiplicative-expressions.md"
+                        },
+                        {
+                            "path": "src/expressions/binary-expressions/additive-expressions.md"
+                        },
+                        {
+                            "path": "src/expressions/binary-expressions/shift-expressions.md"
+                        },
+                        {
+                            "path": "src/expressions/binary-expressions/relational-expressions.md"
+                        },
+                        {
+                            "path": "src/expressions/binary-expressions/equality-expressions.md"
+                        },
+                        {
+                            "path": "src/expressions/binary-expressions/bitwise-expressions.md"
+                        },
+                        {
+                            "path": "src/expressions/binary-expressions/logical-expressions.md"
+                        },
+                        {
+                            "path": "src/expressions/binary-expressions/coalesce-expression.md"
+                        },
+                        {
+                            "path": "src/expressions/binary-expressions/short-circuit-expressions.md"
+                        }
+                    ]
+                },
+                {
+                    "path": "src/expressions/conditional-expressions.md",
+                    "subsections": []
+                },
+                {
+                    "path": "src/expressions/non-assignment-expressions.md",
+                    "subsections": []
+                },
+                {
+                    "path": "src/expressions/assignment-expressions.md",
+                    "subsections": []
+                },
+                {
+                    "path": "src/expressions/function-expression.md",
+                    "subsections": []
+                },
+                {
+                    "path": "src/expressions/list-expressions.md",
+                    "subsections": []
+                }
+            ]
+        },
+        {
+            "path": "src/destructuring.md",
+            "subsections": []
+        },
+        {
+            "path": "src/statements.md",
+            "subsections": [
+                {
+                    "path": "src/statements/empty-statement.md"
+                },
+                {
+                    "path": "src/statements/expression-statement.md"
+                },
+                {
+                    "path": "src/statements/super-statement.md"
+                },
+                {
+                    "path": "src/statements/block-statement.md"
+                },
+                {
+                    "path": "src/statements/labeled-statement.md"
+                },
+                {
+                    "path": "src/statements/if-statement.md"
+                },
+                {
+                    "path": "src/statements/switch-statement.md"
+                },
+                {
+                    "path": "src/statements/do-statement.md"
+                },
+                {
+                    "path": "src/statements/while-statement.md"
+                },
+                {
+                    "path": "src/statements/for-statements.md"
+                },
+                {
+                    "path": "src/statements/continue-statement.md"
+                },
+                {
+                    "path": "src/statements/break-statement.md"
+                },
+                {
+                    "path": "src/statements/with-statement.md"
+                },
+                {
+                    "path": "src/statements/return-statement.md"
+                },
+                {
+                    "path": "src/statements/throw-statement.md"
+                },
+                {
+                    "path": "src/statements/try-statement.md"
+                },
+                {
+                    "path": "src/statements/default-xml-namespace-statement.md"
+                }
+            ]
+        },
+        {
+            "path": "src/directives.md",
+            "subsections": [
+                {
+                    "path": "src/directives/attributes.md"
+                },
+                {
+                    "path": "src/directives/configuration-directive.md"
+                },
+                {
+                    "path": "src/directives/import-directive.md"
+                },
+                {
+                    "path": "src/directives/use-directive.md"
+                }
+            ]
+        },
+        {
+            "path": "src/definition-grammar.md",
+            "subsections": [
+                {
+                    "path": "src/definition-grammar/variable-definition.md"
+                },
+                {
+                    "path": "src/definition-grammar/function-definition.md"
+                },
+                {
+                    "path": "src/definition-grammar/class-definition.md"
+                },
+                {
+                    "path": "src/definition-grammar/enum-definition.md"
+                },
+                {
+                    "path": "src/definition-grammar/interface-definition.md"
+                },
+                {
+                    "path": "src/definition-grammar/type-definition.md"
+                },
+                {
+                    "path": "src/definition-grammar/package-definition.md"
+                },
+                {
+                    "path": "src/definition-grammar/program-definition.md"
+                }
+            ]
+        },
+        {
+            "path": "src/language-library.md"
+        },
+        {
+            "path": "src/jetdependencies.md",
+            "subsections": [
+                {
+                    "path": "src/jetdependencies/manifest-file.md"
+                },
+                {
+                    "path": "src/jetdependencies/compiler-options.md"
+                },
+                {
+                    "path": "src/jetdependencies/scripts.md"
+                }
+            ]
+        },
+        {
+            "path": "src/jetdoc.md"
+        },
+        {
+            "path": "src/jet-bytecode.md"
+        }
+    ]
+}

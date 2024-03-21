@@ -1,36 +1,26 @@
-# If statement
+# If Statement
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>IfStatement</i><sup>abbrev</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>if</b> <i>ParenListExpression</i> <i>Substatement</i><sup>abbrev</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>if</b> <i>ParenListExpression</i> <i>Substatement</i><sup>noShortIf</sup> <b>else</b> <i>Substatement</i><sup>abbrev</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>IfStatement</i><sup>abbrev</sup> :
+    <ul>
+        <b>if</b> <i>ParenListExpression</i> <i>Substatement</i><sup>abbrev</sup><br>
+        <b>if</b> <i>ParenListExpression</i> <i>Substatement</i><sup>noShortIf</sup> <b>else</b> <i>Substatement</i><sup>abbrev</sup>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>IfStatement</i><sup>full</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>if</b> <i>ParenListExpression</i> <i>Substatement</i><sup>full</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>if</b> <i>ParenListExpression</i> <i>Substatement</i><sup>noShortIf</sup> <b>else</b> <i>Substatement</i><sup>full</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>IfStatement</i><sup>full</sup> :
+    <ul>
+        <b>if</b> <i>ParenListExpression</i> <i>Substatement</i><sup>full</sup><br>
+        <b>if</b> <i>ParenListExpression</i> <i>Substatement</i><sup>noShortIf</sup> <b>else</b> <i>Substatement</i><sup>full</sup>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>IfStatement</i><sup>noShortIf</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>if</b> <i>ParenListExpression</i> <i>Substatement</i><sup>noShortIf</sup> <b>else</b> <i>Substatement</i><sup>noShortIf</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>IfStatement</i><sup>noShortIf</sup> :
+    <ul>
+        <b>if</b> <i>ParenListExpression</i> <i>Substatement</i><sup>noShortIf</sup> <b>else</b> <i>Substatement</i><sup>noShortIf</sup>
+    </ul>
+</ul>

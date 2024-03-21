@@ -17,90 +17,62 @@ q::[k]     ;
 @(q)::[k]
 ```
 
-*Fixed versus dynamic*: the qualifier identifiers `fixed` and `dynamic` are reserved words used for indicating a property disambiguation.
+The qualifier identifiers **fixed** and **dynamic** are context keywords used for indicating a property disambiguation.
 
 ```
 o.fixed::x
 o.dynamic::x
 ```
 
-<table>
-    <tr>
-        <td colspan="2"><i>PropertyIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Identifier</i> [when keywords are enabled]</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>IdentifierName</i> [when keywords are disabled]</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>*</b></td>
-    </tr>
-</table>
+<ul>
+    <i>PropertyIdentifier</i> :
+    <ul>
+        <i>Identifier</i> [when keywords are enabled]<br>
+        <i>IdentifierName</i> [when keywords are disabled]<br>
+        <b>*</b>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>Qualifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>PropertyIdentifier</i></td>
-    </tr>
-</table>
+<ul>
+    <i>Qualifier</i> :
+    <ul>
+        <i>PropertyIdentifier</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>SimpleQualifiedIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>PropertyIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Qualifier</i> <b>::</b> <i>PropertyIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Qualifier</i> <b>::</b> <i>Brackets</i></td>
-    </tr>
-</table>
+<ul>
+    <i>SimpleQualifiedIdentifier</i> :
+    <ul>
+        <i>PropertyIdentifier</i><br>
+        <i>Qualifier</i> <b>::</b> <i>PropertyIdentifier</i><br>
+        <i>Qualifier</i> <b>::</b> <i>Brackets</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>ExpressionQualifiedIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ParenExpression</i> <b>::</b> <i>PropertyIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ParenExpression</i> <b>::</b> <i>Brackets</i></td>
-    </tr>
-</table>
+<ul>
+    <i>ExpressionQualifiedIdentifier</i> :
+    <ul>
+        <i>ParenExpression</i> <b>::</b> <i>PropertyIdentifier</i><br>
+        <i>ParenExpression</i> <b>::</b> <i>Brackets</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>NonAttributeQualifiedIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>SimpleQualifiedIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ExpressionQualifiedIdentifier</i></td>
-    </tr>
-</table>
+<ul>
+    <i>NonAttributeQualifiedIdentifier</i> :
+    <ul>
+        <i>SimpleQualifiedIdentifier</i><br>
+        <i>ExpressionQualifiedIdentifier</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>QualifiedIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>@</b> <i>Brackets</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>@</b> <i>NonAttributeQualifiedIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>NonAttributeQualifiedIdentifier</i></td>
-    </tr>
-</table>
+<ul>
+    <i>QualifiedIdentifier</i> :
+    <ul>
+        <b>@</b> <i>Brackets</i><br>
+        <b>@</b> <i>NonAttributeQualifiedIdentifier</i><br>
+        <i>NonAttributeQualifiedIdentifier</i>
+    </ul>
+</ul>
 
 **Verification**
 
@@ -114,16 +86,16 @@ The qualifier *PropertyIdentifier* preceding the <b>::</b> punctuator is treated
   * Assign *disambiguation* = string of *PropertyIdentifier*
 * Else
   * Let *qid* be the translation of it into a *PrimaryExpression* **:** *QualifiedIdentifier*.
-  * Verify *qid* as such production limited to the `Namespace` type.
+  * Verify *qid* as such production limited to the **Namespace** type.
   * Let the qualifier be the value of *qid*.
 
 The qualifier *ParenExpression* preceding the <b>::</b> punctuator is treated as follows:
 
-* Limit the *ParenExpression* symbol to the `Namespace` type.
+* Limit the *ParenExpression* symbol to the **Namespace** type.
 
-*Brackets* must be of the `String` type.
+*Brackets* must be of the **String** type.
 
-Verifying *QualifiedIdentifier* results into a (*qual*, *key*, *disambiguation*) group consisting of an optional qualifier `Namespace` object, a key `String` value and *disambiguation* respectively.
+Verifying *QualifiedIdentifier* results into a (*qual*, *key*, *disambiguation*) group consisting of an optional qualifier **Namespace** object, a key **String** value and *disambiguation* respectively.
 
 **Evaluation**
 

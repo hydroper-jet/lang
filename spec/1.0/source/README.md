@@ -1,7 +1,7 @@
 # Specification source
 
-Written in mdBook 0.4.
+This document was written through https://github.com/hydroper/lsbuilder.
 
 ## Flowcharts
 
-The flowcharts are made with [Lucid](https://lucid.app).
+Any flowcharts are made with [Lucid](https://lucid.app).

@@ -1,24 +1,18 @@
-# Property accessors
+# Property Accessors
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>PropertyOperator</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>.</b> <i>QualifiedIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Brackets</i></td>
-    </tr>
-</table>
+<ul>
+    <i>PropertyOperator</i> :
+    <ul>
+        <b>.</b> <i>QualifiedIdentifier</i><br>
+        <i>Brackets</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>Brackets</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>[</b> <i>ListExpression</i><sup>allowIn</sup> <b>]</b></td>
-    </tr>
-</table>
+<ul>
+    <i>Brackets</i> :
+    <ul>
+        <b>[</b> <i>ListExpression</i><sup>allowIn</sup> <b>]</b>
+    </ul>
+</ul>

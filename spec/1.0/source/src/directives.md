@@ -2,74 +2,42 @@
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>Directive</i><sup>ω</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>EmptyStatement</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Statement</i><sup>ω</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Attributes</i><sub>opt</sub> <i>AnnotatableDirective</i><sup>ω</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ImportDirective</i> <i>Semicolon</i><sup>ω</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ConfigurationDirective</i></td>
-    </tr>
-</table>
+<ul>
+    <i>Directive</i><sup>ω</sup> :
+    <ul>
+        <i>EmptyStatement</i><br>
+        <i>Statement</i><sup>ω</sup><br>
+        <i>Attributes</i><sub>opt</sub> <i>AnnotatableDirective</i><sup>ω</sup><br>
+        <i>ImportDirective</i> <i>Semicolon</i><sup>ω</sup><br>
+        <i>ConfigurationDirective</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>AnnotatableDirective</i><sup>ω</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>UseDirective</i> <i>Semicolon</i><sup>ω</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>VariableDefinition</i><sup>allowIn</sup> <i>Semicolon</i><sup>ω</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FunctionDefinition</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ClassDefinition</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>EnumDefinition</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>InterfaceDefinition</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>TypeDefinition</i> <i>Semicolon</i><sup>ω</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>AnnotatableDirective</i><sup>ω</sup> :
+    <ul>
+        <i>UseDirective</i> <i>Semicolon</i><sup>ω</sup><br>
+        <i>VariableDefinition</i><sup>allowIn</sup> <i>Semicolon</i><sup>ω</sup><br>
+        <i>FunctionDefinition</i><br>
+        <i>ClassDefinition</i><br>
+        <i>EnumDefinition</i><br>
+        <i>InterfaceDefinition</i><br>
+        <i>TypeDefinition</i> <i>Semicolon</i><sup>ω</sup>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>Directives</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td>«empty»</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>DirectivesPrefix</i> <i>Directive</i><sup>abbrev</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>Directives</i> :
+    <ul>
+        «empty»<br>
+        <i>DirectivesPrefix</i> <i>Directive</i><sup>abbrev</sup>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>DirectivesPrefix</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td>«empty»</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>DirectivesPrefix</i> <i>Directive</i><sup>full</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>DirectivesPrefix</i> :
+    <ul>
+        «empty»<br>
+        <i>DirectivesPrefix</i> <i>Directive</i><sup>full</sup>
+    </ul>
+</ul>

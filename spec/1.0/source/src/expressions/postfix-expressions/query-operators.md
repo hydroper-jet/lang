@@ -1,15 +1,11 @@
-# Query operators
+# Query Operators
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>QueryOperator</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>..</b> <i>QualifiedIdentifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>.</b> <b>(</b> <i>ListExpression</i><sup>allowIn</sup> <b>)</b></td>
-    </tr>
-</table>
+<ul>
+    <i>QueryOperator</i> :
+    <ul>
+        <b>..</b> <i>QualifiedIdentifier</i><br>
+        <b>.</b> <b>(</b> <i>ListExpression</i><sup>allowIn</sup> <b>)</b>
+    </ul>
+</ul>

@@ -1,29 +1,31 @@
 # Classes
 
-A class as denoted by the `class` keyword represents an object type. A class is reflected as a `Class` object.
+A class as denoted by the **class** keyword represents an object type. A class is accessed as a **Class** object during runtime.
 
-Classes consist of several internal properties, as described in the following table:
+## Internal properties
 
-| Internal property | Description |
-| ----------------- | ----------- |
-| \[\[*Name*\]\] | The unqualified name of the class. |
-| \[\[*Visibility*\]\] | The [visibility](visibility.md) of the class. |
-| \[\[*ParentDefinition*\]\] | The parent definition of the class. |
-| \[\[*BaseClass*\]\] | The base class. It is undefined for the `Object` class. |
+| Property | Description |
+| -------- | ----------- |
+| \[\[*Name*\]\] | The non qualified name of the class. |
+| \[\[*Visibility*\]\] | The [visibility](#sec-visibility) of the class. |
+| \[\[*Parent*\]\] | The parent definition of the class. |
+| \[\[*BaseClass*\]\] | The base class. It is undefined for the **Object** class. |
 | \[\[*Implements*\]\] | Set of interfaces the class implements. |
 | \[\[*IsFinal*\]\] | Indicates whether the class is final or not. |
 | \[\[*IsStatic*\]\] | Indicates whether the class is static or not. |
 | \[\[*IsAbstract*\]\] | Indicates whether the class is abstract or not. |
-| \[\[*AllowLiteral*\]\] | Indicates whether the class may be initialized through an object initializer or not; that is, if it has the `[Literal]` meta-data. |
+| \[\[*AllowLiteral*\]\] | Indicates whether the class may be initialized through an object initializer or not; that is, whether it has the **\[Literal]** meta-data or not. |
 | \[\[*TypeParameters*\]\] | The type parameter sequence of the class. |
 | \[\[*StaticProperties*\]\] | Static properties of the class. |
-| \[\[*Constructor*\]\] | The constructor function of the class. |
-| \[\[*Prototype*\]\] | Properties of the class prototype as a dictionary from string to symbol. |
-| \[\[*Proxies*\]\] | Proxies defined by the class as a dictionary from string to function symbol. |
-| \[\[*ListOfToProxies*\]\] | `to` proxies defined by the class as function symbols. |
-| \[\[*PlainMetadata*\]\] | Plain meta-data attached to the class. |
+| \[\[*Constructor*\]\] | The constructor method of the class. |
+| \[\[*Prototype*\]\] | Properties of the class prototype. |
+| \[\[*Proxies*\]\] | Object consisting of proxies defined by the class whose keys are strings and whose values are methods. |
+| \[\[*ListOfToProxies*\]\] | **to** proxies defined by the class as methods. |
+| \[\[*Metadata*\]\] | Meta-data attached to the class. |
 
 ## Inheritance
+
+**Restrictions**
 
 Instance properties must not be duplicate in the class inheritance.
 
@@ -49,36 +51,38 @@ class C2 extends C1 {
 }
 ```
 
-## Base class
+## Base Class
 
-By default, all classes, excluding `Object`, have `Object` as their base class.
+By default, all classes, excluding **Object**, have **Object** as their base class.
 
-It is a verify error if:
+**Restrictions**
 
-* a class attempts to extend itself;
-* a class attempts to extend a subclass of itself.
+It is a verify error if a class attempts to extend itself.
 
-## Literal classes
+It is a verify error if a class attempts to extend a subclass of itself.
 
-Classes containing the `[Literal]` meta-data have the following restrictions:
+## Literal Classes
+
+**Restrictions**
+
+Classes containing the **\[Literal\]** meta-data have the following restrictions:
 
 * They are implicitly marked final.
-* They must extend the `Object` class.
+* They must extend the **Object** class.
 
 ```
 [Literal]
-final class C {
+final class C1 {
     var x
 }
-
-const o: C = { x: 10 }
+const o: C1 = { x: 10 }
 ```
 
-## Meta data
+## Meta-data
 
-A class may contain zero or more plain meta-data:
+A class may contain zero or more meta-data.
 
 ```
 [N1(n2)]
-class C {}
+class C1 {}
 ```

@@ -32,7 +32,7 @@
   * [ ] `length` returns `Number`
   * [ ] Like Java, methods such as `indexOf()` return `-1` occasionally.
   * [ ] `getProperty()` returns `T` and throws a `RangeError` if out of bounds, instead of returning `T?`. This makes more sense for `setProperty` and `deleteProperty` as well together.
-  * [ ] Methods such as `map.<T>` take a callback of two parameters (*v*, *index*).
+  * [ ] Methods such as `map` take a callback of two parameters (*v*, *index*).
   * [ ] `map(function(value: T, index: Number): *): [*]`
   * [ ] `reduce(function(accumulator: *, currentValue: T): *, initialValue: *): *`
     * If `initialValue` is `undefined`, take it as the first element.

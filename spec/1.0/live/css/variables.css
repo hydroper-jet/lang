@@ -1,54 +1,75 @@
-
 /* Globals */
 
 :root {
-    --sidebar-width: 300px;
-    --page-padding: 15px;
+    --menubar-height: 38px;
     --content-max-width: 750px;
-    --menu-bar-height: 50px;
-    --mono-font: "Courier New", "Monaspace Xenon", "DejaVu Sans Mono", monospace;
-    --code-font-size: 0.95em /* please adjust the ace font size accordingly in editor.js */
+
+    --common-font: Arial, serif;
+    --common-font-size: 0.87rem;
+    --code-font: Courier New, monospace;
+    --code-font-size: 1.0rem;
+
+    --page-background: #fff;
+    --background: #fff;
+    --foreground: #000;
+
+    --code-block-background: #c0c0c0;
+    --code-block-foreground: #111;
+
+    --heading-letter-spacing: 0.12rem;
+    --header-1: #8e8e8e;
+    --header-2: #555555;
+    --header-3: var(--header-2);
+    --home-heading: #ff6500;
+
+    --table-border: #000;
+    --table-header-background: #c0c0c0;
+    --table-header-foreground: #050505;
+
+    --sidebar-toggle-border: #333;
+    --sidebar-toggle-background: #e2e2e2;
+    --sidebar-toggle-foreground: #000;
+
+    --links: #575757;
 }
 
-/* Themes */
+html[data-dark="true"] {
+    --page-background: #181818;
+    --background: #181818;
+    --foreground: #fff;
 
-.ayu, .coal, .light, .navy, .rust {
-    --bg: #454545;
-    --fg: #fff;
+    --code-block-background: #323232;
+    --code-block-foreground: #eee;
 
-    --sidebar-bg: var(--bg);
-    --sidebar-fg: var(--fg);
-    --sidebar-non-existant: #505274;
-    --sidebar-active: var(--links);
-    --sidebar-spacer: #2d334f;
+    --heading-letter-spacing: 0.12rem;
+    --header-1: #747474;
+    --header-2: #a0a0a0;
+    --header-3: var(--header-2);
+    --home-heading: #ff6500;
 
-    --scrollbar: var(--sidebar-fg);
+    --table-border: #777;
+    --table-header-background: #c0c0c0;
+    --table-header-foreground: #050505;
 
-    --icons: var(--fg);
-    --icons-hover: var(--fg);
+    --sidebar-toggle-border: #eee;
+    --sidebar-toggle-background: #222;
+    --sidebar-toggle-foreground: #fff;
 
-    --links: #99f;
+    --links: #848484;
+}
 
-    --inline-code-color: #fff;
+/* Portrait */
 
-    --theme-popup-bg: #9a9cd9;
-    --theme-popup-border: #7072c5;
-    --theme-hover: #aaa;
+@media (min-width: 320px) {
+    :root {
+        --sidebar-width: 280px;
+    }
+}
 
-    --quote-bg: #773;
-    --quote-border: #c2cda1;
+/* Landscape */
 
-    --table-border-color: #777;
-    --table-header-bg: rgba(255, 255, 255, 0.05);
-    --table-odd-bg: rgba(255, 255, 255, 0.05);
-    --table-even-bg: rgba(255, 255, 255, 0);
-
-    --searchbar-border-color: #000;
-    --searchbar-bg: #fff;
-    --searchbar-fg: #000;
-    --searchbar-shadow-color: #aaa;
-    --searchresults-header-fg: #5f5f71;
-    --searchresults-border-color: #5c5c68;
-    --searchresults-li-bg: #242430;
-    --search-mark-bg: #a2cff5;
+@media (min-width: 961px) {
+    :root {
+        --sidebar-width: 25rem;
+    }
 }

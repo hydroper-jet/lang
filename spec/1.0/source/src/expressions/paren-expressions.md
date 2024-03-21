@@ -1,24 +1,18 @@
-# Parenthesized expressions
+# Parenthesized Expressions
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>ParenExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>)</b></td>
-    </tr>
-</table>
+<ul>
+    <i>ParenExpression</i> :
+    <ul>
+        <b>(</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>)</b>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>ParenListExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ParenExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>ListExpression</i><sup>allowIn</sup> <b>,</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>)</b></td>
-    </tr>
-</table>
+<ul>
+    <i>ParenListExpression</i> :
+    <ul>
+        <i>ParenExpression</i><br>
+        <b>(</b> <i>ListExpression</i><sup>allowIn</sup> <b>,</b> <i>AssignmentExpression</i><sup>allowIn</sup> <b>)</b>
+    </ul>
+</ul>

@@ -1,12 +1,10 @@
-# Super statement
+# Super Statement
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>SuperStatement</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>super</b> <i>Arguments</i></td>
-    </tr>
-</table>
+<ul>
+    <i>SuperStatement</i> :
+    <ul>
+        <b>super</b> <i>Arguments</i>
+    </ul>
+</ul>

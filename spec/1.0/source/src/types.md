@@ -1,31 +1,26 @@
 # Types
 
-## Primitive types
+## Default Value
 
-Jet considers the following to be primitive types:
+The default value of a type is determined according to the following table:
 
-* `void` type
-* Number types
-* `Boolean` type
-* `String` type
-* `Char` type
+| Type | Default value |
+| ---- | ------------- |
+| **\***            | **undefined** |
+| **void**          | **undefined** |
+| **T?**            | **null** |
+| **Number**        | **0** |
+| **Single**        | **0** |
+| **Long**          | **0** |
+| **BigInt**        | **0** |
+| **Boolean**       | **false** |
+| **String**        | **""** |
+| **Char**          | **"\\x00"** |
+| Set enumeration   | Empty set |
 
-## Default value
+## Auto Boxing
 
-The default value of a type *t* is determined as follows:
-
-* For *t* = `void`, return `undefined`.
-* For *t* = `T?`, return `null`.
-* For *t* = number type, return zero.
-* For *t* = `Boolean`, return false.
-* For *t* = `String`, return the empty string.
-* For *t* = `Char`, return U+0000.
-* For *t* = set enumeration, return an empty set.
-* Return nothing.
-
-## Auto boxing
-
-The language performs auto boxing of primitive types. Primitive types are represented in a memory efficient way wherever available, including within an `Array`.
+The language performs auto boxing of primitive types. Primitive types are represented in a memory efficient way wherever available, including within an **Array**.
 
 Primitive types are boxed without duplicating identity:
 
@@ -37,103 +32,123 @@ var y: Object = 10
 x == y
 ```
 
-## Any type
+## Any Type
 
-The `*` type contains values from all other types. The any type is the most ascending type of all other types.
+The any type **\*** contains values from all other types. The **\*** type is the most ascending type of all other types.
 
-## Void type
+## Void Type
 
-The `void` type consists of the `undefined` constant.
+The **void** type consists of the **undefined** value.
 
-## Null type
+## Null Type
 
-The null type consists of the `null` value. Although the null type exists in the specification, no operation in the language can result in the null type.
+The **null** type consists of the **null** value. Although the null type exists in the specification, no operation in the language can result in the null type.
 
-## Number types
+## Number Types
 
-*IEEE 754 floating point*:
+| Type | Description |
+| ---- | ----------- |
+| **Number**   | IEEE 754 double-precision floating point |
+| **Single**   | IEEE 754 single-precision floating point |
+| **BigInt**   | Arbitrary range integer |
+| **Long**     | Ranges from -2<sup>64 - 1</sup> to 2<sup>64 - 1</sup> - 1 (64-bit) |
 
-* `Number` — Double-precision floating point
-* `Single` — Single-precision floating point
+## Boolean Type
 
-*Signed integer*:
+The **Boolean** type consists of the values **false** and **true**.
 
-* `BigInt` — Arbitrary range integer
-* `Long` — Ranges from -2<sup>64 - 1</sup> to 2<sup>64 - 1</sup> - 1 (64-bit)
+## String Type
 
-## Boolean type
+The **String** type consists of a sequence of Unicode Scalar Values whose encoding is implementation-defined.
 
-The `Boolean` type consists of the values `false` and `true`.
+## Char Type
 
-## String type
+The **Char** type represents a character as an Unicode scalar value.
 
-The `String` type consists of a sequence of Unicode Scalar Values whose encoding is implementation-defined.
+## Function Types
 
-## Char type
-
-The `Char` type is a Unicode Scalar Value.
-
-## Function types
-
-Function types consist of zero or more parameters and a return type annotation.
+A function type consists of zero or more parameters and a result type.
 
 ```
-function(): E
-
-// Required parameter
-function(a: T): E
-
-// Optional parameter
-function(a?: T): E
-
-// Rest parameter
-function(...a: [T]): E
+type F = function(): T
 ```
 
-* Function types inherit from the `Function` class.
-* Function types are final classes.
-* Each parameter is either a required, optional or rest parameter.
-* The allowed parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.
-* The rest parameter must appear at most once.
-* The rest parameter must be of type `Array`.
+**Inheritance**
 
-## Tuple types
+A function type inherits from the **Function** class.
 
-Tuple types are in the form `[T1, T2, ...TN]` and consist of a sequence of two or more element types.
+A function type is a final class.
 
-* Tuple types inherit from the `Object` class.
-* Tuple types are final classes.
+**Grammar**
 
-Tuple types contain mutable elements and are compared by reference.
+Each parameter is either a required, optional, or rest parameter.
+
+The formal parameter list is a list of zero or more required parameters followed by zero or more optional parameters followed by an optional rest parameter.
+
+The rest parameter must appear at most once.
+
+**Restrictions**
+
+The rest parameter, if any, must be of the **Array** type.
+
+## Tuple Types
+
+A tuple type represents a sequence of two or more element types.
+
+```
+type T1 = [E1, E2]
+
+type T2 = [E1, E2, EN]
+```
+
+**Inheritance**
+
+A tuple type inherits the **Object** class.
+
+A tuple type is a final class.
+
+**Access**
+
+Tuple types consist of mutable elements and are compared by reference.
 
 ```
 type T = [Number, Number]
 const v: T = [10, 10]
 v[0] += 1
-v == [11, 10] // false
+v != [11, 10]
 ```
 
-## Nullable type
+## Nullable Type
 
-The `T?` type is an union of `null` and `T`.
+**T?** or **?T** is an union between **null** and **T**.
 
-## Array type
+## Array Type
 
-The `Array.<T>` type is a growable collection of `T` values. `Array` may be expressed as `Array.<T>` or `[T]`.
+The **Array.&lt;T>** type is a dynamic collection of **T** values. Array may be denoted by either **Array.&lt;T>** or **\[T]**.
 
-## Object type
+```
+type A1 = [T1]
 
-The `Object` type is the super type of all other classes and all enums.
+type A2 = Array.<T2>
+```
 
-## ExpectType()
+## Object Type
+
+The **Object** type is the ascending type of all other classes and all enumerations.
+
+## Internal Functions
+
+<sectionLabel>sec-expecttype</sectionLabel>
+
+### ExpectType()
 
 The internal *ExpectType*(*symbol*) function takes the following steps:
 
-* If *symbol* is a *PackageReferenceValue*(*base*, *prop*)
+* If *symbol* is *PackageReferenceValue*(*base*, *prop*)
   * Return *ExpectType*(*prop*)
-* If *symbol* is a *ScopeReferenceValue*(*base*, *prop*)
+* If *symbol* is *ScopeReferenceValue*(*base*, *prop*)
   * Return *ExpectType*(*prop*)
-* If *symbol* is a *TypeAsReferenceValue*(*type*)
+* If *symbol* is *TypeAsReferenceValue*(*type*)
   * Return *type*
 * Throw type error if *symbol* is not a type.
 * Return *symbol*.

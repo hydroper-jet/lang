@@ -1,99 +1,71 @@
-# Configuration directive
+# Configuration Directive
 
-The `configuration` directive expands blocks to the enclosing block or context if their compile time condition matches.
+The **configuration** directive expands blocks to the enclosing block or context if their compile time condition matches.
 
 ```
 configuration {
     if (debug) {
-        trace("Running in debug mode.")
+        /* Debug */
     } else {
-        trace("Running in release mode.")
+        /* Release */
     }
 }
 ```
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>ConfigurationDirective</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>configuration</b> <b>&#x7B;</b> <i>ConfigurationSubdirective</i> <b>&#x7D;</b></td>
-    </tr>
-</table>
+<ul>
+    <i>ConfigurationDirective</i> :
+    <ul>
+        <b>configuration</b> <b>&#x7B;</b> <i>ConfigurationSubdirective</i> <b>&#x7D;</b>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>ConfigurationSubdirective</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Block</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>if (</b> <i>ConfigurationExpression</i> <b>)</b> <i>Block</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>if (</b> <i>ConfigurationExpression</i> <b>)</b> <i>Block</i> <b>else</b> <i>ConfigurationSubdirective</i></td>
-    </tr>
-</table>
+<ul>
+    <i>ConfigurationSubdirective</i> :
+    <ul>
+        <i>Block</i><br>
+        <b>if (</b> <i>ConfigurationExpression</i> <b>)</b> <i>Block</i><br>
+        <b>if (</b> <i>ConfigurationExpression</i> <b>)</b> <i>Block</i> <b>else</b> <i>ConfigurationSubdirective</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>ConfigurationExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i> <b>&&</b> <i>ConfigurationExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ConfigurationPrimaryExpression</i> <b>||</b> <i>ConfigurationExpression</i></td>
-    </tr>
-</table>
+<ul>
+    <i>ConfigurationExpression</i> :
+    <ul>
+        <i>ConfigurationPrimaryExpression</i><br>
+        <i>ConfigurationPrimaryExpression</i> <b>&&</b> <i>ConfigurationExpression</i><br>
+        <i>ConfigurationPrimaryExpression</i> <b>||</b> <i>ConfigurationExpression</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>ConfigurationPrimaryExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ConfigurationConstant</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ConfigurationConstant</i> <i>ConfigurationEquality</i> <i>Identifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ConfigurationConstant</i> <i>ConfigurationEquality</i> <i>StringLiteral</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>(</b> <i>ConfigurationExpression</i> <b>)</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>!</b> <i>ConfigurationPrimaryExpression</i></td>
-    </tr>
-</table>
+<ul>
+    <i>ConfigurationPrimaryExpression</i> :
+    <ul>
+        <i>ConfigurationConstant</i><br>
+        <i>ConfigurationConstant</i> <i>ConfigurationEquality</i> <i>Identifier</i><br>
+        <i>ConfigurationConstant</i> <i>ConfigurationEquality</i> <i>StringLiteral</i><br>
+        <b>(</b> <i>ConfigurationExpression</i> <b>)</b><br>
+        <b>!</b> <i>ConfigurationPrimaryExpression</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>ConfigurationConstant</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Identifier</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>Identifier</i> <b>::</b> <i>IdentifierName</i></td>
-    </tr>
-</table>
+<ul>
+    <i>ConfigurationConstant</i> :
+    <ul>
+        <i>Identifier</i><br>
+        <i>Identifier</i> <b>::</b> <i>IdentifierName</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>ConfigurationEquality</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>=</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>!=</b></td>
-    </tr>
-</table>
+<ul>
+    <i>ConfigurationEquality</i> :
+    <ul>
+        <b>=</b><br>
+        <b>!=</b>
+    </ul>
+</ul>
+
+**Semantics**
+
+A configuration expression of the form **x** is equivalent to checking whether a constant **x** is present in the JetDependencies compilation.

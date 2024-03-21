@@ -1,57 +1,41 @@
-# New expressions
+# New Expressions
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>FullNewExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>new</b> <i>FullNewSubexpression</i> <i>Arguments</i></td>
-    </tr>
-</table>
+<ul>
+    <i>FullNewExpression</i> :
+    <ul>
+        <b>new</b> <i>FullNewSubexpression</i> <i>Arguments</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>FullNewSubexpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>PrimaryExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullNewExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullNewSubexpression</i> <i>PropertyOperator</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>SuperExpression</i> <i>PropertyOperator</i></td>
-    </tr>
-</table>
+<ul>
+    <i>FullNewSubexpression</i> :
+    <ul>
+        <i>PrimaryExpression</i><br>
+        <i>FullNewExpression</i><br>
+        <i>FullNewSubexpression</i> <i>PropertyOperator</i><br>
+        <i>SuperExpression</i> <i>PropertyOperator</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>ShortNewExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>new</b> <i>ShortNewSubexpression</i></td>
-    </tr>
-</table>
+<ul>
+    <i>ShortNewExpression</i> :
+    <ul>
+        <b>new</b> <i>ShortNewSubexpression</i>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>ShortNewSubexpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>FullNewSubexpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>ShortNewExpression</i></td>
-    </tr>
-</table>
+<ul>
+    <i>ShortNewSubexpression</i> :
+    <ul>
+        <i>FullNewSubexpression</i><br>
+        <i>ShortNewExpression</i>
+    </ul>
+</ul>
 
 **Semantics**
 
 The new expression is used to instantiate a class.
 
-The new expression may not be used to instantiate static classes and enumerations.
+The new expression must not be used to instantiate **static** classes and enumerations.

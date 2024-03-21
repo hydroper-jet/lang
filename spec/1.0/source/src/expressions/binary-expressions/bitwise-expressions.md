@@ -1,39 +1,27 @@
-# Bitwise expressions
+# Bitwise Expressions
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>BitwiseAndExpression</i><sup>β</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>EqualityExpression</i><sup>β</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>BitwiseAndExpression</i><sup>β</sup> <b>&amp;</b> <i>EqualityExpression</i><sup>β</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>BitwiseAndExpression</i><sup>β</sup> :
+    <ul>
+        <i>EqualityExpression</i><sup>β</sup><br>
+        <i>BitwiseAndExpression</i><sup>β</sup> <b>&amp;</b> <i>EqualityExpression</i><sup>β</sup>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>BitwiseXorExpression</i><sup>allowIn</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>BitwiseAndExpression</i><sup>β</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>BitwiseXorExpression</i><sup>β</sup> <b>^</b> <i>BitwiseAndExpression</i><sup>β</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>BitwiseXorExpression</i><sup>allowIn</sup> :
+    <ul>
+        <i>BitwiseAndExpression</i><sup>β</sup><br>
+        <i>BitwiseXorExpression</i><sup>β</sup> <b>^</b> <i>BitwiseAndExpression</i><sup>β</sup>
+    </ul>
+</ul>
 
-<table>
-    <tr>
-        <td colspan="2"><i>BitwiseOrExpression</i><sup>allowIn</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>BitwiseXorExpression</i><sup>β</sup></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>BitwiseOrExpression</i><sup>β</sup> <b>|</b> <i>BitwiseXorExpression</i><sup>β</sup></td>
-    </tr>
-</table>
+<ul>
+    <i>BitwiseOrExpression</i><sup>allowIn</sup> :
+    <ul>
+        <i>BitwiseXorExpression</i><sup>β</sup><br>
+        <i>BitwiseOrExpression</i><sup>β</sup> <b>|</b> <i>BitwiseXorExpression</i><sup>β</sup>
+    </ul>
+</ul>

@@ -1,15 +1,11 @@
-# Break statement
+# Break Statement
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>BreakStatement</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>break</b></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><b>break</b> [no line break] <i>Identifier</i></td>
-    </tr>
-</table>
+<ul>
+    <i>BreakStatement</i> :
+    <ul>
+        <b>break</b><br>
+        <b>break</b> [no line break] <i>Identifier</i>
+    </ul>
+</ul>

@@ -1,18 +1,12 @@
-# Additive expressions
+# Additive Expressions
 
 **Syntax**
 
-<table>
-    <tr>
-        <td colspan="2"><i>AdditiveExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>MultiplicativeExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>AdditiveExpression</i> <b>+</b> <i>MultiplicativeExpression</i></td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td><td><i>AdditiveExpression</i> <b>-</b> <i>MultiplicativeExpression</i></td>
-    </tr>
-</table>
+<ul>
+    <i>AdditiveExpression</i> :
+    <ul>
+        <i>MultiplicativeExpression</i><br>
+        <i>AdditiveExpression</i> <b>+</b> <i>MultiplicativeExpression</i><br>
+        <i>AdditiveExpression</i> <b>-</b> <i>MultiplicativeExpression</i>
+    </ul>
+</ul>

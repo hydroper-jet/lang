@@ -1,77 +1,79 @@
 # Scopes
 
-A scope consists of the following internal properties:
+Lexical scopes, called solely scopes, are used to represent available lexical names during lexical name lookup.
 
-| Internal property | Description |
-| ----------------- | ----------- |
-| \[\[*ParentScope*\]\] | The parent scope. |
-| \[\[*Properties*\]\] | Properties of the scope as a dictionary of string to symbol. |
-| \[\[*Imports*\]\] | Set of package imported properties. |
-| \[\[*OpenPackages*\]\] | Set of open packages. |
-| \[\[*PackageAliases*\]\] | Set of package aliases. |
-| \[\[*LocalVariableScopeCount*\]\] | Number of local variable scopes. Used for variable shadowing. |
+## Internal Properties
 
-The \[\[*Imports*\]\] property of a scope holds *non aliased* properties imported from a package.
+| Property | Description |
+| -------- | ----------- |
+| \[\[*Parent*\]\] | The parent scope from which the scope is subsequent. |
+| \[\[*Properties*\]\] | Properties of the scope. **import** directives that alias a property contribute to this attribute. |
+| \[\[*Imports*\]\] | Set of package imported properties. Holds **non aliased** properties imported from packages. |
+| \[\[*OpenPackages*\]\] | Set of open packages. Holds **non aliased** opened packages. |
+| \[\[*PackageAliases*\]\] | Set of package aliases. Includes package aliases resulting from the **import** directive. |
 
-The \[\[*OpenPackages*\]\] property of a scope holds *non aliased* opened packages.
+## Base Scope Creation
 
-The \[\[*PackageAliases*\]\] property of a scope contains package aliases resulting from the `import` directive.
+When creating the base scope of a program, let it be subsequent of the unique scope *s*.
 
-An `import` directive that aliases a property or package contributes an alias to \[\[*Properties*\]\].
+* Contribute the top-level package to *s*.\[\[*OpenPackages*\]\].
+* Contribute the **jet.lang** package to *s*.\[\[*OpenPackages*\]\].
 
-## With scope
+## With Scope
 
-A `with` scope in addition consists of the following internal properties:
+### Internal Properties
 
-| Internal property | Description |
-| ----------------- | ----------- |
-| \[\[*Object*\]\] | The object specified in the `with` statement. |
+The **with** scope extends the internal properties of a scope as described in the following table.
 
-## Filter operator scope
+| Property | Description |
+| -------- | ----------- |
+| \[\[*Object*\]\] | The object specified in the **with** statement. |
 
-A filter operator scope in addition consists of the following internal properties:
+## Filter Operator Scope
 
-| Internal property | Description |
-| ----------------- | ----------- |
+The filter operator scope extends the internal properties of a scope as described in the following table.
+
+| Property | Description |
+| -------- | ----------- |
 | \[\[*Base*\]\] | The base object of the filter operator. |
 
-## Activation scope
+## Activation Scope
 
-An activation scope in addition consists of the following internal properties:
+The activation scope extends the internal properties of a scope as described in the following table.
 
-| Internal property | Description |
-| ----------------- | ----------- |
+| Property | Description |
+| -------- | ----------- |
 | \[\[*Function*\]\] | The function to which this scope belongs. |
-| \[\[*This*\]\] | The object returned by the `this` literal. |
+| \[\[*This*\]\] | The object returned by the **this** literal. |
 
-## Class scope
+## Class Scope
 
-A `class` scope in addition consists of the following internal properties:
+The **class** scope extends the internal properties of a scope as described in the following table.
 
-| Internal property | Description |
-| ----------------- | ----------- |
+| Property | Description |
+| -------- | ----------- |
 | \[\[*Class*\]\] | The enclosing class. |
 
-## Enum scope
+## Enum Scope
 
-A `enum` scope in addition consists of the following internal properties:
+The **enum** scope extends the internal properties of a scope as described in the following table.
 
-| Internal property | Description |
-| ----------------- | ----------- |
-| \[\[*Class*\]\] | The enclosing `enum`. |
+| Property | Description |
+| -------- | ----------- |
+| \[\[*Class*\]\] | The enclosing **enum**. |
 
-## Interface scope
+## Interface Scope
 
-An `interface` scope in addition consists of the following internal properties:
+The **interface** scope extends the internal properties of a scope as described in the following table.
 
-| Internal property | Description |
-| ----------------- | ----------- |
-| \[\[*Interface*\]\] | The enclosing `interface`. |
+| Property | Description |
+| -------- | ----------- |
+| \[\[*Interface*\]\] | The enclosing **interface**. |
 
-## Package scope
+## Package Scope
 
-A `package` scope in addition consists of the following internal properties:
+The **package** scope extends the internal properties of a scope as described in the following table.
 
-| Internal property | Description |
-| ----------------- | ----------- |
-| \[\[*Package*\]\] | The enclosing `package`. |
+| Property | Description |
+| -------- | ----------- |
+| \[\[*Package*\]\] | The enclosing package. |

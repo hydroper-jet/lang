@@ -1,6 +1,6 @@
 # Jet Language
 
-Hydroper© Jet is a flexible scripting language to be integrated into existing software.
+Hydroper© Jet is a flexible scripting language for integration with existing software.
 
 *Note: Jet includes partial specification and its compiler is not fully implemented.*
 

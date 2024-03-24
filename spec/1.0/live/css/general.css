@@ -38,6 +38,7 @@ pre {
     background: var(--code-block-background);
     color: var(--code-block-foreground);
     padding: 2px;
+    overflow-x: auto;
 }
 
 pre, code {
@@ -242,6 +243,7 @@ html[data-sidebar="true"] #menubar {
     overflow-x: none;
     overflow-y: scroll;
     word-break: break-word;
+    background: var(--page-background);
 }
 
 html[data-sidebar="true"] #sidebar {
@@ -321,8 +323,12 @@ html[data-sidebar="true"] #sidebar {
     overflow-y: scroll;
 }
 
-html[data-sidebar="true"] #content {
-    left: var(--sidebar-width);
+/* Landscape */
+
+@media (min-width: 961px) {
+    html[data-sidebar="true"] #content {
+        left: var(--sidebar-width);
+    }
 }
 
 #content img, #content video {

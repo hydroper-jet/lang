@@ -323,9 +323,9 @@ html[data-sidebar="true"] #sidebar {
     overflow-y: scroll;
 }
 
-/* Landscape */
+/* Content > Desktop */
 
-@media (min-width: 961px) {
+@media (min-width: 1200px) {
     html[data-sidebar="true"] #content {
         left: var(--sidebar-width);
     }

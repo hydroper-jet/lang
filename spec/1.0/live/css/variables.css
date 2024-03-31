@@ -51,9 +51,9 @@ html[data-dark="true"] {
     --table-header-background: #444;
     --table-header-foreground: #fff;
 
-    --sidebar-toggle-border: #222;
+    --sidebar-toggle-border: #555;
     --sidebar-toggle-background: var(--background);
-    --sidebar-toggle-foreground: #222;
+    --sidebar-toggle-foreground: #555;
 
     --links: #626262;
 }

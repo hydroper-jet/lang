@@ -25,6 +25,21 @@ trace(person.name.toString())
 trace(Number(person..interest.(@type == "quantumPhysics")[0].@rate) == 1)
 ```
 
+### Internal Properties
+
+Unlike with ActionScript 3, the Jet language does not include three-dimensional properties that belong to a namespace.
+
+In ActionScript 3, where it is common to share internal properties throughout a codebase using namespaces, in Jet it is rather common to share internal properties throughout a codebase using public properties with the JetDoc **\@private** tag.
+
+```
+package q1.n1 {
+    public class C1 {
+        /** @private */
+        public var Q1Internals_x;
+    }
+}
+```
+
 ### JetDependencies
 
 Jet incorporates JetDependencies, a dependency manager that supports describing dependency packages and performing a series of commands to manage dependencies.
@@ -36,15 +51,14 @@ Dependencies in JetDependencies do not conflict in terms of the implementation.
 ***Native extensions*** are libraries that extend a framework with functionality that is not natively available. Jet aids in developing native extensions through the combination of meta-data and conditional compilation, leaving the rest to the implementation of Jet. The programmer may attach files to meta-data, including those that are JetDependencies artifacts.
 
 ```
-[Windows(File(output + "example.dll"))]
-class Example {
-    [Windows(name = "exampleMethod")]
-    function exampleMethod(): void;
+[N1(File(output + "data.bin"))]
+class C1 {
+    [N1(name = "f")]
+    function f(): void;
 }
-
 configuration {
-    if (target=windows) {
-        trace("Windows");
+    if (k=a) {
+        trace("k=a");
     } else {
         trace("Something else");
     }

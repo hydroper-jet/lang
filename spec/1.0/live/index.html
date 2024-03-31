@@ -29,12 +29,11 @@
 <p><em>Note: this document includes incomplete sections. The several details of the ECMA-357 second edition specification have not been substantially included in this specification in the present.</em></p>
 <div class="home-heading">Introduction</div>
 <p>The ActionScript 3 language has influenced in the creation of Jet. ActionScript 3 was designed based on ECMAScript fourth edition, which has been abandoned by the TC39 committee. ActionScript 3 incorporated the ECMAScript for XML standard, which has been obsoleted and removed from supporting JavaScript engines. The Jet language extends and changes the ActionScript 3 language in several ways.</p>
-<p>Since its release in 2006, ActionScript 3 has been popular for application development using the Flash Player runtime.</p>
-<p>Just as ActionScript, Jet is not tied to Flash Player and its derivatives, and may be explored as a scripting language for other technologies such as Unreal Engine for simulations and videogames.</p>
 <p>The following people have contributed to this specification:</p>
 <ul>
     Matheus Dias de Souza, Hydroper
 </ul>
+<p>ActionScript 3 was designed by Gary Grossman.</p>
 <p>The following are the main people that have contributed to the ECMA-357 second edition specification, in which this specification is influenced:</p>
 <ul>
     John Schneider, BEA/AgileDelta (Lead Editor)<br>
@@ -85,26 +84,35 @@
 trace(person.name.toString())
 trace(Number(person..interest.(@type == &quot;quantumPhysics&quot;)[0].@rate) == 1)
 </code></pre>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.2">4.1.2</span> JetDependencies</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.2">4.1.2</span> Internal Properties</h3></div>
+<p>Unlike with ActionScript 3, the Jet language does not include three-dimensional properties that belong to a namespace.</p>
+<p>In ActionScript 3, where it is common to share internal properties throughout a codebase using namespaces, in Jet it is rather common to share internal properties throughout a codebase using public properties with the JetDoc <strong>@private</strong> tag.</p>
+<pre><code>package q1.n1 {
+    public class C1 {
+        /** @private */
+        public var Q1Internals_x;
+    }
+}
+</code></pre>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.3">4.1.3</span> JetDependencies</h3></div>
 <p>Jet incorporates JetDependencies, a dependency manager that supports describing dependency packages and performing a series of commands to manage dependencies.</p>
 <p>Dependencies in JetDependencies do not conflict in terms of the implementation.</p>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.3">4.1.3</span> Native Extensions</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.4">4.1.4</span> Native Extensions</h3></div>
 <p><em><strong>Native extensions</strong></em> are libraries that extend a framework with functionality that is not natively available. Jet aids in developing native extensions through the combination of meta-data and conditional compilation, leaving the rest to the implementation of Jet. The programmer may attach files to meta-data, including those that are JetDependencies artifacts.</p>
-<pre><code>[Windows(File(output + &quot;example.dll&quot;))]
-class Example {
-    [Windows(name = &quot;exampleMethod&quot;)]
-    function exampleMethod(): void;
+<pre><code>[N1(File(output + &quot;data.bin&quot;))]
+class C1 {
+    [N1(name = &quot;f&quot;)]
+    function f(): void;
 }
-
 configuration {
-    if (target=windows) {
-        trace(&quot;Windows&quot;);
+    if (k=a) {
+        trace(&quot;k=a&quot;);
     } else {
         trace(&quot;Something else&quot;);
     }
 }
 </code></pre>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.4">4.1.4</span> JetDoc</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.5">4.1.5</span> JetDoc</h3></div>
 <p>JetDoc is a documentation feature incorporated in the Jet language. JetDoc and JetDependencies are related in that JetDependencies is able to auto publish JetDoc documentation once a package is published.</p>
 <p>The following program demonstrates documenting a class that is allowed to be constructed through an object initializer.</p>
 <pre><code>package n1.p {
@@ -127,19 +135,19 @@ configuration {
     }
 }
 </code></pre>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.5">4.1.5</span> Compilation Cycle</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.6">4.1.6</span> Compilation Cycle</h3></div>
 <p>The Jet compilation cycle can be resumed as in the following chart:</p>
 <p><img src="compilation-cycle.png" alt="Compilation cycle"></p>
 <p>The compiler used throughout the above process is specified by the JetDependencies platform.</p>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.5.1">4.1.5.1</span> Jet Bytecode</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.6.1">4.1.6.1</span> Jet Bytecode</h3></div>
 <p><em>Note: the Jet bytecode is undocumented as the Jet compiler is a work in progress. The Jet bytecode shall be similiar to the ActionScript Virtual Machine 2 bytecode format by Adobe.</em></p>
 <p><em>Note: the Jet bytecode shall support the following:</em></p>
 <ul>
 <li><em>Meta-data with source location attached to definitions</em></li>
 <li><em>Meta-data with source location attached to specific code regions of a function as result of annotatated block statements</em></li>
 </ul>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.6">4.1.6</span> Data Types</h3></div>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.6.1">4.1.6.1</span> String Data Type</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.7">4.1.7</span> Data Types</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.7.1">4.1.7.1</span> String Data Type</h3></div>
 <p>The <strong>String</strong> data type uses an implementation-defined encoding to represent a sequence of characters. <strong>String</strong> indices identify a character in the encoding unit.</p>
 <p><strong>Snippets</strong></p>
 <table>
@@ -164,7 +172,7 @@ configuration {
 </tr>
 </tbody>
 </table>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.7">4.1.7</span> Exceptions</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.8">4.1.8</span> Exceptions</h3></div>
 <p>Jet supports throwing errors as in Java, in the form of unchecked exceptions that may occur during program execution.</p>
 <pre><code>function f(): void {
     throw new RangeError()
@@ -183,7 +191,7 @@ try {
     public function f(): void {}
 }
 </code></pre>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.8">4.1.8</span> Property Disambiguation</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.9">4.1.9</span> Property Disambiguation</h3></div>
 <p>There are two types of properties: <strong>fixed</strong> and <strong>dynamic</strong> properties. Fixed properties shadow dynamic properties by default.</p>
 <p>Fixed properties are those defined at the class fixture. Dynamic properties are those resulting from property accessor proxies.</p>
 <p>The <strong>Map</strong> class is one of those classes that commonly use dynamic properties using a textual name.</p>
@@ -194,7 +202,7 @@ o.x++
 <pre><code>o.fixed::x
 o.dynamic::x
 </code></pre>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.9">4.1.9</span> Nullability</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.10">4.1.10</span> Nullability</h3></div>
 <p>Nullability in the Jet language takes the preference of using the <strong>null</strong> value to indicate absence of value, however the <strong>undefined</strong> value exists as part of the <strong>void</strong> type and as therefore as part of the <strong>*</strong> type.</p>
 <p>The type <strong>T?</strong>, or <strong>?T</strong>, consists of the values of <strong>T</strong> and <strong>null</strong>.</p>
 <p>The type <strong>T!</strong> consists of the values of <strong>T</strong> but <strong>null</strong>.</p>
@@ -210,7 +218,7 @@ o.dynamic::x
 o?.[k]
 o?.()
 </code></pre>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.10">4.1.10</span> Overriding Language Behavior</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.11">4.1.11</span> Overriding Language Behavior</h3></div>
 <p>Operations of the Jet language may be customized through <strong>proxies</strong>. Proxies are special methods defined with the <strong>proxy</strong> attribute.</p>
 <pre><code>class C {
     const v;
@@ -219,10 +227,10 @@ o?.()
 }
 trace((new C(10) + new C(10)).v)
 </code></pre>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.11">4.1.11</span> Framework File Extensions</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.12">4.1.12</span> Framework File Extensions</h3></div>
 <p>Frameworks that allow rapid interactive user interface development take the approach of processing customized file extensions as part of a JetDependencies platform. Maintainers of a JetDependencies platform import the compiler APIs, including the semantics, parser, and verifier, to process such file extensions.</p>
 <p>Customized file formats supported by frameworks extend the XML language in general, describing an user interface component or a component library. XML formats may allow literal Jet code, either as a sequence of directives or as an expression.</p>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.12">4.1.12</span> Parameterized Types</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.13">4.1.13</span> Parameterized Types</h3></div>
 <p>The Jet language supports simple parameterized types.</p>
 <pre><code>class C.&lt;T&gt; {}
 </code></pre>
@@ -230,7 +238,7 @@ trace((new C(10) + new C(10)).v)
 <p>With polymorphism, type parameters are substituted by the <strong>*</strong> type during runtime and additional compile-time verification applies when using parameterized types.</p>
 <p>The Jet language does not support constraints on type parameters in the present, such as those present in the Java language.</p>
 <p>The Jet language does not support type parameters for methods in the present.</p>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.13">4.1.13</span> Untyped Code</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.14">4.1.14</span> Untyped Code</h3></div>
 <p>The Jet language includes bland type inference and there are cases where the programmer may need explicitness to take advantage of compile-time facilities. For example, the language does not support union types and there are places where the programmer is able to pass more than one data type.</p>
 <p>The call operator (<strong>T()</strong>) where <strong>T</strong> is a type, is equivalent to a type conversion. Such call operator passes <strong>T</strong> as the context type to the first argument, opening room for type inference.</p>
 <pre><code>[Literal]
@@ -252,12 +260,12 @@ function f(options) {
 f(10)
 f(Options( { x: &quot;string&quot; } ))
 </code></pre>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.14">4.1.14</span> Environment Variables</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.15">4.1.15</span> Environment Variables</h3></div>
 <p>Jet includes a built-in mechanism for loading <strong>environment variables</strong> using the <strong>import.meta.env</strong> expression.</p>
 <pre><code>import.meta.env.EXAMPLE
 </code></pre>
 <p>The result of loading environment variables is implementation defined, however it is expected that an implementation loads an <strong>.env</strong> file from the directory of the main JetDependencies package, also referred to as a <strong>DotEnv</strong> file.</p>
-<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.15">4.1.15</span> JetDependencies Artifact Output</h3></div>
+<div class="section-title"><h3><span class="sec-title-number" id="sec-4.1.16">4.1.16</span> JetDependencies Artifact Output</h3></div>
 <p>The ability of accessing the directory to which JetDependencies produces artifacts is valuable since such directory varies across JetDependencies compilations. The Jet language includes certain ways of accessing such directory, called the <strong>artifact output</strong> of JetDependencies.</p>
 <p>The <strong>import.meta.output</strong> expression evaluates to a string identifying the JetDependencies artifact output directory.</p>
 <pre><code>import node.filesystem.*;
@@ -6406,26 +6414,27 @@ p.f()
 <div class="sec"><a href="#sec-4.1"><span class="sec-num">4.1</span><span>Language Overview</span></a> <button class="toggle">+</button></div>
 <div class="subsections">
 <div class="sec"><a href="#sec-4.1.1"><span class="sec-num">4.1.1</span><span>Jet for XML</span></a> </div>
-<div class="sec"><a href="#sec-4.1.2"><span class="sec-num">4.1.2</span><span>JetDependencies</span></a> </div>
-<div class="sec"><a href="#sec-4.1.3"><span class="sec-num">4.1.3</span><span>Native Extensions</span></a> </div>
-<div class="sec"><a href="#sec-4.1.4"><span class="sec-num">4.1.4</span><span>JetDoc</span></a> </div>
-<div class="sec"><a href="#sec-4.1.5"><span class="sec-num">4.1.5</span><span>Compilation Cycle</span></a> <button class="toggle">+</button></div>
+<div class="sec"><a href="#sec-4.1.2"><span class="sec-num">4.1.2</span><span>Internal Properties</span></a> </div>
+<div class="sec"><a href="#sec-4.1.3"><span class="sec-num">4.1.3</span><span>JetDependencies</span></a> </div>
+<div class="sec"><a href="#sec-4.1.4"><span class="sec-num">4.1.4</span><span>Native Extensions</span></a> </div>
+<div class="sec"><a href="#sec-4.1.5"><span class="sec-num">4.1.5</span><span>JetDoc</span></a> </div>
+<div class="sec"><a href="#sec-4.1.6"><span class="sec-num">4.1.6</span><span>Compilation Cycle</span></a> <button class="toggle">+</button></div>
 <div class="subsections">
-<div class="sec"><a href="#sec-4.1.5.1"><span class="sec-num">4.1.5.1</span><span>Jet Bytecode</span></a> </div>
+<div class="sec"><a href="#sec-4.1.6.1"><span class="sec-num">4.1.6.1</span><span>Jet Bytecode</span></a> </div>
 </div>
-<div class="sec"><a href="#sec-4.1.6"><span class="sec-num">4.1.6</span><span>Data Types</span></a> <button class="toggle">+</button></div>
+<div class="sec"><a href="#sec-4.1.7"><span class="sec-num">4.1.7</span><span>Data Types</span></a> <button class="toggle">+</button></div>
 <div class="subsections">
-<div class="sec"><a href="#sec-4.1.6.1"><span class="sec-num">4.1.6.1</span><span>String Data Type</span></a> </div>
+<div class="sec"><a href="#sec-4.1.7.1"><span class="sec-num">4.1.7.1</span><span>String Data Type</span></a> </div>
 </div>
-<div class="sec"><a href="#sec-4.1.7"><span class="sec-num">4.1.7</span><span>Exceptions</span></a> </div>
-<div class="sec"><a href="#sec-4.1.8"><span class="sec-num">4.1.8</span><span>Property Disambiguation</span></a> </div>
-<div class="sec"><a href="#sec-4.1.9"><span class="sec-num">4.1.9</span><span>Nullability</span></a> </div>
-<div class="sec"><a href="#sec-4.1.10"><span class="sec-num">4.1.10</span><span>Overriding Language Behavior</span></a> </div>
-<div class="sec"><a href="#sec-4.1.11"><span class="sec-num">4.1.11</span><span>Framework File Extensions</span></a> </div>
-<div class="sec"><a href="#sec-4.1.12"><span class="sec-num">4.1.12</span><span>Parameterized Types</span></a> </div>
-<div class="sec"><a href="#sec-4.1.13"><span class="sec-num">4.1.13</span><span>Untyped Code</span></a> </div>
-<div class="sec"><a href="#sec-4.1.14"><span class="sec-num">4.1.14</span><span>Environment Variables</span></a> </div>
-<div class="sec"><a href="#sec-4.1.15"><span class="sec-num">4.1.15</span><span>JetDependencies Artifact Output</span></a> </div>
+<div class="sec"><a href="#sec-4.1.8"><span class="sec-num">4.1.8</span><span>Exceptions</span></a> </div>
+<div class="sec"><a href="#sec-4.1.9"><span class="sec-num">4.1.9</span><span>Property Disambiguation</span></a> </div>
+<div class="sec"><a href="#sec-4.1.10"><span class="sec-num">4.1.10</span><span>Nullability</span></a> </div>
+<div class="sec"><a href="#sec-4.1.11"><span class="sec-num">4.1.11</span><span>Overriding Language Behavior</span></a> </div>
+<div class="sec"><a href="#sec-4.1.12"><span class="sec-num">4.1.12</span><span>Framework File Extensions</span></a> </div>
+<div class="sec"><a href="#sec-4.1.13"><span class="sec-num">4.1.13</span><span>Parameterized Types</span></a> </div>
+<div class="sec"><a href="#sec-4.1.14"><span class="sec-num">4.1.14</span><span>Untyped Code</span></a> </div>
+<div class="sec"><a href="#sec-4.1.15"><span class="sec-num">4.1.15</span><span>Environment Variables</span></a> </div>
+<div class="sec"><a href="#sec-4.1.16"><span class="sec-num">4.1.16</span><span>JetDependencies Artifact Output</span></a> </div>
 </div>
 <div class="sec"><a href="#sec-4.2"><span class="sec-num">4.2</span><span>Definitions</span></a> <button class="toggle">+</button></div>
 <div class="subsections">

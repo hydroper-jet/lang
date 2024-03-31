@@ -159,6 +159,7 @@ ol li:before {
     flex-direction: row;
     justify-content: right;
     margin: 4rem 0;
+    margin-bottom: 12rem;
 }
 
 .home-title-1 {
@@ -299,9 +300,9 @@ html[data-sidebar="true"] #sidebar {
 #sidebar .toggle {
     color: var(--sidebar-toggle-foreground);
     background: var(--sidebar-toggle-background);
-    border: 1px solid var(--sidebar-toggle-border);
+    border: 2px solid var(--sidebar-toggle-border);
     padding: 2px 5px;
-    margin: 0 4px;
+    margin: 0 12px;
     font-size: 0.8rem;
 }
 

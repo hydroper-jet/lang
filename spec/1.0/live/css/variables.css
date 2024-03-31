@@ -34,8 +34,8 @@
 }
 
 html[data-dark="true"] {
-    --page-background: #888;
-    --background: #888;
+    --page-background: #aeaeae;
+    --background: #aeaeae;
     --foreground: #080808;
 
     --code-block-background: #585858;
@@ -55,7 +55,7 @@ html[data-dark="true"] {
     --sidebar-toggle-background: var(--background);
     --sidebar-toggle-foreground: #222;
 
-    --links: #848484;
+    --links: #626262;
 }
 
 /* Portrait */

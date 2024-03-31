@@ -284,7 +284,7 @@ html[data-sidebar="true"] #sidebar {
 }
 
 #sidebar .sec-top {
-    font-weight: bold;
+    /* font-weight: bold; */
     padding: 0.5rem 0;
     color: var(--header-2);
 }

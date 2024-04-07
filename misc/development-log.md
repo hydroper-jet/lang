@@ -16,6 +16,10 @@ I've made parsers several times due to insatisfaction, in different ways and in 
 
 In terms of the host environment, I once was able to write a parser for either an ActionScript 3 dialect or ActionScript 3 itself inside a mobile phone using Android and the Java N-IDE app for compilation.
 
+Here are certain community activities:
+
+* https://stackoverflow.com/a/44097878/19692949 (I have remembered that I used the "ShockScript" name in 2017 by the way, but not as much as VegaScript.)
+
 ## 2018
 
 During 2018, I had discovered the Rust language and I was beginning to learn developing verifiers (or type checkers). I was still learning Rust and vastly unexperienced with C++ as well. Throughout these moments, I've reinvented the language idea to feel like Rust; however, the language returned to the ActionScript 3 feeling.
@@ -42,6 +46,10 @@ Used language project names:
 In 2019 I built an in-depth ActionScript 3 highlighter for Sublime Text, however I found some bugs while developing it:
 
 * https://github.com/alien-as/as-enhanced
+
+Here are certain activities with broken links:
+
+* https://stackoverflow.com/a/56444633/19692949
 
 At some point in 2020, I have experienced a bug in the ActionScript compiler (the Flex compiler) at the control flow when developing a new verifier after having developed a parser in the ActionScript language, which leaved me a bit frustrated at the time.
 

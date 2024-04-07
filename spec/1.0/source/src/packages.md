@@ -35,7 +35,7 @@ trace(x.y.w == 10)
 | \[\[*Name*\]\] | The non qualified name of the package. |
 | \[\[*Parent*\]\] | Optional parent package. |
 | \[\[*Properties*\]\] | Properties of the package. |
-| \[\[*RedirectPackages*\]\] | The redirect packages of the package. |
+| \[\[*UsePackages*\]\] | Packages contributed by **use package** directives. |
 | \[\[*Subpackages*\]\] | The subpackages of the package. |
 
 ## Top-Level Package
@@ -46,12 +46,12 @@ The top-level package is an unnamed package from which subsequent packages are d
 package {}
 ```
 
-## Redirect Packages
+## Use Packages
 
-Directives of the form **public use q.\*;** contribute a redirect package to a package. Redirect packages are used in name resolution to resolve to names from another package.
+Directives of the form **use package q.\*;** contribute an use package to a package. Use packages are used in name resolution to resolve to names from another package.
 
 ```
-package a1.n1 { public use o1.n1.* }
+package a1.n1 { use package o1.n1.* }
 ```
 
 ## Subpackages

@@ -9,6 +9,7 @@
         <i>Statement</i><sup>ω</sup><br>
         <i>Attributes</i><sub>opt</sub> <i>AnnotatableDirective</i><sup>ω</sup><br>
         <i>ImportDirective</i> <i>Semicolon</i><sup>ω</sup><br>
+        <i>UsePackageDirective</i> <i>Semicolon</i><sup>ω</sup><br>
         <i>ConfigurationDirective</i>
     </ul>
 </ul>
@@ -16,7 +17,6 @@
 <ul>
     <i>AnnotatableDirective</i><sup>ω</sup> :
     <ul>
-        <i>UseDirective</i> <i>Semicolon</i><sup>ω</sup><br>
         <i>VariableDefinition</i><sup>allowIn</sup> <i>Semicolon</i><sup>ω</sup><br>
         <i>FunctionDefinition</i><br>
         <i>ClassDefinition</i><br>

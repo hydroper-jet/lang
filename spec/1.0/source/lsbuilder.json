@@ -294,7 +294,7 @@
                     "path": "src/directives/import-directive.md"
                 },
                 {
-                    "path": "src/directives/use-directive.md"
+                    "path": "src/directives/use-package-directive.md"
                 }
             ]
         },

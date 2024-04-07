@@ -1878,8 +1878,8 @@ trace(x.y.w == 10)
 <td>Properties of the package.</td>
 </tr>
 <tr>
-<td>[[<em>RedirectPackages</em>]]</td>
-<td>The redirect packages of the package.</td>
+<td>[[<em>UsePackages</em>]]</td>
+<td>Packages contributed by <strong>use package</strong> directives.</td>
 </tr>
 <tr>
 <td>[[<em>Subpackages</em>]]</td>
@@ -1891,9 +1891,9 @@ trace(x.y.w == 10)
 <p>The top-level package is an unnamed package from which subsequent packages are defined.</p>
 <pre><code>package {}
 </code></pre>
-<div class="section-title"><h2><span class="sec-title-number" id="sec-9.3">9.3</span> Redirect Packages</h2></div>
-<p>Directives of the form <strong>public use q.*;</strong> contribute a redirect package to a package. Redirect packages are used in name resolution to resolve to names from another package.</p>
-<pre><code>package a1.n1 { public use o1.n1.* }
+<div class="section-title"><h2><span class="sec-title-number" id="sec-9.3">9.3</span> Use Packages</h2></div>
+<p>Directives of the form <strong>use package q.*;</strong> contribute an use package to a package. Use packages are used in name resolution to resolve to names from another package.</p>
+<pre><code>package a1.n1 { use package o1.n1.* }
 </code></pre>
 <div class="section-title"><h2><span class="sec-title-number" id="sec-9.4">9.4</span> Subpackages</h2></div>
 <p>A package may have zero or more subpackages. The top-level package contains the topmost packages as subpackages.</p>
@@ -2880,7 +2880,7 @@ interface I1 {}
 <li>Return undefined if <em>key</em> is not a <strong>String</strong> constant.</li>
 <li>Let <em>r</em> be a symbol in <em>base</em>.[[<em>Properties</em>]] whose key is equals <em>key</em>.</li>
 <li>Return <em>WrapPropertyReference</em>(<em>ResolveAlias</em>(<em>r</em>)) if <em>r</em> is not undefined.</li>
-<li>For each <em>p</em> in <em>base</em>.[[<em>RedirectPackages</em>]]
+<li>For each <em>p</em> in <em>base</em>.[[<em>UsePackages</em>]]
 <ol>
 <li>Let <em>r</em> be <em>ResolveProperty</em>(<em>p</em>, undefined, <em>key</em>, <em>disambiguation</em>)</li>
 <li>Return <em>r</em> if it is not undefined.</li>
@@ -5242,13 +5242,13 @@ trace([10, 20].reduce(function(acc: Number, v: Number): Number (acc + v), 0));
         <i>Statement</i><sup>&#x3c9;</sup><br>
         <i>Attributes</i><sub>opt</sub> <i>AnnotatableDirective</i><sup>&#x3c9;</sup><br>
         <i>ImportDirective</i> <i>Semicolon</i><sup>&#x3c9;</sup><br>
+        <i>UsePackageDirective</i> <i>Semicolon</i><sup>&#x3c9;</sup><br>
         <i>ConfigurationDirective</i>
     </ul>
 </ul>
 <ul>
     <i>AnnotatableDirective</i><sup>&#x3c9;</sup> :
     <ul>
-        <i>UseDirective</i> <i>Semicolon</i><sup>&#x3c9;</sup><br>
         <i>VariableDefinition</i><sup>allowIn</sup> <i>Semicolon</i><sup>&#x3c9;</sup><br>
         <i>FunctionDefinition</i><br>
         <i>ClassDefinition</i><br>
@@ -5432,41 +5432,41 @@ x
 import y = p.x
 y
 </code></pre>
-<div class="section-title"><h2><span class="sec-title-number" id="sec-29.4">29.4</span> Use Directive</h2></div>
+<div class="section-title"><h2><span class="sec-title-number" id="sec-29.4">29.4</span> Use Package Directive</h2></div>
 <p>The <strong>use</strong> directive is used to export definitions from another package to the enclosing package.</p>
 <pre><code>package p1 {}
-package p2 { public use p1.* }
+package p2 { use package p1.* }
 </code></pre>
 <p><strong>Syntax</strong></p>
 <ul>
-    <i>UseDirective</i> :
+    <i>UsePackageDirective</i> :
     <ul>
-        <b>use</b> <i>PackageName</i> <b>. *</b><br>
-        <b>use</b> <i>PackageName</i> <b>.</b> <i>IdentifierName</i><br>
-        <b>use</b> <i>Identifier</i> <b>=</b> <i>PackageName</i> <b>.</b> <i>IdentifierName</i>
+        <b>use package</b> <i>PackageName</i> <b>. *</b><br>
+        <b>use package</b> <i>PackageName</i> <b>.</b> <i>IdentifierName</i><br>
+        <b>use package</b> <i>Identifier</i> <b>=</b> <i>PackageName</i> <b>.</b> <i>IdentifierName</i>
     </ul>
 </ul>
 <p><strong>Semantics</strong></p>
-<p>An <strong>use</strong> directive must be directly enclosed by a <strong>package</strong> block and must contain the <strong>public</strong> attribute.</p>
-<p>A <strong>public use p.*;</strong> directive contributes the <strong>p</strong> package to (enclosing package).[[<em>RedirectPackages</em>]].</p>
+<p>An <strong>use</strong> directive must be directly enclosed by a <strong>package</strong> block.</p>
+<p>A <strong>use package p.*;</strong> directive contributes the <strong>p</strong> package to (enclosing package).[[<em>UsePackages</em>]].</p>
 <pre><code>package p1 { public var x }
-package p2 { public use p1.* }
+package p2 { use package p1.* }
 </code></pre>
-<p>A <strong>public use p.x;</strong> directive assigns (enclosing packages).[[<em>Properties</em>]].[<strong>x</strong>] an alias <strong>x</strong> of the <strong>x</strong> property of the <strong>p</strong> package.</p>
+<p>A <strong>use package p.x;</strong> directive assigns (enclosing packages).[[<em>Properties</em>]].[<strong>x</strong>] an alias <strong>x</strong> of the <strong>x</strong> property of the <strong>p</strong> package.</p>
 <ul>
 <li>It is a verify error if (enclosing packages).[[<em>Properties</em>]].[<strong>x</strong>] is already defined before the assignment.</li>
 <li>It is a verify error if <a href="#sec-propertyisvisible"><em>PropertyIsVisible</em></a>(<strong>p.x</strong>, enclosing scope) is false.</li>
 </ul>
 <pre><code>package p1 { public var x }
-package p2 { public use p1.x }
+package p2 { use package p1.x }
 </code></pre>
-<p>A <strong>public use y = p.x;</strong> directive assigns (enclosing package).[[<em>Properties</em>]].[<strong>y</strong>] an alias <strong>y</strong> of the <strong>x</strong> property of the <strong>p</strong> package.</p>
+<p>A <strong>use package y = p.x;</strong> directive assigns (enclosing package).[[<em>Properties</em>]].[<strong>y</strong>] an alias <strong>y</strong> of the <strong>x</strong> property of the <strong>p</strong> package.</p>
 <ul>
 <li>It is a verify error if (enclosing package).[[<em>Properties</em>]].[<strong>y</strong>] is already defined before the assignment.</li>
 <li>It is a verify error if <a href="#sec-propertyisvisible"><em>PropertyIsVisible</em></a>(<strong>p.x</strong>, enclosing scope) is false.</li>
 </ul>
 <pre><code>package p1 { public var x }
-package p2 { public use y = p1.x }
+package p2 { use package y = p1.x }
 </code></pre>
 <div class="section-title"><h1><span class="sec-title-number" id="sec-30">30</span> Definition Grammar</h1></div>
 <div class="section-title"><h2><span class="sec-title-number" id="sec-30.1">30.1</span> Variable Definition</h2></div>
@@ -6523,7 +6523,7 @@ p.f()
 <div class="subsections">
 <div class="sec"><a href="#sec-9.1"><span class="sec-num">9.1</span><span>Internal Properties</span></a> </div>
 <div class="sec"><a href="#sec-9.2"><span class="sec-num">9.2</span><span>Top-Level Package</span></a> </div>
-<div class="sec"><a href="#sec-9.3"><span class="sec-num">9.3</span><span>Redirect Packages</span></a> </div>
+<div class="sec"><a href="#sec-9.3"><span class="sec-num">9.3</span><span>Use Packages</span></a> </div>
 <div class="sec"><a href="#sec-9.4"><span class="sec-num">9.4</span><span>Subpackages</span></a> </div>
 </div>
 <div class="sec sec-top"><a href="#sec-10"><span class="sec-num">10</span><span>Package Sets</span></a> <button class="toggle">+</button></div>
@@ -6765,7 +6765,7 @@ p.f()
 <div class="sec"><a href="#sec-29.1"><span class="sec-num">29.1</span><span>Attributes</span></a> </div>
 <div class="sec"><a href="#sec-29.2"><span class="sec-num">29.2</span><span>Configuration Directive</span></a> </div>
 <div class="sec"><a href="#sec-29.3"><span class="sec-num">29.3</span><span>Import Directive</span></a> </div>
-<div class="sec"><a href="#sec-29.4"><span class="sec-num">29.4</span><span>Use Directive</span></a> </div>
+<div class="sec"><a href="#sec-29.4"><span class="sec-num">29.4</span><span>Use Package Directive</span></a> </div>
 </div>
 <div class="sec sec-top"><a href="#sec-30"><span class="sec-num">30</span><span>Definition Grammar</span></a> <button class="toggle">+</button></div>
 <div class="subsections">

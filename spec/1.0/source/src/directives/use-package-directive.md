@@ -29,9 +29,9 @@ package p1 { public var x }
 package p2 { use package p1.* }
 ```
 
-A **use package p.x;** directive assigns (enclosing packages).\[\[*Properties*\]\].\[**x**\] an alias **x** of the **x** property of the **p** package.
+A **use package p.x;** directive assigns (enclosing package).\[\[*Properties*\]\].\[**x**\] an alias **x** of the **x** property of the **p** package.
 
-* It is a verify error if (enclosing packages).\[\[*Properties*\]\].\[**x**\] is already defined before the assignment.
+* It is a verify error if (enclosing package).\[\[*Properties*\]\].\[**x**\] is already defined before the assignment.
 * It is a verify error if [*PropertyIsVisible*](**p.x**, enclosing scope) is false.
 
 ```

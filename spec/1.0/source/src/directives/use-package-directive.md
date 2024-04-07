@@ -1,6 +1,6 @@
 # Use Package Directive
 
-The **use** directive is used to export definitions from another package to the enclosing package.
+The **use package** directive is used to export definitions from another package to the enclosing package.
 
 ```
 package p1 {}
